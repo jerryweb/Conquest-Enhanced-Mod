@@ -361,7 +361,6 @@ function selectArmyDivision(totalFlags)
 		divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.]] .. fileNumber;
 		print("selected late division number: ", fileNumber)
 	end
-	print("loading")
 	-- REMOVE THIS LINE (ONLY FOR TESTING)
 	-- divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.mid.4]]
 	
@@ -425,7 +424,11 @@ function OnGameStart()
 
 	UpdateUnitToSpawn(Context.Purchase)
 	SetSpawnCooldownTimer()
-
+	-- print("heyyyy, ", BotApi.Bot)
+	-- print("heyyyy, ", BotApi["Instance"])
+	-- for key,value in pairs(metatable(BotApi.Bot)) do
+ --    	print(key, value)
+	-- end
 	-- print("BotApi.Commands properties:")
 	-- print(BotApi.Commands)
 	-- local count = 0
@@ -507,6 +510,12 @@ function OnGameQuant()
 	TrySpawnUnit()
 	-- local waypoints = BotApi.Scene.Waypoints
 
+
+		-- for i, squad in pairs(BotApi.Scene.Squads) do
+		-- 	if not Context.SquadTimers[squad] then
+		-- 		SetSquadOrder(CaptureFlag, squad, OrderRotationPeriod)
+		-- 	end
+		-- end
 	-- if #waypoints == 0 then
 	-- 	for i, squad in pairs(BotApi.Scene.Squads) do
 	-- 		if not Context.SquadTimers[squad] then
@@ -583,4 +592,4 @@ BotApi.Events:Subscribe(BotApi.Events.GameStart, OnGameStart)
 BotApi.Events:Subscribe(BotApi.Events.GameEnd, OnGameStop)
 BotApi.Events:Subscribe(BotApi.Events.Quant, OnGameQuant)
 -- BotApi.Events:Subscribe(BotApi.Events.GameSpawn, OnGameSpawn)
--- BotApi.Events:Subscribe(BotApi.Events.Waypoint, OnWaypoint)
+BotApi.Events:Subscribe(BotApi.Events.Waypoint, OnWaypoint)
