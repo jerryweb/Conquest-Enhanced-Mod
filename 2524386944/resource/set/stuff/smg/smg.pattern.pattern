@@ -1,0 +1,38 @@
+{from "pattern bullet"
+	{tag "smg smg_shell weapon bullet to_hand shoot_walking shoot_walking_ai auto_eject"}
+	{inventory
+		{size 5 2 }
+		{link_bone "gun_back"}
+		{weight 100 }
+	}
+
+	{cursor "ironsights/smg"}
+
+	{range 80 80}
+
+	{curve "bullet_smg"}
+
+	{LockFireDistanceTime 0.5}
+	{foresight "Foresight11"}
+	{SpreadTolerance 0.3}			;// AI needs to aim 40%
+	{aimingTolerance 0.8}
+	{traceFreq 3}
+	{Automatic}
+
+	("reload time" seconds(4.5))
+
+	{spreading
+		{BurstAccuracy 100 95 90 85 80 75 70 65 60 55 50}
+		{SpreadXYRatio	1.5}
+	}
+	{FiringTimeout 0.1 0.5}
+
+	("human health" damage(55))
+	("penetration" args 4)
+	("armor health" damage(2))
+
+	("accuracy_smg")
+	("ap_slope_multiplier")
+	
+	{thirdpersonparams inherit "human default"}
+}

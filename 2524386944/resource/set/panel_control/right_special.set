@@ -1,0 +1,97 @@
+;SDL
+{panel_control
+
+; first row-------------------------
+
+	{gc_cp_state_weapon
+		{position 0 0}
+		{condition "human disabled"}
+	}
+	{gc_cp_state_hatch
+		{position 0 0}
+		{condition "hatch disabled"}
+	}
+	{examine
+		{position 1 0}
+	}
+	{ignore_infantry
+		{position 1 1}
+		{condition "vehicle" "single" "-cannon"}
+	}
+	{test
+		{position 2 1}
+		{condition "human"}
+	}
+	{spread
+		{position 1 0}
+		{condition "human"}
+	}
+	{go_resupply
+		{position 0 1}
+		{condition "human"}
+	}
+	{gc_cp_state_medic_carry
+		{position 1 1}
+		{condition "human"}
+	}
+	{repair
+		{position 2 0}
+		{condition "vehicle"}
+	}
+	{trench_modular
+		{position 2 0}
+		{condition "human barricade"}
+	}
+	{pillbox_earth
+		{position 2 1}
+		{condition "human barricade"}
+	}
+	{sandbag_watchtower
+		{position 1 2}
+		{condition "human barricade"}
+	}
+	{sandbag_heap_curved
+		{position 1 1}
+		{condition "human barricade"}
+	}
+
+; second row-------------------------
+
+	{gc_cp_state_attach
+		{position 0 1}
+		{condition "tractor"}
+	}
+	{gc_cp_state_supply
+		{position 1 1}
+	}
+	{plant
+		{position 2 1}
+		{condition "human"}
+	}
+	{gc_cp_leave_unit
+		{position 2 1}
+		{condition "vehicle single disabled"}
+	}
+
+; third row-------------------------
+
+	{pour_in
+		{position 0 2}
+		{condition "human"}
+	}
+	{pour_out
+		{condition "human"}
+		{position 1 2}
+	}
+	{gc_cp_state_smoke_decoy
+		{position 0 2}
+		{condition "vehicle tank disabled"}
+	}
+	{sandbag_vehicle
+		{condition "vehicle"}
+		{position 1 2}
+	}
+	{gc_cp_browse_back
+		{position 2 2}
+	}
+}

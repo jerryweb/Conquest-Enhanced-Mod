@@ -1,0 +1,23 @@
+{action
+	{cursor}
+	{fx "flashred"}
+	{item "human"}
+	{item_in_box}
+	{button}
+	{RequireSelect}
+	{NotifySelect}
+	{NotifyDoubleClick}
+	{ShowCount}
+	{AimEntities}
+	{instructions
+		{action_reset}
+		{bind tolerance 0.7}
+		{disable_action_restart}
+		{take_item}
+		{reserve_hands}
+		{fsm_request "ground-drop"}				;animation "stand_pick_small_begin"
+		{unreserve_hands}
+		{undermine}
+		{fsm_request nocheck "hold-nothing"}	;{animation nocheck "stand_pick_small_end"}
+	}
+}
