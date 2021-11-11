@@ -1,0 +1,89 @@
+{actor
+	{Extension "flag_point_base.mdl"}
+	{extender "map_point"}
+	{props "steel" "flag" "map_point"}
+	
+	(include "flag_point.inc")
+	
+	{placer}
+    {extender "structure"
+		{place "sandbags" "flagpoint_sandbags"}
+		{place "ammo" "flagpoint_ammo"}	
+    }
+	
+	{extender "fortification"
+		{level
+			{steps 0}
+			{radius -1.05}
+			{elementAngle 180}
+			{buildTime 60}
+			{"ger"
+				{entity "heavy_mg_mg34"}
+				{entity "heavy_mg_mg42"}
+				{entity "heavy_mg_20mm_flak30"}
+				{entity "heavy_mg_37mm_flak37"}
+				{entity "heavy_mg_37mm_pak36"}
+				{entity "heavy_mg_47mm_pakt"}
+				{entity "heavy_mg_50mm_pak38"}
+				{entity "heavy_mg_75mm_pak40"}
+				{entity "heavy_mg_75mm_leig18"}
+				{entity "heavy_mg_88mm_flak18"}
+				{entity "heavy_mg_88mm_flak36"}
+/*				{entity "heavy_mg_80mm_sgrw34"}
+				{entity "heavy_mg_120mm_sgrw42"}
+				{entity "heavy_mg_105mm_lefh18"}
+				{entity "heavy_mg_150mm_nebelwerfer41"}
+				{entity "heavy_mg_150mm_sig33"}
+				{entity "heavy_mg_150mm_sfh18"}
+				{entity "heavy_mg_210mm_morser18"}
+				{entity "heavy_mg_300mm_nebelwerfer42"} */
+			}
+			{"rus"
+				{entity "heavy_mg_maxim"}
+				{entity "heavy_mg_dshk_aa"}
+				{entity "heavy_mg_dshk_stan"}
+				{entity "heavy_mg_25mm_72k"}
+				{entity "heavy_mg_37mm_61k"}
+				{entity "heavy_mg_85mm_52k"}
+				{entity "heavy_mg_m41_ampulomet"}
+				{entity "heavy_mg_45mm_m37"}
+				{entity "heavy_mg_45mm_m42"}
+				{entity "heavy_mg_57mm_zis2"}
+				{entity "heavy_mg_76mm_f22"}
+				{entity "heavy_mg_76mm_zis3"}
+				{entity "heavy_mg_100mm_bs3"}
+/* 				{entity "heavy_mg_76mm_m1927"}
+				{entity "heavy_mg_76mm_m43"}
+				{entity "heavy_mg_82mm_bm37"}
+				{entity "heavy_mg_120mm_pm38"}
+				{entity "heavy_mg_122mm_m30"}
+				{entity "heavy_mg_122mm_a19"}
+				{entity "heavy_mg_152mm_ml20"}
+				{entity "heavy_mg_203mm_b4"} */
+			}
+		}
+		{level
+			{steps 1}
+			{radius 5}
+			{buildTime 60}
+			{entity "sandbag_structured_curved"}
+			{skip "0"}
+		}
+		{level
+			{steps 1}
+			{radius 2.8}
+			{buildTime 60}
+			{entity "sandbag_framed_straight"}
+			{skip "0"}
+		}
+		{level
+			{steps 1}
+			{radius 2}
+			{buildTime 60}
+			{entity "flagpoint_ammo"}
+			{skip "0 2"}
+		}
+	}
+	
+	{extender "edifice"}
+}
