@@ -1,9 +1,9 @@
 require([[/script/multiplayer/bot.data]])
 
 -- Number of unit division roster files to randomly select for each period in the war 
-local maxNumOfEarlyDivisions = 4
-local maxNumOfMidDivisions = 4
-local maxNumOfLateDivisions = 4
+local maxNumOfEarlyDivisions = 5
+local maxNumOfMidDivisions = 5
+local maxNumOfLateDivisions = 5
 
 -- Wave offset is used to set how much extra time the first wave will last in since the wave is loaded automatically
 local firstWaveOffsetTime = 720
