@@ -388,7 +388,7 @@
 	    }
 	}
 }
-{"150mm_artilleryh18"
+{"150mm_artillleryh18"
 	{on spawn
     	{tags add "artillery"}
 		{delay 6
