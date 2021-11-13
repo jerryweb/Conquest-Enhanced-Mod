@@ -12,6 +12,8 @@ local initialWave = true
 
 local currentWaveMaxUnitCount = 0
 
+local squadDictionary = {}
+
 local Context = {
 	Purchase = nil,
 	SpawnInfo = nil,
@@ -429,12 +431,13 @@ function OnGameStart()
 	-- print("BotApi.Commands properties:")
 	-- print(BotApi.Commands)
 	-- local count = 0
-	-- for i, BotApi in pairs(BotApi) do 
-	-- 	count = count + 1
-	-- 	print(i, "properties")
-	-- 	for j, BotApi[1] in pairs(BotApi[count]) do
-	-- 		print(j)
-	-- 	end
+	-- for i, BotApi.Scene in pairs(metatable(BotApi.Scene)) do 
+	-- 	print("stuffs ", i)
+	-- 	-- count = count + 1
+	-- 	-- print(i, "properties")
+	-- 	-- for j, BotApi[1] in pairs(BotApi[count]) do
+	-- 	-- 	print(j)
+	-- 	-- end
 	-- end
 end
 
@@ -505,82 +508,103 @@ end
 
 function OnGameQuant()
 	TrySpawnUnit()
-	-- local waypoints = BotApi.Scene.Waypoints
+	local waypoints = BotApi.Scene.Waypoints
 
-	-- if #waypoints == 0 then
-	-- 	for i, squad in pairs(BotApi.Scene.Squads) do
-	-- 		if not Context.SquadTimers[squad] then
-	-- 			SetSquadOrder(CaptureFlag, squad, OrderRotationPeriod)
-	-- 		end
-	-- 	end
-	-- end
+	if #waypoints == 0 then
+		for i, squad in pairs(BotApi.Scene.Squads) do
+			-- print("squad ", squad, " with unlock time = ", squadDictionary[squad])
+			if squadDictionary[squad] and  squadDictionary[squad] <= os.clock() then
+				if not Context.SquadTimers[squad] then
+					SetSquadOrder(CaptureFlag, squad, OrderRotationPeriod)
+				end
+			end
+			 if not squadDictionary[squad] then
+			 	local squadOrderTime = math.random(200, 500)
+			 	print("nil squad ", squad, " with unlock time = ", squadDictionary[squad])
+				squadDictionary[squad] = os.clock() + squadOrderTime
+			end
+		end
+	end
+
+
 end
 
--- function SeekAndDestroy(squad)
--- 	BotApi.Commands:SeekAndDestroy(squad)
--- end
+function SeekAndDestroy(squad)
+	BotApi.Commands:SeekAndDestroy(squad)
+end
 
--- function GotoNextWaypoint(squad)
--- 	local waypoints = BotApi.Scene.Waypoints
--- 	BotApi.Commands:CaptureFlag(squad, waypoints[math.random(#waypoints)]) --captureflag is basically gothereandattack
--- 	print("#captureFlag call inside GoToNextWaypoint")
--- end
+function GotoNextWaypoint(squad)
+	local waypoints = BotApi.Scene.Waypoints
+	BotApi.Commands:CaptureFlag(squad, waypoints[math.random(#waypoints)]) --captureflag is basically gothereandattack
+	print("#captureFlag call inside GoToNextWaypoint")
+end
 
--- function OnWaypoint(args)
--- 	print("#GotoNextWaypoint call inside OnWaypoint")
--- 	GotoNextWaypoint(args.squadId)
--- end
+function OnWaypoint(args)
+	print("#GotoNextWaypoint call inside OnWaypoint")
+	GotoNextWaypoint(args.squadId)
+end
 
--- function CaptureFlag(squad)
--- 	local flag = GetFlagToCapture(BotApi.Scene.Flags, GetFlagPriority)
--- 	local rnd = 0.1 + choice
--- 	if flag then
--- 		if rnd < 0.25 then
--- 			print(rnd, "+SeekAndDestroy with squad", squad)
--- 			BotApi.Commands:SeekAndDestroy(squad)
--- 		else
--- 			print(rnd, "+CaptureFlag with squad", squad)
--- 			BotApi.Commands:CaptureFlag(squad, flag.name)
--- 		end
--- 	else
--- 			print(rnd, "!SeekAndDestroy with squad", squad)
--- 			BotApi.Commands:SeekAndDestroy(squad)
--- 	end
--- end
+function CaptureFlag(squad)
+	local flag = GetFlagToCapture(BotApi.Scene.Flags, GetFlagPriority)
+	local rnd = 0.1 + choice
+	if flag then
+		if rnd < 0.25 then
+			print(rnd, "+SeekAndDestroy with squad", squad)
+			BotApi.Commands:SeekAndDestroy(squad)
+		else
+			print(rnd, "+CaptureFlag with squad", squad)
+			BotApi.Commands:CaptureFlag(squad, flag.name)
+		end
+	else
+			print(rnd, "!SeekAndDestroy with squad", squad)
+			BotApi.Commands:SeekAndDestroy(squad)
+	end
+end
 
--- function SetSquadOrder(order, squad, delay)
--- 	order(squad)
--- 	local setTimer = function(callback)
--- 		Context.SquadTimers[squad] = BotApi.Events:SetQuantTimer(
--- 			function()
--- 				order(squad)
--- 				Context.SquadTimers[squad] = nil
--- 				if BotApi.Scene:IsSquadExists(squad) then
--- 					callback(callback)
--- 				end
--- 			end,
--- 			delay)
--- 	end
--- 	setTimer(setTimer)
--- end
+function SetSquadOrder(order, squad, delay)
+	order(squad)
+	local setTimer = function(callback)
+		Context.SquadTimers[squad] = BotApi.Events:SetQuantTimer(
+			function()
+				order(squad)
+				Context.SquadTimers[squad] = nil
+				if BotApi.Scene:IsSquadExists(squad) then
+					callback(callback)
+				end
+			end,
+			delay)
+	end
+	print("squad timer: ", Context.SquadTimers[squad] )
+	setTimer(setTimer)
+end
 
--- function OnGameSpawn(args)
--- 	local waypoints = BotApi.Scene.Waypoints
+function OnGameSpawn(args)
+	local waypoints = BotApi.Scene.Waypoints
 
--- 	for i, waypoints in pairs(waypoints) do
--- 		print("points", i)
--- 	end
+	for i, waypoints in pairs(waypoints) do
+		print("points", i)
+	end
+	print("spawned squad id: ", tostring(args.squadId))
 
--- 	if #waypoints == 0 then
--- 		SetSquadOrder(CaptureFlag, args.squadId, OrderRotationPeriod)
--- 	else
--- 		GotoNextWaypoint(args.squadId)
--- 		print("#waypoints != 0")
--- 	end
--- end
+	local str = tostring(args.squadId)
+
+	local squadOrderTime = math.random(200, 500)
+
+
+	squadDictionary[args.squadId] = os.clock() + squadOrderTime
+	print("squad time = ", squadDictionary[args.squadId])
+	-- table.insert(squadDictionary, {squadid = args.squadId, unlockTime = os.clock + 10})
+
+	-- if #waypoints == 0 then
+	-- 	SetSquadOrder(CaptureFlag, args.squadId, OrderRotationPeriod)
+	-- else
+	-- 	GotoNextWaypoint(args.squadId)
+	-- 	print("#waypoints != 0")
+	-- end
+end
 
 BotApi.Events:Subscribe(BotApi.Events.GameStart, OnGameStart)
 BotApi.Events:Subscribe(BotApi.Events.GameEnd, OnGameStop)
 BotApi.Events:Subscribe(BotApi.Events.Quant, OnGameQuant)
--- BotApi.Events:Subscribe(BotApi.Events.GameSpawn, OnGameSpawn)
--- BotApi.Events:Subscribe(BotApi.Events.Waypoint, OnWaypoint)
+BotApi.Events:Subscribe(BotApi.Events.GameSpawn, OnGameSpawn)
+BotApi.Events:Subscribe(BotApi.Events.Waypoint, OnWaypoint)
