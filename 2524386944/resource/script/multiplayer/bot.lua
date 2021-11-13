@@ -587,7 +587,7 @@ function OnGameSpawn(args)
 
 	local str = tostring(args.squadId)
 
-	local squadOrderTime = math.random(300, 700)
+	local squadOrderTime = math.random(200, 500)
 
 
 	squadDictionary[args.squadId] = os.clock() + squadOrderTime
