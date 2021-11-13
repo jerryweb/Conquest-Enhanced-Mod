@@ -7,7 +7,7 @@ This is a modification to Call to arms - Gates of Hell: Ostfront which is a hist
 You will need to buy a copy of Call to arms (base game) and then Call to arms - Gates of Hell: Ostfront (DLC). For the official mod patch releases, navigate to the mod page on the steam workshop. This mod is broken into two parts and both will be requred to run: 
 
 Conquest Enhanced:
-https://steamcommunity.com/workshop/filedetails/?id=2524386944
+
 
 Conquest Missions Enhanced:
 https://steamcommunity.com/sharedfiles/filedetails/?id=2524380158
@@ -23,9 +23,7 @@ If you want to run the beta versions of the mod:
 
 ## Features
 - Larger Scale:
-![20211105040231_1](https://user-images.githubusercontent.com/3289963/141610518-d2bba728-5452-475a-a738-5dd038a66945.jpg)
-
-
+(https://user-images.githubusercontent.com/3289963/141610836-6e5a4576-2b21-4df0-93c8-4ba28914267f.mp4)
 ![20211030034858_1](https://user-images.githubusercontent.com/3289963/141610505-88393f8c-7155-43ab-8501-1d3ed2489e14.jpg)
 
 
@@ -40,6 +38,13 @@ If you want to run the beta versions of the mod:
 - AI uses smoke
 ![download (4)](https://user-images.githubusercontent.com/3289963/141610743-670d0bad-ed38-4ac2-89d7-d39ce78d1b0c.jpg)
 
+- Replaced the default unit spawn with a new spawn wave system. This means that the AI will no longer just send in a random cluster of units, but instead mimic the flow of how real battles would take place such as: recon wave of inf and light veh, then the mortar wave to soften up positions, and then the tank assault.
+
+-  Tanks will also move at the speed of the surrounding infantry to maximize combat effectiveness
+
+![slow tank](https://user-images.githubusercontent.com/3289963/141610939-c416bb14-2217-44d3-8382-96367a1365cd.gif)
+
+![waves](https://user-images.githubusercontent.com/3289963/141610880-5b79ef8b-778b-405a-a995-5202cdd523bf.gif)
 
 ## Custom Configurations 
 If you would like to have fewer units, you can change those settings by following the guide here:
