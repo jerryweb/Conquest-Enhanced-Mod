@@ -4,12 +4,12 @@
 	{SpecialCP 1001}					;// airstrikes special tab
 	{EmplacementCP 50}				;// buildable with engineer
 	{Bots
-		{StartMP	0.05 min 5000 attackerMultiplier 5.0}
-		{FinishMP	1.50 attackerMultiplier  6.0}
+		{StartMP	0.05 min 3000 attackerMultiplier 4.0}
+		{FinishMP	1.55 attackerMultiplier 7.5}
 		{CP
-			{Base "0:0,20:0,720:60,740:70,900:0,1080:80,1300:60,1500:0,1800:90,2000:50,2100:0,2580:70,3000:0,3600:30,4200:0,4600:40,5000:0,5500:80,6000:20"} ;// seconds : CP
-			{RoundMultiplier "0:0.1 1:0.6 2:0.6 4:0.6 5:0.6 7:0.8 8:1.0 10:1.0 12:1.0 14:1.0 16:1.2 19:1.5"} ;// games played : multiplier for CP
-			{AttackMultiplier 4.0}
+			{Base "0:0,20:0,720:10,740:10,900:0,1080:10,1300:10,1500:10,1800:0,2200:10"} ;// seconds : CP
+			{RoundMultiplier "0:0.1 1:0.5 2:0.6 3:0.6 5:0.8 7:0.9 8:0.9 10:1.0 12:1.2 14:1.2 16:1.2 19:1.3"} ;// games played : multiplier for CP
+			{AttackMultiplier 5.0}
 		}
 		{DefenseLevel
 			{level_1
@@ -19,7 +19,7 @@
 			}
 			{level_2							;// once level is reached previous level values are ignored only currently level is used
 				{DefenseBudgetPlayer	200.0}
-				{DefenseBudgetAI		100.0}
+				{DefenseBudgetAI		200.0}
 				{unlock games 4 progress 0.4}
 			}
 			{level_3
@@ -27,6 +27,26 @@
 				{DefenseBudgetAI		444.5}
 				{unlock games 12 progress 0.75}
 			}
+		}
+	}
+	{PaybackFactor 0.4}		;// MP paid back when loosing solider, squad or vehicle
+	{SellFactor 0.7}
+	{ScavengedVehicleSellFactor 0.5}		;// captured enemy vehicle 
+	{RiskFactor
+		{Low
+			{BotResources 5.0}
+			{BotVeterancy 0}
+			{Rewards 1.0}
+		}
+		{Standard
+			{BotResources 6.0}
+			{BotVeterancy 2}
+			{Rewards 1.5}
+		}
+		{High
+			{BotResources 7.0}
+			{BotVeterancy 3}
+			{Rewards 1.75}
 		}
 	}
 	{PaybackFactor 0.2}		;// MP paid back when loosing solider, squad or vehicle
@@ -39,12 +59,12 @@
 			{Rewards 1.0}
 		}
 		{Standard
-			{BotResources 3.5}
+			{BotResources 2.0}
 			{BotVeterancy 2}
 			{Rewards 1.5}
 		}
 		{High
-			{BotResources 7.0}
+			{BotResources 3.0}
 			{BotVeterancy 3}
 			{Rewards 2.0}
 		}
