@@ -8,7 +8,7 @@
 		{FinishMP	1.00 attackerMultiplier 3.8}
 		{CP
 			{Base "0:0,20:0,450:0,720:35,740:45,900:45,1100:55,1800:0,2000:20"} ;// seconds : CP
-			{RoundMultiplier "0:0.1 1:0.3 2:0.3 4:0.4 5:0.5 7:0.6 8:1.0 10:1.0 12:1.0 14:1.0"} ;// games played : multiplier for CP
+			{RoundMultiplier "0:0.1 1:0.4 2:0.5 4:0.7 5:0.7 7:0.7 8:1.0 10:1.0 12:1.0 14:1.0"} ;// games played : multiplier for CP
 			{AttackMultiplier 5.0}
 		}
 		{DefenseLevel
