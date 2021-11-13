@@ -4,7 +4,7 @@
 	{SpecialCP 1001}					;// airstrikes special tab
 	{EmplacementCP 50}				;// buildable with engineer
 	{Bots
-		{StartMP	0.05 min 3000 attackerMultiplier 4.0}
+		{StartMP	0.05 min 5000 attackerMultiplier 4.0}
 		{FinishMP	1.55 attackerMultiplier 7.5}
 		{CP
 			{Base "0:0,20:0,720:10,740:10,900:0,1080:10,1300:10,1500:10,1800:0,2200:10"} ;// seconds : CP
@@ -47,26 +47,6 @@
 			{BotResources 7.0}
 			{BotVeterancy 3}
 			{Rewards 1.75}
-		}
-	}
-	{PaybackFactor 0.2}		;// MP paid back when loosing solider, squad or vehicle
-	{SellFactor 0.7}
-	{ScavengedVehicleSellFactor 0.5}		;// captured enemy vehicle 
-	{RiskFactor
-		{Low
-			{BotResources 1.0}
-			{BotVeterancy 0}
-			{Rewards 1.0}
-		}
-		{Standard
-			{BotResources 2.0}
-			{BotVeterancy 2}
-			{Rewards 1.5}
-		}
-		{High
-			{BotResources 3.0}
-			{BotVeterancy 3}
-			{Rewards 2.0}
 		}
 	}
 	{Resources
