@@ -6,7 +6,6 @@ local maxNumOfMidDivisions = 5
 local maxNumOfLateDivisions = 5
 
 -- Wave offset is used to set how much extra time the first wave will last in since the wave is loaded automatically
-local firstWaveOffsetTime = 720
 -- This is used to add the offset ONLY to the first wave
 local initialWave = true
 
@@ -519,7 +518,7 @@ function OnGameQuant()
 				end
 			end
 			 if not squadDictionary[squad] then
-			 	local squadOrderTime = math.random(200, 500)
+			 	local squadOrderTime = math.random(300, 700)
 			 	print("nil squad ", squad, " with unlock time = ", squadDictionary[squad])
 				squadDictionary[squad] = os.clock() + squadOrderTime
 			end
@@ -588,7 +587,7 @@ function OnGameSpawn(args)
 
 	local str = tostring(args.squadId)
 
-	local squadOrderTime = math.random(200, 500)
+	local squadOrderTime = math.random(300, 700)
 
 
 	squadDictionary[args.squadId] = os.clock() + squadOrderTime

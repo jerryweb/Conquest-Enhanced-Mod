@@ -300,7 +300,7 @@
 ;HOWITZERS
 {"76mm_m1927"
 	{on spawn
-    	{tags add "artilllery"}
+    	{tags add "artillery"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -325,7 +325,7 @@
 }
 {"76mm_m43"
 	{on spawn
-    	{tags add "artilllery"}
+    	{tags add "artillery"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -349,7 +349,7 @@
 }
 {"82mm_bm37"
 	{on spawn
-    	{tags add "artilllery"}
+    	{tags add "artillery"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -373,7 +373,7 @@
 }
 {"120mm_pm38"
 	{on spawn
-    	{tags add "artilllery"}
+    	{tags add "artillery"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -397,7 +397,7 @@
 }
 {"122mm_m30"
 	{on spawn
-    	{tags add "artilllery"}
+    	{tags add "artillery"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -421,7 +421,7 @@
 }
 {"122mm_a19"
 	{on spawn
-    	{tags add "artilllery"}
+    	{tags add "artillery"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -445,7 +445,7 @@
 }
 {"152mm_ml20"
 	{on spawn
-    	{tags add "artilllery"}
+    	{tags add "artillery"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -469,7 +469,7 @@
 }
 {"203mm_b4"
 	{on spawn
-    	{tags add "artilllery"}
+    	{tags add "artillery"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"

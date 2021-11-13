@@ -246,7 +246,7 @@
 ;HOWITZERS
 {"75mm_leig18"
 	{on spawn
-    	{tags add "artilllery"}
+    	{tags add "artillery"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -270,7 +270,7 @@
 }
 {"80mm_sgrw34"
 	{on spawn
-    	{tags add "artilllery"}
+    	{tags add "artillery"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -294,7 +294,7 @@
 }
 {"120mm_sgrw42"
 	{on spawn
-    	{tags add "artilllery"}
+    	{tags add "artillery"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -318,7 +318,7 @@
 }
 {"105mm_lefh18"
 	{on spawn
-    	{tags add "artilllery"}
+    	{tags add "artillery"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -342,7 +342,7 @@
 }
 {"150mm_nebelwerfer41"
 	{on spawn
-    	{tags add "artilllery"}
+    	{tags add "artillery"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -366,7 +366,7 @@
 }
 {"150mm_sig33"
 	{on spawn
-    	{tags add "artilllery"}
+    	{tags add "artillery"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -388,9 +388,9 @@
 	    }
 	}
 }
-{"150mm_artillleryh18"
+{"150mm_artilleryh18"
 	{on spawn
-    	{tags add "artilllery"}
+    	{tags add "artillery"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -414,7 +414,7 @@
 }
 {"210mm_morser18"
 	{on spawn
-    	{tags add "artilllery"}
+    	{tags add "artillery"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -438,7 +438,7 @@
 }
 {"300mm_nebelwerfer42"
 	{on spawn
-    	{tags add "artilllery"}
+    	{tags add "artillery"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
