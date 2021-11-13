@@ -575,7 +575,7 @@ function SetSquadOrder(order, squad, delay)
 			delay)
 	end
 	print("squad timer: ", Context.SquadTimers[squad] )
-	setTimer(setTimer)
+	setTimer(setTimer)--
 end
 
 function OnGameSpawn(args)
