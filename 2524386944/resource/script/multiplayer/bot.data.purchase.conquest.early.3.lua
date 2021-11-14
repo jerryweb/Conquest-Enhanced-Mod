@@ -2,8 +2,8 @@ Purchases["campaign_capture_the_flag"] = {
 	{--purchase 1 LIGHT TANK DIVISION
 		divisionName = "LIGHT TANK DIVISION",
 		waveNumber = 1, -- какая по порядку будет
-		minRepeat = 4,
-		maxRepeat = 7,
+		minRepeat = 2,
+		maxRepeat = 4,
 		skipPossible = false,  -- ничего не делает
 		waveDuration = 20, -- длительность того, как долго бот будет вызывать данные войска. Каждый юнит вызывается каждые 3 секунды. Если нужно чтобы было только определенное количество то Repeat * 3 < Wave duration  При этом Repeat говорит сколько раз нужно вызвать юнит.
 		Units = {
@@ -27,8 +27,8 @@ Purchases["campaign_capture_the_flag"] = {
 	},
 	{--purchase 2 tank assault group
 		waveNumber = 2,
-	    minRepeat = 8,
-		maxRepeat = 10,
+	    minRepeat = 4,
+		maxRepeat = 5,
 	    skipPossible = false,
 	    waveDuration = 20,
 		Units = {
@@ -58,7 +58,7 @@ Purchases["campaign_capture_the_flag"] = {
 		waveNumber = 3,
 	    -- Repeat = 1,
 	    minRepeat = 1,
-		maxRepeat = 2,
+		maxRepeat = 1,
 	    skipPossible = false,
 	    waveDuration = 2,
 		Units = {
@@ -75,8 +75,8 @@ Purchases["campaign_capture_the_flag"] = {
 	{--purchase 4 infantry support
 		waveNumber = 4,
 		-- Repeat = 13,
-		minRepeat = 10,
-		maxRepeat = 13,
+		minRepeat = 5,
+		maxRepeat = 10,
         skipPossible = false,		
 		waveDuration = 35,
 		Units = {
@@ -111,8 +111,8 @@ Purchases["campaign_capture_the_flag"] = {
 	{--purchase 5 SPG support
 		waveNumber = 5,
 		-- Repeat = 4,
-		minRepeat = 3,
-		maxRepeat = 5,
+		minRepeat = 1,
+		maxRepeat = 4,
         skipPossible = false,		
 		waveDuration = 15,
 		Units = {
@@ -130,8 +130,8 @@ Purchases["campaign_capture_the_flag"] = {
 	{--purchase 6 Tank 2
 		waveNumber = 6,
 		-- Repeat = 10,
-		minRepeat = 9,
-		maxRepeat = 11,
+		minRepeat = 4,
+		maxRepeat = 8,
         skipPossible = false,		
 		waveDuration = 20,
 		Units = {
@@ -158,8 +158,8 @@ Purchases["campaign_capture_the_flag"] = {
 	{--purchase 7 infantry attack 2
 		waveNumber = 7,
 		-- Repeat = 15,
-		minRepeat = 12,
-		maxRepeat = 15,
+		minRepeat = 4,
+		maxRepeat = 8,
         skipPossible = false,		
 		waveDuration = 35,
 		Units = {
@@ -193,8 +193,8 @@ Purchases["campaign_capture_the_flag"] = {
 	},
 	{--purchase 8 light tank rush
 		waveNumber = 8,
-		minRepeat = 8,
-		maxRepeat = 10,
+		minRepeat = 4,
+		maxRepeat = 8,
         skipPossible = false,		
 		waveDuration = 10,
 		Units = {
