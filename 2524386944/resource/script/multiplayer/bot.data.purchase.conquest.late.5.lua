@@ -171,6 +171,25 @@ Purchases["campaign_capture_the_flag"] = {
 			}
 		}
 	},
+	-- {--purchase 9 mgun support
+	-- 	waveNumber = 9,
+	-- 	-- Repeat = 12,
+	-- 	minRepeat = 8,
+	-- 	maxRepeat = 12,
+ --        skipPossible = false,		
+	-- 	waveDuration = 15,
+	-- 	Units = {
+	-- 		["ger"] = {--Germany
+	-- 		--SPG
+	-- 			{priority = 1.0, class = UnitClass.ATTank, unit = "mg42_lafette"},
+	-- 		},
+	-- 		["rus"] = {--Russia
+	-- 		--SPG
+	-- 			{priority = 0.8, class = UnitClass.ATTank, unit = "dshk_stan"},
+	-- 			{priority = 0.2, class = UnitClass.ATTank, unit = "maxim"},
+	-- 		}
+	-- 	}
+	-- },
 	{--purchase 9 mgun support
 		waveNumber = 9,
 		-- Repeat = 12,
@@ -181,12 +200,13 @@ Purchases["campaign_capture_the_flag"] = {
 		Units = {
 			["ger"] = {--Germany
 			--SPG
-				{priority = 1.0, class = UnitClass.ATTank, unit = "mg42_lafette"},
+				{priority = 1.0, class = UnitClass.ATTank, unit = "marder3m"},
+				{priority = 0.1, class = UnitClass.ArtilleryTank, unit = "sig33b"},
 			},
 			["rus"] = {--Russia
 			--SPG
-				{priority = 0.8, class = UnitClass.ATTank, unit = "dshk_stan"},
-				{priority = 0.2, class = UnitClass.ATTank, unit = "maxim"},
+				{priority = 1.0, class = UnitClass.ATTank, unit = "su85"},
+				{priority = 0.2, class = UnitClass.ArtilleryTank, unit = "su122"},
 			}
 		}
 	},
