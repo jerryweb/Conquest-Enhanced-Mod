@@ -99,7 +99,7 @@
 ; AT WEAPONRY
 {"37mm_pak36"
 	{on spawn
-	    {tags add "at_gun"}
+	    {tags add "light_at_gun"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -123,7 +123,7 @@
 }
 {"47mm_pakt"
 	{on spawn
-	    {tags add "at_gun"}
+	    {tags add "light_at_gun"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -147,7 +147,7 @@
 }
 {"50mm_pak38"
 	{on spawn
-	    {tags add "at_gun"}
+	    {tags add "medium_at_gun"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -171,7 +171,7 @@
 }
 {"75mm_pak40"
 	{on spawn
-	    {tags add "at_gun"}
+	    {tags add "medium_at_gun"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -195,7 +195,7 @@
 }
 {"88mm_flak18"
 	{on spawn
-	    {tags add "at_gun"}
+	    {tags add "heavy_at_gun"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -219,7 +219,7 @@
 }
 {"88mm_flak36"
 	{on spawn
-	    {tags add "at_gun"}
+	    {tags add "heavy_at_gun"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"

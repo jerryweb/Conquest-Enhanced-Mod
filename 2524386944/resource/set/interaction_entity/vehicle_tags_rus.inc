@@ -124,12 +124,12 @@
 ; AT WEAPONRY
 {"m41_ampulomet"
 	{on spawn
-	    {tags add "at_gun"}
+	    {tags add "light_at_gun"}
 	}
 }
 {"45mm_m37"
 	{on spawn
-	    {tags add "at_gun"}
+	    {tags add "light_at_gun"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -153,7 +153,7 @@
 }
 {"45mm_m42"
 	{on spawn
-	    {tags add "at_gun"}
+	    {tags add "light_at_gun"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -177,7 +177,7 @@
 }
 {"57mm_zis2"
 	{on spawn
-	    {tags add "at_gun"}
+	    {tags add "medium_at_gun"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -201,7 +201,7 @@
 }
 {"76mm_f22"
 	{on spawn
-	    {tags add "at_gun"}
+	    {tags add "medium_at_gun"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -225,7 +225,7 @@
 }
 {"76mm_zis3"
 	{on spawn
-	    {tags add "at_gun"}
+	    {tags add "medium_at_gun"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -249,7 +249,7 @@
 }
 {"85mm_52k"
 	{on spawn
-	    {tags add "at_gun"}
+	    {tags add "heavy_at_gun"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -273,7 +273,7 @@
 }
 {"100mm_bs3"
 	{on spawn
-	    {tags add "at_gun"}
+	    {tags add "heavy_at_gun"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
