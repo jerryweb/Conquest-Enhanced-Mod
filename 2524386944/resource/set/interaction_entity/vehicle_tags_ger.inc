@@ -537,6 +537,32 @@
 	    }
 	}
 }
+{"blitz3_6_radio"
+	{on spawn
+    	{if not tagged "radioger"
+		    {tags add "radio_car"}
+		}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								    {if not tagged "player"
+									    {if not tagged "hidden"
+										    {tags add "ai_car"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+	}
+}
 {"sdkfz10"
 	{on spawn
     	{tags add "wheeled_vehicle"}

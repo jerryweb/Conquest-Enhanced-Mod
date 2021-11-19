@@ -519,7 +519,7 @@ function OnGameQuant()
 				end
 			end
 			 if not squadDictionary[squad] then
-			 	local squadOrderTime = math.random(200, 500)
+			 	local squadOrderTime = math.random(180, 300)
 			 	print("nil squad ", squad, " with unlock time = ", squadDictionary[squad])
 				squadDictionary[squad] = os.clock() + squadOrderTime
 			end
@@ -546,7 +546,8 @@ end
 
 function CaptureFlag(squad)
 	local flag = GetFlagToCapture(BotApi.Scene.Flags, GetFlagPriority)
-	local rnd = 0.1 + choice
+	-- local rnd = 0.1 + choice
+	local rnd = math.random() + choice
 	if flag then
 		if rnd < 0.25 then
 			print(rnd, "+SeekAndDestroy with squad", squad)
@@ -588,11 +589,11 @@ function OnGameSpawn(args)
 
 	local str = tostring(args.squadId)
 
-	local squadOrderTime = math.random(200, 500)
+	local squadOrderTime = math.random(180, 300)
 
 
 	squadDictionary[args.squadId] = os.clock() + squadOrderTime
-	print("squad time = ", squadDictionary[args.squadId])
+	-- print("squad time = ", squadDictionary[args.squadId])
 	-- table.insert(squadDictionary, {squadid = args.squadId, unlockTime = os.clock + 10})
 
 	-- if #waypoints == 0 then

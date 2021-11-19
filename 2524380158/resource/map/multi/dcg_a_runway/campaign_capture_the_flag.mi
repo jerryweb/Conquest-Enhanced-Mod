@@ -66712,7 +66712,7 @@
 							{state operatable}
 						}
 						{drop orders}
-						{action advance}
+						{action attack}
 						{target
 							{source advanced}
 							{group
@@ -66734,15 +66734,21 @@
 									{state
 										{state operatable}
 									}
+									{state}
+								}
+								{exclude
+									{state
+										{state dead}
+									}
+									{state
+										{state inactive}
+									}
 								}
 							}
 						}
 					}
 					{"delay"
-						{time 10}
-					}
-					{"delay"
-						{time 10}
+						{time 20}
 					}
 					{"trigger"
 						{name "ai./freeroam"}
