@@ -78346,6 +78346,250 @@
 					}
 				}
 			}
+			{"x/radio/disableminimap"
+				{condition
+					{expression "!1 & !2 & 3"}
+					{terms
+						{"1.difficulty"
+							{level easy}
+						}
+						{"2.difficulty"
+							{level normal}
+						}
+						{"3.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag radio_car}
+										}
+									}
+									{include
+										{state
+											{state "operatable inhabited user_control"}
+										}
+									}
+									{exclude
+										{tag
+											{tag hidden}
+										}
+									}
+								}
+							}
+							{count
+								{op "=="}
+								{value 0}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 1}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag player}
+											}
+										}
+										{include
+											{relation
+												{relation ally}
+												{player "1"}
+											}
+											{state
+												{state operatable}
+											}
+										}
+									}
+								}
+							}
+							{"ables"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{zone
+												{zone "gamezone"}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{tag
+												{tag cmp_def}
+											}
+											{tag
+												{tag rus}
+											}
+											{tag
+												{tag ger}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{remove minimap}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag player}
+											}
+										}
+										{include
+											{relation
+												{relation enemy}
+												{player "1"}
+											}
+											{state
+												{state operatable}
+											}
+										}
+									}
+								}
+							}
+							{"ables"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{zone
+												{zone "gamezone"}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{remove minimap}
+							}
+						}
+					}
+					{"trigger"
+						{name "x/radio/disableminimap"}
+					}
+					{## "ables"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{zone
+										{zone "gamezone"}
+									}
+								}
+								{include
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{state
+										{state user_control}
+									}
+								}
+							}
+						}
+						{remove minimap}
+					}
+				}
+			}
+			{"x/radio/enableminimap"
+				{condition
+					{expression "!1 & !2 & 3"}
+					{terms
+						{"1.difficulty"
+							{level easy}
+						}
+						{"2.difficulty"
+							{level normal}
+						}
+						{"3.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag radio_car}
+										}
+									}
+									{include
+										{state
+											{state "operatable inhabited user_control"}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{tag
+											{tag hidden}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 1}
+					}
+					{"ables"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{zone
+										{zone "gamezone"}
+									}
+								}
+								{include
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{state
+										{state user_control}
+									}
+								}
+							}
+						}
+						{add minimap}
+					}
+					{"trigger"
+						{name "x/radio/enableminimap"}
+					}
+				}
+			}
 		}
 		{waypoints
 			{"0"
