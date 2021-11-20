@@ -40518,6 +40518,7 @@
 			{"officerdocument2"}
 			{"randomtimer"}
 			{"defensetier"}
+			{"radiocar"}
 		}
 		{triggers
 			{## "environment/spring"
@@ -56793,6 +56794,11 @@
 								}
 							}
 						}
+						{"3.cmp_i"
+							{var "radiocar$"}
+							{op "=="}
+							{value 1}
+						}
 					}
 				}
 				{actions
@@ -56896,6 +56902,11 @@
 									}
 								}
 							}
+						}
+						{"3.cmp_i"
+							{var "radiocar$"}
+							{op "=="}
+							{value 1}
 						}
 					}
 				}
@@ -57425,6 +57436,11 @@
 									}
 								}
 							}
+						}
+						{"3.cmp_i"
+							{var "radiocar$"}
+							{op "=="}
+							{value 1}
 						}
 					}
 				}
@@ -58653,6 +58669,11 @@
 								{op ">"}
 								{value 4}
 							}
+						}
+						{"4.cmp_i"
+							{var "radiocar$"}
+							{op "=="}
+							{value 1}
 						}
 					}
 				}
@@ -61222,6 +61243,11 @@
 								{tag officer}
 								{state operatable}
 							}
+						}
+						{"3.cmp_i"
+							{var "radiocar$"}
+							{op "=="}
+							{value 1}
 						}
 					}
 				}
@@ -70449,6 +70475,81 @@
 					}
 					{"trigger"
 						{name "x/radio/enableminimap"}
+					}
+				}
+			}
+			{"x/radio/radioon"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{tag player}
+							}
+						}
+					}
+				}
+				{actions
+					{"switch"
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag radio_car}
+											}
+										}
+										{include
+											{state
+												{state "operatable inhabited user_control"}
+											}
+										}
+									}
+								}
+							}
+							{"set_i"
+								{var "radiocar$"}
+								{op "="}
+								{value 1}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag radio_car}
+											}
+										}
+										{include
+											{state
+												{state "operatable inhabited user_control"}
+											}
+										}
+									}
+								}
+								{count
+									{op "=="}
+									{value 0}
+								}
+							}
+							{"set_i"
+								{var "radiocar$"}
+								{op "="}
+								{value 0}
+							}
+						}
+					}
+					{"delay"
+						{time 5}
+					}
+					{"trigger"
+						{name "x/radio/radioon"}
 					}
 				}
 			}
