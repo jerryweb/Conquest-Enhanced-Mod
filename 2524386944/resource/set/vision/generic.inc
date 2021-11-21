@@ -21,10 +21,10 @@
 			{stealth 70}		;// "stand" stance - in cover and human has stealth skill
 		}
 		{squat 80				;// "squat" stance - in cover
-			{stealth 60}		;// "squat" stance - in cover and human has stealth skill
+			{stealth 40}		;// "squat" stance - in cover and human has stealth skill
 		}
 		{crawl 40				;// "crawl" stance - in cover
-			{stealth 30}		;// "crawl" stance - in cover and human has stealth skill
+			{stealth 15}		;// "crawl" stance - in cover and human has stealth skill
 		}
 	}
 
@@ -36,16 +36,16 @@
 	}
 
 	{squat 100					;// "squat" stance - moving. Also serves as default if other conditions are not defined in this block.
-		{stealth 80}			;// "squat" stance - moving and human has stealth skill
+		{stealth 50}			;// "squat" stance - moving and human has stealth skill
 		{still 80				;// "squat" stance - still / not moving. kneeling.
-			{stealth 70}		;// "squat" stance - still / not moving and human has stealth skill
+			{stealth 40}		;// "squat" stance - still / not moving and human has stealth skill
 		}
 	}
 
 	{crawl 50					;// "crawl" stance - moving. Also serves as default if other conditions are not defined in this block.
-		{stealth 30}			;// "crawl" stance - moving and human has stealth skill
+		{stealth 20}			;// "crawl" stance - moving and human has stealth skill
 		{still 40				;// "crawl" stance - still / not moving. kneeling.
-			{stealth 30}		;// "crawl" stance - still / not moving. kneeling and human has stealth skill
+			{stealth 15}		;// "crawl" stance - still / not moving. kneeling and human has stealth skill
 		}
 	}
 )

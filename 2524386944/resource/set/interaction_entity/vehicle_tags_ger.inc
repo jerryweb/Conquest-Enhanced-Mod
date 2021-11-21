@@ -2,6 +2,7 @@
 {"mg34_lafette"
 	 {on spawn
 	    {tags add "HMG"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -26,6 +27,7 @@
 {"mg42_lafette"
 	 {on spawn
 	    {tags add "HMG"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -50,6 +52,7 @@
 {"20mm_flak30"
 	 {on spawn
 	    {tags add "AAFLAK"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -74,6 +77,7 @@
 {"37mm_flak37"
 	 {on spawn
 	    {tags add "AAFLAK"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -99,7 +103,8 @@
 ; AT WEAPONRY
 {"37mm_pak36"
 	{on spawn
-	    {tags add "at_gun"}
+	    {tags add "light_at_gun"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -123,7 +128,8 @@
 }
 {"47mm_pakt"
 	{on spawn
-	    {tags add "at_gun"}
+	    {tags add "light_at_gun"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -147,7 +153,8 @@
 }
 {"50mm_pak38"
 	{on spawn
-	    {tags add "at_gun"}
+	    {tags add "medium_at_gun"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -171,7 +178,8 @@
 }
 {"75mm_pak40"
 	{on spawn
-	    {tags add "at_gun"}
+	    {tags add "medium_at_gun"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -195,7 +203,8 @@
 }
 {"88mm_flak18"
 	{on spawn
-	    {tags add "at_gun"}
+	    {tags add "heavy_at_gun"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -219,7 +228,8 @@
 }
 {"88mm_flak36"
 	{on spawn
-	    {tags add "at_gun"}
+	    {tags add "heavy_at_gun"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -247,6 +257,7 @@
 {"75mm_leig18"
 	{on spawn
     	{tags add "artillery"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -271,6 +282,7 @@
 {"80mm_sgrw34"
 	{on spawn
     	{tags add "artillery"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -295,6 +307,7 @@
 {"120mm_sgrw42"
 	{on spawn
     	{tags add "artillery"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -319,6 +332,7 @@
 {"105mm_lefh18"
 	{on spawn
     	{tags add "artillery"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -343,6 +357,7 @@
 {"150mm_nebelwerfer41"
 	{on spawn
     	{tags add "artillery"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -367,6 +382,7 @@
 {"150mm_sig33"
 	{on spawn
     	{tags add "artillery"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -391,6 +407,7 @@
 {"150mm_sfh18"
 	{on spawn
     	{tags add "artillery"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -415,6 +432,7 @@
 {"210mm_morser18"
 	{on spawn
     	{tags add "artillery"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -439,6 +457,7 @@
 {"300mm_nebelwerfer42"
 	{on spawn
     	{tags add "artillery"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -468,6 +487,7 @@
 {"kubelwagen"
 	{on spawn
     	{tags add "wheeled_vehicle"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -492,6 +512,7 @@
 {"kubelwagen_mg"
 	{on spawn
     	{tags add "wheeled_vehicle"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -516,6 +537,34 @@
 {"blitz3_6"
 	{on spawn
     	{tags add "wheeled_vehicle"}
+		{tags add "german"}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								    {if not tagged "player"
+									    {if not tagged "hidden"
+										    {tags add "ai_car"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+	}
+}
+{"blitz3_6_radio"
+	{on spawn
+    	{if not tagged "radioger"
+		    {tags add "radio_car"}
+		}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -540,6 +589,7 @@
 {"sdkfz10"
 	{on spawn
     	{tags add "wheeled_vehicle"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -564,6 +614,7 @@
 {"sdkfz251c"
 	{on spawn
     	{tags add "wheeled_vehicle"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -588,6 +639,7 @@
 {"sdkfz221"
 	{on spawn
     	{tags add "wheeled_vehicle"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -612,6 +664,7 @@
 {"blitz3_6_flak30"
 	{on spawn
     	{tags add "wheeled_vehicle"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -636,6 +689,7 @@
 {"sdkfz231"
 	{on spawn
     	{tags add "wheeled_vehicle"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -660,6 +714,7 @@
 {"p204_f"
 	{on spawn
     	{tags add "wheeled_vehicle"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -684,6 +739,7 @@
 {"sdkfz234_2"
 	{on spawn
     	{tags add "wheeled_vehicle"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -708,6 +764,7 @@
 {"sdkfz10_pak38"
 	{on spawn
     	{tags add "wheeled_vehicle"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -732,6 +789,7 @@
 {"sdkfz8_flak18"
 	{on spawn
     	{tags add "wheeled_vehicle"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -756,6 +814,7 @@
 {"blitz3_6_art_ammo"
 	{on spawn
     	{tags add "wheeled_vehicle"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -780,6 +839,7 @@
 {"blitz3_6_fuel"
 	{on spawn
     	{tags add "wheeled_vehicle"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -804,6 +864,7 @@
 {"blitz3_6_engineering"
 	{on spawn
     	{tags add "wheeled_vehicle"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -834,6 +895,7 @@
 {"panzer1b"
 	{on spawn
     	{tags add "light_tank"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -858,6 +920,7 @@
 {"panzer1f"
 	{on spawn
     	{tags add "light_tank"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -882,6 +945,7 @@
 {"panzer2c"
 	{on spawn
     	{tags add "light_tank"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -906,6 +970,7 @@
 {"panzer2f"
 	{on spawn
     	{tags add "light_tank"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -930,6 +995,7 @@
 {"panzer2l"
 	{on spawn
     	{tags add "light_tank"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -954,6 +1020,7 @@
 {"pz35t"
 	{on spawn
     	{tags add "light_tank"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -978,6 +1045,7 @@
 {"pz38t_a"
 	{on spawn
     	{tags add "light_tank"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1002,6 +1070,7 @@
 {"pz38t_f"
 	{on spawn
     	{tags add "light_tank"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1026,6 +1095,7 @@
 {"pz38t_g"
 	{on spawn
     	{tags add "light_tank"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1052,6 +1122,7 @@
 {"panzer3e"
 	{on spawn
     	{tags add "medium_tank"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1076,6 +1147,7 @@
 {"panzer3f"
 	{on spawn
     	{tags add "medium_tank"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1100,6 +1172,7 @@
 {"panzer3j"
 	{on spawn
     	{tags add "medium_tank"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1124,6 +1197,7 @@
 {"panzer3j1"
 	{on spawn
     	{tags add "medium_tank"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1148,6 +1222,7 @@
 {"panzer3l"
 	{on spawn
     	{tags add "medium_tank"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1172,6 +1247,7 @@
 {"panzer3m"
 	{on spawn
     	{tags add "medium_tank"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1196,6 +1272,7 @@
 {"panzer3n"
 	{on spawn
     	{tags add "medium_tank"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1220,6 +1297,7 @@
 {"panzer3_flamm"
 	{on spawn
     	{tags add "medium_tank"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1244,6 +1322,7 @@
 {"panzer4d"
 	{on spawn
     	{tags add "medium_tank"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1268,6 +1347,7 @@
 {"panzer4f1"
 	{on spawn
     	{tags add "medium_tank"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1292,6 +1372,7 @@
 {"panzer4f2"
 	{on spawn
     	{tags add "medium_tank"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1316,6 +1397,7 @@
 {"panzer4g"
 	{on spawn
     	{tags add "medium_tank"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1340,6 +1422,7 @@
 {"panzer4h"
 	{on spawn
     	{tags add "medium_tank"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1364,6 +1447,7 @@
 {"panzer4j"
 	{on spawn
     	{tags add "medium_tank"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1388,6 +1472,7 @@
 {"panzer5d"
 	{on spawn
     	{tags add "medium_tank"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1412,6 +1497,7 @@
 {"panzer5a"
 	{on spawn
     	{tags add "medium_tank"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1436,6 +1522,7 @@
 {"panzer5g"
 	{on spawn
     	{tags add "medium_tank"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1462,6 +1549,7 @@
 {"tiger1h"
 	{on spawn
     	{tags add "heavy_tank"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1486,6 +1574,7 @@
 {"tiger1e"
 	{on spawn
     	{tags add "heavy_tank"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1510,6 +1599,7 @@
 {"tiger1hunt"
 	{on spawn
     	{tags add "heavy_tank"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1534,6 +1624,7 @@
 {"tiger2h"
 	{on spawn
     	{tags add "heavy_tank"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1558,6 +1649,7 @@
 {"tiger2p"
 	{on spawn
     	{tags add "heavy_tank"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1584,6 +1676,7 @@
 {"panzerjager1"
 	{on spawn
     	{tags add "spg"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1608,6 +1701,7 @@
 {"stug3b"
 	{on spawn
     	{tags add "spg"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1632,6 +1726,7 @@
 {"marder2"
 	{on spawn
     	{tags add "spg"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1656,6 +1751,7 @@
 {"marder3m"
 	{on spawn
     	{tags add "spg"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1680,6 +1776,7 @@
 {"hetzer"
 	{on spawn
     	{tags add "spg"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1704,6 +1801,7 @@
 {"grille_m"
 	{on spawn
     	{tags add "spg"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1728,6 +1826,7 @@
 {"stug3f"
 	{on spawn
     	{tags add "spg"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1752,6 +1851,7 @@
 {"stug3g"
 	{on spawn
     	{tags add "spg"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1776,6 +1876,7 @@
 {"stug3g_late"
 	{on spawn
     	{tags add "spg"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1800,6 +1901,7 @@
 {"stuh42"
 	{on spawn
     	{tags add "spg"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1824,6 +1926,7 @@
 {"bison"
 	{on spawn
     	{tags add "spg"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1848,6 +1951,7 @@
 {"sig33b"
 	{on spawn
     	{tags add "spg"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1872,6 +1976,7 @@
 {"sturmpanzer4"
 	{on spawn
     	{tags add "spg"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1896,6 +2001,7 @@
 {"ferdinand"
 	{on spawn
     	{tags add "spg"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1920,6 +2026,7 @@
 {"jagdpanther"
 	{on spawn
     	{tags add "spg"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1944,6 +2051,7 @@
 {"sturmtiger"
 	{on spawn
     	{tags add "spg"}
+		{tags add "german"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"

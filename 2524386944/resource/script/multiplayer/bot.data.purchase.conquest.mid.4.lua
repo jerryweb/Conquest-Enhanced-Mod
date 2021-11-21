@@ -3,8 +3,8 @@ Purchases["campaign_capture_the_flag"] = {
 		divisionName = "Specialized division",
 		waveNumber = 1,
 		-- Repeat = 6,
-		minRepeat = 4,
-		maxRepeat = 6,
+		minRepeat = 3,
+		maxRepeat = 5,
 		skipPossible = false,
 		waveDuration = 20,
 		Units = {
@@ -84,11 +84,9 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 0.5, class = UnitClass.HeavyTank, unit = "kv85"},
 				{priority = 0.5, class = UnitClass.HeavyTank, unit = "is1_43"},
 				{priority = 0.5, class = UnitClass.HeavyTank, unit = "is2_43"},
-				{priority = 0.1, class = UnitClass.HeavyTank, unit = "is2_44"},
-	        --Tanks_medium
+					        --Tanks_medium
 				{priority = 1.1, class = UnitClass.Tank, unit = "t3457_43"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "t3476_43_flame"},
-				{priority = 2.5, class = UnitClass.Tank, unit = "t3485_44"}
 			}
 		}
 	},
@@ -198,8 +196,8 @@ Purchases["campaign_capture_the_flag"] = {
 	{--purchase 7 infantry attack 2
 		waveNumber = 7,
 		-- Repeat = 10,
-		minRepeat = 8,
-		maxRepeat = 11,
+		minRepeat = 6,
+		maxRepeat = 8,
         skipPossible = false,		
 		waveDuration = 25,
 		Units = {
@@ -242,8 +240,8 @@ Purchases["campaign_capture_the_flag"] = {
 	{--purchase 9 light tank rush
 		waveNumber = 9,
 		-- Repeat = 8,
-		minRepeat = 6,
-		maxRepeat = 8,
+		minRepeat = 4,
+		maxRepeat = 7,
         skipPossible = false,		
 		waveDuration = 10,
 		Units = {
