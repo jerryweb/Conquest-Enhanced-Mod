@@ -28,7 +28,7 @@ Purchases["campaign_capture_the_flag"] = {
 	{--purchase 2 tank assault group
 		waveNumber = 2,
 	    -- Repeat = 10,
-		minRepeat = 6,
+		minRepeat = 4,
 		maxRepeat = 8,
 	    skipPossible = false,
 	    waveDuration = 11,
@@ -87,7 +87,7 @@ Purchases["campaign_capture_the_flag"] = {
 	{--purchase 4 SPG support
 		waveNumber = 4,
 		-- Repeat = 4,
-		minRepeat = 2,
+		minRepeat = 1,
 		maxRepeat = 4,
         skipPossible = false,		
 		waveDuration = 11,

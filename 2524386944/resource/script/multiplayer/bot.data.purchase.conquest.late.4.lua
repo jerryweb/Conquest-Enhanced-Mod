@@ -26,8 +26,8 @@ Purchases["campaign_capture_the_flag"] = {
 	{--purchase 2 tank assault group
 		waveNumber = 2,
 	    -- Repeat = 6,
-		minRepeat = 5,
-		maxRepeat = 7,
+		minRepeat = 2,
+		maxRepeat = 4,
 	    skipPossible = false,
 	    waveDuration = 10,
 		Units = {
@@ -46,8 +46,8 @@ Purchases["campaign_capture_the_flag"] = {
 	{--purchase 3 infantry support
 		waveNumber = 3,
 		-- Repeat = 10,
-		minRepeat = 8,
-		maxRepeat = 11,
+		minRepeat = 4,
+		maxRepeat = 6,
         skipPossible = false,		
 		waveDuration = 20,
 		Units = {
@@ -69,8 +69,8 @@ Purchases["campaign_capture_the_flag"] = {
 	{--purchase 4 SPG support
 		waveNumber = 4,
 		-- Repeat = 5,
-		minRepeat = 4,
-		maxRepeat = 6,
+		minRepeat = 1,
+		maxRepeat = 3,
         skipPossible = false,		
 		waveDuration = 40,
 		Units = {
@@ -110,8 +110,8 @@ Purchases["campaign_capture_the_flag"] = {
 	{--purchase 6 infantry attack 2
 		waveNumber = 6,
 		-- Repeat = 10,
-		minRepeat = 8,
-		maxRepeat = 11,
+		minRepeat = 4,
+		maxRepeat = 6,
         skipPossible = false,		
 		waveDuration = 35,
 		Units = {

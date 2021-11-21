@@ -1,15 +1,15 @@
 {Normal
 	{GlobalMaxCP 1900}
-	{StageCP 100 120 150 180 200}
+	{StageCP 80 100 120 150 180}
 	{SpecialCP 1001}					;// airstrikes special tab
 	{EmplacementCP 50}				;// buildable with engineer
 	{Bots
-		{StartMP	0.05 min 1000 attackerMultiplier 2.00}
-		{FinishMP	1.00 attackerMultiplier 3.8}
+		{StartMP	0.05 min 3000 attackerMultiplier 4.0}
+		{FinishMP	0.15 attackerMultiplier 55.5}
 		{CP
-			{Base "0:0,20:0,450:0,720:20,740:20,900:20,1100:20,1800:0,2000:20"} ;// seconds : CP
-			{RoundMultiplier "0:0.1 1:0.4 2:0.5 4:0.7 5:0.7 7:0.7 8:1.0 10:1.0 12:1.2 14:1.4"} ;// games played : multiplier for CP
-			{AttackMultiplier 5.0}
+			{Base "0:0,20:0,720:10,740:10,900:0,1080:10,1300:10,1500:10,1800:0,2200:10"} ;// seconds : CP
+			{RoundMultiplier "0:0.1 1:0.5 2:0.6 3:0.6 5:0.8 7:0.9 8:0.9 10:1.0 12:1.0 14:1.0 16:1.0 19:1.0"} ;// games played : multiplier for CP
+			{AttackMultiplier 3.5}
 		}
 		{DefenseLevel
 			{level_1
@@ -25,27 +25,27 @@
 			{level_3
 				{DefenseBudgetPlayer	404.5}
 				{DefenseBudgetAI		444.5}
-				{unlock games 12 progress 0.75}
+				{unlock games 14 progress 0.75}
 			}
 		}
 	}
-	{PaybackFactor 0.6}		;// MP paid back when loosing solider, squad or vehicle
+	{PaybackFactor 0.8}		;// MP paid back when loosing solider, squad or vehicle
 	{SellFactor 0.7}
 	{ScavengedVehicleSellFactor 0.5}		;// captured enemy vehicle 
 	{RiskFactor
 		{Low
-			{BotResources 1.0}
+			{BotResources 8.0}
 			{BotVeterancy 0}
 			{Rewards 1.0}
 		}
 		{Standard
-			{BotResources 2.0}
-			{BotVeterancy 2}
+			{BotResources 8.0}
+			{BotVeterancy 4}
 			{Rewards 1.5}
 		}
 		{High
-			{BotResources 3.0}
-			{BotVeterancy 3}
+			{BotResources 8.0}
+			{BotVeterancy 6}
 			{Rewards 1.75}
 		}
 	}
@@ -76,8 +76,8 @@
 				{WinGain "5:200 10:500 15:700"}
 				{LoseGain "1:200"}
 				{MapRewards
-					{Ammodepot	1500}
-					{Factory	1000}
+					{Ammodepot	2500}
+					{Factory	2000}
 				}
 			}
 			{RP ;// Research points
@@ -100,7 +100,7 @@
 		{Short
 			{FlagCount "2:5 2:5 2:5 2:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 5:5 5:5 5:5 5:5 5:5 4:5 4:5 5:5 4:5 5:5 4:5 4:5 5:5 4:5 4:5 5:5"}
 			{Bots
-				{ResearchStages "0:1 1:1 2:2 3:4 4:4 5:5 6:5 7:6 8:6 9:6 10:7 11:7 12:7 13:8 14:9 14:10 15:11 16:12 16:13"} ;// number of games played : research tree level bots can have
+				{ResearchStages "0:1 1:1 2:2 3:4 4:4 5:5 6:5 7:6 8:6 9:6 10:7 11:7 12:7 13:8 14:9 14:10 15:13"} ;// number of games played : research tree level bots can have
 			}
 			{MapSelection "0:1"}	;// number of games played : map selection value from map .info file
 			{MapBorder "0:1"}
@@ -108,7 +108,7 @@
 		{Normal
 			{FlagCount "2:5 2:5 2:5 2:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 5:5 5:5 5:5 5:5 5:5 4:5 4:5 5:5 4:5 5:5 4:5 4:5 5:5 4:5 4:5 5:5"}
 			{Bots
-				{ResearchStages "0:1 1:1 2:2 3:4 4:4 5:5 6:5 7:6 8:6 9:6 10:7 11:7 12:7 13:8 14:9 14:10 15:11 16:12 16:13"}
+				{ResearchStages "0:1 1:1 2:2 3:4 4:4 5:5 6:5 7:6 8:6 9:6 10:7 11:7 12:7 13:8 14:9 14:10 15:13"}
 			}
 			{MapSelection "0:1"}
 			{MapBorder "0:1"}
@@ -116,7 +116,7 @@
 		{Long
 			{FlagCount "2:5 2:5 2:5 2:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 5:5 5:5 5:5 5:5 5:5 4:5 4:5 5:5 4:5 5:5 4:5 4:5 5:5 4:5 4:5 5:5"}
 			{Bots
-				{ResearchStages "0:1 1:1 2:2 3:4 4:4 5:5 6:5 7:6 8:6 9:6 10:7 11:7 12:7 13:8 14:9 14:10 15:11 16:12 16:13"}
+				{ResearchStages "0:1 1:1 2:2 3:4 4:4 5:5 6:5 7:6 8:6 9:6 10:7 11:7 12:7 13:8 14:9 14:10 15:13"}
 			}
 			{MapSelection "0:1"}
 			{MapBorder "0:1"}
@@ -124,7 +124,7 @@
 		{VeryLong
 			{FlagCount "2:5 2:5 2:5 2:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 5:5 5:5 5:5 5:5 5:5 4:5 4:5 5:5 4:5 5:5 4:5 4:5 5:5 4:5 4:5 5:5"}
 			{Bots
-				{ResearchStages "0:1 1:1 2:2 3:4 4:4 5:5 6:5 7:6 8:6 9:6 10:7 11:7 12:7 13:8 14:9 14:10 15:11 16:12 16:13"}
+				{ResearchStages "0:1 1:1 2:2 3:4 4:4 5:5 6:5 7:6 8:6 9:6 10:7 11:7 12:7 13:8 14:9 14:10 15:13"}
 			}
 			{MapSelection "0:1"}
 			{MapBorder "0:1"}
@@ -132,7 +132,7 @@
 		{Unlimited
 			{FlagCount "2:5 2:5 2:5 2:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 5:5 5:5 5:5 5:5 5:5 4:5 4:5 5:5 4:5 5:5 4:5 4:5 5:5 4:5 4:5 5:5"}
 			{Bots
-				{ResearchStages "0:1 1:1 2:2 3:4 4:4 5:5 6:5 7:6 8:6 9:6 10:7 11:7 12:7 13:8 14:9 14:10 15:11 16:12 16:13"}
+				{ResearchStages "0:1 1:1 2:2 3:4 4:4 5:5 6:5 7:6 8:6 9:6 10:7 11:7 12:7 13:8 14:9 14:10 15:13"}
 			}
 			{MapSelection "0:1"}
 			{MapBorder "0:1"}

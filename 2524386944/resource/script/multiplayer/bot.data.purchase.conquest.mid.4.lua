@@ -84,11 +84,9 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 0.5, class = UnitClass.HeavyTank, unit = "kv85"},
 				{priority = 0.5, class = UnitClass.HeavyTank, unit = "is1_43"},
 				{priority = 0.5, class = UnitClass.HeavyTank, unit = "is2_43"},
-				{priority = 0.1, class = UnitClass.HeavyTank, unit = "is2_44"},
-	        --Tanks_medium
+					        --Tanks_medium
 				{priority = 1.1, class = UnitClass.Tank, unit = "t3457_43"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "t3476_43_flame"},
-				{priority = 2.5, class = UnitClass.Tank, unit = "t3485_44"}
 			}
 		}
 	},

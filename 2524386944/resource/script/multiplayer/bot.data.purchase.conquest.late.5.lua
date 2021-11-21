@@ -35,8 +35,8 @@ Purchases["campaign_capture_the_flag"] = {
 	{--purchase 2 mortar
 		waveNumber = 2,
 	    -- Repeat = 6,
-	    minRepeat = 4,
-		maxRepeat = 6,
+	    minRepeat = 1,
+		maxRepeat = 2,
 	    skipPossible = false,
 	    waveDuration = 8,
 		Units = {
@@ -71,8 +71,8 @@ Purchases["campaign_capture_the_flag"] = {
 	{--purchase 4 heavy tank group
 		waveNumber = 4,
 	    -- Repeat = 17,
-	    minRepeat = 12,
-		maxRepeat = 17,
+	    minRepeat = 2,
+		maxRepeat = 4,
 	    skipPossible = false,
 	    waveDuration = 20,
 		Units = {
@@ -90,8 +90,8 @@ Purchases["campaign_capture_the_flag"] = {
 	{--purchase 5 medium tank group
 		waveNumber = 5,
 	    -- Repeat = 20,
-	    minRepeat = 14,
-		maxRepeat = 20,
+	    minRepeat = 2,
+		maxRepeat = 4,
 	    skipPossible = false,
 	    waveDuration = 20,
 		Units = {
@@ -112,8 +112,8 @@ Purchases["campaign_capture_the_flag"] = {
 	{--purchase 6 light tank group
 		waveNumber = 6,
 	    -- Repeat = 10,
-	    minRepeat = 7,
-		maxRepeat = 10,
+	    minRepeat = 2,
+		maxRepeat = 4,
 	    skipPossible = false,
 	    waveDuration = 20,
 		Units = {
@@ -133,8 +133,8 @@ Purchases["campaign_capture_the_flag"] = {
 	{--purchase 7 infantry support
 		waveNumber = 7,
 		-- Repeat = 50,
-		minRepeat = 30,
-		maxRepeat = 50,
+		minRepeat = 4,
+		maxRepeat = 6,
         skipPossible = false,		
 		waveDuration = 35,
 		Units = {
@@ -154,8 +154,8 @@ Purchases["campaign_capture_the_flag"] = {
 	{--purchase 8 SPG support
 		waveNumber = 8,
 		-- Repeat = 12,
-		minRepeat = 8,
-		maxRepeat = 12,
+		minRepeat = 2,
+		maxRepeat = 4,
         skipPossible = false,		
 		waveDuration = 15,
 		Units = {
@@ -171,71 +171,11 @@ Purchases["campaign_capture_the_flag"] = {
 			}
 		}
 	},
-	-- {--purchase 9 mgun support
-	-- 	waveNumber = 9,
-	-- 	-- Repeat = 12,
-	-- 	minRepeat = 8,
-	-- 	maxRepeat = 12,
- --        skipPossible = false,		
-	-- 	waveDuration = 15,
-	-- 	Units = {
-	-- 		["ger"] = {--Germany
-	-- 		--SPG
-	-- 			{priority = 1.0, class = UnitClass.ATTank, unit = "mg42_lafette"},
-	-- 		},
-	-- 		["rus"] = {--Russia
-	-- 		--SPG
-	-- 			{priority = 0.8, class = UnitClass.ATTank, unit = "dshk_stan"},
-	-- 			{priority = 0.2, class = UnitClass.ATTank, unit = "maxim"},
-	-- 		}
-	-- 	}
-	-- },
-	{--purchase 9 mgun support
-		waveNumber = 9,
-		-- Repeat = 12,
-		minRepeat = 8,
-		maxRepeat = 12,
-        skipPossible = false,		
-		waveDuration = 15,
-		Units = {
-			["ger"] = {--Germany
-			--SPG
-				{priority = 1.0, class = UnitClass.ATTank, unit = "marder3m"},
-				{priority = 0.1, class = UnitClass.ArtilleryTank, unit = "sig33b"},
-			},
-			["rus"] = {--Russia
-			--SPG
-				{priority = 1.0, class = UnitClass.ATTank, unit = "su85"},
-				{priority = 0.2, class = UnitClass.ArtilleryTank, unit = "su122"},
-			}
-		}
-	},
-	{--purchase 10 gun support
-		waveNumber = 10,
-		-- Repeat = 12,
-		minRepeat = 6,
-		maxRepeat = 8,
-        skipPossible = false,		
-		waveDuration = 15,
-		Units = {
-			["ger"] = {--Germany
-			--SPG
-				{priority = 1.0, class = UnitClass.ATTank, unit = "75mm_leig18"},
-				{priority = 0.5, class = UnitClass.ATTank, unit = "75mm_pak40"},
-				{priority = 0.5, class = UnitClass.ATTank, unit = "37mm_pak36"},
-			},
-			["rus"] = {--Russia
-			--SPG
-				{priority = 1.0, class = UnitClass.ATTank, unit = "75mm_m43"},
-				{priority = 1.0, class = UnitClass.ATTank, unit = "45mm_m37"},
-			}
-		}
-	},
-    {--purchase 11 AA support
+	{--purchase 11 AA support
 		waveNumber = 11,
 		-- Repeat = 12,
-		minRepeat = 8,
-		maxRepeat = 12,
+		minRepeat = 1,
+		maxRepeat = 2,
         skipPossible = false,		
 		waveDuration = 15,
 		Units = {
