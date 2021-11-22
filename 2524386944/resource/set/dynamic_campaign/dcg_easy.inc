@@ -7,8 +7,8 @@
 		{StartMP	0.05 min 2222 attackerMultiplier 3.00}
 		{FinishMP	0.05 attackerMultiplier 6.8}
 		{CP
-			{Base "0:0,20:0,450:0,720:25,740:25,900:30,1100:45,1800:0,2000:10"} ;// seconds : CP
-			{RoundMultiplier "0:0.1 1:0.7 2:0.7 4:0.7 5:0.7 7:0.7 8:1.0 10:1.0 12:1.0 14:1.5"} ;// games played : multiplier for CP
+			{Base "0:0,20:0,720:10,900:0,1080:10,1300:10,1500:10,1800:0,1900:10,2200:0"} ;// seconds : CP
+			{RoundMultiplier "0:0.1 1:0.5 2:0.6 3:0.6 5:0.8 7:0.9 8:0.9 10:1.0 12:1.0 14:1.0 16:1.0 19:1.0"} ;// games played : multiplier for CP
 			{AttackMultiplier 3.5}
 		}
 		{DefenseLevel
@@ -34,18 +34,18 @@
 	{ScavengedVehicleSellFactor 0.5}		;// captured enemy vehicle 
 	{RiskFactor
 		{Low
-			{BotResources 1.0}
+			{BotResources 7.0}
 			{BotVeterancy 0}
 			{Rewards 1.0}
 		}
 		{Standard
-			{BotResources 2.0}
-			{BotVeterancy 2}
+			{BotResources 7.0}
+			{BotVeterancy 3}
 			{Rewards 1.5}
 		}
 		{High
-			{BotResources 3.0}
-			{BotVeterancy 3}
+			{BotResources 7.0}
+			{BotVeterancy 5}
 			{Rewards 1.75}
 		}
 	}
