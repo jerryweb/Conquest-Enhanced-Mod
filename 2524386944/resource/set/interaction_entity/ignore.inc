@@ -199,11 +199,3 @@
 	}
 }
 
-{"20mm_flak30"
-	{on "test effect"
-	    {bone limits 30 85}
-	
-	}
-	
-
-}
