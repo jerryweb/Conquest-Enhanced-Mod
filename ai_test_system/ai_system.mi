@@ -7,6 +7,15 @@
 		}
 		{Player 0}
 		{MID 1}
+		{Weaponry
+			{State
+				{AccuracyByMotion
+					{value 0.908047}
+					{prevposition -2011.38 746.917 28.5309}
+					{prevdirection 0.975022 -0.221179 -0.0203072}
+				}
+			}
+		}
 		{NameId 38 225}
 		{FsmState "stand_noaim"}
 	}
@@ -22,7 +31,6 @@
 	}
 	{Human "mp/rus/early/guard_1" 0x8003
 		{Position -2145.62 677.35}
-		{SpawnedInFog}
 		{Volume "ram"
 			{able {visible 0}{bullet 0}{throwing 0}{obstacle 0}{contact 0}{contact_ground 0}{blast 0}{select 0}{touch 0}{blockcamera 0}}
 			{disabled}
@@ -187,55 +195,6 @@
 					{name "ai_command_system/move"}
 				}
 			}
-			{"select_mid_flag"
-				{"delay"
-					{time 0.5}
-				}
-				{"entity_state"
-					{tag_remove ready}
-				}
-				{"delay"
-					{time 0.1}
-				}
-				{"action"
-					{drop orders}
-					{action move}
-					{target
-						{tag mid}
-					}
-				}
-				{"delay"
-					{time 0.1}
-				}
-				{"entity_state"
-					{tag_add to_mid}
-				}
-				{"delay"
-					{time 0.2}
-				}
-				{"actor_state"
-					{control AI}
-					{fire_mode open}
-					{move_mode free}
-					{weapon_prepare on}
-					{ai_move
-						{mode enable}
-					}
-					{movement
-						{speed assault}
-						{kind fast}
-					}
-				}
-				{"delay"
-					{time 0.5}
-				}
-				{"entity_state"
-					{tag_add moving}
-				}
-				{"delay"
-					{time 1}
-				}
-			}
 			{"select_random_flag"
 				{## "delay"
 					{time 1}
@@ -260,46 +219,219 @@
 							{tag
 								{tag moving}
 							}
+							{tag
+								{tag pool_1}
+							}
+							{tag
+								{tag pool_2}
+							}
 						}
 					}
 				}
 				{## "delay"
 					{time 0.5}
 				}
-				{"entity_state"
+				{## "entity_state"
 					{tag_add test}
 				}
 				{## "delay"
 					{time 1}
 				}
-				{## "switch"
-					{## "case"
+				{"switch"
+					{"case"
 						{condition
 							{type rand}
-							{value 1}
+							{value 0.6}
 						}
 						{"call"
 							{function "select_right_flag"}
 							{context
 								{specified}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{zone
+												{zone "spawn"}
+											}
+											{tag
+												{tag ready}
+											}
+										}
+										{exclude
+											{tag
+												{tag moving}
+											}
+											{tag
+												{tag pool_1}
+											}
+											{tag
+												{tag pool_2}
+											}
+											{tag
+												{tag to_mid}
+											}
+										}
+									}
+								}
 							}
 						}
 					}
-					{## "case"
+					{"case"
 						{condition
 							{type rand}
-							{value 0.5}
+							{value 1}
 						}
 						{"call"
 							{function "select_mid_flag"}
 							{context
 								{specified}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{zone
+												{zone "spawn"}
+											}
+											{tag
+												{tag ready}
+											}
+										}
+										{exclude
+											{tag
+												{tag moving}
+											}
+											{tag
+												{tag pool_1}
+											}
+											{tag
+												{tag pool_2}
+											}
+											{tag
+												{tag to_right}
+											}
+										}
+									}
+								}
 							}
+						}
+					}
+				}
+				{## "call"
+					{function "select_mid_flag"}
+					{context
+						{specified}
+						{selector
+							{source advanced}
+							{group
+								{select
+									{zone
+										{zone "spawn"}
+									}
+									{tag
+										{tag ready}
+									}
+								}
+								{exclude
+									{tag
+										{tag moving}
+									}
+									{tag
+										{tag pool_1}
+									}
+									{tag
+										{tag pool_2}
+									}
+								}
+							}
+						}
+					}
+				}
+				{## "call"
+					{function "select_mid_flag"}
+					{context
+						{specified}
+						{selector
+							{source advanced}
+							{group
+								{select
+									{zone
+										{zone "spawn"}
+									}
+									{tag
+										{tag ready}
+									}
+								}
+								{include
+									{prop
+										{prop human}
+									}
+								}
+								{exclude
+									{tag
+										{tag moving}
+									}
+									{tag
+										{tag pool_1}
+									}
+									{tag
+										{tag pool_2}
+									}
+								}
+							}
+						}
+					}
+				}
+				{## "thread"
+					{"call"
+						{function "select_right_flag"}
+						{context
+							{specified}
 						}
 					}
 				}
 				{"delay"
 					{time 1}
+				}
+			}
+			{"select_mid_flag"
+				{"action"
+					{action advance}
+					{target
+						{tag mid}
+					}
+				}
+				{"delay"
+					{time 0.5}
+				}
+				{"entity_state"
+					{tag_add to_mid}
+					{tag_remove ready}
+				}
+				{"delay"
+					{time 1}
+				}
+				{"actor_state"
+					{control AI}
+					{fire_mode open}
+					{move_mode free}
+					{weapon_prepare on}
+					{ai_move
+						{mode enable}
+					}
+					{movement
+						{speed assault}
+						{kind fast}
+					}
+				}
+				{"delay"
+					{time 0.5}
+				}
+				{"entity_state"
+					{tag_add moving}
+				}
+				{"trigger"
+					{name "ai_command_system/move"}
 				}
 			}
 		}
@@ -425,42 +557,7 @@
 						}
 					}
 					{"call"
-						{function "select_right_flag"}
-						{context
-							{specified}
-							{selector
-								{source advanced}
-								{group
-									{select
-										{zone
-											{zone "spawn"}
-										}
-										{tag
-											{tag ready}
-										}
-									}
-									{include
-										{prop
-											{prop human}
-										}
-									}
-									{exclude
-										{state
-											{state dead}
-										}
-										{tag
-											{tag moving}
-										}
-										{tag
-											{tag pool_2}
-										}
-										{tag
-											{tag pool_1}
-										}
-									}
-								}
-							}
-						}
+						{function "select_random_flag"}
 					}
 					{"trigger"
 						{name "ai_command_system/move"}
