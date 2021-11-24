@@ -1,0 +1,671 @@
+{mission
+	{Human "mp/rus/early/guard_1" 0x8000
+		{Position -2034.28 748.19}
+		{Volume "ram"
+			{able {visible 0}{bullet 0}{throwing 0}{obstacle 0}{contact 0}{contact_ground 0}{blast 0}{select 0}{touch 0}{blockcamera 0}}
+			{disabled}
+		}
+		{Player 0}
+		{MID 1}
+		{NameId 38 225}
+		{FsmState "stand_noaim"}
+	}
+	{Entity "mosin" 0x8001
+		{Extender "stuff"
+			{Item "mosin" filled 5}
+		}
+	}
+	{Entity "mosin" 0x8002
+		{Extender "stuff"
+			{Item "mosin" filled 5}
+		}
+	}
+	{Human "mp/rus/early/guard_1" 0x8003
+		{Position -2145.62 677.35}
+		{SpawnedInFog}
+		{Volume "ram"
+			{able {visible 0}{bullet 0}{throwing 0}{obstacle 0}{contact 0}{contact_ground 0}{blast 0}{select 0}{touch 0}{blockcamera 0}}
+			{disabled}
+		}
+		{Player 0}
+		{MID 2}
+		{NameId 109 162}
+		{FsmState "stand_noaim"}
+	}
+	{Entity "meter" 0x8004
+		{Position 279.69 1387.45}
+	}
+	{Entity "meter" 0x8005
+		{Position 284.64 -13.45}
+	}
+	{Entity "meter" 0x8006
+		{Position 358.54 -1396.89}
+	}
+	{Tags "hidden" "pool_1" 0x8000}
+	{Tags "hidden" "pool_2" 0x8003}
+	{Tags "right" 0x8004}
+	{Tags "mid" 0x8005}
+	{Tags "left" 0x8006}
+	{Inventory 0x8000
+		{box
+			{clear}
+			{item 0x8001 {cell 0 0}{user "hand_right"}}
+			{item "rifle_rus" "clip" "ammo" 5 {cell 6 0}}
+			{item "rifle_rus" "clip" "ammo" 5 {cell 7 0}}
+			{item "rifle_rus" "clip" "ammo" 5 {cell 6 1}}
+			{item "rifle_rus" "clip" "ammo" 5 {cell 7 1}}
+			{item "rifle_rus" "clip" "ammo" 5 {cell 0 2}}
+			{item "rifle_rus" "clip" "ammo" 5 {cell 1 2}}
+			{item "rifle_rus" "clip" "ammo" 5 {cell 2 2}}
+			{item "rifle_rus" "clip" "ammo" 5 {cell 3 2}}
+			{item "rifle_rus" "clip" "ammo" 5 {cell 4 2}}
+			{item "rifle_rus" "clip" "ammo" 5 {cell 5 2}}
+			{item "bandage_rus" {cell 6 2}}
+			{item "f1" "grenade" {cell 0 3}}
+			{item "knife_rus" {cell 1 3}}
+			{item "shovel_rus" {cell 4 3}}
+			{item "soviet_ushanka_untied" {cell 0 4}{user "head"}}
+		}
+	}
+	{Inventory 0x8003
+		{box
+			{clear}
+			{item 0x8002 {cell 0 0}{user "hand_right"}}
+			{item "rifle_rus" "clip" "ammo" 5 {cell 6 0}}
+			{item "rifle_rus" "clip" "ammo" 5 {cell 7 0}}
+			{item "rifle_rus" "clip" "ammo" 5 {cell 6 1}}
+			{item "rifle_rus" "clip" "ammo" 5 {cell 7 1}}
+			{item "rifle_rus" "clip" "ammo" 5 {cell 0 2}}
+			{item "rifle_rus" "clip" "ammo" 5 {cell 1 2}}
+			{item "rifle_rus" "clip" "ammo" 5 {cell 2 2}}
+			{item "rifle_rus" "clip" "ammo" 5 {cell 3 2}}
+			{item "rifle_rus" "clip" "ammo" 5 {cell 4 2}}
+			{item "rifle_rus" "clip" "ammo" 5 {cell 5 2}}
+			{item "bandage_rus" {cell 6 2}}
+			{item "f1" "grenade" {cell 0 3}}
+			{item "knife_rus" {cell 1 3}}
+			{item "shovel_rus" {cell 4 3}}
+			{item "soviet_ushanka_untied" {cell 0 4}{user "head"}}
+		}
+	}
+	{Brain 0x8000
+		{Properties
+			{retreat_ratio 4}
+		}
+	}
+	{Brain 0x8003
+		{Properties
+			{retreat_ratio 4}
+		}
+	}
+	{Helpers
+		{zone "circle"
+			{position -1680.21 113.088 0}
+			{Name "spawn"}
+			{Radius 376.004}
+		}
+		{reinforcements
+			{scoreTotal 0}
+			{scoreCurrent 0}
+		}
+		{functions
+			{"select_right_flag"
+				{## "select"
+					{source advanced}
+					{group
+						{select
+							{zone
+								{zone "spawn"}
+							}
+							{tag
+								{tag ready}
+							}
+						}
+						{include
+							{prop
+								{prop human}
+							}
+						}
+						{exclude
+							{tag
+								{tag moving}
+							}
+							{tag
+								{tag pool_1}
+							}
+							{tag
+								{tag pool_2}
+							}
+						}
+					}
+				}
+				{## "delay"
+					{time 0.5}
+				}
+				{"action"
+					{action advance}
+					{target
+						{tag right}
+					}
+				}
+				{"delay"
+					{time 0.5}
+				}
+				{"entity_state"
+					{tag_add to_right}
+					{tag_remove ready}
+				}
+				{"delay"
+					{time 1}
+				}
+				{"actor_state"
+					{control AI}
+					{fire_mode open}
+					{move_mode free}
+					{weapon_prepare on}
+					{ai_move
+						{mode enable}
+					}
+					{movement
+						{speed assault}
+						{kind fast}
+					}
+				}
+				{## "delay"
+					{time 1}
+				}
+				{## "entity_state"
+					{tag_add to_right}
+				}
+				{"delay"
+					{time 0.5}
+				}
+				{"entity_state"
+					{tag_add moving}
+				}
+				{"trigger"
+					{name "ai_command_system/move"}
+				}
+			}
+			{"select_mid_flag"
+				{"delay"
+					{time 0.5}
+				}
+				{"entity_state"
+					{tag_remove ready}
+				}
+				{"delay"
+					{time 0.1}
+				}
+				{"action"
+					{drop orders}
+					{action move}
+					{target
+						{tag mid}
+					}
+				}
+				{"delay"
+					{time 0.1}
+				}
+				{"entity_state"
+					{tag_add to_mid}
+				}
+				{"delay"
+					{time 0.2}
+				}
+				{"actor_state"
+					{control AI}
+					{fire_mode open}
+					{move_mode free}
+					{weapon_prepare on}
+					{ai_move
+						{mode enable}
+					}
+					{movement
+						{speed assault}
+						{kind fast}
+					}
+				}
+				{"delay"
+					{time 0.5}
+				}
+				{"entity_state"
+					{tag_add moving}
+				}
+				{"delay"
+					{time 1}
+				}
+			}
+			{"select_random_flag"
+				{## "delay"
+					{time 1}
+				}
+				{## "select"
+					{source advanced}
+					{group
+						{select
+							{zone
+								{zone "spawn"}
+							}
+							{tag
+								{tag ready}
+							}
+						}
+						{include
+							{prop
+								{prop human}
+							}
+						}
+						{exclude
+							{tag
+								{tag moving}
+							}
+						}
+					}
+				}
+				{## "delay"
+					{time 0.5}
+				}
+				{"entity_state"
+					{tag_add test}
+				}
+				{## "delay"
+					{time 1}
+				}
+				{## "switch"
+					{## "case"
+						{condition
+							{type rand}
+							{value 1}
+						}
+						{"call"
+							{function "select_right_flag"}
+							{context
+								{specified}
+							}
+						}
+					}
+					{## "case"
+						{condition
+							{type rand}
+							{value 0.5}
+						}
+						{"call"
+							{function "select_mid_flag"}
+							{context
+								{specified}
+							}
+						}
+					}
+				}
+				{"delay"
+					{time 1}
+				}
+			}
+		}
+		{triggers
+			{"ai_command_system/move"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "spawn"}
+										}
+										{tag
+											{tag ready}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+									}
+									{exclude
+										{tag
+											{tag moving}
+										}
+										{tag
+											{tag pool_1}
+										}
+										{tag
+											{tag pool_2}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 1}
+					}
+					{## "select"
+						{source advanced}
+						{group
+							{select
+								{zone
+									{zone "spawn"}
+								}
+								{tag
+									{tag ready}
+								}
+							}
+							{include
+								{prop
+									{prop human}
+								}
+							}
+							{exclude
+								{tag
+									{tag moving}
+								}
+							}
+						}
+					}
+					{## "delay"
+						{time 0.5}
+					}
+					{## "action"
+						{selector
+							{source current}
+						}
+						{drop orders}
+						{action move}
+						{target
+							{tag right}
+						}
+					}
+					{## "delay"
+						{time 0.5}
+					}
+					{## "entity_state"
+						{selector
+							{source current}
+						}
+						{tag_add moving}
+						{tag_remove ready}
+					}
+					{## "delay"
+						{time 1}
+					}
+					{## "actor_state"
+						{selector
+							{source current}
+						}
+						{control AI}
+						{fire_mode open}
+						{move_mode free}
+						{weapon_prepare on}
+						{ai_move
+							{mode enable}
+						}
+						{movement
+							{speed assault}
+							{kind fast}
+						}
+					}
+					{## "delay"
+						{time 1}
+					}
+					{## "call"
+						{function "test"}
+						{context
+							{specified}
+							{selector
+								{tag ready}
+								{zone "spawn"}
+								{type human}
+								{state "not dead"}
+							}
+						}
+					}
+					{"call"
+						{function "select_right_flag"}
+						{context
+							{specified}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "spawn"}
+										}
+										{tag
+											{tag ready}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{tag
+											{tag moving}
+										}
+										{tag
+											{tag pool_2}
+										}
+										{tag
+											{tag pool_1}
+										}
+									}
+								}
+							}
+						}
+					}
+					{"trigger"
+						{name "ai_command_system/move"}
+					}
+				}
+			}
+			{"infinite_spawn/inf"
+				{condition
+				}
+				{actions
+					{"delay"
+						{time 1}
+					}
+					{## "actor_state"
+						{selector
+							{tag ai}
+							{type human}
+							{state "not dead"}
+						}
+						{movement
+							{speed assault}
+							{kind fast}
+						}
+					}
+					{"loop" 5
+						{"actor_to_waypoint"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag pool_1}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+									}
+								}
+							}
+							{waypoint "0"}
+							{clone}
+							{approach "safe teleport & rotate"}
+						}
+						{## "placement"
+							{selector
+								{tag pool_1}
+								{type human}
+							}
+							{target_waypoint "0"}
+							{clone}
+						}
+						{"delay"
+							{time 0.5}
+						}
+						{"select"
+							{source advanced}
+							{group
+								{select
+									{zone
+										{zone "spawn"}
+									}
+									{tag
+										{tag pool_1}
+									}
+								}
+								{include
+									{prop
+										{prop human}
+									}
+								}
+								{exclude
+									{tag
+										{tag ready}
+									}
+									{tag
+										{tag moving}
+									}
+								}
+							}
+						}
+						{"delay"
+							{time 0.5}
+						}
+						{"entity_state"
+							{selector
+								{source current}
+							}
+							{tag_remove pool_1}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"entity_state"
+							{selector
+								{source current}
+							}
+							{tag_add ready}
+						}
+						{"delay"
+							{time 6}
+						}
+						{"actor_to_waypoint"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag pool_2}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+									}
+								}
+							}
+							{waypoint "0"}
+							{clone}
+							{approach "safe teleport & rotate"}
+						}
+						{"delay"
+							{time 0.5}
+						}
+						{"select"
+							{source advanced}
+							{group
+								{select
+									{zone
+										{zone "spawn"}
+									}
+									{tag
+										{tag pool_2}
+									}
+								}
+								{include
+									{prop
+										{prop human}
+									}
+								}
+								{exclude
+									{tag
+										{tag ready}
+									}
+									{tag
+										{tag moving}
+									}
+									{tag
+										{tag pool_1}
+									}
+								}
+							}
+						}
+						{"delay"
+							{time 0.5}
+						}
+						{"entity_state"
+							{selector
+								{source current}
+							}
+							{tag_remove pool_2}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"entity_state"
+							{selector
+								{source current}
+							}
+							{tag_add ready}
+						}
+						{"delay"
+							{time 6}
+						}
+					}
+					{"delay"
+						{time 50}
+					}
+					{"trigger"
+						{name "infinite_spawn/inf"}
+					}
+				}
+			}
+		}
+		{waypoints
+			{"0"
+				{position -1686.05 110.272 0}
+				{commands
+					{## "actor_state"
+						{control AI}
+						{fire_mode open}
+						{move_mode free}
+						{weapon_prepare on}
+						{ai_move
+							{mode enable}
+						}
+						{movement
+							{speed assault}
+						}
+					}
+				}
+			}
+		}
+	}
+	{Fog 0}
+}
