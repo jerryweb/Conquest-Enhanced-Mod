@@ -1,0 +1,230 @@
+{environment
+	{light
+		{direction -0.969 -0.086 -0.233}
+		{ambient 0xff3f3f3f}
+		{diffuse 0xff83849c}
+		{lightsIntensity 0.1}
+		{draw_sun_moon}
+		{sun_moon_radius 1}
+		{night_vision 0.6}
+		{color_correction
+			{tone 0xff20262c}
+			{tone_strength 0.1}
+			{color_shading
+				{enable}
+				{shade_tone 0xfffeffd7}
+				{intensity 0.1}
+			}
+		}
+		{rim_light
+			{color 0xffffffff}
+			{strength 0.3}
+		}
+		{tone_mapping
+			{max_white_percentile 0.9995}
+			{min_mapping_range 1}
+			{curve "/set/curves/tonemapping/dark.bzc"}
+		}
+		{camera_lens_effetcs
+			{vision_mode
+				{mode none}
+			}
+			{light_scattering
+				{enable}
+				{intensity 0.5}
+				{ray_length 0.5}
+				{color_tone 0x1010101}
+			}
+			{lens_dirt
+				{enable}
+				{texture "/texture/common/environment/lens_effects/dirty_lens_01b"}
+			}
+			{screen_brightening
+				{enable}
+				{intensity 0.3}
+			}
+		}
+	}
+	{wind
+		{direction 0 0 0}
+		{main_strength 0.1}
+		{detail_strength 0.1}
+		{height_amplification 1}
+	}
+	{haze
+		{enable}
+		{color 0xff8f8f8f}
+		{start 500}
+		{end 6000}
+		{altitude_strength 0.5}
+		{sky_haziness 0.1}
+	}
+	{sky
+		{enable}
+		{texture "/texture/common/environment/environment_sunset_01"}
+		{globalEnvironment "/texture/common/environment/default_sky"}
+		{intensity 1}
+		{azimuth 270}
+	}
+	{weather
+		{enable}
+		{density 20}
+		{sound "world/environment_ambient/battle"}
+		{volume 0}
+		{"sound 2" "world/environment_ambient/summer"}
+		{"volume 2" 0}
+		{"sound 3" "world/environment_ambient/field/01"}
+		{"volume 3" 0}
+	}
+	{ocean_wave_works
+		{sea_settings
+			{global
+				{patch_scale 1000}
+				{wind_dependency 0.85}
+				{time_factor 0.75}
+				{smoothing 0.03}
+			}
+			{waves
+				{wind_speed_mps 4}
+				{wave_amplitude 0.3}
+				{crest_sharpness 1.2}
+				{foam_threshhold 0.37}
+				{foam_amount 0.12}
+				{foam_crest_intensity 1}
+				{foam_sss_intensity 0.9}
+				{foam_falloff 0.985}
+			}
+			{ocean_look
+				{specular_color 0xffffffff}
+				{specular_power 500}
+				{specular_intensity 0.2}
+				{emissive_strength 0.5}
+				{enhanced_water_look
+					{costal_softalpha_depth 5}
+					{full_opaque_water_depth 100}
+					{full_opaque_view_distance 1500}
+				}
+			}
+			{shore
+				{depth_threshold 0.7}
+				{displacement_intensity 0.07}
+				{foam_intensity 0.17}
+				{shore_parallelness 0.17}
+				{height_factor 1.4}
+				{amplitude 1.18}
+				{length 2}
+				{speed 0.5}
+			}
+		}
+		{lake_settings
+			{global
+				{patch_scale 1000}
+				{wind_dependency 0.85}
+				{time_factor 0.75}
+				{smoothing 0.03}
+			}
+			{waves
+				{wind_speed_mps 4}
+				{wave_amplitude 0.3}
+				{crest_sharpness 1.2}
+				{foam_threshhold 0.37}
+				{foam_amount 0.12}
+				{foam_crest_intensity 1}
+				{foam_sss_intensity 0.9}
+				{foam_falloff 0.985}
+			}
+			{ocean_look
+				{specular_color 0xffffffff}
+				{specular_power 500}
+				{specular_intensity 0.2}
+				{emissive_strength 0.5}
+				{enhanced_water_look
+					{costal_softalpha_depth 5}
+					{full_opaque_water_depth 100}
+					{full_opaque_view_distance 1500}
+				}
+			}
+			{shore
+				{depth_threshold 0.7}
+				{displacement_intensity 0.07}
+				{foam_intensity 0.17}
+				{shore_parallelness 0.17}
+				{height_factor 1.4}
+				{amplitude 1.18}
+				{length 2}
+				{speed 0.5}
+			}
+		}
+		{river_settings
+			{global
+				{patch_scale 1000}
+				{wind_dependency 0.85}
+				{time_factor 0.75}
+				{smoothing 0.03}
+			}
+			{waves
+				{wind_speed_mps 4}
+				{wave_amplitude 0.3}
+				{crest_sharpness 1.2}
+				{foam_threshhold 0.37}
+				{foam_amount 0.12}
+				{foam_crest_intensity 1}
+				{foam_sss_intensity 0.9}
+				{foam_falloff 0.985}
+			}
+			{ocean_look
+				{specular_color 0xffffffff}
+				{specular_power 500}
+				{specular_intensity 0.2}
+				{emissive_strength 0.5}
+				{enhanced_water_look
+					{costal_softalpha_depth 5}
+					{full_opaque_water_depth 100}
+					{full_opaque_view_distance 1500}
+				}
+			}
+			{shore
+				{depth_threshold 0.7}
+				{displacement_intensity 0.07}
+				{foam_intensity 0.17}
+				{shore_parallelness 0.17}
+				{height_factor 1.4}
+				{amplitude 1.18}
+				{length 2}
+				{speed 0.5}
+			}
+		}
+	}
+	{thunder
+		{color 0xff686c73}
+	}
+	{video_overlay
+		{color 0xffffffff}
+	}
+	{dof
+		{near_scale 2.5}
+		{far_scale 0.75}
+		{near_start 50}
+		{near_end 150}
+		{far_start 1000}
+		{far_end 3500}
+		{"3rd_Person"
+			{"3rdP_blur_strength" 1}
+		}
+		{blur_strength 3}
+		{"Scenario Settings"
+			{near_scale 2.5}
+			{far_scale 0.75}
+			{near_start 50}
+			{near_end 150}
+			{far_start 1000}
+			{far_end 3500}
+			{blur_strength 3}
+		}
+	}
+	{glow
+		{enable}
+		{amount 0.07}
+		{threshold 1.1}
+	}
+}

@@ -1,0 +1,321 @@
+;SDL
+;//////////////////////// INSTRUCTIONS ///////////////////////////////
+; In this file are templates for the composition of squads, soldiers
+
+
+; "vs(...)" corresponds to a define found in the settings down this file
+; v() If squad is motorised, this is the vehicle that carries the men.
+; cd() corresponds to countdown delay to spawn the unit once battle begins
+; ci() corresponds to cooldown to buy unit once again
+; side() corresponds to side (faction)
+; n() corresponds to number of crew in the unit, the type of crew is defined in the "vs"
+; g() corresponds to group, which is for classification and collective cooldowns
+; sc() corresponds to the score given to the player upon killing this unit
+; b() corresponds to the button where this unit is located in the menus
+; i() corresponds to icon order
+; cw() corresponds to capture weight for flags
+; cp() corresponds to CP, that is, the value that units have that fill up how many troops can be fielded
+; {cost -} corresponds to MP cost of the unit
+; {level 6} Corresponds to player XP progress in player profile from steam
+; {research_stage 4} corresponds to research stage of dynamic campaign
+; {squad_cost_factor 1} - adds the cost of the crew / the cost of the squad members with this factor
+; scf() - adds the cost of the crew / the cost of the squad members with this factor
+; {round_multiple 5.0} - rounds the total cost of vehicle and crew or squad members to the nearest multiple of this value. in this case the nearest 5
+
+;/////////////////////////////////////////////////////////////////////
+
+(define "generic_v_conquest"
+	{score_factor 0.07}
+	{tags "conquest conquestonly %t"}
+	{cw %cw}
+	{cp %cp}
+	{research_stage %r}
+	{research_stage_max %mr}
+	{squad_cost_factor 1}
+	{round_multiple 1.0}
+	{level 1}
+	{button "vehicles"}
+)
+
+; emplacements
+(define "emplacement"
+	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp))
+	{content "* ( mp/%side/%period/%crew )"}
+	{conditions "%condition"}
+	{action "%action"}
+	{button "vehicles"}
+)
+
+;/////////////// THE FOLLOWING SETTINGS FETCH VEHICLES DIRECTLY /////////////////////////
+
+; vehicle with one type of crew
+(define "vehicle"
+	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp))
+	{content "* ( mp/%side/%period/%crew )"} 
+	{button "vehicles"}
+)
+
+; vehicle with 2 types of crew 
+(define "vehicle2"
+	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp))
+	{content "* ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 )"} 
+	{button "vehicles"}
+)
+
+;//////// THE FOLLOWING SETTINGS CREATE SQUADS WHICH NEED OWN ICONS/////////////
+
+; squad setup for vehicle, 1 crew
+(define "squad_vehicle"
+	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp)) ;//h
+	{content "%vehicle ( mp/%side/%period/%crew )"}
+	{button "vehicles"}
+)
+
+; squad setup for vehicle, 2 crew
+(define "squad_vehicle2"
+	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp)) ;//h
+	{content "%vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 )"}
+	{button "vehicles"}
+)
+
+; 2 identical vehicles with 1 types of crew
+(define "squad_2vehicle"
+	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp))
+	{content "%vehicle ( mp/%side/%period/%crew ) %vehicle ( mp/%side/%period/%crew )"}
+	{button "vehicles"}
+)
+
+; 2 identical vehicles with 2 types of crew
+(define "squad_2vehicle2"
+	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp))
+	{content "%vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 ) %vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 )"}
+	{button "vehicles"}
+)
+
+; squad setup for vehicle, 3 crew
+(define "squad_vehicle3"
+	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp)) ;//h
+	{content "%vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3 )"}
+	{button "vehicles"}
+)
+
+; 2 identical vehicles with 3 types of crew
+(define "squad_2vehicle3"
+	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp)) ;//h
+	{content "%vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3) %vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3)"}
+	{button "vehicles"}
+)
+
+; 2 different vehicles with 2 types of crew for the first one and one type of crew for the other one
+(define "squad_2vehicles4"
+	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp)) ;//h
+	{content "%vehicle1 ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3) %vehicle2 ( mp/%side/%period/%crew4)"}
+	{button "vehicles"}
+)
+
+; 2 different vehicles with 3 types of crew for the first one and 4 type of crew for the other one; used in german motorized recon
+(define "squad_2vehicle6"
+	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp)) ;//h
+	{content "%vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3) %vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew4 mp/%side/%period/%crew5 mp/%side/%period/%crew6)"}
+	{button "vehicles"}
+)
+
+; squad setup for vehicle, 4 crew
+(define "squad_vehicle4"
+	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp)) ;//h
+	{content "%vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3 mp/%side/%period/%crew4 )"}
+	{button "vehicles"}
+)
+
+; squad setup for vehicle, 5 crew
+(define "squad_vehicle5"
+	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp)) ;//h
+	{content "%vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3 mp/%side/%period/%crew4 mp/%side/%period/%crew5 )"}
+	{button "vehicles"}
+)
+
+; squad setup for vehicle, 6 crew
+(define "squad_vehicle6"
+	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp)) ;//h
+	{content "%vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3 mp/%side/%period/%crew4 mp/%side/%period/%crew5 mp/%side/%period/%crew6)"}
+	{button "vehicles"}
+)
+
+; squad setup for vehicle, 7 crew
+(define "squad_vehicle7"
+	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp)) ;//h
+	{content "%vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3 mp/%side/%period/%crew4 mp/%side/%period/%crew5 mp/%side/%period/%crew6 mp/%side/%period/%crew7)"}
+	{button "vehicles"}
+)
+
+; squad setup for vehicle, 8 crew
+(define "squad_vehicle8"
+	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp)) ;//h
+	{content "%vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3 mp/%side/%period/%crew4 mp/%side/%period/%crew5 mp/%side/%period/%crew6 mp/%side/%period/%crew7 mp/%side/%period/%crew8)"}
+	{button "vehicles"}
+)
+
+; squad setup for vehicle, 9 crew
+(define "squad_vehicle9"
+	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp)) ;//h
+	{content "%vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3 mp/%side/%period/%crew4 mp/%side/%period/%crew5 mp/%side/%period/%crew6 mp/%side/%period/%crew7 mp/%side/%period/%crew8 mp/%side/%period/%crew9)"}
+	{button "vehicles"}
+)
+
+; squad setup for vehicle, 10 crew
+(define "squad_vehicle10"
+	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp)) ;//h
+	{content "%vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3 mp/%side/%period/%crew4 mp/%side/%period/%crew5 mp/%side/%period/%crew6 mp/%side/%period/%crew7 mp/%side/%period/%crew8 mp/%side/%period/%crew9 mp/%side/%period/%crew10)"}
+	{button "vehicles"}
+)
+
+; squad setup for 2 vehicles with 10 crew, used for ger mech pionier inf
+(define "squad_2vehicle10"
+	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp)) ;//h
+	{content "%vehicle ( mp/%side/%period/%crew mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3 mp/%side/%period/%crew4 mp/%side/%period/%crew5) %vehicle ( mp/%side/%period/%crew mp/%side/%period/%crew6 mp/%side/%period/%crew7 mp/%side/%period/%crew8 mp/%side/%period/%crew9 mp/%side/%period/%crew10)"}
+	{button "vehicles"}
+)
+
+; towed gun
+(define "towed_gun"
+	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp)) ;//h
+	{content "%vehicle ( mp/%side/%period/%crew_v ) %cannon ( mp/%side/%period/%crew_c )"}
+	{button "vehicles"}
+)
+
+
+;--------------------------------------------------------------------------------------------------
+; Squads - the defines with _doctrine have a manual cost() and doctrine() that must be specified on the unit.
+; For the other normal squads the cost is computed as the sum of the cost of the individual soldiers.
+;--------------------------------------------------------------------------------------------------
+
+
+(define "squad_with1types_conquest"
+	{"%name(%side)"
+		{content "mp/%side/%period/%c1"}
+		{tags "conquest conquestonly %side %period"}
+		{level 1}
+		{cost 0}
+		{research_stage %min_stage}
+		{research_stage_max %max_stage}
+		{squad_cost_factor 1}
+		{button "inf1"}
+	}
+)
+
+(define "squad_with2types_conquest"
+	{"%name(%side)"
+		{content "mp/%side/%period/%c1 mp/%side/%period/%c2"}
+		{tags "conquest conquestonly %side %period"}
+		{level 1}
+		{cost 0}
+		{research_stage %min_stage}
+		{research_stage_max %max_stage}
+		{squad_cost_factor 1}
+		{button "inf1"}
+	}
+)
+
+(define "squad_with3types_conquest"
+	{"%name(%side)"
+		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3"}
+		{tags "conquest conquestonly %side %period"}
+		{level 1}
+		{cost 0}
+		{research_stage %min_stage}
+		{research_stage_max %max_stage}
+		{squad_cost_factor 1}
+		{button "inf1"}
+	}
+)
+
+(define "squad_with4types_conquest"
+	{"%name(%side)"
+		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4"}
+		{tags "conquest conquestonly %side %period"}
+		{level 1}
+		{cost 0}
+		{research_stage %min_stage}
+		{research_stage_max %max_stage}
+		{squad_cost_factor 1}
+		{button "inf1"}
+	}
+)
+
+(define "squad_with5types_conquest"
+	{"%name(%side)"
+		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5"}
+		{tags "conquest conquestonly %side %period"}
+		{level 1}
+		{cost 0}
+		{research_stage %min_stage}
+		{research_stage_max %max_stage}
+		{squad_cost_factor 1}
+		{button "inf1"}
+	}
+)
+
+(define "squad_with6types_conquest"
+	{"%name(%side)"
+		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5 mp/%side/%period/%c6"}
+		{tags "conquest conquestonly %side %period"}
+		{level 1}
+		{cost 0}
+		{research_stage %min_stage}
+		{research_stage_max %max_stage}
+		{squad_cost_factor 1}
+		{button "inf1"}
+	}
+)
+
+(define "squad_with7types_conquest"
+	{"%name(%side)"
+		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5 mp/%side/%period/%c6 mp/%side/%period/%c7"}
+		{tags "conquest conquestonly %side %period"}
+		{level 1}
+		{cost 0}
+		{research_stage %min_stage}
+		{research_stage_max %max_stage}
+		{squad_cost_factor 1}
+		{button "inf1"}
+	}
+)
+
+(define "squad_with8types_conquest"
+	{"%name(%side)"
+		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5 mp/%side/%period/%c6 mp/%side/%period/%c7 mp/%side/%period/%c8"}
+		{tags "conquest conquestonly %side %period"}
+		{level 1}
+		{cost 0}
+		{research_stage %min_stage}
+		{research_stage_max %max_stage}
+		{squad_cost_factor 1}
+		{button "inf1"}
+	}
+)
+
+(define "squad_with9types_conquest"
+	{"%name(%side)"
+		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5 mp/%side/%period/%c6 mp/%side/%period/%c7 mp/%side/%period/%c8 mp/%side/%period/%c9"}
+		{tags "conquest conquestonly %side %period"}
+		{level 1}
+		{cost 0}
+		{research_stage %min_stage}
+		{research_stage_max %max_stage}
+		{squad_cost_factor 1}
+		{button "inf1"}
+	}
+)
+
+(define "squad_with10types_conquest"
+	{"%name(%side)"
+		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5 mp/%side/%period/%c6 mp/%side/%period/%c7 mp/%side/%period/%c8 mp/%side/%period/%c9 mp/%side/%period/%c10"}
+		{tags "conquest conquestonly %side %period"}
+		{level 1}
+		{cost 0}
+		{research_stage %min_stage}
+		{research_stage_max %max_stage}
+		{squad_cost_factor 1}
+		{button "inf1"}
+	}
+)
