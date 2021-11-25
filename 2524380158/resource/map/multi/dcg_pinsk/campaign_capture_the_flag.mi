@@ -41087,7 +41087,7 @@
 						}
 						{"default"}
 					}
-					{"delay"
+					{## "delay"
 						{time 0.2}
 					}
 					{## "switch"
@@ -41276,7 +41276,7 @@
 						}
 						{"default"}
 					}
-					{"delay"
+					{## "delay"
 						{time 0.2}
 					}
 					{## "switch"
@@ -41468,7 +41468,7 @@
 						}
 						{"default"}
 					}
-					{"delay"
+					{## "delay"
 						{time 0.2}
 					}
 					{## "switch"
@@ -41660,7 +41660,7 @@
 						}
 						{"default"}
 					}
-					{"delay"
+					{## "delay"
 						{time 0.2}
 					}
 					{## "switch"
@@ -41891,6 +41891,9 @@
 						}
 						{effect construction_sandbag_cannon_shallow}
 					}
+					{"delay"
+						{time 0.5}
+					}
 					{"effect"
 						{selector
 							{source advanced}
@@ -41930,7 +41933,7 @@
 					{"delay"
 						{time 5}
 					}
-					{"ables"
+					{## "ables"
 						{selector
 							{source advanced}
 							{ignore_captured_by_user 0}
@@ -41953,6 +41956,64 @@
 							}
 						}
 						{remove select}
+					}
+					{"if"
+						{condition
+							{type difficulty}
+							{level hard}
+						}
+						{"ables"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag cmp_mg}
+										}
+									}
+									{include
+										{prop
+											{prop vehicle}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+							{remove select}
+						}
+					}
+					{"if"
+						{condition
+							{type difficulty}
+							{level heroic}
+						}
+						{"ables"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag cmp_mg}
+										}
+									}
+									{include
+										{prop
+											{prop vehicle}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+							{remove select}
+						}
 					}
 				}
 			}
