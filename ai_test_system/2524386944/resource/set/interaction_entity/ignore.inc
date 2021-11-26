@@ -55,15 +55,14 @@
 }
 
 {"tank"
-{on "deploy_smoke"					;// UI button to deploy vehicle smoke screen
+	{on "deploy_smoke"					;// UI button to deploy vehicle smoke screen
 		{if operatable
 			{if work "body"
 				{call "smoke_screen"}
 			}
 		}
 	}
-	
-{on break						;// {on break} is for when components break
+	{on break						;// {on break} is for when components break
 		{if not tagged "exploded"
 			{start_sound "crush/medium/metal"}
 			{if component "ammo"
@@ -195,6 +194,12 @@
 				("shed_shield_part" args "shieldw8")
 				("shed_shield_part" args "shieldw9")
 			}
+		}
+	}
+	{on "moving_to_point"
+		{tags add "moving_to_point"}
+		{delay 30
+			{tags remove "moving_to_point"}
 		}
 	}
 }

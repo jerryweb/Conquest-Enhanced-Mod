@@ -62,7 +62,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-									        {tags add "ai_aa"}
+									        {tags add "ai_aa-disabled"}
 										}
 									}
 								}
@@ -87,7 +87,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-									        {tags add "ai_aa"}
+									        {tags add "ai_aa-disabled"}
 										}
 									}
 								}
@@ -114,7 +114,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-									        {tags add "ai_atgun"}
+									        {tags add "ai_atgun-disabled"}
 										}
 									}
 								}
@@ -139,7 +139,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-									        {tags add "ai_atgun"}
+									        {tags add "ai_atgun-disabled"}
 										}
 									}
 								}
@@ -164,7 +164,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_atgun"}
+										    {tags add "ai_atgun-disabled"}
 										}
 									}
 								}
@@ -189,7 +189,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-									        {tags add "ai_atgun"}
+									        {tags add "ai_atgun-disabled"}
 										}
 									}
 								}
@@ -214,7 +214,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_atgun"}
+										    {tags add "ai_atgun-disabled"}
 										}
 									}
 								}
@@ -239,7 +239,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_atgun"}
+										    {tags add "ai_atgun-disabled"}
 										}
 									}
 								}
@@ -267,7 +267,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "enemyarty"}
+										    {tags add "enemyarty-disabled"}
 										}
 									}
 								}
@@ -292,7 +292,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "enemyarty"}
+										    {tags add "enemyarty-disabled"}
 										}
 									}
 								}
@@ -317,7 +317,7 @@
 							    {if not tagged "player_veh"
 								   {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "enemyarty"}
+										    {tags add "enemyarty-disabled"}
 										}
 									}
 								}
@@ -342,7 +342,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "enemyarty"}
+										    {tags add "enemyarty-disabled"}
 										}
 									}
 								}
@@ -367,7 +367,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_rocketarty"}
+										    {tags add "ai_rocketarty-disabled"}
 										}
 									}
 								}
@@ -392,7 +392,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "enemyarty"}
+										    {tags add "enemyarty-disabled"}
 										}
 									}
 								}
@@ -417,7 +417,7 @@
 							    {if not tagged "player_veh"
 								   {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "enemyarty"}
+										    {tags add "enemyarty-disabled"}
 										}
 									}
 								}
@@ -442,7 +442,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "enemyarty"}
+										    {tags add "enemyarty-disabled"}
 										}
 									}
 								}
@@ -467,7 +467,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_rocketarty"}
+										    {tags add "ai_rocketarty-disabled"}
 										}
 									}
 								}
@@ -497,7 +497,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_car"}
+										    {tags add "ai_car-disabled"}
 										}
 									}
 								}
@@ -522,7 +522,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_car"}
+										    {tags add "ai_car-disabled"}
 										}
 									}
 								}
@@ -547,7 +547,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_car"}
+										    {tags add "ai_car-disabled"}
 										}
 									}
 								}
@@ -574,7 +574,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_car"}
+										    {tags add "ai_car-disabled"}
 										}
 									}
 								}
@@ -599,7 +599,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_car"}
+										    {tags add "ai_car-disabled"}
 										}
 									}
 								}
@@ -624,7 +624,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armoredcar"}
+										    {tags add "ai_armor-disablededcar-disabled"}
 										}
 									}
 								}
@@ -649,7 +649,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armoredcar"}
+										    {tags add "ai_armor-disablededcar-disabled"}
 										}
 									}
 								}
@@ -674,7 +674,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armoredcar"}
+										    {tags add "ai_armor-disablededcar-disabled"}
 										}
 									}
 								}
@@ -699,7 +699,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armoredcar"}
+										    {tags add "ai_armor-disablededcar-disabled"}
 										}
 									}
 								}
@@ -724,7 +724,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armoredcar"}
+										    {tags add "ai_armor-disablededcar-disabled"}
 										}
 									}
 								}
@@ -749,7 +749,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armoredcar"}
+										    {tags add "ai_armor-disablededcar-disabled"}
 										}
 									}
 								}
@@ -774,7 +774,7 @@
 							    {if not tagged "player_veh"
 								   {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armoredcar"}
+										    {tags add "ai_armor-disablededcar-disabled"}
 										}
 									}
 								}
@@ -799,7 +799,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armoredcar"}
+										    {tags add "ai_armor-disablededcar-disabled"}
 										}
 									}
 								}
@@ -824,7 +824,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_car"}
+										    {tags add "ai_car-disabled"}
 										}
 									}
 								}
@@ -849,7 +849,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_car"}
+										    {tags add "ai_car-disabled"}
 										}
 									}
 								}
@@ -874,7 +874,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_car"}
+										    {tags add "ai_car-disabled"}
 										}
 									}
 								}
@@ -905,7 +905,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -930,7 +930,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -955,7 +955,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -980,7 +980,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1005,7 +1005,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1030,7 +1030,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1055,7 +1055,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1080,7 +1080,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1105,7 +1105,7 @@
 							    {if not tagged "player_veh"
 								   {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1132,7 +1132,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1157,7 +1157,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1182,7 +1182,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1207,7 +1207,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1232,7 +1232,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1257,7 +1257,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1282,7 +1282,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1307,7 +1307,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1332,7 +1332,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1357,7 +1357,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1382,7 +1382,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1407,7 +1407,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1432,7 +1432,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1457,7 +1457,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1482,7 +1482,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1507,7 +1507,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1532,7 +1532,7 @@
 							    {if not tagged "player_veh"
 								   {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1559,7 +1559,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1584,7 +1584,7 @@
 							    {if not tagged "player_veh"
 								   {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1609,7 +1609,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1634,7 +1634,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1659,7 +1659,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1686,7 +1686,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1711,7 +1711,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1736,7 +1736,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1761,7 +1761,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1786,7 +1786,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1811,7 +1811,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1836,7 +1836,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1861,7 +1861,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1886,7 +1886,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1911,7 +1911,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1936,7 +1936,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1961,7 +1961,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -1986,7 +1986,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -2011,7 +2011,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -2036,7 +2036,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
@@ -2061,7 +2061,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_armor"}
+										    {tags add "ai_armor-disabled"}
 										}
 									}
 								}
