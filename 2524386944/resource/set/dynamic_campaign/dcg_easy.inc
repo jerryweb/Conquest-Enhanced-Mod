@@ -1,14 +1,14 @@
 {Easy
 	{GlobalMaxCP 1900}
-	{StageCP 80 100 120 150 180}
+	{StageCP 100 120 150 180 200}
 	{SpecialCP 1001}					;// airstrikes special tab
 	{EmplacementCP 50}				;// buildable with engineer
 	{Bots
 		{StartMP	0.05 min 2222 attackerMultiplier 3.00}
 		{FinishMP	0.05 attackerMultiplier 66.8}
 		{CP
-			{Base "0:0,20:0,450:0,720:20,740:20,900:20,1100:25,1800:0,2000:10"} ;// seconds : CP
-			{RoundMultiplier "0:0.1 1:0.3 2:0.4 4:0.5 5:0.6 7:0.7 8:1.0 10:1.0 12:1.0 14:1.5"} ;// games played : multiplier for CP
+			{Base "0:0,20:0,450:0,720:10,740:10,900:10,110010,1800:10,2000:10"} ;// seconds : CP
+			{RoundMultiplier "0:0.1 1:0.5 2:0.6 3:0.6 5:0.8 7:0.9 8:0.9 10:1.0 12:1.0 14:1.0 16:1.0 19:1.0"} ;// games played : multiplier
 			{AttackMultiplier 3.5}
 		}
 		{DefenseLevel
