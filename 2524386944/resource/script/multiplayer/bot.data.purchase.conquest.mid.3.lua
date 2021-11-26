@@ -21,6 +21,7 @@ Purchases["campaign_capture_the_flag"] = {
 			--Infantry Singles
 			    {priority = 2.5, class = UnitClass.Infantry, unit = "squad_recon_con(rus)"},
 			--Wheel_vehicles
+				{priority = 1.5, class = UnitClass.Vehicle, unit = "ba64"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "ba6"},
 			}
 		}
@@ -36,11 +37,7 @@ Purchases["campaign_capture_the_flag"] = {
 			["ger"] = {--Germany
 			--Tanks_heavy
 				{priority = 1.0, class = UnitClass.HeavyTank, unit = "panzer5d"},
-				{priority = 2.0, class = UnitClass.HeavyTank, unit = "panzer5a"},
-				{priority = 2.0, class = UnitClass.HeavyTank, unit = "panzer5g"},
 				{priority = 0.5, class = UnitClass.HeavyTank, unit = "tiger1h"},
-				{priority = 1.5, class = UnitClass.HeavyTank, unit = "tiger1e"},
-				{priority = 0.1, class = UnitClass.HeavyTank, unit = "tiger1hunt"},
 			--Tanks_medium
 				{priority = 3.5, class = UnitClass.Tank, unit = "panzer3j"},
 				{priority = 2.5, class = UnitClass.Tank, unit = "panzer3j1"},
@@ -60,25 +57,21 @@ Purchases["campaign_capture_the_flag"] = {
 			},
 			["rus"] = {--Russia
 			--Tanks_heavy
-				{priority = 1.5, class = UnitClass.HeavyTank, unit = "kv1_40"},
 				{priority = 1.0, class = UnitClass.HeavyTank, unit = "kv2_40"},
-				{priority = 2.0, class = UnitClass.HeavyTank, unit = "kv1_41"},
-				{priority = 2.0, class = UnitClass.HeavyTank, unit = "kv1s"},
+				{priority = 1.0, class = UnitClass.HeavyTank, unit = "kv1_41"},
+				{priority = 1.0, class = UnitClass.HeavyTank, unit = "kv1s"},
 				{priority = 0.5, class = UnitClass.HeavyTank, unit = "kv85"},
 				{priority = 0.5, class = UnitClass.HeavyTank, unit = "is1_43"},
-				{priority = 1.5, class = UnitClass.HeavyTank, unit = "is2_43"},
+				{priority = 0.1, class = UnitClass.HeavyTank, unit = "is2_43"},
 	        --Tanks_medium
-				{priority = 2.0, class = UnitClass.Tank, unit = "t3476_40"},
-				{priority = 2.5, class = UnitClass.Tank, unit = "t3476_41"},
-				{priority = 2.1, class = UnitClass.Tank, unit = "t3457_41"},
 				{priority = 3.5, class = UnitClass.Tank, unit = "t3476_42"},
 				{priority = 3.5, class = UnitClass.Tank, unit = "t3476_43"},
+				{priority = 0.1, class = UnitClass.Tank, unit = "t3457_43"},
 			--Tanks_light
-				{priority = 1.0, class = UnitClass.Tank, unit = "t30"},
 				{priority = 0.5, class = UnitClass.Tank, unit = "t40"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "t60"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "t70"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "t70m"},
+				{priority = 1.5, class = UnitClass.Tank, unit = "t70"},
+				{priority = 2.0, class = UnitClass.Tank, unit = "t70m"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "bt7"},
 			}
 		}
@@ -130,16 +123,13 @@ Purchases["campaign_capture_the_flag"] = {
 		Units = {
 			["ger"] = {--Germany
 			--SPG
-				{priority = 1.5, class = UnitClass.ATTank, unit = "stug3b"},
 				{priority = 1.5, class = UnitClass.ATTank, unit = "stug3f"},
 				{priority = 3.0, class = UnitClass.ATTank, unit = "stug3g"},
-				{priority = 1.5, class = UnitClass.ATTank, unit = "stug3g_late"},
-				{priority = 0.1, class = UnitClass.Tank, unit = "grille_m"},
-				{priority = 4.0, class = UnitClass.ArtilleryTank, unit = "stuh42"},
+							{priority = 4.0, class = UnitClass.ArtilleryTank, unit = "stuh42"},
 			--SPG
-				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "sturmpanzer4"},
-				{priority = 1.1, class = UnitClass.ArtilleryTank, unit = "bison"},
-				{priority = 2.1, class = UnitClass.ArtilleryTank, unit = "sig33b"},
+				{priority = 0.1, class = UnitClass.ArtilleryTank, unit = "sturmpanzer4"},
+				{priority = 0.1, class = UnitClass.ArtilleryTank, unit = "bison"},
+				{priority = 1.1, class = UnitClass.ArtilleryTank, unit = "sig33b"},
 				{priority = 0.1, class = UnitClass.ArtilleryTank, unit = "sturmtiger"},
 			},
 			["rus"] = {--Russia
@@ -147,8 +137,6 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.5, class = UnitClass.ATTank, unit = "su85"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "su100"},
 				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "su122"},
-				{priority = 2.0, class = UnitClass.ATTank, unit = "isu122s"},
-				{priority = 2.0, class = UnitClass.ATTank, unit = "isu152"},
 			}
 		}
 	},
@@ -161,6 +149,9 @@ Purchases["campaign_capture_the_flag"] = {
 		waveDuration = 11,
 		Units = {
 			["ger"] = {--Germany
+			--Tanks_heavy
+				{priority = 1.0, class = UnitClass.HeavyTank, unit = "panzer5d"},
+				{priority = 0.5, class = UnitClass.HeavyTank, unit = "tiger1h"},
 			--Tanks_medium
 				{priority = 3.5, class = UnitClass.Tank, unit = "panzer3j"},
 				{priority = 2.5, class = UnitClass.Tank, unit = "panzer3j1"},
@@ -170,11 +161,8 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.5, class = UnitClass.Tank, unit = "panzer4f1"},
 				{priority = 3.0, class = UnitClass.Tank, unit = "panzer4f2"},
 				{priority = 3.0, class = UnitClass.Tank, unit = "panzer4g"},
-			--Tanks_heavy
-				{priority = 2.0, class = UnitClass.HeavyTank, unit = "panzer5a"},
-				{priority = 0.5, class = UnitClass.HeavyTank, unit = "tiger1h"},
 			--Tanks_light
-				{priority = 1.0, class = UnitClass.Vehicle, unit = "blitz3_6_flak30"},
+				{priority = 0.5, class = UnitClass.Tank, unit = "panzer2c"},
 				{priority = 0.6, class = UnitClass.Tank, unit = "panzer2f"},
 				{priority = 0.7, class = UnitClass.Tank, unit = "panzer35t"},
 				{priority = 1.2, class = UnitClass.Tank, unit = "pz38t_a"},
@@ -182,26 +170,22 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Tank, unit = "pz38t_g"},
 			},
 			["rus"] = {--Russia
-			 --Tanks_medium
-				{priority = 1.0, class = UnitClass.Tank, unit = "t28"},
-				{priority = 2.0, class = UnitClass.Tank, unit = "t3476_40"},
-				{priority = 2.5, class = UnitClass.Tank, unit = "t3476_41"},
-				{priority = 0.1, class = UnitClass.Tank, unit = "t3457_41"},
-				{priority = 3.5, class = UnitClass.Tank, unit = "t3476_42"},
-				{priority = 3.5, class = UnitClass.Tank, unit = "t3476_43"},
 			--Tanks_heavy
-				{priority = 1.5, class = UnitClass.HeavyTank, unit = "kv1_40"},
-				{priority = 1.5, class = UnitClass.HeavyTank, unit = "kv2_40"},
-				{priority = 2.0, class = UnitClass.HeavyTank, unit = "kv1_41"},
-				{priority = 2.0, class = UnitClass.HeavyTank, unit = "kv1s"},
+				{priority = 1.0, class = UnitClass.HeavyTank, unit = "kv2_40"},
+				{priority = 1.0, class = UnitClass.HeavyTank, unit = "kv1_41"},
+				{priority = 1.0, class = UnitClass.HeavyTank, unit = "kv1s"},
 				{priority = 0.5, class = UnitClass.HeavyTank, unit = "kv85"},
 				{priority = 0.5, class = UnitClass.HeavyTank, unit = "is1_43"},
-				{priority = 1.5, class = UnitClass.HeavyTank, unit = "is2_43"},
-           	--Tanks_light
-				{priority = 1.0, class = UnitClass.Vehicle, unit = "gaz_aaa_72k"},
+				{priority = 0.1, class = UnitClass.HeavyTank, unit = "is2_43"},
+	        --Tanks_medium
+				{priority = 3.5, class = UnitClass.Tank, unit = "t3476_42"},
+				{priority = 3.5, class = UnitClass.Tank, unit = "t3476_43"},
+				{priority = 0.1, class = UnitClass.Tank, unit = "t3457_43"},
+			--Tanks_light
+				{priority = 0.5, class = UnitClass.Tank, unit = "t40"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "t60"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "t70"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "t70m"},
+				{priority = 1.5, class = UnitClass.Tank, unit = "t70"},
+				{priority = 2.0, class = UnitClass.Tank, unit = "t70m"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "bt7"},
 			}
 		}

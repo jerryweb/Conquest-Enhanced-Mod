@@ -15,7 +15,6 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 2.0, class = UnitClass.Vehicle, unit = "sdkfz221"},
 			--Infantry Squads
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_recon_con(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_recon_motor_con"},
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_recon_armor_con"},				
 			},
 			["rus"] = {--Russia
@@ -99,19 +98,23 @@ Purchases["campaign_capture_the_flag"] = {
 	{--purchase 5 infantry support
 		waveNumber = 5,
 		-- Repeat = 15,
-		minRepeat = 4,
-		maxRepeat = 8,
+		minRepeat = 8,
+		maxRepeat = 18,
         skipPossible = false,		
 		waveDuration = 35,
 		Units = {
 			["ger"] = {--Germany
 			--Infantry Squads
-				{priority = 3.5, class = UnitClass.Infantry, unit = "squad_regular_con(ger)"},
+				{priority = 14.5, class = UnitClass.Infantry, unit = "squad_regular_con(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_osttruppen_con(ger)"},
+				{priority = 0.75, class = UnitClass.Infantry, unit = "squad_strafbatallion_con(ger)"},
 			},
 			["rus"] = {--Russia
 			--Infantry Squads
-				{priority = 2.5, class = UnitClass.Infantry, unit = "squad_rifleunit_alt_con(rus)"},
-				{priority = 3.5, class = UnitClass.Infantry, unit = "squad_rifleunit_con(rus)"},
+				{priority = 5.5, class = UnitClass.Infantry, unit = "squad_rifleunit_alt_con(rus)"},
+				{priority = 5.5, class = UnitClass.Infantry, unit = "squad_rifleunit_con(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_border(rus)"},
+				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_conscripts_con(rus)"},
 			}
 		}
 	},
@@ -126,7 +129,7 @@ Purchases["campaign_capture_the_flag"] = {
 			["ger"] = {--Germany
 			--SPG
 				{priority = 0.5, class = UnitClass.ATTank, unit = "panzerjager1"},
-				{priority = 0.1, class = UnitClass.ArtilleryTank, unit = "bison"},
+				{priority = 1.5, class = UnitClass.ATTank, unit = "stug3b"},
 			},
 			["rus"] = {--Russia
 			--SPG

@@ -16,7 +16,6 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 5.1, class = UnitClass.Vehicle, unit = "p204_f"},
 				{priority = 1.5, class = UnitClass.Vehicle, unit = "sdkfz231"},
 				{priority = 1.5, class = UnitClass.Vehicle, unit = "sdkfz221"},
-				{priority = 1.5, class = UnitClass.Vehicle, unit = "sdkfz234_2"},
 			},
 			["rus"] = {--Russia
 			--Infantry Singles
@@ -25,8 +24,8 @@ Purchases["campaign_capture_the_flag"] = {
 			--Wheel_vehicles
 				{priority = 1.8, class = UnitClass.Vehicle, unit = "m3a1e1_scout_mgun"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "ba6"},
-				{priority = 1.1, class = UnitClass.Tank, unit = "valentine2"},
-		}
+				{priority = 0.5, class = UnitClass.Vehicle, unit = "ba64"},
+			}
 		}
 	},
 	{--purchase 2 mortar
@@ -76,14 +75,14 @@ Purchases["campaign_capture_the_flag"] = {
 			},
 			["rus"] = {--Russia
 			--Tanks_heavy
-				{priority = 2.0, class = UnitClass.HeavyTank, unit = "kv1s"},
+				{priority = 1.0, class = UnitClass.HeavyTank, unit = "kv1s"},
 				{priority = 0.5, class = UnitClass.HeavyTank, unit = "kv85"},
 				{priority = 0.5, class = UnitClass.HeavyTank, unit = "is1_43"},
-				{priority = 1.5, class = UnitClass.HeavyTank, unit = "is2_43"},
-				{priority = 2.0, class = UnitClass.HeavyTank, unit = "is2_44"},
+				{priority = 0.3, class = UnitClass.HeavyTank, unit = "is2_43"},
+				{priority = 0.2, class = UnitClass.HeavyTank, unit = "is2_44"},
             --Tanks_medium
-				{priority = 3.5, class = UnitClass.Tank, unit = "t3476_42"},
-				{priority = 3.5, class = UnitClass.Tank, unit = "t3476_43"},
+				{priority = 1.5, class = UnitClass.Tank, unit = "t3476_42"},
+				{priority = 2.5, class = UnitClass.Tank, unit = "t3476_43"},
 				{priority = 0.1, class = UnitClass.Tank, unit = "t3457_43"},
 				{priority = 3.5, class = UnitClass.Tank, unit = "t3476_43"},
 				{priority = 2.5, class = UnitClass.Tank, unit = "t3485_44"},
@@ -173,14 +172,14 @@ Purchases["campaign_capture_the_flag"] = {
 			},
 			["rus"] = {--Russia
 			--Tanks_heavy
-				{priority = 2.0, class = UnitClass.HeavyTank, unit = "kv1s"},
+				{priority = 1.0, class = UnitClass.HeavyTank, unit = "kv1s"},
 				{priority = 0.5, class = UnitClass.HeavyTank, unit = "kv85"},
 				{priority = 0.5, class = UnitClass.HeavyTank, unit = "is1_43"},
-				{priority = 1.5, class = UnitClass.HeavyTank, unit = "is2_43"},
-				{priority = 2.0, class = UnitClass.HeavyTank, unit = "is2_44"},
+				{priority = 0.3, class = UnitClass.HeavyTank, unit = "is2_43"},
+				{priority = 0.2, class = UnitClass.HeavyTank, unit = "is2_44"},
             --Tanks_medium
-				{priority = 3.5, class = UnitClass.Tank, unit = "t3476_42"},
-				{priority = 3.5, class = UnitClass.Tank, unit = "t3476_43"},
+				{priority = 1.5, class = UnitClass.Tank, unit = "t3476_42"},
+				{priority = 2.5, class = UnitClass.Tank, unit = "t3476_43"},
 				{priority = 0.1, class = UnitClass.Tank, unit = "t3457_43"},
 				{priority = 3.5, class = UnitClass.Tank, unit = "t3476_43"},
 				{priority = 2.5, class = UnitClass.Tank, unit = "t3485_44"},
