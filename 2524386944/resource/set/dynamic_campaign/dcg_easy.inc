@@ -4,7 +4,7 @@
 	{SpecialCP 1001}					;// airstrikes special tab
 	{EmplacementCP 50}				;// buildable with engineer
 	{Bots
-		{StartMP	0.05 min 2222 attackerMultiplier 3.00}
+		{StartMP	0.05 min 222 attackerMultiplier 13.00}
 		{FinishMP	0.05 attackerMultiplier 66.8}
 		{CP
 			{Base "0:0,20:0,450:0,720:10,740:10,900:10,110010,1800:10,2000:10"} ;// seconds : CP
