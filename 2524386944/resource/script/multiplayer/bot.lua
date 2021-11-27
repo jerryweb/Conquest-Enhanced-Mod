@@ -6,7 +6,7 @@ local maxNumOfMidDivisions = 5
 local maxNumOfLateDivisions = 5
 
 -- Wave offset is used to set how much extra time the first wave will last in since the wave is loaded automatically
-local firstWaveOffsetTime = 720
+local firstWaveOffsetTime = 20
 -- This is used to add the offset ONLY to the first wave
 local initialWave = true
 
@@ -365,7 +365,7 @@ function selectArmyDivision(totalFlags)
 	end
 	print("loading")
 	-- REMOVE THIS LINE (ONLY FOR TESTING)
-	-- divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.mid.5]]
+	-- divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.4]]
 	
 
 	return divisionPurchaseModel
@@ -589,7 +589,7 @@ function OnGameSpawn(args)
 
 	local str = tostring(args.squadId)
 
-	local squadOrderTime = math.random(180, 300)
+	local squadOrderTime = math.random(240, 300)
 
 
 	squadDictionary[args.squadId] = os.clock() + squadOrderTime
