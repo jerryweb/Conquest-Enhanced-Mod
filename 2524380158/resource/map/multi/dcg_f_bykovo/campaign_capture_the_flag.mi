@@ -58728,7 +58728,7 @@
 						}
 						{remove select}
 					}
-					{"if"
+					{## "if"
 						{condition
 							{type difficulty}
 							{level hard}
@@ -58757,7 +58757,7 @@
 							{remove select}
 						}
 					}
-					{"if"
+					{## "if"
 						{condition
 							{type difficulty}
 							{level heroic}
@@ -82128,25 +82128,13 @@
 			}
 			{"x/no_scavenge"
 				{condition
-					{expression "1 & 2 & !3 & !4"}
+					{type 1}
 					{terms
-						{"1.entities"
-							{selector
-								{tag player}
-								{state operatable}
-							}
-						}
-						{"2.entities"
-							{selector
-								{tag cmp_def}
-								{state operatable}
-							}
-						}
 						{"3.difficulty"
-							{level easy}
+							{level hard}
 						}
 						{"4.difficulty"
-							{level normal}
+							{level heroic}
 						}
 					}
 				}
