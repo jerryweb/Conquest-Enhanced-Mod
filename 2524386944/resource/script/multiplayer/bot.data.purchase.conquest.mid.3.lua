@@ -57,16 +57,17 @@ Purchases["campaign_capture_the_flag"] = {
 			},
 			["rus"] = {--Russia
 			--Tanks_heavy
-				{priority = 1.0, class = UnitClass.HeavyTank, unit = "kv2_40"},
-				{priority = 1.0, class = UnitClass.HeavyTank, unit = "kv1_41"},
-				{priority = 1.0, class = UnitClass.HeavyTank, unit = "kv1s"},
-				{priority = 0.5, class = UnitClass.HeavyTank, unit = "kv85"},
-				{priority = 0.5, class = UnitClass.HeavyTank, unit = "is1_43"},
+				{priority = 0.2, class = UnitClass.HeavyTank, unit = "kv2_40"},
+				{priority = 0.1, class = UnitClass.HeavyTank, unit = "kv1_41"},
+				{priority = 0.1, class = UnitClass.HeavyTank, unit = "kv1s"},
+				{priority = 0.1, class = UnitClass.HeavyTank, unit = "kv85"},
+				{priority = 0.1, class = UnitClass.HeavyTank, unit = "is1_43"},
 				{priority = 0.1, class = UnitClass.HeavyTank, unit = "is2_43"},
 	        --Tanks_medium
-				{priority = 3.5, class = UnitClass.Tank, unit = "t3476_42"},
-				{priority = 3.5, class = UnitClass.Tank, unit = "t3476_43"},
-				{priority = 0.1, class = UnitClass.Tank, unit = "t3457_43"},
+				{priority = 2.5, class = UnitClass.Tank, unit = "t3476_40"},
+				{priority = 1.5, class = UnitClass.Tank, unit = "t3476_42"},
+				{priority = 0.5, class = UnitClass.Tank, unit = "t3476_43"},
+				{priority = 0.1, class = UnitClass.Tank, unit = "t3457_41"},
 			--Tanks_light
 				{priority = 0.5, class = UnitClass.Tank, unit = "t40"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "t60"},
