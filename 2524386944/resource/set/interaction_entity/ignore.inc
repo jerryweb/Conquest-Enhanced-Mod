@@ -199,3 +199,195 @@
 	}
 }
 
+{"tank"
+    {on "hull_down"
+	    {start_sound "vehicle/deploy/foxhole"}
+		{if tagged "light_tank"
+		    {delay 30.2
+		   	    {spawn "sandbag_structured_straight2" offset 2 70 0}
+				{spawn "sandbag_structured_straight2" offset 0 70 10}
+				{spawn "sandbag_structured_straight2" offset 2 -70 0}
+				{spawn "sandbag_structured_straight2" offset 0 -70 10}
+				{spawn "sandbag_structured_straight2" offset 55 70 0}
+				{spawn "sandbag_structured_straight2" offset 55 70 10}
+				{spawn "sandbag_structured_straight2" offset 55 -70 0}
+				{spawn "sandbag_structured_straight2" offset 55 -70 10}
+					{spawn "sandbag_structured_straight2" offset -55 70 0}
+				{spawn "sandbag_structured_straight2" offset -55 70 10}
+				{spawn "sandbag_structured_straight2" offset -55 -70 0}
+				{spawn "sandbag_structured_straight2" offset -55 -70 10}
+				{spawn "sandbag_structured_straight" offset 70 2 0}
+				{spawn "sandbag_structured_straight" offset 70 0 10}
+				{spawn "sandbag_structured_straight" offset -70 2 0}
+				{spawn "sandbag_structured_straight" offset -70 0 10}
+				{spawn "sandbag_structured_straight" offset 70 55 0}
+				{spawn "sandbag_structured_straight" offset 70 55 10}
+				{spawn "sandbag_structured_straight" offset -70 55 0}
+				{spawn "sandbag_structured_straight" offset -70 55 10}
+				{spawn "sandbag_structured_straight" offset 70 -55 0}
+				{spawn "sandbag_structured_straight" offset 70 -55 10}
+				{spawn "sandbag_structured_straight" offset -70 -55 0}
+				{spawn "sandbag_structured_straight" offset -70 -55 10}
+			}
+		else tagged "heavy_tank"
+		    {delay 30.2
+		   	    {spawn "sandbag_structured_straight2" offset 2 90 0}
+				{spawn "sandbag_structured_straight2" offset 0 90 10}
+				{spawn "sandbag_structured_straight2" offset 2 -90 0}
+				{spawn "sandbag_structured_straight2" offset 0 -90 10}
+				{spawn "sandbag_structured_straight2" offset 75 90 0}
+				{spawn "sandbag_structured_straight2" offset 75 90 10}
+				{spawn "sandbag_structured_straight2" offset 75 -90 0}
+				{spawn "sandbag_structured_straight2" offset 75 -90 10}
+					{spawn "sandbag_structured_straight2" offset -75 90 0}
+				{spawn "sandbag_structured_straight2" offset -75 90 10}
+				{spawn "sandbag_structured_straight2" offset -75 -90 0}
+				{spawn "sandbag_structured_straight2" offset -75 -90 10}
+				  {spawn "sandbag_structured_straight2" offset 2 90 0}
+				{spawn "sandbag_structured_straight2" offset 0 90 20}
+				{spawn "sandbag_structured_straight2" offset 2 -90 0}
+				{spawn "sandbag_structured_straight2" offset 0 -90 20}
+				{spawn "sandbag_structured_straight2" offset 75 90 0}
+				{spawn "sandbag_structured_straight2" offset 75 90 20}
+				{spawn "sandbag_structured_straight2" offset 75 -90 0}
+				{spawn "sandbag_structured_straight2" offset 75 -90 20}
+					{spawn "sandbag_structured_straight2" offset -75 90 0}
+				{spawn "sandbag_structured_straight2" offset -75 90 10}
+				{spawn "sandbag_structured_straight2" offset -75 -90 0}
+				{spawn "sandbag_structured_straight2" offset -75 -90 20}
+				{spawn "sandbag_structured_straight" offset 90 2 0}
+				{spawn "sandbag_structured_straight" offset 90 0 10}
+				{spawn "sandbag_structured_straight" offset -90 2 0}
+				{spawn "sandbag_structured_straight" offset -90 0 10}
+				{spawn "sandbag_structured_straight" offset 90 75 0}
+				{spawn "sandbag_structured_straight" offset 90 75 10}
+				{spawn "sandbag_structured_straight" offset -90 75 0}
+				{spawn "sandbag_structured_straight" offset -90 75 10}
+				{spawn "sandbag_structured_straight" offset 90 -75 0}
+				{spawn "sandbag_structured_straight" offset 90 -75 10}
+				{spawn "sandbag_structured_straight" offset -90 -75 0}
+				{spawn "sandbag_structured_straight" offset -90 -75 10}
+				{spawn "sandbag_structured_straight" offset 90 2 0}
+				{spawn "sandbag_structured_straight" offset 90 0 20}
+				{spawn "sandbag_structured_straight" offset -90 2 0}
+				{spawn "sandbag_structured_straight" offset -90 0 20}
+				{spawn "sandbag_structured_straight" offset 90 75 0}
+				{spawn "sandbag_structured_straight" offset 90 75 20}
+				{spawn "sandbag_structured_straight" offset -90 75 0}
+				{spawn "sandbag_structured_straight" offset -90 75 20}
+				{spawn "sandbag_structured_straight" offset 90 -75 0}
+				{spawn "sandbag_structured_straight" offset 90 -75 20}
+				{spawn "sandbag_structured_straight" offset -90 -75 0}
+				{spawn "sandbag_structured_straight" offset -90 -75 20}
+		    }
+		else "spg"
+            {delay 30.2
+		   	     {spawn "sandbag_structured_straight2" offset 2 90 0}
+				{spawn "sandbag_structured_straight2" offset 0 90 10}
+				{spawn "sandbag_structured_straight2" offset 2 -90 0}
+				{spawn "sandbag_structured_straight2" offset 0 -90 10}
+				{spawn "sandbag_structured_straight2" offset 75 90 0}
+				{spawn "sandbag_structured_straight2" offset 75 90 10}
+				{spawn "sandbag_structured_straight2" offset 75 -90 0}
+				{spawn "sandbag_structured_straight2" offset 75 -90 10}
+					{spawn "sandbag_structured_straight2" offset -75 90 0}
+				{spawn "sandbag_structured_straight2" offset -75 90 10}
+				{spawn "sandbag_structured_straight2" offset -75 -90 0}
+				{spawn "sandbag_structured_straight2" offset -75 -90 10}
+				  {spawn "sandbag_structured_straight2" offset 2 90 0}
+				{spawn "sandbag_structured_straight2" offset 0 90 12}
+				{spawn "sandbag_structured_straight2" offset 2 -90 0}
+				{spawn "sandbag_structured_straight2" offset 0 -90 12}
+				{spawn "sandbag_structured_straight2" offset 75 90 0}
+				{spawn "sandbag_structured_straight2" offset 75 90 12}
+				{spawn "sandbag_structured_straight2" offset 75 -90 0}
+				{spawn "sandbag_structured_straight2" offset 75 -90 12}
+					{spawn "sandbag_structured_straight2" offset -75 90 0}
+				{spawn "sandbag_structured_straight2" offset -75 90 10}
+				{spawn "sandbag_structured_straight2" offset -75 -90 0}
+				{spawn "sandbag_structured_straight2" offset -75 -90 12}
+				{spawn "sandbag_structured_straight" offset 90 2 0}
+				{spawn "sandbag_structured_straight" offset 90 0 10}
+				{spawn "sandbag_structured_straight" offset -90 2 0}
+				{spawn "sandbag_structured_straight" offset -90 0 10}
+				{spawn "sandbag_structured_straight" offset 90 75 0}
+				{spawn "sandbag_structured_straight" offset 90 75 10}
+				{spawn "sandbag_structured_straight" offset -90 75 0}
+				{spawn "sandbag_structured_straight" offset -90 75 10}
+				{spawn "sandbag_structured_straight" offset 90 -75 0}
+				{spawn "sandbag_structured_straight" offset 90 -75 10}
+				{spawn "sandbag_structured_straight" offset -90 -75 0}
+				{spawn "sandbag_structured_straight" offset -90 -75 10}
+				{spawn "sandbag_structured_straight" offset 90 2 0}
+				{spawn "sandbag_structured_straight" offset 90 0 12}
+				{spawn "sandbag_structured_straight" offset -90 2 0}
+				{spawn "sandbag_structured_straight" offset -90 0 12}
+				{spawn "sandbag_structured_straight" offset 90 75 0}
+				{spawn "sandbag_structured_straight" offset 90 75 12}
+				{spawn "sandbag_structured_straight" offset -90 75 0}
+				{spawn "sandbag_structured_straight" offset -90 75 12}
+				{spawn "sandbag_structured_straight" offset 90 -75 0}
+				{spawn "sandbag_structured_straight" offset 90 -75 12}
+				{spawn "sandbag_structured_straight" offset -90 -75 0}
+				{spawn "sandbag_structured_straight" offset -90 -75 12}
+			}
+		else 
+            {delay 30.2
+		   	     {spawn "sandbag_structured_straight2" offset 2 90 0}
+				{spawn "sandbag_structured_straight2" offset 0 90 10}
+				{spawn "sandbag_structured_straight2" offset 2 -90 0}
+				{spawn "sandbag_structured_straight2" offset 0 -90 10}
+				{spawn "sandbag_structured_straight2" offset 75 90 0}
+				{spawn "sandbag_structured_straight2" offset 75 90 10}
+				{spawn "sandbag_structured_straight2" offset 75 -90 0}
+				{spawn "sandbag_structured_straight2" offset 75 -90 10}
+					{spawn "sandbag_structured_straight2" offset -75 90 0}
+				{spawn "sandbag_structured_straight2" offset -75 90 10}
+				{spawn "sandbag_structured_straight2" offset -75 -90 0}
+				{spawn "sandbag_structured_straight2" offset -75 -90 10}
+				  {spawn "sandbag_structured_straight2" offset 2 90 0}
+				{spawn "sandbag_structured_straight2" offset 0 90 15}
+				{spawn "sandbag_structured_straight2" offset 2 -90 0}
+				{spawn "sandbag_structured_straight2" offset 0 -90 15}
+				{spawn "sandbag_structured_straight2" offset 75 90 0}
+				{spawn "sandbag_structured_straight2" offset 75 90 15}
+				{spawn "sandbag_structured_straight2" offset 75 -90 0}
+				{spawn "sandbag_structured_straight2" offset 75 -90 15}
+					{spawn "sandbag_structured_straight2" offset -75 90 0}
+				{spawn "sandbag_structured_straight2" offset -75 90 10}
+				{spawn "sandbag_structured_straight2" offset -75 -90 0}
+				{spawn "sandbag_structured_straight2" offset -75 -90 15}
+				{spawn "sandbag_structured_straight" offset 90 2 0}
+				{spawn "sandbag_structured_straight" offset 90 0 10}
+				{spawn "sandbag_structured_straight" offset -90 2 0}
+				{spawn "sandbag_structured_straight" offset -90 0 10}
+				{spawn "sandbag_structured_straight" offset 90 75 0}
+				{spawn "sandbag_structured_straight" offset 90 75 10}
+				{spawn "sandbag_structured_straight" offset -90 75 0}
+				{spawn "sandbag_structured_straight" offset -90 75 10}
+				{spawn "sandbag_structured_straight" offset 90 -75 0}
+				{spawn "sandbag_structured_straight" offset 90 -75 10}
+				{spawn "sandbag_structured_straight" offset -90 -75 0}
+				{spawn "sandbag_structured_straight" offset -90 -75 10}
+				{spawn "sandbag_structured_straight" offset 90 2 0}
+				{spawn "sandbag_structured_straight" offset 90 0 15}
+				{spawn "sandbag_structured_straight" offset -90 2 0}
+				{spawn "sandbag_structured_straight" offset -90 0 15}
+				{spawn "sandbag_structured_straight" offset 90 75 0}
+				{spawn "sandbag_structured_straight" offset 90 75 15}
+				{spawn "sandbag_structured_straight" offset -90 75 0}
+				{spawn "sandbag_structured_straight" offset -90 75 15}
+				{spawn "sandbag_structured_straight" offset 90 -75 0}
+				{spawn "sandbag_structured_straight" offset 90 -75 15}
+				{spawn "sandbag_structured_straight" offset -90 -75 0}
+				{spawn "sandbag_structured_straight" offset -90 -75 15}
+			}
+	    }
+    }
+}
+
+
+
+
+
+
