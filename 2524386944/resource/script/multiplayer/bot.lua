@@ -3,7 +3,7 @@ require([[/script/multiplayer/bot.data]])
 -- Number of unit division roster files to randomly select for each period in the war 
 local maxNumOfEarlyDivisions = 5
 local maxNumOfMidDivisions = 5
-local maxNumOfLateDivisions = 5
+local maxNumOfLateDivisions = 6
 
 -- Wave offset is used to set how much extra time the first wave will last in since the wave is loaded automatically
 local initialEnemyReinforcementTime = 660
@@ -248,7 +248,7 @@ function GetFlagToCapture(flagPoints, getPriority)
 	local flags = {}
 	
 	for i, flag in pairs(flagPoints) do
-		print("flag name: ", flag.name)
+		-- print("flag name: ", flag.name)
 		table.insert(flags, {name = flag.name, k = getPriority(flag)})
 	end
 
@@ -367,7 +367,7 @@ function selectArmyDivision(totalFlags)
 	end
 	print("loading")
 	-- REMOVE THIS LINE (ONLY FOR TESTING)
-	-- divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.4]]
+	-- divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.6]]
 	
 
 	return divisionPurchaseModel
@@ -477,7 +477,7 @@ function TrySpawnUnit()
 	local unit = Context.SpawnInfo.unit
 	
 	if not BotApi.Commands:IsUnitAvailable(unit) then
-		print(unit, "not available, player#" .. BotApi.Instance.playerId)
+		-- print(unit, "not available, player#" .. BotApi.Instance.playerId)
 		KillSpawnWaitTimer()
 		UpdateUnitToSpawn(Context.Purchase)
 		return
@@ -491,21 +491,21 @@ function TrySpawnUnit()
 			return
 		end
 	else
-		print("can't spawn ", unit, ", max number of squads for this wave reached")
+		-- print("can't spawn ", unit, ", max number of squads for this wave reached")
 		UpdateUnitToSpawn(Context.Purchase)
 		return
 	end 
 
 	local tts = BotApi.Commands:TimeToSpawnUnit(unit)
 	if tts > UnitSpawnWaitTime then
-		print(unit, tts, "wait too long, player#" .. BotApi.Instance.playerId)
+		-- print(unit, tts, "wait too long, player#" .. BotApi.Instance.playerId)
 		KillSpawnWaitTimer()
 		UpdateUnitToSpawn(Context.Purchase)
 		return
 	end
 
 	if not Context.SpawnWait.WaitTimer then
-		print(unit, tts, "set wait timer, player#" .. BotApi.Instance.playerId)
+		-- print(unit, tts, "set wait timer, player#" .. BotApi.Instance.playerId)
 		Context.SpawnWait.WaitTimer = BotApi.Events:SetQuantTimer(
 			function()
 				Context.SpawnWait.WaitTimer = nil
@@ -516,7 +516,6 @@ end
 
 function OnGameQuant()
 	if os.clock() > (gameStartTime + initialEnemyReinforcementTime) then
-		print("spawning unit") 
 		TrySpawnUnit()
 	end
 
@@ -597,7 +596,7 @@ function OnGameSpawn(args)
 	for i, waypoints in pairs(waypoints) do
 		print("points", i)
 	end
-	print("spawned squad id: ", tostring(args.squadId))
+	-- print("spawned squad id: ", tostring(args.squadId))
 
 	local str = tostring(args.squadId)
 
