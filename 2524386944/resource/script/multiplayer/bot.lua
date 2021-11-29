@@ -6,7 +6,9 @@ local maxNumOfMidDivisions = 5
 local maxNumOfLateDivisions = 5
 
 -- Wave offset is used to set how much extra time the first wave will last in since the wave is loaded automatically
-local firstWaveOffsetTime = 660
+local initialEnemyReinforcementTime = 660
+local gameStartTime = 0
+local firstWaveOffsetTime = initialEnemyReinforcementTime
 -- This is used to add the offset ONLY to the first wave
 local initialWave = true
 
@@ -375,6 +377,11 @@ function OnGameStart()
 	math.randomseed(os.time()*BotApi.Instance.hostId)
 	math.random() math.random() math.random() math.random()
 
+	if math.random() < 0.3 then -- 30% chance to change when enemy reinforcements spawn 
+		initialEnemyReinforcementTime = math.random(480,720)
+		firstWaveOffsetTime = initialEnemyReinforcementTime
+	end
+
 
 	local purchasesModule = [[/script/multiplayer/bot.data.purchase.]] .. BotApi.Instance.gameMode;
 	if module_exists(purchasesModule) then
@@ -424,7 +431,8 @@ function OnGameStart()
 	end
 
 	Context.Purchase = PIter:new(purchases)
-
+	gameStartTime = os.clock()
+	print("first enemy wave will start at ", gameStartTime + initialEnemyReinforcementTime)
 	UpdateUnitToSpawn(Context.Purchase)
 	SetSpawnCooldownTimer()
 
@@ -507,7 +515,11 @@ function TrySpawnUnit()
 end
 
 function OnGameQuant()
-	TrySpawnUnit()
+	if os.clock() > (gameStartTime + initialEnemyReinforcementTime) then
+		print("spawning unit") 
+		TrySpawnUnit()
+	end
+
 	local waypoints = BotApi.Scene.Waypoints
 
 	if #waypoints == 0 then
