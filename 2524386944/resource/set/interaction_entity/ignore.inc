@@ -55,7 +55,7 @@
 }
 
 {"tank"
-{on "deploy_smoke"					;// UI button to deploy vehicle smoke screen
+	{on "deploy_smoke"					;// UI button to deploy vehicle smoke screen
 		{if operatable
 			{if work "body"
 				{call "smoke_screen"}
