@@ -52,6 +52,18 @@
 		{set "toggle_delay" 1}			;// stops accidental double click of UI button
 		{delay 1 {set "toggle_delay" 0}}
 	}
+	{on "moving_to_point"
+		{tags remove "idle"}
+		{tags add "moving_to_point"}
+		{delay 30
+			{tags remove "moving_to_point"}
+		}
+		{delay 30
+			{if not tagged "moving_to_point"
+				{tags add "idle"}
+			}
+		}
+	}
 }
 
 {"tank"
@@ -197,10 +209,17 @@
 		}
 	}
 	{on "moving_to_point"
+		{tags remove "idle"}
 		{tags add "moving_to_point"}
 		{delay 30
 			{tags remove "moving_to_point"}
 		}
+		{delay 30
+			{if not tagged "moving_to_point"
+				{tags add "idle"}
+			}
+		}
+		
 	}
 }
 
