@@ -32,7 +32,32 @@
 			}
 		}
 	}
-	
+	{on "moving_to_point"
+		{tags remove "idle"}
+		{tags add "moving_to_point"}
+		{tags remove "attack_player"}
+		{delay 30
+			{tags remove "moving_to_point"}
+		}
+		{delay 30
+			{if not tagged "moving_to_point"
+				{tags add "idle"}
+			}
+		}
+	}
+	{on "attack_player"
+		{tags remove "idle"}
+		{tags remove "moving_to_point"}
+		{tags add "attack_player"}
+		{delay 30
+			{tags remove "attack_player"}
+		}
+		{delay 30
+			{if not tagged "attack_player"
+				{tags add "idle"}
+			}
+		}
+	}
 	{on "stop_healing"
 		{if not tagged "carry_off"
 		    {view pause "marker_healing"}

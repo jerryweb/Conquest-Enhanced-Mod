@@ -52,18 +52,43 @@
 		{set "toggle_delay" 1}			;// stops accidental double click of UI button
 		{delay 1 {set "toggle_delay" 0}}
 	}
+	{on "moving_to_point"
+		{tags remove "idle"}
+		{tags remove "attack_player"}
+		{tags add "moving_to_point"}
+		{delay 30
+			{tags remove "moving_to_point"}
+		}
+		{delay 30
+			{if not tagged "moving_to_point"
+				{tags add "idle"}
+			}
+		}
+	}
+	{on "attack_player"
+		{tags remove "idle"}
+		{tags remove "moving_to_point"}
+		{tags add "attack_player"}
+		{delay 30
+			{tags remove "attack_player"}
+		}
+		{delay 30
+			{if not tagged "attack_player"
+				{tags add "idle"}
+			}
+		}
+	}
 }
 
 {"tank"
-{on "deploy_smoke"					;// UI button to deploy vehicle smoke screen
+	{on "deploy_smoke"					;// UI button to deploy vehicle smoke screen
 		{if operatable
 			{if work "body"
 				{call "smoke_screen"}
 			}
 		}
 	}
-	
-{on break						;// {on break} is for when components break
+	{on break						;// {on break} is for when components break
 		{if not tagged "exploded"
 			{start_sound "crush/medium/metal"}
 			{if component "ammo"
