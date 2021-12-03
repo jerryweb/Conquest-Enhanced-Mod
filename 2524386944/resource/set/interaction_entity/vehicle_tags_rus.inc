@@ -3,7 +3,6 @@
 	{on spawn
 	    {tags add "HMG"}
 		{tags add "soviet"}
-		{tags add "maxim"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -29,7 +28,6 @@
 	{on spawn
 	    {tags add "HMG"}
 		{tags add "soviet"}
-		{tags add "dshk_stan"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -55,7 +53,6 @@
 	{on spawn
 	    {tags add "HMG"}
 		{tags add "soviet"}
-		{tags add "dshk_aa"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -81,7 +78,6 @@
 	{on spawn
 	    {tags add "AAFLAK"}
 		{tags add "soviet"}
-		{tags add "25mm_72k"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -107,7 +103,6 @@
 	{on spawn
 	    {tags add "AAFLAK"}
 		{tags add "soviet"}
-		{tags add "37mm_61k"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -136,14 +131,12 @@
 	{on spawn
 	    {tags add "light_at_gun"}
 		{tags add "soviet"}
-		{tags add "m41_ampulomet"}
 	}
 }
 {"45mm_m37"
 	{on spawn
 	    {tags add "light_at_gun"}
 		{tags add "soviet"}
-		{tags add "45mm_m37"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -169,7 +162,6 @@
 	{on spawn
 	    {tags add "light_at_gun"}
 		{tags add "soviet"}
-		{tags add "45mm_m42"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -195,7 +187,6 @@
 	{on spawn
 	    {tags add "medium_at_gun"}
 		{tags add "soviet"}
-		{tags add "57mm_zis2"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -221,7 +212,6 @@
 	{on spawn
 	    {tags add "medium_at_gun"}
 		{tags add "soviet"}
-		{tags add "76_f22"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -247,7 +237,6 @@
 	{on spawn
 	    {tags add "medium_at_gun"}
 		{tags add "soviet"}
-		{tags add "76mm_zis3"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -273,7 +262,6 @@
 	{on spawn
 	    {tags add "heavy_at_gun"}
 		{tags add "soviet"}
-		{tags add "85mm_52k"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -299,7 +287,6 @@
 	{on spawn
 	    {tags add "heavy_at_gun"}
 		{tags add "soviet"}
-		{tags add "100mm_bs3"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -328,7 +315,6 @@
 	{on spawn
     	{tags add "artillery"}
 		{tags add "soviet"}
-		{tags add "76mm_m1927"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -355,7 +341,6 @@
 	{on spawn
     	{tags add "artillery"}
 		{tags add "soviet"}
-		{tags add "76mm_m43"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -381,7 +366,6 @@
 	{on spawn
     	{tags add "artillery"}
 		{tags add "soviet"}
-		{tags add "82mm_bm37"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -407,7 +391,6 @@
 	{on spawn
     	{tags add "artillery"}
 		{tags add "soviet"}
-		{tags add "120mm_pm38"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -433,7 +416,6 @@
 	{on spawn
     	{tags add "artillery"}
 		{tags add "soviet"}
-		{tags add "122mm_m30"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -459,7 +441,6 @@
 	{on spawn
     	{tags add "artillery"}
 		{tags add "soviet"}
-		{tags add "122mm_a19"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -485,7 +466,6 @@
 	{on spawn
     	{tags add "artillery"}
 		{tags add "soviet"}
-		{tags add "152mm_ml20"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -511,7 +491,6 @@
 	{on spawn
     	{tags add "artillery"}
 		{tags add "soviet"}
-		{tags add "203mm_b4"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -543,7 +522,6 @@
 	{on spawn
     	{tags add "wheeled_vehicle"}
 		{tags add "soviet"}
-		{tags add "gaz_aaa"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -569,7 +547,6 @@
 	{on spawn
     	{tags add "wheeled_vehicle"}
 		{tags add "soviet"}
-		{tags add "gaz_aaa_supply"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -595,7 +572,6 @@
 	{on spawn
     	{tags add "wheeled_vehicle"}
 		{tags add "soviet"}
-		{tags add "gaz_fuel"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -621,7 +597,6 @@
 	{on spawn
     	{tags add "wheeled_vehicle"}
 		{tags add "soviet"}
-		{tags add "gas_aaa_72k"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -647,7 +622,6 @@
 	{on spawn
     	{tags add "wheeled_vehicle"}
 		{tags add "soviet"}
-		{tags add "zis5"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -673,7 +647,6 @@
 	{on spawn
     	{tags add "wheeled_vehicle"}
 		{tags add "soviet"}
-		{tags add "zis5eng"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -699,7 +672,6 @@
 	{on spawn
     	{tags add "wheeled_vehicle"}
 		{tags add "soviet"}
-		{tags add "bm13_studebaker"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -725,7 +697,6 @@
 	{on spawn
     	{tags add "wheeled_vehicle"}
 		{tags add "soviet"}
-		{tags add "bm31_12"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -751,7 +722,6 @@
 	{on spawn
     	{tags add "wheeled_vehicle"}
 		{tags add "soviet"}
-		{tags add "gaz67b"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -779,7 +749,6 @@
 		    {tags add "radio_car"}
 		}
 		{tags add "soviet"}
-		{tags add "gaz67"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -805,7 +774,6 @@
 	{on spawn
     	{tags add "wheeled_vehicle"}
 		{tags add "soviet"}
-		{tags add "ba20"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -831,7 +799,6 @@
 	{on spawn
     	{tags add "wheeled_vehicle"}
 		{tags add "soviet"}
-		{tags add "ba6"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -857,7 +824,6 @@
 	{on spawn
     	{tags add "wheeled_vehicle"}
 		{tags add "soviet"}
-		{tags add "ba64"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -883,7 +849,6 @@
 	{on spawn
     	{tags add "wheeled_vehicle"}
 		{tags add "soviet"}
-		{tags add "universal_carrier_rus"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -909,7 +874,6 @@
 	{on spawn
     	{tags add "wheeled_vehicle"}
 		{tags add "soviet"}
-		{tags add "mmg_carrier_rus"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -935,7 +899,6 @@
 	{on spawn
     	{tags add "wheeled_vehicle"}
 		{tags add "soviet"}
-		{tags add "m3a1e1_scout_mgun"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -966,7 +929,6 @@
 	{on spawn
     	{tags add "light_tank"}
 		{tags add "soviet"}
-		{tags add "t27"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -992,7 +954,6 @@
 	{on spawn
     	{tags add "light_tank"}
 		{tags add "soviet"}
-		{tags add "t37a"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1018,7 +979,6 @@
 	{on spawn
     	{tags add "light_tank"}
 		{tags add "soviet"}
-		{tags add "t40"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1044,7 +1004,6 @@
 	{on spawn
     	{tags add "light_tank"}
 		{tags add "soviet"}
-		{tags add "t30"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1070,7 +1029,6 @@
 	{on spawn
     	{tags add "light_tank"}
 		{tags add "soviet"}
-		{tags add "t60"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1096,7 +1054,6 @@
 	{on spawn
     	{tags add "light_tank"}
 		{tags add "soviet"}
-		{tags add "t70"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1121,7 +1078,7 @@
 {"t70m"
 	{on spawn
     	{tags add "light_tank"}
-		{tags add "t70m"}
+		{tags add "soviet"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1147,7 +1104,6 @@
 	{on spawn
     	{tags add "light_tank"}
 		{tags add "soviet"}
-		{tags add "bt2_da2"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1173,7 +1129,6 @@
 	{on spawn
     	{tags add "light_tank"}
 		{tags add "soviet"}
-		{tags add "bt2"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1199,7 +1154,6 @@
 	{on spawn
     	{tags add "light_tank"}
 		{tags add "soviet"}
-		{tags add "bt5"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1225,7 +1179,6 @@
 	{on spawn
     	{tags add "light_tank"}
 		{tags add "soviet"}
-		{tags add "bt7"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1251,7 +1204,6 @@
 	{on spawn
     	{tags add "light_tank"}
 		{tags add "soviet"}
-		{tags add "t26_31"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1277,7 +1229,6 @@
 	{on spawn
     	{tags add "light_tank"}
 		{tags add "soviet"}
-		{tags add "kht26"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1303,7 +1254,6 @@
 	{on spawn
     	{tags add "light_tank"}
 		{tags add "soviet"}
-		{tags add "t26_33"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1329,7 +1279,6 @@
 	{on spawn
     	{tags add "light_tank"}
 		{tags add "soviet"}
-		{tags add "t26_39"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1355,7 +1304,6 @@
 	{on spawn
     	{tags add "light_tank"}
 		{tags add "soviet"}
-		{tags add "valentine2"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1381,7 +1329,6 @@
 	{on spawn
     	{tags add "light_tank"}
 		{tags add "soviet"}
-		{tags add "valentine7"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1407,7 +1354,6 @@
 	{on spawn
     	{tags add "light_tank"}
 		{tags add "soviet"}
-		{tags add "valentine9"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1435,7 +1381,6 @@
 	{on spawn
     	{tags add "medium_tank"}
 		{tags add "soviet"}
-		{tags add "t28"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1461,7 +1406,6 @@
 	{on spawn
     	{tags add "medium_tank"}
 		{tags add "soviet"}
-		{tags add "t3476_40"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1487,7 +1431,6 @@
 	{on spawn
     	{tags add "medium_tank"}
 		{tags add "soviet"}
-		{tags add "t3476_41"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1513,7 +1456,6 @@
 	{on spawn
     	{tags add "medium_tank"}
 		{tags add "soviet"}
-		{tags add "t3457_41"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1539,7 +1481,6 @@
 	{on spawn
     	{tags add "medium_tank"}
 		{tags add "soviet"}
-		{tags add "t3476_42"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1565,7 +1506,6 @@
 	{on spawn
     	{tags add "medium_tank"}
 		{tags add "soviet"}
-		{tags add "t3476_43"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1591,7 +1531,6 @@
 	{on spawn
     	{tags add "medium_tank"}
 		{tags add "soviet"}
-		{tags add "t3457_43"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1617,7 +1556,6 @@
 	{on spawn
     	{tags add "medium_tank"}
 		{tags add "soviet"}
-		{tags add "t3476_43_flame"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1643,7 +1581,6 @@
 	{on spawn
     	{tags add "medium_tank"}
 		{tags add "soviet"}
-		{tags add "t3485_44"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1671,7 +1608,6 @@
 	{on spawn
     	{tags add "heavy_tank"}
 		{tags add "soviet"}
-		{tags add "churchill3"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1697,7 +1633,6 @@
 	{on spawn
     	{tags add "heavy_tank"}
 		{tags add "soviet"}
-		{tags add "kv1_40"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1723,7 +1658,6 @@
 	{on spawn
     	{tags add "heavy_tank"}
 		{tags add "soviet"}
-		{tags add "kv1_41"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1749,7 +1683,6 @@
 	{on spawn
     	{tags add "heavy_tank"}
 		{tags add "soviet"}
-		{tags add "kv2_40"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1775,7 +1708,6 @@
 	{on spawn
     	{tags add "heavy_tank"}
 		{tags add "soviet"}
-		{tags add "kv1s"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1801,7 +1733,6 @@
 	{on spawn
     	{tags add "heavy_tank"}
 		{tags add "soviet"}
-		{tags add "kv85"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1827,7 +1758,6 @@
 	{on spawn
     	{tags add "heavy_tank"}
 		{tags add "soviet"}
-		{tags add "is1_43"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1853,7 +1783,6 @@
 	{on spawn
     	{tags add "heavy_tank"}
 		{tags add "soviet"}
-		{tags add "is2_43"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1879,7 +1808,6 @@
 	{on spawn
     	{tags add "heavy_tank"}
 		{tags add "soviet"}
-		{tags add "is2_44"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1907,7 +1835,6 @@
 	{on spawn
     	{tags add "spg"}
 		{tags add "soviet"}
-		{tags add "zis30"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1933,7 +1860,6 @@
 	{on spawn
     	{tags add "spg"}
 		{tags add "soviet"}
-		{tags add "su76"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1959,7 +1885,6 @@
 	{on spawn
     	{tags add "spg"}
 		{tags add "soviet"}
-		{tags add "su85"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -1985,7 +1910,6 @@
 	{on spawn
     	{tags add "spg"}
 		{tags add "soviet"}
-		{tags add "su100"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -2011,7 +1935,6 @@
 	{on spawn
     	{tags add "spg"}
 		{tags add "soviet"}
-		{tags add "su122"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -2037,7 +1960,6 @@
 	{on spawn
     	{tags add "spg"}
 		{tags add "soviet"}
-		{tags add "su152"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -2063,7 +1985,6 @@
 	{on spawn
     	{tags add "spg"}
 		{tags add "soviet"}
-		{tags add "isu122s"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -2089,7 +2010,6 @@
 	{on spawn
     	{tags add "spg"}
 		{tags add "soviet"}
-		{tags add "isu152"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -2118,7 +2038,6 @@
 {"conquest_il2"
 	{on spawn
     	{tags add "aircraft"}
-		{tags add "conquest_il2"}
 	}
 }
 

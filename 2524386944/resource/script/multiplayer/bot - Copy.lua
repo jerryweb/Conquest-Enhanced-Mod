@@ -7,7 +7,7 @@ local maxNumOfLateDivisions = 6
 
 -- Wave offset is used to set how much extra time the first wave will last in since the wave is loaded automatically
 local gameStartTime = 0
-local firstWaveOffsetTime = 720
+local firstWaveOffsetTime = 20
 -- This is used to add the offset ONLY to the first wave
 local initialWave = true
 
@@ -367,14 +367,11 @@ function OnGameStart()
 	math.randomseed(os.time()*BotApi.Instance.hostId)
 	math.random() math.random() math.random() math.random()
 
-	if math.random() < 0.3 then -- 30% chance to change when enemy reinforcements spawn 
-		firstWaveOffsetTime = math.random(480,720)
-	end
-	if math.random() < 0.5 then -- 50% chance to for typhoon wave mode 
-		setTyphoonWaveMode()
-	end
-
+	-- if math.random() < 0.3 then -- 30% chance to change when enemy reinforcements spawn 
+	-- 	firstWaveOffsetTime = math.random(480,720)
+	-- end
 	gameStartTime = os.clock()
+	-- setNextTyphoonWaveTime()
 	print("first enemy wave will start at ", gameStartTime + firstWaveOffsetTime)
 	nextTyphoonWaveTime = gameStartTime + firstWaveOffsetTime
 
