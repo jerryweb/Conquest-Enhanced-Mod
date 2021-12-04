@@ -6,7 +6,7 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 2,
 		maxRepeat = 5,
 		skipPossible = false,
-		waveDuration = 2,
+		waveDuration = 20,
 		Units = {
 			["ger"] = {--Germany
 				--Infantry Squads
@@ -52,7 +52,7 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 2,
 		maxRepeat = 4,
 	    skipPossible = false,
-	    waveDuration = 3,
+	    waveDuration = 10,
 		Units = {
 			["ger"] = {--Germany
 			--Tanks_heavy
@@ -99,7 +99,7 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 4,
 		maxRepeat = 8,
         skipPossible = false,		
-		waveDuration = 2,
+		waveDuration = 20,
 		Units = {
 			["ger"] = {--Germany
 			--Infantry Squads
@@ -123,7 +123,7 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 1,
 		maxRepeat = 3,
         skipPossible = false,		
-		waveDuration = 4,
+		waveDuration = 40,
 		Units = {
 			["ger"] = {--Germany
 			--SPG
@@ -149,7 +149,7 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 2,
 		maxRepeat = 4,
         skipPossible = false,		
-		waveDuration = 3,
+		waveDuration = 15,
 		Units = {
 			["ger"] = {--Germany
 			--Tanks_heavy
@@ -196,7 +196,7 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 4,
 		maxRepeat = 8,
         skipPossible = false,		
-		waveDuration = 3,
+		waveDuration = 35,
 		Units = {
 			["ger"] = {--Germany
 			--Infantry Squads
@@ -235,7 +235,7 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 3,
 		maxRepeat = 6,
         skipPossible = false,		
-		waveDuration = 3,
+		waveDuration = 10,
 		Units = {
 			["ger"] = {--Germany
 			--Wheel_vehicles

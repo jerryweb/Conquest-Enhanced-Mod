@@ -1,16 +1,22 @@
 require([[/script/multiplayer/bot.data]])
-
+-- require([[/script/multiplayer/bot.wave_system]])
 -- Number of unit division roster files to randomly select for each period in the war 
 local maxNumOfEarlyDivisions = 5
 local maxNumOfMidDivisions = 5
 local maxNumOfLateDivisions = 6
 
 -- Wave offset is used to set how much extra time the first wave will last in since the wave is loaded automatically
-local initialEnemyReinforcementTime = 660
 local gameStartTime = 0
-local firstWaveOffsetTime = initialEnemyReinforcementTime
+local firstWaveOffsetTime = 20
 -- This is used to add the offset ONLY to the first wave
 local initialWave = true
+
+-- This variable controls whether units will spawn all at once for 15 seconds, creating a massive wave, every x seconds
+local typhoonWaveMode = true
+local nextTyphoonWaveTime = 0
+local typhoonWaveInterval = 90
+local typhoonWaveDuration = 25 
+local defaultSpawnCooldownTime = {}
 
 local currentWaveMaxUnitCount = 0
 
@@ -25,6 +31,22 @@ local Context = {
 	},
 	SquadTimers = {}
 }
+
+function setNextTyphoonWaveTime() 
+	nextTyphoonWaveTime = os.clock() + typhoonWaveInterval
+end
+
+function setTyphoonWaveMode()
+	typhoonWaveMode = true
+	SpawnCooldownTime.Min = 2
+	SpawnCooldownTime.Max = 2
+end
+
+function disableTyphoonWaveMode()
+	typhoonWaveMode = false
+	SpawnCooldownTime.Min = defaultSpawnCooldownTime.Min
+	SpawnCooldownTime.Max = defaultSpawnCooldownTime.Max
+end
 
 function SetSpawnCooldownTimer()
 	Context.SpawnWait.CooldownTimer = BotApi.Events:SetQuantTimer(
@@ -75,42 +97,6 @@ function PIter:current()
 		return self.purchases[self.idx].Units
 	end
 end
-
--- function PIter:nextValidWave()
--- 	print("finding next valid wave")
--- 	local availableUnits = {}
-
--- 	while #availableUnits == 0 do
--- 		if not self.idx then
--- 			self.idx = 1
--- 		end
-		
--- 		local potentialUnits = self.purchases[self.idx].Units[BotApi.Instance.army]
--- 		print("Finding unlocked units for this wave")
--- 		-- if not self.unlockedUnits then
--- 		for i, unit in pairs(potentialUnits) do
--- 			if BotApi.Commands:IsUnitAvailable(unit.unit) then
--- 				print("Adding ", unit.unit, " to available units")
--- 				table.insert(availableUnits, unit)
--- 			else 
--- 				print(unit.unit, " is not yet available to the AI")
--- 			end
--- 		end
-		
--- 		if #availableUnits > 0 then
--- 			break
--- 		end
-
--- 		print("wave ", self.idx, " has no available units")
--- 		self.idx = next(self.purchases, self.idx)
--- 	end	
-
--- 	print("number of available units for wave ", self.idx, ": ", #availableUnits)
--- 	self.unlockedUnits = availableUnits
-
-
--- 	-- return self
--- end
 
 function PIter:nextIndex()
 
@@ -176,7 +162,11 @@ function PIter:nextIndex()
 
 	print("Max number of squads for this wave: ", self.rpt)
 
-	self.waveDuration = self.purchases[self.idx].waveDuration
+	if typhoonWaveMode then 
+		self.waveDuration = 3
+	else
+		self.waveDuration = self.purchases[self.idx].waveDuration
+	end 
 
 	if initialWave then 
 		self.waveDuration = self.waveDuration + firstWaveOffsetTime
@@ -377,11 +367,16 @@ function OnGameStart()
 	math.randomseed(os.time()*BotApi.Instance.hostId)
 	math.random() math.random() math.random() math.random()
 
-	if math.random() < 0.3 then -- 30% chance to change when enemy reinforcements spawn 
-		initialEnemyReinforcementTime = math.random(480,720)
-		firstWaveOffsetTime = initialEnemyReinforcementTime
-	end
+	-- if math.random() < 0.3 then -- 30% chance to change when enemy reinforcements spawn 
+	-- 	firstWaveOffsetTime = math.random(480,720)
+	-- end
+	-- if math.random() < 0.5 then -- 50% chance to for typhoon wave mode 
+	-- 	setTyphoonWaveMode()
+	-- end
 
+	gameStartTime = os.clock()
+	print("first enemy wave will start at ", gameStartTime + firstWaveOffsetTime)
+	nextTyphoonWaveTime = gameStartTime + firstWaveOffsetTime
 
 	local purchasesModule = [[/script/multiplayer/bot.data.purchase.]] .. BotApi.Instance.gameMode;
 	if module_exists(purchasesModule) then
@@ -425,14 +420,19 @@ function OnGameStart()
 	    
 	    SpawnCooldownTime.Min = SpawnCooldownTime.Min * spawnMultiplier
 	    SpawnCooldownTime.Max = SpawnCooldownTime.Max * spawnMultiplier
+	    defaultSpawnCooldownTime = SpawnCooldownTime
+
+	    if typhoonWaveMode then
+	    	 setTyphoonWaveMode()
+	    end
 	    
 	    print("Spawn multipliers (min, max):", SpawnCooldownTime.Min, SpawnCooldownTime.Max)
 	    purchases = divisionPurchases
 	end
 
 	Context.Purchase = PIter:new(purchases)
-	gameStartTime = os.clock()
-	print("first enemy wave will start at ", gameStartTime + initialEnemyReinforcementTime)
+	
+	
 	UpdateUnitToSpawn(Context.Purchase)
 	SetSpawnCooldownTimer()
 
@@ -491,21 +491,21 @@ function TrySpawnUnit()
 			return
 		end
 	else
-		-- print("can't spawn ", unit, ", max number of squads for this wave reached")
+		print("can't spawn ", unit, ", max number of squads for this wave reached")
 		UpdateUnitToSpawn(Context.Purchase)
 		return
 	end 
 
 	local tts = BotApi.Commands:TimeToSpawnUnit(unit)
 	if tts > UnitSpawnWaitTime then
-		-- print(unit, tts, "wait too long, player#" .. BotApi.Instance.playerId)
+		print(unit, tts, "wait too long, player#" .. BotApi.Instance.playerId)
 		KillSpawnWaitTimer()
 		UpdateUnitToSpawn(Context.Purchase)
 		return
 	end
 
 	if not Context.SpawnWait.WaitTimer then
-		-- print(unit, tts, "set wait timer, player#" .. BotApi.Instance.playerId)
+		print(unit, tts, "set wait timer, player#" .. BotApi.Instance.playerId)
 		Context.SpawnWait.WaitTimer = BotApi.Events:SetQuantTimer(
 			function()
 				Context.SpawnWait.WaitTimer = nil
@@ -515,8 +515,17 @@ function TrySpawnUnit()
 end
 
 function OnGameQuant()
-	if os.clock() > (gameStartTime + initialEnemyReinforcementTime) then
-		TrySpawnUnit()
+	if os.clock() > (gameStartTime + firstWaveOffsetTime) then
+		if typhoonWaveMode then
+			if os.clock() > nextTyphoonWaveTime then
+				TrySpawnUnit()
+				if os.clock() > nextTyphoonWaveTime + typhoonWaveDuration then
+					setNextTyphoonWaveTime()
+				end
+			end
+		else 
+			TrySpawnUnit()
+		end
 	end
 
 	local waypoints = BotApi.Scene.Waypoints
@@ -536,8 +545,6 @@ function OnGameQuant()
 			end
 		end
 	end
-
-
 end
 
 function SeekAndDestroy(squad)

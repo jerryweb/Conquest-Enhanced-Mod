@@ -6,7 +6,7 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 3,
 		maxRepeat = 6,
 		skipPossible = false,
-		waveDuration = 2,
+		waveDuration = 20,
 		Units = {
 			["ger"] = {--Germany
 				--Infantry Squads
@@ -23,7 +23,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_spetsnaz(rus)"},
 			--Wheel_vehicles
 				{priority = 1.8, class = UnitClass.Vehicle, unit = "m3a1e1_scout_mgun"},
-				{priority = 0.5, class = UnitClass.Vehicle, unit = "ba64"}
+				{priority = 0.5, class = UnitClass.Vehicle, unit = "ba64"},
 			}
 		}
 	},
@@ -51,7 +51,7 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 2,
 		maxRepeat = 4,
 	    skipPossible = false,
-	    waveDuration = 3,
+	    waveDuration = 10,
 		Units = {
 			["ger"] = {--Germany
 			--Tanks_medium
@@ -61,7 +61,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 3.5, class = UnitClass.Tank, unit = "panzer4h"},
 				{priority = 3.0, class = UnitClass.Tank, unit = "panzer4j"},
 			--Tanks_light
-				{priority = 0.6, class = UnitClass.Tank, unit = "panzer2f"}
+				{priority = 0.6, class = UnitClass.Tank, unit = "panzer2f"},
 			--SPG
 			},
 			["rus"] = {--Russia
@@ -73,7 +73,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 0.5, class = UnitClass.Tank, unit = "t3485_44"},
 			--Tanks_light
 				{priority = 3.0, class = UnitClass.Tank, unit = "t60"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "t70m"}
+				{priority = 1.0, class = UnitClass.Tank, unit = "t70m"},
 			}
 		}
 	},
@@ -83,7 +83,7 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 6,
 		maxRepeat = 8,
         skipPossible = false,		
-		waveDuration = 2,
+		waveDuration = 20,
 		Units = {
 			["ger"] = {--Germany
 			--Infantry Squads
@@ -91,7 +91,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_gebirgsjaeger_con(ger)"},
 				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_fallschirmjaeger_con(ger)"},
 				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_blau_con(ger)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_brandenburger_con(ger)"}
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_brandenburger_con(ger)"},
 			},
 			["rus"] = {--Russia
 			--Infantry Squads
@@ -104,7 +104,7 @@ Purchases["campaign_capture_the_flag"] = {
 
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_paras(rus)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_spetsnaz(rus)"},
-				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_marines_con(rus)"}
+				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_marines_con(rus)"},
 			}
 		}
 	},
@@ -114,7 +114,7 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 1,
 		maxRepeat = 2,
         skipPossible = false,		
-		waveDuration = 4,
+		waveDuration = 40,
 		Units = {
 			["ger"] = {--Germany
 			--SPG
@@ -122,13 +122,13 @@ Purchases["campaign_capture_the_flag"] = {
 					{priority = 1.5, class = UnitClass.ATTank, unit = "hetzer"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "marder2"},
 				{priority = 0.5, class = UnitClass.ATTank, unit = "marder3m"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "stuh42"}
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "stuh42"},
 			},
 			["rus"] = {--Russia
 			--SPG
 				{priority = 2.5, class = UnitClass.ATTank, unit = "su85"},
 				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "su122"},
-				{priority = 1.0, class = UnitClass.ATTank, unit = "isu152"}
+				{priority = 1.0, class = UnitClass.ATTank, unit = "isu152"},
 			}
 		}
 	},
@@ -138,7 +138,7 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 2,
 		maxRepeat = 4,
         skipPossible = false,		
-		waveDuration = 3,
+		waveDuration = 15,
 		Units = {
 			["ger"] = {--Germany
 			--Tanks_medium
@@ -146,7 +146,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.5, class = UnitClass.Tank, unit = "panzer4h"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "panzer4j"},
 			--Tanks_light
-				{priority = 0.6, class = UnitClass.Tank, unit = "panzer2f"}
+				{priority = 0.6, class = UnitClass.Tank, unit = "panzer2f"},
 			--SPG
 			},
 			["rus"] = {--Russia
@@ -156,7 +156,7 @@ Purchases["campaign_capture_the_flag"] = {
 			--Tanks_light
 				{priority = 3.0, class = UnitClass.Tank, unit = "t70m"},
 				{priority = 2.0, class = UnitClass.Tank, unit = "t60"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "bt7"}
+				{priority = 1.0, class = UnitClass.Tank, unit = "bt7"},
 			}
 		}
 	},
@@ -166,7 +166,7 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 6,
 		maxRepeat = 11,
         skipPossible = false,		
-		waveDuration = 3,
+		waveDuration = 35,
 		Units = {
 			["ger"] = {--Germany
 			--Infantry Squads
@@ -174,7 +174,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_gebirgsjaeger_con(ger)"},
 				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_fallschirmjaeger_con(ger)"},
 				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_blau_con(ger)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_brandenburger_con(ger)"}
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_brandenburger_con(ger)"},
 			},
 			["rus"] = {--Russia
 			--Infantry Squads
@@ -187,7 +187,7 @@ Purchases["campaign_capture_the_flag"] = {
 
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_paras(rus)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_spetsnaz(rus)"},
-				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_marines_con(rus)"}
+				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_marines_con(rus)"},
 			}
 		}
 	},
@@ -213,14 +213,14 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 2,
 		maxRepeat = 4,
         skipPossible = false,		
-		waveDuration = 3,
+		waveDuration = 10,
 		Units = {
 			["ger"] = {--Germany
 			--Wheel_vehicles
 				{priority = 2.5, class = UnitClass.Vehicle, unit = "sdkfz234_2"},
 				{priority = 1.5, class = UnitClass.Vehicle, unit = "blitz3_6_flak30"},
 				{priority = 1.5, class = UnitClass.Vehicle, unit = "sdkfz231"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "panzer2l"}
+				{priority = 1.0, class = UnitClass.Tank, unit = "panzer2l"},
 			},
 			["rus"] = {--Russia
             --Tanks_light			
@@ -228,7 +228,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 2.0, class = UnitClass.Tank, unit = "t60"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "bt7"},
 			--Wheel_vehicles
-				{priority = 1.0, class = UnitClass.Vehicle, unit = "gaz_aaa_72k"}
+				{priority = 1.0, class = UnitClass.Vehicle, unit = "gaz_aaa_72k"},
 			}
 		}
 	}
