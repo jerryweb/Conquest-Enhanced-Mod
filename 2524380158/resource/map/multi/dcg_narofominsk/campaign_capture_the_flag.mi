@@ -60744,6 +60744,7 @@
 			}
 			{"arty/arty2 balanced"
 				{condition
+					{expression "1 & 3 & 2 & 4 & !5 & !6"}
 					{terms
 						{"1.entities"
 							{selector
@@ -60794,6 +60795,12 @@
 						}
 						{"4.event"
 							{id "attack_start"}
+						}
+						{"5.difficulty"
+							{level easy}
+						}
+						{"6.difficulty"
+							{level normal}
 						}
 					}
 				}
@@ -72301,6 +72308,41 @@
 										}
 										{state
 											{state dead}
+										}
+										{state
+											{state user_control}
+										}
+										{relation
+											{relation ally}
+											{player "1"}
+										}
+									}
+								}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{with_item
+											{type amount}
+											{item "300mm_bm30" "ammo"}
+											{min 1}
+										}
+									}
+									{exclude
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_car}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag dead}
 										}
 										{state
 											{state user_control}

@@ -62063,6 +62063,7 @@
 			}
 			{"arty/arty2 balanced"
 				{condition
+					{expression "1 & 3 & 2 & 4 & !5 & !6"}
 					{terms
 						{"1.entities"
 							{selector
@@ -62113,6 +62114,12 @@
 						}
 						{"4.event"
 							{id "attack_start"}
+						}
+						{"5.difficulty"
+							{level easy}
+						}
+						{"6.difficulty"
+							{level normal}
 						}
 					}
 				}
@@ -72623,6 +72630,41 @@
 										}
 									}
 								}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{with_item
+											{type amount}
+											{item "300mm_bm30" "ammo"}
+											{min 1}
+										}
+									}
+									{exclude
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_car}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag dead}
+										}
+										{state
+											{state user_control}
+										}
+										{relation
+											{relation ally}
+											{player "1"}
+										}
+									}
+								}
 							}
 						}
 					}
@@ -80287,6 +80329,3440 @@
 					}
 					{"trigger"
 						{name "x/randomize_emplacementplayerinfantry"}
+					}
+				}
+			}
+			{## "ai_spawn/side_b_1"
+				{condition
+					{terms
+						{"1.cmp_i"
+							{var "user_team$"}
+							{op "=="}
+							{value 1}
+						}
+						{"2.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sideb1"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_car}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag sideb1}
+										}
+										{tag
+											{tag sideb2}
+										}
+										{tag
+											{tag sideb3}
+										}
+										{tag
+											{tag sideb4}
+										}
+										{tag
+											{tag bm13_studebaker}
+										}
+										{tag
+											{tag bm31_12}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag enemyarty}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 5}
+					}
+					{"while"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sideb1"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag sideb2}
+										}
+										{tag
+											{tag sideb1}
+										}
+										{tag
+											{tag sideb3}
+										}
+										{tag
+											{tag sideb4}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag bm13_studebaker}
+										}
+										{tag
+											{tag bm31_12}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag enemyarty}
+										}
+										{tag
+											{tag ready_to_move_b1}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sideb1"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_car}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag sideb1}
+										}
+										{tag
+											{tag sideb2}
+										}
+										{tag
+											{tag sideb3}
+										}
+										{tag
+											{tag sideb4}
+										}
+										{tag
+											{tag bm13_studebaker}
+										}
+										{tag
+											{tag bm31_12}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag enemyarty}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+								{amount 5
+								}
+							}
+							{tag_add ready_to_move_b1}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"waypoint"
+							{who
+								{type actor}
+								{actors
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ready_to_move_b1}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{tag
+												{tag squad}
+											}
+											{tag
+												{tag artillery}
+											}
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+											{tag
+												{tag player_car}
+											}
+											{tag
+												{tag player_veh}
+											}
+											{tag
+												{tag player_armor}
+											}
+											{tag
+												{tag engine_count_1}
+											}
+											{tag
+												{tag engine_count_2}
+											}
+										}
+									}
+									{amount 5
+									}
+								}
+							}
+							{action
+								{type start}
+								{waypoint "20"}
+								{make_squad}
+								{name_squad "1"}
+								{copy_squad "2"}
+							}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"actor_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag ready_to_move_b1}
+										}
+									}
+									{include
+										{prop
+											{prop tank}
+										}
+										{state
+											{state operatable}
+										}
+									}
+								}
+							}
+							{movement
+								{speed slow}
+							}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"actor_state"
+							{selector
+								{tag ready_to_move_b1}
+								{type human}
+								{state operatable}
+							}
+							{movement
+								{speed assault}
+							}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag ready_to_move_b1}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_car}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag sideb1}
+										}
+										{tag
+											{tag sideb2}
+										}
+										{tag
+											{tag sideb3}
+										}
+										{tag
+											{tag sideb4}
+										}
+										{tag
+											{tag bm13_studebaker}
+										}
+										{tag
+											{tag bm31_12}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag enemyarty}
+										}
+									}
+								}
+								{amount 5
+								}
+							}
+							{tag_add sideb1}
+							{tag_remove ready_to_move_b1}
+						}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"trigger"
+						{name "ai_spawn/side_b_1"}
+					}
+				}
+			}
+			{## "ai_spawn/side_b_2"
+				{condition
+					{terms
+						{"1.cmp_i"
+							{var "user_team$"}
+							{op "=="}
+							{value 1}
+						}
+						{"2.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sideb2"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag sideb2}
+										}
+										{tag
+											{tag sideb1}
+										}
+										{tag
+											{tag sideb3}
+										}
+										{tag
+											{tag sideb4}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag bm13_studebaker}
+										}
+										{tag
+											{tag bm31_12}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag enemyarty}
+										}
+										{tag
+											{tag ready_to_move_b2}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 5}
+					}
+					{"while"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sideb2"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag sideb2}
+										}
+										{tag
+											{tag sideb1}
+										}
+										{tag
+											{tag sideb3}
+										}
+										{tag
+											{tag sideb4}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag bm13_studebaker}
+										}
+										{tag
+											{tag bm31_12}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag enemyarty}
+										}
+										{tag
+											{tag ready_to_move_b2}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sideb2"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_car}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag sideb1}
+										}
+										{tag
+											{tag sideb2}
+										}
+										{tag
+											{tag sideb3}
+										}
+										{tag
+											{tag sideb4}
+										}
+										{tag
+											{tag bm13_studebaker}
+										}
+										{tag
+											{tag bm31_12}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag enemyarty}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+								{amount 5
+								}
+							}
+							{tag_add ready_to_move_b2}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"waypoint"
+							{who
+								{type actor}
+								{actors
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ready_to_move_b2}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{tag
+												{tag squad}
+											}
+											{tag
+												{tag artillery}
+											}
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+											{tag
+												{tag player_car}
+											}
+											{tag
+												{tag player_veh}
+											}
+											{tag
+												{tag player_armor}
+											}
+											{tag
+												{tag engine_count_1}
+											}
+											{tag
+												{tag engine_count_2}
+											}
+										}
+									}
+									{amount 5
+									}
+								}
+							}
+							{action
+								{type start}
+								{waypoint "21"}
+								{make_squad}
+								{name_squad "1"}
+								{copy_squad "2"}
+							}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"actor_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag ready_to_move_b2}
+										}
+									}
+									{include
+										{prop
+											{prop tank}
+										}
+										{state
+											{state operatable}
+										}
+									}
+								}
+							}
+							{movement
+								{speed slow}
+							}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"actor_state"
+							{selector
+								{tag ready_to_move_b2}
+								{type human}
+								{state operatable}
+							}
+							{movement
+								{speed assault}
+							}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag ready_to_move_b2}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_car}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag sideb1}
+										}
+										{tag
+											{tag sideb2}
+										}
+										{tag
+											{tag sideb3}
+										}
+										{tag
+											{tag sideb4}
+										}
+										{tag
+											{tag bm13_studebaker}
+										}
+										{tag
+											{tag bm31_12}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag enemyarty}
+										}
+									}
+								}
+								{amount 5
+								}
+							}
+							{tag_add sideb2}
+							{tag_remove ready_to_move_b2}
+						}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"trigger"
+						{name "ai_spawn/side_b_2"}
+					}
+				}
+			}
+			{## "ai_spawn/side_b_3"
+				{condition
+					{terms
+						{"1.cmp_i"
+							{var "user_team$"}
+							{op "=="}
+							{value 1}
+						}
+						{"2.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sideb3"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag sideb2}
+										}
+										{tag
+											{tag sideb1}
+										}
+										{tag
+											{tag sideb3}
+										}
+										{tag
+											{tag sideb4}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag bm13_studebaker}
+										}
+										{tag
+											{tag bm31_12}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag enemyarty}
+										}
+										{tag
+											{tag ready_to_move_b3}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 5}
+					}
+					{"while"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sideb3"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag sideb2}
+										}
+										{tag
+											{tag sideb1}
+										}
+										{tag
+											{tag sideb3}
+										}
+										{tag
+											{tag sideb4}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag bm13_studebaker}
+										}
+										{tag
+											{tag bm31_12}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag enemyarty}
+										}
+										{tag
+											{tag ready_to_move_b3}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sideb3"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_car}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag sideb1}
+										}
+										{tag
+											{tag sideb2}
+										}
+										{tag
+											{tag sideb3}
+										}
+										{tag
+											{tag sideb4}
+										}
+										{tag
+											{tag bm13_studebaker}
+										}
+										{tag
+											{tag bm31_12}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag enemyarty}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+								{amount 5
+								}
+							}
+							{tag_add ready_to_move_b3}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"waypoint"
+							{who
+								{type actor}
+								{actors
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ready_to_move_b3}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{tag
+												{tag squad}
+											}
+											{tag
+												{tag artillery}
+											}
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+											{tag
+												{tag player_car}
+											}
+											{tag
+												{tag player_veh}
+											}
+											{tag
+												{tag player_armor}
+											}
+											{tag
+												{tag engine_count_1}
+											}
+											{tag
+												{tag engine_count_2}
+											}
+										}
+									}
+									{amount 5
+									}
+								}
+							}
+							{action
+								{type start}
+								{waypoint "22"}
+								{make_squad}
+								{name_squad "1"}
+								{copy_squad "2"}
+							}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"actor_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag ready_to_move_b3}
+										}
+									}
+									{include
+										{prop
+											{prop tank}
+										}
+										{state
+											{state operatable}
+										}
+									}
+								}
+							}
+							{movement
+								{speed slow}
+							}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"actor_state"
+							{selector
+								{tag ready_to_move_b3}
+								{type human}
+								{state operatable}
+							}
+							{movement
+								{speed assault}
+							}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag ready_to_move_b3}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_car}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag sideb1}
+										}
+										{tag
+											{tag sideb2}
+										}
+										{tag
+											{tag sideb3}
+										}
+										{tag
+											{tag sideb4}
+										}
+										{tag
+											{tag bm13_studebaker}
+										}
+										{tag
+											{tag bm31_12}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag enemyarty}
+										}
+									}
+								}
+								{amount 5
+								}
+							}
+							{tag_add sideb3}
+							{tag_remove ready_to_move_b3}
+						}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"trigger"
+						{name "ai_spawn/side_b_3"}
+					}
+				}
+			}
+			{## "ai_spawn/side_b_4"
+				{condition
+					{terms
+						{"1.cmp_i"
+							{var "user_team$"}
+							{op "=="}
+							{value 1}
+						}
+						{"2.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sideb4"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag sideb2}
+										}
+										{tag
+											{tag sideb1}
+										}
+										{tag
+											{tag sideb3}
+										}
+										{tag
+											{tag sideb4}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag bm13_studebaker}
+										}
+										{tag
+											{tag bm31_12}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag enemyarty}
+										}
+										{tag
+											{tag ready_to_move_b4}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 5}
+					}
+					{"while"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sideb3"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag sideb2}
+										}
+										{tag
+											{tag sideb1}
+										}
+										{tag
+											{tag sideb3}
+										}
+										{tag
+											{tag sideb4}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag bm13_studebaker}
+										}
+										{tag
+											{tag bm31_12}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag enemyarty}
+										}
+										{tag
+											{tag ready_to_move_b4}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sideb4"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_car}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag sideb1}
+										}
+										{tag
+											{tag sideb2}
+										}
+										{tag
+											{tag sideb3}
+										}
+										{tag
+											{tag sideb4}
+										}
+										{tag
+											{tag bm13_studebaker}
+										}
+										{tag
+											{tag bm31_12}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag enemyarty}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+								{amount 5
+								}
+							}
+							{tag_add ready_to_move_b4}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"waypoint"
+							{who
+								{type actor}
+								{actors
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ready_to_move_b4}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{tag
+												{tag squad}
+											}
+											{tag
+												{tag artillery}
+											}
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+											{tag
+												{tag player_car}
+											}
+											{tag
+												{tag player_veh}
+											}
+											{tag
+												{tag player_armor}
+											}
+											{tag
+												{tag engine_count_1}
+											}
+											{tag
+												{tag engine_count_2}
+											}
+										}
+									}
+									{amount 5
+									}
+								}
+							}
+							{action
+								{type start}
+								{waypoint "23"}
+								{make_squad}
+								{name_squad "1"}
+								{copy_squad "2"}
+							}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"actor_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag ready_to_move_b4}
+										}
+									}
+									{include
+										{prop
+											{prop tank}
+										}
+										{state
+											{state operatable}
+										}
+									}
+								}
+							}
+							{movement
+								{speed slow}
+							}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"actor_state"
+							{selector
+								{tag ready_to_move_b4}
+								{type human}
+								{state operatable}
+							}
+							{movement
+								{speed assault}
+							}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag ready_to_move_b4}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_car}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag sideb1}
+										}
+										{tag
+											{tag sideb2}
+										}
+										{tag
+											{tag sideb3}
+										}
+										{tag
+											{tag sideb4}
+										}
+										{tag
+											{tag bm13_studebaker}
+										}
+										{tag
+											{tag bm31_12}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag enemyarty}
+										}
+									}
+								}
+								{amount 5
+								}
+							}
+							{tag_add sideb4}
+							{tag_remove ready_to_move_b4}
+						}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"trigger"
+						{name "ai_spawn/side_b_4"}
+					}
+				}
+			}
+			{## "ai_spawn/side_a_1"
+				{condition
+					{terms
+						{"1.cmp_i"
+							{var "user_team$"}
+							{op "=="}
+							{value 2}
+						}
+						{"2.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sidea1"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_car}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag sidea1}
+										}
+										{tag
+											{tag sidea2}
+										}
+										{tag
+											{tag sidea3}
+										}
+										{tag
+											{tag sidea4}
+										}
+										{tag
+											{tag bm13_studebaker}
+										}
+										{tag
+											{tag bm31_12}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag enemyarty}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 5}
+					}
+					{"while"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sidea1"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag sidea2}
+										}
+										{tag
+											{tag sidea1}
+										}
+										{tag
+											{tag sidea3}
+										}
+										{tag
+											{tag sidea4}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag bm13_studebaker}
+										}
+										{tag
+											{tag bm31_12}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag enemyarty}
+										}
+										{tag
+											{tag ready_to_move_a1}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sidea1"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_car}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag sidea1}
+										}
+										{tag
+											{tag sidea2}
+										}
+										{tag
+											{tag sidea3}
+										}
+										{tag
+											{tag sidea4}
+										}
+										{tag
+											{tag bm13_studebaker}
+										}
+										{tag
+											{tag bm31_12}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag enemyarty}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+								{amount 5
+								}
+							}
+							{tag_add ready_to_move_a1}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"waypoint"
+							{who
+								{type actor}
+								{actors
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ready_to_move_a1}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{tag
+												{tag squad}
+											}
+											{tag
+												{tag artillery}
+											}
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+											{tag
+												{tag player_car}
+											}
+											{tag
+												{tag player_veh}
+											}
+											{tag
+												{tag player_armor}
+											}
+											{tag
+												{tag engine_count_1}
+											}
+											{tag
+												{tag engine_count_2}
+											}
+										}
+									}
+									{amount 5
+									}
+								}
+							}
+							{action
+								{type start}
+								{waypoint "24"}
+								{make_squad}
+								{name_squad "1"}
+								{copy_squad "2"}
+							}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"actor_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag ready_to_move_a1}
+										}
+									}
+									{include
+										{prop
+											{prop tank}
+										}
+										{state
+											{state operatable}
+										}
+									}
+								}
+							}
+							{movement
+								{speed slow}
+							}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"actor_state"
+							{selector
+								{tag ready_to_move_a1}
+								{type human}
+								{state operatable}
+							}
+							{movement
+								{speed assault}
+							}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag ready_to_move_a1}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_car}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag sidea1}
+										}
+										{tag
+											{tag sidea2}
+										}
+										{tag
+											{tag sidea3}
+										}
+										{tag
+											{tag sidea4}
+										}
+										{tag
+											{tag bm13_studebaker}
+										}
+										{tag
+											{tag bm31_12}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag enemyarty}
+										}
+									}
+								}
+								{amount 5
+								}
+							}
+							{tag_add sidea1}
+							{tag_remove ready_to_move_a1}
+						}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"trigger"
+						{name "ai_spawn/side_a_1"}
+					}
+				}
+			}
+			{## "ai_spawn/side_a_2"
+				{condition
+					{terms
+						{"1.cmp_i"
+							{var "user_team$"}
+							{op "=="}
+							{value 2}
+						}
+						{"2.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sidea2"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag sidea2}
+										}
+										{tag
+											{tag sidea1}
+										}
+										{tag
+											{tag sidea3}
+										}
+										{tag
+											{tag sidea4}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag bm13_studebaker}
+										}
+										{tag
+											{tag bm31_12}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag enemyarty}
+										}
+										{tag
+											{tag ready_to_move_a2}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 5}
+					}
+					{"while"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sidea2"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag sidea2}
+										}
+										{tag
+											{tag sidea1}
+										}
+										{tag
+											{tag sidea3}
+										}
+										{tag
+											{tag sidea4}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag bm13_studebaker}
+										}
+										{tag
+											{tag bm31_12}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag enemyarty}
+										}
+										{tag
+											{tag ready_to_move_a2}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sidea2"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_car}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag sidea1}
+										}
+										{tag
+											{tag sidea2}
+										}
+										{tag
+											{tag sidea3}
+										}
+										{tag
+											{tag sidea4}
+										}
+										{tag
+											{tag bm13_studebaker}
+										}
+										{tag
+											{tag bm31_12}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag enemyarty}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+								{amount 5
+								}
+							}
+							{tag_add ready_to_move_a2}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"waypoint"
+							{who
+								{type actor}
+								{actors
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ready_to_move_a2}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{tag
+												{tag squad}
+											}
+											{tag
+												{tag artillery}
+											}
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+											{tag
+												{tag player_car}
+											}
+											{tag
+												{tag player_veh}
+											}
+											{tag
+												{tag player_armor}
+											}
+											{tag
+												{tag engine_count_1}
+											}
+											{tag
+												{tag engine_count_2}
+											}
+										}
+									}
+									{amount 5
+									}
+								}
+							}
+							{action
+								{type start}
+								{waypoint "25"}
+								{make_squad}
+								{name_squad "1"}
+								{copy_squad "2"}
+							}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"actor_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag ready_to_move_a2}
+										}
+									}
+									{include
+										{prop
+											{prop tank}
+										}
+										{state
+											{state operatable}
+										}
+									}
+								}
+							}
+							{movement
+								{speed slow}
+							}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"actor_state"
+							{selector
+								{tag ready_to_move_a2}
+								{type human}
+								{state operatable}
+							}
+							{movement
+								{speed assault}
+							}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag ready_to_move_a2}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_car}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag sidea1}
+										}
+										{tag
+											{tag sidea2}
+										}
+										{tag
+											{tag sidea3}
+										}
+										{tag
+											{tag sidea4}
+										}
+										{tag
+											{tag bm13_studebaker}
+										}
+										{tag
+											{tag bm31_12}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag enemyarty}
+										}
+									}
+								}
+								{amount 5
+								}
+							}
+							{tag_add sidea2}
+							{tag_remove ready_to_move_a2}
+						}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"trigger"
+						{name "ai_spawn/side_a_2"}
+					}
+				}
+			}
+			{## "ai_spawn/side_a_3"
+				{condition
+					{terms
+						{"1.cmp_i"
+							{var "user_team$"}
+							{op "=="}
+							{value 2}
+						}
+						{"2.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sidea3"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag sidea2}
+										}
+										{tag
+											{tag sidea1}
+										}
+										{tag
+											{tag sidea3}
+										}
+										{tag
+											{tag sidea4}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag bm13_studebaker}
+										}
+										{tag
+											{tag bm31_12}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag enemyarty}
+										}
+										{tag
+											{tag ready_to_move_a3}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 5}
+					}
+					{"while"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sidea3"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag sidea2}
+										}
+										{tag
+											{tag sidea1}
+										}
+										{tag
+											{tag sidea3}
+										}
+										{tag
+											{tag sidea4}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag bm13_studebaker}
+										}
+										{tag
+											{tag bm31_12}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag enemyarty}
+										}
+										{tag
+											{tag ready_to_move_a3}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sidea3"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_car}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag sidea1}
+										}
+										{tag
+											{tag sidea2}
+										}
+										{tag
+											{tag sidea3}
+										}
+										{tag
+											{tag sidea4}
+										}
+										{tag
+											{tag bm13_studebaker}
+										}
+										{tag
+											{tag bm31_12}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag enemyarty}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+								{amount 5
+								}
+							}
+							{tag_add ready_to_move_a3}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"waypoint"
+							{who
+								{type actor}
+								{actors
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ready_to_move_a3}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{tag
+												{tag squad}
+											}
+											{tag
+												{tag artillery}
+											}
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+											{tag
+												{tag player_car}
+											}
+											{tag
+												{tag player_veh}
+											}
+											{tag
+												{tag player_armor}
+											}
+											{tag
+												{tag engine_count_1}
+											}
+											{tag
+												{tag engine_count_2}
+											}
+										}
+									}
+									{amount 5
+									}
+								}
+							}
+							{action
+								{type start}
+								{waypoint "26"}
+								{make_squad}
+								{name_squad "1"}
+								{copy_squad "2"}
+							}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"actor_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag ready_to_move_a3}
+										}
+									}
+									{include
+										{prop
+											{prop tank}
+										}
+										{state
+											{state operatable}
+										}
+									}
+								}
+							}
+							{movement
+								{speed slow}
+							}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"actor_state"
+							{selector
+								{tag ready_to_move_a3}
+								{type human}
+								{state operatable}
+							}
+							{movement
+								{speed assault}
+							}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag ready_to_move_a3}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_car}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag sidea1}
+										}
+										{tag
+											{tag sidea2}
+										}
+										{tag
+											{tag sidea3}
+										}
+										{tag
+											{tag sidea4}
+										}
+										{tag
+											{tag bm13_studebaker}
+										}
+										{tag
+											{tag bm31_12}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag enemyarty}
+										}
+									}
+								}
+								{amount 5
+								}
+							}
+							{tag_add sidea3}
+							{tag_remove ready_to_move_a3}
+						}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"trigger"
+						{name "ai_spawn/side_a_3"}
+					}
+				}
+			}
+			{## "ai_spawn/side_a_4"
+				{condition
+					{terms
+						{"1.cmp_i"
+							{var "user_team$"}
+							{op "=="}
+							{value 2}
+						}
+						{"2.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sidea4"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag sidea2}
+										}
+										{tag
+											{tag sidea1}
+										}
+										{tag
+											{tag sidea3}
+										}
+										{tag
+											{tag sidea4}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag bm13_studebaker}
+										}
+										{tag
+											{tag bm31_12}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag enemyarty}
+										}
+										{tag
+											{tag ready_to_move_a4}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 5}
+					}
+					{"while"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sidea4"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag sidea2}
+										}
+										{tag
+											{tag sidea1}
+										}
+										{tag
+											{tag sidea3}
+										}
+										{tag
+											{tag sidea4}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag bm13_studebaker}
+										}
+										{tag
+											{tag bm31_12}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag enemyarty}
+										}
+										{tag
+											{tag ready_to_move_a4}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sidea4"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_car}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag sidea1}
+										}
+										{tag
+											{tag sidea2}
+										}
+										{tag
+											{tag sidea3}
+										}
+										{tag
+											{tag sidea4}
+										}
+										{tag
+											{tag bm13_studebaker}
+										}
+										{tag
+											{tag bm31_12}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag enemyarty}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+								{amount 5
+								}
+							}
+							{tag_add ready_to_move_a4}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"waypoint"
+							{who
+								{type actor}
+								{actors
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ready_to_move_a4}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{tag
+												{tag squad}
+											}
+											{tag
+												{tag artillery}
+											}
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+											{tag
+												{tag player_car}
+											}
+											{tag
+												{tag player_veh}
+											}
+											{tag
+												{tag player_armor}
+											}
+											{tag
+												{tag engine_count_1}
+											}
+											{tag
+												{tag engine_count_2}
+											}
+										}
+									}
+									{amount 5
+									}
+								}
+							}
+							{action
+								{type start}
+								{waypoint "27"}
+								{make_squad}
+								{name_squad "1"}
+								{copy_squad "2"}
+							}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"actor_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag ready_to_move_a4}
+										}
+									}
+									{include
+										{prop
+											{prop tank}
+										}
+										{state
+											{state operatable}
+										}
+									}
+								}
+							}
+							{movement
+								{speed slow}
+							}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"actor_state"
+							{selector
+								{tag ready_to_move_a4}
+								{type human}
+								{state operatable}
+							}
+							{movement
+								{speed assault}
+							}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag ready_to_move_a4}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_car}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag sidea1}
+										}
+										{tag
+											{tag sidea2}
+										}
+										{tag
+											{tag sidea3}
+										}
+										{tag
+											{tag sidea4}
+										}
+										{tag
+											{tag bm13_studebaker}
+										}
+										{tag
+											{tag bm31_12}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag enemyarty}
+										}
+									}
+								}
+								{amount 5
+								}
+							}
+							{tag_add sidea4}
+							{tag_remove ready_to_move_a4}
+						}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"trigger"
+						{name "ai_spawn/side_a_4"}
 					}
 				}
 			}

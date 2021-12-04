@@ -891,14 +891,17 @@
 {"pointer_attack"
 	{on spawn
 		{tags add "pointer_attack"}
+	    {delay 1
+			{spawn "flare_marker"}
+		}
 	}
 	{on "show"
-		{inactive 0}
-		{delay 5
-			{inactive 1}
+		{delay 50
+			{inactive 0}
 		}
 	}
 }
+
 
 {"pointer_defend"
 	{on spawn
@@ -948,9 +951,6 @@
 {"pointer_watchout"
 	{on spawn
 		{tags add "pointer_watchout"}
-		{delay 1
-			{spawn "flare_marker"}
-		}
 	}
 	{on "show"
 		{delay 50
