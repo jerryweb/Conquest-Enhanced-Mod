@@ -1,14 +1,22 @@
 require([[/script/multiplayer/bot.data]])
-
+-- require([[/script/multiplayer/bot.wave_system]])
 -- Number of unit division roster files to randomly select for each period in the war 
 local maxNumOfEarlyDivisions = 5
 local maxNumOfMidDivisions = 5
-local maxNumOfLateDivisions = 5
+local maxNumOfLateDivisions = 6
 
 -- Wave offset is used to set how much extra time the first wave will last in since the wave is loaded automatically
-local firstWaveOffsetTime = 720
+local gameStartTime = 0
+local firstWaveOffsetTime = 20
 -- This is used to add the offset ONLY to the first wave
 local initialWave = true
+
+-- This variable controls whether units will spawn all at once for 15 seconds, creating a massive wave, every x seconds
+local typhoonWaveMode = true
+local nextTyphoonWaveTime = 0
+local typhoonWaveInterval = 90
+local typhoonWaveDuration = 25 
+local defaultSpawnCooldownTime = {}
 
 local currentWaveMaxUnitCount = 0
 
@@ -23,6 +31,22 @@ local Context = {
 	},
 	SquadTimers = {}
 }
+
+function setNextTyphoonWaveTime() 
+	nextTyphoonWaveTime = os.clock() + typhoonWaveInterval
+end
+
+function setTyphoonWaveMode()
+	typhoonWaveMode = true
+	SpawnCooldownTime.Min = 2
+	SpawnCooldownTime.Max = 2
+end
+
+function disableTyphoonWaveMode()
+	typhoonWaveMode = false
+	SpawnCooldownTime.Min = defaultSpawnCooldownTime.Min
+	SpawnCooldownTime.Max = defaultSpawnCooldownTime.Max
+end
 
 function SetSpawnCooldownTimer()
 	Context.SpawnWait.CooldownTimer = BotApi.Events:SetQuantTimer(
@@ -73,42 +97,6 @@ function PIter:current()
 		return self.purchases[self.idx].Units
 	end
 end
-
--- function PIter:nextValidWave()
--- 	print("finding next valid wave")
--- 	local availableUnits = {}
-
--- 	while #availableUnits == 0 do
--- 		if not self.idx then
--- 			self.idx = 1
--- 		end
-		
--- 		local potentialUnits = self.purchases[self.idx].Units[BotApi.Instance.army]
--- 		print("Finding unlocked units for this wave")
--- 		-- if not self.unlockedUnits then
--- 		for i, unit in pairs(potentialUnits) do
--- 			if BotApi.Commands:IsUnitAvailable(unit.unit) then
--- 				print("Adding ", unit.unit, " to available units")
--- 				table.insert(availableUnits, unit)
--- 			else 
--- 				print(unit.unit, " is not yet available to the AI")
--- 			end
--- 		end
-		
--- 		if #availableUnits > 0 then
--- 			break
--- 		end
-
--- 		print("wave ", self.idx, " has no available units")
--- 		self.idx = next(self.purchases, self.idx)
--- 	end	
-
--- 	print("number of available units for wave ", self.idx, ": ", #availableUnits)
--- 	self.unlockedUnits = availableUnits
-
-
--- 	-- return self
--- end
 
 function PIter:nextIndex()
 
@@ -174,7 +162,11 @@ function PIter:nextIndex()
 
 	print("Max number of squads for this wave: ", self.rpt)
 
-	self.waveDuration = self.purchases[self.idx].waveDuration
+	if typhoonWaveMode then 
+		self.waveDuration = 3
+	else
+		self.waveDuration = self.purchases[self.idx].waveDuration
+	end 
 
 	if initialWave then 
 		self.waveDuration = self.waveDuration + firstWaveOffsetTime
@@ -246,7 +238,7 @@ function GetFlagToCapture(flagPoints, getPriority)
 	local flags = {}
 	
 	for i, flag in pairs(flagPoints) do
-		print("flag name: ", flag.name)
+		-- print("flag name: ", flag.name)
 		table.insert(flags, {name = flag.name, k = getPriority(flag)})
 	end
 
@@ -365,7 +357,7 @@ function selectArmyDivision(totalFlags)
 	end
 	print("loading")
 	-- REMOVE THIS LINE (ONLY FOR TESTING)
-	-- divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.mid.5]]
+	divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.6]]
 	
 
 	return divisionPurchaseModel
@@ -375,6 +367,16 @@ function OnGameStart()
 	math.randomseed(os.time()*BotApi.Instance.hostId)
 	math.random() math.random() math.random() math.random()
 
+	-- if math.random() < 0.3 then -- 30% chance to change when enemy reinforcements spawn 
+	-- 	firstWaveOffsetTime = math.random(480,720)
+	-- end
+	-- if math.random() < 0.5 then -- 50% chance to for typhoon wave mode 
+	-- 	setTyphoonWaveMode()
+	-- end
+
+	gameStartTime = os.clock()
+	print("first enemy wave will start at ", gameStartTime + firstWaveOffsetTime)
+	nextTyphoonWaveTime = gameStartTime + firstWaveOffsetTime
 
 	local purchasesModule = [[/script/multiplayer/bot.data.purchase.]] .. BotApi.Instance.gameMode;
 	if module_exists(purchasesModule) then
@@ -418,13 +420,19 @@ function OnGameStart()
 	    
 	    SpawnCooldownTime.Min = SpawnCooldownTime.Min * spawnMultiplier
 	    SpawnCooldownTime.Max = SpawnCooldownTime.Max * spawnMultiplier
+	    defaultSpawnCooldownTime = SpawnCooldownTime
+
+	    if typhoonWaveMode then
+	    	 setTyphoonWaveMode()
+	    end
 	    
 	    print("Spawn multipliers (min, max):", SpawnCooldownTime.Min, SpawnCooldownTime.Max)
 	    purchases = divisionPurchases
 	end
 
 	Context.Purchase = PIter:new(purchases)
-
+	
+	
 	UpdateUnitToSpawn(Context.Purchase)
 	SetSpawnCooldownTimer()
 
@@ -469,7 +477,7 @@ function TrySpawnUnit()
 	local unit = Context.SpawnInfo.unit
 	
 	if not BotApi.Commands:IsUnitAvailable(unit) then
-		print(unit, "not available, player#" .. BotApi.Instance.playerId)
+		-- print(unit, "not available, player#" .. BotApi.Instance.playerId)
 		KillSpawnWaitTimer()
 		UpdateUnitToSpawn(Context.Purchase)
 		return
@@ -507,7 +515,19 @@ function TrySpawnUnit()
 end
 
 function OnGameQuant()
-	TrySpawnUnit()
+	if os.clock() > (gameStartTime + firstWaveOffsetTime) then
+		if typhoonWaveMode then
+			if os.clock() > nextTyphoonWaveTime then
+				TrySpawnUnit()
+				if os.clock() > nextTyphoonWaveTime + typhoonWaveDuration then
+					setNextTyphoonWaveTime()
+				end
+			end
+		else 
+			TrySpawnUnit()
+		end
+	end
+
 	local waypoints = BotApi.Scene.Waypoints
 
 	if #waypoints == 0 then
@@ -519,14 +539,12 @@ function OnGameQuant()
 				end
 			end
 			 if not squadDictionary[squad] then
-			 	local squadOrderTime = math.random(200, 500)
+			 	local squadOrderTime = math.random(180, 300)
 			 	print("nil squad ", squad, " with unlock time = ", squadDictionary[squad])
 				squadDictionary[squad] = os.clock() + squadOrderTime
 			end
 		end
 	end
-
-
 end
 
 function SeekAndDestroy(squad)
@@ -546,7 +564,8 @@ end
 
 function CaptureFlag(squad)
 	local flag = GetFlagToCapture(BotApi.Scene.Flags, GetFlagPriority)
-	local rnd = 0.1 + choice
+	-- local rnd = 0.1 + choice
+	local rnd = math.random() + choice
 	if flag then
 		if rnd < 0.25 then
 			print(rnd, "+SeekAndDestroy with squad", squad)
@@ -584,15 +603,15 @@ function OnGameSpawn(args)
 	for i, waypoints in pairs(waypoints) do
 		print("points", i)
 	end
-	print("spawned squad id: ", tostring(args.squadId))
+	-- print("spawned squad id: ", tostring(args.squadId))
 
 	local str = tostring(args.squadId)
 
-	local squadOrderTime = math.random(200, 500)
+	local squadOrderTime = math.random(240, 300)
 
 
 	squadDictionary[args.squadId] = os.clock() + squadOrderTime
-	print("squad time = ", squadDictionary[args.squadId])
+	-- print("squad time = ", squadDictionary[args.squadId])
 	-- table.insert(squadDictionary, {squadid = args.squadId, unlockTime = os.clock + 10})
 
 	-- if #waypoints == 0 then

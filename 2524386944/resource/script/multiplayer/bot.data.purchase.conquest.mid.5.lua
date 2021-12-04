@@ -3,8 +3,8 @@ Purchases["campaign_capture_the_flag"] = {
 		divisionName = "Condor Mid Tank Division",
 		waveNumber = 1, -- какая по порядку будет
 		-- Repeat = 6, -- сколько раз должно вызваться, чтобы могло перейти к следующей волне
-		minRepeat = 4,
-		maxRepeat = 12,
+		minRepeat = 3,
+		maxRepeat = 6,
 		skipPossible = false,  -- ничего не делает
 		waveDuration = 20, -- длительность того, как долго бот будет вызывать данные войска. Каждый юнит вызывается каждые 3 секунды. Если нужно чтобы было только определенное количество то Repeat * 3 < Wave duration  При этом Repeat говорит сколько раз нужно вызвать юнит.
 		Units = {
@@ -26,14 +26,14 @@ Purchases["campaign_capture_the_flag"] = {
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "ba6"},
 				{priority = 2.0, class = UnitClass.Vehicle, unit = "ba20"},
-		}
+		    }
 		}
 	},
 	{--purchase 2 mortar
 		waveNumber = 2,
 	    -- Repeat = 6,
-	    minRepeat = 4,
-		maxRepeat = 6,
+	    minRepeat = 1,
+		maxRepeat = 2,
 	    skipPossible = false,
 	    waveDuration = 8,
 		Units = {
@@ -50,8 +50,8 @@ Purchases["campaign_capture_the_flag"] = {
 	{--purchase 3 heavy tank group
 		waveNumber = 3,
 	    -- Repeat = 10,
-	    minRepeat = 4,
-		maxRepeat = 6,
+	    minRepeat = 2,
+		maxRepeat = 3,
 	    skipPossible = false,
 	    waveDuration = 20,
 		Units = {
@@ -70,8 +70,8 @@ Purchases["campaign_capture_the_flag"] = {
 	{--purchase 4 medium tank group
 		waveNumber = 4,
 	    -- Repeat = 16,
-	    minRepeat = 12,
-		maxRepeat = 16,
+	    minRepeat = 6,
+		maxRepeat = 8,
 	    skipPossible = false,
 	    waveDuration = 20,
 		Units = {
@@ -93,8 +93,8 @@ Purchases["campaign_capture_the_flag"] = {
 	{--purchase 5 light tank group
 		waveNumber = 5,
 	    -- Repeat = 20,
-	    minRepeat = 16,
-		maxRepeat = 20,
+	    minRepeat = 5,
+		maxRepeat = 10,
 	    skipPossible = false,
 	    waveDuration = 20,
 		Units = {
@@ -117,8 +117,8 @@ Purchases["campaign_capture_the_flag"] = {
 	{--purchase 6 infantry support
 		waveNumber = 6,
 		-- Repeat = 60,
-		minRepeat = 45,
-		maxRepeat = 60,
+		minRepeat = 7,
+		maxRepeat = 10,
         skipPossible = false,		
 		waveDuration = 35,
 		Units = {
@@ -126,7 +126,6 @@ Purchases["campaign_capture_the_flag"] = {
 			--Infantry Squads
 			    {priority = 1.0, class = UnitClass.Infantry, unit = "squad_regular_motor_con"},
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_regular_con(ger)"},
-				{priority = 0.1, class = UnitClass.Infantry, unit = "single_officer(ger)"},
 				{priority = 0.2, class = UnitClass.ATInfantry, unit = "single_at(ger)"},
 				{priority = 0.2, class = UnitClass.ATInfantry, unit = "single_riflegrenade(ger)"}
 			},
@@ -135,15 +134,14 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 2.5, class = UnitClass.Infantry, unit = "squad_rifleunit_alt_con(rus)"},
 				{priority = 3.5, class = UnitClass.Infantry, unit = "squad_rifleunit_con(rus)"},
 				{priority = 1.0, class = UnitClass.ATInfantry, unit = "single_at(rus)"},
-				{priority = 0.1, class = UnitClass.Infantry, unit = "single_officer(rus)"}
 			}
 		}
 	},
 	{--purchase 7 SPG support
 		waveNumber = 7,
 		-- Repeat = 6,
-		minRepeat = 4,
-		maxRepeat = 6,
+		minRepeat = 2,
+		maxRepeat = 4,
         skipPossible = false,		
 		waveDuration = 15,
 		Units = {
@@ -161,8 +159,8 @@ Purchases["campaign_capture_the_flag"] = {
 	{--purchase 8 mgun support
 		waveNumber = 8,
 		-- Repeat = 12,
-		minRepeat = 8,
-		maxRepeat = 12,
+		minRepeat = 1,
+		maxRepeat = 4,
         skipPossible = false,		
 		waveDuration = 15,
 		Units = {

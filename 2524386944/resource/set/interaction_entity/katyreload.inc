@@ -3,10 +3,24 @@
 		{add_view	"dust_bm13"		 "dust" "gun_rot"}
 		{add_view	"dust_bm13_snow" "snow" "gun_rot"}
 		{link_sound "bkg_rocket" "weapon/shot/bkg/rocket/"}
+		{delay 10
+		    {if tagged "katy"
+		        {chassis_work 0}
+		        {delay 20
+			        {chassis_work 1}
+			    }
+		    }
+	    }
 	}
 	{on fire "gun" overload
 		{tags add "reloading"}
-		{delay 150.3 {tags remove "reloading"}}
+		{if tagged "katy"
+		    {chassis_work 0}
+		}
+		{delay 150.3 
+		    {tags remove "reloading"}
+			{chassis_work 1}
+		}
 		(define "bm13_fire"
 			{if terrain_fx "snow"
 				{view start "snow"}

@@ -1,0 +1,62 @@
+;Exported by:	 Carlos
+;Date:			 03.08.2018 13:58:04
+;File:			 T:\GoH_3D_environment_export\3d_environment\_military\fortifications\sandbags_new\smart_set\sandbag_straight.max
+{skeleton
+	{bone "basis"
+		{orientation
+			0 	 1 	 0
+			1 	 0 	 0
+			0 	 0 	 1
+		}
+		{bone "body"
+			{parameters "id=body;"}
+			{Position -1.2395 	 -1.2015 	 0}
+			{LODView
+				{VolumeView "body.ply"}
+				{VolumeView "body_lod1.ply"}
+				{VolumeView "body_lod2.ply"}
+			}
+			{bone "climb21"
+				{Position -20.1972 	 5.392 	 7.1611}
+			}
+			{bone "climb22"
+				{matrix34
+					-0.9991 	 -0.0428 	 0
+					0.0428 	 -0.9991 	 0
+					0 	 0 	 1
+					27.2104 	 4.92 	 7.1611
+				}
+			}
+			{bone "fx_sandbag1"
+				{matrix34
+					0.998 	 0.0629 	 0
+					-0.0629 	 0.998 	 0
+					0 	 0 	 1
+					4.5256 	 -14.6583 	 -1.0815
+				}
+			}
+			{bone "fx_sandbag2"
+				{Position 2.0273 	 17.2245 	 0}
+			}
+		}
+	}
+}
+{obstacle "body"
+	{obb2
+		{center 1.4305 -1.28575}
+		{extent 38.2008 5.69851}
+		{axis 0.0356777 0.999363}
+	}
+	{rotate}
+	{Tags "body" "climb"}
+}
+{volume "body"
+	{polyhedron "body.vol"}
+	{bone "body"}
+	{matrix34
+		0.9998 	 -0.0208 	 0
+		-1.0208 	 0.9998 	 0
+		0 	 0 	 1
+		4.3351 	 -1.2043 	 0.0243
+	}
+}
