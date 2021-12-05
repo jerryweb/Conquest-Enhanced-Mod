@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Layout xmlns="http://www.digitalmindsoft.eu/xmllayout"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.digitalmindsoft.eu/xmllayout LayoutSchema.xsd"
+        version="1" skin="main_menu_dark_skin">
+    <Content>
+        <StackPanel>
+            <Children>
+                <FadeDialog id="fade" opacity="0.4" >
+                    <Ables mouse="false"/>
+                </FadeDialog>
+            </Children>
+            <Children>
+                <FlowPanel valign="center" halign="center">
+                    <Children>
+                        <StackPanel>
+                            <Children>
+                                <BackgroundPanel sizeMode="fromParent">
+                                    <Children>
+                                        <PictureDialog id="background" resource="/interface/pages/main/game_result_tab" zoomMode="stretch">
+                                            <Buffered value="false"/>
+                                        </PictureDialog>
+                                        <!-- <DialogRef id="background_video" refid="video_dialog"> -->
+                                        <!--     <Active value="false"/> -->
+                                        <!--     <Buffered value="false"/> -->
+                                        <!-- </DialogRef> -->
+                                    </Children>
+                                </BackgroundPanel>
+                                <BackgroundPanel backgroundResource="/interface/skin/game/frame/window_single/halo_bkg_top" placement="top" zoomMode="fit">
+                                </BackgroundPanel>
+                                <StackPanel id="main_panel">
+                                    <Insets top="35" bottom="80" left="20" right="20"/>
+                                    <Children>
+                                        <DockPanel id="game_result_panel">
+                                            <Children>
+                                                <FlowPanel placement="top" direction="vertical" halign="center">
+                                                    <Children>
+                                                        <FlowPanel halign="center">
+                                                            <Children>
+                                                                <StaticText id="status">
+                                                                    <TextStyle value="s(42)e(shadow)b+c(d29c4f)"/>
+                                                                </StaticText>
+                                                            </Children>
+                                                        </FlowPanel>
+                                                        <DialogRef refid="gui_spacer_horizontal2">
+                                                        </DialogRef>
+                                                        <FlowPanel halign="center">
+                                                            <Children>
+                                                                <StaticText id="status_desc">
+                                                                    <TextStyle value="s(42)e(shadow)f(pobeda)c(d29c4f)"/>
+                                                                </StaticText>
+                                                            </Children>
+                                                        </FlowPanel>
+                                                    </Children>
+                                                </FlowPanel>
+                                                <ScrollPane id="scroll_pane" placement="center">
+                                                    <Insets top="5" bottom="20"/>
+                                                    <Children>
+                                                        <ScrollableContent>
+                                                            <Children>
+                                                                <StackPanel>
+                                                                    <Children>
+                                                                        <DockPanel vgap="10">
+                                                                            <Children>
+                                                                                <DockPanel id="header" hgap="3" placement="top">
+                                                                                    <Insets left="33" right="33" top="3" bottom="3"/>
+                                                                                    <Children>
+                                                                                        <StackPanel placement="left">
+                                                                                            <PreferredSize x="67"/>
+                                                                                        </StackPanel>
+                                                                                        <StaticText id="name" placement="center">
+                                                                                            <Ables mouse="true"/>
+                                                                                            <Text key="mp/statistics2/result/header/player"/>
+                                                                                            <TextStyle value="x.s(12)b+c(d29c4f)m(u)e(shadow)"/>
+                                                                                            <TextClip value="true" showHint="true"/>
+                                                                                        </StaticText>
+                                                                                        <FlowPanel direction="horizontal" valign="center" placement="right" gap="3">
+                                                                                            <Children>
+                                                                                                <StaticText id="score">
+                                                                                                    <PreferredSize x="130"/>
+                                                                                                    <Ables mouse="true"/>
+                                                                                                    <Text key="mp/statistics2/result/header/victory_points"/>
+                                                                                                    <TextStyle value="x.s(12)b+c(d29c4f)m(u)e(shadow)"/>
+                                                                                                    <TextClip value="true" showHint="true"/>
+                                                                                                </StaticText>
+                                                                                                <StaticText id="man">
+                                                                                                    <PreferredSize x="130"/>
+                                                                                                    <Ables mouse="true"/>
+                                                                                                    <Text key="mp/statistics2/detail/header/infantry_kills"/>
+                                                                                                    <TextStyle value="x.s(12)b+c(d29c4f)m(u)e(shadow)"/>
+                                                                                                    <TextClip value="true" showHint="true"/>
+                                                                                                </StaticText>
+                                                                                                <StaticText id="veh">
+                                                                                                    <PreferredSize x="130"/>
+                                                                                                    <Ables mouse="true"/>
+                                                                                                    <Text key="mp/statistics2/detail/header/vehicle_kills"/>
+                                                                                                    <TextStyle value="x.s(12)b+c(d29c4f)m(u)e(shadow)"/>
+                                                                                                    <TextClip value="true" showHint="true"/>
+                                                                                                </StaticText>
+                                                                                                <StaticText id="personal_score">
+                                                                                                    <PreferredSize x="80"/>
+                                                                                                    <Ables mouse="true"/>
+                                                                                                    <Text key="mp/statistics2/detail/header/score"/>
+                                                                                                    <TextStyle value="x.s(12)b+c(d29c4f)m(u)e(shadow)"/>
+                                                                                                    <TextClip value="true" showHint="true"/>
+                                                                                                </StaticText>
+                                                                                                <StaticText id="lag">
+                                                                                                    <PreferredSize x="70"/>
+                                                                                                    <Ables mouse="true"/>
+                                                                                                    <Text key="mp/statistics2/result/header/lag"/>
+                                                                                                    <TextStyle value="x.s(12)b+c(d29c4f)m(u)e(shadow)"/>
+                                                                                                    <TextClip value="true" showHint="true"/>
+                                                                                                </StaticText>
+                                                                                                <StackPanel>
+                                                                                                    <PreferredSize x="20"/>
+                                                                                                </StackPanel>
+                                                                                            </Children>
+                                                                                        </FlowPanel>
+                                                                                    </Children>
+                                                                                </DockPanel>
+                                                                                <FlowPanel id="teams" placement="center" halign="stretch" direction="vertical" gap="3"/>
+                                                                            </Children>
+                                                                        </DockPanel>
+                                                                    </Children>
+                                                                </StackPanel>
+                                                            </Children>
+                                                        </ScrollableContent>
+                                                    </Children>
+                                                </ScrollPane>
+                                                <FlowPanel placement="right" valign="center" >
+                                                    <PreferredSize x="155"/>
+                                                    <Children>
+                                                        <ScrollPane id="scroll_pane2" placement="center" >
+                                                            <Children>
+                                                                <ScrollableContent>
+                                                                    <Children>
+                                                                        <FlowPanel id="top" direction="vertical" halign="left" gap="2" >
+<!--                                                                            <MaxSize x="100"/>-->
+                                                                        </FlowPanel>
+                                                                    </Children>
+                                                                </ScrollableContent>
+                                                            </Children>
+                                                        </ScrollPane>
+                                                    </Children>
+                                                </FlowPanel>
+                                                <FlowPanel placement="bottom" halign="center" direction="horizontal" gap="5">
+                                                    <Children>
+                                                        <MenuButton id="kick_off">
+                                                            <Visible value="false"/>
+                                                            <Text key="mp/lobby/button/kickoff" textTransform="toupper"/>
+                                                            <Sound value="gui/ui_next_item" />
+                                                            <Resource value="/interface/skin/game/button/start_button" />
+                                                        </MenuButton>
+                                                        <MenuButton id="exit">
+                                                            <Visible value="false"/>
+                                                            <Text key="button/exit" textTransform="toupper"/>
+                                                            <Sound value="gui/ui_next_item" />
+                                                            <Resource value="/interface/skin/game/button/start_button" />
+                                                        </MenuButton>
+                                                        <MenuButton id="ok">
+                                                            <Visible value="false"/>
+                                                            <Text key="button/ok" textTransform="toupper"/>
+                                                            <Sound value="gui/ui_next_item" />
+                                                            <Resource value="/interface/skin/game/button/start_button" />
+                                                        </MenuButton>
+                                                    </Children>
+                                                </FlowPanel>
+                                            </Children>
+                                        </DockPanel>
+                                        <StackPanel id="game_end_panel"/>
+                                    </Children>
+                                </StackPanel>
+                            </Children>
+                        </StackPanel>
+                    </Children>
+                </FlowPanel>
+            </Children>
+        </StackPanel>
+    </Content>
+</Layout>

@@ -9,7 +9,7 @@
 		{CP
 			{Base "0:0,20:10,660:10,740:10,900:10,1080:10,1300:10,1500:10,1800:0,2100:10"} ;// seconds : CP
 			{RoundMultiplier "0:0.2 1:0.3 2:0.6 3:0.6 5:0.8 7:0.9 8:0.9 10:1.0 12:1.0 14:1.0 16:1.0 19:1.0"} ;// games played : multiplier for CP
-			{AttackMultiplier 4.0}
+			{AttackMultiplier 5.0}
 		}
 		{DefenseLevel
 			{level_1
