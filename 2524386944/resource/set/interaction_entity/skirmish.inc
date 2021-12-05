@@ -3,7 +3,6 @@
 (include "katyreload.inc")
 (include "vehicle_tags_ger.inc")
 (include "vehicle_tags_rus.inc")
-(include "katyreload.inc")
 {"skirmish_bonus_pointer"
      {on spawn
         {call "add_number"}

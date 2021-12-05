@@ -7,12 +7,12 @@ local maxNumOfLateDivisions = 6
 
 -- Wave offset is used to set how much extra time the first wave will last in since the wave is loaded automatically
 local gameStartTime = 0
-local firstWaveOffsetTime = 20
+local firstWaveOffsetTime = 720
 -- This is used to add the offset ONLY to the first wave
 local initialWave = true
 
 -- This variable controls whether units will spawn all at once for 15 seconds, creating a massive wave, every x seconds
-local typhoonWaveMode = true
+local typhoonWaveMode = false
 local nextTyphoonWaveTime = 0
 local typhoonWaveInterval = 90
 local typhoonWaveDuration = 25 
@@ -40,6 +40,7 @@ function setTyphoonWaveMode()
 	typhoonWaveMode = true
 	SpawnCooldownTime.Min = 2
 	SpawnCooldownTime.Max = 2
+	print("typhoon wave mode activated")
 end
 
 function disableTyphoonWaveMode()
@@ -367,12 +368,12 @@ function OnGameStart()
 	math.randomseed(os.time()*BotApi.Instance.hostId)
 	math.random() math.random() math.random() math.random()
 
-	-- if math.random() < 0.3 then -- 30% chance to change when enemy reinforcements spawn 
-	-- 	firstWaveOffsetTime = math.random(480,720)
-	-- end
-	-- if math.random() < 0.5 then -- 50% chance to for typhoon wave mode 
-	-- 	setTyphoonWaveMode()
-	-- end
+	if math.random() < 0.3 then -- 30% chance to change when enemy reinforcements spawn 
+		firstWaveOffsetTime = math.random(480,780)
+	end
+	if math.random() < 0.5 then -- 50% chance to for typhoon wave mode 
+		setTyphoonWaveMode()
+	end
 
 	gameStartTime = os.clock()
 	print("first enemy wave will start at ", gameStartTime + firstWaveOffsetTime)
