@@ -54,44 +54,83 @@
 	}
 
 	{on "sandbag_heavy_flak"
-		{delay 1
+		{delay 5
 			{if operatable
 				{if not tagged "player_veh"
 					{if tagged "88mm_flak18"
 						{call "deactivate_vehicle"}
 						{start_sound "vehicle/deploy/foxhole"}
-						{delay 3
+						{delay 10
 							{spawn "sandbag_framed_curved" offset 70 0 0}
-							{spawn "sandbag_framed_curved_90" offset 0 70 0}
-							{spawn "sandbag_framed_curved_180" offset -70 0 0}
-							{spawn "sandbag_framed_curved_270" offset 0 -70 0}
-							{spawn "sandbag_heap_pile" offset 60 60 0}
-							{spawn "sandbag_heap_pile" offset -60 60 0}
-							{spawn "sandbag_heap_pile" offset 60 -60 0}
+							{delay 2
+								{spawn "sandbag_heap_pile" offset 60 60 0}
+								{delay 2
+									{spawn "sandbag_framed_curved_90" offset 0 70 0}
+									{delay 2
+										{spawn "sandbag_heap_pile" offset -60 60 0}
+										{delay 2
+											{spawn "sandbag_framed_curved_180" offset -70 0 0}
+											{delay 2
+												{spawn "sandbag_framed_curved_270" offset 0 -70 0}
+												{delay 2
+													{spawn "sandbag_heap_pile" offset 60 -60 0}
+												}
+											}
+										}
+									}
+								}
+							}
+							{call "activate_vehicle"}
 						}
 					else tagged "88mm_flak36"
 						{call "deactivate_vehicle"}
 						{start_sound "vehicle/deploy/foxhole"}
-						{delay 3
+						{delay 10
 							{spawn "sandbag_framed_curved" offset 70 0 0}
-							{spawn "sandbag_framed_curved_90" offset 0 70 0}
-							{spawn "sandbag_framed_curved_180" offset -70 0 0}
-							{spawn "sandbag_framed_curved_270" offset 0 -70 0}
-							{spawn "sandbag_heap_pile" offset 60 60 0}
-							{spawn "sandbag_heap_pile" offset -60 60 0}
-							{spawn "sandbag_heap_pile" offset 60 -60 0}
+							{delay 2
+								{spawn "sandbag_heap_pile" offset 60 60 0}
+								{delay 2
+									{spawn "sandbag_framed_curved_90" offset 0 70 0}
+									{delay 2
+										{spawn "sandbag_heap_pile" offset -60 60 0}
+										{delay 2
+											{spawn "sandbag_framed_curved_180" offset -70 0 0}
+											{delay 2
+												{spawn "sandbag_framed_curved_270" offset 0 -70 0}
+												{delay 2
+													{spawn "sandbag_heap_pile" offset 60 -60 0}
+												}
+											}
+										}
+									}
+								}
+							}
+							{call "activate_vehicle"}
 						}
 					else tagged "85mm_52k"
 						{call "deactivate_vehicle"}
 						{start_sound "vehicle/deploy/foxhole"}
-						{delay 3
+						{delay 10
 							{spawn "sandbag_framed_curved" offset 70 0 0}
-							{spawn "sandbag_framed_curved_90" offset 0 70 0}
-							{spawn "sandbag_framed_curved_180" offset -70 0 0}
-							{spawn "sandbag_framed_curved_270" offset 0 -70 0}
-							{spawn "sandbag_heap_pile" offset 60 60 0}
-							{spawn "sandbag_heap_pile" offset -60 60 0}
-							{spawn "sandbag_heap_pile" offset 60 -60 0}
+							{delay 2
+								{spawn "sandbag_heap_pile" offset 60 60 0}
+								{delay 2
+									{spawn "sandbag_framed_curved_90" offset 0 70 0}
+									{delay 2
+										{spawn "sandbag_heap_pile" offset -60 60 0}
+										{delay 2
+											{spawn "sandbag_framed_curved_180" offset -70 0 0}
+											{delay 2
+												{spawn "sandbag_framed_curved_270" offset 0 -70 0}
+												{delay 2
+													{spawn "sandbag_heap_pile" offset 60 -60 0}
+												}
+											}
+										}
+									}
+								}
+							}
+							{call "activate_vehicle"}
 						}
 					}	
 				}
@@ -249,6 +288,7 @@
     {on "hull_down"
 	    {start_sound "vehicle/deploy/foxhole"}
 		{if tagged "light_tank"
+			{call "deactivate_vehicle"}
 		    {delay 30.2
 		   	    {spawn "sandbag_structured_straight2" offset 2 70 0}
 				{spawn "sandbag_structured_straight2" offset 0 70 10}
@@ -274,8 +314,11 @@
 				{spawn "sandbag_structured_straight" offset 70 -55 10}
 				{spawn "sandbag_structured_straight" offset -70 -55 0}
 				{spawn "sandbag_structured_straight" offset -70 -55 10}
+				{call "activate_vehicle"}
+				{call "engine_on"}
 			}
 		else tagged "heavy_tank"
+			{call "deactivate_vehicle"}
 		    {delay 30.2
 		   	    {spawn "sandbag_structured_straight2" offset 2 90 0}
 				{spawn "sandbag_structured_straight2" offset 0 90 10}
@@ -285,11 +328,11 @@
 				{spawn "sandbag_structured_straight2" offset 75 90 10}
 				{spawn "sandbag_structured_straight2" offset 75 -90 0}
 				{spawn "sandbag_structured_straight2" offset 75 -90 10}
-					{spawn "sandbag_structured_straight2" offset -75 90 0}
+				{spawn "sandbag_structured_straight2" offset -75 90 0}
 				{spawn "sandbag_structured_straight2" offset -75 90 10}
 				{spawn "sandbag_structured_straight2" offset -75 -90 0}
 				{spawn "sandbag_structured_straight2" offset -75 -90 10}
-				  {spawn "sandbag_structured_straight2" offset 2 90 0}
+				{spawn "sandbag_structured_straight2" offset 2 90 0}
 				{spawn "sandbag_structured_straight2" offset 0 90 20}
 				{spawn "sandbag_structured_straight2" offset 2 -90 0}
 				{spawn "sandbag_structured_straight2" offset 0 -90 20}
@@ -297,7 +340,7 @@
 				{spawn "sandbag_structured_straight2" offset 75 90 20}
 				{spawn "sandbag_structured_straight2" offset 75 -90 0}
 				{spawn "sandbag_structured_straight2" offset 75 -90 20}
-					{spawn "sandbag_structured_straight2" offset -75 90 0}
+				{spawn "sandbag_structured_straight2" offset -75 90 0}
 				{spawn "sandbag_structured_straight2" offset -75 90 10}
 				{spawn "sandbag_structured_straight2" offset -75 -90 0}
 				{spawn "sandbag_structured_straight2" offset -75 -90 20}
@@ -325,10 +368,13 @@
 				{spawn "sandbag_structured_straight" offset 90 -75 20}
 				{spawn "sandbag_structured_straight" offset -90 -75 0}
 				{spawn "sandbag_structured_straight" offset -90 -75 20}
+				{call "activate_vehicle"}
+				{call "engine_on"}
 		    }
 		else "spg"
+			{call "deactivate_vehicle"}
             {delay 30.2
-		   	     {spawn "sandbag_structured_straight2" offset 2 90 0}
+		   	    {spawn "sandbag_structured_straight2" offset 2 90 0}
 				{spawn "sandbag_structured_straight2" offset 0 90 10}
 				{spawn "sandbag_structured_straight2" offset 2 -90 0}
 				{spawn "sandbag_structured_straight2" offset 0 -90 10}
@@ -336,11 +382,11 @@
 				{spawn "sandbag_structured_straight2" offset 75 90 10}
 				{spawn "sandbag_structured_straight2" offset 75 -90 0}
 				{spawn "sandbag_structured_straight2" offset 75 -90 10}
-					{spawn "sandbag_structured_straight2" offset -75 90 0}
+				{spawn "sandbag_structured_straight2" offset -75 90 0}
 				{spawn "sandbag_structured_straight2" offset -75 90 10}
 				{spawn "sandbag_structured_straight2" offset -75 -90 0}
 				{spawn "sandbag_structured_straight2" offset -75 -90 10}
-				  {spawn "sandbag_structured_straight2" offset 2 90 0}
+				{spawn "sandbag_structured_straight2" offset 2 90 0}
 				{spawn "sandbag_structured_straight2" offset 0 90 12}
 				{spawn "sandbag_structured_straight2" offset 2 -90 0}
 				{spawn "sandbag_structured_straight2" offset 0 -90 12}
@@ -348,7 +394,7 @@
 				{spawn "sandbag_structured_straight2" offset 75 90 12}
 				{spawn "sandbag_structured_straight2" offset 75 -90 0}
 				{spawn "sandbag_structured_straight2" offset 75 -90 12}
-					{spawn "sandbag_structured_straight2" offset -75 90 0}
+				{spawn "sandbag_structured_straight2" offset -75 90 0}
 				{spawn "sandbag_structured_straight2" offset -75 90 10}
 				{spawn "sandbag_structured_straight2" offset -75 -90 0}
 				{spawn "sandbag_structured_straight2" offset -75 -90 12}
@@ -376,10 +422,13 @@
 				{spawn "sandbag_structured_straight" offset 90 -75 12}
 				{spawn "sandbag_structured_straight" offset -90 -75 0}
 				{spawn "sandbag_structured_straight" offset -90 -75 12}
+				{call "activate_vehicle"}
+				{call "engine_on"}
 			}
-		else 
+		else
+			{call "deactivate_vehicle"}
             {delay 30.2
-		   	     {spawn "sandbag_structured_straight2" offset 2 90 0}
+		   	    {spawn "sandbag_structured_straight2" offset 2 90 0}
 				{spawn "sandbag_structured_straight2" offset 0 90 10}
 				{spawn "sandbag_structured_straight2" offset 2 -90 0}
 				{spawn "sandbag_structured_straight2" offset 0 -90 10}
@@ -387,11 +436,11 @@
 				{spawn "sandbag_structured_straight2" offset 75 90 10}
 				{spawn "sandbag_structured_straight2" offset 75 -90 0}
 				{spawn "sandbag_structured_straight2" offset 75 -90 10}
-					{spawn "sandbag_structured_straight2" offset -75 90 0}
+				{spawn "sandbag_structured_straight2" offset -75 90 0}
 				{spawn "sandbag_structured_straight2" offset -75 90 10}
 				{spawn "sandbag_structured_straight2" offset -75 -90 0}
 				{spawn "sandbag_structured_straight2" offset -75 -90 10}
-				  {spawn "sandbag_structured_straight2" offset 2 90 0}
+				{spawn "sandbag_structured_straight2" offset 2 90 0}
 				{spawn "sandbag_structured_straight2" offset 0 90 15}
 				{spawn "sandbag_structured_straight2" offset 2 -90 0}
 				{spawn "sandbag_structured_straight2" offset 0 -90 15}
@@ -399,7 +448,7 @@
 				{spawn "sandbag_structured_straight2" offset 75 90 15}
 				{spawn "sandbag_structured_straight2" offset 75 -90 0}
 				{spawn "sandbag_structured_straight2" offset 75 -90 15}
-					{spawn "sandbag_structured_straight2" offset -75 90 0}
+				{spawn "sandbag_structured_straight2" offset -75 90 0}
 				{spawn "sandbag_structured_straight2" offset -75 90 10}
 				{spawn "sandbag_structured_straight2" offset -75 -90 0}
 				{spawn "sandbag_structured_straight2" offset -75 -90 15}
@@ -427,6 +476,8 @@
 				{spawn "sandbag_structured_straight" offset 90 -75 15}
 				{spawn "sandbag_structured_straight" offset -90 -75 0}
 				{spawn "sandbag_structured_straight" offset -90 -75 15}
+				{call "activate_vehicle"}
+				{call "engine_on"}
 			}
 	    }
     }

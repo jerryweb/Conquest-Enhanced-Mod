@@ -119,6 +119,74 @@
 	}
 }
 
+{"sandbag_heap_pile" ;// entity name
+	{on spawn
+		{delay 0.1
+			{spawn "building_smoke" "service_bone"}
+			{link_sound "deploy" "vehicle/deploy"}
+			{play_sound "deploy"}
+			{if terrain_fx "ice"
+				{tex_mod "win"}
+			else terrain_fx "snow"
+				{tex_mod "win"}
+			else
+				; do nothing
+			}
+		}
+	}
+}
+
+{"sandbag_structured_straight" ;// entity name
+	{on spawn
+		{delay 0.1
+			{spawn "building_smoke" "service_bone"}
+			{link_sound "deploy" "vehicle/deploy"}
+			{play_sound "deploy"}
+			{if terrain_fx "ice"
+				{tex_mod "win"}
+			else terrain_fx "snow"
+				{tex_mod "win"}
+			else
+				; do nothing
+			}
+		}
+	}
+}
+
+{"sandbag_structured_straight2" ;// entity name
+	{on spawn
+		{delay 0.1
+			{spawn "building_smoke" "service_bone"}
+			{link_sound "deploy" "vehicle/deploy"}
+			{play_sound "deploy"}
+			{if terrain_fx "ice"
+				{tex_mod "win"}
+			else terrain_fx "snow"
+				{tex_mod "win"}
+			else
+				; do nothing
+			}
+		}
+	}
+}
+
+{"sandbag_structured_straight3" ;// entity name
+	{on spawn
+		{delay 0.1
+			{spawn "building_smoke" "service_bone"}
+			{link_sound "deploy" "vehicle/deploy"}
+			{play_sound "deploy"}
+			{if terrain_fx "ice"
+				{tex_mod "win"}
+			else terrain_fx "snow"
+				{tex_mod "win"}
+			else
+				; do nothing
+			}
+		}
+	}
+}
+
 {"sandbag_framed_curved" ;// entity name
 	{on spawn
 		{delay 0.1
@@ -133,7 +201,57 @@
 				; do nothing
 			}
 		}
-		{set "rotate" 40}
+	}
+}
+
+{"sandbag_framed_curved_90" ;// entity name
+	{on spawn
+		{delay 0.1
+			{spawn "building_smoke" "service_bone"}
+			{link_sound "deploy" "vehicle/deploy"}
+			{play_sound "deploy"}
+			{if terrain_fx "ice"
+				{tex_mod "win"}
+			else terrain_fx "snow"
+				{tex_mod "win"}
+			else
+				; do nothing
+			}
+		}
+	}
+}
+
+{"sandbag_framed_curved_180" ;// entity name
+	{on spawn
+		{delay 0.1
+			{spawn "building_smoke" "service_bone"}
+			{link_sound "deploy" "vehicle/deploy"}
+			{play_sound "deploy"}
+			{if terrain_fx "ice"
+				{tex_mod "win"}
+			else terrain_fx "snow"
+				{tex_mod "win"}
+			else
+				; do nothing
+			}
+		}
+	}
+}
+
+{"sandbag_framed_curved_270" ;// entity name
+	{on spawn
+		{delay 0.1
+			{spawn "building_smoke" "service_bone"}
+			{link_sound "deploy" "vehicle/deploy"}
+			{play_sound "deploy"}
+			{if terrain_fx "ice"
+				{tex_mod "win"}
+			else terrain_fx "snow"
+				{tex_mod "win"}
+			else
+				; do nothing
+			}
+		}
 	}
 }
 

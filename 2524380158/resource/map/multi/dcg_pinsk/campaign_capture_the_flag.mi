@@ -49928,8 +49928,31 @@
 									{state
 										{state operatable}
 									}
-									{state
-										{state user_control}
+								}
+								{exclude
+									{tag
+										{tag spg}
+									}
+									{tag
+										{tag is2_44}
+									}
+									{tag
+										{tag katy}
+									}
+									{tag
+										{tag is2_43}
+									}
+									{tag
+										{tag kv2_40}
+									}
+									{tag
+										{tag tiger2p}
+									}
+									{tag
+										{tag tiger2h}
+									}
+									{tag
+										{tag immobile}
 									}
 								}
 							}
@@ -49941,12 +49964,12 @@
 							{mode enable}
 						}
 						{movement
-							{speed slow}
-							{max_speed_kph 13}
+							{speed assault}
+							{max_speed_kph 50}
 						}
 					}
 					{"delay"
-						{time 3}
+						{time 10}
 					}
 					{"actor_state"
 						{selector
@@ -49965,6 +49988,26 @@
 										{state operatable}
 									}
 								}
+								{exclude
+									{tag
+										{tag spg}
+									}
+									{tag
+										{tag tiger2h}
+									}
+									{tag
+										{tag tiger2p}
+									}
+									{tag
+										{tag kv2_40}
+									}
+									{tag
+										{tag is2_43}
+									}
+									{tag
+										{tag is2_44}
+									}
+								}
 							}
 						}
 						{control AI}
@@ -49975,9 +50018,7 @@
 							{mode enable}
 						}
 						{movement
-							{speed slow}
-							{kind slow}
-							{max_speed_kph 12}
+							{max_speed_kph 33}
 						}
 					}
 					{"trigger"
@@ -51737,7 +51778,7 @@
 			}
 			{"arty/arty2 balanced"
 				{condition
-					{expression "1 & 3 & 2 & 4 & !5 & !6"}
+					{expression "1 & 3 & 2 & 4 & !5 & !6 & 7"}
 					{terms
 						{"1.entities"
 							{selector
@@ -51794,6 +51835,9 @@
 						}
 						{"6.difficulty"
 							{level normal}
+						}
+						{"7.rand"
+							{value 0.6}
 						}
 					}
 				}
