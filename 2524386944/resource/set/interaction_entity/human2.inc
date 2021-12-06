@@ -131,3 +131,37 @@
 	    {tags add "automatic_weaponary"}
 	}
 }
+
+
+{"artillery_aim2"
+    {on spawn
+	    {tags add "automatic_weaponary"}
+		{delay 1
+			{if rand 0.08
+			    {spawn "soldier_foxhole" "basis" x}
+			else rand 0.08 
+			    {spawn "mg_foxhole" "basis" x}
+			else rand 0.08 
+		    	{spawn "sandbag_heap_curved" "basis" x}
+			else rand 0.08 
+			    {spawn "sandbag_heap_straight" "basis" x}
+			else rand 0.08 
+			    {spawn "sandbag_structured_curved" "basis" x}
+			else rand 0.08 
+			    {spawn "sandbag_structured_curved_big" "basis" x}
+			else rand 0.08 
+			    {spawn "sandbag_structured_straight" "basis" x}
+			else rand 0.08 
+			    {spawn "sandbag_watchtower" "basis" x}
+			else rand 0.08 
+			    {spawn "sandbag_curved" "basis" x}
+			else rand 0.08 
+			    {spawn "sandbag_curved_heap" "basis" x}
+			else rand 0.08 
+			    {spawn "sandbag_straight" "basis" x}
+			else 
+			    {spawn "sandbag_straight_heap" "basis" x}
+			}
+		}
+	}
+}

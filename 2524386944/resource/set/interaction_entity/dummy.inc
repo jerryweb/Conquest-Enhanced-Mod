@@ -1358,6 +1358,13 @@
 	}
 	
 }
+
+{"map_point2"
+    {on spawn 
+	    {call "fortification"}
+	}
+}
+
 {"pointer_bait"				;// mission objective icon/helper
 	{on spawn
 		{tags add "pointer_bait"}
