@@ -46602,1229 +46602,1286 @@
 				}
 			}
 			{"sandbag_mg_cmp_def"
-{condition
-	{terms
-		{"1.event"
-			{id "init2"}
-		}
-	}
-}
-{actions
-	{"delay"
-		{time 15}
-	}
-	{"entity_state"
-		{selector
-			{ignore_captured_by_user 0}
-			{tag cmp_mg}
-		}
-		{tag_remove cmp_mg}
-	}
-	{"delay"
-		{time 0.5}
-	}
-	{"entity_state"
-		{selector
-			{source advanced}
-			{group
-				{select
-					{tag
-						{tag heavy_at_gun}
-					}
-					{tag
-						{tag medium_at_gun}
-					}
-					{tag
-						{tag light_at_gun}
-					}
-					{tag
-						{tag aaflak}
-					}
-				}
-				{include
-					{state
-						{state inhabited}
-					}
-					{prop
-						{prop vehicle}
-					}
-					{zone
-						{zone "combat"}
-					}
-				}
-				{exclude
-					{tag
-						{tag player}
-					}
-					{state
-						{state dead}
-					}
-					{state
-						{state user_control}
-					}
-				}
-			}
-		}
-		{tag_add cmp_mg}
-	}
-	{## "switch"
-		{"case"
-			{condition
-				{type entities}
-				{selector
-					{source advanced}
-					{ignore_captured_by_user 0}
-					{group
-						{select
-							{tag
-								{tag cmp_def}
-							}
-						}
-						{include
-							{zone
-								{zone "fpc1"}
-							}
-							{prop
-								{prop human}
-							}
-						}
-						{exclude
-							{state
-								{state inactive}
-							}
+				{condition
+					{terms
+						{"1.event"
+							{id "init2"}
 						}
 					}
 				}
-			}
-			{"delay"
-				{time 0.1}
-			}
-			{"entity_state"
-				{selector
-					{source advanced}
-					{group
-						{select
-							{tag
-								{tag "1_a_2-3_mg"}
-							}
-							{tag
-								{tag "1_a_2-3_mg"}
-							}
-							{tag
-								{tag "1_a_3_mg"}
-							}
-							{tag
-								{tag "1_b_3_mg"}
-							}
-						}
-						{include
-							{prop
-								{prop vehicle}
-							}
-							{state
-								{state inhabited}
-							}
-						}
-						{exclude
-							{state
-								{state user_control}
-							}
-							{tag
-								{tag player}
-							}
-							{state
-								{state dead}
-							}
-						}
+				{actions
+					{"delay"
+						{time 15}
 					}
-				}
-				{tag_add cmp_mg}
-			}
-			{## "switch"
-				{"case"
-					{condition
-						{type entities}
+					{"entity_state"
 						{selector
-							{source advanced}
 							{ignore_captured_by_user 0}
-							{group
-								{include
-									{tag
-										{tag "1_a_2-3"}
-									}
-									{tag
-										{tag "1_b_2-3"}
-									}
-									{tag
-										{tag "1_a_3"}
-									}
-									{tag
-										{tag "1_b_3"}
-									}
-								}
-							}
+							{tag cmp_mg}
 						}
+						{tag_remove cmp_mg}
 					}
 					{"delay"
-						{time 0.1}
+						{time 0.5}
 					}
 					{"entity_state"
 						{selector
 							{source advanced}
-							{ignore_captured_by_user 0}
 							{group
 								{select
+									{tag
+										{tag heavy_at_gun}
+									}
+									{tag
+										{tag medium_at_gun}
+									}
+									{tag
+										{tag light_at_gun}
+									}
+									{tag
+										{tag aaflak}
+									}
+									{tag
+										{tag mg34_lafette}
+									}
+									{tag
+										{tag mg42_lafette}
+									}
+									{tag
+										{tag dshk_aa}
+									}
+									{tag
+										{tag mortars}
+									}
+								}
+								{include
+									{state
+										{state inhabited}
+									}
+									{prop
+										{prop vehicle}
+									}
 									{zone
 										{zone "combat"}
 									}
 								}
-								{include
-									{prop
-										{prop vehicle}
+								{exclude
+									{tag
+										{tag player_veh}
 									}
 									{state
-										{state inhabited}
+										{state dead}
 									}
-								}
-								{exclude
 									{state
 										{state user_control}
 									}
+									{tag
+										{tag player}
+									}
 								}
 							}
-							{sort
-								{type entity}
-								{entity
+						}
+						{tag_add cmp_mg}
+					}
+					{## "switch"
+						{"case"
+							{condition
+								{type entities}
+								{selector
 									{source advanced}
 									{ignore_captured_by_user 0}
-									{group}
-								}
-							}
-							{amount 2
-							}
-						}
-						{tag_add cmp_mg}
-					}
-				}
-				{"case"
-					{condition
-						{type entities}
-						{selector
-							{ignore_captured_by_user 0}
-							{tag "1_b_2-3_mg"}
-						}
-						{count
-							{op "=="}
-							{value 1}
-						}
-					}
-					{"delay"
-						{time 0.1}
-					}
-					{"entity_state"
-						{selector
-							{source advanced}
-							{ignore_captured_by_user 0}
-							{group
-								{select
-									{zone
-										{zone "combat"}
-									}
-								}
-								{include
-									{prop
-										{prop vehicle}
-									}
-									{state
-										{state inhabited}
-									}
-								}
-								{exclude
-									{state
-										{state user_control}
+									{group
+										{select
+											{tag
+												{tag cmp_def}
+											}
+										}
+										{include
+											{zone
+												{zone "fpc1"}
+											}
+											{prop
+												{prop human}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
 									}
 								}
 							}
-							{sort
-								{type entity}
-								{entity
+							{"delay"
+								{time 0.1}
+							}
+							{"entity_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag "1_a_2-3_mg"}
+											}
+											{tag
+												{tag "1_a_2-3_mg"}
+											}
+											{tag
+												{tag "1_a_3_mg"}
+											}
+											{tag
+												{tag "1_b_3_mg"}
+											}
+										}
+										{include
+											{prop
+												{prop vehicle}
+											}
+											{state
+												{state inhabited}
+											}
+										}
+										{exclude
+											{state
+												{state user_control}
+											}
+											{tag
+												{tag player}
+											}
+											{state
+												{state dead}
+											}
+										}
+									}
+								}
+								{tag_add cmp_mg}
+							}
+							{## "switch"
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{include
+													{tag
+														{tag "1_a_2-3"}
+													}
+													{tag
+														{tag "1_b_2-3"}
+													}
+													{tag
+														{tag "1_a_3"}
+													}
+													{tag
+														{tag "1_b_3"}
+													}
+												}
+											}
+										}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"entity_state"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{zone
+														{zone "combat"}
+													}
+												}
+												{include
+													{prop
+														{prop vehicle}
+													}
+													{state
+														{state inhabited}
+													}
+												}
+												{exclude
+													{state
+														{state user_control}
+													}
+												}
+											}
+											{sort
+												{type entity}
+												{entity
+													{source advanced}
+													{ignore_captured_by_user 0}
+													{group}
+												}
+											}
+											{amount 2
+											}
+										}
+										{tag_add cmp_mg}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{ignore_captured_by_user 0}
+											{tag "1_b_2-3_mg"}
+										}
+										{count
+											{op "=="}
+											{value 1}
+										}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"entity_state"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{zone
+														{zone "combat"}
+													}
+												}
+												{include
+													{prop
+														{prop vehicle}
+													}
+													{state
+														{state inhabited}
+													}
+												}
+												{exclude
+													{state
+														{state user_control}
+													}
+												}
+											}
+											{sort
+												{type entity}
+												{entity
+													{ignore_captured_by_user 0}
+													{tag "1_b_2-3_mg"}
+												}
+											}
+											{amount}
+										}
+										{tag_add cmp_mg}
+									}
+								}
+								{"default"}
+							}
+						}
+						{"default"}
+					}
+					{## "delay"
+						{time 0.2}
+					}
+					{## "switch"
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
 									{ignore_captured_by_user 0}
-									{tag "1_b_2-3_mg"}
+									{group
+										{select
+											{tag
+												{tag cmp_def}
+											}
+										}
+										{include
+											{zone
+												{zone "fpc2"}
+											}
+											{prop
+												{prop human}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
 								}
 							}
-							{amount}
+							{"delay"
+								{time 0.1}
+							}
+							{"entity_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag "2_a_2-3_mg"}
+											}
+											{tag
+												{tag "2_b_2-3_mg"}
+											}
+											{tag
+												{tag "2_a_3_mg"}
+											}
+											{tag
+												{tag "2_b_3_mg"}
+											}
+										}
+										{include
+											{prop
+												{prop vehicle}
+											}
+										}
+										{exclude
+											{state
+												{state user_control}
+											}
+											{state
+												{state dead}
+											}
+											{tag
+												{tag player}
+											}
+										}
+									}
+								}
+								{tag_add cmp_mg}
+							}
+							{## "switch"
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{ignore_captured_by_user 0}
+											{tag "2_b_2-3_mg"}
+										}
+										{count
+											{op "=="}
+											{value 2}
+										}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"entity_state"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{zone
+														{zone "combat"}
+													}
+												}
+												{include
+													{prop
+														{prop vehicle}
+													}
+													{state
+														{state inhabited}
+													}
+												}
+												{exclude
+													{tag
+														{tag cmp_mg}
+													}
+													{state
+														{state user_control}
+													}
+												}
+											}
+											{sort
+												{type entity}
+												{entity
+													{ignore_captured_by_user 0}
+													{tag "2_b_2-3_mg"}
+												}
+											}
+											{amount 2
+											}
+										}
+										{tag_add cmp_mg}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{ignore_captured_by_user 0}
+											{tag "2_b_2-3_mg"}
+										}
+										{count
+											{op "=="}
+											{value 1}
+										}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"entity_state"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{zone
+														{zone "combat"}
+													}
+												}
+												{include
+													{prop
+														{prop vehicle}
+													}
+													{state
+														{state inhabited}
+													}
+												}
+												{exclude
+													{tag
+														{tag cmp_mg}
+													}
+													{state
+														{state user_control}
+													}
+												}
+											}
+											{sort
+												{type entity}
+												{entity
+													{ignore_captured_by_user 0}
+													{tag "2_b_2-3_mg"}
+												}
+											}
+											{amount 1
+											}
+										}
+										{tag_add cmp_mg}
+									}
+								}
+								{"default"}
+							}
 						}
-						{tag_add cmp_mg}
+						{"default"}
 					}
-				}
-				{"default"}
-			}
-		}
-		{"default"}
-	}
-	{## "delay"
-		{time 0.2}
-	}
-	{## "switch"
-		{"case"
-			{condition
-				{type entities}
-				{selector
-					{source advanced}
-					{ignore_captured_by_user 0}
-					{group
-						{select
-							{tag
-								{tag cmp_def}
-							}
-						}
-						{include
-							{zone
-								{zone "fpc2"}
-							}
-							{prop
-								{prop human}
-							}
-						}
-						{exclude
-							{state
-								{state inactive}
-							}
-						}
+					{## "delay"
+						{time 0.2}
 					}
-				}
-			}
-			{"delay"
-				{time 0.1}
-			}
-			{"entity_state"
-				{selector
-					{source advanced}
-					{group
-						{select
-							{tag
-								{tag "2_a_2-3_mg"}
+					{## "switch"
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag cmp_def}
+											}
+										}
+										{include
+											{zone
+												{zone "fpc3"}
+											}
+											{prop
+												{prop human}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+								}
 							}
-							{tag
-								{tag "2_b_2-3_mg"}
+							{"delay"
+								{time 0.1}
 							}
-							{tag
-								{tag "2_a_3_mg"}
+							{"entity_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag "3_a_2-3_mg"}
+											}
+											{tag
+												{tag "3_a_2-3_mg"}
+											}
+											{tag
+												{tag "3_a_3_mg"}
+											}
+											{tag
+												{tag "3_b_3_mg"}
+											}
+										}
+										{include
+											{prop
+												{prop vehicle}
+											}
+											{state
+												{state inhabited}
+											}
+										}
+										{exclude
+											{state
+												{state user_control}
+											}
+											{tag
+												{tag player}
+											}
+											{state
+												{state dead}
+											}
+										}
+									}
+								}
+								{tag_add cmp_mg}
 							}
-							{tag
-								{tag "2_b_3_mg"}
+							{## "switch"
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{ignore_captured_by_user 0}
+											{tag "3_b_2-3_mg"}
+										}
+										{count
+											{op "=="}
+											{value 2}
+										}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"entity_state"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{zone
+														{zone "combat"}
+													}
+												}
+												{include
+													{prop
+														{prop vehicle}
+													}
+													{state
+														{state inhabited}
+													}
+												}
+												{exclude
+													{tag
+														{tag cmp_mg}
+													}
+													{state
+														{state user_control}
+													}
+												}
+											}
+											{sort
+												{type entity}
+												{entity
+													{ignore_captured_by_user 0}
+													{tag "3_b_2-3_mg"}
+												}
+											}
+											{amount 2
+											}
+										}
+										{tag_add cmp_mg}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{ignore_captured_by_user 0}
+											{tag "3_b_2-3_mg"}
+										}
+										{count
+											{op "=="}
+											{value 1}
+										}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"entity_state"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{zone
+														{zone "combat"}
+													}
+												}
+												{include
+													{prop
+														{prop vehicle}
+													}
+													{state
+														{state inhabited}
+													}
+												}
+												{exclude
+													{tag
+														{tag cmp_mg}
+													}
+													{state
+														{state user_control}
+													}
+												}
+											}
+											{sort
+												{type entity}
+												{entity
+													{ignore_captured_by_user 0}
+													{tag "3_b_2-3_mg"}
+												}
+											}
+											{amount 1
+											}
+										}
+										{tag_add cmp_mg}
+									}
+								}
+								{"default"}
 							}
 						}
-						{include
-							{prop
-								{prop vehicle}
-							}
-						}
-						{exclude
-							{state
-								{state user_control}
-							}
-							{state
-								{state dead}
-							}
-							{tag
-								{tag player}
-							}
-						}
+						{"default"}
 					}
-				}
-				{tag_add cmp_mg}
-			}
-			{## "switch"
-				{"case"
-					{condition
-						{type entities}
-						{selector
-							{ignore_captured_by_user 0}
-							{tag "2_b_2-3_mg"}
+					{## "delay"
+						{time 0.2}
+					}
+					{## "switch"
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag cmp_def}
+											}
+										}
+										{include
+											{zone
+												{zone "fpc4"}
+											}
+											{prop
+												{prop human}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+								}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"entity_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag "4_a_2-3_mg"}
+											}
+											{tag
+												{tag "4_a_2-3_mg"}
+											}
+											{tag
+												{tag "4_a_3_mg"}
+											}
+											{tag
+												{tag "4_b_3_mg"}
+											}
+										}
+										{include
+											{prop
+												{prop vehicle}
+											}
+											{state
+												{state inhabited}
+											}
+										}
+										{exclude
+											{state
+												{state user_control}
+											}
+											{tag
+												{tag player}
+											}
+											{state
+												{state dead}
+											}
+										}
+									}
+								}
+								{tag_add cmp_mg}
+							}
+							{## "switch"
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{ignore_captured_by_user 0}
+											{tag "4_b_2-3_mg"}
+										}
+										{count
+											{op "=="}
+											{value 2}
+										}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"entity_state"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{zone
+														{zone "combat"}
+													}
+												}
+												{include
+													{prop
+														{prop vehicle}
+													}
+													{state
+														{state inhabited}
+													}
+												}
+												{exclude
+													{tag
+														{tag cmp_mg}
+													}
+													{state
+														{state user_control}
+													}
+												}
+											}
+											{sort
+												{type entity}
+												{entity
+													{ignore_captured_by_user 0}
+													{tag "4_b_2-3_mg"}
+												}
+											}
+											{amount 2
+											}
+										}
+										{tag_add cmp_mg}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{ignore_captured_by_user 0}
+											{tag "4_b_2-3_mg"}
+										}
+										{count
+											{op "=="}
+											{value 1}
+										}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"entity_state"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{zone
+														{zone "combat"}
+													}
+												}
+												{include
+													{prop
+														{prop vehicle}
+													}
+													{state
+														{state inhabited}
+													}
+												}
+												{exclude
+													{tag
+														{tag cmp_mg}
+													}
+													{state
+														{state user_control}
+													}
+												}
+											}
+											{sort
+												{type entity}
+												{entity
+													{ignore_captured_by_user 0}
+													{tag "4_b_2-3_mg"}
+												}
+											}
+											{amount 1
+											}
+										}
+										{tag_add cmp_mg}
+									}
+								}
+								{"default"}
+							}
 						}
-						{count
-							{op "=="}
-							{value 2}
+						{"default"}
+					}
+					{## "delay"
+						{time 0.2}
+					}
+					{## "switch"
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag cmp_def}
+											}
+										}
+										{include
+											{zone
+												{zone "fpc5"}
+											}
+											{prop
+												{prop human}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+								}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"entity_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag "5_a_2-3_mg"}
+											}
+											{tag
+												{tag "5_a_2-3_mg"}
+											}
+											{tag
+												{tag "5_a_3_mg"}
+											}
+											{tag
+												{tag "5_b_3_mg"}
+											}
+										}
+										{include
+											{prop
+												{prop vehicle}
+											}
+											{state
+												{state inhabited}
+											}
+										}
+										{exclude
+											{state
+												{state user_control}
+											}
+											{tag
+												{tag player}
+											}
+											{state
+												{state dead}
+											}
+										}
+									}
+								}
+								{tag_add cmp_mg}
+							}
+							{## "switch"
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{ignore_captured_by_user 0}
+											{tag "5_b_2-3_mg"}
+										}
+										{count
+											{op "=="}
+											{value 2}
+										}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"entity_state"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{zone
+														{zone "combat"}
+													}
+												}
+												{include
+													{prop
+														{prop vehicle}
+													}
+													{state
+														{state inhabited}
+													}
+												}
+												{exclude
+													{tag
+														{tag cmp_mg}
+													}
+													{state
+														{state user_control}
+													}
+												}
+											}
+											{sort
+												{type entity}
+												{entity
+													{ignore_captured_by_user 0}
+													{tag "5_b_2-3_mg"}
+												}
+											}
+											{amount 2
+											}
+										}
+										{tag_add cmp_mg}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{ignore_captured_by_user 0}
+											{tag "5_b_2-3_mg"}
+										}
+										{count
+											{op "=="}
+											{value 1}
+										}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"entity_state"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{zone
+														{zone "combat"}
+													}
+												}
+												{include
+													{prop
+														{prop vehicle}
+													}
+													{state
+														{state inhabited}
+													}
+												}
+												{exclude
+													{tag
+														{tag cmp_mg}
+													}
+													{state
+														{state user_control}
+													}
+												}
+											}
+											{sort
+												{type entity}
+												{entity
+													{ignore_captured_by_user 0}
+													{tag "5_b_2-3_mg"}
+												}
+											}
+											{amount 1
+											}
+										}
+										{tag_add cmp_mg}
+									}
+								}
+								{"default"}
+							}
 						}
+						{"default"}
 					}
 					{"delay"
-						{time 0.1}
+						{time 0.5}
 					}
-					{"entity_state"
+					{"effect"
 						{selector
 							{source advanced}
 							{ignore_captured_by_user 0}
 							{group
 								{select
-									{zone
-										{zone "combat"}
+									{tag
+										{tag light_at_gun}
+									}
+									{tag
+										{tag aaflak}
 									}
 								}
 								{include
-									{prop
-										{prop vehicle}
-									}
-									{state
-										{state inhabited}
+									{tag
+										{tag cmp_mg}
 									}
 								}
 								{exclude
 									{tag
-										{tag cmp_mg}
+										{tag heavy_at_gun}
+									}
+									{tag
+										{tag medium_at_gun}
 									}
 									{state
 										{state user_control}
 									}
+									{tag
+										{tag player_veh}
+									}
 								}
 							}
-							{sort
-								{type entity}
-								{entity
-									{ignore_captured_by_user 0}
-									{tag "2_b_2-3_mg"}
-								}
-							}
-							{amount 2
-							}
 						}
-						{tag_add cmp_mg}
-					}
-				}
-				{"case"
-					{condition
-						{type entities}
-						{selector
-							{ignore_captured_by_user 0}
-							{tag "2_b_2-3_mg"}
-						}
-						{count
-							{op "=="}
-							{value 1}
-						}
+						{effect construction_sandbag_cannon_shallow}
 					}
 					{"delay"
-						{time 0.1}
+						{time 0.5}
 					}
-					{"entity_state"
+					{"effect"
 						{selector
 							{source advanced}
 							{ignore_captured_by_user 0}
 							{group
 								{select
-									{zone
-										{zone "combat"}
+									{tag
+										{tag medium_at_gun}
+									}
+									{tag
+										{tag heavy_at_gun}
+									}
+									{tag
+										{tag dshk_aa}
+									}
+									{tag
+										{tag mg34_lafette}
+									}
+									{tag
+										{tag mg42_lafette}
+									}
+								}
+								{include
+									{tag
+										{tag cmp_mg}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag light_at_gun}
+									}
+									{state
+										{state user_control}
+									}
+									{tag
+										{tag player_veh}
+									}
+									{tag
+										{tag aaflak}
+									}
+									{tag
+										{tag player}
+									}
+									{tag
+										{tag "88mm_flak18"}
+									}
+									{tag
+										{tag "88mm_flak36"}
+									}
+									{tag
+										{tag "85mm_52k"}
+									}
+								}
+							}
+						}
+						{effect construction_sandbag_cannon_standard}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"effect"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag "85mm_52k"}
+									}
+									{tag
+										{tag "88mm_flak18"}
+									}
+									{tag
+										{tag "88mm_flak36"}
+									}
+									{tag
+										{tag mortars}
+									}
+								}
+								{include
+									{tag
+										{tag cmp_mg}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag medium_at_gun}
+									}
+									{state
+										{state user_control}
+									}
+									{tag
+										{tag player_veh}
+									}
+									{tag
+										{tag player}
+									}
+								}
+							}
+						}
+						{effect sandbag_heavy_flak}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"delay"
+						{time 5}
+					}
+					{## "ables"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag cmp_mg}
 									}
 								}
 								{include
 									{prop
 										{prop vehicle}
 									}
-									{state
-										{state inhabited}
-									}
 								}
 								{exclude
-									{tag
-										{tag cmp_mg}
-									}
 									{state
 										{state user_control}
 									}
 								}
 							}
-							{sort
-								{type entity}
-								{entity
-									{ignore_captured_by_user 0}
-									{tag "2_b_2-3_mg"}
-								}
-							}
-							{amount 1
-							}
 						}
-						{tag_add cmp_mg}
+						{remove select}
 					}
-				}
-				{"default"}
-			}
-		}
-		{"default"}
-	}
-	{## "delay"
-		{time 0.2}
-	}
-	{## "switch"
-		{"case"
-			{condition
-				{type entities}
-				{selector
-					{source advanced}
-					{ignore_captured_by_user 0}
-					{group
-						{select
-							{tag
-								{tag cmp_def}
-							}
+					{## "if"
+						{condition
+							{type difficulty}
+							{level hard}
 						}
-						{include
-							{zone
-								{zone "fpc3"}
-							}
-							{prop
-								{prop human}
-							}
-						}
-						{exclude
-							{state
-								{state inactive}
-							}
-						}
-					}
-				}
-			}
-			{"delay"
-				{time 0.1}
-			}
-			{"entity_state"
-				{selector
-					{source advanced}
-					{group
-						{select
-							{tag
-								{tag "3_a_2-3_mg"}
-							}
-							{tag
-								{tag "3_a_2-3_mg"}
-							}
-							{tag
-								{tag "3_a_3_mg"}
-							}
-							{tag
-								{tag "3_b_3_mg"}
-							}
-						}
-						{include
-							{prop
-								{prop vehicle}
-							}
-							{state
-								{state inhabited}
-							}
-						}
-						{exclude
-							{state
-								{state user_control}
-							}
-							{tag
-								{tag player}
-							}
-							{state
-								{state dead}
-							}
-						}
-					}
-				}
-				{tag_add cmp_mg}
-			}
-			{## "switch"
-				{"case"
-					{condition
-						{type entities}
-						{selector
-							{ignore_captured_by_user 0}
-							{tag "3_b_2-3_mg"}
-						}
-						{count
-							{op "=="}
-							{value 2}
-						}
-					}
-					{"delay"
-						{time 0.1}
-					}
-					{"entity_state"
-						{selector
-							{source advanced}
-							{ignore_captured_by_user 0}
-							{group
-								{select
-									{zone
-										{zone "combat"}
+						{"ables"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag cmp_mg}
+										}
 									}
-								}
-								{include
-									{prop
-										{prop vehicle}
+									{include
+										{prop
+											{prop vehicle}
+										}
 									}
-									{state
-										{state inhabited}
-									}
-								}
-								{exclude
-									{tag
-										{tag cmp_mg}
-									}
-									{state
-										{state user_control}
+									{exclude
+										{state
+											{state user_control}
+										}
 									}
 								}
 							}
-							{sort
-								{type entity}
-								{entity
-									{ignore_captured_by_user 0}
-									{tag "3_b_2-3_mg"}
-								}
-							}
-							{amount 2
-							}
-						}
-						{tag_add cmp_mg}
-					}
-				}
-				{"case"
-					{condition
-						{type entities}
-						{selector
-							{ignore_captured_by_user 0}
-							{tag "3_b_2-3_mg"}
-						}
-						{count
-							{op "=="}
-							{value 1}
+							{remove select}
 						}
 					}
-					{"delay"
-						{time 0.1}
-					}
-					{"entity_state"
-						{selector
-							{source advanced}
-							{ignore_captured_by_user 0}
-							{group
-								{select
-									{zone
-										{zone "combat"}
-									}
-								}
-								{include
-									{prop
-										{prop vehicle}
-									}
-									{state
-										{state inhabited}
-									}
-								}
-								{exclude
-									{tag
-										{tag cmp_mg}
-									}
-									{state
-										{state user_control}
-									}
-								}
-							}
-							{sort
-								{type entity}
-								{entity
-									{ignore_captured_by_user 0}
-									{tag "3_b_2-3_mg"}
-								}
-							}
-							{amount 1
-							}
+					{## "if"
+						{condition
+							{type difficulty}
+							{level heroic}
 						}
-						{tag_add cmp_mg}
-					}
-				}
-				{"default"}
-			}
-		}
-		{"default"}
-	}
-	{## "delay"
-		{time 0.2}
-	}
-	{## "switch"
-		{"case"
-			{condition
-				{type entities}
-				{selector
-					{source advanced}
-					{ignore_captured_by_user 0}
-					{group
-						{select
-							{tag
-								{tag cmp_def}
+						{"ables"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag cmp_mg}
+										}
+									}
+									{include
+										{prop
+											{prop vehicle}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+									}
+								}
 							}
-						}
-						{include
-							{zone
-								{zone "fpc4"}
-							}
-							{prop
-								{prop human}
-							}
-						}
-						{exclude
-							{state
-								{state inactive}
-							}
+							{remove select}
 						}
 					}
 				}
 			}
-			{"delay"
-				{time 0.1}
-			}
-			{"entity_state"
-				{selector
-					{source advanced}
-					{group
-						{select
-							{tag
-								{tag "4_a_2-3_mg"}
-							}
-							{tag
-								{tag "4_a_2-3_mg"}
-							}
-							{tag
-								{tag "4_a_3_mg"}
-							}
-							{tag
-								{tag "4_b_3_mg"}
-							}
-						}
-						{include
-							{prop
-								{prop vehicle}
-							}
-							{state
-								{state inhabited}
-							}
-						}
-						{exclude
-							{state
-								{state user_control}
-							}
-							{tag
-								{tag player}
-							}
-							{state
-								{state dead}
-							}
-						}
-					}
-				}
-				{tag_add cmp_mg}
-			}
-			{## "switch"
-				{"case"
-					{condition
-						{type entities}
-						{selector
-							{ignore_captured_by_user 0}
-							{tag "4_b_2-3_mg"}
-						}
-						{count
-							{op "=="}
-							{value 2}
-						}
-					}
-					{"delay"
-						{time 0.1}
-					}
-					{"entity_state"
-						{selector
-							{source advanced}
-							{ignore_captured_by_user 0}
-							{group
-								{select
-									{zone
-										{zone "combat"}
-									}
-								}
-								{include
-									{prop
-										{prop vehicle}
-									}
-									{state
-										{state inhabited}
-									}
-								}
-								{exclude
-									{tag
-										{tag cmp_mg}
-									}
-									{state
-										{state user_control}
-									}
-								}
-							}
-							{sort
-								{type entity}
-								{entity
-									{ignore_captured_by_user 0}
-									{tag "4_b_2-3_mg"}
-								}
-							}
-							{amount 2
-							}
-						}
-						{tag_add cmp_mg}
-					}
-				}
-				{"case"
-					{condition
-						{type entities}
-						{selector
-							{ignore_captured_by_user 0}
-							{tag "4_b_2-3_mg"}
-						}
-						{count
-							{op "=="}
-							{value 1}
-						}
-					}
-					{"delay"
-						{time 0.1}
-					}
-					{"entity_state"
-						{selector
-							{source advanced}
-							{ignore_captured_by_user 0}
-							{group
-								{select
-									{zone
-										{zone "combat"}
-									}
-								}
-								{include
-									{prop
-										{prop vehicle}
-									}
-									{state
-										{state inhabited}
-									}
-								}
-								{exclude
-									{tag
-										{tag cmp_mg}
-									}
-									{state
-										{state user_control}
-									}
-								}
-							}
-							{sort
-								{type entity}
-								{entity
-									{ignore_captured_by_user 0}
-									{tag "4_b_2-3_mg"}
-								}
-							}
-							{amount 1
-							}
-						}
-						{tag_add cmp_mg}
-					}
-				}
-				{"default"}
-			}
-		}
-		{"default"}
-	}
-	{## "delay"
-		{time 0.2}
-	}
-	{## "switch"
-		{"case"
-			{condition
-				{type entities}
-				{selector
-					{source advanced}
-					{ignore_captured_by_user 0}
-					{group
-						{select
-							{tag
-								{tag cmp_def}
-							}
-						}
-						{include
-							{zone
-								{zone "fpc5"}
-							}
-							{prop
-								{prop human}
-							}
-						}
-						{exclude
-							{state
-								{state inactive}
-							}
-						}
-					}
-				}
-			}
-			{"delay"
-				{time 0.1}
-			}
-			{"entity_state"
-				{selector
-					{source advanced}
-					{group
-						{select
-							{tag
-								{tag "5_a_2-3_mg"}
-							}
-							{tag
-								{tag "5_a_2-3_mg"}
-							}
-							{tag
-								{tag "5_a_3_mg"}
-							}
-							{tag
-								{tag "5_b_3_mg"}
-							}
-						}
-						{include
-							{prop
-								{prop vehicle}
-							}
-							{state
-								{state inhabited}
-							}
-						}
-						{exclude
-							{state
-								{state user_control}
-							}
-							{tag
-								{tag player}
-							}
-							{state
-								{state dead}
-							}
-						}
-					}
-				}
-				{tag_add cmp_mg}
-			}
-			{## "switch"
-				{"case"
-					{condition
-						{type entities}
-						{selector
-							{ignore_captured_by_user 0}
-							{tag "5_b_2-3_mg"}
-						}
-						{count
-							{op "=="}
-							{value 2}
-						}
-					}
-					{"delay"
-						{time 0.1}
-					}
-					{"entity_state"
-						{selector
-							{source advanced}
-							{ignore_captured_by_user 0}
-							{group
-								{select
-									{zone
-										{zone "combat"}
-									}
-								}
-								{include
-									{prop
-										{prop vehicle}
-									}
-									{state
-										{state inhabited}
-									}
-								}
-								{exclude
-									{tag
-										{tag cmp_mg}
-									}
-									{state
-										{state user_control}
-									}
-								}
-							}
-							{sort
-								{type entity}
-								{entity
-									{ignore_captured_by_user 0}
-									{tag "5_b_2-3_mg"}
-								}
-							}
-							{amount 2
-							}
-						}
-						{tag_add cmp_mg}
-					}
-				}
-				{"case"
-					{condition
-						{type entities}
-						{selector
-							{ignore_captured_by_user 0}
-							{tag "5_b_2-3_mg"}
-						}
-						{count
-							{op "=="}
-							{value 1}
-						}
-					}
-					{"delay"
-						{time 0.1}
-					}
-					{"entity_state"
-						{selector
-							{source advanced}
-							{ignore_captured_by_user 0}
-							{group
-								{select
-									{zone
-										{zone "combat"}
-									}
-								}
-								{include
-									{prop
-										{prop vehicle}
-									}
-									{state
-										{state inhabited}
-									}
-								}
-								{exclude
-									{tag
-										{tag cmp_mg}
-									}
-									{state
-										{state user_control}
-									}
-								}
-							}
-							{sort
-								{type entity}
-								{entity
-									{ignore_captured_by_user 0}
-									{tag "5_b_2-3_mg"}
-								}
-							}
-							{amount 1
-							}
-						}
-						{tag_add cmp_mg}
-					}
-				}
-				{"default"}
-			}
-		}
-		{"default"}
-	}
-	{"delay"
-		{time 0.5}
-	}
-	{"effect"
-		{selector
-			{source advanced}
-			{ignore_captured_by_user 0}
-			{group
-				{select
-					{tag
-						{tag light_at_gun}
-					}
-					{tag
-						{tag aaflak}
-					}
-				}
-				{include
-					{tag
-						{tag cmp_mg}
-					}
-				}
-				{exclude
-					{tag
-						{tag heavy_at_gun}
-					}
-					{tag
-						{tag medium_at_gun}
-					}
-					{state
-						{state user_control}
-					}
-					{tag
-						{tag player}
-					}
-				}
-			}
-		}
-		{effect construction_sandbag_cannon_shallow}
-	}
-	{"delay"
-		{time 0.5}
-	}
-	{"effect"
-		{selector
-			{source advanced}
-			{ignore_captured_by_user 0}
-			{group
-				{select
-					{tag
-						{tag medium_at_gun}
-					}
-					{tag
-						{tag heavy_at_gun}
-					}
-				}
-				{include
-					{tag
-						{tag cmp_mg}
-					}
-				}
-				{exclude
-					{tag
-						{tag light_at_gun}
-					}
-					{state
-						{state user_control}
-					}
-					{tag
-						{tag player}
-					}
-					{tag
-						{tag aaflak}
-					}
-				}
-			}
-		}
-		{effect construction_sandbag_cannon_standard}
-	}
-	{"delay"
-		{time 0.5}
-	}
-	{"effect"
-		{selector
-			{source advanced}
-			{ignore_captured_by_user 0}
-			{group
-				{select
-					{tag
-						{tag heavy_at_gun}
-					}
-				}
-				{include
-					{tag
-						{tag cmp_mg}
-					}
-				}
-				{exclude
-					{tag
-						{tag medium_at_gun}
-					}
-					{state
-						{state user_control}
-					}
-					{tag
-						{tag player}
-					}
-				}
-			}
-		}
-		{effect sandbag_heavy_flak}
-	}
-	{"delay"
-		{time 5}
-	}
-	{## "ables"
-		{selector
-			{source advanced}
-			{ignore_captured_by_user 0}
-			{group
-				{select
-					{tag
-						{tag cmp_mg}
-					}
-				}
-				{include
-					{prop
-						{prop vehicle}
-					}
-				}
-				{exclude
-					{state
-						{state user_control}
-					}
-				}
-			}
-		}
-		{remove select}
-	}
-	{## "if"
-		{condition
-			{type difficulty}
-			{level hard}
-		}
-		{"ables"
-			{selector
-				{source advanced}
-				{group
-					{select
-						{tag
-							{tag cmp_mg}
-						}
-					}
-					{include
-						{prop
-							{prop vehicle}
-						}
-					}
-					{exclude
-						{state
-							{state user_control}
-						}
-					}
-				}
-			}
-			{remove select}
-		}
-	}
-	{## "if"
-		{condition
-			{type difficulty}
-			{level heroic}
-		}
-		{"ables"
-			{selector
-				{source advanced}
-				{group
-					{select
-						{tag
-							{tag cmp_mg}
-						}
-					}
-					{include
-						{prop
-							{prop vehicle}
-						}
-					}
-					{exclude
-						{state
-							{state user_control}
-						}
-					}
-				}
-			}
-			{remove select}
-		}
-	}
-}
-}
 			{## "sound"
 				{disabled}
 				{condition

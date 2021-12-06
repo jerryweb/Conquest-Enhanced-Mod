@@ -45332,6 +45332,18 @@
 									{tag
 										{tag aaflak}
 									}
+									{tag
+										{tag mg34_lafette}
+									}
+									{tag
+										{tag mg42_lafette}
+									}
+									{tag
+										{tag dshk_aa}
+									}
+									{tag
+										{tag mortars}
+									}
 								}
 								{include
 									{state
@@ -45346,13 +45358,16 @@
 								}
 								{exclude
 									{tag
-										{tag player}
+										{tag player_veh}
 									}
 									{state
 										{state dead}
 									}
 									{state
 										{state user_control}
+									}
+									{tag
+										{tag player}
 									}
 								}
 							}
@@ -46351,7 +46366,7 @@
 										{state user_control}
 									}
 									{tag
-										{tag player}
+										{tag player_veh}
 									}
 								}
 							}
@@ -46373,10 +46388,22 @@
 									{tag
 										{tag heavy_at_gun}
 									}
+									{tag
+										{tag dshk_aa}
+									}
+									{tag
+										{tag mg34_lafette}
+									}
+									{tag
+										{tag mg42_lafette}
+									}
 								}
 								{include
 									{tag
 										{tag cmp_mg}
+									}
+									{state
+										{state operatable}
 									}
 								}
 								{exclude
@@ -46387,10 +46414,22 @@
 										{state user_control}
 									}
 									{tag
-										{tag player}
+										{tag player_veh}
 									}
 									{tag
 										{tag aaflak}
+									}
+									{tag
+										{tag player}
+									}
+									{tag
+										{tag "88mm_flak18"}
+									}
+									{tag
+										{tag "88mm_flak36"}
+									}
+									{tag
+										{tag "85mm_52k"}
 									}
 								}
 							}
@@ -46407,12 +46446,24 @@
 							{group
 								{select
 									{tag
-										{tag heavy_at_gun}
+										{tag "85mm_52k"}
+									}
+									{tag
+										{tag "88mm_flak18"}
+									}
+									{tag
+										{tag "88mm_flak36"}
+									}
+									{tag
+										{tag mortars}
 									}
 								}
 								{include
 									{tag
 										{tag cmp_mg}
+									}
+									{state
+										{state operatable}
 									}
 								}
 								{exclude
@@ -46423,12 +46474,18 @@
 										{state user_control}
 									}
 									{tag
+										{tag player_veh}
+									}
+									{tag
 										{tag player}
 									}
 								}
 							}
 						}
 						{effect sandbag_heavy_flak}
+					}
+					{"delay"
+						{time 0.5}
 					}
 					{"delay"
 						{time 5}
