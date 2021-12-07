@@ -3,6 +3,7 @@
 (include "katyreload.inc")
 (include "vehicle_tags_ger.inc")
 (include "vehicle_tags_rus.inc")
+(include "construction/sandbag_ring_structures.inc")
 {"skirmish_bonus_pointer"
      {on spawn
         {call "add_number"}
