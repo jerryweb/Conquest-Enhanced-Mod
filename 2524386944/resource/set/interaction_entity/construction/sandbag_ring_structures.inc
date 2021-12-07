@@ -71,23 +71,23 @@
 	}
 	{on "sandbag_ring_framed_straight"
 		{delay 10
-			{spawn "sandbag_framed_straight" offset 78 25 0}
-			{spawn "sandbag_framed_straight" offset 78 -25 0}
+			{spawn "sandbag_framed_straight" offset 80 25 0}
+			{spawn "sandbag_framed_straight" offset 80 -25 0}
 			{delay 2
-				{spawn "sandbag_heap_pile" offset 65 65 0}
+				{spawn "sandbag_heap_pile" offset 72 72 0}
 				{delay 2
-					{spawn "sandbag_framed_straight_90" offset 25 78 0}
-					{spawn "sandbag_framed_straight_90" offset -25 78 0}
+					{spawn "sandbag_framed_straight_90" offset 25 80 0}
+					{spawn "sandbag_framed_straight_90" offset -25 80 0}
 					{delay 2
-						{spawn "sandbag_heap_pile" offset -65 65 0}
+						{spawn "sandbag_heap_pile" offset -72 72 0}
 						{delay 2
 							{spawn "sandbag_framed_straight_180" offset -80 25 0}
 							{spawn "sandbag_framed_straight_180" offset -80 -25 0}
 							{delay 2
-								{spawn "sandbag_framed_straight_270" offset 25 -78 0}
-								{spawn "sandbag_framed_straight_270" offset -25 -78 0}
+								{spawn "sandbag_framed_straight_270" offset 25 -80 0}
+								{spawn "sandbag_framed_straight_270" offset -25 -80 0}
 								{delay 2
-									{spawn "sandbag_heap_pile" offset 65 -65 0}
+									{spawn "sandbag_heap_pile" offset 72 -72 0}
 									{call "activate_vehicle"}
 								}
 							}
@@ -110,26 +110,26 @@
 	}	
 	{on "sandbag_ring_heap_straight_with_lane"
 		{delay 10
-			{spawn "sandbag_heap_straight" offset 78 25 0}
-			{spawn "sandbag_heap_straight" offset 78 -25 0}
+			{spawn "sandbag_heap_straight" offset 80 25 0}
+			{spawn "sandbag_heap_straight" offset 80 -25 0}
 			{delay 2
-				{spawn "sandbag_heap_pile" offset 70 70 0}
+				{spawn "sandbag_heap_pile" offset 72 72 0}
 				{delay 2
-					{spawn "sandbag_heap_straight_90" offset 25 78 0}
-					{spawn "sandbag_heap_straight_90" offset -25 78 0}
+					{spawn "sandbag_heap_straight_90" offset 25 80 0}
+					{spawn "sandbag_heap_straight_90" offset -25 80 0}
 					{delay 2
-						{spawn "sandbag_heap_pile" offset -70 70 0}
+						{spawn "sandbag_heap_pile" offset -72 72 0}
 						{delay 2
 							{spawn "sandbag_heap_straight_180" offset -80 25 0}
 							{spawn "sandbag_heap_pile" offset -90 -25 0}
 							{spawn "sandbag_heap_pile" offset -130 -25 0}
 							{delay 2
-								{spawn "sandbag_heap_straight_270" offset 25 -78 0}
+								{spawn "sandbag_heap_straight_270" offset 25 -80 0}
 								{spawn "sandbag_heap_pile" offset -30 -80 0}
 								{spawn "sandbag_heap_pile" offset -70 -80 0}
 								{spawn "sandbag_heap_pile" offset -110 -80 0}
 								{delay 2
-									{spawn "sandbag_heap_pile" offset 70 -70 0}
+									{spawn "sandbag_heap_pile" offset 72 -72 0}
 									{call "activate_vehicle"}
 								}
 							}
@@ -152,24 +152,24 @@
 	}	
 	{on "sandbag_ring_heap_straight"
 		{delay 8
-			{spawn "sandbag_heap_straight" offset 78 25 0}
-			{spawn "sandbag_heap_straight" offset 78 -25 0}
+			{spawn "sandbag_heap_straight" offset 80 25 0}
+			{spawn "sandbag_heap_straight" offset 80 -25 0}
 			{delay 2
-				{spawn "sandbag_heap_pile" offset 70 70 0}
+				{spawn "sandbag_heap_pile" offset 72 72 0}
 				{delay 2
-					{spawn "sandbag_heap_straight_90" offset 25 78 0}
-					{spawn "sandbag_heap_straight_90" offset -25 78 0}
+					{spawn "sandbag_heap_straight_90" offset 25 80 0}
+					{spawn "sandbag_heap_straight_90" offset -25 80 0}
 					{delay 2
-						{spawn "sandbag_heap_pile" offset -70 70 0}
+						{spawn "sandbag_heap_pile" offset -72 72 0}
 						{delay 2
 							{spawn "sandbag_heap_straight_180" offset -80 25 0}
 							{delay 2
-								{spawn "sandbag_heap_pile" offset -70 -70 0}
+								{spawn "sandbag_heap_pile" offset -72 -72 0}
 								{delay 2
-									{spawn "sandbag_heap_straight_270" offset 25 -78 0}
-									{spawn "sandbag_heap_straight_270" offset -25 -78 0}
+									{spawn "sandbag_heap_straight_270" offset 25 -80 0}
+									{spawn "sandbag_heap_straight_270" offset -25 -80 0}
 									{delay 2
-										{spawn "sandbag_heap_pile" offset 70 -70 0}
+										{spawn "sandbag_heap_pile" offset 72 -72 0}
 										{call "activate_vehicle"}
 									}
 								}
