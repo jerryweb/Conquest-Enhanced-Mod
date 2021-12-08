@@ -6,7 +6,7 @@ maxNumOfLateDivisions = 6
 
 -- Wave offset is used to set how much extra time the first wave will last in since the wave is loaded automatically
 gameStartTime = 0
-firstWaveOffsetTime = 30
+firstWaveOffsetTime = 720
 -- This is used to add the offset ONLY to the first wave
 initialWave = true
 
