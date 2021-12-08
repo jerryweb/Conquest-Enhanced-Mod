@@ -54484,6 +54484,7 @@
 			{"randomtimer"}
 			{"defensetier"}
 			{"radiocar"}
+{"tagged_preplaced_mgs"}
 		}
 		{triggers
 			{## "environment/spring"
@@ -66458,7 +66459,7 @@
 					}
 				}
 			}
-			{"x/test attack3"
+			{"ai./non_light_vehicle_attack"
 				{condition
 					{terms
 						{"1.entities"
@@ -66480,10 +66481,10 @@
 					}
 				}
 				{actions
-					{"delay"
+					{## "delay"
 						{time 10}
 					}
-					{"actor_state"
+					{## "actor_state"
 						{selector
 							{source advanced}
 							{group
@@ -66539,10 +66540,57 @@
 							{max_speed_kph 50}
 						}
 					}
-					{"delay"
+					{## "delay"
 						{time 10}
 					}
-					{"actor_state"
+					{## "actor_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag ai_armor}
+									}
+									{tag
+										{tag ai_car}
+									}
+								}
+								{include
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag spg}
+									}
+									{tag
+										{tag heavy_tank}
+									}
+									{tag
+										{tag medium_tank}
+									}
+									{tag
+										{tag katy}
+									}
+									{tag
+										{tag immobile}
+									}
+								}
+							}
+						}
+						{control AI}
+						{fire_mode open}
+						{move_mode free}
+						{weapon_prepare on}
+						{ai_move
+							{mode enable}
+						}
+						{movement
+							{max_speed_kph 33}
+						}
+					}
+					{## "actor_state"
 						{selector
 							{source advanced}
 							{group
@@ -66592,17 +66640,1269 @@
 							{max_speed_kph 33}
 						}
 					}
-					{"trigger"
-						{name "x/test attack3"}
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "flag count$"}
+								{op ">="}
+								{value 3}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type rand}
+										{value 0.5}
+									}
+									{"delay"
+										{time 10}
+									}
+									{"actor_state"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag ai_armor}
+													}
+													{tag
+														{tag ai_car}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+													{state
+														{state moveable}
+													}
+												}
+												{exclude
+													{tag
+														{tag spg}
+													}
+													{tag
+														{tag heavy_tank}
+													}
+													{tag
+														{tag katy}
+													}
+													{tag
+														{tag immobile}
+													}
+												}
+											}
+										}
+										{drop "sensor senseless"}
+										{fire_mode hold}
+										{move_mode free}
+										{ai_move
+											{mode enable}
+										}
+										{movement
+											{speed assault}
+											{max_speed_kph 50}
+										}
+									}
+									{"delay"
+										{time 10}
+									}
+									{"actor_state"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag ai_armor}
+													}
+													{tag
+														{tag ai_car}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+												}
+												{exclude
+													{tag
+														{tag spg}
+													}
+													{tag
+														{tag heavy_tank}
+													}
+													{tag
+														{tag katy}
+													}
+													{tag
+														{tag immobile}
+													}
+												}
+											}
+										}
+										{control AI}
+										{fire_mode open}
+										{move_mode free}
+										{weapon_prepare on}
+										{ai_move
+											{mode enable}
+										}
+										{movement
+											{max_speed_kph 33}
+										}
+									}
+								}
+								{"case"
+									{condition
+										{type rand}
+										{value 1}
+									}
+									{"delay"
+										{time 4}
+									}
+									{"actor_state"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag ai_armor}
+													}
+													{tag
+														{tag ai_car}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+													{state
+														{state moveable}
+													}
+												}
+												{exclude
+													{tag
+														{tag spg}
+													}
+													{tag
+														{tag heavy_tank}
+													}
+													{tag
+														{tag katy}
+													}
+													{tag
+														{tag immobile}
+													}
+												}
+											}
+										}
+										{drop "sensor senseless"}
+										{fire_mode hold}
+										{move_mode free}
+										{ai_move
+											{mode enable}
+										}
+										{movement
+											{speed assault}
+											{max_speed_kph 50}
+										}
+									}
+									{"delay"
+										{time 4}
+									}
+									{"actor_state"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag ai_armor}
+													}
+													{tag
+														{tag ai_car}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+												}
+												{exclude
+													{tag
+														{tag spg}
+													}
+													{tag
+														{tag heavy_tank}
+													}
+													{tag
+														{tag katy}
+													}
+													{tag
+														{tag immobile}
+													}
+												}
+											}
+										}
+										{control AI}
+										{fire_mode open}
+										{move_mode free}
+										{weapon_prepare on}
+										{ai_move
+											{mode enable}
+										}
+										{movement
+											{max_speed_kph 33}
+										}
+									}
+								}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "flag count$"}
+								{op ">="}
+								{value 4}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type rand}
+										{value 0.4}
+									}
+									{"delay"
+										{time 3}
+									}
+									{"actor_state"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag ai_armor}
+													}
+													{tag
+														{tag ai_car}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+													{state
+														{state moveable}
+													}
+												}
+												{exclude
+													{tag
+														{tag spg}
+													}
+													{tag
+														{tag heavy_tank}
+													}
+													{tag
+														{tag katy}
+													}
+													{tag
+														{tag immobile}
+													}
+												}
+											}
+										}
+										{drop "sensor senseless"}
+										{fire_mode hold}
+										{move_mode free}
+										{ai_move
+											{mode enable}
+										}
+										{movement
+											{speed assault}
+											{max_speed_kph 50}
+										}
+									}
+									{"delay"
+										{time 3}
+									}
+									{"actor_state"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag ai_armor}
+													}
+													{tag
+														{tag ai_car}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+												}
+												{exclude
+													{tag
+														{tag spg}
+													}
+													{tag
+														{tag heavy_tank}
+													}
+													{tag
+														{tag katy}
+													}
+													{tag
+														{tag immobile}
+													}
+												}
+											}
+										}
+										{control AI}
+										{fire_mode open}
+										{move_mode free}
+										{weapon_prepare on}
+										{ai_move
+											{mode enable}
+										}
+										{movement
+											{max_speed_kph 33}
+										}
+									}
+								}
+								{"case"
+									{condition
+										{type rand}
+										{value 1}
+									}
+									{"delay"
+										{time 10}
+									}
+									{"actor_state"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag ai_armor}
+													}
+													{tag
+														{tag ai_car}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+													{state
+														{state moveable}
+													}
+												}
+												{exclude
+													{tag
+														{tag spg}
+													}
+													{tag
+														{tag heavy_tank}
+													}
+													{tag
+														{tag katy}
+													}
+													{tag
+														{tag immobile}
+													}
+												}
+											}
+										}
+										{drop "sensor senseless"}
+										{fire_mode hold}
+										{move_mode free}
+										{ai_move
+											{mode enable}
+										}
+										{movement
+											{speed assault}
+											{max_speed_kph 50}
+										}
+									}
+									{"delay"
+										{time 10}
+									}
+									{"actor_state"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag ai_armor}
+													}
+													{tag
+														{tag ai_car}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+												}
+												{exclude
+													{tag
+														{tag spg}
+													}
+													{tag
+														{tag heavy_tank}
+													}
+													{tag
+														{tag katy}
+													}
+													{tag
+														{tag immobile}
+													}
+												}
+											}
+										}
+										{control AI}
+										{fire_mode open}
+										{move_mode free}
+										{weapon_prepare on}
+										{ai_move
+											{mode enable}
+										}
+										{movement
+											{max_speed_kph 33}
+										}
+									}
+								}
+							}
+						}
+						{"default"
+							{"delay"
+								{time 10}
+							}
+							{"actor_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_armor}
+											}
+											{tag
+												{tag ai_car}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{state
+												{state moveable}
+											}
+										}
+										{exclude
+											{tag
+												{tag spg}
+											}
+											{tag
+												{tag heavy_tank}
+											}
+											{tag
+												{tag medium_tank}
+											}
+											{tag
+												{tag katy}
+											}
+											{tag
+												{tag immobile}
+											}
+										}
+									}
+								}
+								{drop "sensor senseless"}
+								{fire_mode hold}
+								{move_mode free}
+								{ai_move
+									{mode enable}
+								}
+								{movement
+									{speed assault}
+									{max_speed_kph 50}
+								}
+							}
+							{"delay"
+								{time 10}
+							}
+							{"actor_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_armor}
+											}
+											{tag
+												{tag ai_car}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{tag
+												{tag spg}
+											}
+											{tag
+												{tag heavy_tank}
+											}
+											{tag
+												{tag medium_tank}
+											}
+											{tag
+												{tag katy}
+											}
+											{tag
+												{tag immobile}
+											}
+										}
+									}
+								}
+								{control AI}
+								{fire_mode open}
+								{move_mode free}
+								{weapon_prepare on}
+								{ai_move
+									{mode enable}
+								}
+								{movement
+									{max_speed_kph 33}
+								}
+							}
+						}
 					}
-					{## "action"
+					{"trigger"
+						{name "ai./non_light_vehicle_attack"}
+					}
+				}
+			}
+			{"ai./light_vehicle_attack"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{tag cmp_def}
+								{state operatable}
+							}
+							{count
+								{op ">"}
+								{value 1}
+							}
+						}
+						{"2.entities"
+							{selector
+								{tag player}
+								{state operatable}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 10}
+					}
+					{"actor_state"
 						{selector
-							{tag ai_armor}
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag ai_armor}
+									}
+									{tag
+										{tag ai_car}
+									}
+								}
+								{include
+									{state
+										{state operatable}
+									}
+									{tag
+										{tag light_tank}
+									}
+								}
+								{exclude
+									{tag
+										{tag spg}
+									}
+									{tag
+										{tag heavy_tank}
+									}
+									{tag
+										{tag medium_tank}
+									}
+									{tag
+										{tag katy}
+									}
+									{tag
+										{tag immobile}
+									}
+								}
+							}
 						}
-						{action advance}
-						{target
-							{tag cmp_def}
+						{drop "sensor senseless"}
+						{fire_mode hold}
+						{move_mode free}
+						{ai_move
+							{mode enable}
 						}
+						{movement
+							{speed assault}
+							{max_speed_kph 50}
+						}
+					}
+					{"delay"
+						{time 10}
+					}
+					{"actor_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag ai_armor}
+									}
+									{tag
+										{tag ai_car}
+									}
+								}
+								{include
+									{state
+										{state operatable}
+									}
+									{tag
+										{tag light_tank}
+									}
+								}
+								{exclude
+									{tag
+										{tag spg}
+									}
+									{tag
+										{tag heavy_tank}
+									}
+									{tag
+										{tag medium_tank}
+									}
+									{tag
+										{tag katy}
+									}
+									{tag
+										{tag immobile}
+									}
+								}
+							}
+						}
+						{control AI}
+						{fire_mode open}
+						{move_mode free}
+						{weapon_prepare on}
+						{ai_move
+							{mode enable}
+						}
+						{movement
+							{max_speed_kph 33}
+						}
+					}
+					{## "actor_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag ai_armor}
+									}
+									{tag
+										{tag ai_car}
+									}
+								}
+								{include
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag spg}
+									}
+									{tag
+										{tag tiger2h}
+									}
+									{tag
+										{tag tiger2p}
+									}
+									{tag
+										{tag kv2_40}
+									}
+									{tag
+										{tag is2_43}
+									}
+									{tag
+										{tag is2_44}
+									}
+								}
+							}
+						}
+						{control AI}
+						{fire_mode open}
+						{move_mode free}
+						{weapon_prepare on}
+						{ai_move
+							{mode enable}
+						}
+						{movement
+							{max_speed_kph 33}
+						}
+					}
+					{## "switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "flag count$"}
+								{op ">="}
+								{value 3}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type rand}
+										{value 0.5}
+									}
+									{"delay"
+										{time 10}
+									}
+									{"actor_state"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag ai_armor}
+													}
+													{tag
+														{tag ai_car}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+													{state
+														{state moveable}
+													}
+												}
+												{exclude
+													{tag
+														{tag spg}
+													}
+													{tag
+														{tag heavy_tank}
+													}
+													{tag
+														{tag katy}
+													}
+													{tag
+														{tag immobile}
+													}
+												}
+											}
+										}
+										{drop "sensor senseless"}
+										{fire_mode hold}
+										{move_mode free}
+										{ai_move
+											{mode enable}
+										}
+										{movement
+											{speed assault}
+											{max_speed_kph 50}
+										}
+									}
+									{"delay"
+										{time 10}
+									}
+									{"actor_state"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag ai_armor}
+													}
+													{tag
+														{tag ai_car}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+												}
+												{exclude
+													{tag
+														{tag spg}
+													}
+													{tag
+														{tag heavy_tank}
+													}
+													{tag
+														{tag katy}
+													}
+													{tag
+														{tag immobile}
+													}
+												}
+											}
+										}
+										{control AI}
+										{fire_mode open}
+										{move_mode free}
+										{weapon_prepare on}
+										{ai_move
+											{mode enable}
+										}
+										{movement
+											{max_speed_kph 33}
+										}
+									}
+								}
+								{"case"
+									{condition
+										{type rand}
+										{value 1}
+									}
+									{"delay"
+										{time 4}
+									}
+									{"actor_state"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag ai_armor}
+													}
+													{tag
+														{tag ai_car}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+													{state
+														{state moveable}
+													}
+												}
+												{exclude
+													{tag
+														{tag spg}
+													}
+													{tag
+														{tag heavy_tank}
+													}
+													{tag
+														{tag katy}
+													}
+													{tag
+														{tag immobile}
+													}
+												}
+											}
+										}
+										{drop "sensor senseless"}
+										{fire_mode hold}
+										{move_mode free}
+										{ai_move
+											{mode enable}
+										}
+										{movement
+											{speed assault}
+											{max_speed_kph 50}
+										}
+									}
+									{"delay"
+										{time 4}
+									}
+									{"actor_state"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag ai_armor}
+													}
+													{tag
+														{tag ai_car}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+												}
+												{exclude
+													{tag
+														{tag spg}
+													}
+													{tag
+														{tag heavy_tank}
+													}
+													{tag
+														{tag katy}
+													}
+													{tag
+														{tag immobile}
+													}
+												}
+											}
+										}
+										{control AI}
+										{fire_mode open}
+										{move_mode free}
+										{weapon_prepare on}
+										{ai_move
+											{mode enable}
+										}
+										{movement
+											{max_speed_kph 33}
+										}
+									}
+								}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "flag count$"}
+								{op ">="}
+								{value 4}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type rand}
+										{value 0.4}
+									}
+									{"delay"
+										{time 3}
+									}
+									{"actor_state"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag ai_armor}
+													}
+													{tag
+														{tag ai_car}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+													{state
+														{state moveable}
+													}
+												}
+												{exclude
+													{tag
+														{tag spg}
+													}
+													{tag
+														{tag heavy_tank}
+													}
+													{tag
+														{tag katy}
+													}
+													{tag
+														{tag immobile}
+													}
+												}
+											}
+										}
+										{drop "sensor senseless"}
+										{fire_mode hold}
+										{move_mode free}
+										{ai_move
+											{mode enable}
+										}
+										{movement
+											{speed assault}
+											{max_speed_kph 50}
+										}
+									}
+									{"delay"
+										{time 3}
+									}
+									{"actor_state"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag ai_armor}
+													}
+													{tag
+														{tag ai_car}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+												}
+												{exclude
+													{tag
+														{tag spg}
+													}
+													{tag
+														{tag heavy_tank}
+													}
+													{tag
+														{tag katy}
+													}
+													{tag
+														{tag immobile}
+													}
+												}
+											}
+										}
+										{control AI}
+										{fire_mode open}
+										{move_mode free}
+										{weapon_prepare on}
+										{ai_move
+											{mode enable}
+										}
+										{movement
+											{max_speed_kph 33}
+										}
+									}
+								}
+								{"case"
+									{condition
+										{type rand}
+										{value 1}
+									}
+									{"delay"
+										{time 10}
+									}
+									{"actor_state"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag ai_armor}
+													}
+													{tag
+														{tag ai_car}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+													{state
+														{state moveable}
+													}
+												}
+												{exclude
+													{tag
+														{tag spg}
+													}
+													{tag
+														{tag heavy_tank}
+													}
+													{tag
+														{tag katy}
+													}
+													{tag
+														{tag immobile}
+													}
+												}
+											}
+										}
+										{drop "sensor senseless"}
+										{fire_mode hold}
+										{move_mode free}
+										{ai_move
+											{mode enable}
+										}
+										{movement
+											{speed assault}
+											{max_speed_kph 50}
+										}
+									}
+									{"delay"
+										{time 10}
+									}
+									{"actor_state"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag ai_armor}
+													}
+													{tag
+														{tag ai_car}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+												}
+												{exclude
+													{tag
+														{tag spg}
+													}
+													{tag
+														{tag heavy_tank}
+													}
+													{tag
+														{tag katy}
+													}
+													{tag
+														{tag immobile}
+													}
+												}
+											}
+										}
+										{control AI}
+										{fire_mode open}
+										{move_mode free}
+										{weapon_prepare on}
+										{ai_move
+											{mode enable}
+										}
+										{movement
+											{max_speed_kph 33}
+										}
+									}
+								}
+							}
+						}
+						{"default"
+							{"delay"
+								{time 10}
+							}
+							{"actor_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_armor}
+											}
+											{tag
+												{tag ai_car}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{state
+												{state moveable}
+											}
+										}
+										{exclude
+											{tag
+												{tag spg}
+											}
+											{tag
+												{tag heavy_tank}
+											}
+											{tag
+												{tag medium_tank}
+											}
+											{tag
+												{tag katy}
+											}
+											{tag
+												{tag immobile}
+											}
+										}
+									}
+								}
+								{drop "sensor senseless"}
+								{fire_mode hold}
+								{move_mode free}
+								{ai_move
+									{mode enable}
+								}
+								{movement
+									{speed assault}
+									{max_speed_kph 50}
+								}
+							}
+							{"delay"
+								{time 10}
+							}
+							{"actor_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_armor}
+											}
+											{tag
+												{tag ai_car}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{tag
+												{tag spg}
+											}
+											{tag
+												{tag heavy_tank}
+											}
+											{tag
+												{tag medium_tank}
+											}
+											{tag
+												{tag katy}
+											}
+											{tag
+												{tag immobile}
+											}
+										}
+									}
+								}
+								{control AI}
+								{fire_mode open}
+								{move_mode free}
+								{weapon_prepare on}
+								{ai_move
+									{mode enable}
+								}
+								{movement
+									{max_speed_kph 33}
+								}
+							}
+						}
+					}
+					{"trigger"
+						{name "ai./light_vehicle_attack"}
 					}
 				}
 			}
@@ -89813,7 +91113,7 @@
 					}
 				}
 			}
-			{"ai./aimg"
+			{"ai./tag_ai_mg"
 				{condition
 					{terms
 						{"1.entities"
@@ -89822,54 +91122,47 @@
 								{group
 									{select
 										{zone
-											{zone "gamezone"}
+											{zone "sidea1"}
 										}
-									}
-									{include
-										{with_item
-											{type amount}
-											{item "mgun_rus" "belt" "ammo"}
-											{min 1}
-										}
-										{state
-											{state operatable}
-										}
-									}
-									{exclude
-										{with_item
-											{type amount}
-											{item "can"}
-											{min 1}
-										}
-										{tag
-											{tag player_veh}
-										}
-									}
-								}
-								{group
-									{select
 										{zone
-											{zone "gamezone"}
+											{zone "sidea2"}
+										}
+										{zone
+											{zone "sidea3"}
+										}
+										{zone
+											{zone "sidea4"}
+										}
+										{zone
+											{zone "sideb1"}
+										}
+										{zone
+											{zone "sideb2"}
+										}
+										{zone
+											{zone "sideb3"}
 										}
 									}
 									{include
-										{with_item
-											{type amount}
-											{item "mgun_ger" "belt" "ammo"}
-											{min 1}
+										{tag
+											{tag hmg}
 										}
 										{state
 											{state operatable}
 										}
+										{prop
+											{prop vehicle}
+										}
 									}
 									{exclude
-										{with_item
-											{type amount}
-											{item "can"}
-											{min 1}
+										{tag
+											{tag player}
 										}
 										{tag
 											{tag player_veh}
+										}
+										{state
+											{state user_control}
 										}
 									}
 								}
@@ -89891,10 +91184,8 @@
 									}
 								}
 								{include
-									{with_item
-										{type amount}
-										{item "mgun_rus" "belt" "ammo"}
-										{min 1}
+									{tag
+										{tag hmg}
 									}
 									{state
 										{state operatable}
@@ -89904,102 +91195,17 @@
 									}
 								}
 								{exclude
-									{with_item
-										{type amount}
-										{item "can"}
-										{min 1}
-									}
-									{tag
-										{tag player_veh}
-									}
-									{tag
-										{tag player}
-									}
-									{tag
-										{tag player_car}
-									}
-									{tag
-										{tag player_armor}
-									}
-									{tag
-										{tag rus}
-									}
-									{tag
-										{tag ger}
-									}
-									{tag
-										{tag cmp_def}
-									}
-									{tag
-										{tag enemymg}
-									}
-									{player
-										{player "1"}
-									}
-									{state
-										{state user_control}
-									}
-								}
-							}
-							{group
-								{select
-									{zone
-										{zone "gamezone"}
-									}
-								}
-								{include
-									{with_item
-										{type amount}
-										{item "sandbag_vehicle"}
-										{min 1}
-									}
-									{with_item
-										{type amount}
-										{item "mgun_ger" "belt" "ammo"}
-										{min 1}
-									}
-									{state
-										{state operatable}
-									}
-									{prop
-										{prop vehicle}
-									}
-								}
-								{exclude
-									{with_item
-										{type amount}
-										{item "can"}
-										{min 1}
-									}
 									{tag
 										{tag player}
 									}
 									{tag
 										{tag player_veh}
 									}
-									{tag
-										{tag player_armor}
-									}
-									{tag
-										{tag player_car}
-									}
-									{tag
-										{tag cmp_def}
-									}
-									{tag
-										{tag ger}
-									}
-									{tag
-										{tag rus}
-									}
-									{tag
-										{tag enemymg}
-									}
-									{player
-										{player "1"}
-									}
 									{state
 										{state user_control}
+									}
+									{tag
+										{tag preplaced_mg}
 									}
 								}
 							}
@@ -90007,13 +91213,112 @@
 						{tag_add enemymg}
 					}
 					{"delay"
-						{time 0.1}
-					}
-					{"delay"
-						{time 4}
+						{time 1}
 					}
 					{"trigger"
-						{name "ai./aimg"}
+						{name "ai./tag_ai_mg"}
+					}
+				}
+			}
+			{"ai./tag_preplaced_mg"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{tag
+											{tag hmg}
+										}
+										{state
+											{state operatable}
+										}
+										{prop
+											{prop vehicle}
+										}
+									}
+									{exclude
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag preplaced_mg}
+										}
+									}
+								}
+							}
+						}
+						{"2.cmp_i"
+							{var "tagged_preplaced_mgs$"}
+							{op "=="}
+							{value 0}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 3}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{zone
+										{zone "gamezone"}
+									}
+								}
+								{include
+									{tag
+										{tag hmg}
+									}
+									{state
+										{state operatable}
+									}
+									{prop
+										{prop vehicle}
+									}
+								}
+								{exclude
+									{tag
+										{tag player}
+									}
+									{tag
+										{tag player_veh}
+									}
+									{state
+										{state user_control}
+									}
+									{tag
+										{tag preplaced_mg}
+									}
+								}
+							}
+						}
+						{tag_add preplaced_mg}
+					}
+					{"delay"
+						{time 3}
+					}
+					{"set_i"
+						{var "tagged_preplaced_mgs$"}
+						{op "="}
+						{value 1}
+					}
+					{"trigger"
+						{name "ai./tag_preplaced_mg"}
 					}
 				}
 			}

@@ -13,7 +13,9 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-									        {tags add "enemymg"}
+									        {if not tagged "preplaced_mg"
+									        	{tags add "enemymg"}
+									    	}
 										}
 									}
 								}
@@ -39,7 +41,9 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-									        {tags add "enemymg"}
+									        {if not tagged "preplaced_mg"
+									        	{tags add "enemymg"}
+									    	}
 										}
 									}
 								}

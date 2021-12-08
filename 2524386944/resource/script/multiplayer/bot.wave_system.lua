@@ -1,22 +1,23 @@
+require([[/script/multiplayer/bot.data]])
 -- Number of unit division roster files to randomly select for each period in the war 
-local maxNumOfEarlyDivisions = 5
-local maxNumOfMidDivisions = 5
-local maxNumOfLateDivisions = 6
+maxNumOfEarlyDivisions = 5
+maxNumOfMidDivisions = 5
+maxNumOfLateDivisions = 6
 
 -- Wave offset is used to set how much extra time the first wave will last in since the wave is loaded automatically
-local gameStartTime = 0
-local firstWaveOffsetTime = 30
+gameStartTime = 0
+firstWaveOffsetTime = 30
 -- This is used to add the offset ONLY to the first wave
-local initialWave = true
+initialWave = true
 
 -- This variable controls whether units will spawn all at once for 15 seconds, creating a massive wave, every x seconds
-local typhoonWaveMode = true
-local nextTyphoonWaveTime = 0
-local typhoonWaveInterval = 60
-local typhoonWaveDuration = 15 
-local defaultSpawnCooldownTime = {}
+typhoonWaveMode = false
+nextTyphoonWaveTime = 0
+typhoonWaveInterval = 90
+typhoonWaveDuration = 25 
+defaultSpawnCooldownTime = {}
 
-local currentWaveMaxUnitCount = 0
+currentWaveMaxUnitCount = 0
 
 -- This selects which unit roster file to load given the total number of flags on the map
 -- TODO: figure out how to extract the campaign day progress for more accurate file selection
@@ -56,12 +57,36 @@ function setTyphoonWaveMode()
 	typhoonWaveMode = true
 	SpawnCooldownTime.Min = 2
 	SpawnCooldownTime.Max = 2
+	print("typhoon wave mode activated")
 end
 
 function disableTyphoonWaveMode()
 	typhoonWaveMode = false
 	SpawnCooldownTime.Min = defaultSpawnCooldownTime.Min
 	SpawnCooldownTime.Max = defaultSpawnCooldownTime.Max
+	print("typhoon wave mode deactivated")
+end
+
+PIter = {}
+PIter.__index = PIter
+
+function PIter:new(data)
+	local obj = {
+		idx = nil,
+		rpt = nil,
+		purchases = data,
+		skipped = false,
+		minRepeat = 0,
+		maxRepeat = 0,
+		waveDuration = nil,
+		waveStartTime = nil,
+		unlockedUnits = nil
+	}
+	
+	print("loading division: ", obj.purchases[1].divisionName)
+	self.nextIndex(obj)
+
+	return setmetatable(obj, self)
 end
 
 function PIter:current()
