@@ -49958,6 +49958,9 @@
 									{tag
 										{tag player}
 									}
+									{tag
+										{tag preplaced_flak_gun}
+									}
 								}
 							}
 						}
@@ -59095,6 +59098,218 @@
 					}
 					{"trigger"
 						{name "ai./light_vehicle_attack"}
+					}
+				}
+			}
+			{"ai./tag_ai_mg"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sidea1"}
+										}
+										{zone
+											{zone "sidea2"}
+										}
+										{zone
+											{zone "sidea3"}
+										}
+										{zone
+											{zone "sidea4"}
+										}
+										{zone
+											{zone "sideb1"}
+										}
+										{zone
+											{zone "sideb2"}
+										}
+										{zone
+											{zone "sideb3"}
+										}
+										{zone
+											{zone "sideb4"}
+										}
+									}
+									{include
+										{tag
+											{tag hmg}
+										}
+										{state
+											{state operatable}
+										}
+										{prop
+											{prop vehicle}
+										}
+									}
+									{exclude
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 4}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{zone
+										{zone "gamezone"}
+									}
+								}
+								{include
+									{tag
+										{tag hmg}
+									}
+									{state
+										{state operatable}
+									}
+									{prop
+										{prop vehicle}
+									}
+								}
+								{exclude
+									{tag
+										{tag player}
+									}
+									{tag
+										{tag player_veh}
+									}
+									{state
+										{state user_control}
+									}
+									{tag
+										{tag preplaced_mg}
+									}
+								}
+							}
+						}
+						{tag_add enemymg}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"trigger"
+						{name "ai./tag_ai_mg"}
+					}
+				}
+			}
+			{"ai./tag_preplaced_mg"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{tag
+											{tag hmg}
+										}
+										{state
+											{state operatable}
+										}
+										{prop
+											{prop vehicle}
+										}
+									}
+									{exclude
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag preplaced_mg}
+										}
+									}
+								}
+							}
+						}
+						{"2.cmp_i"
+							{var "tagged_preplaced_mgs$"}
+							{op "=="}
+							{value 0}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 3}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{zone
+										{zone "gamezone"}
+									}
+								}
+								{include
+									{tag
+										{tag hmg}
+									}
+									{state
+										{state operatable}
+									}
+									{prop
+										{prop vehicle}
+									}
+								}
+								{exclude
+									{tag
+										{tag player}
+									}
+									{tag
+										{tag player_veh}
+									}
+									{state
+										{state user_control}
+									}
+									{tag
+										{tag preplaced_mg}
+									}
+								}
+							}
+						}
+						{tag_add preplaced_mg}
+					}
+					{"delay"
+						{time 3}
+					}
+					{"set_i"
+						{var "tagged_preplaced_mgs$"}
+						{op "="}
+						{value 1}
+					}
+					{"trigger"
+						{name "ai./tag_preplaced_mg"}
 					}
 				}
 			}
@@ -82129,215 +82344,6 @@
 					}
 					{"trigger"
 						{name "x/no_scavenge"}
-					}
-				}
-			}
-			{"ai./tag_ai_mg"
-				{condition
-					{terms
-						{"1.entities"
-							{selector
-								{source advanced}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-									}
-									{include
-										{tag
-											{tag hmg}
-										}
-										{state
-											{state operatable}
-										}
-										{prop
-											{prop vehicle}
-										}
-									}
-									{exclude
-										{tag
-											{tag player}
-										}
-										{tag
-											{tag player_veh}
-										}
-										{state
-											{state user_control}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-				{actions
-					{"delay"
-						{time 4}
-					}
-					{"entity_state"
-						{selector
-							{source advanced}
-							{group
-								{select
-									{zone
-										{zone "gamezone"}
-									}
-								}
-								{include
-									{tag
-										{tag hmg}
-									}
-									{state
-										{state operatable}
-									}
-									{prop
-										{prop vehicle}
-									}
-								}
-								{exclude
-									{tag
-										{tag player}
-									}
-									{tag
-										{tag player_veh}
-									}
-									{state
-										{state user_control}
-									}
-									{tag
-										{tag preplaced_mg}
-									}
-								}
-							}
-						}
-						{tag_add enemymg}
-					}
-					{"delay"
-						{time 1}
-					}
-					{"trigger"
-						{name "ai./tag_ai_mg"}
-					}
-				}
-			}
-			{"ai./tag_preplaced_mg"
-				{condition
-					{terms
-						{"1.entities"
-							{selector
-								{source advanced}
-								{group
-									{select
-										{zone
-											{zone "gamezone"}
-										}
-									}
-									{include
-										{tag
-											{tag hmg}
-										}
-										{state
-											{state operatable}
-										}
-										{prop
-											{prop vehicle}
-										}
-									}
-									{exclude
-										{tag
-											{tag player}
-										}
-										{tag
-											{tag player_veh}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag preplaced_mg}
-										}
-									}
-								}
-							}
-						}
-						{"2.cmp_i"
-							{var "tagged_preplaced_mgs$"}
-							{op "=="}
-							{value 0}
-						}
-					}
-				}
-				{actions
-					{"delay"
-						{time 3}
-					}
-					{"entity_state"
-						{selector
-							{source advanced}
-							{group
-								{select
-									{zone
-										{zone "gamezone"}
-									}
-								}
-								{include
-									{tag
-										{tag hmg}
-									}
-									{state
-										{state operatable}
-									}
-									{prop
-										{prop vehicle}
-									}
-								}
-								{exclude
-									{tag
-										{tag player}
-									}
-									{tag
-										{tag player_veh}
-									}
-									{state
-										{state user_control}
-									}
-									{tag
-										{tag preplaced_mg}
-									}
-								}
-							}
-						}
-						{tag_add preplaced_mg}
-					}
-					{"delay"
-						{time 3}
-					}
-					{"set_i"
-						{var "tagged_preplaced_mgs$"}
-						{op "="}
-						{value 1}
-					}
-					{"trigger"
-						{name "ai./tag_preplaced_mg"}
 					}
 				}
 			}
