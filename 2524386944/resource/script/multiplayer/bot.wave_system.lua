@@ -14,7 +14,16 @@ initialWave = true
 typhoonWaveMode = false
 nextTyphoonWaveTime = 0
 typhoonWaveInterval = 90
-typhoonWaveDuration = 25 
+typhoonWaveDuration = 25
+
+-- This controls whether typhoon wave mode can turn on or off dynamically ingame
+typhoonWaveModeInGameToggle = true
+-- This is the interval at which the typhoon wave mode can toggle on or off during a game
+typhoonWaveToggleInterval = 300
+-- Next movment at ingame time at which a chance to toggle typhoon wave mode
+nextTyphoonWaveToggleTime = 0
+
+
 defaultSpawnCooldownTime = {}
 
 currentWaveMaxUnitCount = 0
