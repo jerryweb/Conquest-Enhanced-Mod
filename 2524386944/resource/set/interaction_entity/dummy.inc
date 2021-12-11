@@ -819,6 +819,7 @@
 	{on animation_end "landing"
 		{view show "parachute_x"}
 		{spawn "inf_crate_rus"}
+		{spawn "inf_crate_ger"}
 		    {inactive 0}
 			{tags remove "hidden"}
 	}

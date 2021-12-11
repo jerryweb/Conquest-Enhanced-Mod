@@ -165,3 +165,16 @@
 		}
 	}
 }
+
+{"artillery_aim3"
+    {on spawn
+	    {tags add "tank_cover"}
+		{delay 1
+			{spawn "trench_modular"  offset 40 40 40}
+			{spawn "trench_modular"  offset 0 0 0}
+			{spawn "trench_modular"  offset 0 40 40}
+			{spawn "trench_modular"  offset 40 40 0}
+			{spawn "trench_modular"  offset 40 0 40}
+		}
+	}
+}
