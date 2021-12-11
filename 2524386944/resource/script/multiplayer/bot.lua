@@ -273,6 +273,7 @@ function OnGameStop()
 			BotApi.Events:KillQuantTimer(timer)
 		end
 	end
+	collectgarbage("collect")
 end
 
 function TrySpawnUnit()
