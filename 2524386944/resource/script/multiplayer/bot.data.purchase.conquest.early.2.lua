@@ -6,7 +6,7 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 2,
 		maxRepeat = 5,
 		skipPossible = false,  -- ничего не делает
-		waveDuration = 20, -- длительность того, как долго бот будет вызывать данные войска. Каждый юнит вызывается каждые 3 секунды. Если нужно чтобы было только определенное количество то Repeat * 3 < Wave duration  При этом Repeat говорит сколько раз нужно вызвать юнит.
+		waveDuration = 3, -- длительность того, как долго бот будет вызывать данные войска. Каждый юнит вызывается каждые 3 секунды. Если нужно чтобы было только определенное количество то Repeat * 3 < Wave duration  При этом Repeat говорит сколько раз нужно вызвать юнит.
 		Units = {
 			["ger"] = {--Germany
 			--Wheel_vehicles
@@ -35,7 +35,7 @@ Purchases["campaign_capture_the_flag"] = {
 	    minRepeat = 2,
 		maxRepeat = 4,
 	    skipPossible = false,
-	    waveDuration = 20,
+	    waveDuration = 3,
 		Units = {
 			["ger"] = {--Germany
 			--Tanks_medium
@@ -72,7 +72,7 @@ Purchases["campaign_capture_the_flag"] = {
 	    minRepeat = 1,
 		maxRepeat = 2,
 	    skipPossible = false,
-	    waveDuration = 2,
+	    waveDuration = 3,
 		Units = {
 			["ger"] = {--Germany
 				--Howitzers
@@ -90,7 +90,7 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 5,
 		maxRepeat = 8,
         skipPossible = false,		
-		waveDuration = 35,
+		waveDuration = 3,
 		Units = {
 			["ger"] = {--Germany
 			--Infantry Squads
@@ -130,7 +130,7 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 1,
 		maxRepeat = 3,
         skipPossible = false,		
-		waveDuration = 2,
+		waveDuration = 3,
 		Units = {
 			["ger"] = {--Germany
 			--SPG
@@ -149,7 +149,7 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 1,
 		maxRepeat = 3,
         skipPossible = false,		
-		waveDuration = 20,
+		waveDuration = 3,
 		Units = {
 			["ger"] = {--Germany
 			--Tanks_medium
@@ -184,9 +184,9 @@ Purchases["campaign_capture_the_flag"] = {
 		waveNumber = 7,
 		-- Repeat = 10,
 		minRepeat = 4,
-		maxRepeat = 11,
+		maxRepeat = 7,
         skipPossible = false,		
-		waveDuration = 35,
+		waveDuration = 3,
 		Units = {
 			["ger"] = {--Germany
 			--Infantry Squads
@@ -224,9 +224,9 @@ Purchases["campaign_capture_the_flag"] = {
 		waveNumber = 8,
 		Repeat = 3,
 		minRepeat = 1,
-		maxRepeat = 2,
+		maxRepeat = 1,
         skipPossible = false,		
-		waveDuration = 7,
+		waveDuration = 3,
 		Units = {
 			["ger"] = {--Germany
 			--SPG
@@ -244,7 +244,7 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 3,
 		maxRepeat = 6,
         skipPossible = false,		
-		waveDuration = 10,
+		waveDuration = 3,
 		Units = {
 			["ger"] = {--Germany
 			--Wheel_vehicles

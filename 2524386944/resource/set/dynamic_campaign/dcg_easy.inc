@@ -1,6 +1,6 @@
 {Easy
 	{GlobalMaxCP 1900}
-	{StageCP 100 120 150 200 250}
+	{StageCP 165 165 165 165 165 165 165}
 	{SpecialCP 1001}					;// airstrikes special tab
 	{EmplacementCP 50}				;// buildable with engineer
 	{Bots
@@ -90,8 +90,8 @@
 				}
 			}
 			{Budget
-				{Start "0:0 4:0 8:0 12:0 16:0 20:0"} ;// games played : starting CP of each match 
-				{PointsPerSecond 13.95} ;// CP income
+				{Start "0:825 4:825 8:825 12:825 16:825 20:825"} ;// games played : starting CP of each match 
+				{PointsPerSecond 0} ;// CP income
 				{Limit 1001} ;// Max CP 
 			}
 		}

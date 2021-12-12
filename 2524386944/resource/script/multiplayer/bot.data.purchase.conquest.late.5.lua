@@ -54,7 +54,7 @@ Purchases["campaign_capture_the_flag"] = {
 	    minRepeat = 0,
 		maxRepeat = 0,
 	    skipPossible = false,
-	    waveDuration = 6,
+	    waveDuration = 3,
 		Units = {
 			["ger"] = {--Germany
 		    --Howitzers
@@ -195,7 +195,7 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 1,
 		maxRepeat = 2,
         skipPossible = false,		
-		waveDuration = 15,
+		waveDuration = 3,
 		Units = {
 			["ger"] = {--Germany
 			--AA

@@ -4,7 +4,7 @@
 	    {tags add "HMG"}
 		{tags add "soviet"}
 		{tags add "maxim"}
-		{delay 6
+		{delay 10
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -32,7 +32,7 @@
 	    {tags add "HMG"}
 		{tags add "soviet"}
 		{tags add "dshk_stan"}
-		{delay 6
+		{delay 10
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"

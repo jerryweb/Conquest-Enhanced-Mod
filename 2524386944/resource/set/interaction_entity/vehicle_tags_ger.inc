@@ -4,7 +4,7 @@
 	    {tags add "HMG"}
 		{tags add "german"}
 		{tags add "mg34_lafette"}
-		{delay 6
+		{delay 10
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -32,7 +32,7 @@
 	    {tags add "HMG"}
 		{tags add "german"}
 		{tags add "mg42_lafette"}
-		{delay 6
+		{delay 10
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"

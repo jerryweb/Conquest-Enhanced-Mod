@@ -1,6 +1,6 @@
 {Heroic
 	{GlobalMaxCP 1900}
-	{StageCP 80 100 120 150 200}
+	{StageCP 130 130 130 130 130 130 130}
 	{SpecialCP 1001}					;// airstrikes special tab
 	{EmplacementCP 50}				;// buildable with engineer
 	{Bots
@@ -90,8 +90,8 @@
 				}
 			}
 			{Budget
-				{Start "0:0 4:0 8:0 12:0 16:0 20:0"} ;// games played : starting CP of each match 
-				{PointsPerSecond 13.95} ;// CP income
+				{Start "0:650 4:650 8:650 12:650 16:650 20:650"} ;// games played : starting CP of each match 
+				{PointsPerSecond 0} ;// CP income
 				{Limit 1001} ;// Max CP 
 			}
 		}
