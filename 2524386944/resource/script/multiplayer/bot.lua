@@ -174,7 +174,7 @@ function OnGameStart()
 	math.randomseed(os.time()*BotApi.Instance.hostId)
 	math.random() math.random() math.random() math.random()
 
-	if math.random() < 0.3 then -- 30% chance to change when enemy reinforcements spawn 
+	if math.random() < 0.5 then -- 30% chance to change when enemy reinforcements spawn 
 		firstWaveOffsetTime = math.random(480,780)
 	end
 	if math.random() < 0.5 then -- 50% chance to for typhoon wave mode 

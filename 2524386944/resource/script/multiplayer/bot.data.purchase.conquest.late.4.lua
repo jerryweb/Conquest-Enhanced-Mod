@@ -6,7 +6,7 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 5,
 		maxRepeat = 7,
 		skipPossible = false,
-		waveDuration = 3,
+		waveDuration = 20,
 		Units = {
 			["ger"] = {--Germany
 				--Infantry Squads
@@ -32,7 +32,7 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 2,
 		maxRepeat = 4,
 	    skipPossible = false,
-	    waveDuration = 3,
+	    waveDuration = 10,
 		Units = {
 			["ger"] = {--Germany
 			--Tanks_medium
@@ -57,7 +57,7 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 4,
 		maxRepeat = 6,
         skipPossible = false,		
-		waveDuration = 3,
+		waveDuration = 20,
 		Units = {
 			["ger"] = {--Germany
 				--Infantry Squads
@@ -83,7 +83,7 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 1,
 		maxRepeat = 3,
         skipPossible = false,		
-		waveDuration = 3,
+		waveDuration = 40,
 		Units = {
 			["ger"] = {--Germany
 			--SPG
@@ -107,7 +107,7 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 1,
 		maxRepeat = 3,
         skipPossible = false,		
-		waveDuration = 3,
+		waveDuration = 5,
 		Units = {
 			["ger"] = {--Germany
 			--Tanks_medium
@@ -132,7 +132,7 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 4,
 		maxRepeat = 6,
         skipPossible = false,		
-		waveDuration = 3,
+		waveDuration = 35,
 		Units = {
 			["ger"] = {--Germany
 				--Infantry Squads
@@ -158,17 +158,17 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 1,
 		maxRepeat = 3,
         skipPossible = false,		
-		waveDuration = 3,
+		waveDuration = 5,
 		Units = {
 			["ger"] = {--Germany
 		        {priority = 1.0, class = UnitClass.ArtilleryTank, unit = "300mm_nebelwerfer42"},
-				{priority = 0.2, class = UnitClass.ATTank, unit = "210mm_morser18"},
+				{priority = 1.0, class = UnitClass.ATTank, unit = "210mm_morser18"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "150mm_sfh18"},
 			},
 			["rus"] = {--Russia
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "bm31_12"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "152mm_ml20"},
-				{priority = 0.5, class = UnitClass.ATTank, unit = "203mm_b4"},
+				{priority = 1.0, class = UnitClass.ATTank, unit = "203mm_b4"},
 			}
 		}
 	},
@@ -178,7 +178,7 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 4,
 		maxRepeat = 6,
         skipPossible = false,		
-		waveDuration = 3,
+		waveDuration = 10,
 		Units = {
 			["ger"] = {--Germany
 			--Wheel_vehicles

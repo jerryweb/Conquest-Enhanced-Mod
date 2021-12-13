@@ -46,13 +46,13 @@
 		{High
 			{BotResources 8.0}
 			{BotVeterancy 8}
-			{Rewards 1.75}
+			{Rewards 2.00}
 		}
 	}
 	{Resources
 		{Standard
 			{MP ;// Manpower (generic money)
-				{StartVal 4000}
+				{StartVal 5000}
 				{WinGain "1:200 4:300 6:700 8:900 10:1000 12:1400 14:1700"} ;// games played : MP gain 
 				{LoseGain "1:150"}
 				{MapRewards	;//Bonus resources on various game types (a game can only be one randomly chosen type). Types: Airfield, Ammodepot, Bonus, Factory, Research.
@@ -73,7 +73,7 @@
 			}
 			{AP ;// Ammo points
 				{StartVal 2500}
-				{WinGain "5:100 10:200 15:300"}
+				{WinGain "5:300 10:500 15:800"}
 				{LoseGain "1:200"}
 				{MapRewards
 					{Ammodepot	2500}
@@ -82,7 +82,7 @@
 			}
 			{RP ;// Research points
 				{StartVal 8}
-				{WinGain 1}
+				{WinGain 2}
 				{LoseGain 1}
 				{MapRewards
 					{Bonus		1}
