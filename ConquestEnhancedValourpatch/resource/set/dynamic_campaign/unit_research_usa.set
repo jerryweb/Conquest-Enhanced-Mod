@@ -1,0 +1,231 @@
+(include "unit_research_usa2.set")
+
+; ---Singles---
+
+;TOTAL: 0
+
+
+; ---SQUADS---
+	{"single_auxiliary(usa)"				requires	""							costs 0 }
+	{"single_mortar(usa)"		requires	"single_at(usa)"				costs 1 }
+	{"single_riflegrenade(usa)"		requires	"single_at(usa)"				costs 1 }
+
+
+	{"single_sniper(usa)"			requires	"single_medic(usa)"				costs 1 }
+	{"single_officer(usa)"			requires	"single_sniper(usa)"			costs 1 }
+	{"conquest_b25"		requires	"single_officer(usa)"			costs 2 }
+
+	{"single_ap_miner(usa)"			requires	""								costs 1 }
+	{"single_at_miner(usa)"			requires	"single_ap_miner(usa)"			costs 1 }
+	{"single_engineer(usa)"			requires	"single_ap_miner(usa)"			costs 1 }
+
+	{"squad_light(usa)"				requires	""								costs 1 }
+	{"squad_regular(usa)"			requires	"squad_light(usa)"				costs 2 }
+	{"squad_pionier(usa)"			requires	"squad_regular(usa)"			costs 2 }
+	{"squad_marine(usa)"			requires	"squad_regular(usa)"			costs 2 }
+	{"squad_stormtrooper(usa)"		requires	"squad_pionier(usa)"			costs 3 }
+
+
+;TOTAL: 0
+
+; ---MG---
+	{"0_3cal_m1917a1_aa"	requires 	""					costs 1}
+	{"0_5cal_m2hb"	requires 	""					costs 1}
+
+; ---Mortars---
+	{"81_mm_m1"	requires 	""					costs 1}
+	{"107_mm_m2"	requires 	"81_mm_m1"				costs 1}
+
+; ---AA---
+	{"0_5cal_maxson"	requires	""					costs 1}
+	{"40_mm_m1"	requires	"0_5cal_maxson"					costs 1}
+
+; ---AT Guns---
+	{"37_mm_m3"	requires	""					costs 1}
+	{"75_mm_m1897a4"	requires	"37_mm_m3"					costs 1}
+	{"76_mm_m5"	requires	"75_mm_m1897a4"					costs 1}
+	{"90_mm_m1"	requires	"76_mm_m5"					costs 2}
+
+; ---Infantry Guns---
+	{"75_mm_m1"		requires 	"37_mm_m3"				costs 1}
+
+; ---Artillery---
+	{"105_mm_m2a1l"	requires	"75_mm_m1"	costs 2}
+	{"155_mm_m2"		requires	"105_mm_m2a1l"			costs 3}
+	{"203_mm_m115"		requires	"105_mm_m2a1l"			costs 4}
+
+;---Armored Cars---
+	{"m3_usa"			requires 	""				costs 1}
+	{"m3a1_scout"			requires 	""				costs 1}
+	{"m20" 	requires 	"m3a1_scout"				costs 1}
+	{"m16" 	requires 	"0_5cal_maxson"				costs 1}
+	{"m8_grayhound" 	requires 	"m20"				costs 1}
+	{"m15a1" 	requires 	"40_mm_m1"				costs 1}
+	{"m4halftrack" 	requires 	"m20"				costs 2}
+	
+
+	; ---Light Tanks---
+	{"m22"				requires 	""				costs 0}
+	{"m5a1"				requires 	"m22"				costs 1}
+	{"m8"				requires 	"m5a1"				costs 1}
+	{"m24_chaffee"			requires 	"m5a1"				costs 2}
+	
+	; ---Medium Tanks---
+	{"m3lee"				requires 	"m5a1"				costs 1}
+	{"m4a1"			requires 	"m5a1"				costs 2}
+	{"m4"			requires 	"m5a1"				costs 3}
+	{"m4a3_75"			requires 	"m5a1"				costs 4}
+	{"m4a3_zippo"			requires 	"m4a3_75"				costs 2}
+	{"m4a3e8"			requires 	"m4a3_75"				costs 2}
+	{"m4a3_105"			requires 	"m4a3_75"				costs 3}
+	{"m4a3e2_jumbo"			requires 	"m4a3e8"				costs 2}
+	{"m4a3e2_jumbo_76w"		requires 	"m4a3e8"				costs 4}
+
+	
+	; ---Heavy Tanks---
+
+	{"m26_pershing"		requires 	"m4a3e2_jumbo_76w"				costs 6}
+	{"m26e4_pershing"		requires 	"m26_pershing"				costs 2}
+
+	; ---Self Propelled Guns---
+
+	{"t12gmc"				requires 	"75_mm_m1897a4"				costs 1}
+	{"m10wolverine"				requires 	"76_mm_m5"				costs 2}
+	{"t30hmc"				requires 	"75_mm_m1"				costs 1}
+	{"m7"				requires 	"75_mm_m1"				costs 2}
+	{"m18"				requires 	"m10wolverine"				costs 1}
+	{"m36"				requires 	"m10wolverine"				costs 4}
+	{"m12gmc"				requires 	"m7"				costs 3}
+	{"m4a3c"			requires 	"m4a3_75"				costs 3}
+	
+;TOTAL: 0
+
+; ---TECH UPGRADES---
+{ tech "defense_level_1"		requires ""											costs 1 }
+{ tech "defense_level_2"		requires "defense_level_1 reinforcement_stage_3"	costs 5 }
+{ tech "defense_level_3"		requires "defense_level_2 reinforcement_stage_4"	costs 7 }
+
+{ tech "reinforcement_stage_1"	requires ""									costs 0 }
+{ tech "reinforcement_stage_2"	requires ""									costs 0 }
+{ tech "reinforcement_stage_3"	requires "reinforcement_stage_2"			costs 3 }
+{ tech "reinforcement_stage_4"	requires "reinforcement_stage_3"			costs 6 }
+{ tech "reinforcement_stage_5"	requires "reinforcement_stage_4"			costs 9 }
+;TOTAL: 28
+
+
+{GridWidth 10} ;total with 0-#
+{Positions
+;// {"Squad name" column, row}
+	{"defense_level_1"			2 1}
+	{"defense_level_2"			3 1}
+	{"defense_level_3"			4 1}
+
+	{"reinforcement_stage_1"	0 0}
+	{"reinforcement_stage_2"	1 0}
+	{"reinforcement_stage_3"	2 0}
+	{"reinforcement_stage_4"	3 0}
+	{"reinforcement_stage_5"	4 0}
+	
+	;---SQUADS---
+	{"single_auxiliary(usa)"				0 2}
+	{"single_at(usa)"				1 2}
+	{"single_mortar(usa)"		2 2}
+	{"squad_light(usa)"				3 2}	
+	{"single_riflegrenade(usa)"		4 2}
+	
+	{"single_medic(usa)"			0 3}
+	{"single_sniper(usa)"			1 3}
+	{"single_officer(usa)"			2 3}
+
+	{"single_ap_miner(usa)"			0 4}
+	{"single_at_miner(usa)"			1 4}
+	{"single_engineer(usa)"			2 4}
+
+	
+	{"squad_regular(usa)"			3 5}
+	{"squad_pionier(usa)"			4 5}
+	{"squad_marine(usa)"			5 5}
+	{"squad_stormtrooper(usa)"		6 5}
+
+
+	;---MG---
+	{"0_3cal_m1917a1_aa"	0 6}
+	{"0_5cal_m2hb"		1 6}
+
+	;---Mortars---
+	{"81_mm_m1"	4 6}
+	
+
+	;---AA---
+	{"0_5cal_maxson"		2 6}
+	{"40_mm_m1"	3 6}
+
+	;---AT Guns---
+	{"37_mm_m3"	2 7}
+	{"75_mm_m1897a4"	3 7}
+	{"76_mm_m5"	4 7}
+	{"90_mm_m1"	5 7}
+
+	;---Infantry Guns---
+	{"75_mm_m1"		3 8}
+	{"107_mm_m2"	5 8}
+
+	;---Artillery---
+	{"105_mm_m2a1l"			4 9}
+	{"155_mm_m2"		5 9}
+	{"203_mm_m115"		6 9}	
+
+	;---Trucks---
+	{"cckw353_inf"		0 10}
+	{"cckw352_art"		1 10}
+	{"willysmb"		2 10}
+	{"willys50"		3 10}
+	{"dodgewc55"		4 10}
+
+
+	;---Armored Cars---
+	{"m3_usa"			0 11}
+	{"m3a1_scout"			1 11}
+	{"m20"			2 11}
+	{"m16"			3 11}
+	{"m8_grayhound"			3 12}
+	{"m15a1"			4 12}
+	{"m4halftrack"			5 12}
+
+	; ---Light Tanks---
+	{"m22"				1 13}
+	{"m5a1"				2 13}
+	{"m8"			3 13}
+	{"m24_chaffee"		4 13}
+
+	
+	; ---Medium Tanks---
+	{"m3lee"			4 14}
+	{"m4a1"			5 14}
+	{"m4"			6 14}
+	{"m4a3_75"		7 14}
+	{"m4a3_zippo"		6 15}
+	{"m4a3e8"		7 15}
+	{"m4a3_105"		8 15}
+	{"m4a3e2_jumbo"		7 16}
+	{"m4a3e2_jumbo_76w"	8 16}
+
+	; ---Heavy Tanks---
+
+	{"m26_pershing"		7 17}
+	{"m26e4_pershing"		8 17}
+
+	; ---Self Propelled Guns---
+	{"t12gmc"		3 18}
+	{"m10wolverine"			4 18}
+	{"m18"			5 18}
+	{"m36"			6 18}
+	{"t30hmc"			6 19}
+	{"m4a3c"			7 19}
+	{"m7"			8 19}
+	{"m12gmc"		8 20}
+	
+
+	;---Aircraft---
+	{"conquest_b25"	8 20}
+}

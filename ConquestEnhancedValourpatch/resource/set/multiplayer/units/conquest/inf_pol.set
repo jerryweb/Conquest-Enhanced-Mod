@@ -1,0 +1,137 @@
+;// CP + Scores + CW
+
+;////////////////// INSTRUCTIONS //////////////////
+; In this file onee configures the humans which are spawned in vehicles or squads
+; The humans have a CP and cost associated with them which collectively add up for the final squad value
+; Check ../settings.set for syntax instructions!!
+;//////////////////////////////////////////////////
+
+;SDL
+(define "pol_tankman"
+	{tags "mid %side infantry man"}
+	{cp 0}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
+{"mp/pol/mid/vehicle_supporter"	("pol_tankman" side(pol)) {cost 5.0}}
+{"mp/pol/mid/tankman"			("pol_tankman" side(pol)) {cost 4.0}}
+{"mp/pol/mid/tankman2"	("pol_tankman" side(pol)) {cost 8.0}}
+{"mp/pol/mid/pilot"	("pol_tankman" side(pol)) {cost 2.0}}
+
+
+(define "pol_regular"
+	{tags "mid %side infantry man %lvl"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 1.5}
+	{score_factor 0.05}
+)
+{"mp/pol/mid/mgun"			("pol_regular" side(pol) lvl(lvl1 lvl2 lvl3)) {cost 45.0}} ; has mg
+{"mp/pol/mid/mgun2"			("pol_regular" side(pol) lvl(lvl1 lvl2 lvl3)) {cost 45.0}} ; has mg
+{"mp/pol/mid/rifle"		("pol_regular" side(pol) lvl(lvl1 lvl2)) {cost 8.0}}
+{"mp/pol/mid/rifle2"		("pol_regular" side(pol) lvl(lvl1 lvl2)) {cost 8.0}}
+{"mp/pol/mid/rifle3"		("pol_regular" side(pol) lvl(lvl1 lvl2)) {cost 8.0}}
+{"mp/pol/mid/smg"		    ("pol_regular" side(pol) lvl(lvl1 lvl2)) {cost 10.0}}
+{"mp/pol/mid/smg2"		    ("pol_regular" side(pol) lvl(lvl1 lvl2)) {cost 10.0}}
+{"mp/pol/mid/smg3"		    ("pol_regular" side(pol) lvl(lvl1 lvl2)) {cost 10.0}}
+{"mp/pol/mid/flamer2"		("pol_regular" side(pol) lvl(lvl1 lvl2)) {cost 10.0}}
+{"mp/pol/mid/at_rifle2"		("pol_regular" side(pol) lvl(lvl1 lvl2)) {cost 10.0}}
+
+(define "pol_regular_advanced"
+	{tags "mid %side infantry man %lvl"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.05}
+)
+{"mp/pol/mid/rifle_grenade"		("pol_regular_advanced" side(pol) lvl(lvl1 lvl2 lvl3)) {cost 35.0}} ; rifle grenade
+{"mp/pol/mid/saper"		("pol_regular_advanced" side(pol) lvl()) {cost 60.0}}
+{"mp/pol/mid/flamer"			("pol_regular_advanced" side(pol) lvl(lvl1 lvl2)) {cost 70.0}}
+{"mp/pol/mid/ap_miner"		("pol_regular_advanced" side(pol) lvl()) {cost 60.0}}
+{"mp/pol/mid/at_miner"		("pol_regular_advanced" side(pol) lvl()) {cost 60.0}}
+{"mp/pol/mid/gr_launcher"				("pol_regular_advanced" side(pol) lvl(lvl1 lvl2)) {cost 75.0}}
+{"mp/pol/mid/squadleader"				("pol_regular_advanced" side(pol) lvl(lvl1 lvl2)) {cost 15.0}}
+{"mp/pol/mid/squadleader2"				("pol_regular_advanced" side(pol) lvl(lvl1 lvl2)) {cost 15.0}}
+{"mp/pol/mid/bazooker"		("pol_regular_advanced" side(pol) lvl(lvl1 lvl2 lvl3 lvl4)) {cost 70.0}} ; Bazooker
+{"mp/pol/mid/bazooker2"		("pol_regular_advanced" side(pol) lvl(lvl1 lvl2)) {cost 20.0}} ; 
+{"mp/pol/mid/at_rifle"		("pol_regular_advanced" side(pol) lvl(lvl1 lvl2 lvl3)) {cost 40.0}} ; has AT
+
+(define "pol_pioniere"
+	{tags "mid %side infantry man lvl2 lvl3 lvl4"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 3}
+	{score_factor 0.05}
+)
+{"mp/pol/mid/elite"		("pol_pioniere" side(pol)) {cost 20.0}}
+{"mp/pol/mid/elite2"		("pol_pioniere" side(pol)) {cost 45.0}}
+{"mp/pol/mid/elite3"		("pol_pioniere" side(pol)) {cost 20.0}}
+{"mp/pol/mid/elite4"		("pol_pioniere" side(pol)) {cost 20.0}}
+{"mp/pol/mid/elite5"		("pol_pioniere" side(pol)) {cost 20.0}}
+{"mp/pol/mid/elite6"		("pol_pioniere" side(pol)) {cost 45.0}}
+
+
+
+(define "pol_radioman"
+	{tags "mid %side infantry man lvl4"}
+	{cp 4}
+	{basic}
+	{breed}
+	{cw 4.0}
+	{score_factor 0.05}
+)
+{"mp/pol/mid/radioman"		("pol_radioman" side(pol)) {cost 55.0}}
+
+
+(define "pol_sturmovik"
+	{tags "mid %side infantry man lvl3 lvl4"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 4}
+	{score_factor 0.05}
+)
+{"mp/pol/mid/sturmovik"		("pol_sturmovik" side(pol)) {cost 30.0}}
+{"mp/pol/mid/sturmovik2"		("pol_sturmovik" side(pol)) {cost 50.0}}
+{"mp/pol/mid/sturmovik3"		("pol_sturmovik" side(pol)) {cost 30.0}} 
+{"mp/pol/mid/sturmovik4"		("pol_sturmovik" side(pol)) {cost 30.0}}
+{"mp/pol/mid/sturmovik4b"		("pol_sturmovik" side(pol)) {cost 30.0}}
+{"mp/pol/mid/sturmovik5"		("pol_sturmovik" side(pol)) {cost 50.0}}
+{"mp/pol/mid/sturmovik5b"		("pol_sturmovik" side(pol)) {cost 30.0}}
+{"mp/pol/mid/sturmovik6"		("pol_sturmovik" side(pol)) {cost 30.0}}
+{"mp/pol/mid/sturmovik6b"		("pol_sturmovik" side(pol)) {cost 30.0}}
+
+(define "pol_medic"
+	{tags "mid %side infantry man"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0}
+)
+{"mp/pol/mid/medic"		("pol_medic" side(pol)) {cost 40.0}}
+
+(define "pol_officer"
+	{tags "mid %side infantry man officer"}
+	{cp 4}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.2}
+)
+{"mp/pol/mid/officer"		("pol_officer" side(pol)) {cost 350.0}}
+
+(define "pol_sniper"
+	{tags "mid %side infantry man sniper lvl3 lvl4"}
+	{cp 4}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.05}
+)
+{"mp/pol/mid/sniper"		("pol_sniper" side(pol)) {cost 150.0}}

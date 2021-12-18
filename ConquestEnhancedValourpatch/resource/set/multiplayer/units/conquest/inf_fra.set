@@ -1,0 +1,136 @@
+;// CP + Scores + CW
+
+;////////////////// INSTRUCTIONS //////////////////
+; In this file onee configures the humans which are spawned in vehicles or squads
+; The humans have a CP and cost associated with them which collectively add up for the final squad value
+; Check ../settings.set for syntax instructions!!
+;//////////////////////////////////////////////////
+
+;SDL
+(define "fra_tankman"
+	{tags "mid %side infantry man"}
+	{cp 0}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
+{"mp/fra/mid/home_guard"			("fra_tankman" side(fra)) {cost 5.0}}
+{"mp/fra/mid/vehicle_supporter"	("fra_tankman" side(fra)) {cost 5.0}}
+{"mp/fra/mid/tankman"			("fra_tankman" side(fra)) {cost 4.0}}
+{"mp/fra/mid/tankman2"	("fra_tankman" side(fra)) {cost 8.0}}
+{"mp/fra/mid/pilot"	("fra_tankman" side(fra)) {cost 2.0}}
+
+
+(define "fra_regular"
+	{tags "mid %side infantry man %lvl"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 1.5}
+	{score_factor 0.05}
+)
+{"mp/fra/mid/mgun"			("fra_regular" side(fra) lvl(lvl1 lvl2 lvl3)) {cost 45.0}} ; has mg
+{"mp/fra/mid/mgun2"			("fra_regular" side(fra) lvl(lvl1 lvl2 lvl3)) {cost 45.0}} ; has mg
+{"mp/fra/mid/rifle"		("fra_regular" side(fra) lvl(lvl1 lvl2)) {cost 8.0}}
+{"mp/fra/mid/rifle2"		("fra_regular" side(fra) lvl(lvl1 lvl2)) {cost 8.0}}
+{"mp/fra/mid/rifle3"		("fra_regular" side(fra) lvl(lvl1 lvl2)) {cost 8.0}}
+{"mp/fra/mid/smg"		    ("fra_regular" side(fra) lvl(lvl1 lvl2)) {cost 10.0}}
+{"mp/fra/mid/smg2"		    ("fra_regular" side(fra) lvl(lvl1 lvl2)) {cost 10.0}}
+{"mp/fra/mid/smg3"		    ("fra_regular" side(fra) lvl(lvl1 lvl2)) {cost 10.0}}
+{"mp/fra/mid/flamer2"			("fra_regular" side(fra) lvl(lvl1 lvl2)) {cost 10.0}}
+
+(define "fra_regular_advanced"
+	{tags "mid %side infantry man %lvl"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.05}
+)
+{"mp/fra/mid/rifle_grenade"		("fra_regular_advanced" side(fra) lvl(lvl1 lvl2 lvl3)) {cost 35.0}} ; rifle grenade
+{"mp/fra/mid/saper"		("fra_regular_advanced" side(fra) lvl()) {cost 60.0}}
+{"mp/fra/mid/flamer"			("fra_regular_advanced" side(fra) lvl(lvl2 lvl3)) {cost 70.0}}
+{"mp/fra/mid/ap_miner"		("fra_regular_advanced" side(fra) lvl()) {cost 60.0}}
+{"mp/fra/mid/at_miner"		("fra_regular_advanced" side(fra) lvl()) {cost 60.0}}
+{"mp/fra/mid/gr_launcher"				("fra_regular_advanced" side(fra) lvl(lvl2 lvl3)) {cost 75.0}}
+{"mp/fra/mid/squadleader"				("fra_regular_advanced" side(fra) lvl(lvl1 lvl2)) {cost 15.0}}
+{"mp/fra/mid/squadleader2"				("fra_regular_advanced" side(fra) lvl(lvl1 lvl2)) {cost 15.0}}
+{"mp/fra/mid/bazooker"		("fra_regular_advanced" side(fra) lvl(lvl2 lvl3 lvl4)) {cost 70.0}} ; Bazooker
+{"mp/fra/mid/bazooker2"		("fra_regular_advanced" side(fra) lvl(lvl2 lvl3)) {cost 20.0}} ; 
+
+(define "fra_pioniere"
+	{tags "mid %side infantry man lvl2 lvl3 lvl4"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 3}
+	{score_factor 0.05}
+)
+{"mp/fra/mid/elite"		("fra_pioniere" side(fra)) {cost 20.0}}
+{"mp/fra/mid/elite2"		("fra_pioniere" side(fra)) {cost 45.0}}
+{"mp/fra/mid/elite3"		("fra_pioniere" side(fra)) {cost 20.0}}
+{"mp/fra/mid/elite4"		("fra_pioniere" side(fra)) {cost 20.0}}
+{"mp/fra/mid/elite5"		("fra_pioniere" side(fra)) {cost 20.0}}
+{"mp/fra/mid/elite6"		("fra_pioniere" side(fra)) {cost 45.0}}
+
+
+
+(define "fra_radioman"
+	{tags "mid %ide infantry man lvl4"}
+	{cp 4}
+	{basic}
+	{breed}
+	{cw 4.0}
+	{score_factor 0.05}
+)
+{"mp/fra/mid/radioman"		("fra_radioman" side(fra)) {cost 55.0}}
+
+
+(define "fra_sturmovik"
+	{tags "mid %side infantry man lvl3 lvl4"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 4}
+	{score_factor 0.05}
+)
+{"mp/fra/mid/sturmovik"		("fra_sturmovik" side(fra)) {cost 30.0}}
+{"mp/fra/mid/sturmovik2"		("fra_sturmovik" side(fra)) {cost 50.0}}
+{"mp/fra/mid/sturmovik3"		("fra_sturmovik" side(fra)) {cost 30.0}} 
+{"mp/fra/mid/sturmovik4"		("fra_sturmovik" side(fra)) {cost 30.0}}
+{"mp/fra/mid/sturmovik4b"		("fra_sturmovik" side(fra)) {cost 30.0}}
+{"mp/fra/mid/sturmovik5"		("fra_sturmovik" side(fra)) {cost 50.0}}
+{"mp/fra/mid/sturmovik5b"		("fra_sturmovik" side(fra)) {cost 30.0}}
+{"mp/fra/mid/sturmovik6"		("fra_sturmovik" side(fra)) {cost 30.0}}
+{"mp/fra/mid/sturmovik6b"		("fra_sturmovik" side(fra)) {cost 30.0}}
+
+(define "fra_medic"
+	{tags "mid %side infantry man"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0}
+)
+{"mp/fra/mid/medic"		("fra_medic" side(fra)) {cost 40.0}}
+
+(define "fra_officer"
+	{tags "mid %side infantry man officer"}
+	{cp 4}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.2}
+)
+{"mp/fra/mid/officer"		("fra_officer" side(fra)) {cost 350.0}}
+
+(define "fra_sniper"
+{tags "mid %side infantry man sniper lvl3 lvl4"}
+	{cp 4}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.05}
+)
+{"mp/fra/mid/sniper"		("fra_sniper" side(fra)) {cost 150.0}}

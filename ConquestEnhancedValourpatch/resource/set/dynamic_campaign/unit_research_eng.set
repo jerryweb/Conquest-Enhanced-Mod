@@ -1,0 +1,213 @@
+(include "unit_research_eng2.set")
+
+; ---Singles---
+
+;TOTAL: 0
+
+
+; ---SQUADS---
+	{"single_auxiliary_late(eng)"		requires	""					costs 0 }
+	{"single_mg_late(eng)"			requires	"single_auxiliary_late(eng)"		costs 1 }
+	{"single_atrifle(eng)"			requires	""					costs 1 }
+	{"single_at_late(eng)"			requires	""					costs 1 }
+	{"single_mortar_late(eng)"		requires	"single_at_late(eng)"			costs 1 }
+	{"single_riflegrenade_late(eng)"	requires	"single_at_late(eng)"			costs 1 }
+
+	{"single_flamer_late(eng)"		requires	"single_medic(eng)"			costs 1 }
+	{"single_sniper(eng)"			requires	"single_medic(eng)"			costs 1 }
+	{"single_officer(eng)"			requires	"single_sniper(eng)"			costs 1 }
+	{"conquest_beaufighter"			requires	"single_officer(eng)"			costs 2 }
+
+	{"single_ap_miner(eng)"			requires	""					costs 1 }
+	{"single_at_miner(eng)"			requires	"single_ap_miner(eng)"			costs 1 }
+	{"single_engineer(eng)"			requires	"single_ap_miner(eng)"			costs 1 }
+
+	{"squad_light_late(eng)"		requires	""					costs 1 }
+	{"squad_regular_late(eng)"		requires	"squad_light_late(eng)"			costs 2 }
+	{"squad_pionier_late(eng)"		requires	"squad_regular_late(eng)"		costs 2 }
+	{"squad_scout_late(eng)"		requires	"squad_regular_late(eng)"		costs 2 }
+	{"squad_stormtrooper_late(eng)"		requires	"squad_pionier_late(eng)"		costs 3 }
+
+
+;TOTAL: 0
+
+; ---MG---
+	{"303_bren"		requires 	""				costs 1}
+
+; ---Mortars---
+	{"76mm_mk_ii"	requires 	""				costs 1}
+
+; ---AA---
+	{"qf40mm"		requires	"303_bren"			costs 1}
+
+; ---AT Guns---
+	{"qf2pdr"		requires	""				costs 1}
+	{"qf6pdr"		requires	"qf2pdr"			costs 1}
+	{"qf17pdr"		requires	"qf6pdr"			costs 2}
+
+; ---Infantry Guns---
+
+; ---Artillery---
+	{"qf25pdr"		requires	""			costs 2}
+	{"bl45"		requires	"qf25pdr"			costs 1}
+
+;---Armored Cars---
+	{"dingo"		requires 	""				costs 0}
+	{"m3halftrack_eng" 	requires 	"dingo"			costs 1}
+	{"humber" 	requires 	"dingo"			costs 1}
+	{"mk2daimler" 	requires 	"dingo"			costs 2}
+	{"staghound" 	requires 	"m3halftrack_eng"		costs 1}
+	
+
+	; ---Light Tanks---
+	{"crusader_aa2"	requires 	""				costs 1}
+	{"crusader_mk6"		requires 	"qf6pdr"			costs 1}
+
+	
+	; ---Medium Tanks---
+	{"valentine_mkiii"	requires 	"crusader_mk6"			costs 1}
+	{"matilda_mkii"	requires 	"crusader_mk6"			costs 1}
+	{"cromwell_mk_iv"	requires 	"matilda_mkii"			costs 1}
+	{"m4a4"		requires 	"matilda_mkii"			costs 2}
+	{"cromwell_mk_vi"		requires 	"matilda_mkii"			costs 3}
+	{"challenger_a30"	requires 	"cromwell_mk_iv"		costs 1}
+	{"m4a4_firefly"	requires 	"m4a4"			costs 1}
+	{"comet_a34"	requires 	"cromwell_mk_iv"		costs 2}
+	
+	; ---Heavy Tanks---
+	{"churchill_avre"	requires 	"cromwell_mk_iv"		costs 2}	
+	{"churchill_mk_ii"	requires 	"cromwell_mk_iv"		costs 3}
+	{"churchill_mk_iv"	requires 	"churchill_mk_ii"		costs 1}
+	{"churchill_mk_vii"	requires 	"churchill_mk_ii"		costs 2}
+	{"churchill_crocodile"	requires 	"churchill_mk_vii"		costs 1}
+
+	; ---Self Propelled Guns---
+	{"achilles"		requires 	"qf17pdr"			costs 2}
+	{"m4a3_105_eng"		requires 	"qf25pdr"			costs 1}
+	{"sexton"		requires 	"qf25pdr"			costs 2}
+	
+;TOTAL: 0
+
+; ---TECH UPGRADES---
+{ tech "defense_level_1"		requires ""											costs 1 }
+{ tech "defense_level_2"		requires "defense_level_1 reinforcement_stage_3"	costs 5 }
+{ tech "defense_level_3"		requires "defense_level_2 reinforcement_stage_4"	costs 7 }
+
+{ tech "reinforcement_stage_1"	requires ""									costs 0 }
+{ tech "reinforcement_stage_2"	requires ""									costs 0 }
+{ tech "reinforcement_stage_3"	requires "reinforcement_stage_2"			costs 3 }
+{ tech "reinforcement_stage_4"	requires "reinforcement_stage_3"			costs 6 }
+{ tech "reinforcement_stage_5"	requires "reinforcement_stage_4"			costs 9 }
+;TOTAL: 28
+
+
+{GridWidth 10} ;total with 0-#
+{Positions
+;// {"Squad name" column, row}
+	{"defense_level_1"			2 1}
+	{"defense_level_2"			3 1}
+	{"defense_level_3"			4 1}
+
+	{"reinforcement_stage_1"	0 0}
+	{"reinforcement_stage_2"	1 0}
+	{"reinforcement_stage_3"	2 0}
+	{"reinforcement_stage_4"	3 0}
+	{"reinforcement_stage_5"	4 0}
+	
+;---SQUADS---
+	{"single_auxiliary_late(eng)"	0 2}
+	{"single_mg_late(eng)"		1 2}
+	
+	{"single_at_late(eng)"		1 3}
+	{"single_atrifle(eng)"		2 3}	
+	{"single_mortar_late(eng)"	3 3}
+	{"single_riflegrenade_late(eng)"	4 3}
+	
+	{"single_medic(eng)"		0 4}
+	{"single_flamer_late(eng)"	1 4}
+	{"single_sniper(eng)"		2 4}
+	{"single_officer(eng)"		3 4}
+
+
+	{"single_ap_miner(eng)"		0 5}
+	{"single_at_miner(eng)"		1 5}
+	{"single_engineer(eng)"		2 5}
+
+	{"squad_light_late(eng)"	2 6}
+	{"squad_regular_late(eng)"	3 6}
+	{"squad_pionier_late(eng)"	4 6}
+	{"squad_scout_late(eng)"	5 6}
+	{"squad_stormtrooper_late(eng)"		6 6}
+
+
+	;---MG---
+	{"303_bren"			0 7}
+
+	;---Mortars---
+	{"76mm_mk_ii"		3 9}
+	
+
+	;---AA---
+	{"qf40mm"			1 7}
+
+	;---AT Guns---
+	{"qf2pdr"			1 8}
+	{"qf6pdr"			2 8}
+	{"qf17pdr"			3 8}	
+
+
+	;---Infantry Guns---
+
+
+
+	;---Artillery---
+	{"qf25pdr"			4 9}
+	{"bl45"			5 9}
+	
+
+	;---Trucks---
+	{"matador"		0 10}
+	{"matador_art"		1 10}
+
+
+	;---Armored Cars---
+	{"dingo"			1 11}
+	{"m3halftrack_eng"		2 11}
+	{"humber"		3 11}
+	{"mk2daimler" 	4 11}
+	{"staghound"		5 11}
+
+
+	; ---Light Tanks---
+	{"crusader_aa2"		2 12}
+	{"crusader_mk6"			3 12}
+
+	
+	; ---Medium Tanks---
+	{"valentine_mkiii"		3 13}
+	{"matilda_mkii"			4 13}
+	{"cromwell_mk_iv"		5 13}
+	{"m4a4"			6 13}
+	{"cromwell_mk_vi"		7 13}
+	
+	{"challenger_a30"		6 14}
+	{"m4a4_firefly"		7 14}
+	{"comet_a34"	8 14}
+
+	; ---Heavy Tanks---
+	{"churchill_mk_ii"	6 15}
+	{"churchill_avre"	7 15}
+	{"churchill_mk_iv"	7 16}
+	{"churchill_mk_vii"	8 16}
+	
+	{"churchill_crocodile"	8 17}
+
+	; ---Self Propelled Guns---
+	{"achilles"			5 18}
+	{"m4a3_105_eng"			6 18}
+	{"sexton"			7 18}
+	
+
+	;---Aircraft---
+	{"conquest_beaufighter"	8 19}
+}

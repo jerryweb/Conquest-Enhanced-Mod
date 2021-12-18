@@ -1,0 +1,197 @@
+(include "unit_research_jap2.set")
+
+; ---Singles---
+
+;TOTAL: 0
+
+
+; ---SQUADS---
+	{"single_auxiliary(jap)"				requires	""								costs 0 }
+	{"single_mortar(jap)"		requires	"single_at(jap)"				costs 1 }
+	{"single_riflegrenade(jap)"		requires	"single_at(jap)"				costs 1 }
+
+
+	{"single_sniper(jap)"			requires	"single_medic(jap)"				costs 1 }
+	{"single_officer(jap)"			requires	"single_sniper(jap)"			costs 1 }
+	{"conquest_a6m21_reisen"		requires	"single_officer(jap)"			costs 2 }
+
+	{"single_ap_miner(jap)"			requires	""								costs 1 }
+	{"single_at_miner(jap)"			requires	"single_ap_miner(jap)"			costs 1 }
+	{"single_engineer(jap)"			requires	"single_ap_miner(jap)"			costs 1 }
+
+	{"squad_light(jap)"				requires	""								costs 1 }
+	{"squad_regular(jap)"			requires	"squad_light(jap)"				costs 2 }
+	{"squad_pionier(jap)"			requires	"squad_regular(jap)"			costs 2 }
+	{"squad_stormtrooper(jap)"		requires	"squad_pionier(jap)"			costs 3 }
+
+
+;TOTAL: 0
+
+; ---MG---
+	{"type92_stan"	requires 	""					costs 1}
+
+; ---Mortars---
+	{"81mm_brandt_jap"	requires 	""					costs 1}
+	{"150mm_type_97"	requires 	"81mm_brandt_jap"				costs 1}
+	{"200mm_type_4"		requires	"150mm_type_97"			costs 3}
+
+; ---AA---
+	{"20mm_type_2"	requires	""					costs 1}
+	{"75mm_type_88"	requires	"20mm_type_2"					costs 1}
+	{"75mm_type_4"	requires	"75mm_type_88"					costs 1}
+
+; ---AT Guns---
+	{"37mm_type_94"	requires	""					costs 1}
+	{"47mm_type_1"	requires	"37mm_type_94"					costs 1}
+	{"75mm_type_90"	requires	"47mm_type_1"					costs 1}
+
+; ---Infantry Guns---
+	{"75mm_type_41"		requires 	"37mm_type_94"				costs 1}
+
+; ---Artillery---
+	{"105mm_type_92"	requires	"75mm_type_41"	costs 2}
+	{"120mm_type_38"		requires	"105mm_type_92"			costs 3}
+	
+;---Armored Cars---
+	{"type1_ho-ki_mg"		requires 	""				costs 0}
+	{"type87"			requires 	""				costs 0}
+	{"type93" 	requires 	"type87"				costs 1}
+
+	; ---Light Tanks---
+	{"type94_te-ke"				requires 	""				costs 0}
+	{"type97_te-ke"				requires 	"type94_te-ke"				costs 1}
+	{"type95_ha-go"				requires 	"type94_te-ke"				costs 1}
+
+	
+	; ---Medium Tanks---
+	{"type97_chi-ha"				requires 	"type95_ha-go"				costs 1}
+	{"type97_shinhoto_47mm"			requires 	"type95_ha-go"				costs 2}
+	{"type1_chi-he"				requires 	"type97_shinhoto_47mm"				costs 3}
+	{"type97_shinhoto_120mm"				requires 	"type97_chi-ha"				costs 3}
+	{"type2_ho-i_kou"				requires 	"type1_chi-he"				costs 1}
+	{"type3_chi-nu"				requires 	"type1_chi-he"				costs 3}
+	{"type3_chi-nu2"			requires 	"type1_chi-he"				costs 4}
+	
+	; ---Heavy Tanks---
+
+
+
+	; ---Self Propelled Guns---
+	{"type1_ho-ni1"				requires 	"type97_chi-ha"				costs 1}
+	{"type1_ho-ni2"				requires 	"type97_chi-ha"				costs 2}
+	{"type4_ho-ro"				requires 	"type97_chi-ha"				costs 4}
+	
+;TOTAL: 0
+
+; ---TECH UPGRADES---
+{ tech "defense_level_1"		requires ""											costs 1 }
+{ tech "defense_level_2"		requires "defense_level_1 reinforcement_stage_3"	costs 5 }
+{ tech "defense_level_3"		requires "defense_level_2 reinforcement_stage_4"	costs 7 }
+
+{ tech "reinforcement_stage_1"	requires ""									costs 0 }
+{ tech "reinforcement_stage_2"	requires ""									costs 0 }
+{ tech "reinforcement_stage_3"	requires "reinforcement_stage_2"			costs 3 }
+{ tech "reinforcement_stage_4"	requires "reinforcement_stage_3"			costs 6 }
+{ tech "reinforcement_stage_5"	requires "reinforcement_stage_4"			costs 9 }
+;TOTAL: 28
+
+
+{GridWidth 10} ;total with 0-#
+{Positions
+;// {"Squad name" column, row}
+	{"defense_level_1"			2 1}
+	{"defense_level_2"			3 1}
+	{"defense_level_3"			4 1}
+
+	{"reinforcement_stage_1"	0 0}
+	{"reinforcement_stage_2"	1 0}
+	{"reinforcement_stage_3"	2 0}
+	{"reinforcement_stage_4"	3 0}
+	{"reinforcement_stage_5"	4 0}
+
+	;---SQUADS---
+	{"single_auxiliary(jap)"	0 2}
+	{"single_at(jap)"		1 2}
+	{"single_mortar(jap)"		2 2}
+	{"squad_light(jap)"		3 2}	
+	{"single_riflegrenade(jap)"	4 2}
+	
+	{"single_medic(jap)"		0 3}
+	{"single_sniper(jap)"		1 3}
+	{"single_officer(jap)"		2 3}
+
+	{"single_ap_miner(jap)"		0 4}
+	{"single_at_miner(jap)"		1 4}
+	{"single_engineer(jap)"		2 4}
+
+	
+	{"squad_regular(jap)"		2 5}
+	{"squad_pionier(jap)"		3 5}
+	{"squad_stormtrooper(jap)"	4 5}
+
+
+	;---MG---
+	{"type92_stan"			0 6}
+
+	;---Mortars---
+	{"81mm_brandt_jap"		3 8}
+
+	;---AA---
+	{"20mm_type_2"			1 6}
+	{"75mm_type_88"			2 6}
+	{"75mm_type_4"			3 6}
+
+	;---AT Guns---
+	{"37mm_type_94"			2 7}
+	{"47mm_type_1"			3 7}
+	{"75mm_type_90"			4 7}
+
+	;---Infantry Guns---
+	{"75mm_type_41"			4 8}
+	{"150mm_type_97"		5 8}
+	{"200mm_type_4"		6 8}
+
+	;---Artillery---
+	{"105mm_type_92"		5 9}
+	{"120mm_type_38"		6 9}
+
+	;---Trucks---
+	{"type95"			0 10}
+	{"type94"			1 10}
+	{"type94art"			2 10}
+
+
+
+	;---Armored Cars---
+	{"type1_ho-ki_mg"		0 11}
+	{"type87"			1 11}
+	{"type93"			2 11}
+	{"type94aa"			3 11}
+
+	; ---Light Tanks---
+	{"type94_te-ke"			1 12}
+	{"type97_te-ke"			2 12}
+	{"type95_ha-go"			3 12}
+
+	
+	; ---Medium Tanks---
+	{"type97_chi-ha"		3 13}
+	{"type97_shinhoto_47mm"		4 13}
+	{"type1_chi-he"			5 13}
+	{"type97_shinhoto_120mm" 	6 13}
+	{"type2_ho-i_kou" 	5 14}
+	{"type3_chi-nu" 		6 14}
+	{"type3_chi-nu2" 		7 14}
+
+	; ---Heavy Tanks---
+
+
+
+	; ---Self Propelled Guns---
+	{"type1_ho-ni1"			4 15}
+	{"type1_ho-ni2"			5 15}
+	{"type4_ho-ro"			6 15}
+
+	;---Aircraft---
+	{"conquest_a6m21_reisen"	7 16}
+}
