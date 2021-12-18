@@ -92,8 +92,76 @@
 				    {tags add "panzergrenadiers"}
 			    }
 			}
+		else linked "airborne"
+			{delay 0.01
+				(mod not "mp" {call "eject"})
+				{volumes disable contact}			;// stops humans from "colliding" with plane when ejecting.
+				{volumes enable bullet}
+				{delay 1 {volumes enable contact blast}}
+			}
 		else
 			{tags add "noammo23"}
+		}
+	}
+
+	{on "eject" overload
+		{tags add "can_die"}
+		{tags add "deployed"}
+		{tags remove "on_plane_1"}
+		{tags remove "on_plane_2"}
+		{tags remove "on_plane_3"}
+		{tags remove "on_plane_4"}
+		{tags remove "on_plane_5"}
+		{tags remove "on_plane_6"}
+		{tags remove "on_plane_7"}
+		{tags remove "on_plane_8"}
+		
+		{call "pull_chute"}
+			
+	}
+
+	{on "pull_chute"
+		{if altitude 1
+			{throw_off up 2 forward 0.01}
+			{if altitude 51
+				{delay 2.7 "parachute"
+					{tags add "eject"}	
+					{spawn "paratrooper_attach" offset 205 -10 -534}
+				}
+			else altitude 48 		
+				{delay 2.7
+					{tags add "eject"}	
+					{spawn "paratrooper_attach" offset 205 -10 -534}
+				}
+			else altitude 45 		
+				{delay 2.4
+					{tags add "eject"}	
+					{spawn "paratrooper_attach" offset 205 -10 -534}
+				}
+			else altitude 40 		
+				{delay 2.2
+					{tags add "eject"}	
+					{spawn "paratrooper_attach" offset 205 -10 -534}
+				}
+			else altitude 35 		
+				{delay 1.8
+					{tags add "eject"}	
+					{spawn "paratrooper_attach" offset 205 -10 -534}
+				}
+			else altitude 30 		
+				{delay 1.4
+					{tags add "eject"}	
+					{spawn "paratrooper_attach" offset 205 -10 -534}
+				}
+			else altitude 4 		
+				{delay 0.4 0.1 "parachute"
+					{tags add "eject"}	
+					{spawn "paratrooper_attach" offset 205 -10 -534}
+				}	
+		else
+			;{tags remove "can_die"}
+			{throw_on_ground}
+			}
 		}
 	}
 	
@@ -124,6 +192,7 @@
 		    {spawn "sandbag_straight_heap" "basis" x}
 		}
 	}
+	
 }
 
 {"antitank_1"
