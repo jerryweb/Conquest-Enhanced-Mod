@@ -103,7 +103,7 @@ function IsEnemyFlag(flag)
 end
 
 function GetFlagPriority(flag)
-	if		IsCapturedFlag(flag)then return FlagPriority.Enemy
+	if		IsCapturedFlag(flag)then return FlagPriority.Captured
 	elseif	IsEnemyFlag(flag)	then return FlagPriority.Enemy
 	else 							 return FlagPriority.Neutral
 	end
@@ -168,30 +168,27 @@ function GetUnitToSpawn(units)
 	end
 	
 	if capturedFlags < enemyFlags then
-		choice = 0.01
+		choice = 0.10
 	elseif capturedFlags == enemyFlags then
-		choice = 0.01
+		choice = 0.20
 	else
-		choice = 0.02	-- higher choice(0-1+rnd) = higher % of CaptureFlag(bots going for flags). Lower choice favors SeekAndDestroy.
+		choice = 0.30	-- higher choice(0-1+rnd) = higher % of CaptureFlag(bots going for flags). Lower choice favors SeekAndDestroy.
 	end
 	
 	local enemyHasTanks = BotApi.Commands:EnemyHasTanks();
 	
 	return GetRandomItem(unitsToSpawn, function(t)
-		if capturedFlags <= enemyFlags and (t.class == UnitClass.Tank or
-							                t.class == UnitClass.Infantry) then
-			return t.priority * 2.0
+		if capturedFlags <= enemyFlags and t.class == UnitClass.Infantry then
+			return t.priority * 2.5
 		end
 		
-		if enemyHasInfantry and (t.class == UnitClass.Tank or
-							    t.class == UnitClass.ArtilleryTank) then
-			return t.priority * 1.5
+		if not enemyHasTanks and t.class == UnitClass.ATTank then
+			return 0
 		end
 		
-		if enemyHasTanks and (t.class == UnitClass.ATTank or
-		                      t.class == UnitClass.Tank or
-							  t.class == UnitClass.HeavyTank) then
-			return t.priority * 2.0
+		if enemyHasTanks and (t.class == UnitClass.ATInfantry or
+							  t.class == UnitClass.ATTank) then
+			return t.priority * 2
 		end
 		return t.priority
 	end)

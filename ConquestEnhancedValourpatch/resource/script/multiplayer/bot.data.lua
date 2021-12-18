@@ -1,8 +1,8 @@
-MaxSquadSize = 2222
-OrderRotationPeriod = 1.1 * 60 * 1000 -- 2:30 min (ms)
+MaxSquadSize = 22
+OrderRotationPeriod = 1 * 60 * 1000 -- 2:30 min (ms)
 SpawnCooldownTime = {
 	Min = 1 * 500, -- 10 sec (ms) -- 20s
-	Max = 1 * 500 -- 30 sec (mRs) -- 50s
+	Max = 2 * 500 -- 30 sec (mRs) -- 50s
 }
 UnitSpawnWaitTime = 1.0 * 500 -- 1 min (ms) -- 2:30mn
 FlagPriority = { Captured = 2, Enemy = 1, Neutral = 3 } -- Was Captured =1, enemy = 2

@@ -7,7 +7,7 @@
 		{StartMP	0.05 min 2221 attackerMultiplier 13.00}
 		{FinishMP	0.05 attackerMultiplier 66.8}
 		{CP
-			{Base "0:0,20:10,450:0,720:10,740:10,900:10,110010,1800:00,2200:10"} ;// seconds : CP
+			{Base "0:0,20:0,450:0,720:10,740:10,900:10,110010,1800:00,2200:10"} ;// seconds : CP
 			{RoundMultiplier "0:0.2 1:0.3 2:0.4 3:0.4 4:0.5 5:0.5 6:0.6 7:0.7 8:0.8 9:0.9 10:1.0 19:1.0"} ;// games played : multiplier
 			{AttackMultiplier 3.0}
 		}
@@ -20,12 +20,12 @@
 			{level_2							;// once level is reached previous level values are ignored only currently level is used
 				{DefenseBudgetPlayer	200.0}
 				{DefenseBudgetAI		200.0}
-				{unlock games 0 progress 0.4}
+				{unlock games 4 progress 0.4}
 			}
 			{level_3
 				{DefenseBudgetPlayer	404.5}
 				{DefenseBudgetAI		444.5}
-				{unlock games 0 progress 0.75}
+				{unlock games 14 progress 0.75}
 			}
 		}
 	}
@@ -100,7 +100,7 @@
 		{Short
 			{FlagCount "2:5 2:5 2:5 2:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 5:5 5:5 5:5 5:5 5:5 4:5 4:5 5:5 4:5 5:5 4:5 4:5 5:5 4:5 4:5 5:5"}
 			{Bots
-				{ResearchStages "0:11 1:2 2:3 3:4 4:4 5:5 6:5 7:6 8:6 9:6 10:7 11:7 12:7 13:8 14:9 14:10 15:13"} ;// number of games played : research tree level bots can have
+				{ResearchStages "0:1 1:2 2:3 3:4 4:4 5:5 6:5 7:6 8:6 9:6 10:7 11:7 12:7 13:8 14:9 14:10 15:13"} ;// number of games played : research tree level bots can have
 			}
 			{MapSelection "0:1"}	;// number of games played : map selection value from map .info file
 			{MapBorder "0:1"}
@@ -108,7 +108,7 @@
 		{Normal
 			{FlagCount "2:5 2:5 2:5 2:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 5:5 5:5 5:5 5:5 5:5 4:5 4:5 5:5 4:5 5:5 4:5 4:5 5:5 4:5 4:5 5:5"}
 			{Bots
-				{ResearchStages "0:11 1:2 2:3 3:4 4:4 5:5 6:5 7:6 8:6 9:6 10:7 11:7 12:7 13:8 14:9 14:10 15:13"}
+				{ResearchStages "0:1 1:2 2:3 3:4 4:4 5:5 6:5 7:6 8:6 9:6 10:7 11:7 12:7 13:8 14:9 14:10 15:13"}
 			}
 			{MapSelection "0:1"}
 			{MapBorder "0:1"}
@@ -116,7 +116,7 @@
 		{Long
 			{FlagCount "2:5 2:5 2:5 2:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 5:5 5:5 5:5 5:5 5:5 4:5 4:5 5:5 4:5 5:5 4:5 4:5 5:5 4:5 4:5 5:5"}
 			{Bots
-				{ResearchStages "0:11 1:1 2:3 3:4 4:4 5:5 6:5 7:6 8:6 9:6 10:7 11:7 12:7 13:8 14:9 14:10 15:13"}
+				{ResearchStages "0:1 1:1 2:3 3:4 4:4 5:5 6:5 7:6 8:6 9:6 10:7 11:7 12:7 13:8 14:9 14:10 15:13"}
 			}
 			{MapSelection "0:1"}
 			{MapBorder "0:1"}
@@ -124,7 +124,7 @@
 		{VeryLong
 			{FlagCount "2:5 2:5 2:5 2:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 5:5 5:5 5:5 5:5 5:5 4:5 4:5 5:5 4:5 5:5 4:5 4:5 5:5 4:5 4:5 5:5"}
 			{Bots
-				{ResearchStages "0:11 1:2 2:3 3:4 4:4 5:5 6:5 7:6 8:6 9:6 10:7 11:7 12:7 13:8 14:9 14:10 15:13"}
+				{ResearchStages "0:1 1:2 2:3 3:4 4:4 5:5 6:5 7:6 8:6 9:6 10:7 11:7 12:7 13:8 14:9 14:10 15:13"}
 			}
 			{MapSelection "0:1"}
 			{MapBorder "0:1"}
@@ -132,7 +132,7 @@
 		{Unlimited
 			{FlagCount "2:5 2:5 2:5 2:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 3:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 4:5 5:5 5:5 5:5 5:5 5:5 4:5 4:5 5:5 4:5 5:5 4:5 4:5 5:5 4:5 4:5 5:5"}
 			{Bots
-				{ResearchStages "0:11 1:2 2:3 3:4 4:4 5:5 6:5 7:6 8:6 9:6 10:7 11:7 12:7 13:8 14:9 14:10 15:13"}
+				{ResearchStages "0:1 1:2 2:3 3:4 4:4 5:5 6:5 7:6 8:6 9:6 10:7 11:7 12:7 13:8 14:9 14:10 15:13"}
 			}
 			{MapSelection "0:1"}
 			{MapBorder "0:1"}
