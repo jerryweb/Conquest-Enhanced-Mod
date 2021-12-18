@@ -4,6 +4,14 @@
 (include "katyreload.inc")
 (include "vehicle_tags_ger.inc")
 (include "vehicle_tags_rus.inc")
+(include "vehicle_tags_ger.inc")
+(include "vehicle_tags_rus.inc")
+(include "vehicle_tags_eng.inc")
+(include "vehicle_tags_usa.inc")
+(include "vehicle_tags_fra.inc")
+(include "vehicle_tags_pol.inc")
+(include "vehicle_tags_jap.inc")
+(include "vehicle_tags_ita.inc")
 (include "construction/sandbag_ring_structures.inc")
 {"skirmish_bonus_pointer"
      {on spawn

@@ -280,14 +280,14 @@ end
 function OnGameQuant()
 	TrySpawnUnit()
 
-	local waypoints = BotApi.Scene.Waypoints
-	if #waypoints == 0 then
-		for i, squad in pairs(BotApi.Scene.Squads) do
-			if not Context.SquadTimers[squad] then
-				SetSquadOrder(CaptureFlag, squad, OrderRotationPeriod)
-			end
-		end
-	end
+	-- local waypoints = BotApi.Scene.Waypoints
+	-- if #waypoints == 0 then
+	-- 	for i, squad in pairs(BotApi.Scene.Squads) do
+	-- 		if not Context.SquadTimers[squad] then
+	-- 			SetSquadOrder(CaptureFlag, squad, OrderRotationPeriod)
+	-- 		end
+	-- 	end
+	-- end
 end
 
 function SeekAndDestroy(squad)
@@ -339,13 +339,13 @@ function SetSquadOrder(order, squad, delay)
 end
 
 function OnGameSpawn(args)
-	local waypoints = BotApi.Scene.Waypoints
-	if #waypoints == 0 then
-		SetSquadOrder(CaptureFlag, args.squadId, OrderRotationPeriod)
-	else
-		GotoNextWaypoint(args.squadId)
-		print("#waypoints != 0")
-	end
+	-- local waypoints = BotApi.Scene.Waypoints
+	-- if #waypoints == 0 then
+	-- 	SetSquadOrder(CaptureFlag, args.squadId, OrderRotationPeriod)
+	-- else
+	-- 	GotoNextWaypoint(args.squadId)
+	-- 	print("#waypoints != 0")
+	-- end
 end
 
 BotApi.Events:Subscribe(BotApi.Events.GameStart, OnGameStart)
