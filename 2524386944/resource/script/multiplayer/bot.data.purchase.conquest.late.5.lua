@@ -6,18 +6,16 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 6,
 		maxRepeat = 10,
 		skipPossible = false,  -- ничего не делает
-		waveDuration = 20, -- длительность того, как долго бот будет вызывать данные войска. Каждый юнит вызывается каждые 3 секунды. Если нужно чтобы было только определенное количество то Repeat * 3 < Wave duration  При этом Repeat говорит сколько раз нужно вызвать юнит.
+		waveDuration = 5, -- длительность того, как долго бот будет вызывать данные войска. Каждый юнит вызывается каждые 3 секунды. Если нужно чтобы было только определенное количество то Repeat * 3 < Wave duration  При этом Repeat говорит сколько раз нужно вызвать юнит.
 		Units = {
 			["ger"] = {--Germany
 			--Wheel_vehicles
-				{priority = 1.0, class = UnitClass.Vehicle, unit = "kubelwagen_mg"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "sdkfz234_2"},
 				{priority = 0.3, class = UnitClass.Tank, unit = "panzer2l"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "sdkfz231"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "sdkfz221"},
 			--Infantry Squads
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_recon_con(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_recon_motor_con"},
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_recon_armor_con"},				
 			},
 			["rus"] = {--Russia
@@ -38,7 +36,7 @@ Purchases["campaign_capture_the_flag"] = {
 	    minRepeat = 1,
 		maxRepeat = 2,
 	    skipPossible = false,
-	    waveDuration = 8,
+	    waveDuration = 5,
 		Units = {
 			["ger"] = {--Germany
 		    --Howitzers
@@ -74,7 +72,7 @@ Purchases["campaign_capture_the_flag"] = {
 	    minRepeat = 2,
 		maxRepeat = 4,
 	    skipPossible = false,
-	    waveDuration = 20,
+	    waveDuration = 5,
 		Units = {
 			["ger"] = {--Germany
 			--Tanks_heavy
@@ -84,16 +82,19 @@ Purchases["campaign_capture_the_flag"] = {
 			},
 			["rus"] = {--Russia				
 			--Tanks_heavy
+			{priority = 2.5, class = UnitClass.Tank, unit = "t3485_44"},
+			{priority = 1.5, class = UnitClass.HeavyTank, unit = "is2_43"},
+			{priority = 1.0, class = UnitClass.HeavyTank, unit = "is2_44"},
 			}
 		}
 	},
 	{--purchase 5 medium tank group
 		waveNumber = 5,
 	    -- Repeat = 20,
-	    minRepeat = 2,
-		maxRepeat = 4,
+	    minRepeat = 4,
+		maxRepeat = 8,
 	    skipPossible = false,
-	    waveDuration = 20,
+	    waveDuration = 5,
 		Units = {
 			["ger"] = {--Germany
 			--Tanks_medium
@@ -109,13 +110,32 @@ Purchases["campaign_capture_the_flag"] = {
 			}
 		}
 	},
+	{--purchase 7 infantry support
+		waveNumber = 7,
+		-- Repeat = 50,
+		minRepeat = 7,
+		maxRepeat = 14,
+        skipPossible = false,		
+		waveDuration = 5,
+		Units = {
+			["ger"] = {--Germany
+			--Infantry Squads
+			    {priority = 1.0, class = UnitClass.Infantry, unit = "squad_regular_motor_con"},
+				{priority = 0.2, class = UnitClass.Infantry, unit = "squad_pz_pio_con"},
+			},
+			["rus"] = {--Russia
+			--Infantry Squads
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_smg_con(rus)"},
+			}
+		}
+	},
 	{--purchase 6 light tank group
 		waveNumber = 6,
 	    -- Repeat = 10,
 	    minRepeat = 2,
 		maxRepeat = 4,
 	    skipPossible = false,
-	    waveDuration = 20,
+	    waveDuration = 5,
 		Units = {
 			["ger"] = {--Germany
 			--Tanks_light
@@ -133,21 +153,19 @@ Purchases["campaign_capture_the_flag"] = {
 	{--purchase 7 infantry support
 		waveNumber = 7,
 		-- Repeat = 50,
-		minRepeat = 4,
-		maxRepeat = 6,
+		minRepeat = 7,
+		maxRepeat = 14,
         skipPossible = false,		
-		waveDuration = 35,
+		waveDuration = 5,
 		Units = {
 			["ger"] = {--Germany
 			--Infantry Squads
 			    {priority = 1.0, class = UnitClass.Infantry, unit = "squad_regular_motor_con"},
 				{priority = 0.2, class = UnitClass.Infantry, unit = "squad_pz_pio_con"},
-				{priority = 0.1, class = UnitClass.Infantry, unit = "single_officer(ger)"},
 			},
 			["rus"] = {--Russia
 			--Infantry Squads
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_smg_con(rus)"},
-				{priority = 0.1, class = UnitClass.Infantry, unit = "single_officer(rus)"},
 			}
 		}
 	},
@@ -157,7 +175,7 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 2,
 		maxRepeat = 4,
         skipPossible = false,		
-		waveDuration = 15,
+		waveDuration = 5,
 		Units = {
 			["ger"] = {--Germany
 			--SPG
@@ -182,14 +200,11 @@ Purchases["campaign_capture_the_flag"] = {
 			["ger"] = {--Germany
 			--AA
 			    {priority = 0.6, class = UnitClass.Vehicle, unit = "blitz3_6_flak30"},	
-				{priority = 0.4, class = UnitClass.ATTank, unit = "37mm_flak37"},
-				{priority = 0.2, class = UnitClass.ATTank, unit = "88mm_flak36"},			
 				{priority = 0.1, class = UnitClass.Tank, unit = "grille_m"},
 			},
 			["rus"] = {--Russia
 			--AA
-				{priority = 0.5, class = UnitClass.ATTank, unit = "25mm_72k"},
-				{priority = 0.5, class = UnitClass.ATTank, unit = "37mm_61k"},
+		
 				{priority = 0.2, class = UnitClass.Vehicle, unit = "gaz_aaa_72k"},
 			}
 		}

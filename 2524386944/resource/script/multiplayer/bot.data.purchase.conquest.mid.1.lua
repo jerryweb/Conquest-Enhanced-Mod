@@ -33,7 +33,7 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 1,
 		maxRepeat = 2,
         skipPossible = false,		
-		waveDuration = 2,
+		waveDuration = 5,
 		Units = {
 			["ger"] = {--Germany
 			--SPG
@@ -51,7 +51,7 @@ Purchases["campaign_capture_the_flag"] = {
 	    minRepeat = 1,
 		maxRepeat = 2,
 	    skipPossible = false,
-	    waveDuration = 2,
+	    waveDuration = 5,
 		Units = {
 			["ger"] = {--Germany
 				--Howitzers
@@ -262,7 +262,7 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 1,
 		maxRepeat = 1,
         skipPossible = false,		
-		waveDuration = 1,
+		waveDuration = 5,
 		Units = {
 			["ger"] = {--Germany
 		        {priority = 11.0, class = UnitClass.ArtilleryTank, unit = "150mm_nebelwerfer41"},

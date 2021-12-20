@@ -1,0 +1,120 @@
+;Exported by:	 Carlos
+;Date:			 04.08.2018 11:57:51
+;File:			 T:\GoH_3D_environment_export\3d_environment\_military\fortifications\sandbags_new\smart_set\sandbag_heap_curve.max
+{skeleton
+	{bone "basis"
+		{orientation
+			0 	 1 	 0
+			1 	 0 	 0
+			0 	 0 	 1
+		}
+		{bone "body"
+			{parameters "id=body;"}
+			{Position 5.3991 	 -1.214 	 0}
+			{LODView
+				{VolumeView "body.ply"}
+				{VolumeView "body_lod1.ply"}
+				{VolumeView "body_lod2.ply"}
+				{VolumeView "body_lod3.ply"}
+			}
+			{bone "climb22"
+				{matrix34
+					-0.9174 	 -0.398 	 0
+					0.398 	 -0.9174 	 0
+					0 	 0 	 1
+					17.6691 	 29.6177 	 8.4924
+				}
+			}
+			{bone "climb21"
+				{matrix34
+					0.9699 	 0.2435 	 0
+					-0.2435 	 0.9699 	 0
+					0 	 0 	 1
+					-14.9452 	 16.4896 	 8.4924
+				}
+			}
+			{bone "climb23"
+				{matrix34
+					0.9685 	 -0.2491 	 0
+					0.2491 	 0.9685 	 0
+					0 	 0 	 1
+					-16.4622 	 -10.8726 	 8.4924
+				}
+			}
+			{bone "climb24"
+				{matrix34
+					-0.9783 	 0.2074 	 0
+					-0.2074 	 -0.9783 	 0
+					0 	 0 	 1
+					24.4795 	 -22.1342 	 8.4924
+				}
+			}
+			{bone "fx_sandbag1"
+				{Position 2.4728 	 -24.0121 	 0}
+			}
+			{bone "fx_sandbag2"
+				{Position 10.156 	 1.4082 	 0}
+			}
+			{bone "fx_sandbag3"
+				{Position -1.6504 	 29.3516 	 0}
+			}
+		}
+	}
+}
+{obstacle "body1"
+	{obb2
+		{center 14.1356 -0.134715}
+		{extent 11.8778 6.85944}
+		{axis 0.0531046 0.998589}
+	}
+	{rotate}
+	{Tags "body"}
+}
+{obstacle "body2"
+	{obb2
+		{center 7.60885 25.2745}
+		{extent 7.13852 19.1065}
+		{axis 0.920584 0.390544}
+	}
+	{rotate}
+	{Tags "body" "climb"}
+}
+{obstacle "body3"
+	{obb2
+		{center 7.66313 -24.3771}
+		{extent 18.2734 6.87524}
+		{axis 0.40727 0.913308}
+	}
+	{rotate}
+	{Tags "body" "climb"}
+}
+{volume "body1"
+	{polyhedron "body1.vol"}
+	{bone "body"}
+	{matrix34
+		0.9988 	 0.0489 	 0
+		-0.0489 	 0.9988 	 0
+		0 	 0 	 1
+		8.7226 	 1.3767 	 0
+	}
+}
+{volume "body2"
+	{polyhedron "body2.vol"}
+	{bone "body"}
+	{matrix34
+		0.9206 	 -0.3906 	 0
+		0.3906 	 0.9206 	 0
+		0 	 0 	 1
+		2.2098 	 -24.0605 	 0
+	}
+}
+{volume "body3"
+	{polyhedron "body3.vol"}
+	{bone "body"}
+	{matrix34
+		0.9142 	 0.4052 	 0
+		-0.4052 	 0.9142 	 0
+		0 	 0 	 1
+		2.2641 	 25.5911 	 0
+	}
+}

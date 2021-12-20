@@ -26,7 +26,7 @@ Purchases["campaign_capture_the_flag"] = {
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "ba6"},
 				{priority = 2.0, class = UnitClass.Vehicle, unit = "ba20"},
-		}
+		    }
 		}
 	},
 	{--purchase 2 mortar
@@ -126,7 +126,6 @@ Purchases["campaign_capture_the_flag"] = {
 			--Infantry Squads
 			    {priority = 1.0, class = UnitClass.Infantry, unit = "squad_regular_motor_con"},
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_regular_con(ger)"},
-				{priority = 0.1, class = UnitClass.Infantry, unit = "single_officer(ger)"},
 				{priority = 0.2, class = UnitClass.ATInfantry, unit = "single_at(ger)"},
 				{priority = 0.2, class = UnitClass.ATInfantry, unit = "single_riflegrenade(ger)"}
 			},
@@ -135,7 +134,6 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 2.5, class = UnitClass.Infantry, unit = "squad_rifleunit_alt_con(rus)"},
 				{priority = 3.5, class = UnitClass.Infantry, unit = "squad_rifleunit_con(rus)"},
 				{priority = 1.0, class = UnitClass.ATInfantry, unit = "single_at(rus)"},
-				{priority = 0.1, class = UnitClass.Infantry, unit = "single_officer(rus)"}
 			}
 		}
 	},

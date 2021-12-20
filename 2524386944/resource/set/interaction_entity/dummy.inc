@@ -819,6 +819,7 @@
 	{on animation_end "landing"
 		{view show "parachute_x"}
 		{spawn "inf_crate_rus"}
+		{spawn "inf_crate_ger"}
 		    {inactive 0}
 			{tags remove "hidden"}
 	}
@@ -891,14 +892,17 @@
 {"pointer_attack"
 	{on spawn
 		{tags add "pointer_attack"}
+	    {delay 1
+			{spawn "flare_marker"}
+		}
 	}
 	{on "show"
-		{inactive 0}
-		{delay 5
-			{inactive 1}
+		{delay 50
+			{inactive 0}
 		}
 	}
 }
+
 
 {"pointer_defend"
 	{on spawn
@@ -948,9 +952,6 @@
 {"pointer_watchout"
 	{on spawn
 		{tags add "pointer_watchout"}
-		{delay 1
-			{spawn "flare_marker"}
-		}
 	}
 	{on "show"
 		{delay 50
@@ -1358,6 +1359,13 @@
 	}
 	
 }
+
+{"map_point2"
+    {on spawn 
+	    {call "fortification"}
+	}
+}
+
 {"pointer_bait"				;// mission objective icon/helper
 	{on spawn
 		{tags add "pointer_bait"}

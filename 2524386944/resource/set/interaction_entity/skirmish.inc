@@ -1,9 +1,10 @@
 (include "human2.inc")
+(include "ai_logic_entity.inc")
 (include "ignore.inc")
 (include "katyreload.inc")
 (include "vehicle_tags_ger.inc")
 (include "vehicle_tags_rus.inc")
-(include "katyreload.inc")
+(include "construction/sandbag_ring_structures.inc")
 {"skirmish_bonus_pointer"
      {on spawn
         {call "add_number"}

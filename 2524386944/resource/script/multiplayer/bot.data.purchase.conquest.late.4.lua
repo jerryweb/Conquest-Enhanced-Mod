@@ -12,14 +12,17 @@ Purchases["campaign_capture_the_flag"] = {
 				--Infantry Squads
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_brandenburger_con(ger)"},
 				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_pionier_con(ger)"},
-				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_fallschirmjaeger_con(ger)"}
+				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_fallschirmjaeger_con(ger)"},
+				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_regular_vet_con(ger)"},
+				{priority = 3.5, class = UnitClass.Infantry, unit = "squad_regular_con(ger)"},
 			},
 			["rus"] = {--Russia
 			--Infantry Singles
-		        {priority = 1.0, class = UnitClass.Infantry, unit = "squad_assaultsappers_con(rus)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_assaultsappers_flame_con(rus)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_spetsnaz(rus)"},
-				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_marines_con(rus)"}
+		        {priority = 1.5, class = UnitClass.Infantry, unit = "squad_assaultsappers_con(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_assaultsappers_flame_con(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_guardsrifle_con(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_guards_smg_con(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_marines_con(rus)"},
 			}
 		}
 	},
@@ -34,12 +37,17 @@ Purchases["campaign_capture_the_flag"] = {
 			["ger"] = {--Germany
 			--Tanks_medium
 				{priority = 0.1, class = UnitClass.HeavyTank, unit = "tiger1hunt"},
-				{priority = 1.0, class = UnitClass.HeavyTank, unit = "tiger2h"}
+				{priority = 1.0, class = UnitClass.HeavyTank, unit = "tiger2h"},
+				{priority = 2.5, class = UnitClass.HeavyTank, unit = "panzer5a"},
+				{priority = 2.5, class = UnitClass.HeavyTank, unit = "panzer5g"},
+				{priority = 3.0, class = UnitClass.Tank, unit = "panzer4j"},
 			},
 			["rus"] = {--Russia
             --Tanks_medium
 	            {priority = 1.5, class = UnitClass.HeavyTank, unit = "is2_43"},
-				{priority = 2.0, class = UnitClass.HeavyTank, unit = "is2_44"}
+				{priority = 2.0, class = UnitClass.HeavyTank, unit = "is2_44"},
+				{priority = 2.5, class = UnitClass.Tank, unit = "t3485_44"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "t3476_43_flame"},
 			}
 		}
 	},
@@ -55,14 +63,17 @@ Purchases["campaign_capture_the_flag"] = {
 				--Infantry Squads
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_brandenburger_con(ger)"},
 				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_pionier_con(ger)"},
-				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_fallschirmjaeger_con(ger)"}
+				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_fallschirmjaeger_con(ger)"},
+				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_regular_vet_con(ger)"},
+				{priority = 3.5, class = UnitClass.Infantry, unit = "squad_regular_con(ger)"},
 			},
 			["rus"] = {--Russia
 			--Infantry Singles
-		        {priority = 1.0, class = UnitClass.Infantry, unit = "squad_assaultsappers_con(rus)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_assaultsappers_flame_con(rus)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_spetsnaz(rus)"},
-				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_marines_con(rus)"}
+		        {priority = 1.5, class = UnitClass.Infantry, unit = "squad_assaultsappers_con(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_assaultsappers_flame_con(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_guardsrifle_con(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_guards_smg_con(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_marines_con(rus)"},
 			}
 		}
 	},
@@ -78,12 +89,15 @@ Purchases["campaign_capture_the_flag"] = {
 			--SPG
 			    {priority = 0.1, class = UnitClass.ATTank, unit = "ferdinand"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "jagdpanther"},
-				{priority = 0.1, class = UnitClass.ArtilleryTank, unit = "sturmtiger"}
+				{priority = 0.1, class = UnitClass.ArtilleryTank, unit = "sturmtiger"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "sturmpanzer4"},
 			},
 			["rus"] = {--Russia
 			--SPG
                 {priority = 2.0, class = UnitClass.ATTank, unit = "isu122s"},
-				{priority = 2.0, class = UnitClass.ATTank, unit = "isu152"}
+				{priority = 2.0, class = UnitClass.ATTank, unit = "isu152"},
+				{priority = 1.0, class = UnitClass.ATTank, unit = "su152"},
+				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "su122"},
 			}
 		}
 	},
@@ -93,17 +107,22 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 1,
 		maxRepeat = 3,
         skipPossible = false,		
-		waveDuration = 1,
+		waveDuration = 5,
 		Units = {
 			["ger"] = {--Germany
 			--Tanks_medium
 				{priority = 0.1, class = UnitClass.HeavyTank, unit = "tiger1hunt"},
-				{priority = 1.0, class = UnitClass.HeavyTank, unit = "tiger2h"}
+				{priority = 1.0, class = UnitClass.HeavyTank, unit = "tiger2h"},
+				{priority = 2.5, class = UnitClass.HeavyTank, unit = "panzer5a"},
+				{priority = 2.5, class = UnitClass.HeavyTank, unit = "panzer5g"},
+				{priority = 3.0, class = UnitClass.Tank, unit = "panzer4j"},
 			},
 			["rus"] = {--Russia
             --Tanks_medium
 	            {priority = 1.5, class = UnitClass.HeavyTank, unit = "is2_43"},
-				{priority = 2.0, class = UnitClass.HeavyTank, unit = "is2_44"}
+				{priority = 2.0, class = UnitClass.HeavyTank, unit = "is2_44"},
+				{priority = 2.5, class = UnitClass.Tank, unit = "t3485_44"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "t3476_43_flame"},
 			}
 		}
 	},
@@ -120,12 +139,15 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_brandenburger_con(ger)"},
 				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_pionier_con(ger)"},
 				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_fallschirmjaeger_con(ger)"},
+				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_regular_vet_con(ger)"},
+				{priority = 3.5, class = UnitClass.Infantry, unit = "squad_regular_con(ger)"},
 			},
 			["rus"] = {--Russia
 			--Infantry Singles
-		        {priority = 1.0, class = UnitClass.Infantry, unit = "squad_assaultsappers_con(rus)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_assaultsappers_flame_con(rus)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_spetsnaz(rus)"},
+		        {priority = 1.5, class = UnitClass.Infantry, unit = "squad_assaultsappers_con(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_assaultsappers_flame_con(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_guardsrifle_con(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_guards_smg_con(rus)"},
 				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_marines_con(rus)"},
 			}
 		}
@@ -136,17 +158,17 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 1,
 		maxRepeat = 3,
         skipPossible = false,		
-		waveDuration = 1,
+		waveDuration = 5,
 		Units = {
 			["ger"] = {--Germany
 		        {priority = 1.0, class = UnitClass.ArtilleryTank, unit = "300mm_nebelwerfer42"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "210mm_morser18"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "150mm_sfh18"}
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "150mm_sfh18"},
 			},
 			["rus"] = {--Russia
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "bm31_12"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "152mm_ml20"},
-				{priority = 1.0, class = UnitClass.ATTank, unit = "203mm_b4"}
+				{priority = 1.0, class = UnitClass.ATTank, unit = "203mm_b4"},
 			}
 		}
 	},
@@ -161,13 +183,19 @@ Purchases["campaign_capture_the_flag"] = {
 			["ger"] = {--Germany
 			--Wheel_vehicles
 				{priority = 2.5, class = UnitClass.Vehicle, unit = "sdkfz234_2"},
-				{priority = 1.5, class = UnitClass.Vehicle, unit = "blitz3_6_flak30"}
+				{priority = 1.5, class = UnitClass.Vehicle, unit = "blitz3_6_flak30"},
+					{priority = 1.0, class = UnitClass.Tank, unit = "panzer2l"},
+					{priority = 1.5, class = UnitClass.Vehicle, unit = "sdkfz221"},
 			},
 			["rus"] = {--Russia
 			--Wheel_vehicles
+					{priority = 3.0, class = UnitClass.Tank, unit = "t60"},
+				{priority = 3.0, class = UnitClass.Tank, unit = "t70"},
+				{priority = 3.0, class = UnitClass.Tank, unit = "t70m"},
+				{priority = 1.0, class = UnitClass.Vehicle, unit = "gaz_aaa_72k"},
 				{priority = 1.5, class = UnitClass.Tank, unit = "valentine7"},
-				{priority = 3.0, class = UnitClass.Tank, unit = "valentine9"},
-				{priority = 1.0, class = UnitClass.Vehicle, unit = "gaz_aaa_72k"}
+				{priority = 1.0, class = UnitClass.Tank, unit = "valentine9"},
+				{priority = 1.0, class = UnitClass.Vehicle, unit = "gaz_aaa_72k"},
 			}
 		}
 	}
