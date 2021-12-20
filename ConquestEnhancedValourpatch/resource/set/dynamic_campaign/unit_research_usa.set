@@ -22,8 +22,8 @@
 	{"squad_light(usa)"				requires	""								costs 1 }
 	{"squad_regular(usa)"			requires	"squad_light(usa)"				costs 2 }
 	{"squad_pionier(usa)"			requires	"squad_regular(usa)"			costs 2 }
-	{"squad_marine(usa)"			requires	"squad_regular(usa)"			costs 2 }
-	{"squad_stormtrooper(usa)"		requires	"squad_pionier(usa)"			costs 3 }
+	{"squad_marine(usa)"			requires	"squad_regular(usa)"			costs 3 }
+	{"squad_stormtrooper(usa)"		requires	"squad_pionier(usa)"			costs 4 }
 
 
 ;TOTAL: 0
@@ -31,72 +31,78 @@
 ; ---MG---
 	{"0_3cal_m1917a1_aa"	requires 	""					costs 1}
 	{"0_5cal_m2hb"	requires 	""					costs 1}
+	
+	{"cckw353_inf"	requires 	""					costs 1}
+	{"cckw352_art"	requires 	"cckw353_inf"					costs 2}
+	{"cckw353_eng"	requires 	"cckw353_inf"					costs 2}
+	{"willys50"	requires 	""					costs 1}
+	{"dodgewc55"	requires 	"willys50"					costs 2}
 
 ; ---Mortars---
-	{"81_mm_m1"	requires 	""					costs 1}
-	{"107_mm_m2"	requires 	"81_mm_m1"				costs 1}
+	{"81_mm_m1"	requires 	""					costs 2}
+	{"107_mm_m2"	requires 	"81_mm_m1"				costs 4}
 
 ; ---AA---
-	{"0_5cal_maxson"	requires	""					costs 1}
-	{"40_mm_m1"	requires	"0_5cal_maxson"					costs 1}
+	{"0_5cal_maxson"	requires	""					costs 2}
+	{"40_mm_m1"	requires	"0_5cal_maxson"					costs 3}
 
 ; ---AT Guns---
 	{"37_mm_m3"	requires	""					costs 1}
-	{"75_mm_m1897a4"	requires	"37_mm_m3"					costs 1}
-	{"76_mm_m5"	requires	"75_mm_m1897a4"					costs 1}
-	{"90_mm_m1"	requires	"76_mm_m5"					costs 2}
+	{"75_mm_m1897a4"	requires	"37_mm_m3"					costs 2}
+	{"76_mm_m5"	requires	"75_mm_m1897a4"					costs 3}
+	{"90_mm_m1"	requires	"76_mm_m5"					costs 4}
 
 ; ---Infantry Guns---
-	{"75_mm_m1"		requires 	"37_mm_m3"				costs 1}
+	{"75_mm_m1"		requires 	"37_mm_m3"				costs 2}
 
 ; ---Artillery---
-	{"105_mm_m2a1l"	requires	"75_mm_m1"	costs 2}
-	{"155_mm_m2"		requires	"105_mm_m2a1l"			costs 3}
+	{"105_mm_m2a1l"	requires	"75_mm_m1"	costs 3}
+	{"155_mm_m2"		requires	"105_mm_m2a1l"			costs 4}
 	{"203_mm_m115"		requires	"105_mm_m2a1l"			costs 4}
 
 ;---Armored Cars---
-	{"m3_usa"			requires 	""				costs 1}
-	{"m3a1_scout"			requires 	""				costs 1}
-	{"m20" 	requires 	"m3a1_scout"				costs 1}
-	{"m16" 	requires 	"0_5cal_maxson"				costs 1}
-	{"m8_grayhound" 	requires 	"m20"				costs 1}
-	{"m15a1" 	requires 	"40_mm_m1"				costs 1}
-	{"m4halftrack" 	requires 	"m20"				costs 2}
+	{"m3_usa"			requires 	"willys50"				costs 1}
+	{"m3a1_scout"			requires 	"willys50"				costs 1}
+	{"m20" 	requires 	"m3a1_scout"				costs 2}
+	{"m16" 	requires 	"0_5cal_maxson"				costs 2}
+	{"m8_grayhound" 	requires 	"m20"				costs 3}
+	{"m15a1" 	requires 	"40_mm_m1"				costs 3}
+	{"m4halftrack" 	requires 	"m20"				costs 4}
 	
 
 	; ---Light Tanks---
-	{"m22"				requires 	""				costs 0}
-	{"m5a1"				requires 	"m22"				costs 1}
-	{"m8"				requires 	"m5a1"				costs 1}
-	{"m24_chaffee"			requires 	"m5a1"				costs 2}
+	{"m22"				requires 	""				costs 1}
+	{"m5a1"				requires 	"m22"				costs 2}
+	{"m8"				requires 	"m5a1"				costs 2}
+	{"m24_chaffee"			requires 	"m5a1"				costs 3}
 	
 	; ---Medium Tanks---
-	{"m3lee"				requires 	"m5a1"				costs 1}
-	{"m4a1"			requires 	"m5a1"				costs 2}
-	{"m4"			requires 	"m5a1"				costs 3}
+	{"m3lee"				requires 	"m5a1"				costs 4}
+	{"m4a1"			requires 	"m5a1"				costs 4}
+	{"m4"			requires 	"m5a1"				costs 4}
 	{"m4a3_75"			requires 	"m5a1"				costs 4}
-	{"m4a3_zippo"			requires 	"m4a3_75"				costs 2}
-	{"m4a3e8"			requires 	"m4a3_75"				costs 2}
-	{"m4a3_105"			requires 	"m4a3_75"				costs 3}
-	{"m4a3e2_jumbo"			requires 	"m4a3e8"				costs 2}
-	{"m4a3e2_jumbo_76w"		requires 	"m4a3e8"				costs 4}
+	{"m4a3_zippo"			requires 	"m4a3_75"				costs 4}
+	{"m4a3e8"			requires 	"m4a3_75"				costs 6}
+	{"m4a3_105"			requires 	"m4a3_75"				costs 4}
+	{"m4a3e2_jumbo"			requires 	"m4a3e8"				costs 4}
+	{"m4a3e2_jumbo_76w"		requires 	"m4a3e8"				costs 7}
 
 	
 	; ---Heavy Tanks---
 
 	{"m26_pershing"		requires 	"m4a3e2_jumbo_76w"				costs 6}
-	{"m26e4_pershing"		requires 	"m26_pershing"				costs 2}
+	{"m26e4_pershing"		requires 	"m26_pershing"				costs 6}
 
 	; ---Self Propelled Guns---
 
-	{"t12gmc"				requires 	"75_mm_m1897a4"				costs 1}
-	{"m10wolverine"				requires 	"76_mm_m5"				costs 2}
+	{"t12gmc"				requires 	"75_mm_m1897a4"				costs 2}
+	{"m10wolverine"				requires 	"76_mm_m5"				costs 4}
 	{"t30hmc"				requires 	"75_mm_m1"				costs 1}
-	{"m7"				requires 	"75_mm_m1"				costs 2}
-	{"m18"				requires 	"m10wolverine"				costs 1}
-	{"m36"				requires 	"m10wolverine"				costs 4}
-	{"m12gmc"				requires 	"m7"				costs 3}
-	{"m4a3c"			requires 	"m4a3_75"				costs 3}
+	{"m7"				requires 	"75_mm_m1"				costs 4}
+	{"m18"				requires 	"m10wolverine"				costs 3}
+	{"m36"				requires 	"m10wolverine"				costs 6}
+	{"m12gmc"				requires 	"m7"				costs 4}
+	{"m4a3c"			requires 	"m4a3_75"				costs 10}
 	
 ;TOTAL: 0
 
@@ -177,10 +183,11 @@
 
 	;---Trucks---
 	{"cckw353_inf"		0 10}
-	{"cckw352_art"		1 10}
+	{"cckw352_art"		2 9}
 	{"willysmb"		2 10}
 	{"willys50"		3 10}
 	{"dodgewc55"		4 10}
+	{"cckw353_eng"		1 9}
 
 
 	;---Armored Cars---

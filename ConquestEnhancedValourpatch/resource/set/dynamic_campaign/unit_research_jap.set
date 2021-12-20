@@ -30,6 +30,13 @@
 ; ---MG---
 	{"type92_stan"	requires 	""					costs 1}
 
+
+    {"type94"	requires 	""					costs 1}
+	{"type94art"	requires 	"type94"					costs 2}
+	{"type94eng"	requires 	"type94"					costs 2}
+	{"willys50"	requires 	""					costs 1}
+	{"dodgewc55"	requires 	"willys50"					costs 2}
+	
 ; ---Mortars---
 	{"81mm_brandt_jap"	requires 	""					costs 1}
 	{"150mm_type_97"	requires 	"81mm_brandt_jap"				costs 1}
@@ -53,22 +60,23 @@
 	{"120mm_type_38"		requires	"105mm_type_92"			costs 3}
 	
 ;---Armored Cars---
-	{"type1_ho-ki_mg"		requires 	""				costs 0}
-	{"type87"			requires 	""				costs 0}
+	{"type1_ho-ki_mg"		requires 	""				costs 1}
+	{"type87"			requires 	"type1_ho-ki_mg"				costs 1}
 	{"type93" 	requires 	"type87"				costs 1}
+	{"type94aa" 	requires 	"type94"				costs 3}
 
 	; ---Light Tanks---
-	{"type94_te-ke"				requires 	""				costs 0}
+	{"type94_te-ke"				requires 	""				costs 1}
 	{"type97_te-ke"				requires 	"type94_te-ke"				costs 1}
 	{"type95_ha-go"				requires 	"type94_te-ke"				costs 1}
 
 	
 	; ---Medium Tanks---
-	{"type97_chi-ha"				requires 	"type95_ha-go"				costs 1}
-	{"type97_shinhoto_47mm"			requires 	"type95_ha-go"				costs 2}
+	{"type97_chi-ha"				requires 	"type95_ha-go"				costs 2}
+	{"type97_shinhoto_47mm"			requires 	"type95_ha-go"				costs 3}
 	{"type1_chi-he"				requires 	"type97_shinhoto_47mm"				costs 3}
-	{"type97_shinhoto_120mm"				requires 	"type97_chi-ha"				costs 3}
-	{"type2_ho-i_kou"				requires 	"type1_chi-he"				costs 1}
+	{"type97_shinhoto_120mm"				requires 	"type97_chi-ha"				costs 4}
+	{"type2_ho-i_kou"				requires 	"type1_chi-he"				costs 4}
 	{"type3_chi-nu"				requires 	"type1_chi-he"				costs 3}
 	{"type3_chi-nu2"			requires 	"type1_chi-he"				costs 4}
 	
@@ -77,9 +85,9 @@
 
 
 	; ---Self Propelled Guns---
-	{"type1_ho-ni1"				requires 	"type97_chi-ha"				costs 1}
-	{"type1_ho-ni2"				requires 	"type97_chi-ha"				costs 2}
-	{"type4_ho-ro"				requires 	"type97_chi-ha"				costs 4}
+	{"type1_ho-ni1"				requires 	"type97_chi-ha"				costs 3}
+	{"type1_ho-ni2"				requires 	"type97_chi-ha"				costs 3}
+	{"type4_ho-ro"				requires 	"type97_chi-ha"				costs 5}
 	
 ;TOTAL: 0
 
@@ -159,6 +167,7 @@
 	{"type95"			0 10}
 	{"type94"			1 10}
 	{"type94art"			2 10}
+	{"type94eng"			3 10}
 
 
 

@@ -25,48 +25,51 @@
 	{"squad_light_late(pol)"		requires	""					costs 1 }
 	{"squad_regular_late(pol)"		requires	"squad_light_late(pol)"			costs 2 }
 	{"squad_pionier_late(pol)"		requires	"squad_regular_late(pol)"		costs 2 }
-	{"squad_scout_late(pol)"		requires	"squad_regular_late(pol)"		costs 2 }
-	{"squad_stormtrooper_late(pol)"		requires	"squad_pionier_late(pol)"		costs 3 }
+	{"squad_scout_late(pol)"		requires	"squad_regular_late(pol)"		costs 3 }
+	{"squad_stormtrooper_late(pol)"		requires	"squad_pionier_late(pol)"		costs 4 }
 
 
 ;TOTAL: 0
 
 ; ---MG---
 	{"303_bren_pol"		requires 	""				costs 1}
+	{"bedford_ql_inf"	requires 	""					costs 1}
+	{"bedford_ql_art"	requires 	"bedford_ql_inf"					costs 2}
+	{"bedford_ql_eng"	requires 	"bedford_ql_inf"					costs 2}
 
 ; ---Mortars---
-	{"81mm_brandt_pol"	requires 	""				costs 1}
+	{"81mm_brandt_pol"	requires 	""				costs 2}
 
 ; ---AA---
-	{"qf40mm_pol"		requires	"303_bren_pol"			costs 1}
+	{"qf40mm_pol"		requires	"303_bren_pol"			costs 3}
 
 ; ---AT Guns---
-	{"qf2pdr_pol"		requires	""				costs 1}
-	{"qf6pdr_pol"		requires	"qf2pdr_pol"			costs 1}
-	{"qf17pdr_pol"		requires	"qf6pdr_pol"			costs 2}
+	{"qf2pdr_pol"		requires	""				costs 2}
+	{"qf6pdr_pol"		requires	"qf2pdr_pol"			costs 3}
+	{"qf17pdr_pol"		requires	"qf6pdr_pol"			costs 5}
 
 ; ---Infantry Guns---
 
 ; ---Artillery---
 	{"qf25pdr_pol"		requires	"81mm_brandt_pol"			costs 2}
-	{"bl45_pol"		requires	"81mm_brandt_pol"			costs 3}
+	{"bl45_pol"		requires	"81mm_brandt_pol"			costs 4}
 
 ;---Armored Cars---
-	{"dingo_pol"		requires 	""				costs 0}
+	{"dingo_pol"		requires 	""				costs 1}
 	{"m3halftrack_pol" 	requires 	"dingo_pol"			costs 1}
-	{"staghound_pol" 	requires 	"m3halftrack_pol"		costs 1}
+	{"staghound_pol" 	requires 	"m3halftrack_pol"		costs 3}
 	
 
 	; ---Light Tanks---
-	{"crusader_aa2_pol"	requires 	""				costs 1}
-	{"crusader_pol"		requires 	"qf6pdr_pol"			costs 1}
+	{"crusader_aa2_pol"	requires 	""				costs 3}
+	{"crusader_pol"		requires 	"qf6pdr_pol"			costs 4}
 
 	
 	; ---Medium Tanks---
-	{"cromwell_mk_iv_pol"	requires 	"crusader_pol"			costs 1}
-	{"m4a4_pol"		requires 	"crusader_pol"			costs 2}
-	{"challenger_pol"	requires 	"cromwell_mk_iv_pol"		costs 1}
-	{"m4a4_firefly_pol"	requires 	"m4a4_pol"			costs 1}
+	{"cromwell_mk_iv_pol"	requires 	"crusader_pol"			costs 3}
+	{"m4a4_pol"		requires 	"crusader_pol"			costs 6}
+	{"challenger_pol"	requires 	"cromwell_mk_iv_pol"		costs 5}
+	{"m4a4_firefly_pol"	requires 	"m4a4_pol"			costs 7}
 
 	
 	; ---Heavy Tanks---
@@ -74,9 +77,9 @@
 
 
 	; ---Self Propelled Guns---
-	{"achilles_pol"		requires 	"qf17pdr_pol"			costs 2}
-	{"m4a3_105_pol"		requires 	"qf25pdr_pol"			costs 1}
-	{"sexton_pol"		requires 	"qf25pdr_pol"			costs 2}
+	{"achilles_pol"		requires 	"qf17pdr_pol"			costs 6}
+	{"m4a3_105_pol"		requires 	"qf25pdr_pol"			costs 4}
+	{"sexton_pol"		requires 	"qf25pdr_pol"			costs 4}
 	
 ;TOTAL: 0
 
@@ -160,6 +163,7 @@
 	;---Trucks---
 	{"bedford_ql_inf"		0 10}
 	{"bedford_ql_art"		1 10}
+	{"bedford_ql_eng"		2 10}
 
 
 	;---Armored Cars---

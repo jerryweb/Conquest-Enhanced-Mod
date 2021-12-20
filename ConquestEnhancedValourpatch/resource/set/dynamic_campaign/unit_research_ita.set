@@ -20,7 +20,7 @@
 
 	{"squad_light(ita)"				requires	""								costs 1 }
 	{"squad_regular(ita)"			requires	"squad_light(ita)"				costs 2 }
-	{"squad_pionier(ita)"			requires	"squad_regular(ita)"			costs 2 }
+	{"squad_pionier(ita)"			requires	"squad_regular(ita)"			costs 3 }
 	{"squad_stormtrooper(ita)"		requires	"squad_pionier(ita)"			costs 3 }
 
 
@@ -29,24 +29,28 @@
 ; ---MG---
 	{"8mm_breda_37"	requires 	""					costs 1}
 
+    {"fiat626"	requires 	""					costs 1}
+	{"fiat626_art"	requires 	"fiat626"					costs 2}
+	{"fiat626_eng"	requires 	"fiat626"					costs 2}
+	
 ; ---Mortars---
-	{"81mm_brandt_ita"	requires 	""					costs 1}
+	{"81mm_brandt_ita"	requires 	""					costs 2}
 
 ; ---AA---
-	{"cannone_2065"	requires	""					costs 1}
+	{"cannone_2065"	requires	""					costs 2}
 
 ; ---AT Guns---
 	{"2cm_solothurn"	requires	""					costs 1}
 	{"cannone_4732"	requires	"2cm_solothurn"					costs 1}
 	{"cannone_7527"	requires	"cannone_4732"					costs 1}
-	{"7_5cm_pak97_38"	requires	"cannone_4732"					costs 2}
+	{"7_5cm_pak97_38"	requires	"cannone_4732"					costs 4}
 
 ; ---Infantry Guns---
-	{"obice_7513"		requires 	"cannone_4732"				costs 1}
+	{"obice_7513"		requires 	"cannone_4732"				costs 2}
 
 ; ---Artillery---
-	{"obice_10017"	requires	"obice_7513"	costs 2}
-	{"obice_210"		requires	"obice_10017"			costs 3}
+	{"obice_10017"	requires	"obice_7513"	costs 3}
+	{"obice_210"		requires	"obice_10017"			costs 4}
 
 ;---Armored Cars---
 	;{"as42"			requires 	""				costs 0}
@@ -62,7 +66,7 @@
 	{"m1441"				requires 	"l640"				costs 1}
 	{"m1542"			requires 	"l640"				costs 2}
 	{"pz3n_ita"				requires 	"m1542"				costs 3}
-	{"pz4g_ita"				requires 	"m1542"				costs 4}
+	{"pz4g_ita"				requires 	"m1542"				costs 5}
 
 	
 	; ---Heavy Tanks---
@@ -72,7 +76,7 @@
 	; ---Self Propelled Guns---
 	{"m7518"				requires 	"m1542"				costs 1}
 	{"m7534"				requires 	"m1542"				costs 2}
-	{"stug3g_ita"				requires 	"pz3n_ita"				costs 2}
+	{"stug3g_ita"				requires 	"pz3n_ita"				costs 4}
 	
 ;TOTAL: 0
 
@@ -149,6 +153,7 @@
 	{"fiat626"			0 9}
 	;{"as42"			1 9}
 	{"fiat626_art"			1 9}
+	{"fiat626_eng"			2 9}
 
 
 

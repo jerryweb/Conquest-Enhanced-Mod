@@ -25,66 +25,70 @@
 	{"squad_light_late(eng)"		requires	""					costs 1 }
 	{"squad_regular_late(eng)"		requires	"squad_light_late(eng)"			costs 2 }
 	{"squad_pionier_late(eng)"		requires	"squad_regular_late(eng)"		costs 2 }
-	{"squad_scout_late(eng)"		requires	"squad_regular_late(eng)"		costs 2 }
-	{"squad_stormtrooper_late(eng)"		requires	"squad_pionier_late(eng)"		costs 3 }
+	{"squad_scout_late(eng)"		requires	"squad_regular_late(eng)"		costs 3 }
+	{"squad_stormtrooper_late(eng)"		requires	"squad_pionier_late(eng)"		costs 4 }
 
 
 ;TOTAL: 0
 
 ; ---MG---
 	{"303_bren"		requires 	""				costs 1}
-
+	
+	{"matador"	requires 	""					costs 1}
+	{"matador_art"	requires 	"matador"					costs 2}
+	{"matador_eng"	requires 	"matador"					costs 2}
+	
 ; ---Mortars---
-	{"76mm_mk_ii"	requires 	""				costs 1}
+	{"76mm_mk_ii"	requires 	""				costs 2}
 
 ; ---AA---
-	{"qf40mm"		requires	"303_bren"			costs 1}
+	{"qf40mm"		requires	"303_bren"			costs 3}
 
 ; ---AT Guns---
-	{"qf2pdr"		requires	""				costs 1}
-	{"qf6pdr"		requires	"qf2pdr"			costs 1}
-	{"qf17pdr"		requires	"qf6pdr"			costs 2}
+	{"qf2pdr"		requires	""				costs 2}
+	{"qf6pdr"		requires	"qf2pdr"			costs 3}
+	{"qf17pdr"		requires	"qf6pdr"			costs 5}
 
 ; ---Infantry Guns---
 
 ; ---Artillery---
 	{"qf25pdr"		requires	""			costs 2}
-	{"bl45"		requires	"qf25pdr"			costs 1}
+	{"bl45"		requires	"qf25pdr"			costs 4}
 
 ;---Armored Cars---
-	{"dingo"		requires 	""				costs 0}
+	{"dingo"		requires 	""				costs 1}
 	{"m3halftrack_eng" 	requires 	"dingo"			costs 1}
-	{"humber" 	requires 	"dingo"			costs 1}
+	{"humber" 	requires 	"dingo"			costs 2}
 	{"mk2daimler" 	requires 	"dingo"			costs 2}
-	{"staghound" 	requires 	"m3halftrack_eng"		costs 1}
+	{"staghound" 	requires 	"m3halftrack_eng"		costs 3}
 	
 
 	; ---Light Tanks---
-	{"crusader_aa2"	requires 	""				costs 1}
-	{"crusader_mk6"		requires 	"qf6pdr"			costs 1}
+	{"crusader_aa2"	requires 	""				costs 3}
+	{"crusader_mk6"		requires 	"qf6pdr"			costs 4}
 
 	
 	; ---Medium Tanks---
-	{"valentine_mkiii"	requires 	"crusader_mk6"			costs 1}
-	{"matilda_mkii"	requires 	"crusader_mk6"			costs 1}
-	{"cromwell_mk_iv"	requires 	"matilda_mkii"			costs 1}
-	{"m4a4"		requires 	"matilda_mkii"			costs 2}
-	{"cromwell_mk_vi"		requires 	"matilda_mkii"			costs 3}
-	{"challenger_a30"	requires 	"cromwell_mk_iv"		costs 1}
-	{"m4a4_firefly"	requires 	"m4a4"			costs 1}
-	{"comet_a34"	requires 	"cromwell_mk_iv"		costs 2}
+	{"valentine_mkiii"	requires 	"crusader_mk6"			costs 2}
+	{"matilda_mkii"	requires 	"crusader_mk6"			costs 3}
+	{"cromwell_mk_iv"	requires 	"matilda_mkii"			costs 3}
+	{"m4a4"		requires 	"matilda_mkii"			costs 4}
+	{"cromwell_mk_vi"		requires 	"matilda_mkii"			costs 4}
+	{"challenger_a30"	requires 	"cromwell_mk_iv"		costs 5}
+	{"m4a4_firefly"	requires 	"m4a4"			costs 5}
+	{"comet_a34"	requires 	"cromwell_mk_iv"		costs 5}
 	
 	; ---Heavy Tanks---
-	{"churchill_avre"	requires 	"cromwell_mk_iv"		costs 2}	
+	{"churchill_avre"	requires 	"cromwell_mk_iv"		costs 5}	
 	{"churchill_mk_ii"	requires 	"cromwell_mk_iv"		costs 3}
-	{"churchill_mk_iv"	requires 	"churchill_mk_ii"		costs 1}
-	{"churchill_mk_vii"	requires 	"churchill_mk_ii"		costs 2}
-	{"churchill_crocodile"	requires 	"churchill_mk_vii"		costs 1}
+	{"churchill_mk_iv"	requires 	"churchill_mk_ii"		costs 4}
+	{"churchill_mk_vii"	requires 	"churchill_mk_ii"		costs 6}
+	{"churchill_crocodile"	requires 	"churchill_mk_vii"		costs 5}
 
 	; ---Self Propelled Guns---
-	{"achilles"		requires 	"qf17pdr"			costs 2}
-	{"m4a3_105_eng"		requires 	"qf25pdr"			costs 1}
-	{"sexton"		requires 	"qf25pdr"			costs 2}
+	{"achilles"		requires 	"qf17pdr"			costs 6}
+	{"m4a3_105_eng"		requires 	"qf25pdr"			costs 4}
+	{"sexton"		requires 	"qf25pdr"			costs 4}
 	
 ;TOTAL: 0
 
@@ -168,6 +172,7 @@
 	;---Trucks---
 	{"matador"		0 10}
 	{"matador_art"		1 10}
+	{"matador_eng"	2 10}
 
 
 	;---Armored Cars---

@@ -25,8 +25,8 @@
 	{"squad_light_late(fra)"		requires	""					costs 1 }
 	{"squad_regular_late(fra)"		requires	"squad_light_late(fra)"			costs 2 }
 	{"squad_pionier_late(fra)"		requires	"squad_regular_late(fra)"		costs 2 }
-	{"squad_marine_late(fra)"		requires	"squad_regular_late(fra)"		costs 2 }
-	{"squad_stormtrooper_late(fra)"		requires	"squad_pionier_late(fra)"		costs 3 }
+	{"squad_marine_late(fra)"		requires	"squad_regular_late(fra)"		costs 3 }
+	{"squad_stormtrooper_late(fra)"		requires	"squad_pionier_late(fra)"		costs 4 }
 
 
 ;TOTAL: 0
@@ -34,41 +34,46 @@
 ; ---MG---
 	{"0_3cal_m1919a4_fr"	requires 	""				costs 1}
 	{"0_5cal_m2hb_fr"	requires 	""				costs 1}
+	
+	{"cckw352_fr_inf"	requires 	""					costs 1}
+	{"cckw352_fr_art"	requires 	"cckw352_fr_inf"					costs 2}
+	{"cckw352_fr_eng"	requires 	"cckw352_fr_inf"					costs 2}
+	{"dodgewc55_fr"	requires 	""					costs 2}
 
 ; ---Mortars---
-	{"81_mm_m1_fr"		requires 	""				costs 1}
+	{"81_mm_m1_fr"		requires 	""				costs 2}
 
 ; ---AA---
-	{"40_mm_m1_fr"		requires	"0_5cal_m2hb_fr"		costs 1}
+	{"40_mm_m1_fr"		requires	"0_5cal_m2hb_fr"		costs 4}
 
 ; ---AT Guns---
-	{"57_mm_m1_fr"		requires	""				costs 1}
+	{"57_mm_m1_fr"		requires	""				costs 4}
 
 
 ; ---Infantry Guns---
-	{"75_mm_m1897a4_fr"	requires 	"57_mm_m1_fr"			costs 1}
+	{"75_mm_m1897a4_fr"	requires 	"57_mm_m1_fr"			costs 3}
 
 ; ---Artillery---
-	{"105_mm_m2a1l_fr"	requires	"75_mm_m1897a4_fr"		costs 2}
-	{"155_mm_m1918"		requires	"75_mm_m1897a4_fr"		costs 3}
+	{"105_mm_m2a1l_fr"	requires	"75_mm_m1897a4_fr"		costs 3}
+	{"155_mm_m1918"		requires	"75_mm_m1897a4_fr"		costs 4}
 
 ;---Armored Cars---
-	{"m3a1_scout_fr"	requires 	""				costs 0}
+	{"m3a1_scout_fr"	requires 	""				costs 1}
 	{"m20_fr" 		requires 	"m3a1_scout_fr"			costs 1}
-	{"m8_grayhound_fr" 	requires 	"m20_fr"			costs 1}
-	{"m17_fr" 		requires 	"m20_fr"			costs 1}
-	{"m4halftrack_fr" 	requires 	"m20_fr"			costs 2}
+	{"m8_grayhound_fr" 	requires 	"m20_fr"			costs 2}
+	{"m17_fr" 		requires 	"m20_fr"			costs 3}
+	{"m4halftrack_fr" 	requires 	"m20_fr"			costs 4}
 	
 
 	; ---Light Tanks---
-	{"m5a1_fr"		requires 	""				costs 1}
-	{"m8_fr"		requires 	"m5a1_fr"			costs 1}
+	{"m5a1_fr"		requires 	""				costs 2}
+	{"m8_fr"		requires 	"m5a1_fr"			costs 2}
 
 	
 	; ---Medium Tanks---
-	{"cavalier_mk_vii"	requires 	"m5a1_fr"			costs 1}
-	{"m4a3_75_fr"		requires 	"m5a1_fr"			costs 2}
-	{"m4a3_76_fr"		requires 	"m4a3_75_fr"			costs 1}
+	{"cavalier_mk_vii"	requires 	"m5a1_fr"			costs 4}
+	{"m4a3_75_fr"		requires 	"m5a1_fr"			costs 4}
+	{"m4a3_76_fr"		requires 	"m4a3_75_fr"			costs 4}
 
 	
 	; ---Heavy Tanks---
@@ -76,9 +81,9 @@
 
 
 	; ---Self Propelled Guns---
-	{"m10wolverine_fr"			requires 	"57_mm_m1_fr"				costs 2}
-	{"m4a3_105_fr"				requires 	"m4a3_75_fr"				costs 1}
-	{"m7_fr"				requires 	"105_mm_m2a1l_fr"			costs 1}
+	{"m10wolverine_fr"			requires 	"57_mm_m1_fr"				costs 4}
+	{"m4a3_105_fr"				requires 	"m4a3_75_fr"				costs 4}
+	{"m7_fr"				requires 	"105_mm_m2a1l_fr"			costs 5}
 	
 ;TOTAL: 0
 
@@ -163,6 +168,7 @@
 
 	;---Armored Cars---
 	{"m3a1_scout_fr"		1 11}
+	{"cckw352_fr_eng"		0 11}
 	{"m20_fr"			2 11}
 	{"m8_grayhound_fr"		3 11}
 	{"m17_fr"			4 11}
