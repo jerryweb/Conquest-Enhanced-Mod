@@ -2,7 +2,7 @@ require([[/script/multiplayer/bot.data]])
 -- Number of unit division roster files to randomly select for each period in the war 
 maxNumOfEarlyDivisions = 5
 maxNumOfMidDivisions = 5
-maxNumOfLateDivisions = 6
+maxNumOfLateDivisions = 7
 
 -- Wave offset is used to set how much extra time the first wave will last in since the wave is loaded automatically
 gameStartTime = 0
@@ -52,7 +52,7 @@ function selectArmyDivision(totalFlags)
 	end
 	print("loading")
 	-- REMOVE THIS LINE (ONLY FOR TESTING)
-	-- divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.6]]
+	-- divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.7]]
 	
 
 	return divisionPurchaseModel

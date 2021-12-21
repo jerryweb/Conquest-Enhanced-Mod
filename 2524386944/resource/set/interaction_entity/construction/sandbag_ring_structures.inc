@@ -120,7 +120,7 @@
 					{delay 2
 						{spawn "sandbag_heap_pile" offset -72 72 0}
 						{delay 2
-							{spawn "sandbag_heap_straight" offset -80 25 0}
+							{spawn "sandbag_heap_straight_180" offset -80 25 0}
 							{spawn "sandbag_heap_pile" offset -90 -25 0}
 							{spawn "sandbag_heap_pile" offset -130 -25 0}
 							{delay 2
@@ -162,7 +162,7 @@
 					{delay 2
 						{spawn "sandbag_heap_pile" offset -72 72 0}
 						{delay 2
-							{spawn "sandbag_heap_straight" offset -80 25 0}
+							{spawn "sandbag_heap_straight_180" offset -80 25 0}
 							{delay 2
 								{spawn "sandbag_heap_pile" offset -72 -72 0}
 								{delay 2

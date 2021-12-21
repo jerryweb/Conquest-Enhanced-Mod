@@ -3,8 +3,8 @@ Purchases["campaign_capture_the_flag"] = {
 		divisionName = "Infantry and support weapon",
 		waveNumber = 1,
 		-- Repeat = 6,
-		minRepeat = 3,
-		maxRepeat = 6,
+		minRepeat = 6,
+		maxRepeat = 8,
 		skipPossible = false,
 		waveDuration = 20,
 		Units = {
@@ -102,7 +102,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_assaultsappers_con(rus)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_assaultsappers_flame_con(rus)"},
 
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_paras(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_paras_con(rus)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_spetsnaz(rus)"},
 				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_marines_con(rus)"},
 			}
@@ -185,7 +185,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_assaultsappers_con(rus)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_assaultsappers_flame_con(rus)"},
 
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_paras(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_paras_con(rus)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_spetsnaz(rus)"},
 				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_marines_con(rus)"},
 			}
