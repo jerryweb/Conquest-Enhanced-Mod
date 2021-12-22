@@ -155,7 +155,6 @@
 )
 
 
-
 (define "mobility_train"
 	{Locomotion
 		{Slow (* %speed 0.33)}									;// Slow speed. Mainly used in mission scripting

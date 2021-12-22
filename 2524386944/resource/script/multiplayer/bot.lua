@@ -4,6 +4,7 @@ require([[/script/multiplayer/bot.wave_system]])
 local squadDictionary = {}
 
 local emplacementArtillery = {}
+local mortars = {}
 local IsHeavyArty = false
 local heavyArtyCounter = 0
 
@@ -311,6 +312,8 @@ function TrySpawnUnit()
 				heavyArtyCounter = heavyArtyCounter + 1
 				print("incrementing counter")
 			end
+
+			
 			currentWaveMaxUnitCount = currentWaveMaxUnitCount - 1
 			KillSpawnWaitTimer()
 			SetSpawnCooldownTimer()
@@ -370,6 +373,7 @@ function OnGameQuant()
 		end
 	end
 
+
 	local waypoints = BotApi.Scene.Waypoints
 
 	if #waypoints == 0 then
@@ -410,17 +414,22 @@ function OnWaypoint(args)
 end
 
 function CaptureFlag(squad)
+	print("tee")
 	local flag = GetFlagToCapture(BotApi.Scene.Flags, GetFlagPriority)
 	-- local rnd = 0.1 + choice
 	local rnd = math.random() + choice
 	if flag then
-		if rnd < 0.0001 then
+		if rnd < 0.25 then
 			print(rnd, "+SeekAndDestroy with squad", squad)
 			BotApi.Commands:SeekAndDestroy(squad)
 		else
 			print(rnd, "+CaptureFlag with squad", squad)
-			BotApi.Commands:CaptureFlag(squad, flag.name)
-			print("pass")
+			if not mortars[squad] then
+				BotApi.Commands:CaptureFlag(squad, flag.name)
+			else 
+				print("oops mortar")
+				BotApi.Commands:SeekAndDestroy(squad)
+			end
 		end
 	else
 			print(rnd, "!SeekAndDestroy with squad", squad)
