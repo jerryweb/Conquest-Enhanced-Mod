@@ -21,10 +21,10 @@
 (define "mobility_tank"
 	{Locomotion
 		{Slow 10}																								;// Slow speed. Mainly used in mission scripting
-		{Normal (* %speed 0.6)} 																				;// Standard speed. Single click movement order
-		{Fast %speed}																							;// Sprint speed. Double click movement order
+		{Normal (* %speed 0.5)} 																				;// Standard speed. Single click movement order
+		{Fast (* %speed 0.9)}																							;// Sprint speed. Double click movement order
 		{MaxSpeed %speed}																						;// Max speed.
-		{maxSpeedAtMaxTurn (* %speed (* (/ %track 30) (/ %power (* %weight 4))))}								;// Direct Control, Max speed the vehicle is limited to when executing a tight turn.
+		{maxSpeedAtMaxTurn (* %speed (* (/ %track 30) (/ %power (* %weight 5))))}								;// Direct Control, Max speed the vehicle is limited to when executing a tight turn.
 
 	;	{TurnTime (/ 360 (+ (/ %power %weight) (/ (* %speed %track) 10)))};/									;// Direct Control, Time it takes to do a full 360 degree at max turn speed, mathematical approximation
 		{TurnTime (/ 360 %traverse)};/								                                          	;// Direct Control, Time it takes to do a full 360 degree at max turn speed, fetching custom define
@@ -32,11 +32,13 @@
 		{TurnStart (+ 0.75 (* (/ %weight 6) 0.04))};/															;// Direct Control, Time for vehicle to from 0°/s rotation speed to max rotation speed.
 		{TurnStop (+ 0.75 (* (/ %weight 6) 0.04))};/															;// Direct Control, Time for vehicle to from max rotation speed to 0°/s rotation speed to max rotation speed.
 
-		{TurnRadius (/ (/ (* %speed (* (/ %track 50) (/ %power (* %weight 4)))) 3.6) (* %traverse 0.017))}		;// AI turning radius, lower = able to turn more without stopping.
+
+		{TurnRadius (+ 8 (+ (/ %weight 30) (/ (* 1000 %weight) (* %traverse %power))))}		                    ;// AI turning radius, lower = able to turn more without stopping.
+
 
 		{StartTime (* 5 (/ %speed (/ %power %weight)))}															;// Time for vehicle to accelerate from 0kph to max speed.		
-		{StopTime (+ 2.25 (* %weight 0.055))}																	;// Time to come to a complete stop from max speed with out applying brakes. "Coasting".
-		{BrakeTime (+ 0.75 (* %weight 0.04))}																	;// Time to come to a complete stop from max speed with brakes applied.
+		{StopTime (+ 1.50 (* %weight 0.04))}																	;// Time to come to a complete stop from max speed with out applying brakes. "Coasting".
+		{BrakeTime (+ 0.80 (* %weight 0.04))}																	;// Time to come to a complete stop from max speed with brakes applied.
 
 		{Gears 0.5 0.65 0.8 0.9 1.0}																				;// Forward gear ratios
 		{RearGears 0.05 (/ %reverse %speed)};/																	;// Reverse max speed.
@@ -151,6 +153,7 @@
 	{maxElevationSpeed (+ (/ %climb_speed 6) 2)};/		;// climb rate, how many meters per second aircraft changes altitude when in full climb or dive
 	{elevationAcceleration (+ (/ %climb_speed 4) 2)};/	;// how quickly aircraft can change from level flight to full climb or dive. (m/s^2)
 )
+
 
 
 (define "mobility_train"

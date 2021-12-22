@@ -3,6 +3,10 @@ require([[/script/multiplayer/bot.wave_system]])
 
 local squadDictionary = {}
 
+local emplacementArtillery = {}
+local IsHeavyArty = false
+local heavyArtyCounter = 0
+
 local Context = {
 	Purchase = nil,
 	SpawnInfo = nil,
@@ -10,7 +14,8 @@ local Context = {
 		CooldownTimer = nil,
 		WaitTimer = nil
 	},
-	SquadTimers = {}
+	SquadTimers = {},
+	IsHeavyArty = false
 }
 
 function SetSpawnCooldownTimer()
@@ -84,9 +89,10 @@ end
 
 function GetNextUnitToSpawn(purchase)
 	-- local units = purchase:current()
-	print("Grabbing unlocked units for wave: ", purchase.idx)
+	-- print("Grabbing unlocked units for wave: ", purchase.idx)
 	local units = purchase.unlockedUnits
-	
+	IsHeavyArty = purchase.isHeavyArty
+
 	if not units then
 		print("wave ", purchase.idx, " has no available units")
 		return nil
@@ -137,11 +143,11 @@ function GetUnitToSpawn(units)
 	end
 	
 	if capturedFlags < enemyFlags then
-		choice = 0.01
+		choice = 0.10
 	elseif capturedFlags == enemyFlags then
-		choice = 0.01
+		choice = 0.20
 	else
-		choice = 0.02	-- higher choice(0-1+rnd) = higher % of CaptureFlag(bots going for flags). Lower choice favors SeekAndDestroy.
+		choice = 0.30	-- higher choice(0-1+rnd) = higher % of CaptureFlag(bots going for flags). Lower choice favors SeekAndDestroy.
 	end
 	
 	local enemyHasTanks = BotApi.Commands:EnemyHasTanks();
@@ -174,9 +180,9 @@ function OnGameStart()
 	math.randomseed(os.time()*BotApi.Instance.hostId)
 	math.random() math.random() math.random() math.random()
 
-	if math.random() < 0.5 then -- 30% chance to change when enemy reinforcements spawn 
-		firstWaveOffsetTime = math.random(480,780)
-	end
+	-- if math.random() < 0.5 then -- 30% chance to change when enemy reinforcements spawn 
+	-- 	firstWaveOffsetTime = math.random(480,780)
+	-- end
 	if math.random() < 0.5 then -- 50% chance to for typhoon wave mode 
 		setTyphoonWaveMode()
 	end
@@ -300,6 +306,11 @@ function TrySpawnUnit()
 	end
 	if currentWaveMaxUnitCount > 0 then
 		if BotApi.Commands:Spawn(unit, MaxSquadSize) then
+			print("Context ", Context.SpawnInfo, " is heavy arty ", IsHeavyArty)
+			if IsHeavyArty then 
+				heavyArtyCounter = heavyArtyCounter + 1
+				print("incrementing counter")
+			end
 			currentWaveMaxUnitCount = currentWaveMaxUnitCount - 1
 			KillSpawnWaitTimer()
 			SetSpawnCooldownTimer()
@@ -364,6 +375,11 @@ function OnGameQuant()
 	if #waypoints == 0 then
 		for i, squad in pairs(BotApi.Scene.Squads) do
 			-- print("squad ", squad, " with unlock time = ", squadDictionary[squad])
+			if emplacementArtillery[squad] then 
+				if not Context.SquadTimers[squad] then
+					SetSquadOrder(CaptureFlag, squad, OrderRotationPeriod)
+				end
+			end
 			if squadDictionary[squad] and  squadDictionary[squad] <= os.clock() then
 				if not Context.SquadTimers[squad] then
 					SetSquadOrder(CaptureFlag, squad, OrderRotationPeriod)
@@ -398,12 +414,13 @@ function CaptureFlag(squad)
 	-- local rnd = 0.1 + choice
 	local rnd = math.random() + choice
 	if flag then
-		if rnd < 0.25 then
+		if rnd < 0.0001 then
 			print(rnd, "+SeekAndDestroy with squad", squad)
 			BotApi.Commands:SeekAndDestroy(squad)
 		else
 			print(rnd, "+CaptureFlag with squad", squad)
 			BotApi.Commands:CaptureFlag(squad, flag.name)
+			print("pass")
 		end
 	else
 			print(rnd, "!SeekAndDestroy with squad", squad)
@@ -412,7 +429,9 @@ function CaptureFlag(squad)
 end
 
 function SetSquadOrder(order, squad, delay)
+	print("setty")
 	order(squad)
+	print("set")
 	local setTimer = function(callback)
 		Context.SquadTimers[squad] = BotApi.Events:SetQuantTimer(
 			function()
@@ -429,11 +448,25 @@ function SetSquadOrder(order, squad, delay)
 end
 
 function OnGameSpawn(args)
-	local waypoints = BotApi.Scene.Waypoints
-
-	for i, waypoints in pairs(waypoints) do
-		print("points", i)
+	if heavyArtyCounter > 0 then
+		emplacementArtillery[args.squadId] = args
+		print("added ", args.squadId, " to heavy arty list")
+		IsHeavyArty = false
+		heavyArtyCounter = heavyArtyCounter - 1
+		local waypoints = BotApi.Scene.Waypoints
+		if #waypoints == 0 then
+			SetSquadOrder(CaptureFlag, args.squadId, OrderRotationPeriod)
+		else
+			GotoNextWaypoint(args.squadId)
+			print("#waypoints != 0")
+		end
 	end
+
+	-- local waypoints = BotApi.Scene.Waypoints
+
+	-- for i, waypoints in pairs(waypoints) do
+	-- 	print("points", i)
+	-- end
 	-- print("spawned squad id: ", tostring(args.squadId))
 
 	local str = tostring(args.squadId)

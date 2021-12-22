@@ -1,4 +1,5 @@
-{terms
+{terms  ; // Here all the props for different detection ranges of vehicles and weapons are assigned a specific term for the vision logic.
+
 	{firing_welrod 		firing "welrod"}
 	{firing_delisle		firing "de_lisle"}
 	{firing_silencer_m 	firing "mosin_silencer"}
@@ -7,34 +8,38 @@
 
 	{human			actor "human"}
 
-	{vehicle_01		actor "vision_lev01"}
-	{vehicle_02		actor "vision_lev02"}
-	{vehicle_03		actor "vision_lev03"}
-	{vehicle_04		actor "vision_lev04"}
-	{vehicle_05		actor "vision_lev05"}
-	{vehicle_06 	actor "vision_lev06"}
+	{vehicle_01		actor "vision_lev01"}   	;// moto, jeep
+	{vehicle_02		actor "vision_lev02"}		;// armoredcars, trucks
+	{vehicle_03		actor "vision_lev03"}		;// light tanks
+	{vehicle_04		actor "vision_lev04"}		;// medium tanks, rocket artillery
+	{vehicle_05		actor "vision_lev05"}		;// heavy tanks
+	{vehicle_06 	actor "vision_lev06"}		;// SPG or tanks with a really large gun that make a lot of noise, like artillery (105+mm)
 
-	{cannon_00		actor "vision_lev00_can"}
-	{cannon_01		actor "vision_lev01_can"}
-	{cannon_02		actor "vision_lev02_can"}
-	{cannon_03		actor "vision_lev03_can"}
-	{cannon_04		actor "vision_lev04_can"}
-	{cannon_05		actor "vision_lev05_can"}
+	{cannon_00		actor "vision_lev00_can"}	;// heavy mgun
+	{cannon_01		actor "vision_lev01_can"}	;// infantry mortar
+	{cannon_02		actor "vision_lev02_can"}	;// light gun
+	{cannon_03		actor "vision_lev03_can"}	;// medium gun
+	{cannon_04		actor "vision_lev04_can"}	;// heavy gun
+	{cannon_05		actor "vision_lev05_can"}	;// artillery
 	
-	{marine_01		actor "vision_lev01_boat"}
-	{marine_02		actor "vision_lev02_boat"}
-	{marine_03		actor "vision_lev03_boat"}
-	{marine_04		actor "vision_lev04_boat"}
-	{marine_05		actor "vision_lev05_boat"}
+	{marine_01		actor "vision_lev01_boat"}	;// U-Boat / Submarine
+	{marine_02		actor "vision_lev02_boat"}	;// Marine Small
+	{marine_03		actor "vision_lev03_boat"}	;// Marine Medium
+	{marine_04		actor "vision_lev04_boat"}	;// Marine Large
+	{marine_05		actor "vision_lev05_boat"}	;// Marine Max
 
-	{plane_01		actor "vision_lev01_air"}
+	{plane_01		actor "vision_lev01_air"}	;// Airborne
 }
 
+;/*=============== Line of sight visualization ===============*/
+
+; // Display of the line of sight on the units. The line of sight displayed corresponds to the distance at which A SPECIFIC PROP IS DETECTED. It doesn't represent the max vision of your soldier. Units could be spotted beyond the line of sight display. Likewise, you need to be real close to stealth soldiers to be able to spot them within your line of sight display
+
 {ranges
-	{human   ; first brighter vision range displayed. This is deprecated.
+	{human   ; // first brighter vision range displayed. This is deprecated.
 		{human}
 	}
-	{vehicle ; main fog range displayed. 
-		{vehicle_01}
+	{vehicle          ; // main vision range displayed. 
+		{cannon_00}   ; // The vision range displayed is far enough to detect this prop if it comes within the range.
 	}
 }

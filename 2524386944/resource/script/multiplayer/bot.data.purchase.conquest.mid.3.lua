@@ -209,6 +209,24 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 3.5, class = UnitClass.Infantry, unit = "squad_rifleunit_con(rus)"},
 			}
 		}
+	},
+	{--purchase 8  aa support
+		waveNumber = 8,
+		-- Repeat = 1,
+		minRepeat = 2,
+		maxRepeat = 4,
+        skipPossible = false,		
+		waveDuration = 3,
+		Units = {
+			["ger"] = {--Germany
+		  	    {priority = 1.0, class = UnitClass.AATank, unit = "20mm_flak30"},
+				{priority = 0.5, class = UnitClass.AATank, unit = "37mm_flak37"},
+			},
+			["rus"] = {--Russia
+		        {priority = 0.5, class = UnitClass.AATank, unit = "25mm_72k"},
+				{priority = 1.5, class = UnitClass.AATank, unit = "37mm_61k"},
+			}
+		}
 	}
 }
 

@@ -348,7 +348,7 @@
 }
 {"105mm_lefh18"
 	{on spawn
-    	{tags add "artillery"}
+    	{tags add "heavy_artillery"}
 		{tags add "german"}
 		{tags add "105mm_lefh18"}
 		{delay 6
@@ -375,6 +375,7 @@
 {"150mm_nebelwerfer41"
 	{on spawn
     	{tags add "artillery"}
+		{tags add "rocket_artillery"}
 		{tags add "german"}
 		{tags add "150mm_nebelwerfer41"}
 		{delay 6
@@ -426,7 +427,7 @@
 }
 {"150mm_sfh18"
 	{on spawn
-    	{tags add "artillery"}
+    	{tags add "heavy_artillery"}
 		{tags add "german"}
 		{tags add "150_sfh18"}
 		{delay 6
@@ -452,7 +453,7 @@
 }
 {"210mm_morser18"
 	{on spawn
-    	{tags add "artillery"}
+    	{tags add "heavy_artillery"}
 		{tags add "german"}
 		{tags add "210mm_morser18"}
 		{delay 6
@@ -479,6 +480,7 @@
 {"300mm_nebelwerfer42"
 	{on spawn
     	{tags add "artillery"}
+		{tags add "rocket_artillery"}
 		{tags add "german"}
 		{tags add "300mm_nebelwerfer42"}
 		{delay 6

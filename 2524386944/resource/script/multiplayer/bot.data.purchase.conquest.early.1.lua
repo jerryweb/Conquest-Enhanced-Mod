@@ -82,8 +82,31 @@ Purchases["campaign_capture_the_flag"] = {
 		    }
 		}
 	},
-	{--purchase 4 infantry support
+	{--purchase 4 field gun support
 		waveNumber = 4,
+	    minRepeat = 2,
+		maxRepeat = 4,
+	    skipPossible = false,
+	    waveDuration = 5,
+		Units = {
+			["ger"] = {--Germany
+				--HMGs
+				{priority = 1.5, class = UnitClass.Vehicle, unit = "mg34_lafette"},
+				--Anti_Tank
+				{priority = 1.5, class = UnitClass.ATTank, unit = "37mm_pak36"},
+				{priority = 0.5, class = UnitClass.ATTank, unit = "47mm_pakt"},
+			 },
+			["rus"] = {--Russia
+				--HMGs
+				{priority = 1.5, class = UnitClass.Vehicle, unit = "maxim"},
+				--Anti_Tank
+				{priority = 1.5, class = UnitClass.ATTank, unit = "45mm_m37"},
+				{priority = 1.0, class = UnitClass.ATTank, unit = "45mm_m42"},
+			}
+		}
+	},
+	{--purchase 5 infantry support
+		waveNumber = 5,
 		minRepeat = 3,
 		maxRepeat = 4,
         skipPossible = false,		
@@ -121,8 +144,8 @@ Purchases["campaign_capture_the_flag"] = {
 		    }
 		}
 	},
-	{--purchase 5 SPG support
-		waveNumber = 5,
+	{--purchase 6 SPG support
+		waveNumber = 6,
 		minRepeat = 1,
 		maxRepeat = 1,
         skipPossible = false,		
@@ -139,8 +162,8 @@ Purchases["campaign_capture_the_flag"] = {
 			}
 		}
 	},
-	{--purchase 6 Tank 2
-		waveNumber = 6,
+	{--purchase 7 Tank 2
+		waveNumber = 7,
 		minRepeat = 2,
 		maxRepeat = 3,
         skipPossible = false,		
@@ -175,8 +198,8 @@ Purchases["campaign_capture_the_flag"] = {
 		    }
 		}
 	},
-	{--purchase 7 infantry attack 2
-		waveNumber = 7,
+	{--purchase 8 infantry attack 2
+		waveNumber = 8,
 		minRepeat = 3,
 		maxRepeat = 4,
         skipPossible = false,		
@@ -214,8 +237,8 @@ Purchases["campaign_capture_the_flag"] = {
 		    }
 		}
 	},
-	{--purchase 8 light tank rush
-		waveNumber = 8,
+	{--purchase 9 light tank rush
+		waveNumber = 9,
 		minRepeat = 2,
 		maxRepeat = 4,
         skipPossible = false,		

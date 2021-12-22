@@ -1,6 +1,6 @@
 Purchases["campaign_capture_the_flag"] = {
 	{--purchase 1 INFANTRY AND SUPPORT WEAPON BASED 
-		divisionName = "INFANTRY AND SUPPORT WEAPON BASED",
+		divisionName = "INFANTRY AND SUPPORT WEAPON",
 		waveNumber = 1, -- какая по порядку будет
 		-- Repeat = 6, -- сколько раз должно вызваться, чтобы могло перейти к следующей волне
 		minRepeat = 2,
@@ -84,8 +84,30 @@ Purchases["campaign_capture_the_flag"] = {
 			}
 		}
 	},
-	{--purchase 4 infantry support
+	{--purchase 4 field gun support
 		waveNumber = 4,
+		-- Repeat = 3,
+		minRepeat = 2,
+		maxRepeat = 4,
+        skipPossible = false,		
+		waveDuration = 8,
+		Units = {
+			["ger"] = {--Germany
+			--SPG
+				{priority = 1.5, class = UnitClass.ATTank, unit = "37mm_pak36"},
+				{priority = 0.5, class = UnitClass.ATTank, unit = "47mm_pakt"},
+				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "75mm_leig18"},
+			},
+			["rus"] = {--Russia
+			--SPG
+				{priority = 1.5, class = UnitClass.ATTank, unit = "45mm_m37"},
+				{priority = 1.0, class = UnitClass.ATTank, unit = "45mm_m42"},
+				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "76mm_m1927"},
+			}
+		}
+	},
+	{--purchase 5 infantry support
+		waveNumber = 5,
 		-- Repeat = 10,
 		minRepeat = 5,
 		maxRepeat = 8,
@@ -124,8 +146,9 @@ Purchases["campaign_capture_the_flag"] = {
 		    }
 		}
 	},
-	{--purchase 5 SPG support
-		waveNumber = 5,
+
+	{--purchase 6 SPG support
+		waveNumber = 6,
 		-- Repeat = 3,
 		minRepeat = 1,
 		maxRepeat = 3,
@@ -143,8 +166,8 @@ Purchases["campaign_capture_the_flag"] = {
 			}
 		}
 	},
-	{--purchase 6 Tank 2
-		waveNumber = 6,
+	{--purchase 7 Tank 2
+		waveNumber = 7,
 		-- Repeat = 5,
 		minRepeat = 1,
 		maxRepeat = 3,
@@ -180,8 +203,8 @@ Purchases["campaign_capture_the_flag"] = {
 		    }
 		}
 	},
-	{--purchase 7 infantry attack 2
-		waveNumber = 7,
+	{--purchase 8 infantry attack 2
+		waveNumber = 8,
 		-- Repeat = 10,
 		minRepeat = 4,
 		maxRepeat = 11,
@@ -220,8 +243,8 @@ Purchases["campaign_capture_the_flag"] = {
 		    }
 		}
 	},
-	{--purchase 6 mgun support
-		waveNumber = 8,
+	{--purchase 9 mgun support
+		waveNumber = 9,
 		Repeat = 3,
 		minRepeat = 1,
 		maxRepeat = 2,
@@ -235,11 +258,12 @@ Purchases["campaign_capture_the_flag"] = {
 			["rus"] = {--Russia
 			--SPG
 				{priority = 1.0, class = UnitClass.ATTank, unit = "maxim"},
+				{priority = 1.0, class = UnitClass.Vehicle, unit = "sg43_stand"},
 			}
 		}
 	},
-	{--purchase 8 light tank rush
-		waveNumber = 9,
+	{--purchase 10 light tank rush
+		waveNumber = 10,
 		-- Repeat = 10,
 		minRepeat = 3,
 		maxRepeat = 6,

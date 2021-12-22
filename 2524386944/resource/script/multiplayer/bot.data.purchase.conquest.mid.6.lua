@@ -1,7 +1,33 @@
 Purchases["campaign_capture_the_flag"] = {
-	{--purchase 1 starting recon wave
-		divisionName = "Infantry and support weapons",
+	{--purchase 1 arty wave
+		divisionName = "Arty Noob division",
 		waveNumber = 1,
+		-- Repeat = 6,
+		minRepeat = 2,
+		maxRepeat = 6,
+		skipPossible = false,
+		waveDuration = 20,
+		isHeavyArty = true,
+		Units = {
+			["ger"] = {--Germany
+			--Infantry_Support
+				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "75mm_leig18"},
+			--Artillery
+				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "105mm_lefh18"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "150mm_sfh18"},
+				{priority = 11.0, class = UnitClass.ArtilleryTank, unit = "150mm_nebelwerfer41"}
+			},
+			["rus"] = {--Russia
+			--Artillery
+				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "76mm_m1927"},
+				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "76mm_m43"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "122mm_m30"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "152mm_ml20"},
+			}
+		}
+	},
+	{--purchase 2 starting recon wave
+		waveNumber = 2,
 		-- Repeat = 6,
 		minRepeat = 3,
 		maxRepeat = 6,
@@ -22,8 +48,8 @@ Purchases["campaign_capture_the_flag"] = {
 			}
 		}
 	},
-	{--purchase 2 mortar
-		waveNumber = 2,
+	{--purchase 3 mortar
+		waveNumber = 3,
 	    -- Repeat = 2,
 	    minRepeat = 1,
 		maxRepeat = 2,
@@ -42,8 +68,8 @@ Purchases["campaign_capture_the_flag"] = {
 			}
 		}
 	},
-	{--purchase 3 tank assault group
-		waveNumber = 3,
+	{--purchase 4 tank assault group
+		waveNumber = 4,
 	    -- Repeat = 3,
 	    minRepeat = 2,
 		maxRepeat = 4,
@@ -69,8 +95,8 @@ Purchases["campaign_capture_the_flag"] = {
 			}
 		}
 	},
-	{--purchase 4 infantry support
-		waveNumber = 4,
+	{--purchase 5 infantry support
+		waveNumber = 5,
 		-- Repeat = 10,
 		minRepeat = 6,
 		maxRepeat = 8,
@@ -92,8 +118,8 @@ Purchases["campaign_capture_the_flag"] = {
 			}
 		}
 	},
-	{--purchase Emplancement wave 5
-		waveNumber = 5,
+	{--purchase Emplancement wave 6
+		waveNumber = 6,
 	    -- Repeat = 6,
 		minRepeat = 2,
 		maxRepeat = 4,
@@ -109,9 +135,8 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 0.5, class = UnitClass.AATank, unit = "37mm_flak37"},
 			--Anti_Tank
 				{priority = 0.5, class = UnitClass.ATTank, unit = "47mm_pakt"},
-				{priority = 1.5, class = UnitClass.ATTank, unit = "50mm_pak38"}
+				{priority = 1.5, class = UnitClass.ATTank, unit = "50mm_pak38"},
 			--Infantry_Support
-				{priority = 1.1, class = UnitClass.ArtilleryTank, unit = "75mm_leig18"},
 				{priority = 0.5, class = UnitClass.ArtilleryTank, unit = "150mm_sig33"},
 			},
 			["rus"] = {--Russia
@@ -125,16 +150,13 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.AATank, unit = "25mm_72k"},
 			--Anti_Tank
 				{priority = 1.0, class = UnitClass.ATTank, unit = "57mm_zis2"},
-				{priority = 1.0, class = UnitClass.ATTank, unit = "45mm_m42"}
-			--Infantry_Support
-				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "76mm_m43"},
-				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "76mm_m1927"},
-				{priority = 2.0, class = UnitClass.ArtilleryTank, unit = "76mm_zis3"},
+				{priority = 1.0, class = UnitClass.ATTank, unit = "45mm_m42"},
+				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "122mm_a19"},
 			}
 		}
 	},
-	{--purchase 6 SPG support
-		waveNumber = 6,
+	{--purchase 7 SPG support
+		waveNumber = 7,
 		-- Repeat = 5,
 		minRepeat = 2,
 		maxRepeat = 4,
@@ -162,8 +184,8 @@ Purchases["campaign_capture_the_flag"] = {
 			}
 		}
 	},
-	{--purchase 7 Tank 2
-		waveNumber = 7,
+	{--purchase 8 Tank 2
+		waveNumber = 8,
 		-- Repeat = 7,
 		minRepeat = 2,
 		maxRepeat = 4,
@@ -189,8 +211,8 @@ Purchases["campaign_capture_the_flag"] = {
 			}
 		}
 	},
-	{--purchase 8 infantry attack 2
-		waveNumber = 8,
+	{--purchase 9 infantry attack 2
+		waveNumber = 9,
 		-- Repeat = 15,
 		minRepeat = 4,
 		maxRepeat = 8,
@@ -218,8 +240,8 @@ Purchases["campaign_capture_the_flag"] = {
 			}
 		}
 	},
-	{--purchase 9 rocket arty
-		waveNumber = 9,
+	{--purchase 10 rocket arty
+		waveNumber = 10,
 		-- Repeat = 1,
 		minRepeat = 1,
 		maxRepeat = 2,
@@ -234,8 +256,8 @@ Purchases["campaign_capture_the_flag"] = {
 			}
 		}
 	},
-	{--purchase 10 light tank rush
-		waveNumber = 10,
+	{--purchase 11 light tank rush
+		waveNumber = 11,
 		-- Repeat = 8,
 		minRepeat = 4,
 		maxRepeat = 8,
@@ -263,8 +285,8 @@ Purchases["campaign_capture_the_flag"] = {
 			}
 		}
 	},
-	{--purchase 10 howtizer
-		waveNumber = 10,
+	{--purchase 12 howtizer
+		waveNumber = 12,
 		-- Repeat = 1,
 		minRepeat = 1,
 		maxRepeat = 2,

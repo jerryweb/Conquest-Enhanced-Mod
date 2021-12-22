@@ -1,12 +1,12 @@
 require([[/script/multiplayer/bot.data]])
 -- Number of unit division roster files to randomly select for each period in the war 
 maxNumOfEarlyDivisions = 5
-maxNumOfMidDivisions = 5
+maxNumOfMidDivisions = 6
 maxNumOfLateDivisions = 7
 
 -- Wave offset is used to set how much extra time the first wave will last in since the wave is loaded automatically
 gameStartTime = 0
-firstWaveOffsetTime = 720
+firstWaveOffsetTime = 30
 -- This is used to add the offset ONLY to the first wave
 initialWave = true
 
@@ -52,7 +52,7 @@ function selectArmyDivision(totalFlags)
 	end
 	print("loading")
 	-- REMOVE THIS LINE (ONLY FOR TESTING)
-	-- divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.7]]
+	divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.6]]
 	
 
 	return divisionPurchaseModel
@@ -89,7 +89,8 @@ function PIter:new(data)
 		maxRepeat = 0,
 		waveDuration = nil,
 		waveStartTime = nil,
-		unlockedUnits = nil
+		unlockedUnits = nil,
+		isHeavyArty = false
 	}
 	
 	print("loading division: ", obj.purchases[1].divisionName)
@@ -180,6 +181,14 @@ function PIter:nextIndex()
 		print("OS time: ", os.clock()) 
 		print("Initial wave offset: ", firstWaveOffsetTime)
 	end
+	print("setting ", self.purchases[self.idx].isHeavyArty)
+	if self.purchases[self.idx].isHeavyArty then 
+		print("setting ", self.purchases[self.idx].isHeavyArty)
+		self.isHeavyArty = self.purchases[self.idx].isHeavyArty
+	else
+		self.isHeavyArty = false
+	end
+	
 
 	print("waveStartTime:", self.waveStartTime)
 	print("waveDuration: ", self.waveDuration)

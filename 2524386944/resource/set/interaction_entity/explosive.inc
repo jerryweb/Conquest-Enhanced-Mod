@@ -24,15 +24,9 @@
 			{volumes "body1" disable all}
 			{volumes "body" enable select touch contact contact_ground blast}
 		else
-			{delay 1.1
-			    {spawn "pointer_mines"}
-			}
 			{tags remove "mine_planted"}
 			{volumes "body" disable all}
 			{volumes "body1" enable select touch contact contact_ground blast}
-		    {delay 4.1
-			    {view stop "mines"}
-			}
 		}
 	}
 	{on blast_hit
@@ -283,9 +277,10 @@
 	{on spawn
 		{add_view "smoke_flare_red" "smoke" "root"}
 		{view start "smoke"}
-		{tags add "paradrophere"}
-		{delay 50 {view stop "smoke"}}
-		{delay 50 {delete}}
+		{delay 6 {spawn "artillery_barrage_105"}}
+		{delay 31 {spawn "artillery_barrage_105"}}
+		{delay 40 {view stop "smoke"}}
+		{delay 40 {delete}}
 	}
 }
 
@@ -299,53 +294,11 @@
 }
 
 {"mortar_single_120_dummy"			;// Shells that fall to ground. Source Off-map artillery
-	{on spawn 
+	{on spawn
 		{start_sound "weapon/shot/ambient_cannon" ambient}
-		{tags add "120"}
 		{delay 7
 			{start_sound "weapon/shot/artillery"}
-			{spawn "mortar_single_120" offset -250 0 1000 random_position 300}
-			{hide 1}
-		}
-	}
-}
-
-{"mortar_single_120_dummy2"			;// Shells that fall to ground. Source Off-map artillery
-	{on spawn 
-		{start_sound "weapon/mortar/whistle" ambient}
-		{delay 5.1
-		    {spawn "mortar_single_1202" offset -250 0 600}
-		}
-		{tags add "smoke"}
-		{delay 5.1
-			{spawn "shell_smoke" offset -500 0 -500 random_position 700}
-			{spawn "shell_smoke" offset -500 0 -500 random_position 700}
-			{spawn "shell_smoke" offset -500 0 -500 random_position 700}
-			{spawn "shell_smoke" offset -500 25 -500 random_position 700}
-			{spawn "shell_smoke" offset -500 77 -500 random_position 700}
-			{spawn "shell_smoke" offset -500 33 -500 random_position 700}
-			{spawn "shell_smoke" offset -500 0 -500 random_position 700}
-			{spawn "shell_smoke" offset -500 0 -500  random_position 700}
-			{spawn "shell_smoke" offset -500 0 -500  random_position 700}
-			{spawn "shell_smoke" offset -500 0 -500  random_position 700}
-			{spawn "shell_smoke" offset -500 25 -500  random_position 700}
-			{spawn "shell_smoke" offset -500 77 -500  random_position 700}
-			{spawn "shell_smoke" offset -500 33 -500  random_position 700}
-			{spawn "shell_smoke" offset -500 0 -500  random_position 700}
-			{spawn "shell_smoke" offset -500 0 -500 random_position 700}
-			{spawn "shell_smoke" offset -500 0 -500 random_position 700}
-			{spawn "shell_smoke" offset -500 0 -500 random_position 700}
-			{spawn "shell_smoke" offset -500 25 -500 random_position 700}
-			{spawn "shell_smoke" offset -500 77 -500 random_position 700}
-			{spawn "shell_smoke" offset -500 33 -500 random_position 700}
-			{spawn "shell_smoke" offset -500 0 -500 random_position 700}
-			{spawn "shell_smoke" offset -500 0 -500  random_position 700}
-			{spawn "shell_smoke" offset -500 0 -500  random_position 700}
-			{spawn "shell_smoke" offset -500 0 -500  random_position 700}
-			{spawn "shell_smoke" offset -500 25 -500  random_position 700}
-			{spawn "shell_smoke" offset -500 77 -500  random_position 700}
-			{spawn "shell_smoke" offset -500 33 -500  random_position 700}
-			{spawn "shell_smoke" offset -500 0 -500  random_position 700}
+			{spawn "mortar_single_120" offset -250 0 1000}
 			{hide 1}
 		}
 	}

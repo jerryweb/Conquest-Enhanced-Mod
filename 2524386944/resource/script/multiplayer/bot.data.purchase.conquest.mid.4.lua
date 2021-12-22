@@ -38,10 +38,12 @@ Purchases["campaign_capture_the_flag"] = {
 			["ger"] = {--Germany
 				--Howitzers
 				{priority = 3.0, class = UnitClass.ArtilleryTank, unit = "120mm_sgrw42"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "150mm_sig33"},
 			},
 			["rus"] = {--Russia
 			--Howitzers
 				{priority = 3.0, class = UnitClass.ArtilleryTank, unit = "120mm_pm38"},
+				{priority = 3.0, class = UnitClass.UnitClass.ATTank, unit = "m41_ampulomet"},
 			}
 		}
 	},
@@ -97,7 +99,7 @@ Purchases["campaign_capture_the_flag"] = {
 			},
 			["rus"] = {--Russia
 			--Infantry Squads
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_paras(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_paras_con(rus)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_spetsnaz(rus)"},
 				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_marines_con(rus)"},
 				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_guardsrifle_con(rus)"},
@@ -185,7 +187,7 @@ Purchases["campaign_capture_the_flag"] = {
 			},
 			["rus"] = {--Russia
 			--Infantry Squads
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_paras(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_paras_con(rus)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_spetsnaz(rus)"},
 				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_marines_con(rus)"},
 				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_guardsrifle_con(rus)"},
@@ -204,10 +206,15 @@ Purchases["campaign_capture_the_flag"] = {
 		waveDuration = 3,
 		Units = {
 			["ger"] = {--Germany
-		  	    {priority = 11.0, class = UnitClass.ATTank, unit = "210mm_morser18"},
+		  	    {priority = 1.0, class = UnitClass.ATTank, unit = "210mm_morser18"},
+		  	    {priority = 1.5, class = UnitClass.ArtilleryTank, unit = "105mm_lefh18"},
+				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "150mm_sfh18"},
 			},
 			["rus"] = {--Russia
-		        {priority = 11.0, class = UnitClass.ATTank, unit = "203mm_b4"},
+		        {priority = 1.0, class = UnitClass.ATTank, unit = "203mm_b4"},
+		        {priority = 1.0, class = UnitClass.ArtilleryTank, unit = "122mm_m30"},
+				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "122mm_a19"},
+				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "152mm_ml20"},
 			}
 		}
 	},

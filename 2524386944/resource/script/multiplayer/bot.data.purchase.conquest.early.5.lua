@@ -158,26 +158,26 @@ Purchases["campaign_capture_the_flag"] = {
 			}
 		}
 	},
-	-- {--purchase 8 gun support
-	-- 	waveNumber = 8,
-	-- 	-- Repeat = 2,
-	-- 	minRepeat = 1,
-	-- 	maxRepeat = 2,
- --        skipPossible = false,		
-	-- 	waveDuration = 15,
-	-- 	Units = {
-	-- 		["ger"] = {--Germany
-	-- 		--SPG
-	-- 			{priority = 1.0, class = UnitClass.ATTank, unit = "75mm_leig18"},
-	-- 		},
-	-- 		["rus"] = {--Russia
-	-- 		--SPG
-	-- 			{priority = 1.0, class = UnitClass.ATTank, unit = "76mm_m1927"},
-	-- 		}
-	-- 	}
-	-- }
-		{--purchase 8 SPG support
+	{--purchase 8 gun support
 		waveNumber = 8,
+		-- Repeat = 2,
+		minRepeat = 1,
+		maxRepeat = 2,
+        skipPossible = false,		
+		waveDuration = 15,
+		Units = {
+			["ger"] = {--Germany
+			--SPG
+				{priority = 1.0, class = UnitClass.ATTank, unit = "75mm_leig18"},
+			},
+			["rus"] = {--Russia
+			--SPG
+				{priority = 1.0, class = UnitClass.ATTank, unit = "76mm_m1927"},
+			}
+		}
+	},
+	{--purchase 9 SPG support
+		waveNumber = 9,
 		-- Repeat = 2,
 		minRepeat = 1,
 		maxRepeat = 2,
