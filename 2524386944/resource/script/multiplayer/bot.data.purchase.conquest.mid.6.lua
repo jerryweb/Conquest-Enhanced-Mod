@@ -16,7 +16,7 @@ Purchases["campaign_capture_the_flag"] = {
 			--Artillery
 				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "105mm_lefh18"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "150mm_sfh18"},
-				{priority = 11.0, class = UnitClass.ArtilleryTank, unit = "150mm_nebelwerfer41"}
+				{priority = 11.0, class = UnitClass.ArtilleryTank, unit = "150mm_nebelwerfer41"},
 			},
 			["rus"] = {--Russia
 			--Artillery

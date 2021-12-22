@@ -185,7 +185,7 @@ function OnGameStart()
 	math.randomseed(os.time()*BotApi.Instance.hostId)
 	math.random() math.random() math.random() math.random()
 
-	if math.random() < 0.5 then -- 30% chance to change when enemy reinforcements spawn 
+	if math.random() < 0.5 then -- 50% chance to change when enemy reinforcements spawn 
 		firstWaveOffsetTime = math.random(480,780)
 	end
 	if math.random() < 0.5 then -- 50% chance to for typhoon wave mode 
@@ -316,10 +316,10 @@ function TrySpawnUnit()
 				print("incrementing arty counter")
 			end
 
-			if IsMortar then 
-				mortarCounter = mortarCounter + 1
-				print("incrementing mortar counter")
-			end
+			-- if IsMortar then 
+			-- 	mortarCounter = mortarCounter + 1
+			-- 	print("incrementing mortar counter")
+			-- end
 
 
 			currentWaveMaxUnitCount = currentWaveMaxUnitCount - 1
@@ -392,11 +392,11 @@ function OnGameQuant()
 					SetSquadOrder(CaptureFlag, squad, OrderRotationPeriod)
 				end
 			end
-			if mortars[squad] then 
-				if not Context.SquadTimers[squad] then
-					SetSquadOrder(CaptureFlag, squad, OrderRotationPeriod)
-				end
-			end
+			-- if mortars[squad] then 
+			-- 	if not Context.SquadTimers[squad] then
+			-- 		SetSquadOrder(CaptureFlag, squad, OrderRotationPeriod)
+			-- 	end
+			-- end
 			if squadDictionary[squad] and  squadDictionary[squad] <= os.clock() then
 				if not Context.SquadTimers[squad] then
 					SetSquadOrder(CaptureFlag, squad, OrderRotationPeriod)
@@ -484,19 +484,19 @@ function OnGameSpawn(args)
 		end
 	end
 
-	if mortarCounter > 0 then
-		mortars[args.squadId] = args
-		print("added ", args.squadId, " to mortar list")
-		IsMortar = false
-		mortarCounter = mortarCounter - 1
-		local waypoints = BotApi.Scene.Waypoints
-		if #waypoints == 0 then
-			SetSquadOrder(CaptureFlag, args.squadId, OrderRotationPeriod)
-		else
-			GotoNextWaypoint(args.squadId)
-			print("#waypoints != 0")
-		end
-	end
+	-- if mortarCounter > 0 then
+	-- 	mortars[args.squadId] = args
+	-- 	print("added ", args.squadId, " to mortar list")
+	-- 	IsMortar = false
+	-- 	mortarCounter = mortarCounter - 1
+	-- 	local waypoints = BotApi.Scene.Waypoints
+	-- 	if #waypoints == 0 then
+	-- 		SetSquadOrder(CaptureFlag, args.squadId, OrderRotationPeriod)
+	-- 	else
+	-- 		GotoNextWaypoint(args.squadId)
+	-- 		print("#waypoints != 0")
+	-- 	end
+	-- end
 
 	-- local waypoints = BotApi.Scene.Waypoints
 

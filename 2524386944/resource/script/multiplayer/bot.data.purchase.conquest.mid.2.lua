@@ -109,7 +109,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 0.5, class = UnitClass.AATank, unit = "37mm_flak37"},
 			--Anti_Tank
 				{priority = 0.5, class = UnitClass.ATTank, unit = "47mm_pakt"},
-				{priority = 1.5, class = UnitClass.ATTank, unit = "50mm_pak38"}
+				{priority = 1.5, class = UnitClass.ATTank, unit = "50mm_pak38"},
 			--Infantry_Support
 				{priority = 1.1, class = UnitClass.ArtilleryTank, unit = "75mm_leig18"},
 				{priority = 0.5, class = UnitClass.ArtilleryTank, unit = "150mm_sig33"},
@@ -125,7 +125,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.AATank, unit = "25mm_72k"},
 			--Anti_Tank
 				{priority = 1.0, class = UnitClass.ATTank, unit = "57mm_zis2"},
-				{priority = 1.0, class = UnitClass.ATTank, unit = "45mm_m42"}
+				{priority = 1.0, class = UnitClass.ATTank, unit = "45mm_m42"},
 			--Infantry_Support
 				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "76mm_m43"},
 				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "76mm_m1927"},
