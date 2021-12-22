@@ -6,7 +6,7 @@ maxNumOfLateDivisions = 7
 
 -- Wave offset is used to set how much extra time the first wave will last in since the wave is loaded automatically
 gameStartTime = 0
-firstWaveOffsetTime = 30
+firstWaveOffsetTime = 720
 -- This is used to add the offset ONLY to the first wave
 initialWave = true
 
@@ -52,7 +52,7 @@ function selectArmyDivision(totalFlags)
 	end
 	print("loading")
 	-- REMOVE THIS LINE (ONLY FOR TESTING)
-	divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.2]]
+	-- divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.6]]
 	
 
 	return divisionPurchaseModel
@@ -90,7 +90,8 @@ function PIter:new(data)
 		waveDuration = nil,
 		waveStartTime = nil,
 		unlockedUnits = nil,
-		isHeavyArty = false
+		isHeavyArty = false,
+		isMortar = false
 	}
 	
 	print("loading division: ", obj.purchases[1].divisionName)
@@ -181,12 +182,19 @@ function PIter:nextIndex()
 		print("OS time: ", os.clock()) 
 		print("Initial wave offset: ", firstWaveOffsetTime)
 	end
-	print("setting ", self.purchases[self.idx].isHeavyArty)
+
 	if self.purchases[self.idx].isHeavyArty then 
 		print("setting ", self.purchases[self.idx].isHeavyArty)
 		self.isHeavyArty = self.purchases[self.idx].isHeavyArty
 	else
 		self.isHeavyArty = false
+	end
+
+	if self.purchases[self.idx].isMortar then 
+		print("setting mortar ", self.purchases[self.idx].isMortar)
+		self.isMortar = self.purchases[self.idx].isMortar
+	else
+		self.isMortar = false
 	end
 	
 

@@ -5,8 +5,10 @@ local squadDictionary = {}
 
 local emplacementArtillery = {}
 local mortars = {}
+local mortarCounter = 0
 local IsHeavyArty = false
 local heavyArtyCounter = 0
+
 
 local Context = {
 	Purchase = nil,
@@ -16,7 +18,8 @@ local Context = {
 		WaitTimer = nil
 	},
 	SquadTimers = {},
-	IsHeavyArty = false
+	IsHeavyArty = false,
+	IsMortar = false
 }
 
 function SetSpawnCooldownTimer()
@@ -93,6 +96,7 @@ function GetNextUnitToSpawn(purchase)
 	-- print("Grabbing unlocked units for wave: ", purchase.idx)
 	local units = purchase.unlockedUnits
 	IsHeavyArty = purchase.isHeavyArty
+	IsMortar = purchase.isMortar
 
 	if not units then
 		print("wave ", purchase.idx, " has no available units")
@@ -181,9 +185,9 @@ function OnGameStart()
 	math.randomseed(os.time()*BotApi.Instance.hostId)
 	math.random() math.random() math.random() math.random()
 
-	-- if math.random() < 0.5 then -- 30% chance to change when enemy reinforcements spawn 
-	-- 	firstWaveOffsetTime = math.random(480,780)
-	-- end
+	if math.random() < 0.5 then -- 30% chance to change when enemy reinforcements spawn 
+		firstWaveOffsetTime = math.random(480,780)
+	end
 	if math.random() < 0.5 then -- 50% chance to for typhoon wave mode 
 		setTyphoonWaveMode()
 	end
@@ -307,13 +311,17 @@ function TrySpawnUnit()
 	end
 	if currentWaveMaxUnitCount > 0 then
 		if BotApi.Commands:Spawn(unit, MaxSquadSize) then
-			print("Context ", Context.SpawnInfo, " is heavy arty ", IsHeavyArty)
 			if IsHeavyArty then 
 				heavyArtyCounter = heavyArtyCounter + 1
-				print("incrementing counter")
+				print("incrementing arty counter")
 			end
 
-			
+			if IsMortar then 
+				mortarCounter = mortarCounter + 1
+				print("incrementing mortar counter")
+			end
+
+
 			currentWaveMaxUnitCount = currentWaveMaxUnitCount - 1
 			KillSpawnWaitTimer()
 			SetSpawnCooldownTimer()
@@ -384,6 +392,11 @@ function OnGameQuant()
 					SetSquadOrder(CaptureFlag, squad, OrderRotationPeriod)
 				end
 			end
+			if mortars[squad] then 
+				if not Context.SquadTimers[squad] then
+					SetSquadOrder(CaptureFlag, squad, OrderRotationPeriod)
+				end
+			end
 			if squadDictionary[squad] and  squadDictionary[squad] <= os.clock() then
 				if not Context.SquadTimers[squad] then
 					SetSquadOrder(CaptureFlag, squad, OrderRotationPeriod)
@@ -419,7 +432,7 @@ function CaptureFlag(squad)
 	-- local rnd = 0.1 + choice
 	local rnd = math.random() + choice
 	if flag then
-		if rnd < 0.25 then
+		if rnd < 100 then
 			print(rnd, "+SeekAndDestroy with squad", squad)
 			BotApi.Commands:SeekAndDestroy(squad)
 		else
@@ -462,6 +475,20 @@ function OnGameSpawn(args)
 		print("added ", args.squadId, " to heavy arty list")
 		IsHeavyArty = false
 		heavyArtyCounter = heavyArtyCounter - 1
+		local waypoints = BotApi.Scene.Waypoints
+		if #waypoints == 0 then
+			SetSquadOrder(CaptureFlag, args.squadId, OrderRotationPeriod)
+		else
+			GotoNextWaypoint(args.squadId)
+			print("#waypoints != 0")
+		end
+	end
+
+	if mortarCounter > 0 then
+		mortars[args.squadId] = args
+		print("added ", args.squadId, " to mortar list")
+		IsMortar = false
+		mortarCounter = mortarCounter - 1
 		local waypoints = BotApi.Scene.Waypoints
 		if #waypoints == 0 then
 			SetSquadOrder(CaptureFlag, args.squadId, OrderRotationPeriod)

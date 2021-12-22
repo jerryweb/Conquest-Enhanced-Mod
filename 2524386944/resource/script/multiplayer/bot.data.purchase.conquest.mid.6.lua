@@ -1,4 +1,5 @@
 Purchases["campaign_capture_the_flag"] = {
+	
 	{--purchase 1 arty wave
 		divisionName = "Arty Noob division",
 		waveNumber = 1,
@@ -55,6 +56,7 @@ Purchases["campaign_capture_the_flag"] = {
 		maxRepeat = 2,
 	    skipPossible = false,
 	    waveDuration = 5,
+	    isMortar = true, 
 		Units = {
 			["ger"] = {--Germany
 				--Howitzers
