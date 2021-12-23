@@ -52,7 +52,7 @@ function selectArmyDivision(totalFlags)
 	end
 	print("loading")
 	-- REMOVE THIS LINE (ONLY FOR TESTING)
-	-- divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.4]]
+	-- divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.6]]
 	
 
 	return divisionPurchaseModel

@@ -73,6 +73,7 @@ Purchases["campaign_capture_the_flag"] = {
 		maxRepeat = 2,
 	    skipPossible = false,
 	    waveDuration = 5,
+	    isHeavyArty = true,
 		Units = {
 			["ger"] = {--Germany
 				--Howitzers

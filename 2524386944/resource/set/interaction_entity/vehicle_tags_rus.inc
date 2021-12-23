@@ -332,7 +332,7 @@
 ;HOWITZERS
 {"76mm_m1927"
 	{on spawn
-    	{tags add "artillery"}
+    	{tags add "field_gun"}
 		{tags add "soviet"}
 		{tags add "76mm_m1927"}
 		{delay 6
@@ -345,6 +345,7 @@
 								    {if not tagged "player"
 									    {if not tagged "hidden"
 										    {tags add "enemyarty-disabled"}
+										    
 										}
 									}
 								}
@@ -359,7 +360,7 @@
 }
 {"76mm_m43"
 	{on spawn
-    	{tags add "artillery"}
+    	{tags add "field_gun"}
 		{tags add "soviet"}
 		{tags add "76mm_m43"}
 		{delay 6
@@ -372,6 +373,7 @@
 								    {if not tagged "player"
 									    {if not tagged "hidden"
 										    {tags add "enemyarty-disabled"}
+										    
 										}
 									}
 								}
@@ -504,6 +506,7 @@
 								    {if not tagged "player"
 									    {if not tagged "hidden"
 										    {tags add "enemyarty-disabled"}
+										    
 										}
 									}
 								}
@@ -531,6 +534,7 @@
 								    {if not tagged "player"
 									    {if not tagged "hidden"
 										    {tags add "enemyarty-disabled"}
+										    
 										}
 									}
 								}
@@ -708,6 +712,7 @@
 	{on spawn
     	{tags add "wheeled_vehicle"}
 		{tags add "rocket_artillery"}
+		{tags add "artillery"}
 		{tags add "soviet"}
 		{tags add "bm13_studebaker"}
 		{delay 6
@@ -719,7 +724,8 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_rocketarty-disabled"}
+										    {tags add "enemy_rocketarty"}
+										    {tags add "enemyarty"}
 										}
 									}
 								}
@@ -735,6 +741,7 @@
 	{on spawn
     	{tags add "wheeled_vehicle"}
 		{tags add "rocket_artillery"}
+		{tags add "artillery"}
 		{tags add "soviet"}
 		{tags add "bm31_12"}
 		{delay 6
@@ -746,7 +753,8 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_rocketarty-disabled"}
+										    {tags add "enemy_rocketarty"}
+										    {tags add "enemyarty"}
 										}
 									}
 								}

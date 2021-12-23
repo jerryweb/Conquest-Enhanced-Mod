@@ -270,7 +270,7 @@
 ;HOWITZERS
 {"75mm_leig18"
 	{on spawn
-    	{tags add "artillery"}
+    	{tags add "field_gun"}
 		{tags add "german"}
 		{tags add "75mm_leig18"}
 		{delay 6
@@ -348,7 +348,7 @@
 }
 {"105mm_lefh18"
 	{on spawn
-    	{tags add "heavy_artillery"}
+    	{tags add "artillery"}
 		{tags add "german"}
 		{tags add "105mm_lefh18"}
 		{delay 6
@@ -388,6 +388,7 @@
 								    {if not tagged "player"
 									    {if not tagged "hidden"
 										    {tags add "ai_rocketarty-disabled"}
+										    {tags add "enemyarty"}
 										}
 									}
 								}
@@ -401,7 +402,7 @@
 }
 {"150mm_sig33"
 	{on spawn
-    	{tags add "artillery"}
+    	{tags add "field_gun"}
 		{tags add "german"}
 		{tags add "150mm_sig33"}
 		{delay 6
@@ -427,7 +428,7 @@
 }
 {"150mm_sfh18"
 	{on spawn
-    	{tags add "heavy_artillery"}
+    	{tags add "artillery"}
 		{tags add "german"}
 		{tags add "150_sfh18"}
 		{delay 6
@@ -453,7 +454,7 @@
 }
 {"210mm_morser18"
 	{on spawn
-    	{tags add "heavy_artillery"}
+    	{tags add "artillery"}
 		{tags add "german"}
 		{tags add "210mm_morser18"}
 		{delay 6
@@ -493,6 +494,7 @@
 								    {if not tagged "player"
 									    {if not tagged "hidden"
 										    {tags add "ai_rocketarty-disabled"}
+										    {tags add "enemyarty"}
 										}
 									}
 								}
