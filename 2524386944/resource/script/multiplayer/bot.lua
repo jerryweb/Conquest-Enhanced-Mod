@@ -8,6 +8,7 @@ local mortars = {}
 local mortarCounter = 0
 local IsHeavyArty = false
 local heavyArtyCounter = 0
+local artyOrderRotationPeriod = 60 * 500
 
 
 local Context = {
@@ -184,21 +185,27 @@ end
 function OnGameStart()
 	math.randomseed(os.time()*BotApi.Instance.hostId)
 	math.random() math.random() math.random() math.random()
+	print("TESTING MODE ACTIVATED = ", testing)
+	if not testing then
+		if math.random() < 0.5 then -- 50% chance to change when enemy reinforcements spawn 
+			firstWaveOffsetTime = math.random(480,780)
+		end
+	end
+	if not testing then
+		if math.random() < 0.5 then -- 50% chance to for typhoon wave mode 
+			setTyphoonWaveMode()
+		end
+	end
+	-- 30% chance to toggle ingame typhoon wave mode 
+	if math.random() < 0.3 then
+		activateToggleTyphoonWaveMode()
+	end
 
-	if math.random() < 0.5 then -- 50% chance to change when enemy reinforcements spawn 
-		firstWaveOffsetTime = math.random(480,780)
-	end
-	if math.random() < 0.5 then -- 50% chance to for typhoon wave mode 
-		setTyphoonWaveMode()
-	end
--- 
 	gameStartTime = os.clock()
 	print("first enemy wave will start at ", gameStartTime + firstWaveOffsetTime)
 	nextTyphoonWaveTime = gameStartTime + firstWaveOffsetTime
 	nextTyphoonWaveToggleTime = gameStartTime + typhoonWaveToggleInterval + firstWaveOffsetTime
 	print("Next typhoon wave toggle time will start at ", gameStartTime + firstWaveOffsetTime)
-
-
 
 	local purchasesModule = [[/script/multiplayer/bot.data.purchase.]] .. BotApi.Instance.gameMode;
 	if module_exists(purchasesModule) then
@@ -389,7 +396,7 @@ function OnGameQuant()
 			-- print("squad ", squad, " with unlock time = ", squadDictionary[squad])
 			if emplacementArtillery[squad] then 
 				if not Context.SquadTimers[squad] then
-					SetSquadOrder(CaptureFlag, squad, OrderRotationPeriod)
+					SetSquadOrder(CaptureFlag, squad, artyOrderRotationPeriod)
 				end
 			end
 			-- if mortars[squad] then 
@@ -432,18 +439,21 @@ function CaptureFlag(squad)
 	-- local rnd = 0.1 + choice
 	local rnd = math.random() + choice
 	if flag then
-		if rnd < 100 then
-			print(rnd, "+SeekAndDestroy with squad", squad)
+		-- if emplacementArtillery[squad] then
+			print("+SeekAndDestroy with  squad", squad)
 			BotApi.Commands:SeekAndDestroy(squad)
-		else
-			print(rnd, "+CaptureFlag with squad", squad)
-			if not mortars[squad] then
-				BotApi.Commands:CaptureFlag(squad, flag.name)
-			else 
-				print("oops mortar")
-				BotApi.Commands:SeekAndDestroy(squad)
-			end
-		end
+		-- if rnd < 0.25 then
+		-- 	print(rnd, "+SeekAndDestroy with squad", squad)
+		-- 	BotApi.Commands:SeekAndDestroy(squad)
+		-- else
+		-- 	print(rnd, "+CaptureFlag with squad", squad)
+		-- 	if not mortars[squad] then
+		-- 		BotApi.Commands:CaptureFlag(squad, flag.name)
+		-- 	else 
+		-- 		print("oops mortar")
+		-- 		BotApi.Commands:SeekAndDestroy(squad)
+		-- 	end
+		-- end
 	else
 			print(rnd, "!SeekAndDestroy with squad", squad)
 			BotApi.Commands:SeekAndDestroy(squad)
@@ -477,7 +487,7 @@ function OnGameSpawn(args)
 		heavyArtyCounter = heavyArtyCounter - 1
 		local waypoints = BotApi.Scene.Waypoints
 		if #waypoints == 0 then
-			SetSquadOrder(CaptureFlag, args.squadId, OrderRotationPeriod)
+			SetSquadOrder(CaptureFlag, args.squadId, artyOrderRotationPeriod)
 		else
 			GotoNextWaypoint(args.squadId)
 			print("#waypoints != 0")
@@ -503,7 +513,7 @@ function OnGameSpawn(args)
 	-- for i, waypoints in pairs(waypoints) do
 	-- 	print("points", i)
 	-- end
-	-- print("spawned squad id: ", tostring(args.squadId))
+	-- print("spawned squad id: ", tostring(args.unit))
 
 	local str = tostring(args.squadId)
 
