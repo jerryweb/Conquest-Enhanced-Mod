@@ -406,7 +406,7 @@
 }
 {"82mm_bm37"
 	{on spawn
-    	{tags add "artillery"}
+		{tags add "artillery"}
 		{tags add "soviet"}
 		{tags add "82mm_bm37"}
 		{delay 6
@@ -432,7 +432,7 @@
 }
 {"120mm_pm38"
 	{on spawn
-    	{tags add "artillery"}
+		{tags add "artillery"}
 		{tags add "soviet"}
 		{tags add "120mm_pm38"}
 		{delay 6

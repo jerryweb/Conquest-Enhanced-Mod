@@ -35,7 +35,7 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 2,
 		maxRepeat = 3,
 	    skipPossible = false,
-	    waveDuration = 5,
+	    waveDuration = 10,
 	    isHeavyArty = true,
 		Units = {
 			["ger"] = {--Germany
@@ -51,8 +51,8 @@ Purchases["campaign_capture_the_flag"] = {
 	{--purchase Emplancement wave
 		waveNumber = 3,
 	    -- Repeat = 6,
-		minRepeat = 2,
-		maxRepeat = 4,
+		minRepeat = 1,
+		maxRepeat = 3,
 	    skipPossible = false,
 	    waveDuration = 10,
 		Units = {
@@ -118,8 +118,8 @@ Purchases["campaign_capture_the_flag"] = {
 	{--purchase 5 infantry support
 		waveNumber = 5,
 		-- Repeat = 10,
-		minRepeat = 6,
-		maxRepeat = 8,
+		minRepeat = 3,
+		maxRepeat = 5,
         skipPossible = false,		
 		waveDuration = 20,
 		Units = {
@@ -170,37 +170,8 @@ Purchases["campaign_capture_the_flag"] = {
 			}
 		}
 	},
-	{--purchase
+	{--purchase 7 Tank 2
 		waveNumber = 7,
-		-- Repeat = 6,
-		minRepeat = 6,
-		maxRepeat = 8,
-		skipPossible = false,
-		waveDuration = 30,
-		Units = {
-			["ger"] = {--Germany
-				--Infantry Squads
-			-- 	{priority = 2.0, class = UnitClass.Infantry, unit = "squad_recon_con(ger)"},
-			-- 	{priority = 2.0, class = UnitClass.Infantry, unit = "squad_recon_armor_con"},
-			-- --Wheel_vehicles
-			-- 	{priority = 5.1, class = UnitClass.Vehicle, unit = "p204_f"},
-			-- 	{priority = 1.5, class = UnitClass.Vehicle, unit = "sdkfz231"},
-			-- 	{priority = 1.5, class = UnitClass.Vehicle, unit = "sdkfz221"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_fallschirmjaeger_con(ger)"},
-			},
-			["rus"] = {--Russia
-			--Infantry Singles
-			--     {priority = 2.5, class = UnitClass.Infantry, unit = "squad_recon_con(rus)"},
-			-- 	{priority = 2.0, class = UnitClass.Infantry, unit = "squad_spetsnaz(rus)"},
-			-- --Wheel_vehicles
-			-- 	{priority = 1.8, class = UnitClass.Vehicle, unit = "m3a1e1_scout_mgun"},
-			-- 	{priority = 0.5, class = UnitClass.Vehicle, unit = "ba64"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_paras_con(rus)"}
-			}
-		}
-	},
-	{--purchase 8 Tank 2
-		waveNumber = 8,
 		-- Repeat = 5,
 		minRepeat = 2,
 		maxRepeat = 4,
@@ -227,11 +198,11 @@ Purchases["campaign_capture_the_flag"] = {
 			}
 		}
 	},
-	{--purchase 9 infantry attack 2
-		waveNumber = 9,
+	{--purchase 8 infantry attack 2
+		waveNumber = 8,
 		-- Repeat = 10,
-		minRepeat = 6,
-		maxRepeat = 11,
+		minRepeat = 4,
+		maxRepeat = 8,
         skipPossible = false,		
 		waveDuration = 35,
 		Units = {
@@ -258,8 +229,8 @@ Purchases["campaign_capture_the_flag"] = {
 			}
 		}
 	},
-	{--purchase 10 rocket arty
-		waveNumber = 10,
+	{--purchase 9 rocket arty
+		waveNumber = 9,
 		-- Repeat = 2,
 		minRepeat = 1,
 		maxRepeat = 2,
@@ -275,8 +246,8 @@ Purchases["campaign_capture_the_flag"] = {
 			}
 		}
 	},
-	{--purchase 11 light tank rush
-		waveNumber = 11,
+	{--purchase 10 light tank rush
+		waveNumber = 10,
 		-- Repeat = 10,
 		minRepeat = 2,
 		maxRepeat = 4,
