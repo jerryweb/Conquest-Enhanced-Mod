@@ -107,6 +107,7 @@
 	{on "eject" overload
 		{tags add "can_die"}
 		{tags add "deployed"}
+		{tags add "para_in_field"}
 		{tags remove "on_plane_1"}
 		{tags remove "on_plane_2"}
 		{tags remove "on_plane_3"}
@@ -153,7 +154,7 @@
 					{tags add "eject"}	
 					{spawn "paratrooper_attach" offset 205 -10 -534}
 				}
-			else altitude 4 		
+			else altitude 10 		
 				{delay 0.4 0.1 "parachute"
 					{tags add "eject"}	
 					{spawn "paratrooper_attach" offset 205 -10 -534}
