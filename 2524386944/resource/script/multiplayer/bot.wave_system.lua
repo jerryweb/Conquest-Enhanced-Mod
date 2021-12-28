@@ -1,7 +1,7 @@
 require([[/script/multiplayer/bot.data]])
 
 -- This enables early testing so that units come 30 seconds after start. 
-testing = true
+testing = false
 
 -- Number of unit division roster files to randomly select for each period in the war 
 maxNumOfEarlyDivisions = 5
@@ -11,7 +11,7 @@ maxNumOfLateDivisions = 7
 -- Wave offset is used to set how much extra time the first wave will last in since the wave is loaded automatically
 gameStartTime = 0
 if testing then
-	firstWaveOffsetTime = 90
+	firstWaveOffsetTime = 30
 else 
 	firstWaveOffsetTime = 720
 end
@@ -19,7 +19,7 @@ end
 initialWave = true
 
 -- This variable controls whether units will spawn all at once for 15 seconds, creating a massive wave, every x seconds
-typhoonWaveMode = true
+typhoonWaveMode = false
 nextTyphoonWaveTime = 0
 typhoonWaveInterval = 90
 typhoonWaveDuration = 25
