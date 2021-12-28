@@ -1,7 +1,7 @@
 require([[/script/multiplayer/bot.data]])
 
 -- This enables early testing so that units come 30 seconds after start. 
-testing = false
+testing = true
 
 -- Number of unit division roster files to randomly select for each period in the war 
 maxNumOfEarlyDivisions = 5
@@ -61,7 +61,7 @@ function selectArmyDivision(totalFlags)
 	print("loading")
 	-- REMOVE THIS LINE (ONLY FOR TESTING)
 	if testing then
-		divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.6]]
+		divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.7]]
 	end
 	
 

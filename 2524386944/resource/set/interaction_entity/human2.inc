@@ -94,7 +94,7 @@
 			}
 		else linked "airborne"
 			{delay 0.01
-				(mod not "mp" {call "eject"})
+				{call "eject"}
 				{volumes disable contact}			;// stops humans from "colliding" with plane when ejecting.
 				{volumes enable bullet}
 				{delay 1 {volumes enable contact blast}}
@@ -124,7 +124,12 @@
 	{on "pull_chute"
 		{if altitude 1
 			{throw_off up 2 forward 0.01}
-			{if altitude 51
+			{if altitude 56
+				{delay 3.0 "parachute"
+					{tags add "eject"}	
+					{spawn "paratrooper_attach" offset 205 -10 -534}
+				}
+			else altitude 51
 				{delay 2.7 "parachute"
 					{tags add "eject"}	
 					{spawn "paratrooper_attach" offset 205 -10 -534}
@@ -134,23 +139,28 @@
 					{tags add "eject"}	
 					{spawn "paratrooper_attach" offset 205 -10 -534}
 				}
-			else altitude 45 		
+			else altitude 43 		
 				{delay 2.4 "parachute"
 					{tags add "eject"}	
 					{spawn "paratrooper_attach" offset 205 -10 -534}
 				}
-			else altitude 40 		
+			else altitude 38 		
 				{delay 2.2 "parachute"
 					{tags add "eject"}	
 					{spawn "paratrooper_attach" offset 205 -10 -534}
 				}
-			else altitude 35 		
+			else altitude 33 		
 				{delay 1.8 "parachute"
 					{tags add "eject"}	
 					{spawn "paratrooper_attach" offset 205 -10 -534}
 				}
-			else altitude 30 		
-				{delay 1.4 "parachute"
+			else altitude 28 		
+				{delay 1.2 "parachute"
+					{tags add "eject"}	
+					{spawn "paratrooper_attach" offset 205 -10 -534}
+				}
+			else altitude 23 		
+				{delay 1.0 "parachute"
 					{tags add "eject"}	
 					{spawn "paratrooper_attach" offset 205 -10 -534}
 				}
