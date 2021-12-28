@@ -54,7 +54,7 @@
 		{view start "wp"}
 		{delay 0.05
 			{volumes "body" enable contact}
-			{fire radius 0.3 time 0.2 heating 2 follow}
+			{fire radius 0.3 time 0.5 heating 3 follow}
 			{fire radius 0.15 time 15 heating 0.1 follow}
 		}
 		{delay 25 10
@@ -237,17 +237,21 @@
 		{delay 1 {volumes enable bullet contact blast}}
 	}
 	{on blast_hit
-		{if min_energy 1.0
+		{if min_energy 20
 			{hide 1}
-		else
-			{impulse up 1 1 dir 2 1}
+		else min_energy 10
+			{impulse up 10 0.3 dir 5 0.5}
+		else min_energy 5
+			{impulse up 5 0.3 dir 5 0.5}
+		else min_energy 1
+			{impulse up 1 0.3 dir 1 0.5}
 		}
 	}
 	{on bullet_hit
 		{if stuff "bullet"
 			{impulse up 0.5 0.5 dir 0.5 0.5}
 		else stuff "shell"
-			{hide 1}
+			{hide 0.5}
 		}
 	}
 	{on contact
@@ -275,6 +279,20 @@
 			{impulse up 1 0.3 dir 1 0.5}
 		 else stuff "zenite"
 			{impulse up 0.2 0.1 dir 0.1 0.05}
+		}
+	}
+}
+
+{"building_part part"
+	{on blast_hit
+		{if min_energy 40
+			{impulse up 6 1 dir 5 1}
+		else min_energy 20
+			{impulse up 4 0.3 dir 4 0.5}
+		else min_energy 10
+			{impulse up 2 0.3 dir 2 0.5}
+		else min_energy 5
+			{impulse up 0.5 0.3 dir 0.5 0.5}
 		}
 	}
 }
@@ -1437,6 +1455,42 @@
 		{view start "fire_small"}
 		;{add_view "light_spot_ground" "light_spot_ground" "root"}
 		;{view start "light_spot_ground"}
+	}
+}
+
+{"artillery_minimap_signal_heavy"
+	{on spawn
+		(mod "mp"
+			{delay 1.50
+				{delete}
+			}
+		)
+		(mod not "mp"
+			{delay 2.50
+				{delete}
+			}
+		)
+	}
+}
+
+{"artillery_minimap_signal_medium"
+	{on spawn
+		(mod "mp"
+			{delay 0.75
+				{delete}
+			}
+		)
+		(mod not "mp"
+			{delay 1.50
+				{delete}
+			}
+		)
+	}
+}
+
+{"map_point_tagger"
+	{on spawn
+		{tags add "flag"}
 	}
 }
 

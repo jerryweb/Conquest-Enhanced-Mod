@@ -163,7 +163,7 @@
 	{item "bulletger_50_l60"	"he"		"ammo" 1 {value 5}}
 	{item "bulletger_50_l60"	"heat"		"ammo" 1 {value 10}}
 
-	{item "bulletger_75_l24"	"apche"		"ammo" 1 {value 5}}
+	{item "bulletger_75_l24"	"apcbche"		"ammo" 1 {value 5}}
 	{item "bulletger_75_l24"	"he"		"ammo" 1 {value 5}}
 	{item "bulletger_75_l24"	"heat"		"ammo" 1 {value 10}}
 	{item "bulletger_75_l24"	"heata"		"ammo" 1 {value 10}}

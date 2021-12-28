@@ -29,6 +29,7 @@ Purchases["campaign_capture_the_flag"] = {
 		maxRepeat = 2,
 	    skipPossible = false,
 	    waveDuration = 5,
+	    isHeavyArty = true,
 		Units = {
 			["ger"] = {--Germany
 				--Howitzers
@@ -92,8 +93,49 @@ Purchases["campaign_capture_the_flag"] = {
 			}
 		}
 	},
-	{--purchase 5 SPG support
+	{--purchase Emplancement wave 5
 		waveNumber = 5,
+	    -- Repeat = 6,
+		minRepeat = 2,
+		maxRepeat = 4,
+	    skipPossible = false,
+	    waveDuration = 10,
+		Units = {
+			["ger"] = {--Germany
+			--HMGs
+				{priority = 1.5, class = UnitClass.Vehicle, unit = "mg42_lafette"},
+				{priority = 1.5, class = UnitClass.Vehicle, unit = "mg34_lafette"},
+			--Anti_Aircraft
+				{priority = 1.0, class = UnitClass.AATank, unit = "20mm_flak30"},
+				{priority = 0.5, class = UnitClass.AATank, unit = "37mm_flak37"},
+			--Anti_Tank
+				{priority = 0.5, class = UnitClass.ATTank, unit = "47mm_pakt"},
+				{priority = 1.5, class = UnitClass.ATTank, unit = "50mm_pak38"},
+			--Infantry_Support
+				{priority = 1.1, class = UnitClass.ArtilleryTank, unit = "75mm_leig18"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, unit = "150mm_sig33"},
+			},
+			["rus"] = {--Russia
+           --HMGs
+				{priority = 1.0, class = UnitClass.Vehicle, unit = "dshk_aa"},
+				{priority = 1.5, class = UnitClass.Vehicle, unit = "maxim"},
+				{priority = 1.0, class = UnitClass.Vehicle, unit = "sg43_stand"},
+				{priority = 1.0, class = UnitClass.Vehicle, unit = "dshk_stan"},
+			--Anti_Aircraft
+				{priority = 0.5, class = UnitClass.AATank, unit = "37mm_61k"},
+				{priority = 1.0, class = UnitClass.AATank, unit = "25mm_72k"},
+			--Anti_Tank
+				{priority = 1.0, class = UnitClass.ATTank, unit = "57mm_zis2"},
+				{priority = 1.0, class = UnitClass.ATTank, unit = "45mm_m42"},
+			--Infantry_Support
+				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "76mm_m43"},
+				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "76mm_m1927"},
+				{priority = 2.0, class = UnitClass.ArtilleryTank, unit = "76mm_zis3"},
+			}
+		}
+	},
+	{--purchase 6 SPG support
+		waveNumber = 6,
 		-- Repeat = 5,
 		minRepeat = 2,
 		maxRepeat = 4,
@@ -121,8 +163,8 @@ Purchases["campaign_capture_the_flag"] = {
 			}
 		}
 	},
-	{--purchase 6 Tank 2
-		waveNumber = 6,
+	{--purchase 7 Tank 2
+		waveNumber = 7,
 		-- Repeat = 7,
 		minRepeat = 2,
 		maxRepeat = 4,
@@ -148,8 +190,8 @@ Purchases["campaign_capture_the_flag"] = {
 			}
 		}
 	},
-	{--purchase 7 infantry attack 2
-		waveNumber = 7,
+	{--purchase 8 infantry attack 2
+		waveNumber = 8,
 		-- Repeat = 15,
 		minRepeat = 4,
 		maxRepeat = 8,
@@ -177,8 +219,8 @@ Purchases["campaign_capture_the_flag"] = {
 			}
 		}
 	},
-	{--purchase 8 rocket arty
-		waveNumber = 8,
+	{--purchase 9 rocket arty
+		waveNumber = 9,
 		-- Repeat = 1,
 		minRepeat = 1,
 		maxRepeat = 2,
@@ -193,8 +235,8 @@ Purchases["campaign_capture_the_flag"] = {
 			}
 		}
 	},
-	{--purchase 9 light tank rush
-		waveNumber = 9,
+	{--purchase 10 light tank rush
+		waveNumber = 10,
 		-- Repeat = 8,
 		minRepeat = 4,
 		maxRepeat = 8,

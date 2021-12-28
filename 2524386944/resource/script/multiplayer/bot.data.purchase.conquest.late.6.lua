@@ -7,16 +7,17 @@ Purchases["campaign_capture_the_flag"] = {
 		maxRepeat = 3,
         skipPossible = false,		
 		waveDuration = 5,
+		isHeavyArty = true,
 		Units = {
 			["ger"] = {--Germany
-		        {priority = 1.0, class = UnitClass.ArtilleryTank, unit = "300mm_nebelwerfer42"},
-		        {priority = 0.5, class = UnitClass.ATTank, unit = "210mm_morser18"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "150mm_sfh18"},
+		        {priority = 1.0, class = UnitClass.ArtilleryTank, unit = "300mm_nebelwerfer42", isHeavyArty = true},
+		        {priority = 0.5, class = UnitClass.ATTank, unit = "210mm_morser18", isHeavyArty = true},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "150mm_sfh18", isHeavyArty = true},
 			},
 			["rus"] = {--Russia
-				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "bm31_12"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "152mm_ml20"},
-				{priority = 0.5, class = UnitClass.ATTank, unit = "203mm_b4"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "bm31_12", isHeavyArty = true},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "152mm_ml20", isHeavyArty = true},
+				{priority = 0.5, class = UnitClass.ATTank, unit = "203mm_b4", isHeavyArty = true},
 			}
 		}
 	},
@@ -54,6 +55,7 @@ Purchases["campaign_capture_the_flag"] = {
 		maxRepeat = 3,
 	    skipPossible = false,
 	    waveDuration = 5,
+	    isHeavyArty = true,
 		Units = {
 			["ger"] = {--Germany
 				--Howitzers
@@ -218,12 +220,13 @@ Purchases["campaign_capture_the_flag"] = {
 		maxRepeat = 2,
         skipPossible = false,		
 		waveDuration = 5,
+		isHeavyArty = true,
 		Units = {
 			["ger"] = {--Germany
-		        {priority = 11.0, class = UnitClass.ArtilleryTank, unit = "300mm_nebelwerfer42"},
+		        {priority = 11.0, class = UnitClass.ArtilleryTank, unit = "300mm_nebelwerfer42", isHeavyArty = true},
 			},
 			["rus"] = {--Russia
-				{priority = 11.0, class = UnitClass.ArtilleryTank, unit = "bm31_12"},
+				-- {priority = 1.0, class = UnitClass.ArtilleryTank, unit = "bm13_studebaker"},
 			}
 		}
 	},

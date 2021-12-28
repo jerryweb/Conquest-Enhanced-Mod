@@ -1,12 +1,20 @@
 require([[/script/multiplayer/bot.data]])
+
+-- This enables early testing so that units come 30 seconds after start. 
+testing = false
+
 -- Number of unit division roster files to randomly select for each period in the war 
 maxNumOfEarlyDivisions = 5
-maxNumOfMidDivisions = 5
+maxNumOfMidDivisions = 6
 maxNumOfLateDivisions = 7
 
 -- Wave offset is used to set how much extra time the first wave will last in since the wave is loaded automatically
 gameStartTime = 0
-firstWaveOffsetTime = 720
+if testing then
+	firstWaveOffsetTime = 30
+else 
+	firstWaveOffsetTime = 720
+end
 -- This is used to add the offset ONLY to the first wave
 initialWave = true
 
@@ -17,7 +25,7 @@ typhoonWaveInterval = 90
 typhoonWaveDuration = 25
 
 -- This controls whether typhoon wave mode can turn on or off dynamically ingame
-typhoonWaveModeInGameToggle = true
+typhoonWaveModeInGameToggle = false
 -- This is the interval at which the typhoon wave mode can toggle on or off during a game
 typhoonWaveToggleInterval = 300
 -- Next movment at ingame time at which a chance to toggle typhoon wave mode
@@ -52,7 +60,9 @@ function selectArmyDivision(totalFlags)
 	end
 	print("loading")
 	-- REMOVE THIS LINE (ONLY FOR TESTING)
-	-- divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.7]]
+	if testing then
+		divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.6]]
+	end
 	
 
 	return divisionPurchaseModel
@@ -67,6 +77,13 @@ function setTyphoonWaveMode()
 	SpawnCooldownTime.Min = 2
 	SpawnCooldownTime.Max = 2
 	print("typhoon wave mode activated")
+end
+
+function  activateToggleTyphoonWaveMode()
+	
+	typhoonWaveModeInGameToggle = true
+	print("typhoonWaveMode in game toggle on")
+	
 end
 
 function disableTyphoonWaveMode()
@@ -89,7 +106,9 @@ function PIter:new(data)
 		maxRepeat = 0,
 		waveDuration = nil,
 		waveStartTime = nil,
-		unlockedUnits = nil
+		unlockedUnits = nil,
+		isHeavyArty = false,
+		isMortar = false
 	}
 	
 	print("loading division: ", obj.purchases[1].divisionName)
@@ -180,6 +199,21 @@ function PIter:nextIndex()
 		print("OS time: ", os.clock()) 
 		print("Initial wave offset: ", firstWaveOffsetTime)
 	end
+
+	if self.purchases[self.idx].isHeavyArty then 
+		print("setting ", self.purchases[self.idx].isHeavyArty)
+		self.isHeavyArty = self.purchases[self.idx].isHeavyArty
+	else
+		self.isHeavyArty = false
+	end
+
+	if self.purchases[self.idx].isMortar then 
+		print("setting mortar ", self.purchases[self.idx].isMortar)
+		self.isMortar = self.purchases[self.idx].isMortar
+	else
+		self.isMortar = false
+	end
+	
 
 	print("waveStartTime:", self.waveStartTime)
 	print("waveDuration: ", self.waveDuration)

@@ -65,6 +65,7 @@ Purchases["campaign_capture_the_flag"] = {
 		maxRepeat = 1,
 	    skipPossible = false,
 	    waveDuration = 5,
+	    isHeavyArty = true,
 		Units = {
 			["ger"] = {--Germany
 				--Howitzers
@@ -234,6 +235,26 @@ Purchases["campaign_capture_the_flag"] = {
 			}
 		}
 	}
+	{--purchase 9 field gun support
+		waveNumber = 9,
+		-- Repeat = 3,
+		minRepeat = 2,
+		maxRepeat = 4,
+        skipPossible = false,		
+		waveDuration = 8,
+		Units = {
+			["ger"] = {--Germany
+			--SPG
+				{priority = 1.5, class = UnitClass.ATTank, unit = "37mm_pak36"},
+				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "75mm_leig18"},
+			},
+			["rus"] = {--Russia
+			--SPG
+				{priority = 1.5, class = UnitClass.ATTank, unit = "45mm_m37"},
+				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "76mm_m1927"},
+			}
+		}
+	},
 }
 
 --Conversion Chart
