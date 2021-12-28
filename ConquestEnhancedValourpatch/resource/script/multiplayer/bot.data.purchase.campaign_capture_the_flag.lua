@@ -44,16 +44,16 @@ Purchases["campaign_capture_the_flag"] = {
 			--Automatic_weaponry
 				{priority = 1.0, class = UnitClass.ATTank, unit = "mg34_lafette"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "mg42_lafette"},
-			--	{priority = 1.0, class = UnitClass.ATTank, unit = "20mm_flak30"},
-			--	{priority = 1.0, class = UnitClass.ATTank, unit = "37mm_flak37"},
-			--AT_Wreapon
-			--	{priority = 1.0, class = UnitClass.ATTank, unit = "37mm_pak36"},
-			--	{priority = 1.0, class = UnitClass.ATTank, unit = "47mm_pakt"},
-			--	{priority = 2.0, class = UnitClass.ATTank, unit = "50mm_pak38"},
-			--	{priority = 1.0, class = UnitClass.ATTank, unit = "75mm_leig18"},
-			--	{priority = 2.0, class = UnitClass.ATTank, unit = "88mm_flak18"},
-			--	{priority = 2.0, class = UnitClass.ATTank, unit = "88mm_flak36"},
-			--	{priority = 2.0, class = UnitClass.ATTank, unit = "75mm_pak40"},
+				{priority = 1.0, class = UnitClass.ATTank, unit = "20mm_flak30"},
+				{priority = 1.0, class = UnitClass.ATTank, unit = "37mm_flak37"},
+			-- AT_Wreapon
+				{priority = 1.0, class = UnitClass.ATTank, unit = "37mm_pak36"},
+				{priority = 1.0, class = UnitClass.ATTank, unit = "47mm_pakt"},
+				{priority = 2.0, class = UnitClass.ATTank, unit = "50mm_pak38"},
+				{priority = 1.0, class = UnitClass.ATTank, unit = "75mm_leig18"},
+				{priority = 2.0, class = UnitClass.ATTank, unit = "88mm_flak18"},
+				{priority = 2.0, class = UnitClass.ATTank, unit = "88mm_flak36"},
+				{priority = 2.0, class = UnitClass.ATTank, unit = "75mm_pak40"},
 			--Howitzers
 				{priority = 1.0, class = UnitClass.ATTank, unit = "80mm_sgrw34"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "105mm_lefh18"},
@@ -451,16 +451,16 @@ Purchases["campaign_capture_the_flag"] = {
 			--Automatic_weaponry
 				{priority = 1.0, class = UnitClass.ATTank, unit = "maxim"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "dshk_stan"},
-			--	{priority = 1.0, class = UnitClass.ATTank, unit = "25mm_72k"},
-			--	{priority = 1.0, class = UnitClass.ATTank, unit = "37mm_61k"},
-			--AT_Wreapon
-			--	{priority = 1.0, class = UnitClass.ATTank, unit = "45mm_m37"},
-			--	{priority = 1.0, class = UnitClass.ATTank, unit = "57mm_zis2"},
-			--	{priority = 2.0, class = UnitClass.ATTank, unit = "76mm_zis3"},
-			--	{priority = 1.0, class = UnitClass.ATTank, unit = "75mm_m43"},
-			--	{priority = 1.0, class = UnitClass.ATTank, unit = "76mm_m1927"},
-			--	{priority = 2.0, class = UnitClass.ATTank, unit = "76mm_f22"},
-			--	{priority = 2.0, class = UnitClass.ATTank, unit = "85mm_52k"},
+				{priority = 1.0, class = UnitClass.ATTank, unit = "25mm_72k"},
+				{priority = 1.0, class = UnitClass.ATTank, unit = "37mm_61k"},
+			-- AT_Wreapon
+				{priority = 1.0, class = UnitClass.ATTank, unit = "45mm_m37"},
+				{priority = 1.0, class = UnitClass.ATTank, unit = "57mm_zis2"},
+				{priority = 2.0, class = UnitClass.ATTank, unit = "76mm_zis3"},
+				{priority = 1.0, class = UnitClass.ATTank, unit = "75mm_m43"},
+				{priority = 1.0, class = UnitClass.ATTank, unit = "76mm_m1927"},
+				{priority = 2.0, class = UnitClass.ATTank, unit = "76mm_f22"},
+				{priority = 2.0, class = UnitClass.ATTank, unit = "85mm_52k"},
 			--Howitzers
 				{priority = 1.0, class = UnitClass.ATTank, unit = "82mm_bm37"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "120mm_pm38"},

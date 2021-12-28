@@ -707,3 +707,15 @@
 	    }
 	}
 }
+
+;_________________________________________________
+;|               Aircraft                         |
+;|________________________________________________|
+
+{"sm79_para_plane"
+	{on spawn
+		{tags add "italian"}
+		{tags add "drop_plane"}
+		{tags add "aircraft"}
+	}
+}

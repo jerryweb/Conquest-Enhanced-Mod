@@ -2176,3 +2176,12 @@
     	{tags add "aircraft"}
 	}
 }
+
+{"bf110_para_plane"
+	{on spawn
+		{tags add "german"}
+		{tags add "drop_plane"}
+		{tags add "aircraft"}
+	}
+}
+

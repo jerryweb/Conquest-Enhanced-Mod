@@ -13931,44 +13931,30 @@
 	{Entity "arrow_enemy" 0x828f
 		{Position 11975.6 3527.74}
 		{xform zl 86.76}
-		{Player 0}
-		{MID 242}
 	}
 	{Entity "arrow_enemy" 0x828a
 		{Position 12019.6 7495.11}
 		{xform zl 86.76}
-		{Player 0}
-		{MID 243}
 	}
 	{Entity "arrow_enemy" 0x828b
 		{Position 11998.3 265.59}
 		{xform zl 86.76}
-		{Player 0}
-		{MID 253}
 	}
 	{Entity "arrow_enemy" 0x828c
 		{Position 12009.2 -4589.94}
 		{xform zl 86.76}
-		{Player 0}
-		{MID 317}
 	}
 	{Entity "arrow_enemy" 0x828d
 		{Position -11090.4 -491.13}
 		{xform zl -80.37}
-		{Player 0}
-		{MID 318}
 	}
 	{Entity "arrow_enemy" 0x828e
 		{Position -11270.9 7990.08}
 		{xform zl -111.09}
-		{Player 0}
-		{MID 319}
 	}
 	{Entity "arrow_enemy" 0x8290
 		{Position -10934.9 -7889.99}
 		{xform zl -55.46}
-		{Player 0}
-		{MID 320}
 	}
 	{Entity "k98" 0x9cdb
 		{Extender "stuff"
@@ -59282,7 +59268,8 @@
 					}
 				}
 			}
-			{"x/enemyartyset2"
+			{## "x/enemyartyset2"
+				{disabled}
 				{condition
 					{expression "2"}
 					{terms
@@ -60344,6 +60331,123 @@
 									}
 								}
 							}
+							{group
+								{select
+									{tag
+										{tag player}
+									}
+								}
+								{include
+									{with_item
+										{type existance}
+										{item "cap_eng_off"}
+									}
+									{with_item
+										{type existance}
+										{item "binocular"}
+									}
+									{state
+										{state operatable}
+									}
+								}
+							}
+							{group
+								{select
+									{tag
+										{tag player}
+									}
+								}
+								{include
+									{with_item
+										{type existance}
+										{item "cap_ita_bustina_officer"}
+									}
+									{with_item
+										{type existance}
+										{item "binocular"}
+									}
+									{state
+										{state operatable}
+									}
+								}
+							}
+							{group
+								{select
+									{tag
+										{tag player}
+									}
+								}
+								{include
+									{state
+										{state operatable}
+									}
+									{with_item
+										{type existance}
+										{item "cap1_jap"}
+									}
+									{with_item
+										{type existance}
+										{item "binocular"}
+									}
+								}
+							}
+							{group
+								{select
+									{tag
+										{tag player}
+									}
+								}
+								{include
+									{with_item
+										{type existance}
+										{item "cap_fra_sidecap_officer"}
+									}
+									{with_item
+										{type existance}
+										{item "binocular"}
+									}
+								}
+							}
+							{group
+								{select
+									{tag
+										{tag player}
+									}
+								}
+								{include
+									{with_item
+										{type existance}
+										{item "cap1_usa"}
+									}
+									{with_item
+										{type existance}
+										{item "binocular"}
+									}
+									{state
+										{state operatable}
+									}
+								}
+							}
+							{group
+								{select
+									{tag
+										{tag player}
+									}
+								}
+								{include
+									{with_item
+										{type existance}
+										{item "cap_pol_2div_officer"}
+									}
+									{with_item
+										{type existance}
+										{item "binocular"}
+									}
+									{state
+										{state operatable}
+									}
+								}
+							}
 						}
 						{tag_add officer}
 					}
@@ -60735,7 +60839,7 @@
 										{value 0.5}
 									}
 									{"delay"
-										{time 7}
+										{time 3}
 									}
 									{"actor_state"
 										{selector
@@ -60785,7 +60889,7 @@
 										}
 									}
 									{"delay"
-										{time 10}
+										{time 7}
 									}
 									{"actor_state"
 										{selector
@@ -60945,7 +61049,7 @@
 										{value 0.4}
 									}
 									{"delay"
-										{time 7}
+										{time 3}
 									}
 									{"actor_state"
 										{selector
@@ -60995,7 +61099,7 @@
 										}
 									}
 									{"delay"
-										{time 15}
+										{time 10}
 									}
 									{"actor_state"
 										{selector
@@ -61174,6 +61278,9 @@
 											}
 											{tag
 												{tag katy}
+											}
+											{tag
+												{tag medium_tank}
 											}
 										}
 									}
@@ -74850,7 +74957,8 @@
 					}
 				}
 			}
-			{"ai./tag_ai_mg"
+			{## "ai./tag_ai_mg"
+				{disabled}
 				{condition
 					{terms
 						{"1.entities"
@@ -74878,9 +74986,6 @@
 										}
 										{zone
 											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
 										}
 									}
 									{include
@@ -74960,7 +75065,8 @@
 					}
 				}
 			}
-			{"ai./tag_preplaced_mg"
+			{## "ai./tag_preplaced_mg"
+				{disabled}
 				{condition
 					{terms
 						{"1.entities"
@@ -76689,6 +76795,9 @@
 										{state
 											{state linked}
 										}
+										{tag
+											{tag artillery}
+										}
 									}
 								}
 								{amount 5
@@ -76699,7 +76808,7 @@
 				}
 				{actions
 					{"delay"
-						{time 5}
+						{time 7}
 					}
 					{"while"
 						{condition
@@ -76769,6 +76878,9 @@
 										{state
 											{state linked}
 										}
+										{tag
+											{tag artillery}
+										}
 									}
 								}
 							}
@@ -76835,6 +76947,9 @@
 										}
 										{state
 											{state linked}
+										}
+										{tag
+											{tag artillery}
 										}
 									}
 								}
@@ -77097,6 +77212,9 @@
 										{state
 											{state linked}
 										}
+										{tag
+											{tag artillery}
+										}
 									}
 								}
 							}
@@ -77105,7 +77223,7 @@
 				}
 				{actions
 					{"delay"
-						{time 5}
+						{time 7}
 					}
 					{"while"
 						{condition
@@ -77175,6 +77293,9 @@
 										{state
 											{state linked}
 										}
+										{tag
+											{tag artillery}
+										}
 									}
 								}
 							}
@@ -77241,6 +77362,9 @@
 										}
 										{state
 											{state linked}
+										}
+										{tag
+											{tag artillery}
 										}
 									}
 								}
@@ -77503,6 +77627,9 @@
 										{state
 											{state linked}
 										}
+										{tag
+											{tag artillery}
+										}
 									}
 								}
 							}
@@ -77511,7 +77638,7 @@
 				}
 				{actions
 					{"delay"
-						{time 5}
+						{time 7}
 					}
 					{"while"
 						{condition
@@ -77581,6 +77708,9 @@
 										{state
 											{state linked}
 										}
+										{tag
+											{tag artillery}
+										}
 									}
 								}
 							}
@@ -77647,6 +77777,9 @@
 										}
 										{state
 											{state linked}
+										}
+										{tag
+											{tag artillery}
 										}
 									}
 								}
@@ -77836,6 +77969,7 @@
 				}
 			}
 			{"ai_spawn/side_b_4"
+				{disabled}
 				{condition
 					{terms
 						{"1.cmp_i"
@@ -77923,7 +78057,7 @@
 				}
 				{actions
 					{"delay"
-						{time 5}
+						{time 7}
 					}
 					{"while"
 						{condition
@@ -77933,7 +78067,7 @@
 								{group
 									{select
 										{zone
-											{zone "sideb4"}
+											{zone "sideb3"}
 										}
 									}
 									{include
@@ -78346,7 +78480,7 @@
 				}
 				{actions
 					{"delay"
-						{time 5}
+						{time 7}
 					}
 					{"while"
 						{condition
@@ -78416,6 +78550,9 @@
 										{state
 											{state linked}
 										}
+										{tag
+											{tag artillery}
+										}
 									}
 								}
 							}
@@ -78482,6 +78619,9 @@
 										}
 										{state
 											{state linked}
+										}
+										{tag
+											{tag artillery}
 										}
 									}
 								}
@@ -78744,6 +78884,9 @@
 										{state
 											{state linked}
 										}
+										{tag
+											{tag artillery}
+										}
 									}
 								}
 							}
@@ -78752,7 +78895,7 @@
 				}
 				{actions
 					{"delay"
-						{time 5}
+						{time 7}
 					}
 					{"while"
 						{condition
@@ -78822,6 +78965,9 @@
 										{state
 											{state linked}
 										}
+										{tag
+											{tag artillery}
+										}
 									}
 								}
 							}
@@ -78888,6 +79034,9 @@
 										}
 										{state
 											{state linked}
+										}
+										{tag
+											{tag artillery}
 										}
 									}
 								}
@@ -79150,6 +79299,9 @@
 										{state
 											{state linked}
 										}
+										{tag
+											{tag artillery}
+										}
 									}
 								}
 							}
@@ -79158,7 +79310,7 @@
 				}
 				{actions
 					{"delay"
-						{time 5}
+						{time 7}
 					}
 					{"while"
 						{condition
@@ -79228,6 +79380,9 @@
 										{state
 											{state linked}
 										}
+										{tag
+											{tag artillery}
+										}
 									}
 								}
 							}
@@ -79294,6 +79449,9 @@
 										}
 										{state
 											{state linked}
+										}
+										{tag
+											{tag artillery}
 										}
 									}
 								}
@@ -79556,6 +79714,9 @@
 										{state
 											{state linked}
 										}
+										{tag
+											{tag artillery}
+										}
 									}
 								}
 							}
@@ -79564,7 +79725,7 @@
 				}
 				{actions
 					{"delay"
-						{time 5}
+						{time 7}
 					}
 					{"while"
 						{condition
@@ -79634,6 +79795,9 @@
 										{state
 											{state linked}
 										}
+										{tag
+											{tag artillery}
+										}
 									}
 								}
 							}
@@ -79700,6 +79864,9 @@
 										}
 										{state
 											{state linked}
+										}
+										{tag
+											{tag artillery}
 										}
 									}
 								}

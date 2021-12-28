@@ -936,3 +936,15 @@
 	    }
 	}
 }
+
+;_________________________________________________
+;|               Aircraft                         |
+;|________________________________________________|
+
+{"j2m_raiden_para_plane"
+	{on spawn
+		{tags add "japanese"}
+		{tags add "drop_plane"}
+		{tags add "aircraft"}
+	}
+}

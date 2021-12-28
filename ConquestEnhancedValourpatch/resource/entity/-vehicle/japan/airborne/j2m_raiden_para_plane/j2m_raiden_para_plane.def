@@ -1,0 +1,80 @@
+{actor
+    (include "/properties/airborne.ext")
+	(include "/properties/selection/airborne.inc" scale(3.0))
+	(include "/properties/car_crew.ext")
+    {PatherID "bf109"}
+	("fighter_tier1")
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_plane_left"} {end "seat_driver_car"} {base "open"}}
+			{reverse 	{end	"board_plane_left" -1} {base "open" -1}}
+		}
+		{anm "passengers"
+			{forward {begin "board_plane_left"} {end "seat_driver_car"} {base "open"}}
+			{reverse {end "board_plane_left" -10} {base "open" -1}}
+		}
+	}
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+	("crew_human" place(seat1) bone(seat01) door(emit1)  animation(passengers) 	group(passengers))
+	("crew_human" place(seat2) bone(seat02) door(emit1) animation(passengers) 	group(passengers))
+	("crew_human" place(seat3) bone(seat03) door(emit1) animation(passengers) 	group(passengers))
+	("crew_human" place(seat4) bone(seat04) door(emit1) animation(passengers) 	group(passengers))
+	("crew_human" place(seat5) bone(seat05) door(emit1) animation(passengers) 	group(passengers))
+	("crew_human" place(seat6) bone(seat06) door(emit1) animation(passengers) 	group(passengers))
+	("crew_human" place(seat7) bone(seat07) door(emit1) animation(passengers) 	group(passengers))
+	("crew_human" place(seat8) bone(seat08) door(emit1) animation(passengers) 	group(passengers))
+	("crew_human" place(seat9) bone(seat09) door(emit1) animation(passengers) 	group(passengers))
+	("crew_human" place(seat10) bone(seat10) door(emit1) animation(passengers) 	group(passengers))
+	("crew_human" place(seat11) bone(seat11) door(emit1) animation(passengers) 	group(passengers))
+	("crew_human" place(seat12) bone(seat12) door(emit1) animation(passengers) 	group(passengers))
+	("single_engine")
+	{Chassis "airborne"
+		("flight_model"
+			speed(480)  ;//---------Max speed (at sea level), km/h.
+			climb_speed(11) ;//-----Climb rate at sea level, in m/s
+			turn(250) ;//-----------Turn-and-burn radius in meters, tightest sustained turn
+			aerodynamics(1.55) ;//--Aerodynamic efficiency rating (0-3)
+			weight(7600) ;//--------Weight in kg.
+			power(3000) ;//---------Horse Power.
+			fuel(1300) ;//----------Fuel capacity in Liters.
+			range(1500) ;//---------Distance can travel with full fuel tank, in km.
+			roll_rate(40) ;//-------Roll rate, in degrees per second.
+			roll_angle(65) ;//------Maximum roll angle, in degrees.
+		)
+	}
+	{volume "wingr1"
+		{component "wingr1"}
+		{tags "wingr1"}
+	}
+	{volume "wingl1"
+		{component "wingl1"}
+		{tags "wingl1"}
+	}
+	{extender "inventory"
+		{Box
+			{item "ammo air_bomb_50kg" 2}
+			{item "bullet20_jap zenite" 200}
+		}
+	}
+	{Weaponry
+		{place "zenite"
+			{weapon "20mm_type99" filled}
+			{barrels 4}
+			{foresight "foresight3"}
+			{gunner "driver"}
+			{charger "driver"}
+			{rotate}
+			{basic}
+		}
+		{place "bomb"
+			{weapon "bomb_dropper_type97" filled}
+			{gunner "driver"}
+			{charger "driver"}
+			{barrels 8}
+			{basic}
+		}
+	}
+	{mass 3000}
+	
+	{Extension "j2m_raiden_para_plane.mdl"}
+}
