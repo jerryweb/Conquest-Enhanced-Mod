@@ -4,7 +4,7 @@
 	    {tags add "HMG"}
 		{tags add "soviet"}
 		{tags add "maxim"}
-		{delay 6
+		{delay 10
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -32,7 +32,7 @@
 	    {tags add "HMG"}
 		{tags add "soviet"}
 		{tags add "dshk_stan"}
-		{delay 6
+		{delay 10
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -332,7 +332,7 @@
 ;HOWITZERS
 {"76mm_m1927"
 	{on spawn
-    	{tags add "field_gun"}
+    	{tags add "artillery"}
 		{tags add "soviet"}
 		{tags add "76mm_m1927"}
 		{delay 6
@@ -345,7 +345,6 @@
 								    {if not tagged "player"
 									    {if not tagged "hidden"
 										    {tags add "enemyarty-disabled"}
-										    
 										}
 									}
 								}
@@ -360,7 +359,7 @@
 }
 {"76mm_m43"
 	{on spawn
-    	{tags add "field_gun"}
+    	{tags add "artillery"}
 		{tags add "soviet"}
 		{tags add "76mm_m43"}
 		{delay 6
@@ -373,7 +372,6 @@
 								    {if not tagged "player"
 									    {if not tagged "hidden"
 										    {tags add "enemyarty-disabled"}
-										    
 										}
 									}
 								}
@@ -466,7 +464,6 @@
 {"122mm_a19"
 	{on spawn
     	{tags add "artillery"}
-	{tags add "heavy_artillery"}
 		{tags add "soviet"}
 		{tags add "122mm_a19"}
 		{delay 6
@@ -493,7 +490,6 @@
 {"152mm_ml20"
 	{on spawn
     	{tags add "artillery"}
-	{tags add "heavy_artillery"}
 		{tags add "soviet"}
 		{tags add "152mm_ml20"}
 		{delay 6
@@ -506,7 +502,6 @@
 								    {if not tagged "player"
 									    {if not tagged "hidden"
 										    {tags add "enemyarty-disabled"}
-										    
 										}
 									}
 								}
@@ -521,7 +516,6 @@
 {"203mm_b4"
 	{on spawn
     	{tags add "artillery"}
-	{tags add "heavy_artillery"}
 		{tags add "soviet"}
 		{tags add "203mm_b4"}
 		{delay 6
@@ -534,7 +528,6 @@
 								    {if not tagged "player"
 									    {if not tagged "hidden"
 										    {tags add "enemyarty-disabled"}
-										    
 										}
 									}
 								}
@@ -711,8 +704,6 @@
 {"bm13_studebaker"
 	{on spawn
     	{tags add "wheeled_vehicle"}
-		{tags add "rocket_artillery"}
-		{tags add "artillery"}
 		{tags add "soviet"}
 		{tags add "bm13_studebaker"}
 		{delay 6
@@ -724,8 +715,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "enemy_rocketarty"}
-										    {tags add "enemyarty"}
+										    {tags add "ai_rocketarty-disabled"}
 										}
 									}
 								}
@@ -740,8 +730,6 @@
 {"bm31_12"
 	{on spawn
     	{tags add "wheeled_vehicle"}
-		{tags add "rocket_artillery"}
-		{tags add "artillery"}
 		{tags add "soviet"}
 		{tags add "bm31_12"}
 		{delay 6
@@ -753,8 +741,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "enemy_rocketarty"}
-										    {tags add "enemyarty"}
+										    {tags add "ai_rocketarty-disabled"}
 										}
 									}
 								}
@@ -2144,5 +2131,13 @@
 {"il2_mod42" 
 	{on spawn
     	{tags add "aircraft"}
+	}
+}
+
+{"il2_mod42_para_plane"
+	{on spawn
+		{tags add "soviet"}
+		{tags add "drop_plane"}
+		{tags add "aircraft"}
 	}
 }
