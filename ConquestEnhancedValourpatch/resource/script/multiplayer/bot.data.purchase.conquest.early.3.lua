@@ -2506,7 +2506,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.ATTank, unit = "stug3g_ita"},
 			}
 		}
-	}
+	},
 	{--purchase 9 field gun support
 		waveNumber = 9,
 		-- Repeat = 3,
@@ -2812,6 +2812,7 @@ Purchases["campaign_capture_the_flag"] = {
 		}
 	}
 }
+
 
 --Conversion Chart
 --0.9 = 3.5

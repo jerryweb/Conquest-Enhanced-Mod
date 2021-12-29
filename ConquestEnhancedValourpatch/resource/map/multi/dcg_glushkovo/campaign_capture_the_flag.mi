@@ -49097,13 +49097,41 @@
 			}
 			{"ai_paratroopers/set_start_variables"
 				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_car}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+									}
+								}
+							}
+						}
+					}
 				}
 				{actions
-					{## "set_i"
-						{var "user_side$"}
-						{op "="}
-						{value 2}
-					}
 					{"set_i"
 						{var "para_plane_index$"}
 						{op "="}
@@ -49114,44 +49142,10 @@
 						{op "="}
 						{value 8}
 					}
-					{## "set_i"
-						{var "user_nation$"}
-						{op "="}
-						{value 1}
-					}
 					{"set_i"
 						{var "para_plane_side_start$"}
 						{op "="}
 						{value 1}
-					}
-					{"delay"
-						{time 60}
-					}
-					{"if"
-						{condition
-							{type cmp_i}
-							{var "user_team$"}
-							{op "=="}
-							{value 1}
-						}
-						{"set_i"
-							{var "para_plane_side_start$"}
-							{op "="}
-							{value 2}
-						}
-					}
-					{"if"
-						{condition
-							{type cmp_i}
-							{var "user_team$"}
-							{op "=="}
-							{value 2}
-						}
-						{"set_i"
-							{var "para_plane_side_start$"}
-							{op "="}
-							{value 1}
-						}
 					}
 					{"delay"
 						{time 1}
@@ -49159,33 +49153,17 @@
 					{## "if"
 						{condition
 							{type rand}
-							{value 0.8}
+							{value 1}
 						}
 						{## "event"
 							{event "enemy_paratroopers"}
 							{mode set}
 							{delay 1}
 						}
-						{## "set_i"
+						{"set_i"
 							{var "enemy_paras_active$"}
 							{op "="}
 							{value 1}
-						}
-						{"if"
-							{condition
-								{type cmp_i}
-								{var "flag count$"}
-								{op ">="}
-								{value 3}
-							}
-						}
-						{"if"
-							{condition
-								{type cmp_i}
-								{var "flag count$"}
-								{op ">="}
-								{value 4}
-							}
 						}
 					}
 					{"if"
@@ -49204,16 +49182,6 @@
 								{var "enemy_paras_active$"}
 								{op "="}
 								{value 1}
-							}
-							{"set_i"
-								{var "enemy_paras_active$"}
-								{op "="}
-								{value 1}
-							}
-							{"event"
-								{event "enemy_paratroopers"}
-								{mode set}
-								{delay 1}
 							}
 						}
 					}
@@ -49234,21 +49202,70 @@
 								{op "="}
 								{value 1}
 							}
-							{"set_i"
-								{var "enemy_paras_active$"}
-								{op "="}
-								{value 1}
-							}
-							{"event"
-								{event "enemy_paratroopers"}
-								{mode set}
-								{delay 1}
+						}
+					}
+				}
+			}
+			{"ai_paratroopers/set_para_plane_for_nation"
+				{condition
+					{terms
+						{"1.cmp_i"
+							{var "enemy_paras_active$"}
+							{op "=="}
+							{value 1}
+						}
+						{"2.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sidea1"}
+										}
+										{zone
+											{zone "sidea2"}
+										}
+										{zone
+											{zone "sidea3"}
+										}
+										{zone
+											{zone "sidea4"}
+										}
+										{zone
+											{zone "sideb1"}
+										}
+										{zone
+											{zone "sideb1"}
+										}
+										{zone
+											{zone "sideb3"}
+										}
+										{zone
+											{zone "sideb4"}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state operatable}
+										}
+										{tag
+											{tag ai_inf}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+									}
+								}
 							}
 						}
 					}
-					{"delay"
-						{time 0.5}
-					}
+				}
+				{actions
 					{"if"
 						{condition
 							{type cmp_i}
@@ -49373,7 +49390,7 @@
 									{group
 										{select
 											{tag
-												{tag eng}
+												{tag usa}
 											}
 										}
 										{include
@@ -49439,132 +49456,6 @@
 										}
 									}
 								}
-							}
-						}
-						{"if"
-							{condition
-								{type inventory}
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag ai_inf}
-											}
-										}
-										{include
-											{prop
-												{prop human}
-											}
-											{state
-												{state operatable}
-											}
-											{zone
-												{zone "gamezone"}
-											}
-										}
-										{exclude
-											{tag
-												{tag player}
-											}
-										}
-									}
-								}
-								{item "bandage_fra"}
-							}
-							{## "delete"
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag soviet}
-											}
-										}
-										{include
-											{tag
-												{tag drop_plane}
-											}
-											{tag
-												{tag hidden}
-											}
-										}
-									}
-								}
-							}
-							{"event"
-								{event "enemy_paratroopers"}
-								{mode reset}
-								{delay 0}
-							}
-							{"set_i"
-								{var "enemy_paras_active$"}
-								{op "="}
-								{value 0}
-							}
-						}
-						{"if"
-							{condition
-								{type inventory}
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag ai_inf}
-											}
-										}
-										{include
-											{prop
-												{prop human}
-											}
-											{state
-												{state operatable}
-											}
-											{zone
-												{zone "gamezone"}
-											}
-										}
-										{exclude
-											{tag
-												{tag player}
-											}
-										}
-									}
-								}
-								{item "bandage_pol"}
-							}
-							{## "delete"
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag soviet}
-											}
-										}
-										{include
-											{tag
-												{tag drop_plane}
-											}
-											{tag
-												{tag hidden}
-											}
-										}
-									}
-								}
-							}
-							{"event"
-								{event "enemy_paratroopers"}
-								{mode reset}
-								{delay 0}
-							}
-							{"set_i"
-								{var "enemy_paras_active$"}
-								{op "="}
-								{value 0}
 							}
 						}
 					}
@@ -49759,6 +49650,129 @@
 									}
 								}
 							}
+						}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"if"
+						{condition
+							{type cmp_i}
+							{var "user_team$"}
+							{op "=="}
+							{value 1}
+						}
+						{"set_i"
+							{var "para_plane_side_start$"}
+							{op "="}
+							{value 2}
+						}
+					}
+					{"if"
+						{condition
+							{type cmp_i}
+							{var "user_team$"}
+							{op "=="}
+							{value 2}
+						}
+						{"set_i"
+							{var "para_plane_side_start$"}
+							{op "="}
+							{value 1}
+						}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"event"
+						{event "enemy_paratroopers"}
+						{mode set}
+						{delay 0}
+					}
+					{"if"
+						{condition
+							{type inventory}
+							{selector
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag ai_inf}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state operatable}
+										}
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{exclude
+										{tag
+											{tag player}
+										}
+									}
+								}
+							}
+							{item "bandage_fra"}
+						}
+						{"event"
+							{event "enemy_paratroopers"}
+							{mode reset}
+							{delay 0}
+						}
+						{"set_i"
+							{var "enemy_paras_active$"}
+							{op "="}
+							{value 0}
+						}
+					}
+					{"if"
+						{condition
+							{type inventory}
+							{selector
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag ai_inf}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state operatable}
+										}
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{exclude
+										{tag
+											{tag player}
+										}
+									}
+								}
+							}
+							{item "bandage_pol"}
+						}
+						{"event"
+							{event "enemy_paratroopers"}
+							{mode reset}
+							{delay 0}
+						}
+						{"set_i"
+							{var "enemy_paras_active$"}
+							{op "="}
+							{value 0}
 						}
 					}
 				}
@@ -53113,8 +53127,21 @@
 							{state operatable}
 						}
 					}
+					{"actor_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag para_ready}
+									}
+								}
+							}
+						}
+						{weapon_prepare off}
+					}
 					{"delay"
-						{time 1}
+						{time 0.5}
 					}
 					{## "placement"
 						{selector
@@ -53235,24 +53262,6 @@
 						}
 						{target_waypoint "20"}
 						{clone}
-					}
-					{## "actor_state"
-						{selector
-							{source advanced}
-							{group
-								{select
-									{tag
-										{tag para_ready}
-									}
-								}
-								{include
-									{zone
-										{zone "sidea1"}
-									}
-								}
-							}
-						}
-						{weapon_prepare off}
 					}
 					{"trigger"
 						{name "ai_paratroopers/tag_paratroopers_to_deploy"}
