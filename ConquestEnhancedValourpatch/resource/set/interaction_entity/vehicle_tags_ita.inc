@@ -715,6 +715,8 @@
 {"sm79_para_plane"
 	{on spawn
 		{tags add "italian"}
+		{tags add "german"}
+		{tags add "hidden"}	
 		{tags add "drop_plane"}
 		{tags add "aircraft"}
 	}
