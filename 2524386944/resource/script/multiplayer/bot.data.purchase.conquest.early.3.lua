@@ -234,7 +234,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 3.0, class = UnitClass.Tank, unit = "t60"},
 			}
 		}
-	}
+	},
 	{--purchase 9 field gun support
 		waveNumber = 9,
 		-- Repeat = 3,
@@ -254,7 +254,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "76mm_m1927"},
 			}
 		}
-	},
+	}
 }
 
 --Conversion Chart
