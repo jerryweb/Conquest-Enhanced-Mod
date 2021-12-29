@@ -2165,3 +2165,11 @@
     	{tags add "aircraft"}
 	}
 }
+
+{"il2_mod42_para_plane" 
+	{on spawn
+    	{tags add "aircraft"}
+    	{tags add "soviet"}
+    	{tags add "drop_plane"}
+	}
+}
