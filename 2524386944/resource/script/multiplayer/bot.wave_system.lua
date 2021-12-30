@@ -63,7 +63,6 @@ function selectArmyDivision(totalFlags)
 	if testing then
 		divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.7]]
 	end
-	divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.7]]
 
 
 	return divisionPurchaseModel
