@@ -54112,4154 +54112,4179 @@
 					}
 				}
 			}
-			{"ai_paratroopers/set_start_variables"
-				{condition
+{"ai_paratroopers/set_start_variables"
+	{condition
+		{terms
+			{"1.entities"
+				{selector
+					{source advanced}
+					{group
+						{select
+							{tag
+								{tag player}
+							}
+							{tag
+								{tag player_veh}
+							}
+							{tag
+								{tag player_armor}
+							}
+							{tag
+								{tag player_car}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+						}
+						{exclude
+							{state
+								{state inactive}
+							}
+						}
+					}
 				}
-				{actions
-					{## "set_i"
-						{var "user_side$"}
-						{op "="}
-						{value 2}
-					}
-					{"set_i"
-						{var "para_plane_index$"}
-						{op "="}
-						{value 1}
-					}
-					{"set_i"
-						{var "max_para_groups$"}
-						{op "="}
-						{value 8}
-					}
-					{## "set_i"
-						{var "user_nation$"}
-						{op "="}
-						{value 1}
-					}
-					{"set_i"
-						{var "para_plane_side_start$"}
-						{op "="}
-						{value 1}
-					}
-					{"delay"
-						{time 60}
-					}
-					{"if"
-						{condition
-							{type cmp_i}
-							{var "user_team$"}
-							{op "=="}
-							{value 1}
-						}
-						{"set_i"
-							{var "para_plane_side_start$"}
-							{op "="}
-							{value 2}
-						}
-					}
-					{"if"
-						{condition
-							{type cmp_i}
-							{var "user_team$"}
-							{op "=="}
-							{value 2}
-						}
-						{"set_i"
-							{var "para_plane_side_start$"}
-							{op "="}
-							{value 1}
-						}
-					}
-					{"delay"
-						{time 1}
-					}
-					{## "if"
-						{condition
-							{type rand}
-							{value 1}
-						}
-						{"event"
-							{event "enemy_paratroopers"}
-							{mode set}
-							{delay 1}
-						}
-						{"set_i"
-							{var "enemy_paras_active$"}
-							{op "="}
-							{value 1}
-						}
-					}
-					{"if"
-						{condition
-							{type cmp_i}
-							{var "flag count$"}
-							{op "=="}
-							{value 3}
-						}
-						{"if"
-							{condition
-								{type rand}
-								{value 0.3}
+			}
+		}
+	}
+	{actions
+		{"set_i"
+			{var "para_plane_index$"}
+			{op "="}
+			{value 1}
+		}
+		{"set_i"
+			{var "max_para_groups$"}
+			{op "="}
+			{value 8}
+		}
+		{"set_i"
+			{var "para_plane_side_start$"}
+			{op "="}
+			{value 1}
+		}
+		{"delay"
+			{time 1}
+		}
+		{## "if"
+			{condition
+				{type rand}
+				{value 1}
+			}
+			{## "event"
+				{event "enemy_paratroopers"}
+				{mode set}
+				{delay 1}
+			}
+			{"set_i"
+				{var "enemy_paras_active$"}
+				{op "="}
+				{value 1}
+			}
+		}
+		{"if"
+			{condition
+				{type cmp_i}
+				{var "flag count$"}
+				{op "=="}
+				{value 3}
+			}
+			{"if"
+				{condition
+					{type rand}
+					{value 0.3}
+				}
+				{"set_i"
+					{var "enemy_paras_active$"}
+					{op "="}
+					{value 1}
+				}
+			}
+		}
+		{"if"
+			{condition
+				{type cmp_i}
+				{var "flag count$"}
+				{op ">="}
+				{value 4}
+			}
+			{"if"
+				{condition
+					{type rand}
+					{value 0.6}
+				}
+				{"set_i"
+					{var "enemy_paras_active$"}
+					{op "="}
+					{value 1}
+				}
+			}
+		}
+	}
+}
+{"ai_paratroopers/set_para_plane_for_nation"
+	{condition
+		{terms
+			{"1.cmp_i"
+				{var "enemy_paras_active$"}
+				{op "=="}
+				{value 1}
+			}
+			{"2.entities"
+				{selector
+					{source advanced}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
 							}
-							{"set_i"
-								{var "enemy_paras_active$"}
-								{op "="}
-								{value 1}
+							{zone
+								{zone "sidea2"}
 							}
-							{"set_i"
-								{var "enemy_paras_active$"}
-								{op "="}
-								{value 1}
+							{zone
+								{zone "sidea3"}
 							}
-							{"event"
-								{event "enemy_paratroopers"}
-								{mode set}
-								{delay 1}
+							{zone
+								{zone "sidea4"}
 							}
-						}
-					}
-					{"if"
-						{condition
-							{type cmp_i}
-							{var "flag count$"}
-							{op ">="}
-							{value 4}
-						}
-						{"if"
-							{condition
-								{type rand}
-								{value 0.6}
+							{zone
+								{zone "sideb1"}
 							}
-							{"set_i"
-								{var "enemy_paras_active$"}
-								{op "="}
-								{value 1}
+							{zone
+								{zone "sideb1"}
 							}
-							{"set_i"
-								{var "enemy_paras_active$"}
-								{op "="}
-								{value 1}
+							{zone
+								{zone "sideb3"}
 							}
-							{"event"
-								{event "enemy_paratroopers"}
-								{mode set}
-								{delay 1}
+							{zone
+								{zone "sideb4"}
 							}
 						}
-					}
-					{"delay"
-						{time 0.5}
-					}
-					{"if"
-						{condition
-							{type cmp_i}
-							{var "user_nation$"}
-							{op "=="}
-							{value 2}
-						}
-						{"delete"
-							{selector
-								{source advanced}
-								{group
-									{select
-										{tag
-											{tag german}
-										}
-										{tag
-											{tag japanese}
-										}
-										{tag
-											{tag italian}
-										}
-									}
-									{include
-										{tag
-											{tag drop_plane}
-										}
-										{tag
-											{tag hidden}
-										}
-									}
-								}
+						{include
+							{prop
+								{prop human}
+							}
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
 							}
 						}
-						{"if"
-							{condition
-								{type inventory}
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag ai_inf}
-											}
-										}
-										{include
-											{prop
-												{prop human}
-											}
-											{state
-												{state operatable}
-											}
-											{zone
-												{zone "gamezone"}
-											}
-										}
-										{exclude
-											{tag
-												{tag player}
-											}
-										}
-									}
-								}
-								{item "bandage_eng"}
-							}
-							{"delete"
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag soviet}
-											}
-										}
-										{include
-											{tag
-												{tag drop_plane}
-											}
-											{tag
-												{tag hidden}
-											}
-										}
-									}
-								}
-							}
-						}
-						{"if"
-							{condition
-								{type inventory}
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag ai_inf}
-											}
-										}
-										{include
-											{prop
-												{prop human}
-											}
-											{state
-												{state operatable}
-											}
-											{zone
-												{zone "gamezone"}
-											}
-										}
-										{exclude
-											{tag
-												{tag player}
-											}
-										}
-									}
-								}
-								{item "bandage_rus"}
-							}
-							{"delete"
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag eng}
-											}
-										}
-										{include
-											{tag
-												{tag drop_plane}
-											}
-											{tag
-												{tag hidden}
-											}
-										}
-									}
-								}
-							}
-						}
-						{"if"
-							{condition
-								{type inventory}
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag ai_inf}
-											}
-										}
-										{include
-											{prop
-												{prop human}
-											}
-											{state
-												{state operatable}
-											}
-											{zone
-												{zone "gamezone"}
-											}
-										}
-										{exclude
-											{tag
-												{tag player}
-											}
-										}
-									}
-								}
-								{item "bandage_usa"}
-							}
-							{"delete"
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag soviet}
-											}
-										}
-										{include
-											{tag
-												{tag drop_plane}
-											}
-											{tag
-												{tag hidden}
-											}
-										}
-									}
-								}
-							}
-						}
-						{"if"
-							{condition
-								{type inventory}
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag ai_inf}
-											}
-										}
-										{include
-											{prop
-												{prop human}
-											}
-											{state
-												{state operatable}
-											}
-											{zone
-												{zone "gamezone"}
-											}
-										}
-										{exclude
-											{tag
-												{tag player}
-											}
-										}
-									}
-								}
-								{item "bandage_fra"}
-							}
-							{## "delete"
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag soviet}
-											}
-										}
-										{include
-											{tag
-												{tag drop_plane}
-											}
-											{tag
-												{tag hidden}
-											}
-										}
-									}
-								}
-							}
-							{"event"
-								{event "enemy_paratroopers"}
-								{mode reset}
-								{delay 0}
-							}
-							{"set_i"
-								{var "enemy_paras_active$"}
-								{op "="}
-								{value 0}
-							}
-						}
-						{"if"
-							{condition
-								{type inventory}
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag ai_inf}
-											}
-										}
-										{include
-											{prop
-												{prop human}
-											}
-											{state
-												{state operatable}
-											}
-											{zone
-												{zone "gamezone"}
-											}
-										}
-										{exclude
-											{tag
-												{tag player}
-											}
-										}
-									}
-								}
-								{item "bandage_pol"}
-							}
-							{## "delete"
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag soviet}
-											}
-										}
-										{include
-											{tag
-												{tag drop_plane}
-											}
-											{tag
-												{tag hidden}
-											}
-										}
-									}
-								}
-							}
-							{"event"
-								{event "enemy_paratroopers"}
-								{mode reset}
-								{delay 0}
-							}
-							{"set_i"
-								{var "enemy_paras_active$"}
-								{op "="}
-								{value 0}
+						{exclude
+							{state
+								{state inactive}
 							}
 						}
 					}
-					{"if"
-						{condition
-							{type cmp_i}
-							{var "user_nation$"}
-							{op "=="}
-							{value 1}
-						}
-						{"delete"
-							{selector
-								{source advanced}
-								{group
-									{select
-										{tag
-											{tag usa}
-										}
-										{tag
-											{tag soviet}
-										}
-										{tag
-											{tag eng}
-										}
-									}
-									{include
-										{tag
-											{tag drop_plane}
-										}
-										{tag
-											{tag hidden}
-										}
-									}
-								}
+				}
+			}
+		}
+	}
+	{actions
+		{"if"
+			{condition
+				{type cmp_i}
+				{var "user_nation$"}
+				{op "=="}
+				{value 2}
+			}
+			{"delete"
+				{selector
+					{source advanced}
+					{group
+						{select
+							{tag
+								{tag german}
+							}
+							{tag
+								{tag japanese}
+							}
+							{tag
+								{tag italian}
 							}
 						}
-						{"if"
-							{condition
-								{type inventory}
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag ai_inf}
-											}
-										}
-										{include
-											{prop
-												{prop human}
-											}
-											{state
-												{state operatable}
-											}
-											{zone
-												{zone "gamezone"}
-											}
-										}
-										{exclude
-											{tag
-												{tag player}
-											}
-										}
-									}
-								}
-								{item "bandage_ger"}
+						{include
+							{tag
+								{tag drop_plane}
 							}
-							{"delete"
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag japanese}
-											}
-										}
-										{include
-											{tag
-												{tag drop_plane}
-											}
-											{tag
-												{tag hidden}
-											}
-										}
-									}
+							{tag
+								{tag hidden}
+							}
+						}
+					}
+				}
+			}
+			{"if"
+				{condition
+					{type inventory}
+					{selector
+						{source advanced}
+						{ignore_captured_by_user 0}
+						{group
+							{select
+								{tag
+									{tag ai_inf}
+								}
+							}
+							{include
+								{prop
+									{prop human}
+								}
+								{state
+									{state operatable}
+								}
+								{zone
+									{zone "gamezone"}
+								}
+							}
+							{exclude
+								{tag
+									{tag player}
 								}
 							}
 						}
-						{"if"
-							{condition
-								{type inventory}
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag ai_inf}
-											}
-										}
-										{include
-											{prop
-												{prop human}
-											}
-											{state
-												{state operatable}
-											}
-											{zone
-												{zone "gamezone"}
-											}
-										}
-										{exclude
-											{tag
-												{tag player}
-											}
-										}
-									}
-								}
-								{item "bandage_jap"}
-							}
-							{"delete"
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag german}
-											}
-										}
-										{include
-											{tag
-												{tag drop_plane}
-											}
-											{tag
-												{tag hidden}
-											}
-										}
-									}
+					}
+					{item "bandage_eng"}
+				}
+				{"delete"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag soviet}
 								}
 							}
-						}
-						{"if"
-							{condition
-								{type inventory}
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag ai_inf}
-											}
-										}
-										{include
-											{prop
-												{prop human}
-											}
-											{state
-												{state operatable}
-											}
-											{zone
-												{zone "gamezone"}
-											}
-										}
-										{exclude
-											{tag
-												{tag player}
-											}
-										}
-									}
+							{include
+								{tag
+									{tag drop_plane}
 								}
-								{item "bandage_ita"}
-							}
-							{"delete"
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag japanese}
-											}
-										}
-										{include
-											{tag
-												{tag drop_plane}
-											}
-											{tag
-												{tag hidden}
-											}
-										}
-									}
+								{tag
+									{tag hidden}
 								}
 							}
 						}
 					}
 				}
 			}
-			{"ai_paratroopers/tag_paratroopers_to_deploy"
+			{"if"
 				{condition
-					{expression "(1 | 2 ) & 3"}
-					{terms
-						{"1.entities"
-							{selector
-								{source advanced}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "ger_m38_helmet"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
+					{type inventory}
+					{selector
+						{source advanced}
+						{ignore_captured_by_user 0}
+						{group
+							{select
+								{tag
+									{tag ai_inf}
 								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "ger_m38_helmet_camo"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
+							}
+							{include
+								{prop
+									{prop human}
 								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "ger_m38_helmet_net"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
+								{state
+									{state operatable}
 								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "ger_m38_helmet_winter"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
+								{zone
+									{zone "gamezone"}
 								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "ger_m38_helmet_net_winter"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "ger_m38_helmet_desert"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "ger_m38_helmet_net_desert"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "ger_m38_helmet_camo_blue"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "helmet4_jap_para"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "snlf_helmet"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "snlf_tropical"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "helmet_ita_m33_mvsn"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
+							}
+							{exclude
+								{tag
+									{tag player}
 								}
 							}
 						}
-						{"2.entities"
-							{selector
-								{source advanced}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{tag
-											{tag ai_inf}
-										}
-										{state
-											{state operatable}
-										}
-										{with_item
-											{type existance}
-											{item "soviet_budinovka"}
-										}
-									}
-									{exclude
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{tag
-											{tag para_ready}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{tag
-											{tag ai_inf}
-										}
-										{state
-											{state operatable}
-										}
-										{with_item
-											{type existance}
-											{item "soviet_budinovka_down"}
-										}
-									}
-									{exclude
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag para_in_field}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "helmet_usa_506th"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "helmet_usa_506th_camo"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "helmet_usa_506th_camo_nco"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "helmet_usa_506th_camo_officer"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "helmet_usa_506th_nco"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "helmet_usa_506th_officer"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "helmet_airborne_usa2"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "helmet_eng_para"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "helmet_eng_para_camo"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "helmet_eng_para_net"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "cap_eng_beret_commando"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
+					}
+					{item "bandage_rus"}
+				}
+				{"delete"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag usa}
 								}
 							}
-						}
-						{"3.event"
-							{id "enemy_paratroopers"}
+							{include
+								{tag
+									{tag drop_plane}
+								}
+								{tag
+									{tag hidden}
+								}
+							}
 						}
 					}
 				}
-				{actions
-					{"delay"
-						{time 0.2}
-					}
-					{## "entity_state"
-						{selector
-							{source advanced}
-							{group
-								{select
-									{zone
-										{zone "sidea1"}
-									}
-									{zone
-										{zone "sidea2"}
-									}
-									{zone
-										{zone "sidea3"}
-									}
-									{zone
-										{zone "sidea4"}
-									}
-									{zone
-										{zone "sideb1"}
-									}
-									{zone
-										{zone "sideb2"}
-									}
-									{zone
-										{zone "sideb3"}
-									}
-									{zone
-										{zone "sideb4"}
-									}
-								}
-								{include
-									{state
-										{state operatable}
-									}
-									{tag
-										{tag ai_inf}
-									}
-									{with_item
-										{type existance}
-										{item "ger_m38_helmet"}
-									}
-								}
-								{exclude
-									{tag
-										{tag para_ready}
-									}
-									{tag
-										{tag player}
-									}
+			}
+			{"if"
+				{condition
+					{type inventory}
+					{selector
+						{source advanced}
+						{ignore_captured_by_user 0}
+						{group
+							{select
+								{tag
+									{tag ai_inf}
 								}
 							}
-							{group
-								{select
-									{zone
-										{zone "sidea1"}
-									}
-									{zone
-										{zone "sidea2"}
-									}
-									{zone
-										{zone "sidea3"}
-									}
-									{zone
-										{zone "sidea4"}
-									}
-									{zone
-										{zone "sideb1"}
-									}
-									{zone
-										{zone "sideb2"}
-									}
-									{zone
-										{zone "sideb3"}
-									}
-									{zone
-										{zone "sideb4"}
-									}
+							{include
+								{prop
+									{prop human}
 								}
-								{include
-									{state
-										{state operatable}
-									}
-									{tag
-										{tag ai_inf}
-									}
-									{with_item
-										{type existance}
-										{item "ger_m38_helmet_camo"}
-									}
+								{state
+									{state operatable}
 								}
-								{exclude
-									{tag
-										{tag para_ready}
-									}
-									{tag
-										{tag player}
-									}
+								{zone
+									{zone "gamezone"}
 								}
 							}
-							{group
-								{select
-									{zone
-										{zone "sidea1"}
-									}
-									{zone
-										{zone "sidea2"}
-									}
-									{zone
-										{zone "sidea3"}
-									}
-									{zone
-										{zone "sidea4"}
-									}
-									{zone
-										{zone "sideb1"}
-									}
-									{zone
-										{zone "sideb2"}
-									}
-									{zone
-										{zone "sideb3"}
-									}
-									{zone
-										{zone "sideb4"}
-									}
-								}
-								{include
-									{state
-										{state operatable}
-									}
-									{tag
-										{tag ai_inf}
-									}
-									{with_item
-										{type existance}
-										{item "ger_m38_helmet_net"}
-									}
-								}
-								{exclude
-									{tag
-										{tag para_ready}
-									}
-									{tag
-										{tag player}
-									}
+							{exclude
+								{tag
+									{tag player}
 								}
 							}
-							{group
-								{select
-									{zone
-										{zone "sidea1"}
-									}
-									{zone
-										{zone "sidea2"}
-									}
-									{zone
-										{zone "sidea3"}
-									}
-									{zone
-										{zone "sidea4"}
-									}
-									{zone
-										{zone "sideb1"}
-									}
-									{zone
-										{zone "sideb2"}
-									}
-									{zone
-										{zone "sideb3"}
-									}
-									{zone
-										{zone "sideb4"}
-									}
-								}
-								{include
-									{state
-										{state operatable}
-									}
-									{tag
-										{tag ai_inf}
-									}
-									{with_item
-										{type existance}
-										{item "ger_m38_helmet_winter"}
-									}
-								}
-								{exclude
-									{tag
-										{tag para_ready}
-									}
-									{tag
-										{tag player}
-									}
-								}
-							}
-							{group
-								{select
-									{zone
-										{zone "sidea1"}
-									}
-									{zone
-										{zone "sidea2"}
-									}
-									{zone
-										{zone "sidea3"}
-									}
-									{zone
-										{zone "sidea4"}
-									}
-									{zone
-										{zone "sideb1"}
-									}
-									{zone
-										{zone "sideb2"}
-									}
-									{zone
-										{zone "sideb3"}
-									}
-									{zone
-										{zone "sideb4"}
-									}
-								}
-								{include
-									{state
-										{state operatable}
-									}
-									{tag
-										{tag ai_inf}
-									}
-									{with_item
-										{type existance}
-										{item "ger_m38_helmet_net_winter"}
-									}
-								}
-								{exclude
-									{tag
-										{tag para_ready}
-									}
-									{tag
-										{tag player}
-									}
-								}
-							}
-							{group
-								{select
-									{zone
-										{zone "sidea1"}
-									}
-									{zone
-										{zone "sidea2"}
-									}
-									{zone
-										{zone "sidea3"}
-									}
-									{zone
-										{zone "sidea4"}
-									}
-									{zone
-										{zone "sideb1"}
-									}
-									{zone
-										{zone "sideb2"}
-									}
-									{zone
-										{zone "sideb3"}
-									}
-									{zone
-										{zone "sideb4"}
-									}
-								}
-								{include
-									{state
-										{state operatable}
-									}
-									{tag
-										{tag ai_inf}
-									}
-									{with_item
-										{type existance}
-										{item "ger_m38_helmet_desert"}
-									}
-								}
-								{exclude
-									{tag
-										{tag para_ready}
-									}
-									{tag
-										{tag player}
-									}
-								}
-							}
-							{group
-								{select
-									{zone
-										{zone "sidea1"}
-									}
-									{zone
-										{zone "sidea2"}
-									}
-									{zone
-										{zone "sidea3"}
-									}
-									{zone
-										{zone "sidea4"}
-									}
-									{zone
-										{zone "sideb1"}
-									}
-									{zone
-										{zone "sideb2"}
-									}
-									{zone
-										{zone "sideb3"}
-									}
-									{zone
-										{zone "sideb4"}
-									}
-								}
-								{include
-									{state
-										{state operatable}
-									}
-									{tag
-										{tag ai_inf}
-									}
-									{with_item
-										{type existance}
-										{item "ger_m38_helmet_net_desert"}
-									}
-								}
-								{exclude
-									{tag
-										{tag para_ready}
-									}
-									{tag
-										{tag player}
-									}
-								}
-							}
-							{group
-								{select
-									{zone
-										{zone "sidea1"}
-									}
-									{zone
-										{zone "sidea2"}
-									}
-									{zone
-										{zone "sidea3"}
-									}
-									{zone
-										{zone "sidea4"}
-									}
-									{zone
-										{zone "sideb1"}
-									}
-									{zone
-										{zone "sideb2"}
-									}
-									{zone
-										{zone "sideb3"}
-									}
-									{zone
-										{zone "sideb4"}
-									}
-								}
-								{include
-									{state
-										{state operatable}
-									}
-									{tag
-										{tag ai_inf}
-									}
-									{with_item
-										{type existance}
-										{item "ger_m38_helmet_camo_blue"}
-									}
-								}
-								{exclude
-									{tag
-										{tag para_ready}
-									}
-									{tag
-										{tag player}
-									}
-								}
-							}
-						}
-						{tag_add para_ready}
-					}
-					{## "entity_state"
-						{selector
-							{source advanced}
-							{group
-								{select
-									{tag
-										{tag ai_inf}
-									}
-								}
-								{include
-									{zone
-										{zone "sidea1"}
-									}
-									{zone
-										{zone "sidea2"}
-									}
-									{zone
-										{zone "sidea3"}
-									}
-									{zone
-										{zone "sidea4"}
-									}
-									{zone
-										{zone "sideb1"}
-									}
-									{zone
-										{zone "sideb2"}
-									}
-									{zone
-										{zone "sideb3"}
-									}
-									{zone
-										{zone "sideb4"}
-									}
-									{prop
-										{prop human}
-									}
-								}
-								{exclude
-									{state
-										{state inactive}
-									}
-									{tag
-										{tag hidden}
-									}
-									{tag
-										{tag para_ready}
-									}
-								}
-							}
-							{amount 12
-							}
-						}
-						{tag_add para_ready}
-					}
-					{"if"
-						{condition
-							{type cmp_i}
-							{var "user_nation$"}
-							{op "=="}
-							{value 1}
-						}
-						{"entity_state"
-							{selector
-								{source advanced}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "ger_m38_helmet"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "ger_m38_helmet_camo"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "ger_m38_helmet_net"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "ger_m38_helmet_winter"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "ger_m38_helmet_net_winter"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "ger_m38_helmet_desert"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "ger_m38_helmet_net_desert"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "ger_m38_helmet_camo_blue"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-							}
-							{tag_add para_ready}
-						}
-						{"entity_state"
-							{selector
-								{source advanced}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "helmet4_jap_para"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "snlf_helmet"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "snlf_tropical"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-							}
-							{tag_add para_ready}
-						}
-						{"entity_state"
-							{selector
-								{source advanced}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "helmet_ita_m33_mvsn"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-							}
-							{tag_add para_ready}
 						}
 					}
-					{"if"
-						{condition
-							{type cmp_i}
-							{var "user_nation$"}
-							{op "=="}
-							{value 2}
-						}
-						{"entity_state"
-							{selector
-								{source advanced}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{tag
-											{tag ai_inf}
-										}
-										{state
-											{state operatable}
-										}
-										{with_item
-											{type existance}
-											{item "soviet_budinovka"}
-										}
-									}
-									{exclude
-										{tag
-											{tag player}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{tag
-											{tag ai_inf}
-										}
-										{state
-											{state operatable}
-										}
-										{with_item
-											{type existance}
-											{item "soviet_budinovka_down"}
-										}
-									}
-									{exclude
-										{tag
-											{tag player}
-										}
-									}
+					{item "bandage_usa"}
+				}
+				{"delete"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag soviet}
 								}
 							}
-							{tag_add para_ready}
-						}
-						{"entity_state"
-							{selector
-								{source advanced}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "helmet_usa_506th"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
+							{include
+								{tag
+									{tag drop_plane}
 								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "helmet_usa_506th_camo"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "helmet_usa_506th_camo_nco"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "helmet_usa_506th_camo_officer"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "helmet_usa_506th_nco"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "helmet_usa_506th_officer"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "helmet_airborne_usa2"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
+								{tag
+									{tag hidden}
 								}
 							}
-							{tag_add para_ready}
-						}
-						{"entity_state"
-							{selector
-								{source advanced}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "helmet_eng_para"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "helmet_eng_para_camo"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "helmet_eng_para_net"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "cap_eng_beret_commando"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-							}
-							{tag_add para_ready}
 						}
 					}
-					{"squad"
-						{operation exclude}
-						{selector
+				}
+			}
+		}
+		{"if"
+			{condition
+				{type cmp_i}
+				{var "user_nation$"}
+				{op "=="}
+				{value 1}
+			}
+			{"delete"
+				{selector
+					{source advanced}
+					{group
+						{select
+							{tag
+								{tag usa}
+							}
+							{tag
+								{tag soviet}
+							}
+							{tag
+								{tag eng}
+							}
+						}
+						{include
+							{tag
+								{tag drop_plane}
+							}
+							{tag
+								{tag hidden}
+							}
+						}
+					}
+				}
+			}
+			{"if"
+				{condition
+					{type inventory}
+					{selector
+						{source advanced}
+						{ignore_captured_by_user 0}
+						{group
+							{select
+								{tag
+									{tag ai_inf}
+								}
+							}
+							{include
+								{prop
+									{prop human}
+								}
+								{state
+									{state operatable}
+								}
+								{zone
+									{zone "gamezone"}
+								}
+							}
+							{exclude
+								{tag
+									{tag player}
+								}
+							}
+						}
+					}
+					{item "bandage_ger"}
+				}
+				{"delete"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag japanese}
+								}
+							}
+							{include
+								{tag
+									{tag drop_plane}
+								}
+								{tag
+									{tag hidden}
+								}
+							}
+						}
+					}
+				}
+			}
+			{"if"
+				{condition
+					{type inventory}
+					{selector
+						{source advanced}
+						{ignore_captured_by_user 0}
+						{group
+							{select
+								{tag
+									{tag ai_inf}
+								}
+							}
+							{include
+								{prop
+									{prop human}
+								}
+								{state
+									{state operatable}
+								}
+								{zone
+									{zone "gamezone"}
+								}
+							}
+							{exclude
+								{tag
+									{tag player}
+								}
+							}
+						}
+					}
+					{item "bandage_jap"}
+				}
+				{"delete"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag german}
+								}
+							}
+							{include
+								{tag
+									{tag drop_plane}
+								}
+								{tag
+									{tag hidden}
+								}
+							}
+						}
+					}
+				}
+			}
+			{"if"
+				{condition
+					{type inventory}
+					{selector
+						{source advanced}
+						{ignore_captured_by_user 0}
+						{group
+							{select
+								{tag
+									{tag ai_inf}
+								}
+							}
+							{include
+								{prop
+									{prop human}
+								}
+								{state
+									{state operatable}
+								}
+								{zone
+									{zone "gamezone"}
+								}
+							}
+							{exclude
+								{tag
+									{tag player}
+								}
+							}
+						}
+					}
+					{item "bandage_ita"}
+				}
+				{"delete"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag japanese}
+								}
+							}
+							{include
+								{tag
+									{tag drop_plane}
+								}
+								{tag
+									{tag hidden}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		{"delay"
+			{time 1}
+		}
+		{"if"
+			{condition
+				{type cmp_i}
+				{var "user_team$"}
+				{op "=="}
+				{value 1}
+			}
+			{"set_i"
+				{var "para_plane_side_start$"}
+				{op "="}
+				{value 2}
+			}
+		}
+		{"if"
+			{condition
+				{type cmp_i}
+				{var "user_team$"}
+				{op "=="}
+				{value 2}
+			}
+			{"set_i"
+				{var "para_plane_side_start$"}
+				{op "="}
+				{value 1}
+			}
+		}
+		{"delay"
+			{time 1}
+		}
+		{"event"
+			{event "enemy_paratroopers"}
+			{mode set}
+			{delay 0}
+		}
+		{"if"
+			{condition
+				{type inventory}
+				{selector
+					{source advanced}
+					{ignore_captured_by_user 0}
+					{group
+						{select
+							{tag
+								{tag ai_inf}
+							}
+						}
+						{include
+							{prop
+								{prop human}
+							}
+							{state
+								{state operatable}
+							}
+							{zone
+								{zone "gamezone"}
+							}
+						}
+						{exclude
+							{tag
+								{tag player}
+							}
+						}
+					}
+				}
+				{item "bandage_fra"}
+			}
+			{"event"
+				{event "enemy_paratroopers"}
+				{mode reset}
+				{delay 0}
+			}
+			{"set_i"
+				{var "enemy_paras_active$"}
+				{op "="}
+				{value 0}
+			}
+		}
+		{"if"
+			{condition
+				{type inventory}
+				{selector
+					{source advanced}
+					{ignore_captured_by_user 0}
+					{group
+						{select
+							{tag
+								{tag ai_inf}
+							}
+						}
+						{include
+							{prop
+								{prop human}
+							}
+							{state
+								{state operatable}
+							}
+							{zone
+								{zone "gamezone"}
+							}
+						}
+						{exclude
+							{tag
+								{tag player}
+							}
+						}
+					}
+				}
+				{item "bandage_pol"}
+			}
+			{"event"
+				{event "enemy_paratroopers"}
+				{mode reset}
+				{delay 0}
+			}
+			{"set_i"
+				{var "enemy_paras_active$"}
+				{op "="}
+				{value 0}
+			}
+		}
+	}
+}
+{"ai_paratroopers/tag_paratroopers_to_deploy"
+	{condition
+		{expression "(1 | 2 ) & 3"}
+		{terms
+			{"1.entities"
+				{selector
+					{source advanced}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "ger_m38_helmet"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "ger_m38_helmet_camo"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "ger_m38_helmet_net"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "ger_m38_helmet_winter"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "ger_m38_helmet_net_winter"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "ger_m38_helmet_desert"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "ger_m38_helmet_net_desert"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "ger_m38_helmet_camo_blue"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "helmet4_jap_para"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "snlf_helmet"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "snlf_tropical"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "helmet_ita_m33_mvsn"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+				}
+			}
+			{"2.entities"
+				{selector
+					{source advanced}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{tag
+								{tag ai_inf}
+							}
+							{state
+								{state operatable}
+							}
+							{with_item
+								{type existance}
+								{item "soviet_budinovka"}
+							}
+						}
+						{exclude
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{tag
+								{tag para_ready}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{tag
+								{tag ai_inf}
+							}
+							{state
+								{state operatable}
+							}
+							{with_item
+								{type existance}
+								{item "soviet_budinovka_down"}
+							}
+						}
+						{exclude
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag para_in_field}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "helmet_usa_506th"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "helmet_usa_506th_camo"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "helmet_usa_506th_camo_nco"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "helmet_usa_506th_camo_officer"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "helmet_usa_506th_nco"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "helmet_usa_506th_officer"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "helmet_airborne_usa2"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "helmet_eng_para"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "helmet_eng_para_camo"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "helmet_eng_para_net"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "cap_eng_beret_commando"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+				}
+			}
+			{"3.event"
+				{id "enemy_paratroopers"}
+			}
+		}
+	}
+	{actions
+		{"delay"
+			{time 0.2}
+		}
+		{## "entity_state"
+			{selector
+				{source advanced}
+				{group
+					{select
+						{zone
+							{zone "sidea1"}
+						}
+						{zone
+							{zone "sidea2"}
+						}
+						{zone
+							{zone "sidea3"}
+						}
+						{zone
+							{zone "sidea4"}
+						}
+						{zone
+							{zone "sideb1"}
+						}
+						{zone
+							{zone "sideb2"}
+						}
+						{zone
+							{zone "sideb3"}
+						}
+						{zone
+							{zone "sideb4"}
+						}
+					}
+					{include
+						{state
+							{state operatable}
+						}
+						{tag
+							{tag ai_inf}
+						}
+						{with_item
+							{type existance}
+							{item "ger_m38_helmet"}
+						}
+					}
+					{exclude
+						{tag
 							{tag para_ready}
+						}
+						{tag
+							{tag player}
+						}
+					}
+				}
+				{group
+					{select
+						{zone
+							{zone "sidea1"}
+						}
+						{zone
+							{zone "sidea2"}
+						}
+						{zone
+							{zone "sidea3"}
+						}
+						{zone
+							{zone "sidea4"}
+						}
+						{zone
+							{zone "sideb1"}
+						}
+						{zone
+							{zone "sideb2"}
+						}
+						{zone
+							{zone "sideb3"}
+						}
+						{zone
+							{zone "sideb4"}
+						}
+					}
+					{include
+						{state
+							{state operatable}
+						}
+						{tag
+							{tag ai_inf}
+						}
+						{with_item
+							{type existance}
+							{item "ger_m38_helmet_camo"}
+						}
+					}
+					{exclude
+						{tag
+							{tag para_ready}
+						}
+						{tag
+							{tag player}
+						}
+					}
+				}
+				{group
+					{select
+						{zone
+							{zone "sidea1"}
+						}
+						{zone
+							{zone "sidea2"}
+						}
+						{zone
+							{zone "sidea3"}
+						}
+						{zone
+							{zone "sidea4"}
+						}
+						{zone
+							{zone "sideb1"}
+						}
+						{zone
+							{zone "sideb2"}
+						}
+						{zone
+							{zone "sideb3"}
+						}
+						{zone
+							{zone "sideb4"}
+						}
+					}
+					{include
+						{state
+							{state operatable}
+						}
+						{tag
+							{tag ai_inf}
+						}
+						{with_item
+							{type existance}
+							{item "ger_m38_helmet_net"}
+						}
+					}
+					{exclude
+						{tag
+							{tag para_ready}
+						}
+						{tag
+							{tag player}
+						}
+					}
+				}
+				{group
+					{select
+						{zone
+							{zone "sidea1"}
+						}
+						{zone
+							{zone "sidea2"}
+						}
+						{zone
+							{zone "sidea3"}
+						}
+						{zone
+							{zone "sidea4"}
+						}
+						{zone
+							{zone "sideb1"}
+						}
+						{zone
+							{zone "sideb2"}
+						}
+						{zone
+							{zone "sideb3"}
+						}
+						{zone
+							{zone "sideb4"}
+						}
+					}
+					{include
+						{state
+							{state operatable}
+						}
+						{tag
+							{tag ai_inf}
+						}
+						{with_item
+							{type existance}
+							{item "ger_m38_helmet_winter"}
+						}
+					}
+					{exclude
+						{tag
+							{tag para_ready}
+						}
+						{tag
+							{tag player}
+						}
+					}
+				}
+				{group
+					{select
+						{zone
+							{zone "sidea1"}
+						}
+						{zone
+							{zone "sidea2"}
+						}
+						{zone
+							{zone "sidea3"}
+						}
+						{zone
+							{zone "sidea4"}
+						}
+						{zone
+							{zone "sideb1"}
+						}
+						{zone
+							{zone "sideb2"}
+						}
+						{zone
+							{zone "sideb3"}
+						}
+						{zone
+							{zone "sideb4"}
+						}
+					}
+					{include
+						{state
+							{state operatable}
+						}
+						{tag
+							{tag ai_inf}
+						}
+						{with_item
+							{type existance}
+							{item "ger_m38_helmet_net_winter"}
+						}
+					}
+					{exclude
+						{tag
+							{tag para_ready}
+						}
+						{tag
+							{tag player}
+						}
+					}
+				}
+				{group
+					{select
+						{zone
+							{zone "sidea1"}
+						}
+						{zone
+							{zone "sidea2"}
+						}
+						{zone
+							{zone "sidea3"}
+						}
+						{zone
+							{zone "sidea4"}
+						}
+						{zone
+							{zone "sideb1"}
+						}
+						{zone
+							{zone "sideb2"}
+						}
+						{zone
+							{zone "sideb3"}
+						}
+						{zone
+							{zone "sideb4"}
+						}
+					}
+					{include
+						{state
+							{state operatable}
+						}
+						{tag
+							{tag ai_inf}
+						}
+						{with_item
+							{type existance}
+							{item "ger_m38_helmet_desert"}
+						}
+					}
+					{exclude
+						{tag
+							{tag para_ready}
+						}
+						{tag
+							{tag player}
+						}
+					}
+				}
+				{group
+					{select
+						{zone
+							{zone "sidea1"}
+						}
+						{zone
+							{zone "sidea2"}
+						}
+						{zone
+							{zone "sidea3"}
+						}
+						{zone
+							{zone "sidea4"}
+						}
+						{zone
+							{zone "sideb1"}
+						}
+						{zone
+							{zone "sideb2"}
+						}
+						{zone
+							{zone "sideb3"}
+						}
+						{zone
+							{zone "sideb4"}
+						}
+					}
+					{include
+						{state
+							{state operatable}
+						}
+						{tag
+							{tag ai_inf}
+						}
+						{with_item
+							{type existance}
+							{item "ger_m38_helmet_net_desert"}
+						}
+					}
+					{exclude
+						{tag
+							{tag para_ready}
+						}
+						{tag
+							{tag player}
+						}
+					}
+				}
+				{group
+					{select
+						{zone
+							{zone "sidea1"}
+						}
+						{zone
+							{zone "sidea2"}
+						}
+						{zone
+							{zone "sidea3"}
+						}
+						{zone
+							{zone "sidea4"}
+						}
+						{zone
+							{zone "sideb1"}
+						}
+						{zone
+							{zone "sideb2"}
+						}
+						{zone
+							{zone "sideb3"}
+						}
+						{zone
+							{zone "sideb4"}
+						}
+					}
+					{include
+						{state
+							{state operatable}
+						}
+						{tag
+							{tag ai_inf}
+						}
+						{with_item
+							{type existance}
+							{item "ger_m38_helmet_camo_blue"}
+						}
+					}
+					{exclude
+						{tag
+							{tag para_ready}
+						}
+						{tag
+							{tag player}
+						}
+					}
+				}
+			}
+			{tag_add para_ready}
+		}
+		{## "entity_state"
+			{selector
+				{source advanced}
+				{group
+					{select
+						{tag
+							{tag ai_inf}
+						}
+					}
+					{include
+						{zone
+							{zone "sidea1"}
+						}
+						{zone
+							{zone "sidea2"}
+						}
+						{zone
+							{zone "sidea3"}
+						}
+						{zone
+							{zone "sidea4"}
+						}
+						{zone
+							{zone "sideb1"}
+						}
+						{zone
+							{zone "sideb2"}
+						}
+						{zone
+							{zone "sideb3"}
+						}
+						{zone
+							{zone "sideb4"}
+						}
+						{prop
+							{prop human}
+						}
+					}
+					{exclude
+						{state
+							{state inactive}
+						}
+						{tag
+							{tag hidden}
+						}
+						{tag
+							{tag para_ready}
+						}
+					}
+				}
+				{amount 12
+				}
+			}
+			{tag_add para_ready}
+		}
+		{"if"
+			{condition
+				{type cmp_i}
+				{var "user_nation$"}
+				{op "=="}
+				{value 1}
+			}
+			{"entity_state"
+				{selector
+					{source advanced}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "ger_m38_helmet"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "ger_m38_helmet_camo"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "ger_m38_helmet_net"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "ger_m38_helmet_winter"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "ger_m38_helmet_net_winter"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "ger_m38_helmet_desert"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "ger_m38_helmet_net_desert"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "ger_m38_helmet_camo_blue"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+				}
+				{tag_add para_ready}
+			}
+			{"entity_state"
+				{selector
+					{source advanced}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "helmet4_jap_para"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "snlf_helmet"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "snlf_tropical"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+				}
+				{tag_add para_ready}
+			}
+			{"entity_state"
+				{selector
+					{source advanced}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "helmet_ita_m33_mvsn"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+				}
+				{tag_add para_ready}
+			}
+		}
+		{"if"
+			{condition
+				{type cmp_i}
+				{var "user_nation$"}
+				{op "=="}
+				{value 2}
+			}
+			{"entity_state"
+				{selector
+					{source advanced}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{tag
+								{tag ai_inf}
+							}
+							{state
+								{state operatable}
+							}
+							{with_item
+								{type existance}
+								{item "soviet_budinovka"}
+							}
+						}
+						{exclude
+							{tag
+								{tag player}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{tag
+								{tag ai_inf}
+							}
+							{state
+								{state operatable}
+							}
+							{with_item
+								{type existance}
+								{item "soviet_budinovka_down"}
+							}
+						}
+						{exclude
+							{tag
+								{tag player}
+							}
+						}
+					}
+				}
+				{tag_add para_ready}
+			}
+			{"entity_state"
+				{selector
+					{source advanced}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "helmet_usa_506th"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "helmet_usa_506th_camo"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "helmet_usa_506th_camo_nco"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "helmet_usa_506th_camo_officer"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "helmet_usa_506th_nco"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "helmet_usa_506th_officer"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "helmet_airborne_usa2"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+				}
+				{tag_add para_ready}
+			}
+			{"entity_state"
+				{selector
+					{source advanced}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "helmet_eng_para"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "helmet_eng_para_camo"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "helmet_eng_para_net"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+					{group
+						{select
+							{zone
+								{zone "sidea1"}
+							}
+							{zone
+								{zone "sidea2"}
+							}
+							{zone
+								{zone "sidea3"}
+							}
+							{zone
+								{zone "sidea4"}
+							}
+							{zone
+								{zone "sideb1"}
+							}
+							{zone
+								{zone "sideb2"}
+							}
+							{zone
+								{zone "sideb3"}
+							}
+							{zone
+								{zone "sideb4"}
+							}
+						}
+						{include
+							{state
+								{state operatable}
+							}
+							{tag
+								{tag ai_inf}
+							}
+							{with_item
+								{type existance}
+								{item "cap_eng_beret_commando"}
+							}
+						}
+						{exclude
+							{tag
+								{tag para_ready}
+							}
+							{tag
+								{tag player}
+							}
+							{state
+								{state user_control}
+							}
+							{tag
+								{tag para_in_field}
+							}
+							{state
+								{state linked}
+							}
+						}
+					}
+				}
+				{tag_add para_ready}
+			}
+		}
+		{"squad"
+			{operation exclude}
+			{selector
+				{tag para_ready}
+				{state operatable}
+			}
+		}
+		{"actor_state"
+			{selector
+				{source advanced}
+				{group
+					{select
+						{tag
+							{tag para_ready}
+						}
+					}
+				}
+			}
+			{weapon_prepare off}
+		}
+		{"delay"
+			{time 0.5}
+		}
+		{## "placement"
+			{selector
+				{source advanced}
+				{group
+					{select
+						{tag
+							{tag para_ready}
+						}
+					}
+					{include
+						{prop
+							{prop human}
+						}
+						{zone
+							{zone "sidea1"}
+						}
+						{zone
+							{zone "sidea2"}
+						}
+						{zone
+							{zone "sidea3"}
+						}
+						{zone
+							{zone "sidea4"}
+						}
+						{zone
+							{zone "sideb1"}
+						}
+						{zone
+							{zone "sideb2"}
+						}
+						{zone
+							{zone "sideb3"}
+						}
+						{zone
+							{zone "sideb4"}
+						}
+						{state
 							{state operatable}
 						}
 					}
-					{"delay"
-						{time 1}
-					}
-					{## "placement"
-						{selector
-							{source advanced}
-							{group
-								{select
-									{tag
-										{tag para_ready}
-									}
-								}
-								{include
-									{prop
-										{prop human}
-									}
-									{zone
-										{zone "sidea1"}
-									}
-									{zone
-										{zone "sidea2"}
-									}
-									{zone
-										{zone "sidea3"}
-									}
-									{zone
-										{zone "sidea4"}
-									}
-									{zone
-										{zone "sideb1"}
-									}
-									{zone
-										{zone "sideb2"}
-									}
-									{zone
-										{zone "sideb3"}
-									}
-									{zone
-										{zone "sideb4"}
-									}
-									{state
-										{state operatable}
-									}
-								}
-								{exclude
-									{state
-										{state linked}
-									}
-								}
-							}
-							{group
-								{select
-									{tag
-										{tag para_ready}
-									}
-								}
-								{include
-									{prop
-										{prop human}
-									}
-									{zone
-										{zone "sidea2"}
-									}
-									{state
-										{state operatable}
-									}
-								}
-								{exclude
-									{state
-										{state linked}
-									}
-								}
-							}
-							{group
-								{select
-									{tag
-										{tag para_ready}
-									}
-								}
-								{include
-									{zone
-										{zone "sidea3"}
-									}
-									{prop
-										{prop human}
-									}
-									{state
-										{state operatable}
-									}
-								}
-								{exclude
-									{state
-										{state linked}
-									}
-								}
-							}
-							{group
-								{select
-									{tag
-										{tag para_ready}
-									}
-								}
-								{include
-									{prop
-										{prop human}
-									}
-									{zone
-										{zone "sidea4"}
-									}
-									{state
-										{state operatable}
-									}
-								}
-								{exclude
-									{state
-										{state linked}
-									}
-								}
-							}
+					{exclude
+						{state
+							{state linked}
 						}
-						{target_waypoint "20"}
-						{clone}
 					}
-					{## "actor_state"
-						{selector
-							{source advanced}
-							{group
-								{select
-									{tag
-										{tag para_ready}
-									}
-								}
-								{include
-									{zone
-										{zone "sidea1"}
-									}
-								}
-							}
+				}
+				{group
+					{select
+						{tag
+							{tag para_ready}
 						}
-						{weapon_prepare off}
 					}
-					{"trigger"
-						{name "ai_paratroopers/tag_paratroopers_to_deploy"}
+					{include
+						{prop
+							{prop human}
+						}
+						{zone
+							{zone "sidea2"}
+						}
+						{state
+							{state operatable}
+						}
+					}
+					{exclude
+						{state
+							{state linked}
+						}
+					}
+				}
+				{group
+					{select
+						{tag
+							{tag para_ready}
+						}
+					}
+					{include
+						{zone
+							{zone "sidea3"}
+						}
+						{prop
+							{prop human}
+						}
+						{state
+							{state operatable}
+						}
+					}
+					{exclude
+						{state
+							{state linked}
+						}
+					}
+				}
+				{group
+					{select
+						{tag
+							{tag para_ready}
+						}
+					}
+					{include
+						{prop
+							{prop human}
+						}
+						{zone
+							{zone "sidea4"}
+						}
+						{state
+							{state operatable}
+						}
+					}
+					{exclude
+						{state
+							{state linked}
+						}
 					}
 				}
 			}
+			{target_waypoint "20"}
+			{clone}
+		}
+		{"trigger"
+			{name "ai_paratroopers/tag_paratroopers_to_deploy"}
+		}
+	}
+}
 			{"ai_paratroopers/spawn_plane"
 				{condition
 					{terms

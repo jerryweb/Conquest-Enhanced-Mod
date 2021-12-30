@@ -186,9 +186,11 @@ function OnGameStart()
 	math.randomseed(os.time()*BotApi.Instance.hostId)
 	math.random() math.random() math.random() math.random()
 	print("TESTING MODE ACTIVATED = ", testing)
+	gameStartTime = os.clock()
+	
 	if not testing then
 		if math.random() < 0.5 then -- 50% chance to change when enemy reinforcements spawn 
-			firstWaveOffsetTime = math.random(480,780)
+			firstWaveOffsetTime = math.random(480,780) 
 		end
 	end
 	if not testing then
@@ -201,7 +203,7 @@ function OnGameStart()
 		activateToggleTyphoonWaveMode()
 	end
 
-	gameStartTime = os.clock()
+	
 	print("first enemy wave will start at ", gameStartTime + firstWaveOffsetTime)
 	nextTyphoonWaveTime = gameStartTime + firstWaveOffsetTime
 	nextTyphoonWaveToggleTime = gameStartTime + typhoonWaveToggleInterval + firstWaveOffsetTime
@@ -492,8 +494,10 @@ function OnGameSpawn(args)
 			GotoNextWaypoint(args.squadId)
 			print("#waypoints != 0")
 		end
+	else 
+		local squadOrderTime = math.random(240, 300)
+		squadDictionary[args.squadId] = os.clock() + squadOrderTime
 	end
-
 	-- if mortarCounter > 0 then
 	-- 	mortars[args.squadId] = args
 	-- 	print("added ", args.squadId, " to mortar list")
@@ -515,12 +519,7 @@ function OnGameSpawn(args)
 	-- end
 	-- print("spawned squad id: ", tostring(args.unit))
 
-	local str = tostring(args.squadId)
-
-	local squadOrderTime = math.random(240, 300)
-
-
-	squadDictionary[args.squadId] = os.clock() + squadOrderTime
+	
 	-- print("squad time = ", squadDictionary[args.squadId])
 	-- table.insert(squadDictionary, {squadid = args.squadId, unlockTime = os.clock + 10})
 

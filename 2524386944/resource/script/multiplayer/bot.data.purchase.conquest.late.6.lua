@@ -6,7 +6,7 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 1,
 		maxRepeat = 3,
         skipPossible = false,		
-		waveDuration = 5,
+		waveDuration = 10,
 		isHeavyArty = true,
 		Units = {
 			["ger"] = {--Germany
@@ -54,7 +54,7 @@ Purchases["campaign_capture_the_flag"] = {
 		minRepeat = 2,
 		maxRepeat = 3,
 	    skipPossible = false,
-	    waveDuration = 5,
+	    waveDuration = 10,
 	    isHeavyArty = true,
 		Units = {
 			["ger"] = {--Germany
@@ -226,7 +226,7 @@ Purchases["campaign_capture_the_flag"] = {
 		        {priority = 11.0, class = UnitClass.ArtilleryTank, unit = "300mm_nebelwerfer42", isHeavyArty = true},
 			},
 			["rus"] = {--Russia
-				-- {priority = 1.0, class = UnitClass.ArtilleryTank, unit = "bm13_studebaker"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "bm13_studebaker"},
 			}
 		}
 	},
