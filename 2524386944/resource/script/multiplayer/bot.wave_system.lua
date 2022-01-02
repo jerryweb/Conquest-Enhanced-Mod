@@ -1,7 +1,7 @@
 require([[/script/multiplayer/bot.data]])
 
 -- This enables early testing so that units come 30 seconds after start. 
-testing = false
+testing = true
 
 -- Number of unit division roster files to randomly select for each period in the war 
 maxNumOfEarlyDivisions = 5
@@ -19,7 +19,7 @@ end
 initialWave = true
 
 -- This variable controls whether units will spawn all at once for 15 seconds, creating a massive wave, every x seconds
-typhoonWaveMode = false
+typhoonWaveMode = true
 nextTyphoonWaveTime = 0
 typhoonWaveInterval = 90
 typhoonWaveDuration = 25
@@ -61,7 +61,7 @@ function selectArmyDivision(totalFlags)
 	print("loading")
 	-- REMOVE THIS LINE (ONLY FOR TESTING)
 	if testing then
-		divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.7]]
+		divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.early.3]]
 	end
 
 

@@ -329,8 +329,6 @@ function TrySpawnUnit()
 			-- 	mortarCounter = mortarCounter + 1
 			-- 	print("incrementing mortar counter")
 			-- end
-
-
 			currentWaveMaxUnitCount = currentWaveMaxUnitCount - 1
 			KillSpawnWaitTimer()
 			SetSpawnCooldownTimer()
@@ -440,6 +438,8 @@ function CaptureFlag(squad)
 	local flag = GetFlagToCapture(BotApi.Scene.Flags, GetFlagPriority)
 	-- local rnd = 0.1 + choice
 	local rnd = math.random() + choice
+
+	-- Mortars seem to crash the game when sending them to capture a flag. Will need to investigate
 	if flag then
 		-- if emplacementArtillery[squad] then
 			print("+SeekAndDestroy with  squad", squad)
@@ -495,22 +495,10 @@ function OnGameSpawn(args)
 			print("#waypoints != 0")
 		end
 	else 
+
 		local squadOrderTime = math.random(240, 300)
 		squadDictionary[args.squadId] = os.clock() + squadOrderTime
 	end
-	-- if mortarCounter > 0 then
-	-- 	mortars[args.squadId] = args
-	-- 	print("added ", args.squadId, " to mortar list")
-	-- 	IsMortar = false
-	-- 	mortarCounter = mortarCounter - 1
-	-- 	local waypoints = BotApi.Scene.Waypoints
-	-- 	if #waypoints == 0 then
-	-- 		SetSquadOrder(CaptureFlag, args.squadId, OrderRotationPeriod)
-	-- 	else
-	-- 		GotoNextWaypoint(args.squadId)
-	-- 		print("#waypoints != 0")
-	-- 	end
-	-- end
 
 	-- local waypoints = BotApi.Scene.Waypoints
 

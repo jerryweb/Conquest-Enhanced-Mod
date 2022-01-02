@@ -44,7 +44,6 @@ Purchases["campaign_capture_the_flag"] = {
 			["rus"] = {--Russia
 			--Howitzers
 				{priority = 3.0, class = UnitClass.ArtilleryTank, unit = "120mm_pm38"},
-				{priority = 3.0, class = UnitClass.UnitClass.ATTank, unit = "m41_ampulomet"},
 			}
 		}
 	},
@@ -247,8 +246,8 @@ Purchases["campaign_capture_the_flag"] = {
 			}
 		}
 	},
-	{--purchase 9 light tank rush
-		waveNumber = 9,
+	{--purchase 10 light tank rush
+		waveNumber = 10,
 		-- Repeat = 4,
 		minRepeat = 2,
 		maxRepeat = 4,
