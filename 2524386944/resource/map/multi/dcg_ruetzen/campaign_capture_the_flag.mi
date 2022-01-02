@@ -43497,6 +43497,790 @@
 			{"tagged_preplaced_mgs"}
 		}
 		{triggers
+			{"ai_spawn/side_a_1_failsafe"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sidea1"}
+										}
+									}
+									{include
+										{tag
+											{tag sidea1}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag squad}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 15}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{zone
+										{zone "sidea1"}
+									}
+								}
+								{include
+									{tag
+										{tag sidea1}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag squad}
+									}
+								}
+							}
+						}
+						{tag_remove sidea1}
+					}
+					{"delay"
+						{time 5}
+					}
+					{"trigger"
+						{name "ai_spawn/side_a_1_failsafe"}
+					}
+				}
+			}
+			{"ai_spawn/side_a_2_failsafe"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sidea2"}
+										}
+									}
+									{include
+										{tag
+											{tag sidea2}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag squad}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 15}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{zone
+										{zone "sidea2"}
+									}
+								}
+								{include
+									{tag
+										{tag sidea2}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag squad}
+									}
+								}
+							}
+						}
+						{tag_remove sidea2}
+					}
+					{"delay"
+						{time 5}
+					}
+					{"trigger"
+						{name "ai_spawn/side_a_2_failsafe"}
+					}
+				}
+			}
+			{"ai_spawn/side_a_3_failsafe"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sidea3"}
+										}
+									}
+									{include
+										{tag
+											{tag sidea3}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag squad}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 15}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{zone
+										{zone "sidea3"}
+									}
+								}
+								{include
+									{tag
+										{tag sidea3}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag squad}
+									}
+								}
+							}
+						}
+						{tag_remove sidea3}
+					}
+					{"delay"
+						{time 5}
+					}
+					{"trigger"
+						{name "ai_spawn/side_a_3_failsafe"}
+					}
+				}
+			}
+			{"ai_spawn/side_a_4_failsafe"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sidea4"}
+										}
+									}
+									{include
+										{tag
+											{tag sidea4}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag squad}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 15}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{zone
+										{zone "sidea4"}
+									}
+								}
+								{include
+									{tag
+										{tag sidea4}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag squad}
+									}
+								}
+							}
+						}
+						{tag_remove sidea4}
+					}
+					{"delay"
+						{time 5}
+					}
+					{"trigger"
+						{name "ai_spawn/side_a_4_failsafe"}
+					}
+				}
+			}
+			{"ai_spawn/side_b_1_failsafe"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sideb1"}
+										}
+									}
+									{include
+										{tag
+											{tag sideb1}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag squad}
+										}
+									}
+								}
+								{group
+									{select
+										{zone
+											{zone "sideb2"}
+										}
+									}
+									{include
+										{tag
+											{tag sideb2}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag squad}
+										}
+									}
+								}
+								{group
+									{select
+										{zone
+											{zone "sideb3"}
+										}
+									}
+									{include
+										{tag
+											{tag sideb3}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag squad}
+										}
+									}
+								}
+								{group
+									{select
+										{zone
+											{zone "sideb4"}
+										}
+									}
+									{include
+										{tag
+											{tag sideb4}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag squad}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 15}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{zone
+										{zone "sideb1"}
+									}
+								}
+								{include
+									{tag
+										{tag sideb1}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag squad}
+									}
+								}
+							}
+						}
+						{tag_remove sideb1}
+					}
+					{"delay"
+						{time 5}
+					}
+					{"trigger"
+						{name "ai_spawn/side_b_1_failsafe"}
+					}
+				}
+			}
+			{"ai_spawn/side_b_2_failsafe"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sideb1"}
+										}
+									}
+									{include
+										{tag
+											{tag sideb1}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag squad}
+										}
+									}
+								}
+								{group
+									{select
+										{zone
+											{zone "sideb2"}
+										}
+									}
+									{include
+										{tag
+											{tag sideb2}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag squad}
+										}
+									}
+								}
+								{group
+									{select
+										{zone
+											{zone "sideb3"}
+										}
+									}
+									{include
+										{tag
+											{tag sideb3}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag squad}
+										}
+									}
+								}
+								{group
+									{select
+										{zone
+											{zone "sideb4"}
+										}
+									}
+									{include
+										{tag
+											{tag sideb4}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag squad}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 15}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{zone
+										{zone "sideb2"}
+									}
+								}
+								{include
+									{tag
+										{tag sideb2}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag squad}
+									}
+								}
+							}
+						}
+						{tag_remove sideb2}
+					}
+					{"delay"
+						{time 5}
+					}
+					{"trigger"
+						{name "ai_spawn/side_b_2_failsafe"}
+					}
+				}
+			}
+			{"ai_spawn/side_b_3_failsafe"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sideb1"}
+										}
+									}
+									{include
+										{tag
+											{tag sideb1}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag squad}
+										}
+									}
+								}
+								{group
+									{select
+										{zone
+											{zone "sideb2"}
+										}
+									}
+									{include
+										{tag
+											{tag sideb2}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag squad}
+										}
+									}
+								}
+								{group
+									{select
+										{zone
+											{zone "sideb3"}
+										}
+									}
+									{include
+										{tag
+											{tag sideb3}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag squad}
+										}
+									}
+								}
+								{group
+									{select
+										{zone
+											{zone "sideb4"}
+										}
+									}
+									{include
+										{tag
+											{tag sideb4}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag squad}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 15}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{zone
+										{zone "sideb3"}
+									}
+								}
+								{include
+									{tag
+										{tag sideb3}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag squad}
+									}
+								}
+							}
+						}
+						{tag_remove sideb3}
+					}
+					{"delay"
+						{time 5}
+					}
+					{"trigger"
+						{name "ai_spawn/side_b_3_failsafe"}
+					}
+				}
+			}
+			{"ai_spawn/side_b_4_failsafe"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sideb1"}
+										}
+									}
+									{include
+										{tag
+											{tag sideb1}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag squad}
+										}
+									}
+								}
+								{group
+									{select
+										{zone
+											{zone "sideb2"}
+										}
+									}
+									{include
+										{tag
+											{tag sideb2}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag squad}
+										}
+									}
+								}
+								{group
+									{select
+										{zone
+											{zone "sideb3"}
+										}
+									}
+									{include
+										{tag
+											{tag sideb3}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag squad}
+										}
+									}
+								}
+								{group
+									{select
+										{zone
+											{zone "sideb4"}
+										}
+									}
+									{include
+										{tag
+											{tag sideb4}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag squad}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 15}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{zone
+										{zone "sideb4"}
+									}
+								}
+								{include
+									{tag
+										{tag sideb4}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag squad}
+									}
+								}
+							}
+						}
+						{tag_remove sideb4}
+					}
+					{"delay"
+						{time 5}
+					}
+					{"trigger"
+						{name "ai_spawn/side_b_4_failsafe"}
+					}
+				}
+			}
 			{## "environment/spring"
 				{disabled}
 				{condition
@@ -53764,7 +54548,8 @@
 					}
 				}
 			}
-			{"x/enemyartymove3"
+			{## "x/enemyartymove3"
+				{disabled}
 				{condition
 					{expression "1"}
 					{terms
@@ -53798,6 +54583,11 @@
 										{include
 											{state
 												{state operatable}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
 											}
 										}
 									}
@@ -54665,7 +55455,8 @@
 					}
 				}
 			}
-			{"x/enemyartymovedefense"
+			{## "x/enemyartymovedefense"
+				{disabled}
 				{condition
 					{expression "2"}
 					{terms
