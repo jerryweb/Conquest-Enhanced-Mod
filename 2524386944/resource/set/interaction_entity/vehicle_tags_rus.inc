@@ -351,7 +351,7 @@
 ;HOWITZERS
 {"76mm_m1927"
 	{on spawn
-    	{tags add "field_gun"}
+    	{tags add "artillery"}
 		{tags add "soviet"}
 		{tags add "76mm_m1927"}
 		{delay 6
@@ -379,7 +379,7 @@
 }
 {"76mm_m43"
 	{on spawn
-    	{tags add "field_gun"}
+    	{tags add "artillery"}
 		{tags add "soviet"}
 		{tags add "76mm_m43"}
 		{delay 6
@@ -731,7 +731,6 @@
 	{on spawn
     	{tags add "wheeled_vehicle"}
 		{tags add "rocket_artillery"}
-		{tags add "artillery"}
 		{tags add "soviet"}
 		{tags add "bm13_studebaker"}
 		{delay 6
@@ -760,7 +759,6 @@
 	{on spawn
     	{tags add "wheeled_vehicle"}
 		{tags add "rocket_artillery"}
-		{tags add "artillery"}
 		{tags add "soviet"}
 		{tags add "bm31_12"}
 		{delay 6

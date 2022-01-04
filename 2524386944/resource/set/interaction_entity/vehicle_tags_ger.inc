@@ -270,7 +270,7 @@
 ;HOWITZERS
 {"75mm_leig18"
 	{on spawn
-    	{tags add "field_gun"}
+    	{tags add "artillery"}
 		{tags add "german"}
 		{tags add "75mm_leig18"}
 		{delay 6
@@ -374,7 +374,6 @@
 }
 {"150mm_nebelwerfer41"
 	{on spawn
-    	{tags add "artillery"}
 		{tags add "rocket_artillery"}
 		{tags add "german"}
 		{tags add "150mm_nebelwerfer41"}
@@ -402,7 +401,7 @@
 }
 {"150mm_sig33"
 	{on spawn
-    	{tags add "field_gun"}
+    	{tags add "artillery"}
 		{tags add "german"}
 		{tags add "150mm_sig33"}
 		{delay 6
@@ -480,7 +479,6 @@
 }
 {"300mm_nebelwerfer42"
 	{on spawn
-    	{tags add "artillery"}
 		{tags add "rocket_artillery"}
 		{tags add "german"}
 		{tags add "300mm_nebelwerfer42"}

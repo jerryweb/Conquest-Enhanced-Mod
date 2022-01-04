@@ -85051,7 +85051,7 @@
 					}
 				}
 			}
-			{"ai./tag_ai_mg"
+			{## "ai./tag_ai_mg"
 				{condition
 					{terms
 						{"1.entities"
@@ -85158,7 +85158,7 @@
 					}
 				}
 			}
-			{"ai./tag_preplaced_mg"
+			{## "ai./tag_preplaced_mg"
 				{condition
 					{terms
 						{"1.entities"
@@ -85490,7 +85490,7 @@
 					}
 				}
 			}
-			{"ai./enemymg"
+			{## "ai./enemymg"
 				{condition
 					{terms
 						{"1.entities"
@@ -85579,9 +85579,6 @@
 											}
 											{tag
 												{tag player_veh}
-											}
-											{tag
-												{tag cmp_def}
 											}
 										}
 									}
@@ -85672,9 +85669,6 @@
 											{tag
 												{tag player_veh}
 											}
-											{tag
-												{tag cmp_def}
-											}
 										}
 									}
 								}
@@ -85760,9 +85754,6 @@
 											}
 											{state
 												{state user_control}
-											}
-											{tag
-												{tag cmp_def}
 											}
 										}
 									}
@@ -85850,9 +85841,6 @@
 											{tag
 												{tag player_veh}
 											}
-											{tag
-												{tag cmp_def}
-											}
 										}
 									}
 								}
@@ -85939,9 +85927,6 @@
 											{state
 												{state user_control}
 											}
-											{tag
-												{tag cmp_def}
-											}
 										}
 									}
 								}
@@ -85995,9 +85980,6 @@
 											}
 											{state
 												{state user_control}
-											}
-											{tag
-												{tag cmp_def}
 											}
 										}
 									}
@@ -86097,10 +86079,6 @@
 										{tag
 											{tag player}
 										}
-										{relation
-											{relation ally}
-											{player "1"}
-										}
 									}
 								}
 							}
@@ -86108,13 +86086,233 @@
 					}
 				}
 				{actions
-					{"action"
+					{## "action"
 						{selector
-							{tag freeroam}
-							{state operatable}
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag freeroam}
+									}
+								}
+								{include
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag player}
+									}
+									{tag
+										{tag player_veh}
+									}
+									{tag
+										{tag player_armor}
+									}
+									{tag
+										{tag player_car}
+									}
+									{state
+										{state user_control}
+									}
+								}
+							}
+							{group
+								{select
+									{tag
+										{tag hmg}
+									}
+								}
+								{include
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag cmp_def}
+									}
+									{tag
+										{tag player}
+									}
+									{tag
+										{tag player_veh}
+									}
+									{state
+										{state user_control}
+									}
+									{tag
+										{tag rus}
+									}
+									{tag
+										{tag ger}
+									}
+								}
+							}
+							{group
+								{select
+									{tag
+										{tag aaflak}
+									}
+								}
+								{include
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag player}
+									}
+									{tag
+										{tag player_veh}
+									}
+									{tag
+										{tag rus}
+									}
+									{tag
+										{tag ger}
+									}
+									{state
+										{state user_control}
+									}
+									{tag
+										{tag cmp_def}
+									}
+								}
+							}
+							{group
+								{select
+									{tag
+										{tag artillery}
+									}
+								}
+								{include
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag player}
+									}
+									{tag
+										{tag player_veh}
+									}
+									{tag
+										{tag rus}
+									}
+									{tag
+										{tag ger}
+									}
+									{tag
+										{tag cmp_def}
+									}
+									{state
+										{state user_control}
+									}
+								}
+							}
+							{group
+								{select
+									{tag
+										{tag light_at_gun}
+									}
+								}
+								{include
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag player}
+									}
+									{tag
+										{tag player_veh}
+									}
+									{tag
+										{tag rus}
+									}
+									{tag
+										{tag ger}
+									}
+									{tag
+										{tag cmp_def}
+									}
+									{state
+										{state user_control}
+									}
+								}
+							}
+							{group
+								{select
+									{tag
+										{tag medium_at_gun}
+									}
+								}
+								{include
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag player}
+									}
+									{tag
+										{tag player_veh}
+									}
+									{tag
+										{tag rus}
+									}
+									{tag
+										{tag ger}
+									}
+									{tag
+										{tag cmp_def}
+									}
+									{state
+										{state user_control}
+									}
+								}
+							}
+							{group
+								{select
+									{tag
+										{tag heavy_at_gun}
+									}
+								}
+								{include
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag player}
+									}
+									{tag
+										{tag player_veh}
+									}
+									{tag
+										{tag rus}
+									}
+									{tag
+										{tag ger}
+									}
+									{tag
+										{tag cmp_def}
+									}
+									{state
+										{state user_control}
+									}
+								}
+							}
 						}
 						{drop orders}
-						{action attack}
+						{action advance}
 						{target
 							{source advanced}
 							{group
@@ -86149,11 +86347,1517 @@
 							}
 						}
 					}
+					{"if"
+						{condition
+							{type cmp_i}
+							{var "player_defending$"}
+							{op "=="}
+							{value 1}
+						}
+						{"action"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag freeroam}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_car}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+							{drop orders}
+							{action advance}
+							{target
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_car}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+									}
+								}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{relation
+											{relation ally}
+											{player "1"}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+									}
+								}
+							}
+						}
+						{## "action"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag freeroam}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_car}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag hmg}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag aaflak}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag cmp_def}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag artillery}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag light_at_gun}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag medium_at_gun}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag heavy_at_gun}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+							{drop orders}
+							{action advance}
+							{target
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_car}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+									}
+								}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{relation
+											{relation ally}
+											{player "1"}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+									}
+								}
+							}
+						}
+					}
+					{"if"
+						{condition
+							{type cmp_i}
+							{var "player_defending$"}
+							{op "=="}
+							{value 0}
+						}
+						{"action"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag freeroam}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_car}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+							{drop orders}
+							{action advance}
+							{target
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_car}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+									}
+								}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{relation
+											{relation enemy}
+											{player "1"}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+									}
+								}
+							}
+						}
+						{## "action"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag freeroam}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_car}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag hmg}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag aaflak}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag cmp_def}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag artillery}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag light_at_gun}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag medium_at_gun}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag heavy_at_gun}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+							{drop orders}
+							{action advance}
+							{target
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_car}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+									}
+								}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{relation
+											{relation enemy}
+											{player "1"}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+									}
+								}
+							}
+						}
+					}
 					{"delay"
 						{time 20}
 					}
 					{"trigger"
 						{name "ai./freeroam"}
+					}
+				}
+			}	
+			{"ai./tag_freeroam"
+				{condition
+					{expression "2"}
+					{terms
+						{"2.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sidea1"}
+										}
+										{zone
+											{zone "sidea2"}
+										}
+										{zone
+											{zone "sidea3"}
+										}
+										{zone
+											{zone "sidea4"}
+										}
+										{zone
+											{zone "sideb1"}
+										}
+										{zone
+											{zone "sideb2"}
+										}
+										{zone
+											{zone "sideb3"}
+										}
+										{zone
+											{zone "sideb4"}
+										}
+									}
+									{include
+										{tag
+											{tag hmg}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag freeroam}
+										}
+									}
+								}
+								{group
+									{select
+										{zone
+											{zone "sidea1"}
+										}
+										{zone
+											{zone "sidea2"}
+										}
+										{zone
+											{zone "sidea3"}
+										}
+										{zone
+											{zone "sidea4"}
+										}
+										{zone
+											{zone "sideb1"}
+										}
+										{zone
+											{zone "sideb2"}
+										}
+										{zone
+											{zone "sideb3"}
+										}
+										{zone
+											{zone "sideb4"}
+										}
+									}
+									{include
+										{tag
+											{tag aaflak}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag freeroam}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag cmp_def}
+										}
+									}
+								}
+								{group
+									{select
+										{zone
+											{zone "sidea1"}
+										}
+										{zone
+											{zone "sidea2"}
+										}
+										{zone
+											{zone "sidea3"}
+										}
+										{zone
+											{zone "sidea4"}
+										}
+										{zone
+											{zone "sideb1"}
+										}
+										{zone
+											{zone "sideb2"}
+										}
+										{zone
+											{zone "sideb3"}
+										}
+										{zone
+											{zone "sideb4"}
+										}
+									}
+									{include
+										{tag
+											{tag artillery}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag freeroam}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag cmp_def}
+										}
+									}
+								}
+								{group
+									{select
+										{zone
+											{zone "sidea1"}
+										}
+										{zone
+											{zone "sidea2"}
+										}
+										{zone
+											{zone "sidea3"}
+										}
+										{zone
+											{zone "sidea4"}
+										}
+										{zone
+											{zone "sideb1"}
+										}
+										{zone
+											{zone "sideb2"}
+										}
+										{zone
+											{zone "sideb3"}
+										}
+										{zone
+											{zone "sideb4"}
+										}
+									}
+									{include
+										{tag
+											{tag light_at_gun}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag freeroam}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag cmp_def}
+										}
+									}
+								}
+								{group
+									{select
+										{zone
+											{zone "sidea1"}
+										}
+										{zone
+											{zone "sidea2"}
+										}
+										{zone
+											{zone "sidea3"}
+										}
+										{zone
+											{zone "sidea4"}
+										}
+										{zone
+											{zone "sideb1"}
+										}
+										{zone
+											{zone "sideb2"}
+										}
+										{zone
+											{zone "sideb3"}
+										}
+										{zone
+											{zone "sideb4"}
+										}
+									}
+									{include
+										{tag
+											{tag medium_at_gun}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag freeroam}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag cmp_def}
+										}
+									}
+								}
+								{group
+									{select
+										{zone
+											{zone "sidea1"}
+										}
+										{zone
+											{zone "sidea2"}
+										}
+										{zone
+											{zone "sidea3"}
+										}
+										{zone
+											{zone "sidea4"}
+										}
+										{zone
+											{zone "sideb1"}
+										}
+										{zone
+											{zone "sideb2"}
+										}
+										{zone
+											{zone "sideb3"}
+										}
+										{zone
+											{zone "sideb4"}
+										}
+									}
+									{include
+										{tag
+											{tag heavy_at_gun}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag freeroam}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag cmp_def}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{zone
+										{zone "sidea1"}
+									}
+									{zone
+										{zone "sidea2"}
+									}
+									{zone
+										{zone "sidea3"}
+									}
+									{zone
+										{zone "sidea4"}
+									}
+									{zone
+										{zone "sideb1"}
+									}
+									{zone
+										{zone "sideb2"}
+									}
+									{zone
+										{zone "sideb3"}
+									}
+									{zone
+										{zone "sideb4"}
+									}
+								}
+								{include
+									{tag
+										{tag hmg}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag cmp_def}
+									}
+									{tag
+										{tag player}
+									}
+									{tag
+										{tag player_veh}
+									}
+									{state
+										{state user_control}
+									}
+									{tag
+										{tag rus}
+									}
+									{tag
+										{tag ger}
+									}
+									{tag
+										{tag freeroam}
+									}
+								}
+							}
+							{group
+								{select
+									{zone
+										{zone "sidea1"}
+									}
+									{zone
+										{zone "sidea2"}
+									}
+									{zone
+										{zone "sidea3"}
+									}
+									{zone
+										{zone "sidea4"}
+									}
+									{zone
+										{zone "sideb1"}
+									}
+									{zone
+										{zone "sideb2"}
+									}
+									{zone
+										{zone "sideb3"}
+									}
+									{zone
+										{zone "sideb4"}
+									}
+								}
+								{include
+									{tag
+										{tag aaflak}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag player}
+									}
+									{tag
+										{tag player_veh}
+									}
+									{tag
+										{tag rus}
+									}
+									{tag
+										{tag ger}
+									}
+									{tag
+										{tag freeroam}
+									}
+									{state
+										{state user_control}
+									}
+									{tag
+										{tag cmp_def}
+									}
+								}
+							}
+							{group
+								{select
+									{zone
+										{zone "sidea1"}
+									}
+									{zone
+										{zone "sidea2"}
+									}
+									{zone
+										{zone "sidea3"}
+									}
+									{zone
+										{zone "sidea4"}
+									}
+									{zone
+										{zone "sideb1"}
+									}
+									{zone
+										{zone "sideb2"}
+									}
+									{zone
+										{zone "sideb3"}
+									}
+									{zone
+										{zone "sideb4"}
+									}
+								}
+								{include
+									{tag
+										{tag artillery}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag player}
+									}
+									{tag
+										{tag player_veh}
+									}
+									{tag
+										{tag rus}
+									}
+									{tag
+										{tag ger}
+									}
+									{tag
+										{tag freeroam}
+									}
+									{state
+										{state user_control}
+									}
+									{tag
+										{tag cmp_def}
+									}
+								}
+							}
+							{group
+								{select
+									{zone
+										{zone "sidea1"}
+									}
+									{zone
+										{zone "sidea2"}
+									}
+									{zone
+										{zone "sidea3"}
+									}
+									{zone
+										{zone "sidea4"}
+									}
+									{zone
+										{zone "sideb1"}
+									}
+									{zone
+										{zone "sideb2"}
+									}
+									{zone
+										{zone "sideb3"}
+									}
+									{zone
+										{zone "sideb4"}
+									}
+								}
+								{include
+									{tag
+										{tag light_at_gun}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag player}
+									}
+									{tag
+										{tag player_veh}
+									}
+									{tag
+										{tag rus}
+									}
+									{tag
+										{tag ger}
+									}
+									{tag
+										{tag freeroam}
+									}
+									{state
+										{state user_control}
+									}
+									{tag
+										{tag cmp_def}
+									}
+								}
+							}
+							{group
+								{select
+									{zone
+										{zone "sidea1"}
+									}
+									{zone
+										{zone "sidea2"}
+									}
+									{zone
+										{zone "sidea3"}
+									}
+									{zone
+										{zone "sidea4"}
+									}
+									{zone
+										{zone "sideb1"}
+									}
+									{zone
+										{zone "sideb2"}
+									}
+									{zone
+										{zone "sideb3"}
+									}
+									{zone
+										{zone "sideb4"}
+									}
+								}
+								{include
+									{tag
+										{tag medium_at_gun}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag player}
+									}
+									{tag
+										{tag player_veh}
+									}
+									{tag
+										{tag rus}
+									}
+									{tag
+										{tag ger}
+									}
+									{tag
+										{tag freeroam}
+									}
+									{state
+										{state user_control}
+									}
+									{tag
+										{tag cmp_def}
+									}
+								}
+							}
+							{group
+								{select
+									{zone
+										{zone "sidea1"}
+									}
+									{zone
+										{zone "sidea2"}
+									}
+									{zone
+										{zone "sidea3"}
+									}
+									{zone
+										{zone "sidea4"}
+									}
+									{zone
+										{zone "sideb1"}
+									}
+									{zone
+										{zone "sideb2"}
+									}
+									{zone
+										{zone "sideb3"}
+									}
+									{zone
+										{zone "sideb4"}
+									}
+								}
+								{include
+									{tag
+										{tag heavy_at_gun}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag player}
+									}
+									{tag
+										{tag player_veh}
+									}
+									{tag
+										{tag rus}
+									}
+									{tag
+										{tag ger}
+									}
+									{tag
+										{tag freeroam}
+									}
+									{state
+										{state user_control}
+									}
+									{tag
+										{tag cmp_def}
+									}
+								}
+							}
+						}
+						{tag_add freeroam}
+					}
+					{"delay"
+						{time 5}
+					}
+					{"trigger"
+						{name "ai./tag_freeroam"}
 					}
 				}
 			}
