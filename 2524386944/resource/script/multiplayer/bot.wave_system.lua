@@ -11,7 +11,7 @@ maxNumOfLateDivisions = 7
 -- Wave offset is used to set how much extra time the first wave will last in since the wave is loaded automatically
 gameStartTime = 0
 if testing then
-	firstWaveOffsetTime = 90
+	firstWaveOffsetTime = 30
 else 
 	firstWaveOffsetTime = 720
 end
@@ -61,7 +61,7 @@ function selectArmyDivision(totalFlags)
 	print("loading")
 	-- REMOVE THIS LINE (ONLY FOR TESTING)
 	if testing then
-		-- divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.6]]
+		divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.7]]
 	end
 
 
