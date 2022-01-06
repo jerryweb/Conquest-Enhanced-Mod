@@ -84,8 +84,33 @@
 			{tags remove "noammo"}
 		}
 	}
+
+	{on ground_hit
+		{if linked "paratrooper_attach"
+			{tags remove "can_die"}
+			{unlink}						;// kicks human out of parachute when reaching ground
+			{set "not_knocked" 1}			;// helps stops {knock_down} call when thrown off from plane
+			{delay 1.0						;// stops sliding after landing on ground. forces soldier to ground
+				{physics_work 0}
+				{delay 0
+					{physics_work 1}
+					{throw_off up 0.5 0.2 forward 1 0.5}
+				}
+			}
+		else tagged "can_die"
+			{call "die"}
+			{kill_delay "parachute"}
+			{tags remove "can_die"}
+			{tags remove "eject"}
+		else
+			{if min_speed 10
+				{spawn "blood_medium" "basis" x}	;// Fall and hit the ground.
+				{spawn "blood"}						;// blood splatter ground texture
+			}
+		}
+	}
 	
-	{on board out							;// exiting a vehicle
+	{on board out 							;// exiting a vehicle
 		{if linked "sdkfz251c"
 			{if not tagged "player"
 			    {delay 0.01
@@ -117,8 +142,7 @@
 		{tags remove "on_plane_7"}
 		{tags remove "on_plane_8"}
 		{tags remove "para_ready"}
-		{call "pull_chute"}
-			
+		{call "pull_chute"}		
 	}
 
 	{on "pull_chute"
@@ -135,36 +159,36 @@
 					{spawn "paratrooper_attach" offset 205 -10 -534}
 				}
 			else altitude 48 		
-				{delay 2.7 "parachute"
+				{delay 2.8 0.1 "parachute"
 					{tags add "eject"}	
 					{spawn "paratrooper_attach" offset 205 -10 -534}
 				}
 			else altitude 43 		
-				{delay 2.4 "parachute"
+				{delay 2.4 0.1 "parachute"
 					{tags add "eject"}	
 					{spawn "paratrooper_attach" offset 205 -10 -534}
 				}
 			else altitude 38 		
-				{delay 2.2 "parachute"
+				{delay 2.2 0.1 "parachute"
 					{tags add "eject"}	
 					{spawn "paratrooper_attach" offset 205 -10 -534}
 				}
 			else altitude 33 		
-				{delay 1.8 "parachute"
+				{delay 2.0 0.1 "parachute"
 					{tags add "eject"}	
 					{spawn "paratrooper_attach" offset 205 -10 -534}
 				}
 			else altitude 28 		
-				{delay 1.2 "parachute"
+				{delay 1.2 0.1 "parachute"
 					{tags add "eject"}	
 					{spawn "paratrooper_attach" offset 205 -10 -534}
 				}
 			else altitude 23 		
-				{delay 1.0 "parachute"
+				{delay 1.0 0.1 "parachute"
 					{tags add "eject"}	
 					{spawn "paratrooper_attach" offset 205 -10 -534}
 				}
-			else altitude 10 		
+			else altitude 4 		
 				{delay 0.4 0.1 "parachute"
 					{tags add "eject"}	
 					{spawn "paratrooper_attach" offset 205 -10 -534}
