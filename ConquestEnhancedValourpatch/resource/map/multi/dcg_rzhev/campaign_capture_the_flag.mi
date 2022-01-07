@@ -52100,8 +52100,13 @@
 						{op "="}
 						{value 1}
 					}
+					{"set_i"
+						{var "enemy_paras_active$"}
+						{op "="}
+						{value 0}
+					}
 					{"delay"
-						{time 1}
+						{time 20}
 					}
 					{## "if"
 						{condition
@@ -52610,6 +52615,17 @@
 					}
 					{"if"
 						{condition
+							{type rand}
+							{value 0.5}
+						}
+						{"set_i"
+							{var "para_plane_side_start$"}
+							{op "="}
+							{value 2}
+						}
+					}
+					{## "if"
+						{condition
 							{type cmp_i}
 							{var "user_team$"}
 							{op "=="}
@@ -52621,7 +52637,7 @@
 							{value 2}
 						}
 					}
-					{"if"
+					{## "if"
 						{condition
 							{type cmp_i}
 							{var "user_team$"}
@@ -56073,7 +56089,7 @@
 							{tag_add para_ready}
 						}
 					}
-					{"squad"
+					{## "squad"
 						{operation exclude}
 						{selector
 							{tag para_ready}
@@ -58156,6 +58172,7 @@
 								{selector
 									{tag boarding}
 								}
+								{tag_add moving_to_gamezone}
 								{tag_remove para_ready}
 							}
 							{"linker"
@@ -58358,6 +58375,13 @@
 								{tag_add para_in_field}
 								{tag_remove para_ready}
 							}
+							{"entity_state"
+								{selector
+									{tag boarding}
+								}
+								{tag_add moving_to_gamezone}
+								{tag_remove para_ready}
+							}
 							{"linker"
 								{selector
 									{source advanced}
@@ -58556,6 +58580,13 @@
 									{tag boarding}
 								}
 								{tag_add para_in_field}
+								{tag_remove para_ready}
+							}
+							{"entity_state"
+								{selector
+									{tag boarding}
+								}
+								{tag_add moving_to_gamezone}
 								{tag_remove para_ready}
 							}
 							{"linker"
@@ -58758,6 +58789,13 @@
 								{tag_add para_in_field}
 								{tag_remove para_ready}
 							}
+							{"entity_state"
+								{selector
+									{tag boarding}
+								}
+								{tag_add moving_to_gamezone}
+								{tag_remove para_ready}
+							}
 							{"linker"
 								{selector
 									{source advanced}
@@ -58956,6 +58994,13 @@
 									{tag boarding}
 								}
 								{tag_add para_in_field}
+								{tag_remove para_ready}
+							}
+							{"entity_state"
+								{selector
+									{tag boarding}
+								}
+								{tag_add moving_to_gamezone}
 								{tag_remove para_ready}
 							}
 							{"linker"
@@ -59158,6 +59203,13 @@
 								{tag_add para_in_field}
 								{tag_remove para_ready}
 							}
+							{"entity_state"
+								{selector
+									{tag boarding}
+								}
+								{tag_add moving_to_gamezone}
+								{tag_remove para_ready}
+							}
 							{"linker"
 								{selector
 									{source advanced}
@@ -59356,6 +59408,13 @@
 									{tag boarding}
 								}
 								{tag_add para_in_field}
+								{tag_remove para_ready}
+							}
+							{"entity_state"
+								{selector
+									{tag boarding}
+								}
+								{tag_add moving_to_gamezone}
 								{tag_remove para_ready}
 							}
 							{"linker"
@@ -59558,6 +59617,13 @@
 								{tag_add para_in_field}
 								{tag_remove para_ready}
 							}
+							{"entity_state"
+								{selector
+									{tag boarding}
+								}
+								{tag_add moving_to_gamezone}
+								{tag_remove para_ready}
+							}
 							{"linker"
 								{selector
 									{source advanced}
@@ -59699,8 +59765,12 @@
 					{"delay"
 						{time 3}
 					}
-					{"sound"
+					{## "sound"
 						{name "world/alarm/alarm"}
+					}
+					{"music"
+						{start "/sound/world/alarm/alarm.wav"}
+						{volume narrator}
 					}
 				}
 			}
@@ -59735,27 +59805,36 @@
 					}
 				}
 				{actions
-					{"music"
+					{## "music"
 						{start "/sound/world/alarm/sirene01.wav"}
 						{volume narrator}
 						{loop}
+					}
+					{"sound"
+						{name "world/alarm/sirene01"}
 					}
 					{## "sound"
 						{name "world/alarm/sirene01"}
 					}
 					{"delay"
-						{time 51}
+						{time 18}
 					}
-					{"music"
-						{stop "/sound/world/alarm/sirene01.wav"}
-						{volume game}
-						{fade 1}
-					}
-					{## "sound"
+					{"sound"
 						{name "world/alarm/sirene01"}
 					}
+					{"delay"
+						{time 18}
+					}
+					{"sound"
+						{name "world/alarm/sirene01"}
+					}
+					{## "music"
+						{stop "/sound/world/alarm/sirene01.wav"}
+						{volume narrator}
+						{fade 5}
+					}
 					{## "delay"
-						{time 60}
+						{time 4000}
 					}
 					{## "trigger"
 						{name "ai_paratroopers/sound/siren"}
@@ -62802,7 +62881,7 @@
 						}
 						{effect start}
 					}
-					{"delay"
+					{## "delay"
 						{time 0.05}
 					}
 					{"entity_state"
@@ -62827,7 +62906,7 @@
 						{tag_add landed}
 						{tag_remove eject}
 					}
-					{"delay"
+					{## "delay"
 						{time 0.05}
 					}
 					{"entity_state"
@@ -62944,7 +63023,8 @@
 					}
 				}
 			}
-			{"ai_paratroopers/delete_bugged_troopers"
+			{## "ai_paratroopers/delete_bugged_troopers"
+				{disabled}
 				{condition
 					{terms
 						{"1.entities"
@@ -64983,6 +65063,146 @@
 					}
 					{## "delay"
 						{time 0.5}
+					}
+				}
+			}
+			{"ai_paratroopers/tag_remaining_paras"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag moving_to_gamezone}
+										}
+									}
+									{include
+										{state
+											{state linked}
+										}
+										{zone
+											{zone "gamezone"}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag moving_to_gamezone}
+									}
+								}
+								{include
+									{zone
+										{zone "gamezone"}
+									}
+									{state
+										{state linked}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{state
+										{state user_control}
+									}
+								}
+							}
+						}
+						{tag_add delete_if_leaving_gamezone}
+						{tag_remove moving_to_gamezone}
+					}
+					{"trigger"
+						{name "ai_paratroopers/tag_remaining_paras"}
+					}
+				}
+			}
+			{"ai_paratroopers/delete_undropped_troopers"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag delete_if_leaving_gamezone}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag player}
+										}
+										{zone
+											{zone "gamezone"}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delete"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag delete_if_leaving_gamezone}
+									}
+								}
+								{include
+									{prop
+										{prop human}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag player}
+									}
+									{state
+										{state user_control}
+									}
+									{zone
+										{zone "gamezone"}
+									}
+								}
+							}
+						}
+					}
+					{"delay"
+						{time 0.05}
+					}
+					{"trigger"
+						{name "ai_paratroopers/delete_undropped_troopers"}
 					}
 				}
 			}
@@ -71150,90 +71370,6 @@
 						{"case"
 							{condition
 								{type side}
-								{side fra}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"set_i"
-								{var "user_nation$"}
-								{op "="}
-								{value 1}
-							}
-						}
-						{"case"
-							{condition
-								{type side}
-								{side pol}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"set_i"
-								{var "user_nation$"}
-								{op "="}
-								{value 1}
-							}
-						}
-						{"case"
-							{condition
-								{type side}
-								{side jap}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"set_i"
-								{var "user_nation$"}
-								{op "="}
-								{value 2}
-							}
-						}
-						{"case"
-							{condition
-								{type side}
-								{side usa}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"set_i"
-								{var "user_nation$"}
-								{op "="}
-								{value 1}
-							}
-						}
-						{"case"
-							{condition
-								{type side}
-								{side eng}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"set_i"
-								{var "user_nation$"}
-								{op "="}
-								{value 1}
-							}
-						}
-						{"case"
-							{condition
-								{type side}
-								{side ita}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"set_i"
-								{var "user_nation$"}
-								{op "="}
-								{value 2}
-							}
-						}
-						{"case"
-							{condition
-								{type side}
 								{side ger}
 							}
 							{"delay"
@@ -71269,132 +71405,6 @@
 										{var "user_nation$"}
 										{op "="}
 										{value 1}
-									}
-								}
-								{"case"
-									{condition
-										{type inventory}
-										{selector
-											{ignore_captured_by_user 0}
-											{tag player}
-											{zone "gamezone"}
-											{type human}
-											{state "not dead"}
-										}
-										{item "bandage_fra"}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"set_i"
-										{var "user_nation$"}
-										{op "="}
-										{value 1}
-									}
-								}
-								{"case"
-									{condition
-										{type inventory}
-										{selector
-											{ignore_captured_by_user 0}
-											{tag player}
-											{zone "gamezone"}
-											{type human}
-											{state "not dead"}
-										}
-										{item "bandage_pol"}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"set_i"
-										{var "user_nation$"}
-										{op "="}
-										{value 1}
-									}
-								}
-								{"case"
-									{condition
-										{type inventory}
-										{selector
-											{ignore_captured_by_user 0}
-											{tag player}
-											{zone "gamezone"}
-											{type human}
-											{state "not dead"}
-										}
-										{item "bandage_jap"}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"set_i"
-										{var "user_nation$"}
-										{op "="}
-										{value 2}
-									}
-								}
-								{"case"
-									{condition
-										{type inventory}
-										{selector
-											{ignore_captured_by_user 0}
-											{tag player}
-											{zone "gamezone"}
-											{type human}
-											{state "not dead"}
-										}
-										{item "bandage_usa"}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"set_i"
-										{var "user_nation$"}
-										{op "="}
-										{value 1}
-									}
-								}
-								{"case"
-									{condition
-										{type inventory}
-										{selector
-											{ignore_captured_by_user 0}
-											{tag player}
-											{zone "gamezone"}
-											{type human}
-											{state "not dead"}
-										}
-										{item "bandage_eng"}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"set_i"
-										{var "user_nation$"}
-										{op "="}
-										{value 1}
-									}
-								}
-								{"case"
-									{condition
-										{type inventory}
-										{selector
-											{ignore_captured_by_user 0}
-											{tag player}
-											{zone "gamezone"}
-											{type human}
-											{state "not dead"}
-										}
-										{item "bandage_ita"}
-									}
-									{"delay"
-										{time 0.1}
-									}
-									{"set_i"
-										{var "user_nation$"}
-										{op "="}
-										{value 2}
 									}
 								}
 								{"case"
@@ -75464,6 +75474,7 @@
 				}
 			}
 			{## "x/enemyartymove3"
+				{disabled}
 				{condition
 					{expression "1"}
 					{terms
@@ -75497,6 +75508,11 @@
 										{include
 											{state
 												{state operatable}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
 											}
 										}
 									}
@@ -76365,6 +76381,7 @@
 				}
 			}
 			{## "x/enemyartymovedefense"
+				{disabled}
 				{condition
 					{expression "2"}
 					{terms
@@ -76967,123 +76984,6 @@
 									{with_item
 										{type existance}
 										{item "soviet_commisar_cap"}
-									}
-									{with_item
-										{type existance}
-										{item "binocular"}
-									}
-									{state
-										{state operatable}
-									}
-								}
-							}
-							{group
-								{select
-									{tag
-										{tag player}
-									}
-								}
-								{include
-									{with_item
-										{type existance}
-										{item "cap_eng_off"}
-									}
-									{with_item
-										{type existance}
-										{item "binocular"}
-									}
-									{state
-										{state operatable}
-									}
-								}
-							}
-							{group
-								{select
-									{tag
-										{tag player}
-									}
-								}
-								{include
-									{with_item
-										{type existance}
-										{item "cap_ita_bustina_officer"}
-									}
-									{with_item
-										{type existance}
-										{item "binocular"}
-									}
-									{state
-										{state operatable}
-									}
-								}
-							}
-							{group
-								{select
-									{tag
-										{tag player}
-									}
-								}
-								{include
-									{state
-										{state operatable}
-									}
-									{with_item
-										{type existance}
-										{item "cap1_jap"}
-									}
-									{with_item
-										{type existance}
-										{item "binocular"}
-									}
-								}
-							}
-							{group
-								{select
-									{tag
-										{tag player}
-									}
-								}
-								{include
-									{with_item
-										{type existance}
-										{item "cap_fra_sidecap_officer"}
-									}
-									{with_item
-										{type existance}
-										{item "binocular"}
-									}
-								}
-							}
-							{group
-								{select
-									{tag
-										{tag player}
-									}
-								}
-								{include
-									{with_item
-										{type existance}
-										{item "cap1_usa"}
-									}
-									{with_item
-										{type existance}
-										{item "binocular"}
-									}
-									{state
-										{state operatable}
-									}
-								}
-							}
-							{group
-								{select
-									{tag
-										{tag player}
-									}
-								}
-								{include
-									{with_item
-										{type existance}
-										{item "cap_pol_2div_officer"}
 									}
 									{with_item
 										{type existance}
@@ -91296,6 +91196,9 @@
 											{item "132mm_bm13" "ammo"}
 											{min 1}
 										}
+										{state
+											{state operatable}
+										}
 									}
 									{exclude
 										{tag
@@ -91313,10 +91216,6 @@
 										{state
 											{state user_control}
 										}
-										{relation
-											{relation ally}
-											{player "1"}
-										}
 									}
 								}
 								{group
@@ -91330,6 +91229,9 @@
 											{type amount}
 											{item "300mm_bm30" "ammo"}
 											{min 1}
+										}
+										{state
+											{state operatable}
 										}
 									}
 									{exclude
@@ -91347,10 +91249,6 @@
 										}
 										{state
 											{state user_control}
-										}
-										{relation
-											{relation ally}
-											{player "1"}
 										}
 									}
 								}
@@ -91374,6 +91272,9 @@
 										{item "300mm_bm30" "ammo"}
 										{min 1}
 									}
+									{state
+										{state operatable}
+									}
 								}
 								{exclude
 									{tag
@@ -91387,10 +91288,6 @@
 									}
 									{state
 										{state dead}
-									}
-									{relation
-										{relation ally}
-										{player "1"}
 									}
 									{tag
 										{tag katy}
@@ -91409,6 +91306,9 @@
 										{item "132mm_bm13" "ammo"}
 										{min 1}
 									}
+									{state
+										{state operatable}
+									}
 								}
 								{exclude
 									{tag
@@ -91422,10 +91322,6 @@
 									}
 									{state
 										{state dead}
-									}
-									{relation
-										{relation ally}
-										{player "1"}
 									}
 									{tag
 										{tag katy}
@@ -92326,6 +92222,7 @@
 				}
 			}
 			{## "ai./enemymg"
+				{disabled}
 				{condition
 					{terms
 						{"1.entities"
@@ -92852,6 +92749,7 @@
 			}
 			{"ai./freeroam"
 				{condition
+					{type 1}
 					{terms
 						{"1.entities"
 							{selector
@@ -92912,10 +92810,6 @@
 										}
 										{tag
 											{tag player}
-										}
-										{relation
-											{relation ally}
-											{player "1"}
 										}
 									}
 								}
@@ -93248,7 +93142,6 @@
 										{state
 											{state operatable}
 										}
-										{state}
 									}
 									{exclude
 										{state
@@ -93634,7 +93527,6 @@
 										{state
 											{state operatable}
 										}
-										{state}
 									}
 									{exclude
 										{state
@@ -93964,7 +93856,7 @@
 						{name "ai./freeroam"}
 					}
 				}
-			}			
+			}
 			{"ai./tag_freeroam"
 				{condition
 					{expression "2"}
@@ -93994,6 +93886,9 @@
 										}
 										{zone
 											{zone "sideb3"}
+										}
+										{zone
+											{zone "sideb4"}
 										}
 									}
 									{include
@@ -94026,9 +93921,6 @@
 										{tag
 											{tag freeroam}
 										}
-										{player
-											{player "1"}
-										}
 									}
 								}
 								{group
@@ -94053,6 +93945,9 @@
 										}
 										{zone
 											{zone "sideb3"}
+										}
+										{zone
+											{zone "sideb4"}
 										}
 									}
 									{include
@@ -94085,9 +93980,6 @@
 										{tag
 											{tag cmp_def}
 										}
-										{player
-											{player "1"}
-										}
 									}
 								}
 								{group
@@ -94112,6 +94004,9 @@
 										}
 										{zone
 											{zone "sideb3"}
+										}
+										{zone
+											{zone "sideb4"}
 										}
 									}
 									{include
@@ -94144,9 +94039,6 @@
 										{tag
 											{tag cmp_def}
 										}
-										{player
-											{player "1"}
-										}
 									}
 								}
 								{group
@@ -94171,6 +94063,9 @@
 										}
 										{zone
 											{zone "sideb3"}
+										}
+										{zone
+											{zone "sideb4"}
 										}
 									}
 									{include
@@ -94203,9 +94098,6 @@
 										{tag
 											{tag cmp_def}
 										}
-										{player
-											{player "1"}
-										}
 									}
 								}
 								{group
@@ -94230,6 +94122,9 @@
 										}
 										{zone
 											{zone "sideb3"}
+										}
+										{zone
+											{zone "sideb4"}
 										}
 									}
 									{include
@@ -94262,9 +94157,6 @@
 										{tag
 											{tag cmp_def}
 										}
-										{player
-											{player "1"}
-										}
 									}
 								}
 								{group
@@ -94289,6 +94181,9 @@
 										}
 										{zone
 											{zone "sideb3"}
+										}
+										{zone
+											{zone "sideb4"}
 										}
 									}
 									{include
@@ -94320,9 +94215,6 @@
 										}
 										{tag
 											{tag cmp_def}
-										}
-										{player
-											{player "1"}
 										}
 									}
 								}
@@ -94356,6 +94248,9 @@
 									}
 									{zone
 										{zone "sideb3"}
+									}
+									{zone
+										{zone "sideb4"}
 									}
 								}
 								{include
@@ -94413,6 +94308,9 @@
 									{zone
 										{zone "sideb3"}
 									}
+									{zone
+										{zone "sideb4"}
+									}
 								}
 								{include
 									{tag
@@ -94468,6 +94366,9 @@
 									}
 									{zone
 										{zone "sideb3"}
+									}
+									{zone
+										{zone "sideb4"}
 									}
 								}
 								{include
@@ -94525,6 +94426,9 @@
 									{zone
 										{zone "sideb3"}
 									}
+									{zone
+										{zone "sideb4"}
+									}
 								}
 								{include
 									{tag
@@ -94580,6 +94484,9 @@
 									}
 									{zone
 										{zone "sideb3"}
+									}
+									{zone
+										{zone "sideb4"}
 									}
 								}
 								{include
@@ -94637,6 +94544,9 @@
 									{zone
 										{zone "sideb3"}
 									}
+									{zone
+										{zone "sideb4"}
+									}
 								}
 								{include
 									{tag
@@ -94680,7 +94590,8 @@
 						{name "ai./tag_freeroam"}
 					}
 				}
-			}			{"ai./panzergrens"
+			}
+			{"ai./panzergrens"
 				{condition
 					{terms
 						{"1.entities"
@@ -95655,12 +95566,6 @@
 										{tag
 											{tag aaflak}
 										}
-										{tag
-											{tag artillery}
-										}
-										{tag
-											{tag rocket_artillery}
-										}
 										{state
 											{state linked}
 										}
@@ -95757,16 +95662,10 @@
 											{tag heavy_at_gun}
 										}
 										{tag
-											{tag freeroam}
-										}
-										{tag
 											{tag aaflak}
 										}
 										{tag
-											{tag artillery}
-										}
-										{tag
-											{tag rocket_artillery}
+											{tag freeroam}
 										}
 									}
 								}
@@ -95963,12 +95862,6 @@
 											{tag
 												{tag aaflak}
 											}
-											{tag
-												{tag artillery}
-											}
-											{tag
-												{tag rocket_artillery}
-											}
 										}
 									}
 									{amount 5
@@ -96060,16 +95953,10 @@
 												{tag heavy_at_gun}
 											}
 											{tag
-												{tag freeroam}
-											}
-											{tag
 												{tag aaflak}
 											}
 											{tag
-												{tag artillery}
-											}
-											{tag
-												{tag rocket_artillery}
+												{tag freeroam}
 											}
 										}
 									}
@@ -96079,7 +95966,7 @@
 								{tag_add ready_to_move_b1}
 							}
 						}
-						{"squad"
+						{## "squad"
 							{operation exclude}
 							{selector
 								{source advanced}
@@ -96159,14 +96046,9 @@
 											{tag
 												{tag heavy_at_gun}
 											}
+											{tag}
 											{tag
 												{tag freeroam}
-											}
-											{tag
-												{tag artillery}
-											}
-											{tag
-												{tag rocket_artillery}
 											}
 										}
 									}
@@ -96394,12 +96276,6 @@
 										{tag
 											{tag aaflak}
 										}
-										{tag
-											{tag artillery}
-										}
-										{tag
-											{tag rocket_artillery}
-										}
 									}
 								}
 							}
@@ -96499,12 +96375,6 @@
 										{tag
 											{tag aaflak}
 										}
-										{tag
-											{tag artillery}
-										}
-										{tag
-											{tag rocket_artillery}
-										}
 									}
 								}
 							}
@@ -96596,15 +96466,6 @@
 											}
 											{tag
 												{tag freeroam}
-											}
-											{tag
-												{tag aaflak}
-											}
-											{tag
-												{tag artillery}
-											}
-											{tag
-												{tag rocket_artillery}
 											}
 											{with_item
 												{type existance}
@@ -96706,6 +96567,9 @@
 												{type existance}
 												{item "cap_eng_beret_commando"}
 											}
+											{tag
+												{tag aaflak}
+											}
 										}
 									}
 									{amount 5
@@ -96802,12 +96666,6 @@
 											{tag
 												{tag aaflak}
 											}
-											{tag
-												{tag artillery}
-											}
-											{tag
-												{tag rocket_artillery}
-											}
 										}
 									}
 									{amount 5
@@ -96816,7 +96674,7 @@
 								{tag_add ready_to_move_b2}
 							}
 						}
-						{"squad"
+						{## "squad"
 							{operation exclude}
 							{selector
 								{source advanced}
@@ -97110,12 +96968,6 @@
 										{tag
 											{tag aaflak}
 										}
-										{tag
-											{tag artillery}
-										}
-										{tag
-											{tag rocket_artillery}
-										}
 									}
 								}
 							}
@@ -97213,15 +97065,6 @@
 										}
 										{tag
 											{tag freeroam}
-										}
-										{tag
-											{tag aaflak}
-										}
-										{tag
-											{tag artillery}
-										}
-										{tag
-											{tag rocket_artillery}
 										}
 										{with_item
 											{type existance}
@@ -97323,6 +97166,9 @@
 											{type existance}
 											{item "cap_eng_beret_commando"}
 										}
+										{tag
+											{tag aaflak}
+										}
 									}
 								}
 								{amount 5
@@ -97419,12 +97265,6 @@
 										{tag
 											{tag aaflak}
 										}
-										{tag
-											{tag artillery}
-										}
-										{tag
-											{tag rocket_artillery}
-										}
 									}
 								}
 								{amount 5
@@ -97436,7 +97276,7 @@
 					{## "delay"
 						{time 0.5}
 					}
-					{"squad"
+					{## "squad"
 						{operation exclude}
 						{selector
 							{source advanced}
@@ -97518,15 +97358,6 @@
 										}
 										{tag
 											{tag freeroam}
-										}
-										{tag
-											{tag aaflak}
-										}
-										{tag
-											{tag artillery}
-										}
-										{tag
-											{tag rocket_artillery}
 										}
 									}
 								}
@@ -97672,636 +97503,6 @@
 						{tag_add sideb3}
 						{tag_remove ready_to_move_b3}
 					}
-					{## "while"
-						{condition
-							{type entities}
-							{selector
-								{source advanced}
-								{group
-									{select
-										{zone
-											{zone "sideb3"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-									}
-									{exclude
-										{tag
-											{tag sideb2}
-										}
-										{tag
-											{tag sideb1}
-										}
-										{tag
-											{tag sideb3}
-										}
-										{tag
-											{tag sideb4}
-										}
-										{tag
-											{tag rus}
-										}
-										{tag
-											{tag ger}
-										}
-										{tag
-											{tag cmp_def}
-										}
-										{tag
-											{tag player}
-										}
-										{tag
-											{tag player_veh}
-										}
-										{tag
-											{tag player_armor}
-										}
-										{tag
-											{tag player_armor}
-										}
-										{tag
-											{tag engine_count_1}
-										}
-										{tag
-											{tag engine_count_2}
-										}
-										{tag
-											{tag katy}
-										}
-										{tag
-											{tag enemyarty}
-										}
-										{tag
-											{tag ready_to_move_b3}
-										}
-										{state
-											{state linked}
-										}
-										{tag
-											{tag rocket_artillery}
-										}
-										{tag
-											{tag artillery}
-										}
-										{tag
-											{tag hmg}
-										}
-										{tag
-											{tag light_at_gun}
-										}
-										{tag
-											{tag medium_at_gun}
-										}
-										{tag
-											{tag heavy_at_gun}
-										}
-										{tag
-											{tag freeroam}
-										}
-										{tag
-											{tag aaflak}
-										}
-										{tag
-											{tag artillery}
-										}
-										{tag
-											{tag rocket_artillery}
-										}
-									}
-								}
-							}
-						}
-						{"if"
-							{condition
-								{type cmp_i}
-								{var "enemy_paras_active$"}
-								{op "=="}
-								{value 1}
-							}
-							{"entity_state"
-								{selector
-									{source advanced}
-									{group
-										{select
-											{zone
-												{zone "sideb3"}
-											}
-										}
-										{include
-											{state
-												{state operatable}
-											}
-										}
-										{exclude
-											{tag
-												{tag rus}
-											}
-											{tag
-												{tag ger}
-											}
-											{tag
-												{tag cmp_def}
-											}
-											{tag
-												{tag player}
-											}
-											{tag
-												{tag player_armor}
-											}
-											{tag
-												{tag player_car}
-											}
-											{tag
-												{tag player_veh}
-											}
-											{tag
-												{tag engine_count_1}
-											}
-											{tag
-												{tag engine_count_2}
-											}
-											{tag
-												{tag sideb1}
-											}
-											{tag
-												{tag sideb2}
-											}
-											{tag
-												{tag sideb3}
-											}
-											{tag
-												{tag sideb4}
-											}
-											{tag
-												{tag katy}
-											}
-											{tag
-												{tag enemyarty}
-											}
-											{state
-												{state linked}
-											}
-											{tag
-												{tag rocket_artillery}
-											}
-											{tag
-												{tag artillery}
-											}
-											{tag
-												{tag para_ready}
-											}
-											{tag
-												{tag hmg}
-											}
-											{tag
-												{tag light_at_gun}
-											}
-											{tag
-												{tag medium_at_gun}
-											}
-											{tag
-												{tag heavy_at_gun}
-											}
-											{tag
-												{tag freeroam}
-											}
-											{tag
-												{tag aaflak}
-											}
-											{with_item
-												{type existance}
-												{item "ger_m38_helmet"}
-											}
-											{with_item
-												{type existance}
-												{item "ger_m38_helmet_camo"}
-											}
-											{with_item
-												{type existance}
-												{item "ger_m38_helmet_net"}
-											}
-											{with_item
-												{type existance}
-												{item "ger_m38_helmet_winter"}
-											}
-											{with_item
-												{type existance}
-												{item "ger_m38_helmet_net_winter"}
-											}
-											{with_item
-												{type existance}
-												{item "ger_m38_helmet_desert"}
-											}
-											{with_item
-												{type existance}
-												{item "ger_m38_helmet_net_desert"}
-											}
-											{with_item
-												{type existance}
-												{item "ger_m38_helmet_camo_blue"}
-											}
-											{with_item
-												{type existance}
-												{item "helmet4_jap_para"}
-											}
-											{with_item
-												{type existance}
-												{item "snlf_helmet"}
-											}
-											{with_item
-												{type existance}
-												{item "snlf_tropical"}
-											}
-											{with_item
-												{type existance}
-												{item "helmet_ita_m33_mvsn"}
-											}
-											{with_item
-												{type existance}
-												{item "soviet_budinovka"}
-											}
-											{with_item
-												{type existance}
-												{item "soviet_budinovka_down"}
-											}
-											{with_item
-												{type existance}
-												{item "helmet_usa_506th"}
-											}
-											{with_item
-												{type existance}
-												{item "helmet_usa_506th_camo"}
-											}
-											{with_item
-												{type existance}
-												{item "helmet_usa_506th_camo_nco"}
-											}
-											{with_item
-												{type existance}
-												{item "helmet_usa_506th_camo_officer"}
-											}
-											{with_item
-												{type existance}
-												{item "helmet_usa_506th_nco"}
-											}
-											{with_item
-												{type existance}
-												{item "helmet_usa_506th_officer"}
-											}
-											{with_item
-												{type existance}
-												{item "helmet_airborne_usa2"}
-											}
-											{with_item
-												{type existance}
-												{item "helmet_eng_para"}
-											}
-											{with_item
-												{type existance}
-												{item "helmet_eng_para_camo"}
-											}
-											{with_item
-												{type existance}
-												{item "helmet_eng_para_net"}
-											}
-											{with_item
-												{type existance}
-												{item "cap_eng_beret_commando"}
-											}
-										}
-									}
-									{amount 5
-									}
-								}
-								{tag_add ready_to_move_b3}
-							}
-						}
-						{"if"
-							{condition
-								{type cmp_i}
-								{var "enemy_paras_active$"}
-								{op "=="}
-								{value 0}
-							}
-							{"entity_state"
-								{selector
-									{source advanced}
-									{group
-										{select
-											{zone
-												{zone "sideb3"}
-											}
-										}
-										{include
-											{state
-												{state operatable}
-											}
-										}
-										{exclude
-											{tag
-												{tag rus}
-											}
-											{tag
-												{tag ger}
-											}
-											{tag
-												{tag cmp_def}
-											}
-											{tag
-												{tag player}
-											}
-											{tag
-												{tag player_armor}
-											}
-											{tag
-												{tag player_car}
-											}
-											{tag
-												{tag player_veh}
-											}
-											{tag
-												{tag engine_count_1}
-											}
-											{tag
-												{tag engine_count_2}
-											}
-											{tag
-												{tag sideb1}
-											}
-											{tag
-												{tag sideb2}
-											}
-											{tag
-												{tag sideb3}
-											}
-											{tag
-												{tag sideb4}
-											}
-											{tag
-												{tag katy}
-											}
-											{tag
-												{tag enemyarty}
-											}
-											{state
-												{state linked}
-											}
-											{tag
-												{tag hmg}
-											}
-											{tag
-												{tag light_at_gun}
-											}
-											{tag
-												{tag medium_at_gun}
-											}
-											{tag
-												{tag heavy_at_gun}
-											}
-											{tag
-												{tag freeroam}
-											}
-											{tag
-												{tag aaflak}
-											}
-											{tag
-												{tag rocket_artillery}
-											}
-											{tag
-												{tag artillery}
-											}
-										}
-									}
-									{amount 5
-									}
-								}
-								{tag_add ready_to_move_b3}
-							}
-						}
-						{"squad"
-							{operation exclude}
-							{selector
-								{source advanced}
-								{group
-									{select
-										{tag
-											{tag ready_to_move_b3}
-										}
-									}
-									{exclude
-										{tag
-											{tag linked}
-										}
-									}
-								}
-							}
-						}
-						{"delay"
-							{time 1}
-						}
-						{"waypoint"
-							{who
-								{type actor}
-								{actors
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag ready_to_move_b3}
-											}
-										}
-										{include
-											{state
-												{state operatable}
-											}
-										}
-										{exclude
-											{tag
-												{tag squad}
-											}
-											{tag
-												{tag rocket_artillery}
-											}
-											{tag
-												{tag artillery}
-											}
-											{tag
-												{tag player}
-											}
-											{state
-												{state user_control}
-											}
-											{tag
-												{tag player_car}
-											}
-											{tag
-												{tag player_veh}
-											}
-											{tag
-												{tag player_armor}
-											}
-											{tag
-												{tag engine_count_1}
-											}
-											{tag
-												{tag engine_count_2}
-											}
-										}
-									}
-									{amount 5
-									}
-								}
-							}
-							{action
-								{type start}
-								{waypoint "2003"}
-								{make_squad}
-								{name_squad "1"}
-								{copy_squad "2"}
-								{approach force}
-							}
-						}
-						{"delay"
-							{time 1}
-						}
-						{"actor_state"
-							{selector
-								{source advanced}
-								{group
-									{select
-										{tag
-											{tag ready_to_move_b3}
-										}
-									}
-									{include
-										{prop
-											{prop tank}
-										}
-										{state
-											{state operatable}
-										}
-									}
-								}
-							}
-							{movement
-								{speed slow}
-							}
-						}
-						{"delay"
-							{time 1}
-						}
-						{"actor_state"
-							{selector
-								{tag ready_to_move_b3}
-								{type human}
-								{state operatable}
-							}
-							{movement
-								{speed assault}
-							}
-						}
-						{"delay"
-							{time 1}
-						}
-						{"entity_state"
-							{selector
-								{source advanced}
-								{group
-									{select
-										{tag
-											{tag ready_to_move_b3}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-									}
-									{exclude
-										{tag
-											{tag rus}
-										}
-										{tag
-											{tag ger}
-										}
-										{tag
-											{tag cmp_def}
-										}
-										{tag
-											{tag player}
-										}
-										{tag
-											{tag player_armor}
-										}
-										{tag
-											{tag player_car}
-										}
-										{tag
-											{tag player_veh}
-										}
-										{tag
-											{tag engine_count_1}
-										}
-										{tag
-											{tag engine_count_2}
-										}
-										{tag
-											{tag sideb1}
-										}
-										{tag
-											{tag sideb2}
-										}
-										{tag
-											{tag sideb3}
-										}
-										{tag
-											{tag sideb4}
-										}
-										{tag
-											{tag katy}
-										}
-										{tag
-											{tag enemyarty}
-										}
-										{tag
-											{tag rocket_artillery}
-										}
-										{tag
-											{tag artillery}
-										}
-										{tag
-											{tag hmg}
-										}
-										{tag
-											{tag light_at_gun}
-										}
-										{tag
-											{tag medium_at_gun}
-										}
-										{tag
-											{tag heavy_at_gun}
-										}
-										{tag
-											{tag freeroam}
-										}
-										{tag
-											{tag aaflak}
-										}
-									}
-								}
-								{amount 5
-								}
-							}
-							{tag_add sideb3}
-							{tag_remove ready_to_move_b3}
-						}
-					}
-					{## "delay"
-						{time 1}
-					}
 					{"trigger"
 						{name "ai_spawn/side_b_3"}
 					}
@@ -98408,6 +97609,9 @@
 										{tag
 											{tag aaflak}
 										}
+										{state
+											{state user_control}
+										}
 									}
 								}
 							}
@@ -98417,6 +97621,538 @@
 				{actions
 					{"delay"
 						{time 4}
+					}
+					{## "if"
+						{condition
+							{type cmp_i}
+							{var "enemy_paras_active$"}
+							{op "=="}
+							{value 1}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sideb4"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_car}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag sideb1}
+										}
+										{tag
+											{tag sideb2}
+										}
+										{tag
+											{tag sideb3}
+										}
+										{tag
+											{tag sideb4}
+										}
+										{tag
+											{tag katy}
+										}
+										{tag
+											{tag enemyarty}
+										}
+										{state
+											{state linked}
+										}
+										{tag
+											{tag para_ready}
+										}
+										{with_item
+											{type existance}
+											{item "ger_m38_helmet"}
+										}
+										{with_item
+											{type existance}
+											{item "ger_m38_helmet_camo"}
+										}
+										{with_item
+											{type existance}
+											{item "ger_m38_helmet_net"}
+										}
+										{with_item
+											{type existance}
+											{item "ger_m38_helmet_winter"}
+										}
+										{with_item
+											{type existance}
+											{item "ger_m38_helmet_net_winter"}
+										}
+										{with_item
+											{type existance}
+											{item "ger_m38_helmet_desert"}
+										}
+										{with_item
+											{type existance}
+											{item "ger_m38_helmet_net_desert"}
+										}
+										{with_item
+											{type existance}
+											{item "ger_m38_helmet_camo_blue"}
+										}
+										{with_item
+											{type existance}
+											{item "helmet4_jap_para"}
+										}
+										{with_item
+											{type existance}
+											{item "snlf_helmet"}
+										}
+										{with_item
+											{type existance}
+											{item "snlf_tropical"}
+										}
+										{with_item
+											{type existance}
+											{item "helmet_ita_m33_mvsn"}
+										}
+										{with_item
+											{type existance}
+											{item "soviet_budinovka"}
+										}
+										{with_item
+											{type existance}
+											{item "soviet_budinovka_down"}
+										}
+										{with_item
+											{type existance}
+											{item "helmet_usa_506th"}
+										}
+										{with_item
+											{type existance}
+											{item "helmet_usa_506th_camo"}
+										}
+										{with_item
+											{type existance}
+											{item "helmet_usa_506th_camo_nco"}
+										}
+										{with_item
+											{type existance}
+											{item "helmet_usa_506th_camo_officer"}
+										}
+										{with_item
+											{type existance}
+											{item "helmet_usa_506th_nco"}
+										}
+										{with_item
+											{type existance}
+											{item "helmet_usa_506th_officer"}
+										}
+										{with_item
+											{type existance}
+											{item "helmet_airborne_usa2"}
+										}
+										{with_item
+											{type existance}
+											{item "helmet_eng_para"}
+										}
+										{with_item
+											{type existance}
+											{item "helmet_eng_para_camo"}
+										}
+										{with_item
+											{type existance}
+											{item "helmet_eng_para_net"}
+										}
+										{with_item
+											{type existance}
+											{item "cap_eng_beret_commando"}
+										}
+										{tag
+											{tag rocket_artillery}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag hmg}
+										}
+										{tag
+											{tag light_at_gun}
+										}
+										{tag
+											{tag medium_at_gun}
+										}
+										{tag
+											{tag heavy_at_gun}
+										}
+										{tag
+											{tag freeroam}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag aaflak}
+										}
+									}
+								}
+								{amount 6
+								}
+							}
+							{tag_add ready_to_move_b4}
+						}
+					}
+					{## "if"
+						{condition
+							{type cmp_i}
+							{var "enemy_paras_active$"}
+							{op "=="}
+							{value 0}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sideb4"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_car}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag sideb1}
+										}
+										{tag
+											{tag sideb2}
+										}
+										{tag
+											{tag sideb3}
+										}
+										{tag
+											{tag sideb4}
+										}
+										{tag
+											{tag katy}
+										}
+										{tag
+											{tag enemyarty}
+										}
+										{state
+											{state linked}
+										}
+										{tag
+											{tag rocket_artillery}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag hmg}
+										}
+										{tag
+											{tag light_at_gun}
+										}
+										{tag
+											{tag medium_at_gun}
+										}
+										{tag
+											{tag heavy_at_gun}
+										}
+										{tag
+											{tag freeroam}
+										}
+										{tag
+											{tag aaflak}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+								{amount 6
+								}
+							}
+							{tag_add ready_to_move_b4}
+						}
+					}
+					{## "squad"
+						{operation exclude}
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag ready_to_move_b4}
+									}
+								}
+								{include
+									{state
+										{state operatable}
+									}
+								}
+							}
+						}
+					}
+					{## "delay"
+						{time 1}
+					}
+					{## "waypoint"
+						{who
+							{type actor}
+							{actors
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag ready_to_move_b4}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag squad}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+						}
+						{action
+							{type start}
+							{waypoint "2004"}
+							{make_squad}
+							{name_squad "1"}
+							{copy_squad "2"}
+							{approach force}
+						}
+					}
+					{## "actor_to_waypoint"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag ready_to_move_b4}
+									}
+								}
+								{include
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{state
+										{state user_control}
+									}
+									{tag
+										{tag squad}
+									}
+								}
+							}
+							{amount 6
+							}
+						}
+						{drop orders}
+						{waypoint "2004"}
+						{approach force}
+					}
+					{## "delay"
+						{time 1}
+					}
+					{## "actor_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag ready_to_move_b4}
+									}
+								}
+								{include
+									{prop
+										{prop tank}
+									}
+									{state
+										{state operatable}
+									}
+								}
+							}
+						}
+						{movement
+							{speed slow}
+						}
+					}
+					{## "delay"
+						{time 1}
+					}
+					{## "actor_state"
+						{selector
+							{tag ready_to_move_b4}
+							{type human}
+							{state operatable}
+						}
+						{movement
+							{speed assault}
+						}
+					}
+					{## "delay"
+						{time 1}
+					}
+					{## "entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag ready_to_move_b4}
+									}
+								}
+								{include
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag rus}
+									}
+									{tag
+										{tag ger}
+									}
+									{tag
+										{tag cmp_def}
+									}
+									{tag
+										{tag player}
+									}
+									{tag
+										{tag player_armor}
+									}
+									{tag
+										{tag player_car}
+									}
+									{tag
+										{tag player_veh}
+									}
+									{tag
+										{tag engine_count_1}
+									}
+									{tag
+										{tag engine_count_2}
+									}
+									{tag
+										{tag sideb1}
+									}
+									{tag
+										{tag sideb2}
+									}
+									{tag
+										{tag sideb3}
+									}
+									{tag
+										{tag sideb4}
+									}
+									{tag
+										{tag bm13_studebaker}
+									}
+									{tag
+										{tag bm31_12}
+									}
+									{tag
+										{tag rocket_artillery}
+									}
+									{tag
+										{tag artillery}
+									}
+									{tag
+										{tag hmg}
+									}
+									{tag
+										{tag light_at_gun}
+									}
+									{tag
+										{tag medium_at_gun}
+									}
+									{tag
+										{tag heavy_at_gun}
+									}
+									{tag
+										{tag freeroam}
+									}
+									{tag
+										{tag enemyarty}
+									}
+								}
+							}
+						}
+						{tag_add sideb4}
+						{tag_remove ready_to_move_b4}
 					}
 					{"while"
 						{condition
@@ -98489,6 +98225,12 @@
 										{state
 											{state linked}
 										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag hmg}
+										}
 										{tag
 											{tag light_at_gun}
 										}
@@ -98503,12 +98245,6 @@
 										}
 										{tag
 											{tag aaflak}
-										}
-										{tag
-											{tag rocket_artillery}
-										}
-										{tag
-											{tag artillery}
 										}
 									}
 								}
@@ -98708,12 +98444,15 @@
 											{tag
 												{tag freeroam}
 											}
+											{state
+												{state user_control}
+											}
 											{tag
 												{tag aaflak}
 											}
 										}
 									}
-									{amount 5
+									{amount 6
 									}
 								}
 								{tag_add ready_to_move_b4}
@@ -98813,30 +98552,15 @@
 											{tag
 												{tag aaflak}
 											}
+											{state
+												{state user_control}
+											}
 										}
 									}
-									{amount 5
+									{amount 6
 									}
 								}
 								{tag_add ready_to_move_b4}
-							}
-						}
-						{"squad"
-							{operation exclude}
-							{selector
-								{source advanced}
-								{group
-									{select
-										{tag
-											{tag ready_to_move_b4}
-										}
-									}
-									{exclude
-										{state
-											{state linked}
-										}
-									}
-								}
 							}
 						}
 						{"delay"
@@ -98862,38 +98586,8 @@
 											{tag
 												{tag squad}
 											}
-											{tag
-												{tag rocket_artillery}
-											}
-											{tag
-												{tag artillery}
-											}
-											{tag
-												{tag player}
-											}
 											{state
 												{state user_control}
-											}
-											{tag
-												{tag player_car}
-											}
-											{tag
-												{tag player_veh}
-											}
-											{tag
-												{tag player_armor}
-											}
-											{tag
-												{tag engine_count_1}
-											}
-											{tag
-												{tag engine_count_2}
-											}
-											{tag
-												{tag rocket_artillery}
-											}
-											{tag
-												{tag artillery}
 											}
 										}
 									}
@@ -99032,21 +98726,16 @@
 											{tag freeroam}
 										}
 										{tag
-											{tag aaflak}
-										}
-										{tag
 											{tag enemyarty}
 										}
 									}
-								}
-								{amount 5
 								}
 							}
 							{tag_add sideb4}
 							{tag_remove ready_to_move_b4}
 						}
 					}
-					{"delay"
+					{## "delay"
 						{time 1}
 					}
 					{"trigger"
@@ -99158,7 +98847,7 @@
 					}
 				}
 				{actions
-					{"delay"
+					{## "delay"
 						{time 4}
 					}
 					{"while"
@@ -99564,7 +99253,7 @@
 								{tag_add ready_to_move_a1}
 							}
 						}
-						{"squad"
+						{## "squad"
 							{operation exclude}
 							{selector
 								{tag ready_to_move_a1}
@@ -99746,7 +99435,7 @@
 							{tag_remove ready_to_move_a1}
 						}
 					}
-					{"delay"
+					{## "delay"
 						{time 1}
 					}
 					{"trigger"
@@ -100265,7 +99954,7 @@
 								{tag_add ready_to_move_a2}
 							}
 						}
-						{"squad"
+						{## "squad"
 							{operation exclude}
 							{selector
 								{tag ready_to_move_a2}
@@ -100966,7 +100655,7 @@
 								{tag_add ready_to_move_a3}
 							}
 						}
-						{"squad"
+						{## "squad"
 							{operation exclude}
 							{selector
 								{tag ready_to_move_a3}
@@ -101251,9 +100940,6 @@
 										{tag
 											{tag freeroam}
 										}
-										{tag
-											{tag aaflak}
-										}
 									}
 								}
 							}
@@ -101352,9 +101038,6 @@
 										}
 										{tag
 											{tag freeroam}
-										}
-										{tag
-											{tag aaflak}
 										}
 									}
 								}
@@ -101554,9 +101237,6 @@
 											{tag
 												{tag freeroam}
 											}
-											{tag
-												{tag aaflak}
-											}
 										}
 									}
 									{amount 5
@@ -101656,9 +101336,6 @@
 											{tag
 												{tag freeroam}
 											}
-											{tag
-												{tag aaflak}
-											}
 										}
 									}
 									{amount 5
@@ -101667,7 +101344,7 @@
 								{tag_add ready_to_move_a4}
 							}
 						}
-						{"squad"
+						{## "squad"
 							{operation exclude}
 							{selector
 								{tag ready_to_move_a4}
@@ -101927,14 +101604,15 @@
 										{state
 											{state user_control}
 										}
+										{relation
+											{relation ally}
+											{player "1"}
+										}
 										{tag
 											{tag attacking_target}
 										}
 										{tag
-											{tag bm31_12}
-										}
-										{tag
-											{tag bm13_studebaker}
+											{tag reloading_rocket}
 										}
 									}
 								}
@@ -102046,17 +101724,15 @@
 									{state
 										{state dead}
 									}
+									{relation
+										{relation ally}
+										{player "1"}
+									}
 									{tag
 										{tag katy}
 									}
 									{tag
 										{tag attacking_target}
-									}
-									{tag
-										{tag bm31_12}
-									}
-									{tag
-										{tag bm13_studebaker}
 									}
 								}
 							}
@@ -102405,7 +102081,7 @@
 						{cheating}
 					}
 					{"delay"
-						{time 20}
+						{time 16}
 					}
 					{"actor_state"
 						{selector
@@ -102482,8 +102158,7 @@
 						{value 1}
 					}
 				}
-			}	
-
+			}
 		}
 		{waypoints
 			{"0"
