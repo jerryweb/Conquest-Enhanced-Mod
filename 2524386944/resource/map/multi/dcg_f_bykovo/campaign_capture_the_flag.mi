@@ -56983,8 +56983,13 @@
 						{op "="}
 						{value 1}
 					}
+					{"set_i"
+						{var "enemy_paras_active$"}
+						{op "="}
+						{value 0}
+					}
 					{"delay"
-						{time 1}
+						{time 20}
 					}
 					{## "if"
 						{condition
@@ -57493,6 +57498,17 @@
 					}
 					{"if"
 						{condition
+							{type rand}
+							{value 0.5}
+						}
+						{"set_i"
+							{var "para_plane_side_start$"}
+							{op "="}
+							{value 2}
+						}
+					}
+					{## "if"
+						{condition
 							{type cmp_i}
 							{var "user_team$"}
 							{op "=="}
@@ -57504,7 +57520,7 @@
 							{value 2}
 						}
 					}
-					{"if"
+					{## "if"
 						{condition
 							{type cmp_i}
 							{var "user_team$"}
@@ -60956,7 +60972,7 @@
 							{tag_add para_ready}
 						}
 					}
-					{"squad"
+					{## "squad"
 						{operation exclude}
 						{selector
 							{tag para_ready}
@@ -63039,6 +63055,7 @@
 								{selector
 									{tag boarding}
 								}
+								{tag_add moving_to_gamezone}
 								{tag_remove para_ready}
 							}
 							{"linker"
@@ -63241,6 +63258,13 @@
 								{tag_add para_in_field}
 								{tag_remove para_ready}
 							}
+							{"entity_state"
+								{selector
+									{tag boarding}
+								}
+								{tag_add moving_to_gamezone}
+								{tag_remove para_ready}
+							}
 							{"linker"
 								{selector
 									{source advanced}
@@ -63439,6 +63463,13 @@
 									{tag boarding}
 								}
 								{tag_add para_in_field}
+								{tag_remove para_ready}
+							}
+							{"entity_state"
+								{selector
+									{tag boarding}
+								}
+								{tag_add moving_to_gamezone}
 								{tag_remove para_ready}
 							}
 							{"linker"
@@ -63641,6 +63672,13 @@
 								{tag_add para_in_field}
 								{tag_remove para_ready}
 							}
+							{"entity_state"
+								{selector
+									{tag boarding}
+								}
+								{tag_add moving_to_gamezone}
+								{tag_remove para_ready}
+							}
 							{"linker"
 								{selector
 									{source advanced}
@@ -63839,6 +63877,13 @@
 									{tag boarding}
 								}
 								{tag_add para_in_field}
+								{tag_remove para_ready}
+							}
+							{"entity_state"
+								{selector
+									{tag boarding}
+								}
+								{tag_add moving_to_gamezone}
 								{tag_remove para_ready}
 							}
 							{"linker"
@@ -64041,6 +64086,13 @@
 								{tag_add para_in_field}
 								{tag_remove para_ready}
 							}
+							{"entity_state"
+								{selector
+									{tag boarding}
+								}
+								{tag_add moving_to_gamezone}
+								{tag_remove para_ready}
+							}
 							{"linker"
 								{selector
 									{source advanced}
@@ -64239,6 +64291,13 @@
 									{tag boarding}
 								}
 								{tag_add para_in_field}
+								{tag_remove para_ready}
+							}
+							{"entity_state"
+								{selector
+									{tag boarding}
+								}
+								{tag_add moving_to_gamezone}
 								{tag_remove para_ready}
 							}
 							{"linker"
@@ -64441,6 +64500,13 @@
 								{tag_add para_in_field}
 								{tag_remove para_ready}
 							}
+							{"entity_state"
+								{selector
+									{tag boarding}
+								}
+								{tag_add moving_to_gamezone}
+								{tag_remove para_ready}
+							}
 							{"linker"
 								{selector
 									{source advanced}
@@ -64582,8 +64648,12 @@
 					{"delay"
 						{time 3}
 					}
-					{"sound"
+					{## "sound"
 						{name "world/alarm/alarm"}
+					}
+					{"music"
+						{start "/sound/world/alarm/alarm.wav"}
+						{volume narrator}
 					}
 				}
 			}
@@ -64618,27 +64688,36 @@
 					}
 				}
 				{actions
-					{"music"
+					{## "music"
 						{start "/sound/world/alarm/sirene01.wav"}
 						{volume narrator}
 						{loop}
+					}
+					{"sound"
+						{name "world/alarm/sirene01"}
 					}
 					{## "sound"
 						{name "world/alarm/sirene01"}
 					}
 					{"delay"
-						{time 51}
+						{time 18}
 					}
-					{"music"
-						{stop "/sound/world/alarm/sirene01.wav"}
-						{volume game}
-						{fade 1}
-					}
-					{## "sound"
+					{"sound"
 						{name "world/alarm/sirene01"}
 					}
+					{"delay"
+						{time 18}
+					}
+					{"sound"
+						{name "world/alarm/sirene01"}
+					}
+					{## "music"
+						{stop "/sound/world/alarm/sirene01.wav"}
+						{volume narrator}
+						{fade 5}
+					}
 					{## "delay"
-						{time 60}
+						{time 4000}
 					}
 					{## "trigger"
 						{name "ai_paratroopers/sound/siren"}
@@ -67685,7 +67764,7 @@
 						}
 						{effect start}
 					}
-					{"delay"
+					{## "delay"
 						{time 0.05}
 					}
 					{"entity_state"
@@ -67710,7 +67789,7 @@
 						{tag_add landed}
 						{tag_remove eject}
 					}
-					{"delay"
+					{## "delay"
 						{time 0.05}
 					}
 					{"entity_state"
@@ -67827,7 +67906,8 @@
 					}
 				}
 			}
-			{"ai_paratroopers/delete_bugged_troopers"
+			{## "ai_paratroopers/delete_bugged_troopers"
+				{disabled}
 				{condition
 					{terms
 						{"1.entities"
@@ -69866,6 +69946,146 @@
 					}
 					{## "delay"
 						{time 0.5}
+					}
+				}
+			}
+			{"ai_paratroopers/tag_remaining_paras"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag moving_to_gamezone}
+										}
+									}
+									{include
+										{state
+											{state linked}
+										}
+										{zone
+											{zone "gamezone"}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag moving_to_gamezone}
+									}
+								}
+								{include
+									{zone
+										{zone "gamezone"}
+									}
+									{state
+										{state linked}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{state
+										{state user_control}
+									}
+								}
+							}
+						}
+						{tag_add delete_if_leaving_gamezone}
+						{tag_remove moving_to_gamezone}
+					}
+					{"trigger"
+						{name "ai_paratroopers/tag_remaining_paras"}
+					}
+				}
+			}
+			{"ai_paratroopers/delete_undropped_troopers"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag delete_if_leaving_gamezone}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag player}
+										}
+										{zone
+											{zone "gamezone"}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delete"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag delete_if_leaving_gamezone}
+									}
+								}
+								{include
+									{prop
+										{prop human}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag player}
+									}
+									{state
+										{state user_control}
+									}
+									{zone
+										{zone "gamezone"}
+									}
+								}
+							}
+						}
+					}
+					{"delay"
+						{time 0.05}
+					}
+					{"trigger"
+						{name "ai_paratroopers/delete_undropped_troopers"}
 					}
 				}
 			}
@@ -96259,8 +96479,36 @@
 					{terms
 						{"1.entities"
 							{selector
-								{tag player}
-								{state operatable}
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag player_car}
+										}
+										{tag
+											{tag player_armor}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{state
+											{state dead}
+										}
+									}
+								}
 							}
 						}
 						{"2.entities"
@@ -96277,6 +96525,9 @@
 											{type amount}
 											{item "132mm_bm13" "ammo"}
 											{min 1}
+										}
+										{state
+											{state operatable}
 										}
 									}
 									{exclude
@@ -96295,10 +96546,6 @@
 										{state
 											{state user_control}
 										}
-										{relation
-											{relation ally}
-											{player "1"}
-										}
 									}
 								}
 								{group
@@ -96312,6 +96559,9 @@
 											{type amount}
 											{item "300mm_bm30" "ammo"}
 											{min 1}
+										}
+										{state
+											{state operatable}
 										}
 									}
 									{exclude
@@ -96329,10 +96579,6 @@
 										}
 										{state
 											{state user_control}
-										}
-										{relation
-											{relation ally}
-											{player "1"}
 										}
 									}
 								}
@@ -96356,6 +96602,9 @@
 										{item "300mm_bm30" "ammo"}
 										{min 1}
 									}
+									{state
+										{state operatable}
+									}
 								}
 								{exclude
 									{tag
@@ -96369,10 +96618,6 @@
 									}
 									{state
 										{state dead}
-									}
-									{relation
-										{relation ally}
-										{player "1"}
 									}
 									{tag
 										{tag katy}
@@ -96391,6 +96636,9 @@
 										{item "132mm_bm13" "ammo"}
 										{min 1}
 									}
+									{state
+										{state operatable}
+									}
 								}
 								{exclude
 									{tag
@@ -96404,10 +96652,6 @@
 									}
 									{state
 										{state dead}
-									}
-									{relation
-										{relation ally}
-										{player "1"}
 									}
 									{tag
 										{tag katy}
@@ -96427,54 +96671,243 @@
 						{drop orders}
 						{action advance}
 						{target
-							{tag player}
-						}
-					}
-					{"delay"
-						{time 8}
-					}
-					{"actor_fire"
-						{selector
-							{tag katy}
-						}
-						{drop orders}
-						{attack enemies}
-						{enemies
 							{source advanced}
 							{group
 								{select
 									{tag
 										{tag player}
 									}
-								}
-								{include
-									{state
-										{state operatable}
-									}
-								}
-							}
-							{amount 1
-							}
-							{group
-								{select
 									{tag
 										{tag player_veh}
 									}
+									{tag
+										{tag player_car}
+									}
+									{tag
+										{tag player_armor}
+									}
 								}
 								{include
 									{state
 										{state operatable}
+									}
+								}
+								{exclude
+									{state
+										{state inactive}
+									}
+									{state
+										{state dead}
 									}
 								}
 							}
 						}
-						{interval 1}
-						{time 25}
-						{burst_mode long}
-						{cheating}
 					}
 					{"delay"
-						{time 8}
+						{time 5}
+					}
+					{"if"
+						{condition
+							{type cmp_i}
+							{var "player_defending$"}
+							{op "=="}
+							{value 1}
+						}
+						{"actor_fire"
+							{selector
+								{tag katy}
+							}
+							{drop orders}
+							{attack enemies}
+							{enemies
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{state
+											{state dead}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag player_veh}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag player_armor}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+									}
+								}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{relation
+											{relation ally}
+											{player "1"}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+									}
+								}
+							}
+							{interval 1}
+							{time 25}
+							{burst_mode long}
+							{cheating}
+						}
+					}
+					{"if"
+						{condition
+							{type cmp_i}
+							{var "player_defending$"}
+							{op "=="}
+							{value 0}
+						}
+						{"actor_fire"
+							{selector
+								{tag katy}
+							}
+							{drop orders}
+							{attack enemies}
+							{enemies
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{state
+											{state dead}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag player_veh}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag player_armor}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+									}
+								}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{relation
+											{relation enemy}
+											{player "1"}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+									}
+								}
+							}
+							{interval 1}
+							{time 25}
+							{burst_mode long}
+							{cheating}
+						}
+					}
+					{"delay"
+						{time 16}
 					}
 					{"actor_state"
 						{selector
