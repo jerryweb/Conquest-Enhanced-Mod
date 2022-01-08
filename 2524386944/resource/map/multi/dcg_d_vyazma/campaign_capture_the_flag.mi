@@ -68320,6 +68320,90 @@
 						{"case"
 							{condition
 								{type side}
+								{side fra}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"set_i"
+								{var "user_nation$"}
+								{op "="}
+								{value 1}
+							}
+						}
+						{"case"
+							{condition
+								{type side}
+								{side pol}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"set_i"
+								{var "user_nation$"}
+								{op "="}
+								{value 1}
+							}
+						}
+						{"case"
+							{condition
+								{type side}
+								{side jap}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"set_i"
+								{var "user_nation$"}
+								{op "="}
+								{value 2}
+							}
+						}
+						{"case"
+							{condition
+								{type side}
+								{side usa}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"set_i"
+								{var "user_nation$"}
+								{op "="}
+								{value 1}
+							}
+						}
+						{"case"
+							{condition
+								{type side}
+								{side eng}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"set_i"
+								{var "user_nation$"}
+								{op "="}
+								{value 1}
+							}
+						}
+						{"case"
+							{condition
+								{type side}
+								{side ita}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"set_i"
+								{var "user_nation$"}
+								{op "="}
+								{value 2}
+							}
+						}
+						{"case"
+							{condition
+								{type side}
 								{side ger}
 							}
 							{"delay"
@@ -68355,6 +68439,132 @@
 										{var "user_nation$"}
 										{op "="}
 										{value 1}
+									}
+								}
+								{"case"
+									{condition
+										{type inventory}
+										{selector
+											{ignore_captured_by_user 0}
+											{tag player}
+											{zone "gamezone"}
+											{type human}
+											{state "not dead"}
+										}
+										{item "bandage_fra"}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"set_i"
+										{var "user_nation$"}
+										{op "="}
+										{value 1}
+									}
+								}
+								{"case"
+									{condition
+										{type inventory}
+										{selector
+											{ignore_captured_by_user 0}
+											{tag player}
+											{zone "gamezone"}
+											{type human}
+											{state "not dead"}
+										}
+										{item "bandage_pol"}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"set_i"
+										{var "user_nation$"}
+										{op "="}
+										{value 1}
+									}
+								}
+								{"case"
+									{condition
+										{type inventory}
+										{selector
+											{ignore_captured_by_user 0}
+											{tag player}
+											{zone "gamezone"}
+											{type human}
+											{state "not dead"}
+										}
+										{item "bandage_jap"}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"set_i"
+										{var "user_nation$"}
+										{op "="}
+										{value 2}
+									}
+								}
+								{"case"
+									{condition
+										{type inventory}
+										{selector
+											{ignore_captured_by_user 0}
+											{tag player}
+											{zone "gamezone"}
+											{type human}
+											{state "not dead"}
+										}
+										{item "bandage_usa"}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"set_i"
+										{var "user_nation$"}
+										{op "="}
+										{value 1}
+									}
+								}
+								{"case"
+									{condition
+										{type inventory}
+										{selector
+											{ignore_captured_by_user 0}
+											{tag player}
+											{zone "gamezone"}
+											{type human}
+											{state "not dead"}
+										}
+										{item "bandage_eng"}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"set_i"
+										{var "user_nation$"}
+										{op "="}
+										{value 1}
+									}
+								}
+								{"case"
+									{condition
+										{type inventory}
+										{selector
+											{ignore_captured_by_user 0}
+											{tag player}
+											{zone "gamezone"}
+											{type human}
+											{state "not dead"}
+										}
+										{item "bandage_ita"}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"set_i"
+										{var "user_nation$"}
+										{op "="}
+										{value 2}
 									}
 								}
 								{"case"
@@ -73904,6 +74114,123 @@
 									{with_item
 										{type existance}
 										{item "soviet_commisar_cap"}
+									}
+									{with_item
+										{type existance}
+										{item "binocular"}
+									}
+									{state
+										{state operatable}
+									}
+								}
+							}
+							{group
+								{select
+									{tag
+										{tag player}
+									}
+								}
+								{include
+									{with_item
+										{type existance}
+										{item "cap_eng_off"}
+									}
+									{with_item
+										{type existance}
+										{item "binocular"}
+									}
+									{state
+										{state operatable}
+									}
+								}
+							}
+							{group
+								{select
+									{tag
+										{tag player}
+									}
+								}
+								{include
+									{with_item
+										{type existance}
+										{item "cap_ita_bustina_officer"}
+									}
+									{with_item
+										{type existance}
+										{item "binocular"}
+									}
+									{state
+										{state operatable}
+									}
+								}
+							}
+							{group
+								{select
+									{tag
+										{tag player}
+									}
+								}
+								{include
+									{state
+										{state operatable}
+									}
+									{with_item
+										{type existance}
+										{item "cap1_jap"}
+									}
+									{with_item
+										{type existance}
+										{item "binocular"}
+									}
+								}
+							}
+							{group
+								{select
+									{tag
+										{tag player}
+									}
+								}
+								{include
+									{with_item
+										{type existance}
+										{item "cap_fra_sidecap_officer"}
+									}
+									{with_item
+										{type existance}
+										{item "binocular"}
+									}
+								}
+							}
+							{group
+								{select
+									{tag
+										{tag player}
+									}
+								}
+								{include
+									{with_item
+										{type existance}
+										{item "cap1_usa"}
+									}
+									{with_item
+										{type existance}
+										{item "binocular"}
+									}
+									{state
+										{state operatable}
+									}
+								}
+							}
+							{group
+								{select
+									{tag
+										{tag player}
+									}
+								}
+								{include
+									{with_item
+										{type existance}
+										{item "cap_pol_2div_officer"}
 									}
 									{with_item
 										{type existance}
@@ -85319,6 +85646,206 @@
 										}
 										{tag
 											{tag rus}
+										}
+									}
+								}
+							}
+						}
+						{"delete"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{tag
+											{tag qf17pdr}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{prop
+											{prop tank}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag player}
+										}
+									}
+								}
+							}
+						}
+						{"delete"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{tag
+											{tag qf40mm}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{prop
+											{prop tank}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag player}
+										}
+									}
+								}
+							}
+						}
+						{"delete"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{tag
+											{tag cmpak9738}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{prop
+											{prop tank}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag player}
+										}
+									}
+								}
+							}
+						}
+						{"delete"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{tag
+											{tag qf17pdr_pol}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{prop
+											{prop tank}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag player}
+										}
+									}
+								}
+							}
+						}
+						{"delete"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{tag
+											{tag mmm190}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{prop
+											{prop tank}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag player}
 										}
 									}
 								}
@@ -99166,6 +99693,748 @@
 						{var "player_defending$"}
 						{op "="}
 						{value 1}
+					}
+				}
+			}
+			{"ai./captureflag"
+				{condition
+					{terms
+						{"1.cmp_i"
+							{var "player_defending$"}
+							{op "=="}
+							{value 1}
+						}
+						{"2.event"
+							{id "attack_start"}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 1}
+					}
+					{"if"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag fpc1}
+										}
+									}
+									{exclude
+										{tag
+											{tag hidden}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag ai_inf}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag fpc1go}
+										}
+										{tag
+											{tag fpc1nogo}
+										}
+										{tag
+											{tag fpc2go}
+										}
+										{tag
+											{tag fpc2nogo}
+										}
+										{tag
+											{tag fpc3go}
+										}
+										{tag
+											{tag fpc3nogo}
+										}
+										{tag
+											{tag fpc4go}
+										}
+										{tag
+											{tag fpc4nogo}
+										}
+										{tag
+											{tag fpc5go}
+										}
+										{tag
+											{tag fpc5nogo}
+										}
+									}
+								}
+								{amount 1
+								}
+							}
+							{tag_add fpc1go}
+						}
+						{"action"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag ai_inf}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{tag
+											{tag fpc1go}
+										}
+									}
+									{exclude
+										{tag
+											{tag fpc1nogo}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+									}
+								}
+							}
+							{drop orders}
+							{action advance}
+							{target
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag fpc1}
+										}
+									}
+									{exclude
+										{tag
+											{tag hidden}
+										}
+									}
+								}
+							}
+						}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"if"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag fpc2}
+										}
+									}
+									{exclude
+										{tag
+											{tag hidden}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag ai_inf}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag fpc1go}
+										}
+										{tag
+											{tag fpc1nogo}
+										}
+										{tag
+											{tag fpc2go}
+										}
+										{tag
+											{tag fpc2nogo}
+										}
+										{tag
+											{tag fpc3go}
+										}
+										{tag
+											{tag fpc3nogo}
+										}
+										{tag
+											{tag fpc4go}
+										}
+										{tag
+											{tag fpc4nogo}
+										}
+										{tag
+											{tag fpc5go}
+										}
+										{tag
+											{tag fpc5nogo}
+										}
+									}
+								}
+								{amount 1
+								}
+							}
+							{tag_add fpc2go}
+						}
+						{"action"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag ai_inf}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{tag
+											{tag fpc2go}
+										}
+									}
+									{exclude
+										{tag
+											{tag fpc2nogo}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+									}
+								}
+							}
+							{drop orders}
+							{action advance}
+							{target
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag fpc2}
+										}
+									}
+									{exclude
+										{tag
+											{tag hidden}
+										}
+									}
+								}
+							}
+						}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"if"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag fpc3}
+										}
+									}
+									{exclude
+										{tag
+											{tag hidden}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag ai_inf}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag fpc1go}
+										}
+										{tag
+											{tag fpc1nogo}
+										}
+										{tag
+											{tag fpc2go}
+										}
+										{tag
+											{tag fpc2nogo}
+										}
+										{tag
+											{tag fpc3go}
+										}
+										{tag
+											{tag fpc3nogo}
+										}
+										{tag
+											{tag fpc4go}
+										}
+										{tag
+											{tag fpc4nogo}
+										}
+										{tag
+											{tag fpc5go}
+										}
+										{tag
+											{tag fpc5nogo}
+										}
+									}
+								}
+								{amount 1
+								}
+							}
+							{tag_add fpc3go}
+						}
+						{"action"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag ai_inf}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{tag
+											{tag fpc3go}
+										}
+									}
+									{exclude
+										{tag
+											{tag fpc3nogo}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+									}
+								}
+							}
+							{drop orders}
+							{action advance}
+							{target
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag fpc3}
+										}
+									}
+									{exclude
+										{tag
+											{tag hidden}
+										}
+									}
+								}
+							}
+						}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"if"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag fpc4}
+										}
+									}
+									{exclude
+										{tag
+											{tag hidden}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag ai_inf}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag fpc1go}
+										}
+										{tag
+											{tag fpc1nogo}
+										}
+										{tag
+											{tag fpc2go}
+										}
+										{tag
+											{tag fpc2nogo}
+										}
+										{tag
+											{tag fpc3go}
+										}
+										{tag
+											{tag fpc3nogo}
+										}
+										{tag
+											{tag fpc4go}
+										}
+										{tag
+											{tag fpc4nogo}
+										}
+										{tag
+											{tag fpc5go}
+										}
+										{tag
+											{tag fpc5nogo}
+										}
+									}
+								}
+								{amount 1
+								}
+							}
+							{tag_add fpc4go}
+						}
+						{"action"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag ai_inf}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{tag
+											{tag fpc4go}
+										}
+									}
+									{exclude
+										{tag
+											{tag fpc3nogo}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+									}
+								}
+							}
+							{drop orders}
+							{action advance}
+							{target
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag fpc4}
+										}
+									}
+									{exclude
+										{tag
+											{tag hidden}
+										}
+									}
+								}
+							}
+						}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"if"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag fpc5}
+										}
+									}
+									{exclude
+										{tag
+											{tag hidden}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag ai_inf}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag fpc1go}
+										}
+										{tag
+											{tag fpc1nogo}
+										}
+										{tag
+											{tag fpc2go}
+										}
+										{tag
+											{tag fpc2nogo}
+										}
+										{tag
+											{tag fpc3go}
+										}
+										{tag
+											{tag fpc3nogo}
+										}
+										{tag
+											{tag fpc4go}
+										}
+										{tag
+											{tag fpc4nogo}
+										}
+										{tag
+											{tag fpc5go}
+										}
+										{tag
+											{tag fpc5nogo}
+										}
+									}
+								}
+								{amount 1
+								}
+							}
+							{tag_add fpc5go}
+						}
+						{"action"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag ai_inf}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{tag
+											{tag fpc5go}
+										}
+									}
+									{exclude
+										{tag
+											{tag fpc3nogo}
+										}
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag player}
+										}
+									}
+								}
+							}
+							{drop orders}
+							{action advance}
+							{target
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag fpc5}
+										}
+									}
+									{exclude
+										{tag
+											{tag hidden}
+										}
+									}
+								}
+							}
+						}
+					}
+					{"delay"
+						{time 30}
+					}
+					{"trigger"
+						{name "ai./captureflag"}
 					}
 				}
 			}

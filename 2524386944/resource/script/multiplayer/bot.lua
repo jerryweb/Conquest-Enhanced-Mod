@@ -434,7 +434,6 @@ function OnWaypoint(args)
 end
 
 function CaptureFlag(squad)
-	print("tee")
 	local flag = GetFlagToCapture(BotApi.Scene.Flags, GetFlagPriority)
 	-- local rnd = 0.1 + choice
 	local rnd = math.random() + choice
@@ -463,9 +462,7 @@ function CaptureFlag(squad)
 end
 
 function SetSquadOrder(order, squad, delay)
-	print("setty")
 	order(squad)
-	print("set")
 	local setTimer = function(callback)
 		Context.SquadTimers[squad] = BotApi.Events:SetQuantTimer(
 			function()

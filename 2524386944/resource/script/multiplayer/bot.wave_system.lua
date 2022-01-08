@@ -61,7 +61,7 @@ function selectArmyDivision(totalFlags)
 	print("loading")
 	-- REMOVE THIS LINE (ONLY FOR TESTING)
 	if testing then
-		divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.7]]
+		divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.6]]
 	end
 
 
@@ -152,6 +152,7 @@ function PIter:nextIndex()
 			if BotApi.Commands:IsUnitAvailable(unit.unit) then
 				print("Adding ", unit.unit, " to available units")
 				table.insert(availableUnits, unit)
+				print("done adding")
 			else 
 				print(unit.unit, " is not yet available to the AI")
 			end
