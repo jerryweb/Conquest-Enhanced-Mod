@@ -22,7 +22,7 @@ Purchases["standard"] = {
 			--Tanks_light
 			--Tanks_medium
 			--Tanks_heavy
-			--SPG
+			--SPG,
 
 			},
 			["fra"] = {--France
