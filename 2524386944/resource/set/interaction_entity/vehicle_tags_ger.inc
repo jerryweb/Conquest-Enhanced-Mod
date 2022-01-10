@@ -2209,5 +2209,6 @@
 	{on spawn
     	{tags add "aircraft"}
     	{tags add "german"}
+	{tags add "hidden"}
 	}
 }
