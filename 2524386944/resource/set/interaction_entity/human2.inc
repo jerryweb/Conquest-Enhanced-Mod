@@ -131,8 +131,10 @@
 
 	{on "eject" overload
 		{tags add "can_die"}
-		{tags add "deployed"}
-		{tags add "para_in_field"}
+		{if not tagged "player"
+			{tags add "deployed"}
+			{tags add "para_in_field"}
+		}	
 		{tags remove "on_plane_1"}
 		{tags remove "on_plane_2"}
 		{tags remove "on_plane_3"}
@@ -142,6 +144,8 @@
 		{tags remove "on_plane_7"}
 		{tags remove "on_plane_8"}
 		{tags remove "para_ready"}
+		{tags remove "player_para_ready"}
+		{tags remove "player_on_plane"}
 		{call "pull_chute"}		
 	}
 

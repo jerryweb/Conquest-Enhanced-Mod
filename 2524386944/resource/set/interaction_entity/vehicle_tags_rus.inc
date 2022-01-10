@@ -2168,6 +2168,5 @@
 	{on spawn
     	{tags add "aircraft"}
     	{tags add "soviet"}
-    	{tags add "drop_plane"}
 	}
 }
