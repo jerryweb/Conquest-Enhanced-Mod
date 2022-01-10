@@ -49981,6 +49981,3185 @@
 			{"player_defending"}
 		}
 		{triggers
+			{"player_paratroopers/spawn_player_para_plane"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{tag paradrophere}
+							}
+						}
+						{"2.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+									}
+									{include
+										{tag
+											{tag officer}
+										}
+									}
+								}
+							}
+						}
+						{"3.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag player_para_ready}
+										}
+									}
+									{include
+										{state
+											{state user_control}
+										}
+										{prop
+											{prop human}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{zone
+											{zone "combat"}
+										}
+									}
+								}
+							}
+							{count
+								{op ">"}
+								{value 4}
+							}
+						}
+						{"4.cmp_i"
+							{var "radiocar$"}
+							{op "=="}
+							{value 1}
+						}
+						{"5.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag player_drop_plane}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state
+											{state inhabited}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+									}
+								}
+							}
+							{count
+								{op "=="}
+								{value 0}
+							}
+						}
+					}
+				}
+				{actions
+					{"select"
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag player_drop_plane}
+								}
+							}
+							{include
+								{state
+									{state inhabited}
+								}
+								{state
+									{state operatable}
+								}
+								{tag
+									{tag hidden}
+								}
+							}
+						}
+						{amount 1
+						}
+					}
+					{"air_state"
+						{selector
+							{source current}
+						}
+						{altitude 45}
+					}
+					{"air_attack"
+						{selector
+							{source current}
+						}
+						{drop orders}
+						{enemies
+							{tag cmp_def}
+						}
+						{clone}
+						{move_from_back}
+						{force_placement}
+						{random_weapon 0}
+						{attack_altitude 45}
+					}
+					{"select"
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag player_drop_plane}
+								}
+							}
+							{include
+								{state
+									{state inhabited}
+								}
+								{state
+									{state operatable}
+								}
+							}
+							{exclude
+								{state
+									{state inactive}
+								}
+							}
+						}
+					}
+					{## "actor_to_waypoint"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag player_drop_plane}
+									}
+								}
+								{include
+									{state
+										{state operatable}
+									}
+									{tag
+										{tag hidden}
+									}
+								}
+							}
+						}
+						{drop orders}
+						{waypoint "0"}
+						{clone}
+						{approach "safe teleport & rotate"}
+					}
+					{"actor_state"
+						{selector
+							{source current}
+						}
+						{fire_mode hold}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"air_state"
+						{selector
+							{source current}
+						}
+						{drop orders}
+						{altitude 45}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"action"
+						{selector
+							{source current}
+						}
+						{drop "orders sensor senseless"}
+						{action move}
+						{target
+							{tag pointer_going}
+						}
+					}
+					{"entity_state"
+						{selector
+							{source current}
+						}
+						{tag_add flying_to_drop_zone}
+					}
+					{"delay"
+						{time 30}
+					}
+					{"trigger"
+						{name "player_paratroopers/spawn_player_para_plane"}
+					}
+				}
+			}
+			{"player_paratroopers/drop_player_paratroopers"
+				{condition
+					{terms
+						{"1.near"
+							{units
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag flying_to_drop_zone}
+										}
+									}
+									{include
+										{tag
+											{tag player_drop_plane}
+										}
+										{state
+											{state "operatable inhabited"}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+									}
+								}
+							}
+							{near_to
+								{tag paradrophere}
+							}
+							{distance 100}
+						}
+					}
+				}
+				{actions
+					{"select"
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag flying_to_drop_zone}
+								}
+							}
+							{include
+								{tag
+									{tag player_drop_plane}
+								}
+								{state
+									{state "operatable inhabited"}
+								}
+							}
+							{exclude
+								{state
+									{state inactive}
+								}
+							}
+						}
+					}
+					{"action"
+						{selector
+							{source current}
+						}
+						{drop orders}
+						{action move}
+						{waypoint "19"}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"entity_state"
+						{selector
+							{source current}
+						}
+						{tag_add dropping_player_paratroppers}
+						{tag_remove flying_to_drop_zone}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"loop" 12
+						{"unlink"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag player_on_plane}
+										}
+									}
+									{include
+										{state
+											{state "operatable linked"}
+										}
+										{prop
+											{prop human}
+										}
+										{tag
+											{tag player}
+										}
+										{state
+											{state user_control}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+									}
+								}
+								{amount 1
+								}
+							}
+						}
+						{"delay"
+							{time 0.5}
+						}
+					}
+					{"actor_to_waypoint"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag dropping_player_paratroppers}
+									}
+								}
+								{include
+									{state
+										{state "operatable inhabited"}
+									}
+								}
+								{exclude
+									{state
+										{state inactive}
+									}
+								}
+							}
+						}
+						{drop orders}
+						{waypoint "19"}
+					}
+					{"entity_state"
+						{selector
+							{tag dropping_player_paratroppers}
+						}
+						{tag_add player_going_home}
+						{tag_remove dropping_player_paratroppers}
+					}
+					{"trigger"
+						{name "player_paratroopers/drop_player_paratroopers"}
+					}
+				}
+			}
+			{"player_paratroopers/add_player_paratroopers_to_plane"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{tag paradrophere}
+							}
+						}
+						{"2.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+									}
+									{include
+										{tag
+											{tag officer}
+										}
+									}
+								}
+							}
+						}
+						{"4.cmp_i"
+							{var "radiocar$"}
+							{op "=="}
+							{value 1}
+						}
+						{"5.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state
+											{state user_control}
+										}
+										{with_item
+											{type existance}
+											{item "ger_m38_helmet"}
+										}
+									}
+									{exclude
+										{tag
+											{tag player_para_ready}
+										}
+										{tag
+											{tag player_on_plane}
+										}
+										{state
+											{state linked}
+										}
+										{zone
+											{zone "combat"}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state
+											{state user_control}
+										}
+										{with_item
+											{type existance}
+											{item "ger_m38_helmet_camo"}
+										}
+									}
+									{exclude
+										{tag
+											{tag player_para_ready}
+										}
+										{tag
+											{tag player_on_plane}
+										}
+										{state
+											{state linked}
+										}
+										{zone
+											{zone "combat"}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state
+											{state user_control}
+										}
+										{with_item
+											{type existance}
+											{item "ger_m38_helmet_net"}
+										}
+									}
+									{exclude
+										{tag
+											{tag player_para_ready}
+										}
+										{tag
+											{tag player_on_plane}
+										}
+										{state
+											{state linked}
+										}
+										{zone
+											{zone "combat"}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state
+											{state user_control}
+										}
+										{with_item
+											{type existance}
+											{item "ger_m38_helmet_winter"}
+										}
+									}
+									{exclude
+										{tag
+											{tag player_para_ready}
+										}
+										{tag
+											{tag player_on_plane}
+										}
+										{state
+											{state linked}
+										}
+										{zone
+											{zone "combat"}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state
+											{state user_control}
+										}
+										{with_item
+											{type existance}
+											{item "ger_m38_helmet_net_winter"}
+										}
+									}
+									{exclude
+										{tag
+											{tag player_para_ready}
+										}
+										{tag
+											{tag player_on_plane}
+										}
+										{state
+											{state linked}
+										}
+										{zone
+											{zone "combat"}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state
+											{state user_control}
+										}
+										{with_item
+											{type existance}
+											{item "ger_m38_helmet_desert"}
+										}
+									}
+									{exclude
+										{tag
+											{tag player_para_ready}
+										}
+										{tag
+											{tag player_on_plane}
+										}
+										{state
+											{state linked}
+										}
+										{zone
+											{zone "combat"}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state
+											{state user_control}
+										}
+										{with_item
+											{type existance}
+											{item "ger_m38_helmet_net_desert"}
+										}
+									}
+									{exclude
+										{tag
+											{tag player_para_ready}
+										}
+										{tag
+											{tag player_on_plane}
+										}
+										{state
+											{state linked}
+										}
+										{zone
+											{zone "combat"}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state
+											{state user_control}
+										}
+										{with_item
+											{type existance}
+											{item "ger_m38_helmet_camo_blue"}
+										}
+									}
+									{exclude
+										{tag
+											{tag player_para_ready}
+										}
+										{tag
+											{tag player_on_plane}
+										}
+										{state
+											{state linked}
+										}
+										{zone
+											{zone "combat"}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state
+											{state user_control}
+										}
+										{with_item
+											{type existance}
+											{item "helmet4_jap_para"}
+										}
+									}
+									{exclude
+										{tag
+											{tag player_para_ready}
+										}
+										{tag
+											{tag player_on_plane}
+										}
+										{state
+											{state linked}
+										}
+										{zone
+											{zone "combat"}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state
+											{state user_control}
+										}
+										{with_item
+											{type existance}
+											{item "snlf_helmet"}
+										}
+									}
+									{exclude
+										{tag
+											{tag player_para_ready}
+										}
+										{tag
+											{tag player_on_plane}
+										}
+										{state
+											{state linked}
+										}
+										{zone
+											{zone "combat"}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state
+											{state user_control}
+										}
+										{with_item
+											{type existance}
+											{item "snlf_tropical"}
+										}
+									}
+									{exclude
+										{tag
+											{tag player_para_ready}
+										}
+										{tag
+											{tag player_on_plane}
+										}
+										{state
+											{state linked}
+										}
+										{zone
+											{zone "combat"}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state
+											{state user_control}
+										}
+										{with_item
+											{type existance}
+											{item "helmet_ita_m33_mvsn"}
+										}
+									}
+									{exclude
+										{tag
+											{tag player_para_ready}
+										}
+										{tag
+											{tag player_on_plane}
+										}
+										{state
+											{state linked}
+										}
+										{zone
+											{zone "combat"}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state
+											{state user_control}
+										}
+										{with_item
+											{type existance}
+											{item "soviet_budinovka"}
+										}
+									}
+									{exclude
+										{tag
+											{tag player_para_ready}
+										}
+										{tag
+											{tag player_on_plane}
+										}
+										{state
+											{state linked}
+										}
+										{zone
+											{zone "combat"}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state
+											{state user_control}
+										}
+										{with_item
+											{type existance}
+											{item "soviet_budinovka_down"}
+										}
+									}
+									{exclude
+										{tag
+											{tag player_para_ready}
+										}
+										{tag
+											{tag player_on_plane}
+										}
+										{state
+											{state linked}
+										}
+										{zone
+											{zone "combat"}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state
+											{state user_control}
+										}
+										{with_item
+											{type existance}
+											{item "helmet_usa_506th"}
+										}
+									}
+									{exclude
+										{tag
+											{tag player_para_ready}
+										}
+										{tag
+											{tag player_on_plane}
+										}
+										{state
+											{state linked}
+										}
+										{zone
+											{zone "combat"}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state
+											{state user_control}
+										}
+										{with_item
+											{type existance}
+											{item "helmet_usa_506th_camo"}
+										}
+									}
+									{exclude
+										{tag
+											{tag player_para_ready}
+										}
+										{tag
+											{tag player_on_plane}
+										}
+										{state
+											{state linked}
+										}
+										{zone
+											{zone "combat"}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state
+											{state user_control}
+										}
+										{with_item
+											{type existance}
+											{item "helmet_usa_506th_camo_nco"}
+										}
+									}
+									{exclude
+										{tag
+											{tag player_para_ready}
+										}
+										{tag
+											{tag player_on_plane}
+										}
+										{state
+											{state linked}
+										}
+										{zone
+											{zone "combat"}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state
+											{state user_control}
+										}
+										{with_item
+											{type existance}
+											{item "helmet_usa_506th_camo_officer"}
+										}
+									}
+									{exclude
+										{tag
+											{tag player_para_ready}
+										}
+										{tag
+											{tag player_on_plane}
+										}
+										{state
+											{state linked}
+										}
+										{zone
+											{zone "combat"}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state
+											{state user_control}
+										}
+										{with_item
+											{type existance}
+											{item "helmet_usa_506th_nco"}
+										}
+									}
+									{exclude
+										{tag
+											{tag player_para_ready}
+										}
+										{tag
+											{tag player_on_plane}
+										}
+										{state
+											{state linked}
+										}
+										{zone
+											{zone "combat"}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state
+											{state user_control}
+										}
+										{with_item
+											{type existance}
+											{item "helmet_usa_506th_officer"}
+										}
+									}
+									{exclude
+										{tag
+											{tag player_para_ready}
+										}
+										{tag
+											{tag player_on_plane}
+										}
+										{state
+											{state linked}
+										}
+										{zone
+											{zone "combat"}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state
+											{state user_control}
+										}
+										{with_item
+											{type existance}
+											{item "helmet_airborne_usa2"}
+										}
+									}
+									{exclude
+										{tag
+											{tag player_para_ready}
+										}
+										{tag
+											{tag player_on_plane}
+										}
+										{state
+											{state linked}
+										}
+										{zone
+											{zone "combat"}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state
+											{state user_control}
+										}
+										{with_item
+											{type existance}
+											{item "helmet_eng_para"}
+										}
+									}
+									{exclude
+										{tag
+											{tag player_para_ready}
+										}
+										{tag
+											{tag player_on_plane}
+										}
+										{state
+											{state linked}
+										}
+										{zone
+											{zone "combat"}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state
+											{state user_control}
+										}
+										{with_item
+											{type existance}
+											{item "helmet_eng_para_camo"}
+										}
+									}
+									{exclude
+										{tag
+											{tag player_para_ready}
+										}
+										{tag
+											{tag player_on_plane}
+										}
+										{state
+											{state linked}
+										}
+										{zone
+											{zone "combat"}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state
+											{state user_control}
+										}
+										{with_item
+											{type existance}
+											{item "helmet_eng_para_net"}
+										}
+									}
+									{exclude
+										{tag
+											{tag player_para_ready}
+										}
+										{tag
+											{tag player_on_plane}
+										}
+										{state
+											{state linked}
+										}
+										{zone
+											{zone "combat"}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state
+											{state user_control}
+										}
+										{with_item
+											{type existance}
+											{item "cap_eng_beret_commando"}
+										}
+									}
+									{exclude
+										{tag
+											{tag player_para_ready}
+										}
+										{tag
+											{tag player_on_plane}
+										}
+										{state
+											{state linked}
+										}
+										{zone
+											{zone "combat"}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 1}
+					}
+					{"select"
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag player}
+								}
+							}
+							{include
+								{state
+									{state operatable}
+								}
+								{state
+									{state user_control}
+								}
+								{with_item
+									{type existance}
+									{item "ger_m38_helmet"}
+								}
+							}
+							{exclude
+								{tag
+									{tag player_para_ready}
+								}
+								{tag
+									{tag player_on_plane}
+								}
+								{state
+									{state linked}
+								}
+								{zone
+									{zone "combat"}
+								}
+							}
+						}
+						{group
+							{select
+								{tag
+									{tag player}
+								}
+							}
+							{include
+								{state
+									{state operatable}
+								}
+								{state
+									{state user_control}
+								}
+								{with_item
+									{type existance}
+									{item "ger_m38_helmet_camo"}
+								}
+							}
+							{exclude
+								{tag
+									{tag player_para_ready}
+								}
+								{tag
+									{tag player_on_plane}
+								}
+								{state
+									{state linked}
+								}
+								{zone
+									{zone "combat"}
+								}
+							}
+						}
+						{group
+							{select
+								{tag
+									{tag player}
+								}
+							}
+							{include
+								{state
+									{state operatable}
+								}
+								{state
+									{state user_control}
+								}
+								{with_item
+									{type existance}
+									{item "ger_m38_helmet_net"}
+								}
+							}
+							{exclude
+								{tag
+									{tag player_para_ready}
+								}
+								{tag
+									{tag player_on_plane}
+								}
+								{state
+									{state linked}
+								}
+								{zone
+									{zone "combat"}
+								}
+							}
+						}
+						{group
+							{select
+								{tag
+									{tag player}
+								}
+							}
+							{include
+								{state
+									{state operatable}
+								}
+								{state
+									{state user_control}
+								}
+								{with_item
+									{type existance}
+									{item "ger_m38_helmet_winter"}
+								}
+							}
+							{exclude
+								{tag
+									{tag player_para_ready}
+								}
+								{tag
+									{tag player_on_plane}
+								}
+								{state
+									{state linked}
+								}
+								{zone
+									{zone "combat"}
+								}
+							}
+						}
+						{group
+							{select
+								{tag
+									{tag player}
+								}
+							}
+							{include
+								{state
+									{state operatable}
+								}
+								{state
+									{state user_control}
+								}
+								{with_item
+									{type existance}
+									{item "ger_m38_helmet_net_winter"}
+								}
+							}
+							{exclude
+								{tag
+									{tag player_para_ready}
+								}
+								{tag
+									{tag player_on_plane}
+								}
+								{state
+									{state linked}
+								}
+								{zone
+									{zone "combat"}
+								}
+							}
+						}
+						{group
+							{select
+								{tag
+									{tag player}
+								}
+							}
+							{include
+								{state
+									{state operatable}
+								}
+								{state
+									{state user_control}
+								}
+								{with_item
+									{type existance}
+									{item "ger_m38_helmet_desert"}
+								}
+							}
+							{exclude
+								{tag
+									{tag player_para_ready}
+								}
+								{tag
+									{tag player_on_plane}
+								}
+								{state
+									{state linked}
+								}
+								{zone
+									{zone "combat"}
+								}
+							}
+						}
+						{group
+							{select
+								{tag
+									{tag player}
+								}
+							}
+							{include
+								{state
+									{state operatable}
+								}
+								{state
+									{state user_control}
+								}
+								{with_item
+									{type existance}
+									{item "ger_m38_helmet_net_desert"}
+								}
+							}
+							{exclude
+								{tag
+									{tag player_para_ready}
+								}
+								{tag
+									{tag player_on_plane}
+								}
+								{state
+									{state linked}
+								}
+								{zone
+									{zone "combat"}
+								}
+							}
+						}
+						{group
+							{select
+								{tag
+									{tag player}
+								}
+							}
+							{include
+								{state
+									{state operatable}
+								}
+								{state
+									{state user_control}
+								}
+								{with_item
+									{type existance}
+									{item "ger_m38_helmet_camo_blue"}
+								}
+							}
+							{exclude
+								{tag
+									{tag player_para_ready}
+								}
+								{tag
+									{tag player_on_plane}
+								}
+								{state
+									{state linked}
+								}
+								{zone
+									{zone "combat"}
+								}
+							}
+						}
+						{group
+							{select
+								{tag
+									{tag player}
+								}
+							}
+							{include
+								{state
+									{state operatable}
+								}
+								{state
+									{state user_control}
+								}
+								{with_item
+									{type existance}
+									{item "helmet4_jap_para"}
+								}
+							}
+							{exclude
+								{tag
+									{tag player_para_ready}
+								}
+								{tag
+									{tag player_on_plane}
+								}
+								{state
+									{state linked}
+								}
+								{zone
+									{zone "combat"}
+								}
+							}
+						}
+						{group
+							{select
+								{tag
+									{tag player}
+								}
+							}
+							{include
+								{state
+									{state operatable}
+								}
+								{state
+									{state user_control}
+								}
+								{with_item
+									{type existance}
+									{item "snlf_helmet"}
+								}
+							}
+							{exclude
+								{tag
+									{tag player_para_ready}
+								}
+								{tag
+									{tag player_on_plane}
+								}
+								{state
+									{state linked}
+								}
+								{zone
+									{zone "combat"}
+								}
+							}
+						}
+						{group
+							{select
+								{tag
+									{tag player}
+								}
+							}
+							{include
+								{state
+									{state operatable}
+								}
+								{state
+									{state user_control}
+								}
+								{with_item
+									{type existance}
+									{item "snlf_tropical"}
+								}
+							}
+							{exclude
+								{tag
+									{tag player_para_ready}
+								}
+								{tag
+									{tag player_on_plane}
+								}
+								{state
+									{state linked}
+								}
+								{zone
+									{zone "combat"}
+								}
+							}
+						}
+						{group
+							{select
+								{tag
+									{tag player}
+								}
+							}
+							{include
+								{state
+									{state operatable}
+								}
+								{state
+									{state user_control}
+								}
+								{with_item
+									{type existance}
+									{item "helmet_ita_m33_mvsn"}
+								}
+							}
+							{exclude
+								{tag
+									{tag player_para_ready}
+								}
+								{tag
+									{tag player_on_plane}
+								}
+								{state
+									{state linked}
+								}
+								{zone
+									{zone "combat"}
+								}
+							}
+						}
+						{group
+							{select
+								{tag
+									{tag player}
+								}
+							}
+							{include
+								{state
+									{state operatable}
+								}
+								{state
+									{state user_control}
+								}
+								{with_item
+									{type existance}
+									{item "soviet_budinovka"}
+								}
+							}
+							{exclude
+								{tag
+									{tag player_para_ready}
+								}
+								{tag
+									{tag player_on_plane}
+								}
+								{state
+									{state linked}
+								}
+								{zone
+									{zone "combat"}
+								}
+							}
+						}
+						{group
+							{select
+								{tag
+									{tag player}
+								}
+							}
+							{include
+								{state
+									{state operatable}
+								}
+								{state
+									{state user_control}
+								}
+								{with_item
+									{type existance}
+									{item "soviet_budinovka_down"}
+								}
+							}
+							{exclude
+								{tag
+									{tag player_para_ready}
+								}
+								{tag
+									{tag player_on_plane}
+								}
+								{state
+									{state linked}
+								}
+								{zone
+									{zone "combat"}
+								}
+							}
+						}
+						{group
+							{select
+								{tag
+									{tag player}
+								}
+							}
+							{include
+								{state
+									{state operatable}
+								}
+								{state
+									{state user_control}
+								}
+								{with_item
+									{type existance}
+									{item "helmet_usa_506th"}
+								}
+							}
+							{exclude
+								{tag
+									{tag player_para_ready}
+								}
+								{tag
+									{tag player_on_plane}
+								}
+								{state
+									{state linked}
+								}
+								{zone
+									{zone "combat"}
+								}
+							}
+						}
+						{group
+							{select
+								{tag
+									{tag player}
+								}
+							}
+							{include
+								{state
+									{state operatable}
+								}
+								{state
+									{state user_control}
+								}
+								{with_item
+									{type existance}
+									{item "helmet_usa_506th_camo"}
+								}
+							}
+							{exclude
+								{tag
+									{tag player_para_ready}
+								}
+								{tag
+									{tag player_on_plane}
+								}
+								{state
+									{state linked}
+								}
+								{zone
+									{zone "combat"}
+								}
+							}
+						}
+						{group
+							{select
+								{tag
+									{tag player}
+								}
+							}
+							{include
+								{state
+									{state operatable}
+								}
+								{state
+									{state user_control}
+								}
+								{with_item
+									{type existance}
+									{item "helmet_usa_506th_camo_nco"}
+								}
+							}
+							{exclude
+								{tag
+									{tag player_para_ready}
+								}
+								{tag
+									{tag player_on_plane}
+								}
+								{state
+									{state linked}
+								}
+								{zone
+									{zone "combat"}
+								}
+							}
+						}
+						{group
+							{select
+								{tag
+									{tag player}
+								}
+							}
+							{include
+								{state
+									{state operatable}
+								}
+								{state
+									{state user_control}
+								}
+								{with_item
+									{type existance}
+									{item "helmet_usa_506th_camo_officer"}
+								}
+							}
+							{exclude
+								{tag
+									{tag player_para_ready}
+								}
+								{tag
+									{tag player_on_plane}
+								}
+								{state
+									{state linked}
+								}
+								{zone
+									{zone "combat"}
+								}
+							}
+						}
+						{group
+							{select
+								{tag
+									{tag player}
+								}
+							}
+							{include
+								{state
+									{state operatable}
+								}
+								{state
+									{state user_control}
+								}
+								{with_item
+									{type existance}
+									{item "helmet_usa_506th_nco"}
+								}
+							}
+							{exclude
+								{tag
+									{tag player_para_ready}
+								}
+								{tag
+									{tag player_on_plane}
+								}
+								{state
+									{state linked}
+								}
+								{zone
+									{zone "combat"}
+								}
+							}
+						}
+						{group
+							{select
+								{tag
+									{tag player}
+								}
+							}
+							{include
+								{state
+									{state operatable}
+								}
+								{state
+									{state user_control}
+								}
+								{with_item
+									{type existance}
+									{item "helmet_usa_506th_officer"}
+								}
+							}
+							{exclude
+								{tag
+									{tag player_para_ready}
+								}
+								{tag
+									{tag player_on_plane}
+								}
+								{state
+									{state linked}
+								}
+								{zone
+									{zone "combat"}
+								}
+							}
+						}
+						{group
+							{select
+								{tag
+									{tag player}
+								}
+							}
+							{include
+								{state
+									{state operatable}
+								}
+								{state
+									{state user_control}
+								}
+								{with_item
+									{type existance}
+									{item "helmet_airborne_usa2"}
+								}
+							}
+							{exclude
+								{tag
+									{tag player_para_ready}
+								}
+								{tag
+									{tag player_on_plane}
+								}
+								{state
+									{state linked}
+								}
+								{zone
+									{zone "combat"}
+								}
+							}
+						}
+						{group
+							{select
+								{tag
+									{tag player}
+								}
+							}
+							{include
+								{state
+									{state operatable}
+								}
+								{state
+									{state user_control}
+								}
+								{with_item
+									{type existance}
+									{item "helmet_eng_para"}
+								}
+							}
+							{exclude
+								{tag
+									{tag player_para_ready}
+								}
+								{tag
+									{tag player_on_plane}
+								}
+								{state
+									{state linked}
+								}
+								{zone
+									{zone "combat"}
+								}
+							}
+						}
+						{group
+							{select
+								{tag
+									{tag player}
+								}
+							}
+							{include
+								{state
+									{state operatable}
+								}
+								{state
+									{state user_control}
+								}
+								{with_item
+									{type existance}
+									{item "helmet_eng_para_camo"}
+								}
+							}
+							{exclude
+								{tag
+									{tag player_para_ready}
+								}
+								{tag
+									{tag player_on_plane}
+								}
+								{state
+									{state linked}
+								}
+								{zone
+									{zone "combat"}
+								}
+							}
+						}
+						{group
+							{select
+								{tag
+									{tag player}
+								}
+							}
+							{include
+								{state
+									{state operatable}
+								}
+								{state
+									{state user_control}
+								}
+								{with_item
+									{type existance}
+									{item "helmet_eng_para_net"}
+								}
+							}
+							{exclude
+								{tag
+									{tag player_para_ready}
+								}
+								{tag
+									{tag player_on_plane}
+								}
+								{state
+									{state linked}
+								}
+								{zone
+									{zone "combat"}
+								}
+							}
+						}
+						{group
+							{select
+								{tag
+									{tag player}
+								}
+							}
+							{include
+								{state
+									{state operatable}
+								}
+								{state
+									{state user_control}
+								}
+								{with_item
+									{type existance}
+									{item "cap_eng_beret_commando"}
+								}
+							}
+							{exclude
+								{tag
+									{tag player_para_ready}
+								}
+								{tag
+									{tag player_on_plane}
+								}
+								{state
+									{state linked}
+								}
+								{zone
+									{zone "combat"}
+								}
+							}
+						}
+						{amount 12
+						}
+					}
+					{"entity_state"
+						{selector
+							{source current}
+						}
+						{tag_add player_para_ready}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"select"
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag player_para_ready}
+								}
+							}
+							{include
+								{tag
+									{tag player}
+								}
+								{state
+									{state operatable}
+								}
+								{state
+									{state user_control}
+								}
+								{prop
+									{prop human}
+								}
+							}
+							{exclude
+								{state
+									{state linked}
+								}
+								{state
+									{state dead}
+								}
+								{state
+									{state inactive}
+								}
+								{tag
+									{tag player_on_plane}
+								}
+							}
+						}
+					}
+					{"ables"
+						{selector
+							{source current}
+						}
+						{drop orders}
+						{remove select}
+					}
+					{"actor_state"
+						{selector
+							{source current}
+						}
+						{control user}
+						{weapon_prepare off}
+					}
+					{"delay"
+						{time 3}
+					}
+					{"linker"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag player_drop_plane}
+									}
+								}
+								{include
+									{state
+										{state operatable}
+									}
+									{tag
+										{tag flying_to_drop_zone}
+									}
+									{state
+										{state inhabited}
+									}
+								}
+								{exclude
+									{state
+										{state inactive}
+									}
+									{tag
+										{tag loaded_player_paras}
+									}
+								}
+							}
+							{amount 1
+							}
+						}
+						{entities
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag player_para_ready}
+									}
+								}
+								{include
+									{prop
+										{prop human}
+									}
+									{tag
+										{tag player}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{state
+										{state inactive}
+									}
+									{tag
+										{tag player_on_plane}
+									}
+									{state
+										{state dead}
+									}
+									{state
+										{state linked}
+									}
+								}
+							}
+						}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag flying_to_drop_zone}
+									}
+								}
+								{include
+									{tag
+										{tag player_drop_plane}
+									}
+									{state
+										{state operatable}
+									}
+									{state
+										{state inhabited}
+									}
+								}
+								{exclude
+									{state
+										{state inactive}
+									}
+									{tag
+										{tag loaded_with_paras}
+									}
+								}
+							}
+						}
+						{tag_add loaded_with_paras}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag player_para_ready}
+									}
+								}
+								{include
+									{tag
+										{tag player}
+									}
+									{state
+										{state operatable}
+									}
+									{state
+										{state linked}
+									}
+									{prop
+										{prop human}
+									}
+								}
+								{exclude
+									{state
+										{state inactive}
+									}
+									{tag
+										{tag player_on_plane}
+									}
+									{state
+										{state dead}
+									}
+								}
+							}
+						}
+						{tag_add player_on_plane}
+						{tag_remove player_para_ready}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"ables"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag player_on_plane}
+									}
+								}
+								{include
+									{prop
+										{prop human}
+									}
+									{state
+										{state linked}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{state
+										{state dead}
+									}
+								}
+							}
+							{amount 12
+							}
+						}
+						{drop orders}
+						{add select}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"ables"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag player_on_plane}
+									}
+								}
+								{include
+									{prop
+										{prop human}
+									}
+									{state
+										{state linked}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{state
+										{state dead}
+									}
+								}
+							}
+						}
+						{drop orders}
+						{add select}
+					}
+					{"set_i"
+						{var "officeractions$"}
+						{op "+"}
+						{value 1}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "officeractions$"}
+								{op ">="}
+								{value 4}
+							}
+							{"delete"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag player}
+											}
+										}
+										{include
+											{tag
+												{tag officer}
+											}
+											{state
+												{state operatable}
+											}
+										}
+									}
+									{amount 1
+									}
+								}
+							}
+							{"set_i"
+								{var "officeractions$"}
+								{op "-"}
+								{value 1}
+							}
+						}
+					}
+					{"delay"
+						{time 5}
+					}
+					{"trigger"
+						{name "player_paratroopers/add_player_paratroopers_to_plane"}
+					}
+				}
+			}
+			{"player_paratroopers/give_back_player_paras"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag landed}
+										}
+									}
+									{include
+										{tag
+											{tag player}
+										}
+										{prop
+											{prop human}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"select"
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag landed}
+								}
+							}
+							{include
+								{tag
+									{tag player}
+								}
+								{prop
+									{prop human}
+								}
+								{state
+									{state operatable}
+								}
+							}
+							{exclude
+								{state
+									{state inactive}
+								}
+								{state
+									{state dead}
+								}
+								{state
+									{state linked}
+								}
+							}
+						}
+						{amount 2
+						}
+					}
+					{"ables"
+						{selector
+							{source current}
+						}
+						{drop orders}
+						{add select}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"actor_state"
+						{selector
+							{source current}
+						}
+						{control user}
+						{weapon_prepare on}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{source current}
+						}
+						{tag_remove landed}
+					}
+					{"trigger"
+						{name "player_paratroopers/give_back_player_paras"}
+					}
+				}
+			}
+			{"player_paratroopers/set_correct_nation"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 2}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "user_nation$"}
+								{op "=="}
+								{value 1}
+							}
+							{"delete"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag player_drop_plane}
+											}
+										}
+										{include
+											{tag
+												{tag german}
+											}
+											{tag
+												{tag hidden}
+											}
+											{state
+												{state operatable}
+											}
+										}
+									}
+								}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{player
+														{player "7"}
+													}
+												}
+											}
+										}
+									}
+									{"player"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player_drop_plane}
+													}
+												}
+												{include
+													{tag
+														{tag soviet}
+													}
+												}
+											}
+										}
+										{operation set}
+										{player "7"}
+									}
+									{"actor_state"
+										{selector
+											{tag player_drop_plane}
+											{player "7"}
+											{state operatable}
+										}
+										{control AI}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{player
+														{player "8"}
+													}
+												}
+											}
+										}
+									}
+									{"player"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player_drop_plane}
+													}
+												}
+												{include
+													{tag
+														{tag soviet}
+													}
+												}
+											}
+										}
+										{operation set}
+										{player "8"}
+									}
+									{"actor_state"
+										{selector
+											{tag soviet}
+											{player "8"}
+											{state operatable}
+										}
+										{control AI}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{player
+														{player "9"}
+													}
+												}
+											}
+										}
+									}
+									{"player"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player_drop_plane}
+													}
+												}
+												{include
+													{tag
+														{tag soviet}
+													}
+												}
+											}
+										}
+										{operation set}
+										{player "9"}
+									}
+									{"actor_state"
+										{selector
+											{tag soviet}
+											{player "9"}
+											{state operatable}
+										}
+										{control AI}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{player
+														{player "10"}
+													}
+												}
+											}
+										}
+									}
+									{"player"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player_drop_plane}
+													}
+												}
+												{include
+													{tag
+														{tag soviet}
+													}
+												}
+											}
+										}
+										{operation set}
+										{player "10"}
+									}
+									{"actor_state"
+										{selector
+											{tag soviet}
+											{player "10"}
+											{state operatable}
+										}
+										{control AI}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{player
+														{player "12"}
+													}
+												}
+											}
+										}
+									}
+									{"player"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player_drop_plane}
+													}
+												}
+												{include
+													{tag
+														{tag soviet}
+													}
+												}
+											}
+										}
+										{operation set}
+										{player "12"}
+									}
+									{"actor_state"
+										{selector
+											{tag soviet}
+											{player "12"}
+											{state operatable}
+										}
+										{control AI}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{player
+														{player "11"}
+													}
+												}
+											}
+										}
+									}
+									{"player"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player_drop_plane}
+													}
+												}
+												{include
+													{tag
+														{tag soviet}
+													}
+												}
+											}
+										}
+										{operation set}
+										{player "11"}
+									}
+									{"actor_state"
+										{selector
+											{tag soviet}
+											{player "11"}
+											{state operatable}
+										}
+										{control AI}
+									}
+								}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "user_nation$"}
+								{op "=="}
+								{value 2}
+							}
+							{"delete"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag player_drop_plane}
+											}
+										}
+										{include
+											{tag
+												{tag soviet}
+											}
+											{state
+												{state operatable}
+											}
+											{tag
+												{tag hidden}
+											}
+										}
+									}
+								}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{player
+														{player "11"}
+													}
+												}
+											}
+										}
+									}
+									{"player"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player_drop_plane}
+													}
+												}
+												{include
+													{tag
+														{tag german}
+													}
+												}
+											}
+										}
+										{operation set}
+										{player "11"}
+									}
+									{"actor_state"
+										{selector
+											{tag player_drop_plane}
+											{player "11"}
+											{state operatable}
+										}
+										{control AI}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{player
+														{player "12"}
+													}
+												}
+											}
+										}
+									}
+									{"player"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player_drop_plane}
+													}
+												}
+												{include
+													{tag
+														{tag german}
+													}
+												}
+											}
+										}
+										{operation set}
+										{player "12"}
+									}
+									{"actor_state"
+										{selector
+											{tag soviet}
+											{player "12"}
+											{state operatable}
+										}
+										{control AI}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{player
+														{player "10"}
+													}
+												}
+											}
+										}
+									}
+									{"player"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player_drop_plane}
+													}
+												}
+												{include
+													{tag
+														{tag german}
+													}
+												}
+											}
+										}
+										{operation set}
+										{player "10"}
+									}
+									{"actor_state"
+										{selector
+											{tag player_drop_plane}
+											{player "10"}
+											{state operatable}
+										}
+										{control AI}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{player
+														{player "9"}
+													}
+												}
+											}
+										}
+									}
+									{"player"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player_drop_plane}
+													}
+												}
+												{include
+													{tag
+														{tag german}
+													}
+												}
+											}
+										}
+										{operation set}
+										{player "9"}
+									}
+									{"actor_state"
+										{selector
+											{tag player_drop_plane}
+											{player "9"}
+											{state operatable}
+										}
+										{control AI}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{player
+														{player "8"}
+													}
+												}
+											}
+										}
+									}
+									{"player"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player_drop_plane}
+													}
+												}
+												{include
+													{tag
+														{tag german}
+													}
+												}
+											}
+										}
+										{operation set}
+										{player "8"}
+									}
+									{"actor_state"
+										{selector
+											{tag player_drop_plane}
+											{player "8"}
+											{state operatable}
+										}
+										{control AI}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{player
+														{player "7"}
+													}
+												}
+											}
+										}
+									}
+									{"player"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player_drop_plane}
+													}
+												}
+												{include
+													{tag
+														{tag german}
+													}
+												}
+											}
+										}
+										{operation set}
+										{player "7"}
+									}
+									{"actor_state"
+										{selector
+											{tag player_drop_plane}
+											{player "7"}
+											{state operatable}
+										}
+										{control AI}
+									}
+								}
+							}
+						}
+					}
+					{## "delay"
+						{time 500}
+					}
+					{"trigger"
+						{name "player_paratroopers/set_correct_nation"}
+					}
+				}
+			}
 			{"ai_spawn/side_a_1_failsafe"
 				{condition
 					{terms
@@ -50833,6 +54012,9 @@
 											{state
 												{state user_control}
 											}
+											{tag
+												{tag player_drop_plane}
+											}
 										}
 									}
 								}
@@ -50857,6 +54039,9 @@
 											}
 											{state
 												{state user_control}
+											}
+											{tag
+												{tag player_drop_plane}
 											}
 										}
 									}
@@ -50891,6 +54076,9 @@
 											{state
 												{state user_control}
 											}
+											{tag
+												{tag player_drop_plane}
+											}
 										}
 									}
 								}
@@ -50915,6 +54103,9 @@
 											}
 											{state
 												{state user_control}
+											}
+											{tag
+												{tag player_drop_plane}
 											}
 										}
 									}
@@ -50949,6 +54140,9 @@
 											{state
 												{state user_control}
 											}
+											{tag
+												{tag player_drop_plane}
+											}
 										}
 									}
 								}
@@ -50973,6 +54167,9 @@
 											}
 											{state
 												{state user_control}
+											}
+											{tag
+												{tag player_drop_plane}
 											}
 										}
 									}
@@ -51007,6 +54204,9 @@
 											{state
 												{state user_control}
 											}
+											{tag
+												{tag player_drop_plane}
+											}
 										}
 									}
 								}
@@ -51031,6 +54231,9 @@
 											}
 											{state
 												{state user_control}
+											}
+											{tag
+												{tag player_drop_plane}
 											}
 										}
 									}
@@ -51064,6 +54267,9 @@
 											}
 											{state
 												{state user_control}
+											}
+											{tag
+												{tag player_drop_plane}
 											}
 										}
 									}
@@ -51123,6 +54329,9 @@
 											{state
 												{state user_control}
 											}
+											{tag
+												{tag player_drop_plane}
+											}
 										}
 									}
 								}
@@ -51147,6 +54356,9 @@
 											}
 											{state
 												{state user_control}
+											}
+											{tag
+												{tag player_drop_plane}
 											}
 										}
 									}
@@ -51181,6 +54393,9 @@
 											{state
 												{state user_control}
 											}
+											{tag
+												{tag player_drop_plane}
+											}
 										}
 									}
 								}
@@ -51205,6 +54420,9 @@
 											}
 											{state
 												{state user_control}
+											}
+											{tag
+												{tag player_drop_plane}
 											}
 										}
 									}
@@ -51238,6 +54456,9 @@
 											}
 											{state
 												{state user_control}
+											}
+											{tag
+												{tag player_drop_plane}
 											}
 										}
 									}
@@ -51295,6 +54516,9 @@
 											{state
 												{state user_control}
 											}
+											{tag
+												{tag player_drop_plane}
+											}
 										}
 									}
 								}
@@ -51319,6 +54543,9 @@
 											}
 											{state
 												{state user_control}
+											}
+											{tag
+												{tag player_drop_plane}
 											}
 										}
 									}
@@ -51353,6 +54580,9 @@
 											{state
 												{state user_control}
 											}
+											{tag
+												{tag player_drop_plane}
+											}
 										}
 									}
 								}
@@ -51377,6 +54607,9 @@
 											}
 											{state
 												{state user_control}
+											}
+											{tag
+												{tag player_drop_plane}
 											}
 										}
 									}
@@ -51411,6 +54644,9 @@
 											{state
 												{state user_control}
 											}
+											{tag
+												{tag player_drop_plane}
+											}
 										}
 									}
 								}
@@ -51435,6 +54671,9 @@
 											}
 											{state
 												{state user_control}
+											}
+											{tag
+												{tag player_drop_plane}
 											}
 										}
 									}
@@ -51469,6 +54708,9 @@
 											{state
 												{state user_control}
 											}
+											{tag
+												{tag player_drop_plane}
+											}
 										}
 									}
 								}
@@ -51493,6 +54735,9 @@
 											}
 											{state
 												{state user_control}
+											}
+											{tag
+												{tag player_drop_plane}
 											}
 										}
 									}
@@ -51527,6 +54772,9 @@
 											{state
 												{state user_control}
 											}
+											{tag
+												{tag player_drop_plane}
+											}
 										}
 									}
 								}
@@ -51551,6 +54799,9 @@
 											}
 											{state
 												{state user_control}
+											}
+											{tag
+												{tag player_drop_plane}
 											}
 										}
 									}
@@ -51585,6 +54836,9 @@
 											{state
 												{state user_control}
 											}
+											{tag
+												{tag player_drop_plane}
+											}
 										}
 									}
 								}
@@ -51609,6 +54863,9 @@
 											}
 											{state
 												{state user_control}
+											}
+											{tag
+												{tag player_drop_plane}
 											}
 										}
 									}
@@ -51643,6 +54900,9 @@
 											{state
 												{state user_control}
 											}
+											{tag
+												{tag player_drop_plane}
+											}
 										}
 									}
 								}
@@ -51667,6 +54927,9 @@
 											}
 											{state
 												{state user_control}
+											}
+											{tag
+												{tag player_drop_plane}
 											}
 										}
 									}
@@ -51890,6 +55153,11 @@
 											{tag hidden}
 										}
 									}
+									{exclude
+										{tag
+											{tag player_drop_plane}
+										}
+									}
 								}
 							}
 						}
@@ -51940,6 +55208,11 @@
 											}
 											{tag
 												{tag hidden}
+											}
+										}
+										{exclude
+											{tag
+												{tag player_drop_plane}
 											}
 										}
 									}
@@ -51995,6 +55268,11 @@
 												{tag hidden}
 											}
 										}
+										{exclude
+											{tag
+												{tag player_drop_plane}
+											}
+										}
 									}
 								}
 							}
@@ -52048,6 +55326,11 @@
 												{tag hidden}
 											}
 										}
+										{exclude
+											{tag
+												{tag player_drop_plane}
+											}
+										}
 									}
 								}
 							}
@@ -52081,6 +55364,11 @@
 										}
 										{tag
 											{tag hidden}
+										}
+									}
+									{exclude
+										{tag
+											{tag player_drop_plane}
 										}
 									}
 								}
@@ -52133,6 +55421,11 @@
 											}
 											{tag
 												{tag hidden}
+											}
+										}
+										{exclude
+											{tag
+												{tag player_drop_plane}
 											}
 										}
 									}
@@ -52188,6 +55481,11 @@
 												{tag hidden}
 											}
 										}
+										{exclude
+											{tag
+												{tag player_drop_plane}
+											}
+										}
 									}
 								}
 							}
@@ -52239,6 +55537,11 @@
 											}
 											{tag
 												{tag hidden}
+											}
+										}
+										{exclude
+											{tag
+												{tag player_drop_plane}
 											}
 										}
 									}
@@ -59388,6 +62691,9 @@
 										{state
 											{state inactive}
 										}
+										{tag
+											{tag player_drop_plane}
+										}
 									}
 								}
 							}
@@ -59433,6 +62739,9 @@
 									{exclude
 										{state
 											{state inactive}
+										}
+										{tag
+											{tag player_drop_plane}
 										}
 									}
 								}
@@ -63913,6 +67222,9 @@
 									}
 									{tag
 										{tag freeroam}
+									}
+									{tag
+										{tag player}
 									}
 								}
 							}
@@ -83403,7 +86715,8 @@
 					}
 				}
 			}
-			{"x/paratroopers"
+			{## "x/paratroopers"
+				{disabled}
 				{condition
 					{terms
 						{"1.entities"

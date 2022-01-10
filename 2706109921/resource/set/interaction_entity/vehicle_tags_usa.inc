@@ -1366,7 +1366,6 @@
 	{on spawn
 		{tags add "usa"}
 		{tags add "hidden"}
-		{tags add "drop_plane"}
 		{tags add "aircraft"}
 	}
 }
