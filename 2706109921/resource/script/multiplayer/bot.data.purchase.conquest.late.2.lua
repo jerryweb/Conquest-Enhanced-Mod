@@ -64,6 +64,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "humber"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "mk2daimler"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "staghound"},
+				{priority = 1.0, class = UnitClass.AATank, unit = "crusader_aa2"},
 			},
 			["ita"] = {--Italy
 			--Wheel_vehicles
