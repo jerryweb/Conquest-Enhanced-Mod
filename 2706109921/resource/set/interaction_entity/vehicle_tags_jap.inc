@@ -295,6 +295,33 @@
 	    }
 	}
 }
+{"150mm_type_96"
+	{on spawn
+    	{tags add "artillery"}
+		{tags add "japanese"}
+		{tags add "150mm_type_96"}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								    {if not tagged "player"
+									    {if not tagged "hidden"
+										    {tags add "enemyarty-disabled"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+	}
+}
+
 {"200mm_type_4"
 	{on spawn
     	{tags add "artillery"}
@@ -482,6 +509,58 @@
 		   }
 	    }
 	}
+}
+{"type94inf"
+	{on spawn
+    	{tags add "wheeled_vehicle"}
+		{tags add "japanese"}
+		{tags add "type94inf"}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								    {if not tagged "player"
+									    {if not tagged "hidden"
+										    {tags add "ai_car-disabled"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+    }
+}
+{"type94_fuel"
+	{on spawn
+    	{tags add "wheeled_vehicle"}
+		{tags add "japanese"}
+		{tags add "type94_fuel"}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								    {if not tagged "player"
+									    {if not tagged "hidden"
+										    {tags add "ai_car-disabled"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+    }
 }
 {"type1_ho-ki_mg"
 	{on spawn

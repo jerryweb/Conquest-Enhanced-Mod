@@ -100,7 +100,10 @@ Purchases["campaign_capture_the_flag"] = {
 			["jap"] = {--Japan
 			--Howitzers
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "81mm_brandt_jap"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "150mm_type_97"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "150mm_type_96"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "150mm_type_96"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "150mm_type_96"},
+			{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "150mm_type_97"},
 			},
 			["usa"] = {--USA
 			--Howitzers			
