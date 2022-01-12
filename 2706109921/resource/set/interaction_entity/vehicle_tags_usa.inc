@@ -218,6 +218,32 @@
 	    }
 	}
 }
+{"76_mm_m5late"
+	{on spawn
+	    {tags add "medium_at_gun"}
+		{tags add "american"}
+		{tags add "76_mm_m5late"}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								    {if not tagged "player"
+									    {if not tagged "hidden"
+									        {tags add "ai_atgun-disabled"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+	}
+}
 {"90_mm_m1"
 	{on spawn
 	    {tags add "heavy_at_gun"}
@@ -414,6 +440,33 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "american"}
 		{tags add "cckw353_inf"}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								    {if not tagged "player"
+									    {if not tagged "hidden"
+										    {tags add "ai_car-disabled"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+    }
+}
+{"cckw353_2xt27"
+	{on spawn
+    	{tags add "wheeled_vehicle"}
+		{tags add "american"}
+		{tags add "cckw353_2xt27"}
+		{tags add "rocket_artillery"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"

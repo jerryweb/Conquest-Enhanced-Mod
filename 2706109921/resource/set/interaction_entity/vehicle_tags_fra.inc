@@ -281,6 +281,32 @@
 	    }
     }
 }
+{"chevrolet_fuel_fr"
+	{on spawn
+    	{tags add "wheeled_vehicle"}
+		{tags add "french"}
+		{tags add "chevrolet_fuel_fr"}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								    {if not tagged "player"
+									    {if not tagged "hidden"
+										    {tags add "ai_car-disabled"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+    }
+}
 {"cckw352_fr_art"
 	{on spawn
     	{tags add "wheeled_vehicle"}

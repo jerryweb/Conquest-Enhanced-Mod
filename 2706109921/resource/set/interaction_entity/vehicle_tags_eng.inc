@@ -80,7 +80,32 @@
 	    }
 	}
 }
-
+{"qf3,7inch"
+	{on spawn
+	    {tags add "AAFLAK"}
+		{tags add "english"}
+		{tags add "qf3,7inch"}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								    {if not tagged "player"
+									    {if not tagged "hidden"
+									        {tags add "ai_aa-disabled"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+	}
+}
 
 ; AT WEAPONRY
 {"qf2pdr"
@@ -243,7 +268,32 @@
 	    }
 	}
 }
-
+{"bl72"
+	{on spawn
+    	{tags add "artillery"}
+		{tags add "english"}
+		{tags add "bl72"}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								    {if not tagged "player"
+									    {if not tagged "hidden"
+										    {tags add "enemyarty-disabled"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+	}
+}
 
 ;_________________________________________________
 ;|               Wheeled vehicles                 |
@@ -328,7 +378,7 @@
 	    }
     }
 }
-{"dingok"
+{"dingo"
 	{on spawn
     	{tags add "wheeled_vehicle"}
 		{tags add "english"}
@@ -406,7 +456,7 @@
 	    }
 	}
 }
-{"mk2daimlerr"
+{"mk2daimler"
 	{on spawn
     	{tags add "wheeled_vehicle"}
 		{tags add "english"}
