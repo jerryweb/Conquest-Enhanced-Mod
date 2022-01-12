@@ -48460,6 +48460,11 @@
 					}
 				}
 				{actions
+					{"set_i"
+						{var "airscripts$"}
+						{op "="}
+						{value 1}
+					}
 					{"select"
 						{source advanced}
 						{group
@@ -48586,7 +48591,7 @@
 						{tag_add flying_to_drop_zone}
 					}
 					{"delay"
-						{time 30}
+						{time 120}
 					}
 					{"trigger"
 						{name "player_paratroopers/spawn_player_para_plane"}
@@ -48740,6 +48745,11 @@
 						}
 						{tag_add player_going_home}
 						{tag_remove dropping_player_paratroppers}
+					}
+					{"set_i"
+						{var "airscripts$"}
+						{op "="}
+						{value 0}
 					}
 					{"trigger"
 						{name "player_paratroopers/drop_player_paratroopers"}
@@ -50759,7 +50769,7 @@
 						}
 					}
 					{"delay"
-						{time 5}
+						{time 120}
 					}
 					{"trigger"
 						{name "player_paratroopers/add_player_paratroopers_to_plane"}

@@ -131,9 +131,10 @@ Purchases["campaign_capture_the_flag"] = {
 			--Tanks_medium
 				{priority = 1.5, class = UnitClass.Tank, unit = "type97_chi-ha"},
 				{priority = 1.5, class = UnitClass.Tank, unit = "type97_shinhoto_47mm"},
-				{priority = 2.0, class = UnitClass.Tank, unit = "type1_chi-he"},
-				{priority = 2.5, class = UnitClass.Tank, unit = "type97_shinhoto_120mm"},
-				{priority = 0.5, class = UnitClass.Tank, unit = "type3_chi-nu"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "type1_chi-he"},
+				{priority = 1.5, class = UnitClass.Tank, unit = "type97_shinhoto_120mm"},
+				{priority = 1.2, class = UnitClass.Tank, unit = "type3_chi-nu"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "type3_chi-nu2"},
 			},
 			["usa"] = {--USA
 			--Tanks_medium
@@ -404,6 +405,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 2.0, class = UnitClass.Tank, unit = "type1_chi-he"},
 				{priority = 2.5, class = UnitClass.Tank, unit = "type97_shinhoto_120mm"},
 				{priority = 0.5, class = UnitClass.Tank, unit = "type3_chi-nu"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "type3_chi-nu2"},
 			},
 			["usa"] = {--USA
 			--Tanks_heavy
