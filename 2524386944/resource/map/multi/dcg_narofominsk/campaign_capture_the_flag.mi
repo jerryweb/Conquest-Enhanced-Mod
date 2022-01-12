@@ -46956,6 +46956,12 @@
 		{event "music_regular"}
 		{event "music_reset"}
 		{event "music_start"}
+		{event "talk_on"}
+		{event "flag1"}
+		{event "flag2"}
+		{event "flag3"}
+		{event "flag4"}
+		{event "flag5"}
 		{zone "poly"
 			{position -1030.86 -368.098 64.0193}
 			{Name "combat"}
@@ -47091,7 +47097,7 @@
 			{"dcg_on"}
 			{"enemyid"}
 			{"ai_air_on"}
-			{"user_team"}
+			{"user_team"}			
 			{"ai death count"}
 			{"flag count"}
 			{"player death count"}
@@ -47108,6 +47114,8 @@
 			{"max_para_groups"}
 			{"enemy_paras_active"}
 			{"player_defending"}
+			{"def_team"}
+			{"tier2"}			
 		}
 		{triggers
 			{"ai_spawn/side_a_1_failsafe"
@@ -64371,110 +64379,175 @@
 					{"switch"
 						{"case"
 							{condition
-								{type rand}
-								{value 0.24}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"delete"
+								{type entities}
 								{selector
 									{source advanced}
 									{ignore_captured_by_user 0}
 									{group
 										{select
 											{tag
-												{tag mines_1_b}
+												{tag fpc1}
 											}
-											{tag
-												{tag mines_1_c}
+										}
+										{include
+											{zone
+												{zone "fpc1"}
 											}
-											{tag
-												{tag mines_1_d}
+										}
+										{exclude
+											{state
+												{state inactive}
 											}
 										}
 									}
 								}
 							}
-						}
-						{"case"
-							{condition
-								{type rand}
-								{value 0.24}
+							{"delay"
+								{time 0.1}
+							}
+							{"event"
+								{event "flag1"}
+								{mode set}
+								{delay 0}
 							}
 							{"delay"
 								{time 0.1}
 							}
-							{"delete"
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag mines_1_a}
-											}
-											{tag
-												{tag mines_1_c}
-											}
-											{tag
-												{tag mines_1_d}
+							{"switch"
+								{"case"
+									{condition
+										{type rand}
+										{value 0.24}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"delete"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag mines_1_b}
+													}
+													{tag
+														{tag mines_1_c}
+													}
+													{tag
+														{tag mines_1_d}
+													}
+												}
 											}
 										}
 									}
 								}
-							}
-						}
-						{"case"
-							{condition
-								{type rand}
-								{value 0.24}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"delete"
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag mines_1_a}
-											}
-											{tag
-												{tag mines_1_b}
-											}
-											{tag
-												{tag mines_1_d}
+								{"case"
+									{condition
+										{type rand}
+										{value 0.24}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"delete"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag mines_1_a}
+													}
+													{tag
+														{tag mines_1_c}
+													}
+													{tag
+														{tag mines_1_d}
+													}
+												}
 											}
 										}
 									}
 								}
-							}
-						}
-						{"case"
-							{condition
-								{type rand}
-								{value 0.24}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"delete"
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag mines_1_a}
+								{"case"
+									{condition
+										{type rand}
+										{value 0.24}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"delete"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag mines_1_a}
+													}
+													{tag
+														{tag mines_1_b}
+													}
+													{tag
+														{tag mines_1_d}
+													}
+												}
 											}
-											{tag
-												{tag mines_1_b}
+										}
+									}
+								}
+								{"case"
+									{condition
+										{type rand}
+										{value 0.24}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"delete"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag mines_1_a}
+													}
+													{tag
+														{tag mines_1_b}
+													}
+													{tag
+														{tag mines_1_c}
+													}
+												}
 											}
-											{tag
-												{tag mines_1_c}
+										}
+									}
+								}
+								{"default"
+									{"delay"
+										{time 0.1}
+									}
+									{"delete"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag mine_planted}
+													}
+													{tag
+														{tag dcg_mine_sign}
+													}
+												}
+												{include
+													{tag
+														{tag "1_b_2-3"}
+													}
+												}
 											}
 										}
 									}
@@ -64502,6 +64575,9 @@
 											{tag
 												{tag "1_b_2-3"}
 											}
+											{state
+												{state inactive}
+											}
 										}
 									}
 								}
@@ -64514,110 +64590,175 @@
 					{"switch"
 						{"case"
 							{condition
-								{type rand}
-								{value 0.24}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"delete"
+								{type entities}
 								{selector
 									{source advanced}
 									{ignore_captured_by_user 0}
 									{group
 										{select
 											{tag
-												{tag mines_2_b}
+												{tag fpc2}
 											}
-											{tag
-												{tag mines_2_c}
+										}
+										{include
+											{zone
+												{zone "fpc2"}
 											}
-											{tag
-												{tag mines_2_d}
+										}
+										{exclude
+											{state
+												{state inactive}
 											}
 										}
 									}
 								}
 							}
-						}
-						{"case"
-							{condition
-								{type rand}
-								{value 0.24}
+							{"delay"
+								{time 0.1}
+							}
+							{"event"
+								{event "flag2"}
+								{mode set}
+								{delay 0}
 							}
 							{"delay"
 								{time 0.1}
 							}
-							{"delete"
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag mines_2_a}
-											}
-											{tag
-												{tag mines_2_c}
-											}
-											{tag
-												{tag mines_2_d}
+							{"switch"
+								{"case"
+									{condition
+										{type rand}
+										{value 0.24}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"delete"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag mines_2_b}
+													}
+													{tag
+														{tag mines_2_c}
+													}
+													{tag
+														{tag mines_2_d}
+													}
+												}
 											}
 										}
 									}
 								}
-							}
-						}
-						{"case"
-							{condition
-								{type rand}
-								{value 0.24}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"delete"
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag mines_2_a}
-											}
-											{tag
-												{tag mines_2_b}
-											}
-											{tag
-												{tag mines_2_d}
+								{"case"
+									{condition
+										{type rand}
+										{value 0.24}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"delete"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag mines_2_a}
+													}
+													{tag
+														{tag mines_2_c}
+													}
+													{tag
+														{tag mines_2_d}
+													}
+												}
 											}
 										}
 									}
 								}
-							}
-						}
-						{"case"
-							{condition
-								{type rand}
-								{value 0.24}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"delete"
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag mines_2_a}
+								{"case"
+									{condition
+										{type rand}
+										{value 0.24}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"delete"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag mines_2_a}
+													}
+													{tag
+														{tag mines_2_b}
+													}
+													{tag
+														{tag mines_2_d}
+													}
+												}
 											}
-											{tag
-												{tag mines_2_b}
+										}
+									}
+								}
+								{"case"
+									{condition
+										{type rand}
+										{value 0.24}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"delete"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag mines_2_a}
+													}
+													{tag
+														{tag mines_2_b}
+													}
+													{tag
+														{tag mines_2_c}
+													}
+												}
 											}
-											{tag
-												{tag mines_2_c}
+										}
+									}
+								}
+								{"default"
+									{"delay"
+										{time 0.1}
+									}
+									{"delete"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag mine_planted}
+													}
+													{tag
+														{tag dcg_mine_sign}
+													}
+												}
+												{include
+													{tag
+														{tag "2_b_2-3"}
+													}
+												}
 											}
 										}
 									}
@@ -64645,6 +64786,9 @@
 											{tag
 												{tag "2_b_2-3"}
 											}
+											{state
+												{state inactive}
+											}
 										}
 									}
 								}
@@ -64657,110 +64801,175 @@
 					{"switch"
 						{"case"
 							{condition
-								{type rand}
-								{value 0.24}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"delete"
+								{type entities}
 								{selector
 									{source advanced}
 									{ignore_captured_by_user 0}
 									{group
 										{select
 											{tag
-												{tag mines_3_b}
+												{tag fpc3}
 											}
-											{tag
-												{tag mines_3_c}
+										}
+										{include
+											{zone
+												{zone "fpc3"}
 											}
-											{tag
-												{tag mines_3_d}
+										}
+										{exclude
+											{state
+												{state inactive}
 											}
 										}
 									}
 								}
 							}
-						}
-						{"case"
-							{condition
-								{type rand}
-								{value 0.24}
+							{"delay"
+								{time 0.1}
+							}
+							{"event"
+								{event "flag3"}
+								{mode set}
+								{delay 0}
 							}
 							{"delay"
 								{time 0.1}
 							}
-							{"delete"
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag mines_3_a}
-											}
-											{tag
-												{tag mines_3_c}
-											}
-											{tag
-												{tag mines_3_d}
+							{"switch"
+								{"case"
+									{condition
+										{type rand}
+										{value 0.24}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"delete"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag mines_3_b}
+													}
+													{tag
+														{tag mines_3_c}
+													}
+													{tag
+														{tag mines_3_d}
+													}
+												}
 											}
 										}
 									}
 								}
-							}
-						}
-						{"case"
-							{condition
-								{type rand}
-								{value 0.24}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"delete"
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag mines_3_a}
-											}
-											{tag
-												{tag mines_3_b}
-											}
-											{tag
-												{tag mines_3_d}
+								{"case"
+									{condition
+										{type rand}
+										{value 0.24}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"delete"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag mines_3_a}
+													}
+													{tag
+														{tag mines_3_c}
+													}
+													{tag
+														{tag mines_3_d}
+													}
+												}
 											}
 										}
 									}
 								}
-							}
-						}
-						{"case"
-							{condition
-								{type rand}
-								{value 0.24}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"delete"
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag mines_3_a}
+								{"case"
+									{condition
+										{type rand}
+										{value 0.24}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"delete"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag mines_3_a}
+													}
+													{tag
+														{tag mines_3_b}
+													}
+													{tag
+														{tag mines_3_d}
+													}
+												}
 											}
-											{tag
-												{tag mines_3_b}
+										}
+									}
+								}
+								{"case"
+									{condition
+										{type rand}
+										{value 0.24}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"delete"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag mines_3_a}
+													}
+													{tag
+														{tag mines_3_b}
+													}
+													{tag
+														{tag mines_3_c}
+													}
+												}
 											}
-											{tag
-												{tag mines_3_c}
+										}
+									}
+								}
+								{"default"
+									{"delay"
+										{time 0.1}
+									}
+									{"delete"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag mine_planted}
+													}
+													{tag
+														{tag dcg_mine_sign}
+													}
+												}
+												{include
+													{tag
+														{tag "3_b_2-3"}
+													}
+												}
 											}
 										}
 									}
@@ -64788,6 +64997,9 @@
 											{tag
 												{tag "3_b_2-3"}
 											}
+											{state
+												{state inactive}
+											}
 										}
 									}
 								}
@@ -64800,110 +65012,175 @@
 					{"switch"
 						{"case"
 							{condition
-								{type rand}
-								{value 0.24}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"delete"
+								{type entities}
 								{selector
 									{source advanced}
 									{ignore_captured_by_user 0}
 									{group
 										{select
 											{tag
-												{tag mines_4_b}
+												{tag fpc4}
 											}
-											{tag
-												{tag mines_4_c}
+										}
+										{include
+											{zone
+												{zone "fpc4"}
 											}
-											{tag
-												{tag mines_4_d}
+										}
+										{exclude
+											{state
+												{state inactive}
 											}
 										}
 									}
 								}
 							}
-						}
-						{"case"
-							{condition
-								{type rand}
-								{value 0.24}
+							{"delay"
+								{time 0.1}
+							}
+							{"event"
+								{event "flag4"}
+								{mode set}
+								{delay 0}
 							}
 							{"delay"
 								{time 0.1}
 							}
-							{"delete"
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag mines_4_a}
-											}
-											{tag
-												{tag mines_4_c}
-											}
-											{tag
-												{tag mines_4_d}
+							{"switch"
+								{"case"
+									{condition
+										{type rand}
+										{value 0.24}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"delete"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag mines_4_b}
+													}
+													{tag
+														{tag mines_4_c}
+													}
+													{tag
+														{tag mines_4_d}
+													}
+												}
 											}
 										}
 									}
 								}
-							}
-						}
-						{"case"
-							{condition
-								{type rand}
-								{value 0.24}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"delete"
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag mines_4_a}
-											}
-											{tag
-												{tag mines_4_b}
-											}
-											{tag
-												{tag mines_4_d}
+								{"case"
+									{condition
+										{type rand}
+										{value 0.24}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"delete"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag mines_4_a}
+													}
+													{tag
+														{tag mines_4_c}
+													}
+													{tag
+														{tag mines_4_d}
+													}
+												}
 											}
 										}
 									}
 								}
-							}
-						}
-						{"case"
-							{condition
-								{type rand}
-								{value 0.24}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"delete"
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag mines_4_a}
+								{"case"
+									{condition
+										{type rand}
+										{value 0.24}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"delete"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag mines_4_a}
+													}
+													{tag
+														{tag mines_4_b}
+													}
+													{tag
+														{tag mines_4_d}
+													}
+												}
 											}
-											{tag
-												{tag mines_4_b}
+										}
+									}
+								}
+								{"case"
+									{condition
+										{type rand}
+										{value 0.24}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"delete"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag mines_4_a}
+													}
+													{tag
+														{tag mines_4_b}
+													}
+													{tag
+														{tag mines_4_c}
+													}
+												}
 											}
-											{tag
-												{tag mines_4_c}
+										}
+									}
+								}
+								{"default"
+									{"delay"
+										{time 0.1}
+									}
+									{"delete"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag mine_planted}
+													}
+													{tag
+														{tag dcg_mine_sign}
+													}
+												}
+												{include
+													{tag
+														{tag "4_b_2-3"}
+													}
+												}
 											}
 										}
 									}
@@ -64931,6 +65208,9 @@
 											{tag
 												{tag "4_b_2-3"}
 											}
+											{state
+												{state inactive}
+											}
 										}
 									}
 								}
@@ -64943,110 +65223,175 @@
 					{"switch"
 						{"case"
 							{condition
-								{type rand}
-								{value 0.24}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"delete"
+								{type entities}
 								{selector
 									{source advanced}
 									{ignore_captured_by_user 0}
 									{group
 										{select
 											{tag
-												{tag mines_5_b}
+												{tag fpc5}
 											}
-											{tag
-												{tag mines_5_c}
+										}
+										{include
+											{zone
+												{zone "fpc5"}
 											}
-											{tag
-												{tag mines_5_d}
+										}
+										{exclude
+											{state
+												{state inactive}
 											}
 										}
 									}
 								}
 							}
-						}
-						{"case"
-							{condition
-								{type rand}
-								{value 0.24}
+							{"delay"
+								{time 0.1}
+							}
+							{"event"
+								{event "flag5"}
+								{mode set}
+								{delay 0}
 							}
 							{"delay"
 								{time 0.1}
 							}
-							{"delete"
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag mines_5_a}
-											}
-											{tag
-												{tag mines_5_c}
-											}
-											{tag
-												{tag mines_5_d}
+							{"switch"
+								{"case"
+									{condition
+										{type rand}
+										{value 0.24}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"delete"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag mines_5_b}
+													}
+													{tag
+														{tag mines_5_c}
+													}
+													{tag
+														{tag mines_5_d}
+													}
+												}
 											}
 										}
 									}
 								}
-							}
-						}
-						{"case"
-							{condition
-								{type rand}
-								{value 0.24}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"delete"
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag mines_5_a}
-											}
-											{tag
-												{tag mines_5_b}
-											}
-											{tag
-												{tag mines_5_d}
+								{"case"
+									{condition
+										{type rand}
+										{value 0.24}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"delete"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag mines_5_a}
+													}
+													{tag
+														{tag mines_5_c}
+													}
+													{tag
+														{tag mines_5_d}
+													}
+												}
 											}
 										}
 									}
 								}
-							}
-						}
-						{"case"
-							{condition
-								{type rand}
-								{value 0.24}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"delete"
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag mines_5_a}
+								{"case"
+									{condition
+										{type rand}
+										{value 0.24}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"delete"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag mines_5_a}
+													}
+													{tag
+														{tag mines_5_b}
+													}
+													{tag
+														{tag mines_5_d}
+													}
+												}
 											}
-											{tag
-												{tag mines_5_b}
+										}
+									}
+								}
+								{"case"
+									{condition
+										{type rand}
+										{value 0.24}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"delete"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag mines_5_a}
+													}
+													{tag
+														{tag mines_5_b}
+													}
+													{tag
+														{tag mines_5_c}
+													}
+												}
 											}
-											{tag
-												{tag mines_5_c}
+										}
+									}
+								}
+								{"default"
+									{"delay"
+										{time 0.1}
+									}
+									{"delete"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag mine_planted}
+													}
+													{tag
+														{tag dcg_mine_sign}
+													}
+												}
+												{include
+													{tag
+														{tag "5_b_2-3"}
+													}
+												}
 											}
 										}
 									}
@@ -65073,6 +65418,9 @@
 										{include
 											{tag
 												{tag "5_b_2-3"}
+											}
+											{state
+												{state inactive}
 											}
 										}
 									}
@@ -67680,6 +68028,16 @@
 						{op "="}
 						{value 0}
 					}
+					{"set_i"
+						{var "def_team$"}
+						{op "="}
+						{value 0}
+					}
+					{"set_i"
+						{var "tier2$"}
+						{op "="}
+						{value 0}
+					}					
 					{"delay"
 						{time 0.4}
 					}
@@ -68644,6 +69002,408 @@
 					}
 				}
 			}
+			{"dcg/warning_air"
+				{condition
+					{expression "!1 & 2"}
+					{terms
+						{"1.event"
+							{id "talk_on"}
+						}
+						{"2.trigger"
+							{name "dcg/ai_airstrike"}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.1}
+					}
+					{"event"
+						{event "talk_on"}
+						{mode set}
+						{delay 0}
+					}
+					{"delay"
+						{time 6}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type rand}
+								{value 0.5}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"talk"
+								{selector
+									{ignore_captured_by_user 0}
+									{amount 1
+									}
+									{tag player}
+									{zone "gamezone"}
+									{type human}
+									{state "not dead"}
+								}
+								{text "mission/multi/enemy_plane_alert2"}
+							}
+						}
+						{"default"
+							{"delay"
+								{time 0.1}
+							}
+							{"talk"
+								{selector
+									{ignore_captured_by_user 0}
+									{amount 1
+									}
+									{tag player}
+									{zone "gamezone"}
+									{type human}
+									{state "not dead"}
+								}
+								{text "mission/multi/enemy_plane_alert1"}
+							}
+						}
+					}
+					{"delay"
+						{time 8}
+					}
+					{"event"
+						{event "talk_on"}
+						{mode reset}
+						{delay 0}
+					}
+				}
+			}
+			{"dcg/warning_mines"
+				{condition
+					{expression "1 & 2 & !3 & !4"}
+					{terms
+						{"1.cmp_i"
+							{var "tier2$"}
+							{op ">"}
+							{value 0}
+						}
+						{"2.near"
+							{units
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{state
+											{state "operatable user_control"}
+										}
+									}
+									{exclude
+										{tag
+											{tag hidden}
+										}
+										{state
+											{state dead}
+										}
+									}
+								}
+							}
+							{near_to
+								{ignore_captured_by_user 0}
+								{tag dcg_mine_sign}
+							}
+							{distance 46}
+						}
+						{"3.event"
+							{id "talk_on"}
+						}
+						{"4.cmp_i"
+							{var "user_team$"}
+							{op "=="}
+							{value "def_team$"}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.1}
+					}
+					{"event"
+						{event "talk_on"}
+						{mode set}
+						{delay 0}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag dcg_mine_sign}
+									}
+								}
+							}
+							{sort
+								{type entity}
+								{entity
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{zone
+												{zone "gamezone"}
+											}
+										}
+										{include
+											{state
+												{state "operatable user_control"}
+											}
+										}
+										{exclude
+											{tag
+												{tag hidden}
+											}
+											{state
+												{state dead}
+											}
+										}
+									}
+								}
+							}
+							{amount 2
+							}
+						}
+						{tag_add warning_talk}
+						{tag_remove dcg_mine_sign}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type rand}
+								{value 0.4}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"talk"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag player}
+											}
+										}
+										{include
+											{prop
+												{prop human}
+											}
+											{state
+												{state linked}
+											}
+										}
+										{exclude
+											{state
+												{state dead}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag player}
+											}
+										}
+										{include
+											{prop
+												{prop human}
+											}
+										}
+										{exclude
+											{state
+												{state dead}
+											}
+											{state
+												{state linked}
+											}
+										}
+									}
+									{sort
+										{type entity}
+										{entity
+											{ignore_captured_by_user 0}
+											{tag warning_talk}
+										}
+									}
+									{amount 1
+									}
+								}
+								{text "mission/multi/minefield_alert3"}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.4}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"talk"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag player}
+											}
+										}
+										{include
+											{prop
+												{prop human}
+											}
+											{state
+												{state linked}
+											}
+										}
+										{exclude
+											{state
+												{state dead}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag player}
+											}
+										}
+										{include
+											{prop
+												{prop human}
+											}
+										}
+										{exclude
+											{state
+												{state dead}
+											}
+											{state
+												{state linked}
+											}
+										}
+									}
+									{sort
+										{type entity}
+										{entity
+											{ignore_captured_by_user 0}
+											{tag warning_talk}
+										}
+									}
+									{amount 1
+									}
+								}
+								{text "mission/multi/minefield_alert2"}
+							}
+						}
+						{"default"
+							{"delay"
+								{time 0.1}
+							}
+							{"talk"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag player}
+											}
+										}
+										{include
+											{prop
+												{prop human}
+											}
+											{state
+												{state linked}
+											}
+										}
+										{exclude
+											{state
+												{state dead}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag player}
+											}
+										}
+										{include
+											{prop
+												{prop human}
+											}
+										}
+										{exclude
+											{state
+												{state dead}
+											}
+											{state
+												{state linked}
+											}
+										}
+									}
+									{sort
+										{type entity}
+										{entity
+											{ignore_captured_by_user 0}
+											{tag warning_talk}
+										}
+									}
+									{amount 1
+									}
+								}
+								{text "mission/multi/minefield_alert1"}
+							}
+						}
+					}
+					{"delay"
+						{time 8}
+					}
+					{"event"
+						{event "talk_on"}
+						{mode reset}
+						{delay 0}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag warning_talk}
+						}
+						{tag_remove warning_talk}
+					}
+					{"delay"
+						{time 300}
+					}
+					{"trigger"
+						{name "dcg/warning_mines"}
+					}
+				}
+			}			
 			{"at/guns3"
 				{condition
 					{terms
@@ -96983,7 +97743,7 @@
 					}
 				}
 			}
-			{"dcg/def_team"
+			{"dcg/def_team_for_conquest_enhanced"
 				{condition
 					{terms
 						{"1.entities"
@@ -97213,6 +97973,328 @@
 					}
 				}
 			}
+			{"dcg/def_team"
+				{condition
+					{terms
+						{"1.event"
+							{id "dcg"}
+						}
+						{"2.cmp_i"
+							{var "user_team$"}
+							{op ">"}
+							{value 0}
+						}
+						{"3.cmp_i"
+							{var "enemyid$"}
+							{op ">"}
+							{value 0}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 1}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag def_team_1}
+											}
+										}
+										{include
+											{zone
+												{zone "gamezone"}
+											}
+										}
+										{exclude
+											{tag
+												{tag def_team_2}
+											}
+											{state
+												{state inactive}
+											}
+										}
+									}
+								}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"set_i"
+								{var "def_team$"}
+								{op "="}
+								{value 1}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"delete"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag mine_planted}
+											}
+											{tag
+												{tag dcg_mine_sign}
+											}
+										}
+										{include
+											{tag
+												{tag cmp_def}
+											}
+											{state
+												{state inactive}
+											}
+										}
+									}
+								}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag def_team_2}
+											}
+										}
+										{include
+											{zone
+												{zone "gamezone"}
+											}
+										}
+										{exclude
+											{tag
+												{tag def_team_1}
+											}
+											{state
+												{state inactive}
+											}
+										}
+									}
+								}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"set_i"
+								{var "def_team$"}
+								{op "="}
+								{value 2}
+							}
+						}
+						{"default"
+							{"delay"
+								{time 0.1}
+							}
+							{"set_i"
+								{var "def_team$"}
+								{op "="}
+								{value "user_team$"}
+							}
+						}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag "1_a_2-3"}
+											}
+											{tag
+												{tag "2_a_2-3"}
+											}
+											{tag
+												{tag "3_a_2-3"}
+											}
+											{tag
+												{tag "4_a_2-3"}
+											}
+											{tag
+												{tag "5_a_2-3"}
+											}
+										}
+										{include
+											{zone
+												{zone "combat"}
+											}
+										}
+										{exclude
+											{tag
+												{tag hidden}
+											}
+											{state
+												{state inactive}
+											}
+										}
+									}
+								}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"set_i"
+								{var "tier2$"}
+								{op "="}
+								{value 1}
+							}
+						}
+						{"default"}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "tier2$"}
+								{op "=="}
+								{value 0}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag "1_b_2-3"}
+													}
+													{tag
+														{tag "2_b_2-3"}
+													}
+													{tag
+														{tag "3_b_2-3"}
+													}
+													{tag
+														{tag "4_b_2-3"}
+													}
+													{tag
+														{tag "5_b_2-3"}
+													}
+												}
+												{include
+													{zone
+														{zone "combat"}
+													}
+												}
+												{exclude
+													{tag
+														{tag hidden}
+													}
+													{state
+														{state inactive}
+													}
+												}
+											}
+										}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"set_i"
+										{var "tier2$"}
+										{op "="}
+										{value 1}
+									}
+								}
+								{"default"}
+							}
+						}
+						{"default"}
+					}
+					{"delay"
+						{time 0.9}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "tier2$"}
+								{op "=="}
+								{value 1}
+							}
+						}
+						{"default"
+							{"delay"
+								{time 0.1}
+							}
+							{"delete"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag mine_planted}
+											}
+											{tag
+												{tag dcg_mine_sign}
+											}
+										}
+										{include
+											{tag
+												{tag cmp_def}
+											}
+											{state
+												{state inactive}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"delete"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag def_team_1}
+									}
+									{tag
+										{tag def_team_2}
+									}
+								}
+							}
+						}
+					}
+				}
+			}			
 			{## "ai./enemymg"
 				{disabled}
 				{condition

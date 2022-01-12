@@ -11,7 +11,7 @@ maxNumOfLateDivisions = 7
 -- Wave offset is used to set how much extra time the first wave will last in since the wave is loaded automatically
 gameStartTime = 0
 if testing then
-	firstWaveOffsetTime = 720
+	firstWaveOffsetTime = 50
 else 
 	firstWaveOffsetTime = 720
 end
@@ -19,7 +19,7 @@ end
 initialWave = true
 
 -- This variable controls whether units will spawn all at once for 15 seconds, creating a massive wave, every x seconds
-typhoonWaveMode = false
+typhoonWaveMode = true
 nextTyphoonWaveTime = 0
 typhoonWaveInterval = 90
 typhoonWaveDuration = 25
@@ -61,7 +61,7 @@ function selectArmyDivision(totalFlags)
 	print("loading")
 	-- REMOVE THIS LINE (ONLY FOR TESTING)
 	if testing then
-		divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.7]]
+		divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.3]]
 	end
 
 
