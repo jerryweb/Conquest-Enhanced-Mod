@@ -54185,6 +54185,353 @@
 			{"player_defending"}
 		}
 		{triggers
+			{"officer_commands/officer_callin_fail"
+				{condition
+					{type 1}
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag artillery_aim}
+										}
+									}
+									{exclude
+										{tag
+											{tag failed_callin}
+										}
+									}
+								}
+							}
+						}
+						{"2.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag paradrophere}
+										}
+									}
+									{exclude
+										{tag
+											{tag failed_callin}
+										}
+									}
+								}
+							}
+						}
+						{"3.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag pointer_help}
+										}
+									}
+									{exclude
+										{tag
+											{tag failed_callin}
+										}
+									}
+								}
+							}
+						}
+						{"4.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag flare}
+										}
+									}
+									{exclude
+										{tag
+											{tag failed_callin}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"if"
+						{condition
+							{type cmp_i}
+							{var "radiocar$"}
+							{op "=="}
+							{value 0}
+						}
+						{"switch"
+							{"case"
+								{condition
+									{type rand}
+									{value 0.3}
+								}
+								{"talk"
+									{selector
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state operatable}
+									}
+									{text "mission/multi/need_radio_car"}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.6}
+								}
+								{"talk"
+									{selector
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state operatable}
+									}
+									{text "mission/multi/need_radio_car_2"}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.9}
+								}
+								{"talk"
+									{selector
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state operatable}
+									}
+									{text "mission/multi/need_radio_car_3"}
+								}
+							}
+						}
+						{"delay"
+							{time 0.5}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag artillery_aim}
+										}
+										{tag
+											{tag pointer_help}
+										}
+										{tag
+											{tag paradrophere}
+										}
+										{tag
+											{tag flare}
+										}
+									}
+									{exclude
+										{tag
+											{tag failed_callin}
+										}
+									}
+								}
+								{amount 1
+								}
+							}
+							{tag_add failed_callin}
+						}
+					}
+					{"if"
+						{condition
+							{type cmp_i}
+							{var "radiocar$"}
+							{op ">"}
+							{value 0}
+						}
+						{"if"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag officer}
+											}
+										}
+										{include
+											{tag
+												{tag player}
+											}
+											{state
+												{state operatable}
+											}
+											{state
+												{state user_control}
+											}
+										}
+										{exclude
+											{state
+												{state dead}
+											}
+											{state
+												{state inactive}
+											}
+											{tag
+												{tag hidden}
+											}
+										}
+									}
+								}
+								{count
+									{op "=="}
+									{value 0}
+								}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type rand}
+										{value 0.3}
+									}
+									{"talk"
+										{selector
+											{tag player}
+											{zone "gamezone"}
+											{type human}
+											{state operatable}
+										}
+										{text "mission/multi/need_officer"}
+									}
+								}
+								{"case"
+									{condition
+										{type rand}
+										{value 0.6}
+									}
+									{"talk"
+										{selector
+											{tag player}
+											{zone "gamezone"}
+											{type human}
+											{state operatable}
+										}
+										{text "mission/multi/need_officer_2"}
+									}
+								}
+								{"case"
+									{condition
+										{type rand}
+										{value 0.9}
+									}
+									{"talk"
+										{selector
+											{tag player}
+											{zone "gamezone"}
+											{type human}
+											{state operatable}
+										}
+										{text "mission/multi/need_officer_3"}
+									}
+								}
+							}
+							{"delay"
+								{time 0.5}
+							}
+							{"entity_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag artillery_aim}
+											}
+											{tag
+												{tag pointer_help}
+											}
+											{tag
+												{tag paradrophere}
+											}
+											{tag
+												{tag flare}
+											}
+										}
+										{exclude
+											{tag
+												{tag failed_callin}
+											}
+										}
+									}
+									{amount 1
+									}
+								}
+								{tag_add failed_callin}
+							}
+						}
+					}
+					{"delay"
+						{time 10}
+					}
+					{"trigger"
+						{name "officer_commands/officer_callin_fail"}
+					}
+				}
+			}
+			{"officer_commands/wait_for_initial_callin"
+				{condition
+					{type 1}
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag officer}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{tag
+											{tag player}
+										}
+										{state
+											{state user_control}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{tag
+											{tag hidden}
+										}
+									}
+								}
+							}
+						}
+						{"3.cmp_i"
+							{var "radiocar$"}
+							{op "=="}
+							{value 1}
+						}
+					}
+				}
+				{actions
+					{"timer"
+						{time 30}
+						{title "mission/multi/prepare_inital_officer_callin_scripts"}
+					}
+				}
+			}
 			{"player_paratroopers/spawn_player_para_plane"
 				{condition
 					{terms
@@ -59195,6 +59542,11 @@
 								}
 							}
 						}
+						{"2.cmp_i"
+							{var "flag count$"}
+							{op ">"}
+							{value 0}
+						}
 					}
 				}
 				{actions
@@ -59218,8 +59570,8 @@
 						{op "="}
 						{value 0}
 					}
-					{"delay"
-						{time 50}
+					{## "delay"
+						{time 20}
 					}
 					{## "if"
 						{condition
@@ -59266,7 +59618,7 @@
 						{"if"
 							{condition
 								{type rand}
-								{value 0.45}
+								{value 0.4}
 							}
 							{"set_i"
 								{var "enemy_paras_active$"}
@@ -84494,7 +84846,8 @@
 					}
 				}
 			}
-			{"x/attackstart"
+			{## "x/attackstart"
+				{disabled}
 				{condition
 					{terms
 						{"1.entities"
@@ -84506,6 +84859,138 @@
 				}
 				{actions
 					{"delay"
+						{time 660}
+					}
+					{"event"
+						{event "attack_start"}
+						{mode set}
+						{delay 1}
+					}
+					{"delay"
+						{time 540}
+					}
+					{"event"
+						{event "attack_start"}
+						{mode set}
+						{delay 1}
+					}
+				}
+			}
+			{"x/attackstart_new"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "sidea1"}
+										}
+										{zone
+											{zone "sidea2"}
+										}
+										{zone
+											{zone "sidea3"}
+										}
+										{zone
+											{zone "sidea4"}
+										}
+										{zone
+											{zone "sideb1"}
+										}
+										{zone
+											{zone "sideb2"}
+										}
+										{zone
+											{zone "sideb3"}
+										}
+										{zone
+											{zone "sideb4"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{player
+											{player "1"}
+										}
+										{state
+											{state user_control}
+										}
+										{state
+											{state inactive}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_car}
+										}
+										{tag
+											{tag player_veh}
+										}
+									}
+								}
+								{group
+									{select
+										{zone
+											{zone "sidea1"}
+										}
+										{zone
+											{zone "sidea2"}
+										}
+										{zone
+											{zone "sidea3"}
+										}
+										{zone
+											{zone "sidea4"}
+										}
+										{zone
+											{zone "sideb1"}
+										}
+										{zone
+											{zone "sideb2"}
+										}
+										{zone
+											{zone "sideb3"}
+										}
+										{zone
+											{zone "sideb4"}
+										}
+									}
+									{include
+										{tag
+											{tag ai_inf}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{player
+											{player "1"}
+										}
+										{state
+											{state user_control}
+										}
+										{state
+											{state inactive}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{## "delay"
 						{time 660}
 					}
 					{"event"
@@ -89416,6 +89901,14 @@
 											{state operatable}
 										}
 									}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{tag
+											{tag hidden}
+										}
+									}
 								}
 							}
 						}
@@ -89495,6 +89988,10 @@
 							}
 						}
 					}
+					{"timer"
+						{time 25}
+						{title "mission/multi/smoke_cover_callin"}
+					}
 					{"delay"
 						{time 25}
 					}
@@ -89523,6 +90020,17 @@
 									{include
 										{tag
 											{tag officer}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{tag
+											{tag hidden}
 										}
 									}
 								}
@@ -89946,6 +90454,10 @@
 										{drop "orders sensor senseless"}
 										{waypoint "19"}
 									}
+									{"timer"
+										{time 300}
+										{title "mission/multi/supply_drop_cooldown"}
+									}
 									{"delay"
 										{time 300}
 									}
@@ -90017,6 +90529,10 @@
 										{drop "orders sensor senseless"}
 										{waypoint "19"}
 									}
+									{"timer"
+										{time 300}
+										{title "mission/multi/supply_drop_cooldown"}
+									}
 									{"delay"
 										{time 300}
 									}
@@ -90057,6 +90573,17 @@
 									{include
 										{tag
 											{tag officer}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{tag
+											{tag hidden}
 										}
 									}
 								}
@@ -90798,6 +91325,10 @@
 										}
 										{drop "orders sensor senseless"}
 										{waypoint "19"}
+									}
+									{"timer"
+										{time 120}
+										{title "mission/multi/recon_plane_cooldown"}
 									}
 									{"delay"
 										{time 120}
@@ -90862,6 +91393,10 @@
 										}
 										{drop "orders sensor senseless"}
 										{waypoint "19"}
+									}
+									{"timer"
+										{time 120}
+										{title "mission/multi/recon_plane_cooldown"}
 									}
 									{"delay"
 										{time 120}

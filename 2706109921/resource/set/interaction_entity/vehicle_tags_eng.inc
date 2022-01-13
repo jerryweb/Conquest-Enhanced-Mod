@@ -294,7 +294,32 @@
 	    }
 	}
 }
-
+{"land_mattress"
+	{on spawn
+    		{tags add "rocket_artillery"}
+		{tags add "english"}
+		{tags add "land_mattress"}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								    {if not tagged "player"
+									    {if not tagged "hidden"
+										    {tags add "enemyarty-disabled"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    	}
+	}
+}
 ;_________________________________________________
 ;|               Wheeled vehicles                 |
 ;|________________________________________________|
