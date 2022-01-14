@@ -54629,6 +54629,638 @@
 					}
 				}
 				{actions
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "user_nation$"}
+								{op "=="}
+								{value 1}
+							}
+							{"delete"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag player_drop_plane}
+											}
+										}
+										{include
+											{tag
+												{tag german}
+											}
+											{tag
+												{tag hidden}
+											}
+											{state
+												{state operatable}
+											}
+										}
+									}
+								}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{player
+														{player "7"}
+													}
+												}
+											}
+										}
+									}
+									{"player"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player_drop_plane}
+													}
+												}
+												{include
+													{tag
+														{tag soviet}
+													}
+												}
+											}
+										}
+										{operation set}
+										{player "7"}
+									}
+									{"actor_state"
+										{selector
+											{tag player_drop_plane}
+											{player "7"}
+											{state operatable}
+										}
+										{control AI}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{player
+														{player "8"}
+													}
+												}
+											}
+										}
+									}
+									{"player"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player_drop_plane}
+													}
+												}
+												{include
+													{tag
+														{tag soviet}
+													}
+												}
+											}
+										}
+										{operation set}
+										{player "8"}
+									}
+									{"actor_state"
+										{selector
+											{tag soviet}
+											{player "8"}
+											{state operatable}
+										}
+										{control AI}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{player
+														{player "9"}
+													}
+												}
+											}
+										}
+									}
+									{"player"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player_drop_plane}
+													}
+												}
+												{include
+													{tag
+														{tag soviet}
+													}
+												}
+											}
+										}
+										{operation set}
+										{player "9"}
+									}
+									{"actor_state"
+										{selector
+											{tag soviet}
+											{player "9"}
+											{state operatable}
+										}
+										{control AI}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{player
+														{player "10"}
+													}
+												}
+											}
+										}
+									}
+									{"player"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player_drop_plane}
+													}
+												}
+												{include
+													{tag
+														{tag soviet}
+													}
+												}
+											}
+										}
+										{operation set}
+										{player "10"}
+									}
+									{"actor_state"
+										{selector
+											{tag soviet}
+											{player "10"}
+											{state operatable}
+										}
+										{control AI}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{player
+														{player "12"}
+													}
+												}
+											}
+										}
+									}
+									{"player"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player_drop_plane}
+													}
+												}
+												{include
+													{tag
+														{tag soviet}
+													}
+												}
+											}
+										}
+										{operation set}
+										{player "12"}
+									}
+									{"actor_state"
+										{selector
+											{tag soviet}
+											{player "12"}
+											{state operatable}
+										}
+										{control AI}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{player
+														{player "11"}
+													}
+												}
+											}
+										}
+									}
+									{"player"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player_drop_plane}
+													}
+												}
+												{include
+													{tag
+														{tag soviet}
+													}
+												}
+											}
+										}
+										{operation set}
+										{player "11"}
+									}
+									{"actor_state"
+										{selector
+											{tag soviet}
+											{player "11"}
+											{state operatable}
+										}
+										{control AI}
+									}
+								}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "user_nation$"}
+								{op "=="}
+								{value 2}
+							}
+							{"delete"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag player_drop_plane}
+											}
+										}
+										{include
+											{tag
+												{tag soviet}
+											}
+											{state
+												{state operatable}
+											}
+											{tag
+												{tag hidden}
+											}
+										}
+									}
+								}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{player
+														{player "11"}
+													}
+												}
+											}
+										}
+									}
+									{"player"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player_drop_plane}
+													}
+												}
+												{include
+													{tag
+														{tag german}
+													}
+												}
+											}
+										}
+										{operation set}
+										{player "11"}
+									}
+									{"actor_state"
+										{selector
+											{tag player_drop_plane}
+											{player "11"}
+											{state operatable}
+										}
+										{control AI}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{player
+														{player "12"}
+													}
+												}
+											}
+										}
+									}
+									{"player"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player_drop_plane}
+													}
+												}
+												{include
+													{tag
+														{tag german}
+													}
+												}
+											}
+										}
+										{operation set}
+										{player "12"}
+									}
+									{"actor_state"
+										{selector
+											{tag soviet}
+											{player "12"}
+											{state operatable}
+										}
+										{control AI}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{player
+														{player "10"}
+													}
+												}
+											}
+										}
+									}
+									{"player"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player_drop_plane}
+													}
+												}
+												{include
+													{tag
+														{tag german}
+													}
+												}
+											}
+										}
+										{operation set}
+										{player "10"}
+									}
+									{"actor_state"
+										{selector
+											{tag player_drop_plane}
+											{player "10"}
+											{state operatable}
+										}
+										{control AI}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{player
+														{player "9"}
+													}
+												}
+											}
+										}
+									}
+									{"player"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player_drop_plane}
+													}
+												}
+												{include
+													{tag
+														{tag german}
+													}
+												}
+											}
+										}
+										{operation set}
+										{player "9"}
+									}
+									{"actor_state"
+										{selector
+											{tag player_drop_plane}
+											{player "9"}
+											{state operatable}
+										}
+										{control AI}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{player
+														{player "8"}
+													}
+												}
+											}
+										}
+									}
+									{"player"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player_drop_plane}
+													}
+												}
+												{include
+													{tag
+														{tag german}
+													}
+												}
+											}
+										}
+										{operation set}
+										{player "8"}
+									}
+									{"actor_state"
+										{selector
+											{tag player_drop_plane}
+											{player "8"}
+											{state operatable}
+										}
+										{control AI}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{player
+														{player "7"}
+													}
+												}
+											}
+										}
+									}
+									{"player"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player_drop_plane}
+													}
+												}
+												{include
+													{tag
+														{tag german}
+													}
+												}
+											}
+										}
+										{operation set}
+										{player "7"}
+									}
+									{"actor_state"
+										{selector
+											{tag player_drop_plane}
+											{player "7"}
+											{state operatable}
+										}
+										{control AI}
+									}
+								}
+							}
+						}
+					}
 					{"set_i"
 						{var "airscripts$"}
 						{op "="}
@@ -54759,8 +55391,31 @@
 						}
 						{tag_add flying_to_drop_zone}
 					}
+					{"talk"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag allied_ai}
+									}
+								}
+								{include
+									{state
+										{state inactive}
+									}
+								}
+							}
+						}
+						{text "mission/multi/paratrooper_pilot_response"}
+					}
 					{"delay"
 						{time 120}
+					}
+					{"set_i"
+						{var "airscripts$"}
+						{op "="}
+						{value 0}
 					}
 					{"trigger"
 						{name "player_paratroopers/spawn_player_para_plane"}
@@ -56937,6 +57592,19 @@
 							}
 						}
 					}
+					{## "talk"
+						{selector
+							{tag player}
+							{zone "gamezone"}
+							{type human}
+							{state operatable}
+						}
+						{text "mission/multi/paratrooper_callin"}
+					}
+					{"timer"
+						{time 120}
+						{title "mission/multi/paratrooper_callin"}
+					}
 					{"delay"
 						{time 120}
 					}
@@ -57050,7 +57718,8 @@
 					}
 				}
 			}
-			{"player_paratroopers/set_correct_nation"
+			{## "player_paratroopers/set_correct_nation"
+				{disabled}
 				{condition
 					{terms
 						{"1.entities"
