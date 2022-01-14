@@ -30,12 +30,6 @@
 ; ---MG---
 	{"type92_stan"	requires 	""					costs 1}
 
-
-    {"type94"	requires 	""					costs 1}
-	{"type94art"	requires 	"type94"					costs 2}
-	{"type94eng"	requires 	"type94"					costs 2}
-	{"willys50"	requires 	""					costs 1}
-	{"dodgewc55"	requires 	"willys50"					costs 2}
 	
 ; ---Mortars---
 	{"81mm_brandt_jap"	requires 	""					costs 1}
@@ -58,7 +52,14 @@
 ; ---Artillery---
 	{"105mm_type_92"	requires	"75mm_type_41"	costs 2}
 	{"120mm_type_38"		requires	"105mm_type_92"			costs 3}
-	
+	{"150mm_type_96"		requires	"105mm_type_92"			costs 3}
+
+;---Trucks---		
+	{"type94"	requires 	""					costs 1}
+	{"type94art"	requires 	"type94"					costs 2}
+	{"type94eng"	requires 	"type94"					costs 2}
+	{"toyota_rocket"	requires	"150mm_type_96"	costs 6}
+
 ;---Armored Cars---
 	{"type1_ho-ki_mg"		requires 	""				costs 1}
 	{"type87"			requires 	"type1_ho-ki_mg"				costs 1}
@@ -162,13 +163,14 @@
 	;---Artillery---
 	{"105mm_type_92"		5 9}
 	{"120mm_type_38"		6 9}
+	{"150mm_type_96"		7 9}
 
 	;---Trucks---
-	{"type95"			0 10}
-	{"type94"			1 10}
-	{"type94art"			2 10}
-	{"type94eng"			3 10}
-
+	{"type94"			0 10}
+	{"type95"			1 10}
+	{"type94inf"			2 10}
+	{"type94art"			3 10}
+	{"toyota_rocket"		4 10}
 
 
 	;---Armored Cars---

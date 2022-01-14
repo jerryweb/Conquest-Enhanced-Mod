@@ -151,7 +151,6 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Tank, unit = "m8_fr"},
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, unit = "m4a3_75_fr"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "m4a3_76_fr"},
 			},
 			["pol"] = {--Poland
 				{priority = 1.0, class = UnitClass.AATank, unit = "crusader_aa2_pol"},
@@ -159,8 +158,6 @@ Purchases["campaign_capture_the_flag"] = {
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, unit = "cromwell_mk_iv_pol"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m4a4_pol"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "challenger_pol"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "m4a4_firefly_pol"},
 			--Tanks_heavy			
 			},
 			["jap"] = {--Japan
@@ -188,9 +185,6 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Tank, unit = "valentine_mkiii"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "cromwell_mk_iv"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m4a4"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "challenger_a30"},
-			--Tanks_heavy
-				{priority = 0.2, class = UnitClass.Tank, unit = "churchill_avre"},			
 			},
 			["ita"] = {--Italy
 			--Tanks_light
@@ -267,7 +261,6 @@ Purchases["campaign_capture_the_flag"] = {
 	                {priority = 1.0, class = UnitClass.AATank, unit = "0_3cal_m1917a1_aa"},
 	                {priority = 1.0, class = UnitClass.AATank, unit = "0_5cal_m2hb"},
 	                {priority = 1.0, class = UnitClass.AATank, unit = "90_mm_m1"},
-	                {priority = 1.0, class = UnitClass.AATank, unit = "76_mm_m5"},
 	                {priority = 1.0, class = UnitClass.AATank, unit = "76_mm_m5late"},	
 	                {priority = 1.0, class = UnitClass.AATank, unit = "75_mm_m1897a4"},	
 	                {priority = 1.0, class = UnitClass.AATank, unit = "40_mm_m1"},	
@@ -414,10 +407,10 @@ Purchases["campaign_capture_the_flag"] = {
 		Units = {
 			["ger"] = {--Germany
 			--SPG
-		     		{priority = 2.5, class = UnitClass.ATTank, unit = "stug3g_late"},
+		     		{priority = 1.5, class = UnitClass.ATTank, unit = "stug3g_late"},
 					{priority = 1.5, class = UnitClass.ATTank, unit = "hetzer"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "sturmpanzer4"},
-				{priority = 0.5, class = UnitClass.ATTank, unit = "marder3m"},
+				{priority = 1.0, class = UnitClass.ATTank, unit = "marder3m"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "stuh42"},
 			},
 			["rus"] = {--Russia
@@ -429,19 +422,19 @@ Purchases["campaign_capture_the_flag"] = {
 			["fra"] = {--France
 			--SPG
 				{priority = 1.0, class = UnitClass.ATTank, unit = "m10wolverine_fr"},
-				{priority = 0.2, class = UnitClass.ArtilleryTank, unit = "m7_fr"},
-				{priority = 0.5, class = UnitClass.ArtilleryTank, unit = "m4a3_105_fr"},
+				{priority = 0.7, class = UnitClass.ArtilleryTank, unit = "m7_fr"},
+				{priority = 0.6, class = UnitClass.ArtilleryTank, unit = "m4a3_105_fr"},
 			},
 			["pol"] = {--Poland
 			--SPG
-				{priority = 0.1, class = UnitClass.ATTank, unit = "achilles_pol"},
+				{priority = 0.5, class = UnitClass.ATTank, unit = "achilles_pol"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "sexton_pol"},
-				{priority = 0.3, class = UnitClass.ArtilleryTank, unit = "m4a3_105_pol"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, unit = "m4a3_105_pol"},
 			},
 			["jap"] = {--Japan
 			--SPG
 				{priority = 1.0, class = UnitClass.ATTank, unit = "type1_ho-ni1"},
-				{priority = 2.0, class = UnitClass.ArtilleryTank, unit = "type1_ho-ni2"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "type1_ho-ni2"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "type4_ho-ro"},
 			--Tanks_heavy
 			},
@@ -684,7 +677,7 @@ Purchases["campaign_capture_the_flag"] = {
 			["jap"] = {--Japan
 			--Howitzers
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "200mm_type_4"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "type4_ho-ro"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "toyota_rocket"},
 			--Tanks_heavy
 			},
 			["usa"] = {--USA

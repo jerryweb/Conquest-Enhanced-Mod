@@ -628,7 +628,7 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_rocketarty-disabled"}
+										    {tags add "ai_car-disabled"}
 										}
 									}
 								}
@@ -654,7 +654,34 @@
 							    {if not tagged "player_veh"
 								    {if not tagged "player"
 									    {if not tagged "hidden"
-										    {tags add "ai_rocketarty-disabled"}
+										    {tags add "ai_car-disabled"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+	}
+}
+{"toyota_rocket"
+	{on spawn
+    		{tags add "wheeled_vehicle"}
+		{tags add "rocket_artillery"}
+		{tags add "japanese"}
+		{tags add "toyota_rocket"}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								    {if not tagged "player"
+									    {if not tagged "hidden"
+										    {tags add "ai_car-disabled"}
 										}
 									}
 								}
