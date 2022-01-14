@@ -188,9 +188,25 @@ function OnGameStart()
 	print("TESTING MODE ACTIVATED = ", testing)
 	gameStartTime = os.clock()
 	
+	local totalFlags = 0
+	for i, flag in pairs(BotApi.Scene.Flags) do
+		print("flag name: ", flag.name)
+		totalFlags = totalFlags + 1
+	end
+
+	print("Total flags detected:", totalFlags)
+
 	if not testing then
-		if math.random() < 0.5 then -- 50% chance to change when enemy reinforcements spawn 
-			firstWaveOffsetTime = math.random(480,780) 
+		if totalFlags >= 4 then
+			if math.random() < 0.5 then -- 50% chance to change when enemy reinforcements spawn 
+				firstWaveOffsetTime = math.random(480,780) 
+				print("changing first wave offset to ", firstWaveOffsetTime)
+			end
+		else 
+			if math.random() < 0.3 then -- 30% chance to change when enemy reinforcements spawn 
+				firstWaveOffsetTime = math.random(480,780) 
+				print("changing first wave offset to ", firstWaveOffsetTime)
+			end
 		end
 	end
 	if not testing then
@@ -218,18 +234,6 @@ function OnGameStart()
 	if not purchases then
 		purchases = {}
 	end
-	
-	local totalFlags = 0
-	for i, flag in pairs(BotApi.Scene.Flags) do
-		print("flag name: ", flag.name)
-		totalFlags = totalFlags + 1
-	end
-
-	-- for j, mapPoint in pairs(BotApi.Scene.Spawns) do 
-	-- 	print("map point name: ", mapPoint.name)
-	-- end
-	
-	print("Total flags detected:", totalFlags)
 		
 
 	if BotApi.Instance.gameMode == "campaign_capture_the_flag" then

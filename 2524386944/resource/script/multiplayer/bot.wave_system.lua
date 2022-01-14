@@ -1,7 +1,7 @@
 require([[/script/multiplayer/bot.data]])
 
 -- This enables early testing so that units come 30 seconds after start. 
-testing = false
+testing = true
 
 -- Number of unit division roster files to randomly select for each period in the war 
 maxNumOfEarlyDivisions = 5
@@ -9,9 +9,10 @@ maxNumOfMidDivisions = 6
 maxNumOfLateDivisions = 7
 
 -- Wave offset is used to set how much extra time the first wave will last in since the wave is loaded automatically
-gameStartTime = 0
+gameStartTime = os.clock()
+
 if testing then
-	firstWaveOffsetTime = 50
+	firstWaveOffsetTime = 70
 else 
 	firstWaveOffsetTime = 720
 end
@@ -61,7 +62,7 @@ function selectArmyDivision(totalFlags)
 	print("loading")
 	-- REMOVE THIS LINE (ONLY FOR TESTING)
 	if testing then
-		divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.7]]
+		divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.2]]
 	end
 
 
@@ -232,7 +233,12 @@ function PIter:moveNext()
 	end
 
 	if self.rpt == 0 then
-		if os.clock() > (self.waveDuration + self.waveStartTime) then
+		if typhoonWaveMode then
+			if os.clock() > (3 + self.waveStartTime) then
+				print("Ready for next typhoon wave")
+				self:nextIndex()
+			end
+		elseif os.clock() > (self.waveDuration + self.waveStartTime) then
 			print("Ready for next wave")
 			self:nextIndex()
 		end
