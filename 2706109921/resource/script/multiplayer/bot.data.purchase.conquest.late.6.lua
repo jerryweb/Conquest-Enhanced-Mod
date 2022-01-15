@@ -280,11 +280,10 @@ Purchases["campaign_capture_the_flag"] = {
 			--Tanks_light
 				{priority = 1.0, class = UnitClass.Tank, unit = "m5a1"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m8"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "m24_chaffee"},
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, unit = "m4"},	
 				{priority = 1.0, class = UnitClass.Tank, unit = "m4a3_75"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "m4a3e8"},
+				{priority = 0.5, class = UnitClass.Tank, unit = "m4a3e8"},
 			},
 			["eng"] = {--Britain
 			--Tanks_light

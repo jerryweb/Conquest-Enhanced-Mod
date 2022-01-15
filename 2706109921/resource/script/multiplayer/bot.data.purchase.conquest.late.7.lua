@@ -53,7 +53,6 @@ Purchases["campaign_capture_the_flag"] = {
 			["jap"] = {--Japan
 			--Infantry
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier(jap)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_stormtrooper(jap)"},
 			},
 			["usa"] = {--USA
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier(usa)"},
@@ -61,8 +60,7 @@ Purchases["campaign_capture_the_flag"] = {
 			["eng"] = {--Britain
 			--Infantry
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_pionier_late(eng)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_scout_late(eng)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_stormtrooper_late(eng)"},			},
+			},
 			["ita"] = {--Italy
 			--Infantry
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier(ita)"},
@@ -267,7 +265,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "0_5cal_m2hb"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "40_mm_m1"},
 			--AT_Weapons
-				{priority = 1.0, class = UnitClass.ATTank, unit = "75_mm_m1897a4"},,
+				{priority = 1.0, class = UnitClass.ATTank, unit = "75_mm_m1897a4"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "76_mm_m5late"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "90_mm_m1"},
 			},

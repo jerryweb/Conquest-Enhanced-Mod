@@ -33,21 +33,25 @@
 
 ; ---MG---
 	{"0_3cal_m1919a4_fr"	requires 	""				costs 1}
-	{"0_5cal_m2hb_fr"	requires 	""				costs 1}
+	{"0_5cal_m2hb_fr"	requires 	"0_3cal_m1919a4_fr"				costs 1}
+	{"13mm_hotchkiss"	requires 	"0_5cal_m2hb_fr"				costs 1}
 	
 	{"cckw352_fr_inf"	requires 	""					costs 1}
 	{"cckw352_fr_art"	requires 	"cckw352_fr_inf"					costs 2}
 	{"cckw352_fr_eng"	requires 	"cckw352_fr_inf"					costs 2}
 	{"dodgewc55_fr"	requires 	""					costs 2}
+	{"panhard"	requires 	"dodgewc55_fr"					costs 2}
 
 ; ---Mortars---
 	{"81_mm_m1_fr"		requires 	""				costs 2}
 
 ; ---AA---
-	{"40_mm_m1_fr"		requires	"0_5cal_m2hb_fr"		costs 4}
+	{"40_mm_m1_fr"		requires	"13mm_hotchkiss"		costs 4}
 
 ; ---AT Guns---
-	{"57_mm_m1_fr"		requires	""				costs 4}
+	{"25mm_hotchkiss_mle34"		requires	""				costs 0}
+	{"47mm_puteaux_mle37"		requires	"25mm_hotchkiss_mle34"				costs 2}
+	{"57_mm_m1_fr"		requires	"47mm_puteaux_mle37"				costs 4}
 
 
 ; ---Infantry Guns---
@@ -56,6 +60,7 @@
 ; ---Artillery---
 	{"105_mm_m2a1l_fr"	requires	"75_mm_m1897a4_fr"		costs 3}
 	{"155_mm_m1918"		requires	"75_mm_m1897a4_fr"		costs 4}
+	{"22cm_mortier"		requires	"155_mm_m1918"		costs 2}
 
 ;---Armored Cars---
 	{"m3a1_scout_fr"	requires 	""				costs 1}
@@ -63,6 +68,10 @@
 	{"m8_grayhound_fr" 	requires 	"m20_fr"			costs 2}
 	{"m17_fr" 		requires 	"m20_fr"			costs 3}
 	{"m4halftrack_fr" 	requires 	"m20_fr"			costs 4}
+	{"laffly_v15t_mg" 	requires 	""			costs 0}
+	{"laffly_s15_toe" 	requires 	"laffly_v15t_mg"			costs 1}
+	{"laffly15tcc" 	requires 	"laffly_s15_toe 47mm_puteaux_mle37"			costs 3}
+	{"autocanon_75mm" 	requires 	"laffly15tcc 75_mm_m1897a4_fr"			costs 2}
 	
 
 	; ---Light Tanks---
@@ -77,7 +86,7 @@
 
 	
 	; ---Heavy Tanks---
-
+    {"b1bis"	requires 	""			costs 5}
 
 
 	; ---Self Propelled Guns---
@@ -145,9 +154,12 @@
 	{"81_mm_m1_fr"			2 9}
 
 	;---AA---
-	{"40_mm_m1_fr"			2 7}
+	{"13mm_hotchkiss"			2 7}
+	{"40_mm_m1_fr"			3 7}
 
 	;---AT Guns---
+	{"25mm_hotchkiss_mle34"			0 8}
+	{"47mm_puteaux_mle37"			1 8}
 	{"57_mm_m1_fr"			2 8}
 
 
@@ -158,6 +170,7 @@
 	;---Artillery---
 	{"105_mm_m2a1l_fr"		3 9}
 	{"155_mm_m1918"			4 9}
+	{"22cm_mortier"			5 9}
 	
 
 	;---Trucks---
@@ -166,6 +179,7 @@
 	{"cckw352_fr_inf"		2 10}
 	{"cckw352_fr_art"		3 10}
 	{"dodgewc55_fr"			4 10}
+	{"panhard"			5 10}
 
 
 	;---Armored Cars---
@@ -175,6 +189,10 @@
 	{"m8_grayhound_fr"		3 11}
 	{"m17_fr"			4 11}
 	{"m4halftrack_fr"		5 11}
+	{"laffly_v15t_mg"			0 12}
+	{"laffly_s15_toe"			0 13}
+	{"laffly15tcc"			0 14}
+	{"autocanon_75mm"			0 15}
 
 	; ---Light Tanks---
 	{"m5a1_fr"			2 12}
@@ -187,7 +205,7 @@
 	{"m4a3_76_fr"			5 13}
 
 	; ---Heavy Tanks---
-
+	{"b1bis"			1 14}
 
 
 	; ---Self Propelled Guns---

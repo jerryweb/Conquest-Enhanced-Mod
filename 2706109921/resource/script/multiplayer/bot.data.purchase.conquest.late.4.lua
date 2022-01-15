@@ -112,7 +112,7 @@ Purchases["campaign_capture_the_flag"] = {
 			},
 			["usa"] = {--USA,
 			--Tanks_medium
-				{priority = 1.0, class = UnitClass.Tank, unit = "m4a3_75"},
+				{priority = 0.8, class = UnitClass.Tank, unit = "m4a3_75"},
 				{priority = 1.5, class = UnitClass.Tank, unit = "m4a3_zippo"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m4a3e2_jumbo"},
 			},

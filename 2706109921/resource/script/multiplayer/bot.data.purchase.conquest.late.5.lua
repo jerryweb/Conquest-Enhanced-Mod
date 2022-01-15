@@ -193,7 +193,7 @@ Purchases["campaign_capture_the_flag"] = {
 			},
 			["fra"] = {--France
 			--Wheel_vehicles
-				{priority = 0.7, class = UnitClass.ArtilleryTank, unit = "bs-75"}
+				{priority = 0.7, class = UnitClass.ArtilleryTank, unit = "bs-75"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "m17_fr"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "panhard"},	
 			},

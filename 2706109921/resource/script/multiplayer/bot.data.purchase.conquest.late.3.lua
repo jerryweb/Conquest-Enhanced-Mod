@@ -294,7 +294,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "0_5cal_maxson"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "40_mm_m1"},
 			--AT_Weapons
-				{priority = 1.0, class = UnitClass.ATTank, unit = "75_mm_m1"}
+				{priority = 1.0, class = UnitClass.ATTank, unit = "75_mm_m1"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "76_mm_m5late"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "90_mm_m1"},
 			},
@@ -529,7 +529,7 @@ Purchases["campaign_capture_the_flag"] = {
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, unit = "m4"},	
 				{priority = 1.0, class = UnitClass.Tank, unit = "m4a3_75"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "m4a3e8"},
+				{priority = 0.4, class = UnitClass.Tank, unit = "m4a3e8"},
 			},
 			["eng"] = {--Britain
 				--Tanks_medium

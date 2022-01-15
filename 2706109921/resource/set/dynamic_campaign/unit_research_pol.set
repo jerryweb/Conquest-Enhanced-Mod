@@ -41,7 +41,9 @@
 	{"81mm_brandt_pol"	requires 	""				costs 2}
 
 ; ---AA---
-	{"qf40mm_pol"		requires	"303_bren_pol"			costs 3}
+	{"20mm_fka"		requires	"303_bren_pol"			costs 2}
+	{"qf40mm_pol"		requires	"20mm_fka"			costs 3}
+	{"75mm_aa_wz36"		requires	"qf40mm_pol"			costs 4}
 
 ; ---AT Guns---
 	{"qf2pdr_pol"		requires	""				costs 2}
@@ -53,6 +55,10 @@
 ; ---Artillery---
 	{"qf25pdr_pol"		requires	"81mm_brandt_pol"			costs 2}
 	{"bl45_pol"		requires	"81mm_brandt_pol"			costs 4}
+	{"105mm_wz29"		requires	"81mm_brandt_pol"			costs 2}
+	{"155mm_wz1917"		requires	"105mm_wz29"			costs 2}
+	{"pf621_75mm"		requires	"81mm_brandt_pol"			costs 4}
+	
 
 ;---Armored Cars---
 	{"dingo_pol"		requires 	""				costs 1}
@@ -143,9 +149,12 @@
 	
 
 	;---AA---
-	{"qf40mm_pol"			1 7}
+	{"20mm_fka"			1 7}
+	{"qf40mm_pol"			2 7}
+	{"75mm_aa_wz36"			3 7}
 
 	;---AT Guns---
+	{"37mm_bofors"			0 7}
 	{"qf2pdr_pol"			1 8}
 	{"qf6pdr_pol"			2 8}
 	{"qf17pdr_pol"			3 8}	
@@ -164,12 +173,15 @@
 	{"bedford_ql_inf"		0 10}
 	{"bedford_ql_art"		1 10}
 	{"bedford_ql_eng"		2 10}
+	{"105mm_wz29"		4 10}
+	{"155mm_wz1917"		5 10}
 
 
 	;---Armored Cars---
 	{"dingo_pol"			1 11}
 	{"m3halftrack_pol"		2 11}
 	{"staghound_pol"		3 11}
+	{"pf621_75mm"		5 11}
 
 
 	; ---Light Tanks---
