@@ -29,6 +29,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.5, class = UnitClass.Infantry, unit = "single_sniper(fra)"},
 				-- 5
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier_late(fra)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_marine_late(fra)"},				
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_stormtrooper_late(fra)"},
 				-- 6
 			},
@@ -46,12 +47,13 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.5, class = UnitClass.Infantry, unit = "single_sniper(pol)"},
 				-- 5
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier_late(pol)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_scout_late(pol)"},				
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_stormtrooper_late(pol)"},
 			},
 			["jap"] = {--Japan
 			--Infantry
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier(jap)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_sturmtrooper(jap)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_stormtrooper(jap)"},
 			},
 			["usa"] = {--USA
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier(usa)"},
@@ -59,10 +61,11 @@ Purchases["campaign_capture_the_flag"] = {
 			["eng"] = {--Britain
 			--Infantry
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_pionier_late(eng)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_stormtrooper_late(eng)"},
-			},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_scout_late(eng)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_stormtrooper_late(eng)"},			},
 			["ita"] = {--Italy
 			--Infantry
+				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier(ita)"},
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_stormtrooper(ita)"},
 			}
 		}
@@ -342,6 +345,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.5, class = UnitClass.Infantry, unit = "single_sniper(pol)"},
 				-- 5
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier_late(pol)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_scout_late(pol)"},				
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_stormtrooper_late(pol)"},
 				-- 6
 			},
@@ -573,6 +577,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.5, class = UnitClass.Infantry, unit = "single_sniper(fra)"},
 								-- 5
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier_late(fra)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_marine_late(fra)"},				
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_stormtrooper_late(fra)"},
 			},
 			["pol"] = {--Poland
@@ -588,6 +593,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier_late(pol)"},
 				{priority = 1.5, class = UnitClass.Infantry, unit = "single_flamer_late(pol)"},
 				{priority = 1.5, class = UnitClass.Infantry, unit = "single_sniper(pol)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_scout_late(pol)"},				
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_stormtrooper_late(pol)"},
 			},
 			["jap"] = {--Japan

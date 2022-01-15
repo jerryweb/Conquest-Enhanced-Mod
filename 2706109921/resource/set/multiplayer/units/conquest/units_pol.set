@@ -39,7 +39,7 @@
 ;|             inf2                               |
 ;|________________________________________________|
 
-("squad_with2types_conquest" side(pol) period(mid) min_stage(1) max_stage(99) name(single_auxiliary_late)  	c1(rifle:2) c2(smg:1))
+("squad_with2types_conquest" sid(pol) period(mid) min_stage(1) max_stage(99) name(single_auxiliary_late)  	c1(rifle:2) c2(smg:1))
 ("squad_with2types_conquest" side(pol) period(mid) min_stage(2) max_stage(99) name(single_mortar_late)		c1(gr_launcher:1) c2(at_rifle2:1))
 ("squad_with2types_conquest" side(pol) period(mid) min_stage(2) max_stage(99) name(single_riflegrenade_late)	c1(rifle_grenade:1) c2(smg2:1))
 ("squad_with1types_conquest" side(pol) period(mid) min_stage(2) max_stage(99) name(single_ap_miner)		c1(ap_miner:2))
@@ -68,16 +68,31 @@
 	("vehicle" side(pol) period(mid) min_stage(1) max_stage(99) cw(2) cp(1) crew(vehicle_supporter:2))
 	{cost 90}
 }
+{"ckm_wz30_mgun"
+	("vehicle" side(pol) period(mid) min_stage(1) max_stage(99) cw(2) cp(2) crew(vehicle_supporter:2))
+	{cost 110}
+}
 
 ;AA WEAPONRY
 
 {"qf40mm_pol"
-	("vehicle" side(pol) period(mid) min_stage(1) max_stage(99) cw(4) cp(10) crew(vehicle_supporter:2))
+	("vehicle" side(pol) period(mid) min_stage(4) max_stage(99) cw(4) cp(8) crew(vehicle_supporter:2))
 	{cost 260}
 }
-
+{"20mm_fka"
+	("vehicle" side(pol) period(mid) min_stage(2) max_stage(9) cw(4) cp(5) crew(vehicle_supporter:2))
+	{cost 210}
+}
+{"75mm_aa_wz36"
+	("vehicle" side(pol) period(mid) min_stage(6) max_stage(9) cw(4) cp(10) crew(vehicle_supporter:2))
+	{cost 400}
+}
 
 ; AT WEAPONRY
+{"37mm_bofors"
+	("vehicle" side(pol) period(mid) min_stage(1) max_stage(99) cw(0) cp(8) crew(vehicle_supporter:2))
+	{cost 200}
+}
 {"qf2pdr_pol"
 	("vehicle" side(pol) period(mid) min_stage(1) max_stage(99) cw(0) cp(6) crew(vehicle_supporter:2))
 	{cost 190}
@@ -102,8 +117,16 @@
 	{cost 650}
 }
 {"bl45_pol"
-	("vehicle" side(pol) period(mid) min_stage(3) max_stage(99) cw(0) cp(30) crew(vehicle_supporter:4))
+	("vehicle" side(pol) period(mid) min_stage(6) max_stage(99) cw(0) cp(30) crew(vehicle_supporter:4))
 	{cost 750}
+}
+{"105mm_wz29"
+	("vehicle" side(pol) period(mid) min_stage(4) max_stage(99) cw(0) cp(15) crew(vehicle_supporter:4))
+	{cost 600}
+}
+{"155mm_wz1917"
+	("vehicle" side(pol) period(mid) min_stage(5) max_stage(99) cw(0) cp(30) crew(vehicle_supporter:2))
+	{cost 870}
 }
 
 ;_________________________________________________
@@ -135,7 +158,14 @@
 	("vehicle2" side(pol) period(mid) min_stage(3) max_stage(99) cw(3) cp(10) crew1(tankman:2) crew2(tankman2:1))
 	{cost 240}
 }
-	
+{"wz34"
+	("vehicle2" side(pol) period(mid) min_stage(1) max_stage(7) cw(3) cp(10) crew1(tankman:1) crew2(tankman2:1))
+	{cost 200}
+}
+{"pf621_75mm"
+	("vehicle2" side(pol) period(mid) min_stage(3) max_stage(7) cw(3) cp(12) crew(vehicle_supporter:3))
+	{cost 320}
+}
 
 ;_________________________________________________
 ;|        Main Battle Tanks and SPGs              |
@@ -151,7 +181,30 @@
 	("vehicle2" side(pol) period(mid) min_stage(2) max_stage(99) cw(0) cp(15) crew1(tankman:3) crew2(tankman2:1))
 	{cost 320}
 }
-
+{"tks-mg"
+	("vehicle2" side(pol) period(mid) min_stage(1) max_stage(6) cw(0) cp(8) crew1(tankman:1) crew2(tankman2:1))
+	{cost 190}
+}
+{"tks-20mm"
+	("vehicle2" side(pol) period(mid) min_stage(2) max_stage(6) cw(0) cp(10) crew1(tankman:1) crew2(tankman2:1))
+	{cost 250}
+}
+{"vickersedw"
+	("vehicle2" side(pol) period(mid) min_stage(2) max_stage(6) cw(0) cp(12) crew1(tankman:1) crew2(tankman2:1))
+	{cost 260}
+}
+{"vickersejw"
+	("vehicle2" side(pol) period(mid) min_stage(2) max_stage(6) cw(0) cp(12) crew1(tankman:2) crew2(tankman2:1))
+	{cost 290}
+}
+{"7tp"
+	("vehicle2" side(pol) period(mid) min_stage(3) max_stage(6) cw(0) cp(14) crew1(tankman:2) crew2(tankman2:1))
+	{cost 300}
+}
+{"r35_pol"
+	("vehicle2" side(pol) period(mid) min_stage(4) max_stage(6) cw(0) cp(15) crew1(tankman:1) crew2(tankman2:1))
+	{cost 320}
+}
 
 ;MEDIUM
 

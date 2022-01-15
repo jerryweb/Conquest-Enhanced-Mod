@@ -50858,7 +50858,7 @@
 			{"player_defending"}
 		}
 		{triggers
-			{"officer_commands/officer_callin_fail"
+			{"officer_commands/officer_callin_talk"
 				{condition
 					{type 1}
 					{terms
@@ -50874,6 +50874,9 @@
 									{exclude
 										{tag
 											{tag failed_callin}
+										}
+										{tag
+											{tag acknowledged}
 										}
 									}
 								}
@@ -50892,6 +50895,9 @@
 										{tag
 											{tag failed_callin}
 										}
+										{tag
+											{tag acknowledged}
+										}
 									}
 								}
 							}
@@ -50908,6 +50914,9 @@
 									{exclude
 										{tag
 											{tag failed_callin}
+										}
+										{tag
+											{tag acknowledged}
 										}
 									}
 								}
@@ -50926,6 +50935,9 @@
 										{tag
 											{tag failed_callin}
 										}
+										{tag
+											{tag acknowledged}
+										}
 									}
 								}
 							}
@@ -50933,6 +50945,390 @@
 					}
 				}
 				{actions
+					{"if"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag paradrophere}
+										}
+									}
+									{exclude
+										{tag
+											{tag acknowledged}
+										}
+										{tag
+											{tag failed_callin}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag paradrophere}
+										}
+									}
+									{exclude
+										{tag
+											{tag acknowledged}
+										}
+										{tag
+											{tag failed_callin}
+										}
+									}
+								}
+							}
+							{tag_add acknowledged}
+						}
+						{"switch"
+							{"case"
+								{condition
+									{type rand}
+									{value 0.3}
+								}
+								{"talk"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag officer}
+												}
+											}
+											{include
+												{tag
+													{tag player}
+												}
+												{state
+													{state operatable}
+												}
+											}
+										}
+									}
+									{text "mission/multi/request_paradrop"}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.6}
+								}
+								{"talk"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag officer}
+												}
+											}
+											{include
+												{tag
+													{tag player}
+												}
+												{state
+													{state operatable}
+												}
+											}
+										}
+									}
+									{text "mission/multi/request_paradrop_2"}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.9}
+								}
+								{"talk"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag officer}
+												}
+											}
+											{include
+												{tag
+													{tag player}
+												}
+												{state
+													{state operatable}
+												}
+											}
+										}
+									}
+									{text "mission/multi/request_paradrop_3"}
+								}
+							}
+						}
+					}
+					{"if"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag artillery_aim}
+										}
+									}
+									{exclude
+										{tag
+											{tag acknowledged}
+										}
+										{tag
+											{tag failed_callin}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag artillery_aim}
+										}
+									}
+									{exclude
+										{tag
+											{tag acknowledged}
+										}
+										{tag
+											{tag failed_callin}
+										}
+									}
+								}
+							}
+							{tag_add acknowledged}
+						}
+						{"switch"
+							{"case"
+								{condition
+									{type rand}
+									{value 0.3}
+								}
+								{"talk"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag officer}
+												}
+											}
+											{include
+												{tag
+													{tag player}
+												}
+												{state
+													{state operatable}
+												}
+											}
+										}
+									}
+									{text "mission/multi/request_air_recon"}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.6}
+								}
+								{"talk"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag officer}
+												}
+											}
+											{include
+												{tag
+													{tag player}
+												}
+												{state
+													{state operatable}
+												}
+											}
+										}
+									}
+									{text "mission/multi/request_air_recon_2"}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.9}
+								}
+								{"talk"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag officer}
+												}
+											}
+											{include
+												{tag
+													{tag player}
+												}
+												{state
+													{state operatable}
+												}
+											}
+										}
+									}
+									{text "mission/multi/request_air_recon_3"}
+								}
+							}
+						}
+					}
+					{"if"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag flare}
+										}
+									}
+									{exclude
+										{tag
+											{tag acknowledged}
+										}
+										{tag
+											{tag failed_callin}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag flare}
+										}
+									}
+									{exclude
+										{tag
+											{tag acknowledged}
+										}
+										{tag
+											{tag failed_callin}
+										}
+									}
+								}
+							}
+							{tag_add acknowledged}
+						}
+						{"switch"
+							{"case"
+								{condition
+									{type rand}
+									{value 0.3}
+								}
+								{"talk"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag officer}
+												}
+											}
+											{include
+												{tag
+													{tag player}
+												}
+												{state
+													{state operatable}
+												}
+											}
+										}
+									}
+									{text "mission/multi/request_supply_drop"}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.6}
+								}
+								{"talk"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag officer}
+												}
+											}
+											{include
+												{tag
+													{tag player}
+												}
+												{state
+													{state operatable}
+												}
+											}
+										}
+									}
+									{text "mission/multi/request_supply_drop_2"}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.9}
+								}
+								{"talk"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag officer}
+												}
+											}
+											{include
+												{tag
+													{tag player}
+												}
+												{state
+													{state operatable}
+												}
+											}
+										}
+									}
+									{text "mission/multi/request_supply_drop_3"}
+								}
+							}
+						}
+					}
+					{"delay"
+						{time 2}
+					}
 					{"if"
 						{condition
 							{type cmp_i}
@@ -51152,7 +51548,7 @@
 						{time 10}
 					}
 					{"trigger"
-						{name "officer_commands/officer_callin_fail"}
+						{name "officer_commands/officer_callin_talk"}
 					}
 				}
 			}
@@ -52064,18 +52460,24 @@
 						}
 						{tag_add flying_to_drop_zone}
 					}
+					{"delay"
+						{time 5}
+					}
 					{"talk"
 						{selector
 							{source advanced}
 							{group
 								{select
 									{tag
-										{tag allied_ai}
+										{tag player}
 									}
 								}
 								{include
 									{state
-										{state inactive}
+										{state operatable}
+									}
+									{prop
+										{prop human}
 									}
 								}
 							}
@@ -56960,7 +57362,7 @@
 						{"if"
 							{condition
 								{type rand}
-								{value 0.4}
+								{value 0.6}
 							}
 							{"set_i"
 								{var "enemy_paras_active$"}
@@ -58149,120 +58551,6 @@
 										}
 										{with_item
 											{type existance}
-											{item "snlf_helmet"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "snlf_tropical"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
 											{item "helmet_ita_m33_mvsn"}
 										}
 									}
@@ -58954,63 +59242,6 @@
 										{with_item
 											{type existance}
 											{item "helmet_eng_para_net"}
-										}
-									}
-									{exclude
-										{tag
-											{tag para_ready}
-										}
-										{tag
-											{tag player}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag para_in_field}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "sidea1"}
-										}
-										{zone
-											{zone "sidea2"}
-										}
-										{zone
-											{zone "sidea3"}
-										}
-										{zone
-											{zone "sidea4"}
-										}
-										{zone
-											{zone "sideb1"}
-										}
-										{zone
-											{zone "sideb2"}
-										}
-										{zone
-											{zone "sideb3"}
-										}
-										{zone
-											{zone "sideb4"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{tag
-											{tag ai_inf}
-										}
-										{with_item
-											{type existance}
-											{item "cap_eng_beret_commando"}
 										}
 									}
 									{exclude
@@ -60471,6 +60702,10 @@
 										}
 										{state
 											{state linked}
+										}
+										{with_item
+											{type existance}
+											{item "m1903a4"}
 										}
 									}
 								}

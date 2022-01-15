@@ -150,6 +150,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 0.5, class = UnitClass.Infantry, unit = "single_engineer(fra)"},
 				-- 5
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier_late(fra)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_marine_late(fra)"},				
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_stormtrooper_late(fra)"},
 				-- 6
 			--Automatic_weaponry
@@ -198,6 +199,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 0.5, class = UnitClass.Infantry, unit = "single_engineer(pol)"},
 				-- 5
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier_late(pol)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_scout_late(pol)"},				
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_stormtrooper_late(pol)"},
 				-- 6
 			--Automatic_weaponry
@@ -245,7 +247,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 0.5, class = UnitClass.Infantry, unit = "single_engineer(jap)"},
 				-- 5
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier(jap)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_sturmtrooper(jap)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_stormtrooper(jap)"},
 				-- 6
 			--Automatic_weaponry
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "type92_stan"},
@@ -300,7 +302,8 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 0.5, class = UnitClass.Infantry, unit = "single_engineer(usa)"},
 				-- 5
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier(usa)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_sturmtrooper(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_marine(usa)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_stormtrooper(usa)"},
 			--Automatic_weaponry
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "0_3cal_m1917a1_aa"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "0_5cal_m2hb"},
@@ -373,8 +376,8 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 0.5, class = UnitClass.Infantry, unit = "single_engineer(eng)"},
 				-- 5
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier_late(eng)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_stormtrooper_late(eng)"},
-				-- 6
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_scout_late(eng)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_stormtrooper_late(eng)"},				-- 6
 			--Automatic_weaponry
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "303_vickers_mki"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "303_bren"},

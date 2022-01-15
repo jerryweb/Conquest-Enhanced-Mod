@@ -57,6 +57,34 @@
 	    }
 	}
 }
+{"ckm_wz30_mgun"
+	{on spawn
+	    {tags add "HMG"}
+		{tags add "polish"}
+		{tags add "ckm_wz30_mgun"}
+		{delay 10
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								    {if not tagged "player"
+									    {if not tagged "hidden"
+									        {if not tagged "preplaced_mg"
+									        	{tags add "enemymg"}
+									    	}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+	}
+}
 {"qf40mm_pol"
 	{on spawn
 	    {tags add "AAFLAK"}
@@ -88,6 +116,32 @@
 	    {tags add "light_at_gun"}
 		{tags add "polish"}
 		{tags add "qf2pdr_pol"}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								    {if not tagged "player"
+									    {if not tagged "hidden"
+									        {tags add "ai_atgun-disabled"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+	}
+}
+{"37mm_bofors"
+	{on spawn
+	    {tags add "light_at_gun"}
+		{tags add "polish"}
+		{tags add "37mm_bofors"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -162,6 +216,58 @@
 	}
 }
 
+{"20mm_fka"
+	{on spawn
+	    {tags add "AAFLAK"}
+		{tags add "polish"}
+		{tags add "20mm_fka"}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								    {if not tagged "player"
+									    {if not tagged "hidden"
+									        {tags add "ai_atgun-disabled"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+	}
+}
+{"75mm_aa_wz36"
+	{on spawn
+	    {tags add "heavy_at_gun"}
+		{tags add "polish"}
+		{tags add "75mm_aa_wz36"}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								    {if not tagged "player"
+									    {if not tagged "hidden"
+									        {tags add "ai_atgun-disabled"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+	}
+}
 
 ;HOWITZERS
 {"81mm_brandt_pol"
@@ -243,7 +349,58 @@
 	    }
 	}
 }
-
+{"105mm_wz29"
+	{on spawn
+    	{tags add "artillery"}
+		{tags add "polish"}
+		{tags add "105mm_wz29"}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								    {if not tagged "player"
+									    {if not tagged "hidden"
+										    {tags add "enemyarty-disabled"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+	}
+}
+{"155mm_wz1917"
+	{on spawn
+    	{tags add "artillery"}
+		{tags add "polish"}
+		{tags add "155mm_wz1917"}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								    {if not tagged "player"
+									    {if not tagged "hidden"
+										    {tags add "enemyarty-disabled"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+	}
+}
 ;_________________________________________________
 ;|               Wheeled vehicles                 |
 ;|________________________________________________|
@@ -405,7 +562,32 @@
 	    }
 	}
 }
-
+{"wz34"
+	{on spawn
+    	{tags add "wheeled_vehicle"}
+		{tags add "polish"}
+		{tags add "wz34"}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								    {if not tagged "player"
+									    {if not tagged "hidden"
+										    {tags add "ai_car-disabled"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+	}
+}
 ;_________________________________________________
 ;|        Main Battle Tanks and SPGs              |
 ;|________________________________________________|
@@ -442,6 +624,188 @@
     	{tags add "light_tank"}
 		{tags add "polish"}
 		{tags add "crusader_pol"}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								   {if not tagged "player"
+									    {if not tagged "hidden"
+										    {tags add "ai_armor-disabled"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+	}
+}
+{"tks-mg"
+	{on spawn
+    	{tags add "light_tank"}
+		{tags add "polish"}
+		{tags add "tks-mg"}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								   {if not tagged "player"
+									    {if not tagged "hidden"
+										    {tags add "ai_armor-disabled"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+	}
+}
+{"tks-mg"
+	{on spawn
+    	{tags add "light_tank"}
+		{tags add "polish"}
+		{tags add "tks-mg"}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								   {if not tagged "player"
+									    {if not tagged "hidden"
+										    {tags add "ai_armor-disabled"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+	}
+}
+{"tks-20mm"
+	{on spawn
+    	{tags add "light_tank"}
+		{tags add "polish"}
+		{tags add "tks-mg"}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								   {if not tagged "player"
+									    {if not tagged "hidden"
+										    {tags add "ai_armor-disabled"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+	}
+}
+{"vickersedw"
+	{on spawn
+    	{tags add "light_tank"}
+		{tags add "polish"}
+		{tags add "tks-mg"}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								   {if not tagged "player"
+									    {if not tagged "hidden"
+										    {tags add "ai_armor-disabled"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+	}
+}
+{"vickersejw"
+	{on spawn
+    	{tags add "light_tank"}
+		{tags add "polish"}
+		{tags add "tks-mg"}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								   {if not tagged "player"
+									    {if not tagged "hidden"
+										    {tags add "ai_armor-disabled"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+	}
+}
+{"7tp"
+	{on spawn
+    	{tags add "light_tank"}
+		{tags add "polish"}
+		{tags add "tks-mg"}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								   {if not tagged "player"
+									    {if not tagged "hidden"
+										    {tags add "ai_armor-disabled"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+	}
+}
+{"r35_pol"
+	{on spawn
+    	{tags add "light_tank"}
+		{tags add "polish"}
+		{tags add "tks-mg"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
@@ -628,6 +992,32 @@
     	{tags add "spg"}
 		{tags add "polish"}
 		{tags add "sexton_pol"}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								    {if not tagged "player"
+									    {if not tagged "hidden"
+										    {tags add "ai_armor-disabled"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+	}
+}
+{"pf621_75mm"
+	{on spawn
+    	{tags add "spg"}
+		{tags add "polish"}
+		{tags add "pf621_75mm"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
