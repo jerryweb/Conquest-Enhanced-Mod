@@ -1,6 +1,6 @@
 Purchases["campaign_capture_the_flag"] = {
 	{--purchase 1 starting recon wave
-		divisionName = "Elite division",
+		divisionName = "Elite division (Shock Troops)",
 		waveNumber = 1,
 		-- Repeat = 6,
 		minRepeat = 5,
@@ -27,7 +27,6 @@ Purchases["campaign_capture_the_flag"] = {
 			["fra"] = {--France
 			--Infantry
 				{priority = 1.5, class = UnitClass.Infantry, unit = "single_flamer_late(fra)"},
-				{priority = 1.5, class = UnitClass.Infantry, unit = "single_sniper(fra)"},
 				-- 5
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_marine_late(fra)"},				
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_stormtrooper_late(fra)"},
@@ -35,20 +34,17 @@ Purchases["campaign_capture_the_flag"] = {
 			["pol"] = {--Poland
 			--Infantry
 				{priority = 1.5, class = UnitClass.Infantry, unit = "single_flamer_late(pol)"},
-				{priority = 1.5, class = UnitClass.Infantry, unit = "single_sniper(pol)"},
 				-- 5
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_scout_late(pol)"},				
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_stormtrooper_late(pol)"},
 			},
 			["jap"] = {--Japan
 				{priority = 1.5, class = UnitClass.Infantry, unit = "single_flamer(jap)"},
-				{priority = 1.5, class = UnitClass.Infantry, unit = "single_sniper(jap)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_stormtrooper(jap)"},
 			},
 			["usa"] = {--USA
 			--Infantry
 				{priority = 1.5, class = UnitClass.Infantry, unit = "single_flamer(usa)"},
-				{priority = 1.5, class = UnitClass.Infantry, unit = "single_sniper(usa)"},
 				-- 5
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_marine(usa)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_stormtrooper(usa)"},		
@@ -56,7 +52,6 @@ Purchases["campaign_capture_the_flag"] = {
 			["eng"] = {--Britain
 			--Infantry
 				{priority = 1.5, class = UnitClass.Infantry, unit = "single_flamer_late(eng)"},
-				{priority = 1.5, class = UnitClass.Infantry, unit = "single_sniper(eng)"},
 				-- 5
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_scout_late(eng)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_stormtrooper_late(eng)"},			
@@ -106,9 +101,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.AATank, unit = "crusader_aa2_pol"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "crusader_pol"},
 			--Tanks_medium
-				{priority = 1.0, class = UnitClass.Tank, unit = "cromwell_mk_iv_pol"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m4a4_pol"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "challenger_pol"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m4a4_firefly_pol"},
 			},
 			["jap"] = {--Japan		
@@ -121,16 +114,15 @@ Purchases["campaign_capture_the_flag"] = {
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, unit = "m4a3_75"},
 				{priority = 1.5, class = UnitClass.Tank, unit = "m4a3_zippo"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "m4a3_105"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "m4a3e2_jumbo"},
 			},
 			["eng"] = {--Britain
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, unit = "m4a4"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m4a4_firefly"},
-				{priority = 0.6, class = UnitClass.Tank, unit = "cromwell_mk_vi"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "comet_a34"},
 			--Tanks_heavy
 				{priority = 1.0, class = UnitClass.Tank, unit = "churchill_mk_iv"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "churchill_mk_vii"},
 			},
 			["ita"] = {--Italy
 			--Wheel_vehicles
@@ -277,7 +269,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "m17_fr"},	
 			--SPG
 				{priority = 1.0, class = UnitClass.ATTank, unit = "m10wolverine_fr"},
-				{priority = 0.2, class = UnitClass.ArtilleryTank, unit = "m7_fr"}
+				{priority = 0.5, class = UnitClass.ArtilleryTank, unit = "m7_fr"}
 			},
 			["pol"] = {--Poland		
 			--SPG
@@ -286,9 +278,8 @@ Purchases["campaign_capture_the_flag"] = {
 			},
 			["jap"] = {--Japan
 			--SPG
-				{priority = 1.0, class = UnitClass.ATTank, unit = "type1_ho-ni1"},
-				{priority = 2.0, class = UnitClass.ArtilleryTank, unit = "type1_ho-ni2"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "type4_ho-ro"}
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "type5_ho-chi"}
 			},
 			["usa"] = {--USA
 			--Tanks_light
@@ -299,8 +290,8 @@ Purchases["campaign_capture_the_flag"] = {
 			},
 			["eng"] = {--Britain			
 			--SPG
-				{priority = 0.1, class = UnitClass.ATTank, unit = "achilles"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "sexton"}
+				{priority = 0.6, class = UnitClass.ATTank, unit = "achilles"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "m4a3_105_eng"}
 			},
 			["ita"] = {--Italy		
 			--SPG
@@ -351,6 +342,8 @@ Purchases["campaign_capture_the_flag"] = {
 			--AT_Weapons
 				{priority = 1.0, class = UnitClass.ATTank, unit = "57_mm_m1_fr"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "75_mm_m1897a4_fr"},
+			--Howitzers
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "105_mm_m2a1l_fr"},
 			},
 			["pol"] = {--Poland
 			--Automatic_weaponry
@@ -358,18 +351,17 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.ATTank, unit = "qf40mm_pol"},
 			--AT_Weapons
 				{priority = 1.0, class = UnitClass.ATTank, unit = "qf6pdr_pol"},
-				{priority = 1.0, class = UnitClass.ATTank, unit = "qf17pdr_pol"},
+				{priority = 1.0, class = UnitClass.ATTank, unit = "75mm_aa_wz36"},
 			},
 			["jap"] = {--Japan
 			--Automatic_weaponry
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "type92_stan"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "20mm_type_2"},	
 			--AT_Weapons
-				{priority = 1.0, class = UnitClass.ATTank, unit = "75mm_type_88"},
-				{priority = 1.0, class = UnitClass.ATTank, unit = "75mm_type_90"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "75mm_type_41"},
-				{priority = 1.0, class = UnitClass.ATTank, unit = "47mm_type_1"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "75mm_type_4"},
+			--Howitzers
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "105mm_type_92"},
 			},
 			["usa"] = {--USA
 			--Automatic_weaponry
@@ -379,7 +371,6 @@ Purchases["campaign_capture_the_flag"] = {
 			--AT_Weapons
 				{priority = 1.0, class = UnitClass.ATTank, unit = "75_mm_m1"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "76_mm_m5late"},
-				{priority = 1.0, class = UnitClass.ATTank, unit = "90_mm_m1"},
 			},
 			["eng"] = {--Britain
 			--Automatic_weaponry
@@ -387,17 +378,14 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "303_bren"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "qf40mm"},
 			--AT_Weapons
-				{priority = 1.0, class = UnitClass.ATTank, unit = "qf6pdr"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "qf17pdr"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "qf3,7inch"},
 			},
 			["ita"] = {--Italy
 			--Automatic_weaponry
-				{priority = 1.0, class = UnitClass.Vehicle, unit = "8mm_fiat_revelli_m1914_35"},
-				{priority = 1.0, class = UnitClass.Vehicle, unit = "8mm_breda_37"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "cannone_2065"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "2cm_solothurn"},
 			--AT_Weapons
-				{priority = 1.0, class = UnitClass.ATTank, unit = "cannone_4732"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "cannone_7527"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "obice_7513"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "7_5cm_pak97_38"},
@@ -445,19 +433,15 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Tank, unit = "m4a4_firefly_pol"},
 			},
 			["jap"] = {--Japan
-			--Tanks_light
-				{priority = 1.0, class = UnitClass.Tank, unit = "type94_te-ke"},
-				{priority = 2.0, class = UnitClass.Tank, unit = "type97_te-ke"},
-				{priority = 2.0, class = UnitClass.Tank, unit = "type95_ha-go"},
 			--Tanks_medium
 				{priority = 2.5, class = UnitClass.Tank, unit = "type97_shinhoto_120mm"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "type2_ho-i"},
 				{priority = 0.5, class = UnitClass.Tank, unit = "type3_chi-nu2"},
 			},
 			["usa"] = {--USA
 			--Tanks_heavy
 				{priority = 1.0, class = UnitClass.HeavyTank, unit = "m4a3e2_jumbo_76w"},	
 				{priority = 1.0, class = UnitClass.HeavyTank, unit = "m26e4_pershing"},
-
 			},
 			["eng"] = {--Britain
 				{priority = 1.0, class = UnitClass.Tank, unit = "m4a4"},
@@ -606,15 +590,14 @@ Purchases["campaign_capture_the_flag"] = {
 			},
 			["fra"] = {--France
 			--Howitzers
-				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "81_mm_m1_fr"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "22cm_mortier"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "105_mm_m2a1l_fr"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "155_mm_m1918"},
 			},
 			["pol"] = {--Poland
 			--Howitzers
-				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "81mm_brandt_pol"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "155mm_wz1917"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "qf25pdr_pol"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "bl45_pol"},
 			},
 			["jap"] = {--Japan
 			--Howitzers
@@ -627,20 +610,17 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "105_mm_m2a1l"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "155_mm_m2"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "203_mm_m115"},
-			--Wheel_vehicles
-				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "cckw353_2xt27"},
 			--SPG
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "m12gmc"},
 			},
 			["eng"] = {--Britain
 			--Howitzers
-				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "bl45"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "m4a4_tulip"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "bl72"},
 			},
 			["ita"] = {--Italy
-			--AT_Weapons
-				{priority = 1.0, class = UnitClass.ATTank, unit = "obice_7513"},
-			--Howitzers				
+			--Howitzers	
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "obice_210"},			
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "obice_10017"},
 			}
 		}
@@ -671,7 +651,6 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "gaz_aaa_72k"},
 			},
 			["fra"] = {--France
-			
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "m3a1_scout_fr"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "m8_grayhound_fr"},
@@ -709,21 +688,12 @@ Purchases["campaign_capture_the_flag"] = {
 			},
 			["usa"] = {--USA
 		    --Wheel_vehicles
-				{priority = 1.0, class = UnitClass.Vehicle, unit = "willysmb"},
-				{priority = 1.0, class = UnitClass.Vehicle, unit = "willys50"},
-				{priority = 1.0, class = UnitClass.Vehicle, unit = "willysat"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "dodgewc55"},
-				{priority = 1.0, class = UnitClass.Vehicle, unit = "m3a1_scout"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "m20"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "m16"},											  
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "m8_grayhound"},
-				{priority = 1.0, class = UnitClass.Vehicle, unit = "t30hmc"},
 			--Tanks_light
-				{priority = 1.0, class = UnitClass.Tank, unit = "m22"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "m3_stuart"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m3_satan"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "m5a1"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "m8"},
 			},
 			["eng"] = {--Britain
 			--Wheel_vehicles
@@ -740,12 +710,8 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "ab41"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "autocannone10017"},
 			--Tanks_light
-				{priority = 1.0, class = UnitClass.Vehicle, unit = "cv35"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "l640"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m1441"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m1542"},
-			--Tanks_medium
-				{priority = 1.0, class = UnitClass.Tank, unit = "pz3n_ita"},
 			}
 		}
 	}
