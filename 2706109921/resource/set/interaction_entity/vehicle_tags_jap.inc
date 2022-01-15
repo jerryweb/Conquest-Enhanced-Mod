@@ -961,7 +961,32 @@
 	    }
 	}
 }
-
+{"type2_ho-i"
+	{on spawn
+    	{tags add "medium_tank"}
+		{tags add "japanese"}
+		{tags add "type2_ho-i"}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								    {if not tagged "player"
+									    {if not tagged "hidden"
+										    {tags add "ai_armor-disabled"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+	}
+}
 
 ;SPG
 {"type1_ho-ni1"
@@ -1042,7 +1067,32 @@
 	    }
 	}
 }
-
+{"type5_ho-chi"
+	{on spawn
+    	{tags add "spg"}
+		{tags add "japanese"}
+		{tags add "type5_ho-chi"}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								    {if not tagged "player"
+									    {if not tagged "hidden"
+										    {tags add "ai_armor-disabled"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+	}
+}
 ;_________________________________________________
 ;|               Aircraft                         |
 ;|________________________________________________|

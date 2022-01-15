@@ -565,6 +565,32 @@
 ;|________________________________________________|
 
 ;LIGHT
+{"crusader_aa1"
+	{on spawn
+    	{tags add "light_tank"}
+		{tags add "english"}
+		{tags add "crusader_aa1"}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								    {if not tagged "player"
+									    {if not tagged "hidden"
+										    {tags add "ai_armor-disabled"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+	}
+}
 {"crusader_aa2"
 	{on spawn
     	{tags add "light_tank"}
@@ -592,6 +618,58 @@
 	}
 }
 {"crusader_mk6"
+	{on spawn
+    	{tags add "light_tank"}
+		{tags add "english"}
+		{tags add "crusader_mk6"}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								   {if not tagged "player"
+									    {if not tagged "hidden"
+										    {tags add "ai_armor-disabled"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+	}
+}
+{"crusader_mki"
+	{on spawn
+    	{tags add "light_tank"}
+		{tags add "english"}
+		{tags add "crusader_mk6"}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								   {if not tagged "player"
+									    {if not tagged "hidden"
+										    {tags add "ai_armor-disabled"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+	}
+}
+{"crusader_mki_cs"
 	{on spawn
     	{tags add "light_tank"}
 		{tags add "english"}
@@ -650,6 +728,32 @@
     	{tags add "medium_tank"}
 		{tags add "english"}
 		{tags add "matilda_mkii"}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								    {if not tagged "player"
+									    {if not tagged "hidden"
+										    {tags add "ai_armor-disabled"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+	}
+}
+{"matilda_mkii_cs"
+	{on spawn
+    	{tags add "medium_tank"}
+		{tags add "english"}
+		{tags add "matilda_mkii_cs"}
 		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"

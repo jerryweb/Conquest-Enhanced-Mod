@@ -146,10 +146,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier_late(fra)"},
 				{priority = 1.5, class = UnitClass.Infantry, unit = "single_flamer_late(fra)"},
 				{priority = 1.5, class = UnitClass.Infantry, unit = "single_sniper(fra)"},
-				-- 4
-				{priority = 0.5, class = UnitClass.Infantry, unit = "single_engineer(fra)"},
 				-- 5
-				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier_late(fra)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_marine_late(fra)"},				
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_stormtrooper_late(fra)"},
 				-- 6
@@ -176,8 +173,14 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Tank, unit = "m5a1_fr"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m8_fr"},
 			--Tanks_medium
+				{priority = 1.0, class = UnitClass.Tank, unit = "r35"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "r39"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "char_d2"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "s35"},			
 				{priority = 1.0, class = UnitClass.Tank, unit = "m4a3_75_fr"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m4a3_76_fr"},
+			--Tanks_heavy	
+				{priority = 1.0, class = UnitClass.Tank, unit = "b1bis"},				
 			--SPG
 				{priority = 1.0, class = UnitClass.ATTank, unit = "m10wolverine_fr"},
 				{priority = 0.2, class = UnitClass.ArtilleryTank, unit = "m7_fr"}

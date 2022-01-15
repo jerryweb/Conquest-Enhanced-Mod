@@ -195,7 +195,7 @@ Purchases["campaign_capture_the_flag"] = {
 			--Tanks_light
 			   	{priority = 2.0, class = UnitClass.Tank, unit = "t26_33"},
 				{priority = 2.0, class = UnitClass.Tank, unit = "t26_39"},
-					{priority = 0.5, class = UnitClass.Tank, unit = "t3476_40"},
+				{priority = 0.5, class = UnitClass.Tank, unit = "t3476_40"},
 				{priority = 0.5, class = UnitClass.Tank, unit = "t3476_41"},
 		    },
 			["fra"] = {--France
