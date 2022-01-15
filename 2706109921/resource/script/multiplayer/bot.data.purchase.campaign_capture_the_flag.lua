@@ -194,9 +194,9 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Tank, unit = "b1bis"},				
 			--SPG
 				{priority = 1.0, class = UnitClass.ATTank, unit = "m10wolverine_fr"},
-				{priority = 0.2, class = UnitClass.ArtilleryTank, unit = "m7_fr"}
-				{priority = 0.7, class = UnitClass.ArtilleryTank, unit = "bs-75"}	
-				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "autocanon_75mm"}
+				{priority = 0.2, class = UnitClass.ArtilleryTank, unit = "m7_fr"},
+				{priority = 0.7, class = UnitClass.ArtilleryTank, unit = "bs-75"},	
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "autocanon_75mm"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "laffly15tcc"}								
 			},
 			["pol"] = {--Poland
@@ -314,7 +314,7 @@ Purchases["campaign_capture_the_flag"] = {
 			--SPG
 				{priority = 1.0, class = UnitClass.ATTank, unit = "type1_ho-ni1"},
 				{priority = 2.0, class = UnitClass.ArtilleryTank, unit = "type1_ho-ni2"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "type4_ho-ro"}
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "type4_ho-ro"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "type5_ho-chi"}
 			},
 			["usa"] = {--USA
@@ -454,8 +454,8 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Tank, unit = "churchill_crocodile"},			
 			--SPG
 				{priority = 0.5, class = UnitClass.ATTank, unit = "achilles"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "sexton"}
-				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "m4a4_tulip"}
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "sexton"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "m4a4_tulip"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "m4a3_105_eng"}
 			},
 			["ita"] = {--Italy

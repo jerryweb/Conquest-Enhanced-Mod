@@ -278,7 +278,7 @@ Purchases["campaign_capture_the_flag"] = {
 			},
 			["jap"] = {--Japan
 			--SPG
-				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "type4_ho-ro"}
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "type4_ho-ro"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "type5_ho-chi"}
 			},
 			["usa"] = {--USA
@@ -441,7 +441,7 @@ Purchases["campaign_capture_the_flag"] = {
 			["usa"] = {--USA
 			--Tanks_heavy
 				{priority = 1.0, class = UnitClass.HeavyTank, unit = "m4a3e2_jumbo_76w"},	
-				{priority = 1.0, class = UnitClass.HeavyTank, unit = "m26e4_pershing"},
+				{priority = 0.8, class = UnitClass.HeavyTank, unit = "m26e4_pershing"},
 			},
 			["eng"] = {--Britain
 				{priority = 1.0, class = UnitClass.Tank, unit = "m4a4"},

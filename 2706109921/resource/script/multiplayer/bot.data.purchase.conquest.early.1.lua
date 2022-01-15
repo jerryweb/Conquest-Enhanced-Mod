@@ -236,7 +236,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Tank, unit = "m8"},
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, unit = "m3lee"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "m4"},	
+				{priority = 1.0, class = UnitClass.Tank, unit = "m4a1"},	
 			},
 			["eng"] = {--Britain
 			--Tanks_light
@@ -775,7 +775,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "mk2daimler"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "staghound"},
 			--Tanks_light
-				{priority = 1.0, class = UnitClass.AATank, unit = "crusader_aa2"},
+				{priority = 1.0, class = UnitClass.AATank, unit = "crusader_aa1"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "crusader_mk6"},
 			},
 			["ita"] = {--Italy

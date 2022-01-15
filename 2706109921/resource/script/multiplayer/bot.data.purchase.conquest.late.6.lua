@@ -733,7 +733,6 @@ Purchases["campaign_capture_the_flag"] = {
 			},
 			["usa"] = {--USA
 			--Tanks_light
-				{priority = 1.0, class = UnitClass.Tank, unit = "m22"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m3_stuart"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m5a1"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m8"},
@@ -749,18 +748,7 @@ Purchases["campaign_capture_the_flag"] = {
 			--Tanks_light
 				{priority = 1.0, class = UnitClass.AATank, unit = "crusader_aa1"},
 			},
-			["ita"] = {--Italy
-			--Infantry
-				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_light(ita)"},
-				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_regular(ita)"},
-				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier(ita)"},
-				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_stormtrooper(ita)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "single_mg(ita)"},
-				{priority = 1.0, class = UnitClass.ATInfantry, unit = "single_atrifle(ita)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "single_flamer(ita)"},
-			--Automatic_weaponry
-			--AT_Weapons
-			--Howitzers				
+			["ita"] = {--Italy		
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "ab41"},
 			--Tanks_light

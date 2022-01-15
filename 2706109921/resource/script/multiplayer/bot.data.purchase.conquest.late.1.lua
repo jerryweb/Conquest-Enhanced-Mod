@@ -234,7 +234,6 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Tank, unit = "m4a4"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m4a4_firefly"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "cromwell_mk_vi"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "comet_a34"},
 			--Tanks_heavy
 				{priority = 1.0, class = UnitClass.Tank, unit = "churchill_mk_iv"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "churchill_mk_vii"},			
@@ -702,8 +701,6 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "m8_grayhound"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "t30hmc"},
 			--Tanks_light
-				{priority = 1.0, class = UnitClass.Tank, unit = "m22"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "m3_stuart"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m3_satan"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m5a1"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m8"},

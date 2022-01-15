@@ -117,40 +117,29 @@ Purchases["campaign_capture_the_flag"] = {
 			--Tanks_medium
 				{priority = 1.0, class = UnitClass.Tank, unit = "cromwell_mk_iv_pol"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m4a4_pol"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "challenger_pol"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m4a4_firefly_pol"},
 			},
 			["jap"] = {--Japan
-			--Tanks_medium
-				{priority = 1.5, class = UnitClass.Tank, unit = "type97_chi-ha"},
-				{priority = 1.5, class = UnitClass.Tank, unit = "type97_shinhoto_47mm"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "type1_chi-he"},
 				{priority = 1.5, class = UnitClass.Tank, unit = "type97_shinhoto_120mm"},
 				{priority = 1.2, class = UnitClass.Tank, unit = "type3_chi-nu"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "type3_chi-nu2"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "type2_ho-i"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "type2_ho-i_kou"},
 			},
 			["usa"] = {--USA
 			--Tanks_medium
-				{priority = 1.0, class = UnitClass.Tank, unit = "m3lee"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "m4a1"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "m4"},	
 				{priority = 1.0, class = UnitClass.Tank, unit = "m4a3_75"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m4a3e8"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "m4a3_105"},
+				{priority = 0.7, class = UnitClass.Tank, unit = "m4a3e2_jumbo"},
 				{priority = 0.7, class = UnitClass.HeavyTank, unit = "m26_pershing"},
 			},
 			["eng"] = {--Britain
 			--Tanks_medium
-				{priority = 1.0, class = UnitClass.Tank, unit = "valentine_mkiii"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "matilda_mkii"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "cromwell_mk_iv"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m4a4"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "challenger_a30"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m4a4_firefly"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "cromwell_mk_vi"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "comet_a34"},
 			--Tanks_heavy
-				{priority = 0.8, class = UnitClass.Tank, unit = "churchill_mk_ii"},
 				{priority = 0.8, class = UnitClass.Tank, unit = "churchill_mk_iv"},
 				{priority = 0.8, class = UnitClass.Tank, unit = "churchill_mk_vii"},			
 			},
@@ -308,7 +297,7 @@ Purchases["campaign_capture_the_flag"] = {
 			--SPG
 				{priority = 1.0, class = UnitClass.ATTank, unit = "type1_ho-ni1"},
 				{priority = 2.0, class = UnitClass.ArtilleryTank, unit = "type1_ho-ni2"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "type4_ho-ro"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "type5_ho-chi"},
 			--Tanks_heavy
 			},
 			["usa"] = {--USA
@@ -390,14 +379,14 @@ Purchases["campaign_capture_the_flag"] = {
 			},
 			["usa"] = {--USA
 			--Tanks_heavy
+				{priority = 1.2, class = UnitClass.Tank, unit = "m4a1"},
+				{priority = 1.2, class = UnitClass.Tank, unit = "m4a3_75"},
 				{priority = 1.0, class = UnitClass.HeavyTank, unit = "m4a3e2_jumbo_76w"},	
 				{priority = 1.0, class = UnitClass.HeavyTank, unit = "m26_pershing"},
 			},
 			["eng"] = {--Britain
 			--Tanks_heavy
-				{priority = 1.0, class = UnitClass.Tank, unit = "churchill_mk_ii"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "churchill_mk_iv"},
-				{priority = 0.2, class = UnitClass.Tank, unit = "churchill_avre"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "churchill_mk_vii"},			
 			},
 			["ita"] = {--Italy
@@ -537,7 +526,9 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "sexton_pol"},
 			},
 			["jap"] = {--Japan
-				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "200mm_type_4"},
+			--Howitzers
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "120mm_type_38"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "150mm_type_96"},
 			},
 			["usa"] = {--USA
 			--Tanks_medium

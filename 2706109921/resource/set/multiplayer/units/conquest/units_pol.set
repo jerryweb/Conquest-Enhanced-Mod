@@ -30,8 +30,8 @@
 ("squad_with2types_conquest" side(pol) period(mid) min_stage(2) max_stage(99) name(single_mg_late)  c1(mgun:1) c2(smg2:1)) 
 ("squad_with1types_conquest" side(pol) period(mid) min_stage(1) max_stage(99) name(single_medic)    c1(medic:2))
 ("squad_with4types_conquest" side(pol) period(mid) min_stage(2) max_stage(99) name(squad_regular_late) c1(rifle2:3) c2(mgun:1) c3(smg2:3) c4(squadleader2:1))
-("squad_with3types_conquest" side(pol) period(mid) min_stage(6) max_stage(99) name(squad_pionier_late) c1(elite4:3) c2(elite5:3) c3(elite6:2))
-("squad_with3types_conquest" side(pol) period(mid) min_stage(6) max_stage(99) name(squad_scout_late) c1(elite:3) c2(elite2:3) c3(elite3:2))
+("squad_with3types_conquest" side(pol) period(mid) min_stage(3) max_stage(99) name(squad_pionier_late) c1(elite4:3) c2(elite5:3) c3(elite6:2))
+("squad_with3types_conquest" side(pol) period(mid) min_stage(3) max_stage(99) name(squad_scout_late) c1(elite:3) c2(elite2:3) c3(elite3:2))
 ("squad_with4types_conquest" side(pol) period(mid) min_stage(4) max_stage(99) name(squad_stormtrooper_late) c1(sturmovik:3) c2(sturmovik2:1) c3(sturmovik3:2) c4(sturmovik4b:2))
 
 
@@ -39,7 +39,7 @@
 ;|             inf2                               |
 ;|________________________________________________|
 
-("squad_with2types_conquest" sid(pol) period(mid) min_stage(1) max_stage(99) name(single_auxiliary_late)  	c1(rifle:2) c2(smg:1))
+("squad_with2types_conquest" side(pol) period(mid) min_stage(1) max_stage(99) name(single_auxiliary_late)  	c1(rifle:2) c2(smg:1))
 ("squad_with2types_conquest" side(pol) period(mid) min_stage(2) max_stage(99) name(single_mortar_late)		c1(gr_launcher:1) c2(at_rifle2:1))
 ("squad_with2types_conquest" side(pol) period(mid) min_stage(2) max_stage(99) name(single_riflegrenade_late)	c1(rifle_grenade:1) c2(smg2:1))
 ("squad_with1types_conquest" side(pol) period(mid) min_stage(2) max_stage(99) name(single_ap_miner)		c1(ap_miner:2))
@@ -65,7 +65,7 @@
 }
 
 {"303_bren_pol"
-	("vehicle" side(pol) period(mid) min_stage(1) max_stage(99) cw(2) cp(1) crew(vehicle_supporter:2))
+	("vehicle" side(pol) period(mid) min_stage(1) max_stage(99) cw(2) cp(4) crew(vehicle_supporter:2))
 	{cost 90}
 }
 {"ckm_wz30_mgun"
@@ -73,10 +73,11 @@
 	{cost 110}
 }
 
+
 ;AA WEAPONRY
 
 {"qf40mm_pol"
-	("vehicle" side(pol) period(mid) min_stage(4) max_stage(99) cw(4) cp(8) crew(vehicle_supporter:2))
+	("vehicle" side(pol) period(mid) min_stage(1) max_stage(99) cw(4) cp(10) crew(vehicle_supporter:2))
 	{cost 260}
 }
 {"20mm_fka"
@@ -88,28 +89,29 @@
 	{cost 400}
 }
 
+
 ; AT WEAPONRY
 {"37mm_bofors"
 	("vehicle" side(pol) period(mid) min_stage(1) max_stage(99) cw(0) cp(8) crew(vehicle_supporter:2))
 	{cost 200}
 }
 {"qf2pdr_pol"
-	("vehicle" side(pol) period(mid) min_stage(1) max_stage(99) cw(0) cp(6) crew(vehicle_supporter:2))
+	("vehicle" side(pol) period(mid) min_stage(1) max_stage(99) cw(0) cp(10) crew(vehicle_supporter:2))
 	{cost 190}
 }
 {"qf6pdr_pol"
-	("vehicle" side(pol) period(mid) min_stage(3) max_stage(99) cw(0) cp(8) crew(vehicle_supporter:4))
+	("vehicle" side(pol) period(mid) min_stage(3) max_stage(99) cw(0) cp(12) crew(vehicle_supporter:4))
 	{cost 300}
 }
 {"qf17pdr_pol"	
-	("vehicle" side(pol) period(mid) min_stage(4) max_stage(99) cw(0) cp(12) crew(vehicle_supporter:4))
+	("vehicle" side(pol) period(mid) min_stage(4) max_stage(99) cw(0) cp(18) crew(vehicle_supporter:4))
 	{cost 520}
 }
 
 ;HOWITZERS
 
 {"81mm_brandt_pol"
-	("vehicle" side(pol) period(mid) min_stage(1) max_stage(99) cw(0) cp(8) crew(vehicle_supporter:2))
+	("vehicle" side(pol) period(mid) min_stage(1) max_stage(99) cw(0) cp(6) crew(vehicle_supporter:2))
 	{cost 300}
 }
 {"qf25pdr_pol"
@@ -117,7 +119,7 @@
 	{cost 650}
 }
 {"bl45_pol"
-	("vehicle" side(pol) period(mid) min_stage(6) max_stage(99) cw(0) cp(30) crew(vehicle_supporter:4))
+	("vehicle" side(pol) period(mid) min_stage(3) max_stage(99) cw(0) cp(30) crew(vehicle_supporter:4))
 	{cost 750}
 }
 {"105mm_wz29"
@@ -133,17 +135,24 @@
 ;|               Wheeled vehicles                 |
 ;|________________________________________________|
 
-
+{"chevrolet_pol"
+	("vehicle" side(pol) period(mid) min_stage(1) max_stage(99) cw(0) cp(2) crew(vehicle_supporter:1))
+	{cost 20}
+}
 {"bedford_ql_inf"
 	("vehicle"  side(pol) period(mid) min_stage(1) max_stage(99) cw(0) cp(2) crew(vehicle_supporter:2))
-	{cost 50}
+	{cost 60}
+}
+{"chevrolet_fuel_pol"
+	("vehicle" side(pol) period(mid) min_stage(1) max_stage(99) cw(1) cp(4) crew(vehicle_supporter:1))
+	{cost 90}
 }
 {"bedford_ql_art"
 	("vehicle"  side(pol) period(mid) min_stage(2) max_stage(99) cw(0) cp(4) crew(vehicle_supporter:2))
 	{cost 190}
 }
 {"bedford_ql_eng"
-	("vehicle" side(pol) period(mid) min_stage(2) max_stage(99) cw(0) cp(4) crew(saper:2))
+	("vehicle" side(pol) period(mid) min_stage(2) max_stage(99) cw(0) cp(4) crew(vehicle_supporter:2))
 	{cost 100}
 }
 {"dingo_pol"
@@ -165,7 +174,7 @@
 {"pf621_75mm"
 	("vehicle2" side(pol) period(mid) min_stage(3) max_stage(7) cw(3) cp(12) crew(vehicle_supporter:3))
 	{cost 320}
-}
+}	
 
 ;_________________________________________________
 ;|        Main Battle Tanks and SPGs              |
@@ -213,15 +222,15 @@
 	{cost 450}
 }
 {"m4a4_pol"
-	("vehicle2" side(pol) period(mid) min_stage(7) max_stage(99) cw(0) cp(30) crew1(tankman:4) crew2(tankman2:1))
+	("vehicle2" side(pol) period(mid) min_stage(7) max_stage(99) cw(0) cp(20) crew1(tankman:4) crew2(tankman2:1))
 	{cost 500}
 }
 {"challenger_pol"
-	("vehicle2" side(pol) period(mid) min_stage(8) max_stage(99) cw(0) cp(35) crew1(tankman:3) crew2(tankman2:1))
+	("vehicle2" side(pol) period(mid) min_stage(8) max_stage(99) cw(0) cp(20) crew1(tankman:3) crew2(tankman2:1))
 	{cost 600}
 }
 {"m4a4_firefly_pol"
-	("vehicle2" side(pol) period(mid) min_stage(9) max_stage(99) cw(0) cp(30) crew1(tankman:4) crew2(tankman2:1))
+	("vehicle2" side(pol) period(mid) min_stage(9) max_stage(99) cw(0) cp(20) crew1(tankman:4) crew2(tankman2:1))
 	{cost 650}
 }
 
@@ -234,11 +243,11 @@
 	{cost 650}
 }
 {"m4a3_105_pol"
-	("vehicle2" side(pol) period(mid) min_stage(9) max_stage(99) cw(0) cp(30) crew1(tankman:4) crew2(tankman2:1))
+	("vehicle2" side(pol) period(mid) min_stage(9) max_stage(99) cw(0) cp(20) crew1(tankman:4) crew2(tankman2:1))
 	{cost 700}
 }
 {"sexton_pol"
-	("vehicle2" side(pol) period(mid) min_stage(7) max_stage(99) cw(0) cp(30) crew1(tankman:3) crew2(tankman2:1))
+	("vehicle2" side(pol) period(mid) min_stage(7) max_stage(99) cw(0) cp(20) crew1(tankman:3) crew2(tankman2:1))
 	{cost 700}
 }
 
