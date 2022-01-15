@@ -46574,7 +46574,7 @@
 			}
 		}
 		{triggers
-			{"officer_commands/officer_callin_fail"
+			{"officer_commands/officer_callin_talk"
 				{condition
 					{type 1}
 					{terms
@@ -46590,6 +46590,9 @@
 									{exclude
 										{tag
 											{tag failed_callin}
+										}
+										{tag
+											{tag acknowledged}
 										}
 									}
 								}
@@ -46608,6 +46611,9 @@
 										{tag
 											{tag failed_callin}
 										}
+										{tag
+											{tag acknowledged}
+										}
 									}
 								}
 							}
@@ -46624,6 +46630,9 @@
 									{exclude
 										{tag
 											{tag failed_callin}
+										}
+										{tag
+											{tag acknowledged}
 										}
 									}
 								}
@@ -46642,6 +46651,9 @@
 										{tag
 											{tag failed_callin}
 										}
+										{tag
+											{tag acknowledged}
+										}
 									}
 								}
 							}
@@ -46649,6 +46661,390 @@
 					}
 				}
 				{actions
+					{"if"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag paradrophere}
+										}
+									}
+									{exclude
+										{tag
+											{tag acknowledged}
+										}
+										{tag
+											{tag failed_callin}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag paradrophere}
+										}
+									}
+									{exclude
+										{tag
+											{tag acknowledged}
+										}
+										{tag
+											{tag failed_callin}
+										}
+									}
+								}
+							}
+							{tag_add acknowledged}
+						}
+						{"switch"
+							{"case"
+								{condition
+									{type rand}
+									{value 0.3}
+								}
+								{"talk"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag officer}
+												}
+											}
+											{include
+												{tag
+													{tag player}
+												}
+												{state
+													{state operatable}
+												}
+											}
+										}
+									}
+									{text "mission/multi/request_paradrop"}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.6}
+								}
+								{"talk"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag officer}
+												}
+											}
+											{include
+												{tag
+													{tag player}
+												}
+												{state
+													{state operatable}
+												}
+											}
+										}
+									}
+									{text "mission/multi/request_paradrop_2"}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.9}
+								}
+								{"talk"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag officer}
+												}
+											}
+											{include
+												{tag
+													{tag player}
+												}
+												{state
+													{state operatable}
+												}
+											}
+										}
+									}
+									{text "mission/multi/request_paradrop_3"}
+								}
+							}
+						}
+					}
+					{"if"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag artillery_aim}
+										}
+									}
+									{exclude
+										{tag
+											{tag acknowledged}
+										}
+										{tag
+											{tag failed_callin}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag artillery_aim}
+										}
+									}
+									{exclude
+										{tag
+											{tag acknowledged}
+										}
+										{tag
+											{tag failed_callin}
+										}
+									}
+								}
+							}
+							{tag_add acknowledged}
+						}
+						{"switch"
+							{"case"
+								{condition
+									{type rand}
+									{value 0.3}
+								}
+								{"talk"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag officer}
+												}
+											}
+											{include
+												{tag
+													{tag player}
+												}
+												{state
+													{state operatable}
+												}
+											}
+										}
+									}
+									{text "mission/multi/request_air_recon"}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.6}
+								}
+								{"talk"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag officer}
+												}
+											}
+											{include
+												{tag
+													{tag player}
+												}
+												{state
+													{state operatable}
+												}
+											}
+										}
+									}
+									{text "mission/multi/request_air_recon_2"}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.9}
+								}
+								{"talk"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag officer}
+												}
+											}
+											{include
+												{tag
+													{tag player}
+												}
+												{state
+													{state operatable}
+												}
+											}
+										}
+									}
+									{text "mission/multi/request_air_recon_3"}
+								}
+							}
+						}
+					}
+					{"if"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag flare}
+										}
+									}
+									{exclude
+										{tag
+											{tag acknowledged}
+										}
+										{tag
+											{tag failed_callin}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag flare}
+										}
+									}
+									{exclude
+										{tag
+											{tag acknowledged}
+										}
+										{tag
+											{tag failed_callin}
+										}
+									}
+								}
+							}
+							{tag_add acknowledged}
+						}
+						{"switch"
+							{"case"
+								{condition
+									{type rand}
+									{value 0.3}
+								}
+								{"talk"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag officer}
+												}
+											}
+											{include
+												{tag
+													{tag player}
+												}
+												{state
+													{state operatable}
+												}
+											}
+										}
+									}
+									{text "mission/multi/request_supply_drop"}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.6}
+								}
+								{"talk"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag officer}
+												}
+											}
+											{include
+												{tag
+													{tag player}
+												}
+												{state
+													{state operatable}
+												}
+											}
+										}
+									}
+									{text "mission/multi/request_supply_drop_2"}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.9}
+								}
+								{"talk"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag officer}
+												}
+											}
+											{include
+												{tag
+													{tag player}
+												}
+												{state
+													{state operatable}
+												}
+											}
+										}
+									}
+									{text "mission/multi/request_supply_drop_3"}
+								}
+							}
+						}
+					}
+					{"delay"
+						{time 2}
+					}
 					{"if"
 						{condition
 							{type cmp_i}
@@ -46868,7 +47264,7 @@
 						{time 10}
 					}
 					{"trigger"
-						{name "officer_commands/officer_callin_fail"}
+						{name "officer_commands/officer_callin_talk"}
 					}
 				}
 			}
