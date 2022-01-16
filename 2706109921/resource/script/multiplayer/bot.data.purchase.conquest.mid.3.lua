@@ -440,7 +440,7 @@ Purchases["campaign_capture_the_flag"] = {
 			},
 			["ita"] = {--Italy
 			--Tanks_medium
-				{priority = 1.0, class = UnitClass.ATTank, unit = "stug3g_ita"}
+				{priority = 1.0, class = UnitClass.ATTank, unit = "stug3g_ita"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "pz3n_ita"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "pz4g_ita"},
 			}

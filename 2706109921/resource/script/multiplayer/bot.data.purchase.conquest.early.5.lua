@@ -68,7 +68,7 @@ Purchases["campaign_capture_the_flag"] = {
 				-- 3
 				{priority = 1.5, class = UnitClass.Infantry, unit = "single_flamer(jap)"},
 			--Wheel_vehicles
-				{priority = 2.5, class = UnitClass.Vehicle, unit = "type93"},,				
+				{priority = 2.5, class = UnitClass.Vehicle, unit = "type93"},			
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "type94aa"},
 			},
 			["usa"] = {--USA
