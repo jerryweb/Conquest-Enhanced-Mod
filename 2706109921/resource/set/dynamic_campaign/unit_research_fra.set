@@ -1,0 +1,219 @@
+(include "unit_research_fra2.set")
+
+; ---Singles---
+
+;TOTAL: 0
+
+
+; ---SQUADS---
+	{"single_auxiliary_late(fra)"		requires	""					costs 1 }
+	{"single_mg_late(fra)"			requires	"single_auxiliary_late(fra)"			costs 1 }																			  
+	{"single_at_late(fra)"			requires	""					costs 1 }
+	{"single_mortar_late(fra)"		requires	"single_at_late(fra)"			costs 1 }
+	{"single_riflegrenade_late(fra)"	requires	"single_at_late(fra)"			costs 1 }
+
+	{"single_flamer_late(fra)"		requires	"single_medic(fra)"			costs 1 }
+	
+	{"single_sniper(fra)"			requires	"single_medic(fra)"			costs 1 }
+	{"single_officer(fra)"			requires	"single_sniper(fra)"			costs 1 }
+	{"conquest_douglas"			requires	"single_officer(fra)"			costs 2 }
+
+	{"single_ap_miner(fra)"			requires	""					costs 1 }
+	{"single_at_miner(fra)"			requires	"single_ap_miner(fra)"			costs 1 }
+	{"single_engineer(fra)"			requires	"single_ap_miner(fra)"			costs 1 }
+
+	{"squad_light_late(fra)"		requires	""					costs 1 }
+	{"squad_regular_late(fra)"		requires	"squad_light_late(fra)"			costs 2 }
+	{"squad_pionier_late(fra)"		requires	"squad_regular_late(fra)"		costs 2 }
+	{"squad_marine_late(fra)"		requires	"squad_regular_late(fra)"		costs 3 }
+	{"squad_stormtrooper_late(fra)"		requires	"squad_pionier_late(fra)"		costs 4 }
+
+
+;TOTAL: 0
+
+; ---MG---
+	{"0_3cal_m1919a4_fr"	requires 	""				costs 1}
+	{"0_5cal_m2hb_fr"	requires 	"0_3cal_m1919a4_fr"				costs 1}
+	{"13mm_hotchkiss"	requires 	"0_5cal_m2hb_fr"				costs 1}
+	
+	{"cckw352_fr_inf"	requires 	""					costs 1}
+	{"cckw352_fr_art"	requires 	"cckw352_fr_inf"					costs 2}
+	{"cckw352_fr_eng"	requires 	"cckw352_fr_inf"					costs 2}
+	{"dodgewc55_fr"	requires 	""					costs 2}
+	{"panhard"	requires 	"dodgewc55_fr"					costs 2}
+
+; ---Mortars---
+	{"81_mm_m1_fr"		requires 	""				costs 2}
+
+; ---AA---
+	{"40_mm_m1_fr"		requires	"13mm_hotchkiss"		costs 4}
+
+; ---AT Guns---
+	{"25mm_hotchkiss_mle34"		requires	""				costs 0}
+	{"47mm_puteaux_mle37"		requires	"25mm_hotchkiss_mle34"				costs 2}
+	{"57_mm_m1_fr"		requires	"47mm_puteaux_mle37"				costs 4}
+
+
+; ---Infantry Guns---
+	{"75_mm_m1897a4_fr"	requires 	"57_mm_m1_fr"			costs 3}
+
+; ---Artillery---
+	{"105_mm_m2a1l_fr"	requires	"75_mm_m1897a4_fr"		costs 3}
+	{"155_mm_m1918"		requires	"75_mm_m1897a4_fr"		costs 4}
+	{"22cm_mortier"		requires	"155_mm_m1918"		costs 2}
+
+;---Armored Cars---
+	{"m3a1_scout_fr"	requires 	""				costs 1}
+	{"m20_fr" 		requires 	"m3a1_scout_fr"			costs 1}
+	{"m8_grayhound_fr" 	requires 	"m20_fr"			costs 2}
+	{"m17_fr" 		requires 	"m20_fr"			costs 3}
+	{"m4halftrack_fr" 	requires 	"m20_fr"			costs 4}
+	{"laffly_v15t_mg" 	requires 	""			costs 0}
+	{"laffly_s15_toe" 	requires 	"laffly_v15t_mg"			costs 1}
+	{"laffly15tcc" 	requires 	"laffly_s15_toe 47mm_puteaux_mle37"			costs 3}
+	{"autocanon_75mm" 	requires 	"laffly15tcc 75_mm_m1897a4_fr"			costs 2}
+	
+
+	; ---Light Tanks---
+	{"m5a1_fr"		requires 	""				costs 2}
+	{"m8_fr"		requires 	"m5a1_fr"			costs 2}
+
+	
+	; ---Medium Tanks---
+	{"cavalier_mk_vii"	requires 	"m5a1_fr"			costs 4}
+	{"m4a3_75_fr"		requires 	"m5a1_fr"			costs 4}
+	{"m4a3_76_fr"		requires 	"m4a3_75_fr"			costs 4}
+
+	
+	; ---Heavy Tanks---
+    {"b1bis"	requires 	""			costs 5}
+
+
+	; ---Self Propelled Guns---
+	{"m10wolverine_fr"			requires 	"57_mm_m1_fr"				costs 4}
+	{"m4a3_105_fr"				requires 	"m4a3_75_fr"				costs 4}
+	{"m7_fr"				requires 	"105_mm_m2a1l_fr"			costs 5}
+	
+;TOTAL: 0
+
+; ---TECH UPGRADES---
+{ tech "defense_level_1"		requires ""											costs 1 }
+{ tech "defense_level_2"		requires "defense_level_1 reinforcement_stage_3"	costs 5 }
+{ tech "defense_level_3"		requires "defense_level_2 reinforcement_stage_4"	costs 7 }
+
+{ tech "reinforcement_stage_1"	requires ""									costs 0 }
+{ tech "reinforcement_stage_2"	requires ""									costs 0 }
+{ tech "reinforcement_stage_3"	requires "reinforcement_stage_2"			costs 3 }
+{ tech "reinforcement_stage_4"	requires "reinforcement_stage_3"			costs 6 }
+{ tech "reinforcement_stage_5"	requires "reinforcement_stage_4"			costs 9 }
+;TOTAL: 28
+
+
+{GridWidth 10} ;total with 0-#
+{Positions
+;// {"Squad name" column, row}
+	{"defense_level_1"			2 1}
+	{"defense_level_2"			3 1}
+	{"defense_level_3"			4 1}
+
+	{"reinforcement_stage_1"	0 0}
+	{"reinforcement_stage_2"	1 0}
+	{"reinforcement_stage_3"	2 0}
+	{"reinforcement_stage_4"	3 0}
+	{"reinforcement_stage_5"	4 0}
+	
+	;---SQUADS---
+	{"single_auxiliary_late(fra)"	0 2}
+	{"single_mg_late(fra)"		1 2}
+	
+	{"single_at_late(fra)"		1 3}
+	{"single_mortar_late(fra)"	2 3}
+	{"single_riflegrenade_late(fra)"	3 3}
+	
+	{"single_medic(fra)"		0 4}
+	{"single_flamer_late(fra)"	1 4}
+	{"single_sniper(fra)"		2 4}
+	{"single_officer(fra)"		3 4}
+
+	{"single_ap_miner(fra)"		0 5}
+	{"single_at_miner(fra)"		1 5}
+	{"single_engineer(fra)"		2 5}
+
+	{"squad_light_late(fra)"	1 6}
+	{"squad_regular_late(fra)"	2 6}
+	{"squad_pionier_late(fra)"	3 6}
+	{"squad_marine_late(fra)"	4 6}
+	{"squad_stormtrooper_late(fra)"		5 6}
+
+
+	;---MG---
+	{"0_3cal_m1919a4_fr"		0 7}
+	{"0_5cal_m2hb_fr"		1 7}
+
+	;---Mortars---
+	{"81_mm_m1_fr"			2 9}
+
+	;---AA---
+	{"13mm_hotchkiss"			2 7}
+	{"40_mm_m1_fr"			3 7}
+
+	;---AT Guns---
+	{"25mm_hotchkiss_mle34"			0 8}
+	{"47mm_puteaux_mle37"			1 8}
+	{"57_mm_m1_fr"			2 8}
+
+
+	;---Infantry Guns---
+	{"75_mm_m1897a4_fr"		3 8}
+
+
+	;---Artillery---
+	{"105_mm_m2a1l_fr"		3 9}
+	{"155_mm_m1918"			4 9}
+	{"22cm_mortier"			5 9}
+	
+
+	;---Trucks---
+	{"chevrolet_fr"		0 10}
+	{"chevrolet_fuel_fr"		1 10}
+	{"cckw352_fr_inf"		2 10}
+	{"cckw352_fr_art"		3 10}
+	{"dodgewc55_fr"			4 10}
+	{"panhard"			5 10}
+
+
+	;---Armored Cars---
+	{"m3a1_scout_fr"		1 11}
+	{"cckw352_fr_eng"		0 11}
+	{"m20_fr"			2 11}
+	{"m8_grayhound_fr"		3 11}
+	{"m17_fr"			4 11}
+	{"m4halftrack_fr"		5 11}
+	{"laffly_v15t_mg"			0 12}
+	{"laffly_s15_toe"			0 13}
+	{"laffly15tcc"			0 14}
+	{"autocanon_75mm"			0 15}
+
+	; ---Light Tanks---
+	{"m5a1_fr"			2 12}
+	{"m8_fr"			3 12}
+
+	
+	; ---Medium Tanks---
+	{"cavalier_mk_vii"		3 13}
+	{"m4a3_75_fr"			4 13}
+	{"m4a3_76_fr"			5 13}
+
+	; ---Heavy Tanks---
+	{"b1bis"			1 14}
+
+
+	; ---Self Propelled Guns---
+	{"m10wolverine_fr"		5 14}
+	{"m4a3_105_fr"			6 14}
+	{"m7_fr"			7 14}
+	
+
+	;---Aircraft---
+	{"conquest_douglas"	8 15}
+}

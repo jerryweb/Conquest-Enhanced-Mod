@@ -1,0 +1,163 @@
+{actor
+	(include "/properties/airborne.ext")
+	{PatherID "bf110"}
+	(include "/properties/selection/airborne.inc" scale(3.0))
+	(include "/properties/shadow/airborn.inc" scale(2.2))
+	(include "/properties/car_crew.ext")
+	("fighter_tier2")
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_plane_left"} {end "seat_driver_car"}}
+			{reverse 	{end	"board_plane_left" -1}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_plane_right"} {end "seat_driver_car"}}
+			{reverse 	{end	"board_plane_right" -1}}
+		}
+		{anm "passengers"
+			{forward {begin "board_plane_left"} {end "seat_driver_car"} {base "open" -1}}
+			{reverse {end "board_plane_left" -10} {base "open" -1}}
+		}
+	}
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+	("crew_human" place(gunner) bone(gunner) door(emit1) animation(gunner))
+	("crew_human" place(seat1) bone(seat01) door(emit1)  animation(passengers) 	group(passengers))
+	("crew_human" place(seat2) bone(seat02) door(emit1) animation(passengers) 	group(passengers))
+	("crew_human" place(seat3) bone(seat03) door(emit1) animation(passengers) 	group(passengers))
+	("crew_human" place(seat4) bone(seat04) door(emit1) animation(passengers) 	group(passengers))
+	("crew_human" place(seat5) bone(seat05) door(emit1) animation(passengers) 	group(passengers))
+	("crew_human" place(seat6) bone(seat06) door(emit1) animation(passengers) 	group(passengers))
+	("crew_human" place(seat7) bone(seat07) door(emit1) animation(passengers) 	group(passengers))
+	("crew_human" place(seat8) bone(seat08) door(emit1) animation(passengers) 	group(passengers))
+	("crew_human" place(seat9) bone(seat09) door(emit1) animation(passengers) 	group(passengers))
+	("crew_human" place(seat10) bone(seat10) door(emit1) animation(passengers) 	group(passengers))
+	("crew_human" place(seat11) bone(seat11) door(emit1) animation(passengers) 	group(passengers))
+	("crew_human" place(seat12) bone(seat12) door(emit1) animation(passengers) 	group(passengers))
+
+	{Placer
+		{place "driver" {turnOff {targetable}}}
+		{place "gunner" {turnOff {targetable}}}
+	}
+	;("part" args "wingL0")
+	;("part" args "wingR0")
+	;("part" args "wingL")
+	;("part" args "wingR")
+	;("part" args "elevator2")
+	;("part" args "elevator1")
+	;("part" args "elevator2")
+	;("part" args "rudder")
+	;("part" args "aileron1")
+	;("part" args "aileron2")
+	;("part" args "wheelr")
+	;("part" args "wheell")
+	;("part" args "wheel2")
+	;("part" args "body_back")
+	{Volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 12}
+	}
+	{Volume "bodyback3"
+		{tags "body"}
+		{component "bodyback"}
+		{thickness 5}
+	}
+	{Volume "bodyback2"
+		{tags "body"}
+		{component "bodyback"}
+		{thickness 5}
+	}
+	{Volume "bodyback"
+		{tags "body"}
+		{component "bodyback"}
+		{thickness 5}
+	}
+	{Volume "engine1"
+		{thickness 12}
+		{component "engine"}
+	}
+	{Volume "engine2"
+		{thickness 12}
+		{component "engine"}
+	}
+	{Volume "wingL0"
+		{thickness 7}
+		{component "body"}
+	}
+	{Volume "wingR0"
+		{thickness 7}
+		{component "body"}
+	}
+	{Volume "wingL"
+		{thickness 5}
+	}
+	{Volume "wingR"
+		{thickness 5}
+	}
+	("double_engine")
+	("wheel" args "wheelr")
+	("wheel" args "wheell")
+	("wheel" args "wheelback")
+	{Chassis "airborne"
+		("flight_model"
+			speed(370)  ;//---------Max speed (at sea level), km/h.
+			climb_speed(11) ;//-----Climb rate at sea level, in m/s
+			turn(250) ;//-----------Turn-and-burn radius in meters, tightest sustained turn
+			aerodynamics(1.55) ;//--Aerodynamic efficiency rating (0-3)
+			weight(15200) ;//--------Weight in kg.
+			power(3700) ;//---------Horse Power.
+			fuel(1300) ;//----------Fuel capacity in Liters.
+			range(2100) ;//---------Distance can travel with full fuel tank, in km.
+			roll_rate(40) ;//-------Roll rate, in degrees per second.
+			roll_angle(65) ;//------Maximum roll angle, in degrees.
+		)
+	}
+	{mass 6600}
+	
+	{extender "inventory"
+		{box
+			{item "ammo air_bomb 1000lb" 3}
+			{item "bullet_20_auto aphe" 1000}
+			{item "ammo 7x63" 3000}
+		}
+	}	
+	{Weaponry
+		{place "gun"
+			{weapon "20mm_hispano" filled}
+			{barrels 4}
+			{foresight "foresight1"}
+			{shooter "shooter_g"}
+			{charger "driver"}
+			{gunner "driver"}
+			{rotate}
+			{basic}
+		}
+		{place "mgun"
+			{type "rear"}
+			{weapon "browning_m19" filled}
+			{LinkBone "mgun"}
+			{LinkAnimation "off"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			{rotate}
+			{basic}
+		}
+		{place "mgun1"
+                        {type "hull"}
+			{weapon "browning_m19" filled}
+			{barrels 6}
+			{shooter "shooter_m"}
+			{charger "driver"}
+			{gunner "driver"}
+			{foresight "foresight31"}
+			{basic}
+		}
+		{place "bomb"
+			{weapon "bomb_dropper_m65" filled}
+			{charger "driver"}
+			{gunner "driver"}
+			{basic}
+		}
+	}
+	{Extension "bristol_para_plane.mdl"}
+}

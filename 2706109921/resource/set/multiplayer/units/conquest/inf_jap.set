@@ -1,0 +1,131 @@
+;// CP + Scores + CW
+
+;////////////////// INSTRUCTIONS //////////////////
+; In this file onee configures the humans which are spawned in vehicles or squads
+; The humans have a CP and cost associated with them which collectively add up for the final squad value
+; Check ../settings.set for syntax instructions!!
+;//////////////////////////////////////////////////
+
+;SDL
+(define "jap_tankman"
+	{tags "mid %side infantry man"}
+	{cp 0}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
+{"mp/jap/mid/home_guard"			("jap_tankman" side(jap)) {cost 5.0}}
+{"mp/jap/mid/vehicle_supporter"	("jap_tankman" side(jap)) {cost 5.0}}
+{"mp/jap/mid/tankman"			("jap_tankman" side(jap)) {cost 4.0}}
+{"mp/jap/mid/tankman2"	("jap_tankman" side(jap)) {cost 8.0}}
+{"mp/jap/mid/pilot"	("jap_tankman" side(jap)) {cost 4.0}}
+
+
+(define "jap_regular"
+	{tags "mid %side infantry man lvl1"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 1.5}
+	{score_factor 0.05}
+)
+{"mp/jap/mid/mgun"			("jap_regular" side(jap)) {cost 45.0}} ; has mg
+{"mp/jap/mid/rifle"		("jap_regular" side(jap)) {cost 8.0}}
+{"mp/jap/mid/rifle2"		("jap_regular" side(jap)) {cost 8.0}}
+{"mp/jap/mid/smg"		    ("jap_regular" side(jap)) {cost 10.0}}
+{"mp/jap/mid/smg2"		    ("jap_regular" side(jap)) {cost 10.0}}
+{"mp/jap/mid/flamer2"			("jap_regular" side(jap)) {cost 10.0}}
+{"mp/jap/mid/at_rifle2"		("jap_regular" side(jap)) {cost 10.0}}
+
+(define "jap_regular_advanced"
+	{tags "mid %side infantry man lvl2 lvl3 lvl4"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.05}
+)
+{"mp/jap/mid/at_rifle"		("jap_regular_advanced" side(jap)) {cost 40.0}} ; has AT
+{"mp/jap/mid/rifle_grenade"		("jap_regular_advanced" side(jap)) {cost 35.0}} ; rifle grenade
+{"mp/jap/mid/saper"		("jap_regular_advanced" side(jap)) {cost 60.0}}
+{"mp/jap/mid/flamer"			("jap_regular_advanced" side(jap)) {cost 70.0}}
+{"mp/jap/mid/ap_miner"		("jap_regular_advanced" side(jap)) {cost 60.0}}
+{"mp/jap/mid/at_miner"		("jap_regular_advanced" side(jap)) {cost 60.0}}
+{"mp/jap/mid/gr_launcher"				("jap_regular_advanced" side(jap)) {cost 85.0}}
+{"mp/jap/mid/squadleader"				("jap_regular_advanced" side(jap))) {cost 15.0}}
+{"mp/jap/mid/squadleader2"				("jap_regular_advanced" side(jap)) {cost 15.0}}
+
+
+(define "jap_pioniere"
+	{tags "mid %side infantry man lvl2 lvl3 lvl4"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 3}
+	{score_factor 0.05}
+)
+{"mp/jap/mid/elite"		("jap_pioniere" side(jap)) {cost 20.0}}
+{"mp/jap/mid/elite2"		("jap_pioniere" side(jap)) {cost 45.0}}
+{"mp/jap/mid/elite3"		("jap_pioniere" side(jap)) {cost 20.0}}
+{"mp/jap/mid/elite4"		("jap_pioniere" side(jap)) {cost 20.0}}
+
+
+(define "jap_radioman"
+	{tags "mid %side infantry man lvl4"}
+	{cp 4}
+	{basic}
+	{breed}
+	{cw 4.0}
+	{score_factor 0.05}
+)
+{"mp/jap/mid/radioman"		("jap_radioman" side(jap)) {cost 55.0}}
+
+
+(define "jap_sturmovik"
+	{tags "mid %side infantry man lvl3 lvl4"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 4}
+	{score_factor 0.05}
+)
+{"mp/jap/mid/sturmovik"		("jap_sturmovik" side(jap)) {cost 30.0}}
+{"mp/jap/mid/sturmovik2"		("jap_sturmovik" side(jap)) {cost 50.0}}
+{"mp/jap/mid/sturmovik3"		("jap_sturmovik" side(jap)) {cost 30.0}} 
+{"mp/jap/mid/sturmovik4"		("jap_sturmovik" side(jap)) {cost 30.0}}
+{"mp/jap/mid/sturmovik4b"		("jap_sturmovik" side(jap)) {cost 30.0}}
+{"mp/jap/mid/sturmovik5"		("jap_sturmovik" side(jap)) {cost 50.0}}
+{"mp/jap/mid/sturmovik5b"		("jap_sturmovik" side(jap)) {cost 30.0}}
+{"mp/jap/mid/sturmovik6"		("jap_sturmovik" side(jap)) {cost 30.0}}
+{"mp/jap/mid/sturmovik6b"		("jap_sturmovik" side(jap)) {cost 30.0}}
+
+(define "jap_medic"
+	{tags "mid %side infantry man"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0}
+)
+{"mp/jap/mid/medic"		("jap_medic" side(jap)) {cost 40.0}}
+
+(define "jap_officer"
+	{tags "mid %side infantry man officer"}
+	{cp 4}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.2}
+)
+{"mp/jap/mid/officer"		("jap_officer" side(jap)) {cost 350.0}}
+
+(define "jap_sniper"
+	{tags "mid %side infantry man sniper lvl3 lvl4"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.05}
+)
+{"mp/jap/mid/sniper"		("jap_sniper" side(jap)) {cost 150.0}}

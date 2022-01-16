@@ -1,0 +1,258 @@
+{actor
+	(include "/properties/airborne.ext")
+	{PatherID "bf110"}
+	(include "/properties/selection/airborne.inc" scale(3.0))
+	(include "/properties/shadow/airborn.inc" scale(2.2))
+	(include "/properties/car_crew.ext")
+	("fighter_tier2")
+	
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_plane_right"} {end "seat_driver_car"} {base "open"}}
+			{reverse 	{end	"board_plane_right" -1} {base "open" -1}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_plane_right"} {end "seat_driver_car"} {base "open"}}
+			{reverse 	{end	"board_plane_right" -1} {base "open" -1}}
+		}
+		{anm "passengers"
+			{forward {begin "board_plane_right"} {end "seat_driver_car"} {base "open1"}}
+			{reverse {end "board_plane_right" -10} {base "open1" -1}}
+		}
+	}
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+	("crew_human" place(gunner) bone(gunner) door(emit1) animation(gunner))
+	("crew_human" place(gunner2) bone(gunner2) door(emit1) animation(gunner))
+	("crew_human" place(gunner3) bone(gunner3) door(emit1) animation(gunner))
+	("crew_human" place(gunner4) bone(gunner4) door(emit2) animation(gunner))
+	("crew_human" place(seat1) bone(seat01) door(emit1)  animation(passengers) 	group(passengers))
+	("crew_human" place(seat2) bone(seat02) door(emit1) animation(passengers) 	group(passengers))
+	("crew_human" place(seat3) bone(seat03) door(emit1) animation(passengers) 	group(passengers))
+	("crew_human" place(seat4) bone(seat04) door(emit1) animation(passengers) 	group(passengers))
+	("crew_human" place(seat5) bone(seat05) door(emit1) animation(passengers) 	group(passengers))
+	("crew_human" place(seat6) bone(seat06) door(emit1) animation(passengers) 	group(passengers))
+	("crew_human" place(seat7) bone(seat07) door(emit1) animation(passengers) 	group(passengers))
+	("crew_human" place(seat8) bone(seat08) door(emit1) animation(passengers) 	group(passengers))
+	("crew_human" place(seat9) bone(seat09) door(emit1) animation(passengers) 	group(passengers))
+	("crew_human" place(seat10) bone(seat10) door(emit1) animation(passengers) 	group(passengers))
+	("crew_human" place(seat11) bone(seat11) door(emit1) animation(passengers) 	group(passengers))
+	("crew_human" place(seat12) bone(seat12) door(emit1) animation(passengers) 	group(passengers))
+	{Placer
+		{place "driver" {turnOff {targetable}}}
+		{place "gunner" {turnOff {targetable}}}
+	}
+	{Volume "body3"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}
+	}
+	{Volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}
+	}
+	{Volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 15}
+	}
+	{Volume "engine1"
+		{tags "engine"}
+		{component "engine"}
+		{thickness 15}
+	}
+	{Volume "engine2"
+		{tags "engine"}
+		{component "engine"}
+		{thickness 15}
+	}
+	{Volume "part1"
+		{thickness 7}
+	}
+	{Volume "part2"
+		{thickness 7}
+	}
+		{Volume "aileron1"
+		{thickness 5}
+	}
+	{Volume "aileron2"
+		{thickness 5}
+	}
+	{Volume "elevator1"
+		{thickness 5}
+	}
+	{Volume "elevator2"
+		{thickness 5}
+	}
+	{Volume "wingl"
+		{thickness 7}
+	}
+	{Volume "wingr"
+		{thickness 7}
+	}
+	{Volume "mgun2_turret"
+		{thickness 7}
+	}
+	{Volume "rudder1"
+		{thickness 7}
+	}
+	{Volume "rudder2"
+		{thickness 7}
+	}
+
+	("double_engine")
+	("wheel" args "wheelr")
+	("wheel" args "wheell")
+	("wheel" args "wheelback")
+	{Chassis "airborne"
+		("flight_model"
+			speed(470)  ;//---------Max speed (at sea level), km/h.
+			climb_speed(11) ;//-----Climb rate at sea level, in m/s
+			turn(250) ;//-----------Turn-and-burn radius in meters, tightest sustained turn
+			aerodynamics(1.55) ;//--Aerodynamic efficiency rating (0-3)
+			weight(15200) ;//--------Weight in kg.
+			power(4000) ;//---------Horse Power.
+			fuel(1300) ;//----------Fuel capacity in Liters.
+			range(2100) ;//---------Distance can travel with full fuel tank, in km.
+			roll_rate(40) ;//-------Roll rate, in degrees per second.
+			roll_angle(65) ;//------Maximum roll angle, in degrees.
+		)
+	}
+	{mass 15200}
+
+	{Placer
+	        
+	        {place "mgun1_1"
+	                  {entity "browningm2hb_m2"}
+	                   {Linkbone "mgun1_1"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+		{place "mgun1_2"
+	                  {entity "browningm2hb_m2"}
+	                   {Linkbone "mgun1_2"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          } 
+		{place "mgun1_3"
+	                  {entity "browningm2hb_m2"}
+	                   {Linkbone "mgun1_3"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          } 
+		{place "mgun1_4"
+	                  {entity "browningm2hb_m2"}
+	                   {Linkbone "mgun1_4"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          } 
+	         {place "mgun2_1"
+	                  {entity "browningm2hb_m2"}
+	                   {Linkbone "mgun2_1"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+		{place "mgun2_2"
+	                  {entity "browningm2hb_m2"}
+	                   {Linkbone "mgun2_2"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+	         {place "mgun3_1"
+	                  {entity "browningm2hb_m2"}
+	                   {Linkbone "mgun3_1"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+		{place "mgun3_2"
+	                  {entity "browningm2hb_m2"}
+	                   {Linkbone "mgun3_2"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          }
+		{place "mgun4"
+	                  {entity "browningm2hb_m2"}
+	                   {Linkbone "mgun4"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          } 
+		{place "mgun5"
+	                  {entity "browningm2hb_m2"}
+	                   {Linkbone "mgun5"}
+	                   {handlebone "basis"}
+	                   {obstacle disable}
+	          } 
+               }
+	 
+	{extender "inventory"
+		{Box
+			{item "ammo air_bomb 1000lb" 3}
+			{item  "ammo 12x99" 2000}
+		}
+	}
+	{Weaponry
+		{place "mgun1"
+			{type "main"}
+			{weapon "browning_x4" filled}
+			{Barrels 4}
+			{foresight "foresight4"}
+			{shooter "shooter1m"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			{basic}
+		}
+		{place "mgun2"
+			{type "aa"}
+			{weapon "browning_x2" filled}
+			{Barrels 2}
+			{foresight "foresight5"}
+			{shooter "shooter2m"}
+			{gunner "gunner2"}
+			{charger "gunner2"}
+			{ai_in_manual}
+			{basic}
+		}
+		{place "mgun3"
+			{type "rear"}
+			{weapon "browning_x2" filled}
+			{Barrels 2}
+			{foresight "foresight6"}
+			{shooter "shooter3m"}
+			{gunner "gunner3"}
+			{charger "gunner3"}
+			{basic}
+		}
+		{place "mgun4"
+			{type "left"}
+			{weapon "browning_m2hb" filled}
+			{foresight "foresight7"}
+			{gunner "gunner4"}
+			{charger "gunner4"}
+			{basic}
+		}
+		{place "mgun5"
+			{type "right"}
+			{weapon "browning_m2hb" filled}
+			{foresight "foresight8"}
+			{gunner "gunner4"}
+			{charger "gunner4"}
+			{basic}
+		}
+		{place "bomb"
+			{weapon "bomb_dropper_m65" filled}
+			{barrels 1}
+			{gunner "driver"}
+			{charger "driver"}
+			{shooter "shooterb01"}
+			{basic}
+		}
+	}
+	{Extension "b25_para_plane.mdl"}
+	{sensor
+		{Visor "main"
+			{bone  "basis"}
+			{vision "airborne_main"}  
+		}
+	
+	}
+}
