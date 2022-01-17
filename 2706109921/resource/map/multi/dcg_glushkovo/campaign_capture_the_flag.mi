@@ -48363,6 +48363,96 @@
 			{"player_defending"}
 		}
 		{triggers
+			{"ai./update_artillery_attack_orders"
+				{condition
+					{expression "2"}
+					{terms
+						{"2.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag arty_attacking}
+										}
+									}
+									{include
+										{tag
+											{tag freeroam}
+										}
+										{state
+											{state operatable}
+										}
+										{state
+											{state inhabited}
+										}
+									}
+									{exclude
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 60}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag arty_attacking}
+									}
+								}
+								{include
+									{tag
+										{tag freeroam}
+									}
+									{state
+										{state operatable}
+									}
+									{state
+										{state inhabited}
+									}
+								}
+								{exclude
+									{tag
+										{tag player}
+									}
+									{tag
+										{tag player_veh}
+									}
+									{state
+										{state user_control}
+									}
+									{state
+										{state inactive}
+									}
+								}
+							}
+						}
+						{tag_remove arty_attacking}
+					}
+					{"trigger"
+						{name "ai./update_artillery_attack_orders"}
+					}
+				}
+			}
 			{"officer_commands/officer_callin_talk"
 				{condition
 					{type 1}
@@ -48516,6 +48606,11 @@
 													{state operatable}
 												}
 											}
+											{exclude
+												{state
+													{state inactive}
+												}
+											}
 										}
 									}
 									{text "mission/multi/request_paradrop"}
@@ -48543,6 +48638,11 @@
 													{state operatable}
 												}
 											}
+											{exclude
+												{state
+													{state inactive}
+												}
+											}
 										}
 									}
 									{text "mission/multi/request_paradrop_2"}
@@ -48568,6 +48668,11 @@
 												}
 												{state
 													{state operatable}
+												}
+											}
+											{exclude
+												{state
+													{state inactive}
 												}
 											}
 										}
@@ -48643,6 +48748,11 @@
 													{state operatable}
 												}
 											}
+											{exclude
+												{state
+													{state inactive}
+												}
+											}
 										}
 									}
 									{text "mission/multi/request_air_recon"}
@@ -48670,6 +48780,11 @@
 													{state operatable}
 												}
 											}
+											{exclude
+												{state
+													{state inactive}
+												}
+											}
 										}
 									}
 									{text "mission/multi/request_air_recon_2"}
@@ -48695,6 +48810,11 @@
 												}
 												{state
 													{state operatable}
+												}
+											}
+											{exclude
+												{state
+													{state inactive}
 												}
 											}
 										}
@@ -48770,6 +48890,11 @@
 													{state operatable}
 												}
 											}
+											{exclude
+												{state
+													{state inactive}
+												}
+											}
 										}
 									}
 									{text "mission/multi/request_supply_drop"}
@@ -48797,6 +48922,11 @@
 													{state operatable}
 												}
 											}
+											{exclude
+												{state
+													{state inactive}
+												}
+											}
 										}
 									}
 									{text "mission/multi/request_supply_drop_2"}
@@ -48822,6 +48952,11 @@
 												}
 												{state
 													{state operatable}
+												}
+											}
+											{exclude
+												{state
+													{state inactive}
 												}
 											}
 										}
