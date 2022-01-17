@@ -1,21 +1,22 @@
 require([[/script/multiplayer/bot.data]])
 
 -- This enables early testing so that units come 30 seconds after start. 
-testing = true
+testing = false
+verbose = false
 
 -- Number of unit division roster files to randomly select for each period in the war 
 maxNumOfEarlyDivisions = 5
 maxNumOfMidDivisions = 6
 maxNumOfLateDivisions = 7
+firstWaveOffsetTime  = 720
 
 -- Wave offset is used to set how much extra time the first wave will last in since the wave is loaded automatically
 gameStartTime = os.clock()
 
 if testing then
-	firstWaveOffsetTime = 80
-else 
-	firstWaveOffsetTime = 720
-end
+	firstWaveOffsetTime = 50
+end 
+
 -- This is used to add the offset ONLY to the first wave
 initialWave = true
 
@@ -36,6 +37,12 @@ nextTyphoonWaveToggleTime = 0
 defaultSpawnCooldownTime = {}
 
 currentWaveMaxUnitCount = 0
+
+function verbosePrinting( verbose, printString )
+	if verbose then
+		print(printString)
+	end
+end
 
 -- This selects which unit roster file to load given the total number of flags on the map
 -- TODO: figure out how to extract the campaign day progress for more accurate file selection
@@ -62,11 +69,45 @@ function selectArmyDivision(totalFlags)
 	print("loading")
 	-- REMOVE THIS LINE (ONLY FOR TESTING)
 	if testing then
-		divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.5]]
+		divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.mid.6]]
 	end
 
 
 	return divisionPurchaseModel
+end
+
+function setFirstWaveOffset( flags )
+	local switch = {
+		[1] = function()
+			firstWaveOffsetTime = 480
+		end,
+		[2] = function()
+			firstWaveOffsetTime = 1200
+		end,
+		[3] = function()
+			firstWaveOffsetTime = 720
+		end,
+		[4] = function()
+			firstWaveOffsetTime = 1500
+		end,
+		[5] = function()
+			firstWaveOffsetTime = 900
+		end
+	}
+
+	local f = switch[flags]
+
+	if(f) then
+		f()
+	else
+	   	firstWaveOffsetTime = 720
+	end
+
+	if testing then
+		firstWaveOffsetTime = 90
+	end 
+
+	return firstWaveOffsetTime
 end
 
 function setNextTyphoonWaveTime() 
@@ -132,7 +173,9 @@ function PIter:nextIndex()
 	-- 	self.idx = 1
 	-- end
 	-- self.nextValidWave()
-	print("finding next valid wave")
+	if verbose then
+		print("finding next valid wave")
+	end
 	local availableUnits = {}
 
 	-- Find the next wave that has at least 1 unlocked unit to buy
@@ -144,31 +187,44 @@ function PIter:nextIndex()
 			self.idx = 1
 		end
 
-		print("wave ", self.idx)
-		
+		if verbose then
+			print("wave ", self.idx)
+		end 
 		local potentialUnits = self.purchases[self.idx].Units[BotApi.Instance.army]
-		print("Finding unlocked units for this wave")
-
+		
+		if verbose then
+			print("Finding unlocked units for this wave")
+		end
+		
 		for i, unit in pairs(potentialUnits) do
 			if BotApi.Commands:IsUnitAvailable(unit.unit) then
-				print("Adding ", unit.unit, " to available units")
+				if verbose then
+					print("Adding ", unit.unit, " to available units")
+				end
 				table.insert(availableUnits, unit)
-				print("done adding")
 			else 
-				print(unit.unit, " is not yet available to the AI")
+				if verbose then
+					print(unit.unit, " is not yet available to the AI")
+				end
 			end
 		end
 		
 		if #availableUnits == 0 then
-			print("wave ", self.idx, " has no available units")
-
+			if verbose then
+				print("wave ", self.idx, " has no available units")
+			end
 		end
 	end	
 
-	print("number of available units for wave ", self.idx, ": ", #availableUnits)
+
+	--print("number of available units for wave ", self.idx, ": ", #availableUnits)
+	
 	self.unlockedUnits = availableUnits
 
-	print("grabbing wave number: ", self.purchases[self.idx].waveNumber)
+	
+	if verbose then
+		print("grabbing wave number: ", self.purchases[self.idx].waveNumber)
+	end
 
 	self.waveStartTime = os.clock()
 	
@@ -178,8 +234,10 @@ function PIter:nextIndex()
 		self.rpt = self.purchases[self.idx].Repeat
 	end
 
+	if verbose then
+			print("Min number of squads for this wave: ", self.rpt)
+	end
 
-	print("Min number of squads for this wave: ", self.rpt)
 
 	if self.purchases[self.idx].maxRepeat then
 		currentWaveMaxUnitCount = self.purchases[self.idx].maxRepeat
@@ -187,7 +245,11 @@ function PIter:nextIndex()
 		currentWaveMaxUnitCount = self.rpt
 	end	
 
-	print("Max number of squads for this wave: ", self.rpt)
+	
+
+	if verbose then
+		print("Max number of squads for this wave: ", self.rpt)
+	end
 
 	if typhoonWaveMode then 
 		self.waveDuration = 3
@@ -203,7 +265,9 @@ function PIter:nextIndex()
 	end
 
 	if self.purchases[self.idx].isHeavyArty then 
-		print("setting ", self.purchases[self.idx].isHeavyArty)
+		if verbose then
+			print("setting ", self.purchases[self.idx].isHeavyArty)
+		end
 		self.isHeavyArty = self.purchases[self.idx].isHeavyArty
 	else
 		self.isHeavyArty = false
@@ -216,10 +280,12 @@ function PIter:nextIndex()
 		self.isMortar = false
 	end
 	
+	if verbose then
+		print("waveStartTime:", self.waveStartTime)
+		print("waveDuration: ", self.waveDuration)
+		print("time when current wave is over: ", self.waveDuration + self.waveStartTime)
+	end
 
-	print("waveStartTime:", self.waveStartTime)
-	print("waveDuration: ", self.waveDuration)
-	print("time when current wave is over: ", self.waveDuration + self.waveStartTime)
 end
 
 function PIter:moveNext()
@@ -229,17 +295,23 @@ function PIter:moveNext()
 
 	if self.rpt > 0 then
 		self.rpt = self.rpt - 1
-		print("Repeat attempts left for wave: ", self.rpt)
+		if verbose then
+			print("Repeat attempts left for wave: ", self.rpt)			
+		end
 	end
 
 	if self.rpt == 0 then
 		if typhoonWaveMode then
 			if os.clock() > (3 + self.waveStartTime) then
-				print("Ready for next typhoon wave")
+				if verbose then
+					print("Ready for next typhoon wave")		
+				end
 				self:nextIndex()
 			end
 		elseif os.clock() > (self.waveDuration + self.waveStartTime) then
-			print("Ready for next wave")
+			if verbose then
+				print("Ready for next wave")		
+			end
 			self:nextIndex()
 		end
 	end

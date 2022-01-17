@@ -49957,6 +49957,96 @@
 			{"player_defending"}
 		}
 		{triggers
+			{"ai./update_artillery_attack_orders"
+				{condition
+					{expression "2"}
+					{terms
+						{"2.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag arty_attacking}
+										}
+									}
+									{include
+										{tag
+											{tag freeroam}
+										}
+										{state
+											{state operatable}
+										}
+										{state
+											{state inhabited}
+										}
+									}
+									{exclude
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 60}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag arty_attacking}
+									}
+								}
+								{include
+									{tag
+										{tag freeroam}
+									}
+									{state
+										{state operatable}
+									}
+									{state
+										{state inhabited}
+									}
+								}
+								{exclude
+									{tag
+										{tag player}
+									}
+									{tag
+										{tag player_veh}
+									}
+									{state
+										{state user_control}
+									}
+									{state
+										{state inactive}
+									}
+								}
+							}
+						}
+						{tag_remove arty_attacking}
+					}
+					{"trigger"
+						{name "ai./update_artillery_attack_orders"}
+					}
+				}
+			}
 			{"officer_commands/officer_callin_talk"
 				{condition
 					{type 1}
@@ -50110,6 +50200,11 @@
 													{state operatable}
 												}
 											}
+											{exclude
+												{state
+													{state inactive}
+												}
+											}
 										}
 									}
 									{text "mission/multi/request_paradrop"}
@@ -50137,6 +50232,11 @@
 													{state operatable}
 												}
 											}
+											{exclude
+												{state
+													{state inactive}
+												}
+											}
 										}
 									}
 									{text "mission/multi/request_paradrop_2"}
@@ -50162,6 +50262,11 @@
 												}
 												{state
 													{state operatable}
+												}
+											}
+											{exclude
+												{state
+													{state inactive}
 												}
 											}
 										}
@@ -50237,6 +50342,11 @@
 													{state operatable}
 												}
 											}
+											{exclude
+												{state
+													{state inactive}
+												}
+											}
 										}
 									}
 									{text "mission/multi/request_air_recon"}
@@ -50264,6 +50374,11 @@
 													{state operatable}
 												}
 											}
+											{exclude
+												{state
+													{state inactive}
+												}
+											}
 										}
 									}
 									{text "mission/multi/request_air_recon_2"}
@@ -50289,6 +50404,11 @@
 												}
 												{state
 													{state operatable}
+												}
+											}
+											{exclude
+												{state
+													{state inactive}
 												}
 											}
 										}
@@ -50364,6 +50484,11 @@
 													{state operatable}
 												}
 											}
+											{exclude
+												{state
+													{state inactive}
+												}
+											}
 										}
 									}
 									{text "mission/multi/request_supply_drop"}
@@ -50391,6 +50516,11 @@
 													{state operatable}
 												}
 											}
+											{exclude
+												{state
+													{state inactive}
+												}
+											}
 										}
 									}
 									{text "mission/multi/request_supply_drop_2"}
@@ -50416,6 +50546,11 @@
 												}
 												{state
 													{state operatable}
+												}
+											}
+											{exclude
+												{state
+													{state inactive}
 												}
 											}
 										}
@@ -106627,83 +106762,83 @@
 		}
 		{waypoints "paradrop"
 			{"23"
-				{position -8446.68 -4749.44 98}
+				{position -7722.04 -5637.7 112.68}
 			}
 			{"25"
-				{position -8631.67 -7002.95 86}
+				{position -7907.04 -7891.21 70}
 			}
 			{"27"
-				{position -4539.83 -8861.16 0}
+				{position -8047.53 6121.07 80}
 			}
 			{"29"
-				{position -405.08 -8745.82 0}
+				{position -8058.13 1150.25 0}
 			}
 			{"3000"
-				{position -10300.3 -5152.6 114.385}
+				{position -9575.67 -6040.86 95}
 				{transition "23"}
 			}
 			{"3001"
-				{position -9810.03 -7576.07 72}
+				{position -9085.4 -8464.33 0}
 				{transition "25"}
 			}
 			{"3002"
-				{position -5285.58 -9943.01 0}
+				{position -10092.3 6363.4 82}
 				{transition "27"}
 			}
 			{"3003"
-				{position -438.954 -10796.4 0}
+				{position -10259 1109.47 0}
 				{transition "29"}
 			}
 			{"3004"
-				{position -8110.79 -9773.71 0}
+				{position -9368.77 9011.38 0}
 				{transition "343"}
 			}
 			{"3005"
-				{position -10994.8 -2988.61 120}
+				{position -9654.42 -3976.94 111.517}
 				{transition "345"}
 			}
 			{"3006"
-				{position -11243.8 -155.066 92}
+				{position -9916.34 -1244.32 123}
 				{transition "347"}
 			}
 			{"3007"
-				{position -3018.28 -10169.3 0}
+				{position -10350 3771.35 158.176}
 				{transition "349"}
 			}
 			{"3008"
-				{position 6979.86 10686 0}
+				{position 9666.24 -8652.85 0}
 				{transition "353"}
 			}
 			{"3009"
-				{position 4261.31 10471.1 0}
+				{position 10249.4 -5621.49 0}
 				{transition "355"}
 			}
 			{"3010"
-				{position 1742.92 10499.1 0}
+				{position 10423.5 -3286.03 0}
 				{transition "357"}
 			}
 			{"3011"
-				{position 10329.5 8784.35 0}
+				{position 9249.73 8817.76 0}
 				{transition "359"}
 			}
 			{"3012"
-				{position 10842.9 6575.84 0}
+				{position 9591.56 6580.4 0}
 				{transition "361"}
 			}
 			{"3013"
-				{position 11003.6 4043.93 0}
+				{position 9683.47 4068.15 0}
 				{transition "363"}
 			}
 			{"3014"
-				{position 11190.1 1726.55 0}
+				{position 10110.3 1759.96 0}
 				{transition "365"}
 			}
 			{"3015"
-				{position 11235 -815.875 0}
+				{position 10155.2 -782.465 0}
 				{transition "367"}
 			}
 			{"3100"
-				{position -10277.4 -10322.2 0}
+				{position -11763.3 965.069 0}
 				{radius 4000}
 				{RandomPosition 1}
 				{commands
@@ -106711,7 +106846,7 @@
 				}
 			}
 			{"3101"
-				{position 9660.22 10324.3 0}
+				{position 11692.3 1657.44 0}
 				{radius 4000}
 				{RandomPosition 1}
 				{commands
@@ -106719,43 +106854,42 @@
 				}
 			}
 			{"343"
-				{position -7093.65 -8318.34 0}
+				{position -7710.75 7570.57 138}
 			}
 			{"345"
-				{position -8785.56 -2577.69 121.633}
+				{position -8111.57 -3756.32 128}
 			}
 			{"347"
-				{position -8908.79 -36.9766 102.51}
+				{position -8116.74 -1115.59 120}
 			}
 			{"349"
-				{position -2450.96 -8842.43 0}
+				{position -8375.85 3695.97 150.1}
 			}
 			{"353"
-				{position 6880.87 8387.38 0}
+				{position 7733.91 -7518.06 85.2734}
 			}
 			{"355"
-				{position 4162.32 8172.48 0}
+				{position 7765.24 -5686.37 69}
 			}
 			{"357"
-				{position 1643.93 8200.47 0}
+				{position 7988.9 -3408.29 85.7532}
 			}
 			{"359"
-				{position 8463.25 7904.54 0}
+				{position 7877.54 8029.39 0}
 			}
 			{"361"
-				{position 8770.11 6278.3 0}
+				{position 8012.83 6374.3 0}
 			}
 			{"363"
-				{position 8918.73 4179.61 0}
+				{position 8092.66 4295.27 0}
 			}
 			{"365"
-				{position 9105.22 1862.23 0}
+				{position 8025.45 1895.64 0}
 			}
 			{"367"
-				{position 9150.17 -680.194 0}
+				{position 8070.4 -646.784 0}
 			}
-		}
-	}
+		}	}
 	{Players
 		{count 17}
 		{diplomacy

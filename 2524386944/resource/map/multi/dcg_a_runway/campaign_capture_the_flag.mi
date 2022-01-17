@@ -38328,6 +38328,96 @@
 			{"player_defending"}
 		}
 		{triggers
+			{"ai./update_artillery_attack_orders"
+				{condition
+					{expression "2"}
+					{terms
+						{"2.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag arty_attacking}
+										}
+									}
+									{include
+										{tag
+											{tag freeroam}
+										}
+										{state
+											{state operatable}
+										}
+										{state
+											{state inhabited}
+										}
+									}
+									{exclude
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 60}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag arty_attacking}
+									}
+								}
+								{include
+									{tag
+										{tag freeroam}
+									}
+									{state
+										{state operatable}
+									}
+									{state
+										{state inhabited}
+									}
+								}
+								{exclude
+									{tag
+										{tag player}
+									}
+									{tag
+										{tag player_veh}
+									}
+									{state
+										{state user_control}
+									}
+									{state
+										{state inactive}
+									}
+								}
+							}
+						}
+						{tag_remove arty_attacking}
+					}
+					{"trigger"
+						{name "ai./update_artillery_attack_orders"}
+					}
+				}
+			}
 			{"officer_commands/officer_callin_talk"
 				{condition
 					{type 1}
@@ -38481,6 +38571,11 @@
 													{state operatable}
 												}
 											}
+											{exclude
+												{state
+													{state inactive}
+												}
+											}
 										}
 									}
 									{text "mission/multi/request_paradrop"}
@@ -38508,6 +38603,11 @@
 													{state operatable}
 												}
 											}
+											{exclude
+												{state
+													{state inactive}
+												}
+											}
 										}
 									}
 									{text "mission/multi/request_paradrop_2"}
@@ -38533,6 +38633,11 @@
 												}
 												{state
 													{state operatable}
+												}
+											}
+											{exclude
+												{state
+													{state inactive}
 												}
 											}
 										}
@@ -38608,6 +38713,11 @@
 													{state operatable}
 												}
 											}
+											{exclude
+												{state
+													{state inactive}
+												}
+											}
 										}
 									}
 									{text "mission/multi/request_air_recon"}
@@ -38635,6 +38745,11 @@
 													{state operatable}
 												}
 											}
+											{exclude
+												{state
+													{state inactive}
+												}
+											}
 										}
 									}
 									{text "mission/multi/request_air_recon_2"}
@@ -38660,6 +38775,11 @@
 												}
 												{state
 													{state operatable}
+												}
+											}
+											{exclude
+												{state
+													{state inactive}
 												}
 											}
 										}
@@ -38735,6 +38855,11 @@
 													{state operatable}
 												}
 											}
+											{exclude
+												{state
+													{state inactive}
+												}
+											}
 										}
 									}
 									{text "mission/multi/request_supply_drop"}
@@ -38762,6 +38887,11 @@
 													{state operatable}
 												}
 											}
+											{exclude
+												{state
+													{state inactive}
+												}
+											}
 										}
 									}
 									{text "mission/multi/request_supply_drop_2"}
@@ -38787,6 +38917,11 @@
 												}
 												{state
 													{state operatable}
+												}
+											}
+											{exclude
+												{state
+													{state inactive}
 												}
 											}
 										}
@@ -94447,128 +94582,128 @@
 			}
 		}
 		{waypoints "paradrop"
-			{"20"
-				{position -9900.1 -7282.58 0}
-				{transition "21"}
-			}
 			{"21"
-				{position -8411.8 -7263.79 0}
-			}
-			{"22"
-				{position -9911.92 -4130.4 0}
-				{transition "24"}
-			}
-			{"238"
-				{position -10347.6 1732.64 0}
-				{transition "239"}
+				{position 7259.36 -7710.87 254}
 			}
 			{"239"
-				{position -8904.04 1720.03 0}
+				{position -4167.26 -8102.09 0}
 			}
 			{"24"
-				{position -8422.81 -3977.45 0}
-			}
-			{"240"
-				{position 7459.41 9277.77 0}
-				{transition "241"}
+				{position 5058.41 -7866.08 166}
 			}
 			{"241"
-				{position 6157.96 8399.86 0}
-			}
-			{"242"
-				{position 10265.2 5087.12 0}
-				{transition "243"}
+				{position -7970.28 -8114.47 0}
 			}
 			{"243"
-				{position 8914.65 4753.27 0}
-			}
-			{"244"
-				{position 10358.2 -1825.84 0}
-				{transition "245"}
+				{position -3424.69 8077.83 -91}
 			}
 			{"245"
-				{position 8816.22 -2057.34 0}
-			}
-			{"246"
-				{position 10008.1 -7777.23 0}
-				{transition "247"}
+				{position 1827.72 8049.29 104.657}
 			}
 			{"247"
-				{position 8496.01 -7563.4 0}
-			}
-			{"248"
-				{position -10130.1 4052.31 0}
-				{transition "249"}
+				{position 4436.15 8029.65 -18}
 			}
 			{"249"
-				{position -8621.33 4123.93 0}
-			}
-			{"25"
-				{position -10116.5 -1227.08 0}
-				{transition "26"}
-			}
-			{"250"
-				{position -9625.57 7163.28 0}
-				{transition "251"}
+				{position -2092.25 -8299.3 0}
 			}
 			{"251"
-				{position -8424.6 7211.98 0}
-			}
-			{"252"
-				{position -7459.56 10174.2 0}
-				{transition "253"}
+				{position -6366.32 -8360.35 0}
 			}
 			{"253"
-				{position -6568.09 9081.62 0}
-			}
-			{"254"
-				{position -8528.22 -11810.4 0}
-				{transition "255"}
+				{position 116.178 -8010.02 0}
 			}
 			{"255"
-				{position -6745.36 -9485.48 0}
-			}
-			{"256"
-				{position 10217.7 -5005.27 0}
-				{transition "257"}
+				{position 7670.98 7995.13 -20}
 			}
 			{"257"
-				{position 8675.71 -5236.77 0}
-			}
-			{"258"
-				{position 10270.9 1652.05 0}
-				{transition "259"}
+				{position -7909.96 7945.67 -24}
 			}
 			{"259"
-				{position 8728.85 1420.55 0}
+				{position -661.288 8157.45 0}
 			}
 			{"26"
-				{position -8666.43 -1110.03 0}
-			}
-			{"260"
-				{position 10162.8 8219.91 0}
-				{transition "261"}
+				{position 2398.95 -8113.9 0}
 			}
 			{"261"
-				{position 8620.79 7988.41 0}
-			}
-			{"262"
-				{position 8184.36 -10412.8 0}
-				{transition "263"}
+				{position -6008.56 8014.11 -38}
 			}
 			{"263"
-				{position 6989.27 -8591.08 0}
+				{position 6552.92 8132.56 0}
 			}
-			{"264"
-				{position 11584.7 1827.89 0}
+			{"3000"
+				{position 8106.66 -10395.8 0}
+				{transition "21"}
+			}
+			{"3001"
+				{position 4808.88 -10502.3 0}
+				{transition "24"}
+			}
+			{"3002"
+				{position 2451.04 -10304.1 0}
+				{transition "26"}
+			}
+			{"3003"
+				{position -4067.85 -10754.1 0}
+				{transition "239"}
+			}
+			{"3004"
+				{position -2263.5 -10446.3 0}
+				{transition "249"}
+			}
+			{"3005"
+				{position -6324.7 -10636.7 0}
+				{transition "251"}
+			}
+			{"3006"
+				{position -135.779 -10401.7 0}
+				{transition "253"}
+			}
+			{"3007"
+				{position -8748.78 -9713.46 0}
+				{transition "241"}
+			}
+			{"3008"
+				{position -3379.91 10067 0}
+				{transition "243"}
+			}
+			{"3009"
+				{position 2042.68 10255.4 0}
+				{transition "245"}
+			}
+			{"3010"
+				{position 4468.9 10142.6 0}
+				{transition "247"}
+			}
+			{"3011"
+				{position -9400.49 9484.37 0}
+				{transition "257"}
+			}
+			{"3012"
+				{position -532.43 10641.5 0}
+				{transition "259"}
+			}
+			{"3013"
+				{position -6299.42 10634.8 0}
+				{transition "261"}
+			}
+			{"3014"
+				{position 6887.55 10045.4 0}
+				{transition "263"}
+			}
+			{"3015"
+				{position 8943.19 9736.12 0}
+				{transition "255"}
+			}
+			{"3100"
+				{position -676.555 -11889.5 0}
 				{radius 4000}
 				{RandomPosition 1}
 				{commands
 					{"delete"}
 				}
 			}
-			{"265"
-				{position -11548.1 -785.975 -114}
+			{"3101"
+				{position -627.324 12059.1 0}
 				{radius 4000}
 				{RandomPosition 1}
 				{commands
