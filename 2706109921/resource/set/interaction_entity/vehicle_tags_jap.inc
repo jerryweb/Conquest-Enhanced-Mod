@@ -324,7 +324,7 @@
 
 {"200mm_type_4"
 	{on spawn
-    	{tags add "artillery"}
+    	{tags add "rocket_artillery"}
 		{tags add "japanese"}
 		{tags add "200mm_type_4"}
 		{delay 6
