@@ -21,7 +21,7 @@ end
 initialWave = true
 
 -- This variable controls whether units will spawn all at once for 15 seconds, creating a massive wave, every x seconds
-typhoonWaveMode = true
+typhoonWaveMode = false
 nextTyphoonWaveTime = 0
 typhoonWaveInterval = 90
 typhoonWaveDuration = 25
