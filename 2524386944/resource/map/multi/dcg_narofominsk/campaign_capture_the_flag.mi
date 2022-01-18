@@ -99753,6 +99753,9 @@
 										{state
 											{state user_control}
 										}
+										{tag
+											{tag arty_attacking}
+										}
 									}
 								}
 							}
@@ -100099,6 +100102,44 @@
 									}
 								}
 							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag artillery}
+										}
+									}
+									{include
+										{tag
+											{tag freeroam}
+										}
+										{state
+											{state operatable}
+										}
+										{state
+											{state inhabited}
+										}
+									}
+									{exclude
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag player}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag arty_attacking}
+										}
+									}
+								}
+							}
+							{tag_add arty_attacking}
 						}
 					}
 					{"if"
@@ -100138,6 +100179,9 @@
 										{state
 											{state user_control}
 										}
+										{tag
+											{tag arty_attacking}
+										}
 									}
 								}
 							}
@@ -100484,6 +100528,44 @@
 									}
 								}
 							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag artillery}
+										}
+									}
+									{include
+										{tag
+											{tag freeroam}
+										}
+										{state
+											{state operatable}
+										}
+										{state
+											{state inhabited}
+										}
+									}
+									{exclude
+										{tag
+											{tag arty_attacking}
+										}
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag player}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+							{tag_add arty_attacking}
 						}
 					}
 					{"delay"
