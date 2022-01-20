@@ -44810,9 +44810,6 @@
 					}
 				}
 				{actions
-					{"delay"
-						{time 1}
-					}
 					{"if"
 						{condition
 							{type entities}
@@ -44821,7 +44818,7 @@
 								{group
 									{select
 										{tag
-											{tag paradrophere}
+											{tag pointer_going}
 										}
 									}
 									{exclude
@@ -44834,27 +44831,6 @@
 									}
 								}
 							}
-						}
-						{"entity_state"
-							{selector
-								{source advanced}
-								{group
-									{select
-										{tag
-											{tag paradrophere}
-										}
-									}
-									{exclude
-										{tag
-											{tag acknowledged}
-										}
-										{tag
-											{tag failed_callin}
-										}
-									}
-								}
-							}
-							{tag_add acknowledged}
 						}
 						{"switch"
 							{"case"
@@ -44878,18 +44854,14 @@
 												{state
 													{state operatable}
 												}
-												{prop
-													{prop human}
-												}
-												{zone
-													{zone "gamezone"}
-												}
 											}
 											{exclude
 												{state
 													{state inactive}
 												}
 											}
+										}
+										{amount 1
 										}
 									}
 									{text "mission/multi/request_paradrop"}
@@ -44916,18 +44888,14 @@
 												{state
 													{state operatable}
 												}
-												{prop
-													{prop human}
-												}
-												{zone
-													{zone "gamezone"}
-												}
 											}
 											{exclude
 												{state
 													{state inactive}
 												}
 											}
+										}
+										{amount 1
 										}
 									}
 									{text "mission/multi/request_paradrop_2"}
@@ -44954,18 +44922,14 @@
 												{state
 													{state operatable}
 												}
-												{zone
-													{zone "gamezone"}
-												}
-												{prop
-													{prop human}
-												}
 											}
 											{exclude
 												{state
 													{state inactive}
 												}
 											}
+										}
+										{amount 1
 										}
 									}
 									{text "mission/multi/request_paradrop_3"}
@@ -44995,27 +44959,6 @@
 								}
 							}
 						}
-						{"entity_state"
-							{selector
-								{source advanced}
-								{group
-									{select
-										{tag
-											{tag artillery_aim}
-										}
-									}
-									{exclude
-										{tag
-											{tag acknowledged}
-										}
-										{tag
-											{tag failed_callin}
-										}
-									}
-								}
-							}
-							{tag_add acknowledged}
-						}
 						{"switch"
 							{"case"
 								{condition
@@ -45038,18 +44981,14 @@
 												{state
 													{state operatable}
 												}
-												{zone
-													{zone "gamezone"}
-												}
-												{prop
-													{prop human}
-												}
 											}
 											{exclude
 												{state
 													{state inactive}
 												}
 											}
+										}
+										{amount 1
 										}
 									}
 									{text "mission/multi/request_air_recon"}
@@ -45076,18 +45015,14 @@
 												{state
 													{state operatable}
 												}
-												{zone
-													{zone "gamezone"}
-												}
-												{prop
-													{prop human}
-												}
 											}
 											{exclude
 												{state
 													{state inactive}
 												}
 											}
+										}
+										{amount 1
 										}
 									}
 									{text "mission/multi/request_air_recon_2"}
@@ -45114,12 +45049,6 @@
 												{state
 													{state operatable}
 												}
-												{zone
-													{zone "gamezone"}
-												}
-												{prop
-													{prop human}
-												}
 											}
 											{exclude
 												{state
@@ -45127,10 +45056,35 @@
 												}
 											}
 										}
+										{amount 1
+										}
 									}
 									{text "mission/multi/request_air_recon_3"}
 								}
 							}
+						}
+						{## "entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag artillery_aim}
+										}
+									}
+									{exclude
+										{tag
+											{tag acknowledged}
+										}
+										{tag
+											{tag failed_callin}
+										}
+									}
+								}
+								{amount 1
+								}
+							}
+							{tag_add acknowledged}
 						}
 					}
 					{"if"
@@ -45155,27 +45109,6 @@
 								}
 							}
 						}
-						{"entity_state"
-							{selector
-								{source advanced}
-								{group
-									{select
-										{tag
-											{tag flare}
-										}
-									}
-									{exclude
-										{tag
-											{tag acknowledged}
-										}
-										{tag
-											{tag failed_callin}
-										}
-									}
-								}
-							}
-							{tag_add acknowledged}
-						}
 						{"switch"
 							{"case"
 								{condition
@@ -45184,33 +45117,12 @@
 								}
 								{"talk"
 									{selector
-										{source advanced}
-										{group
-											{select
-												{tag
-													{tag officer}
-												}
-											}
-											{include
-												{tag
-													{tag player}
-												}
-												{state
-													{state operatable}
-												}
-												{zone
-													{zone "gamezone"}
-												}
-												{prop
-													{prop human}
-												}
-											}
-											{exclude
-												{state
-													{state inactive}
-												}
-											}
+										{amount 1
 										}
+										{tag officer}
+										{zone "gamezone"}
+										{type human}
+										{state operatable}
 									}
 									{text "mission/multi/request_supply_drop"}
 								}
@@ -45222,33 +45134,12 @@
 								}
 								{"talk"
 									{selector
-										{source advanced}
-										{group
-											{select
-												{tag
-													{tag officer}
-												}
-											}
-											{include
-												{tag
-													{tag player}
-												}
-												{state
-													{state operatable}
-												}
-												{zone
-													{zone "gamezone"}
-												}
-												{prop
-													{prop human}
-												}
-											}
-											{exclude
-												{state
-													{state inactive}
-												}
-											}
+										{amount 1
 										}
+										{tag officer}
+										{zone "gamezone"}
+										{type human}
+										{state operatable}
 									}
 									{text "mission/multi/request_supply_drop_2"}
 								}
@@ -45260,33 +45151,12 @@
 								}
 								{"talk"
 									{selector
-										{source advanced}
-										{group
-											{select
-												{tag
-													{tag officer}
-												}
-											}
-											{include
-												{tag
-													{tag player}
-												}
-												{state
-													{state operatable}
-												}
-												{prop
-													{prop human}
-												}
-												{zone
-													{zone "gamezone"}
-												}
-											}
-											{exclude
-												{state
-													{state inactive}
-												}
-											}
+										{amount 1
 										}
+										{tag officer}
+										{zone "gamezone"}
+										{type human}
+										{state operatable}
 									}
 									{text "mission/multi/request_supply_drop_3"}
 								}
@@ -45294,7 +45164,7 @@
 						}
 					}
 					{"delay"
-						{time 2}
+						{time 3}
 					}
 					{"if"
 						{condition
@@ -45311,6 +45181,8 @@
 								}
 								{"talk"
 									{selector
+										{amount 1
+										}
 										{tag player}
 										{zone "gamezone"}
 										{type human}
@@ -45326,6 +45198,8 @@
 								}
 								{"talk"
 									{selector
+										{amount 1
+										}
 										{tag player}
 										{zone "gamezone"}
 										{type human}
@@ -45341,6 +45215,8 @@
 								}
 								{"talk"
 									{selector
+										{amount 1
+										}
 										{tag player}
 										{zone "gamezone"}
 										{type human}
@@ -45349,38 +45225,6 @@
 									{text "mission/multi/need_radio_car_3"}
 								}
 							}
-						}
-						{"delay"
-							{time 0.5}
-						}
-						{"entity_state"
-							{selector
-								{source advanced}
-								{group
-									{select
-										{tag
-											{tag artillery_aim}
-										}
-										{tag
-											{tag pointer_help}
-										}
-										{tag
-											{tag paradrophere}
-										}
-										{tag
-											{tag flare}
-										}
-									}
-									{exclude
-										{tag
-											{tag failed_callin}
-										}
-									}
-								}
-								{amount 1
-								}
-							}
-							{tag_add failed_callin}
 						}
 					}
 					{"if"
@@ -45408,9 +45252,6 @@
 											{state
 												{state operatable}
 											}
-											{state
-												{state user_control}
-											}
 										}
 										{exclude
 											{state
@@ -45426,8 +45267,8 @@
 									}
 								}
 								{count
-									{op "=="}
-									{value 0}
+									{op "<<"}
+									{value 1}
 								}
 							}
 							{"switch"
@@ -45438,6 +45279,8 @@
 									}
 									{"talk"
 										{selector
+											{amount 1
+											}
 											{tag player}
 											{zone "gamezone"}
 											{type human}
@@ -45453,6 +45296,8 @@
 									}
 									{"talk"
 										{selector
+											{amount 1
+											}
 											{tag player}
 											{zone "gamezone"}
 											{type human}
@@ -45468,6 +45313,8 @@
 									}
 									{"talk"
 										{selector
+											{amount 1
+											}
 											{tag player}
 											{zone "gamezone"}
 											{type human}
@@ -45477,42 +45324,10 @@
 									}
 								}
 							}
-							{"delay"
-								{time 0.5}
-							}
-							{"entity_state"
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag artillery_aim}
-											}
-											{tag
-												{tag pointer_help}
-											}
-											{tag
-												{tag paradrophere}
-											}
-											{tag
-												{tag flare}
-											}
-										}
-										{exclude
-											{tag
-												{tag failed_callin}
-											}
-										}
-									}
-									{amount 1
-									}
-								}
-								{tag_add failed_callin}
-							}
 						}
 					}
 					{"delay"
-						{time 10}
+						{time 4}
 					}
 					{"trigger"
 						{name "officer_commands/officer_callin_talk"}
@@ -76484,6 +76299,24 @@
 										{tag
 											{tag player_veh}
 										}
+										{tag
+											{tag airsupportrus}
+										}
+										{tag
+											{tag airsupportger}
+										}
+										{tag
+											{tag player_drop_plane}
+										}
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+										{tag
+											{tag aircraft}
+										}
 									}
 								}
 								{group
@@ -76520,6 +76353,9 @@
 										{state
 											{state operatable}
 										}
+										{prop
+											{prop human}
+										}
 									}
 									{exclude
 										{player
@@ -76530,6 +76366,9 @@
 										}
 										{state
 											{state inactive}
+										}
+										{state
+											{state linked}
 										}
 									}
 								}
@@ -78777,6 +78616,132 @@
 										{control AI}
 									}
 								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{player
+														{player "13"}
+													}
+												}
+											}
+										}
+									}
+									{"player"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag airsupportrus}
+													}
+												}
+											}
+										}
+										{operation set}
+										{player "13"}
+									}
+									{"actor_state"
+										{selector
+											{tag airsupportrus}
+											{player "13"}
+											{state operatable}
+										}
+										{control AI}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{player
+														{player "14"}
+													}
+												}
+											}
+										}
+									}
+									{"player"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag airsupportrus}
+													}
+												}
+											}
+										}
+										{operation set}
+										{player "14"}
+									}
+									{"actor_state"
+										{selector
+											{tag airsupportrus}
+											{player "14"}
+											{state operatable}
+										}
+										{control AI}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{player
+														{player "15"}
+													}
+												}
+											}
+										}
+									}
+									{"player"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag airsupportrus}
+													}
+												}
+											}
+										}
+										{operation set}
+										{player "15"}
+									}
+									{"actor_state"
+										{selector
+											{tag airsupportrus}
+											{player "15"}
+											{state operatable}
+										}
+										{control AI}
+									}
+								}
 							}
 						}
 						{"case"
@@ -78891,6 +78856,132 @@
 										{control AI}
 									}
 								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{player
+														{player "13"}
+													}
+												}
+											}
+										}
+									}
+									{"player"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag airsupportger}
+													}
+												}
+											}
+										}
+										{operation set}
+										{player "13"}
+									}
+									{"actor_state"
+										{selector
+											{tag airsupportger}
+											{player "13"}
+											{state operatable}
+										}
+										{control AI}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{player
+														{player "14"}
+													}
+												}
+											}
+										}
+									}
+									{"player"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag airsupportger}
+													}
+												}
+											}
+										}
+										{operation set}
+										{player "14"}
+									}
+									{"actor_state"
+										{selector
+											{tag airsupportger}
+											{player "14"}
+											{state operatable}
+										}
+										{control AI}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{player
+														{player "15"}
+													}
+												}
+											}
+										}
+									}
+									{"player"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag airsupportger}
+													}
+												}
+											}
+										}
+										{operation set}
+										{player "15"}
+									}
+									{"actor_state"
+										{selector
+											{tag airsupportger}
+											{player "15"}
+											{state operatable}
+										}
+										{control AI}
+									}
+								}																								
 								{"case"
 									{condition
 										{type entities}
@@ -82826,6 +82917,265 @@
 											}
 										}
 									}
+									{"switch"
+										{"case"
+											{condition
+												{type entities}
+												{selector
+													{source advanced}
+													{group
+														{select
+															{tag
+																{tag player}
+															}
+														}
+														{include
+															{player
+																{player "13"}
+															}
+														}
+													}
+												}
+											}
+											{"player"
+												{selector
+													{tag airsupportrus}
+												}
+												{operation set}
+												{player "13"}
+											}
+											{"actor_state"
+												{selector
+													{tag airsupportrus}
+													{player "13"}
+													{state operatable}
+												}
+												{control AI}
+											}
+										}
+									}
+									{"switch"
+										{"case"
+											{condition
+												{type entities}
+												{selector
+													{source advanced}
+													{group
+														{select
+															{tag
+																{tag player}
+															}
+														}
+														{include
+															{player
+																{player "14"}
+															}
+														}
+													}
+												}
+											}
+											{"player"
+												{selector
+													{tag airsupportrus}
+												}
+												{operation set}
+												{player "14"}
+											}
+											{"actor_state"
+												{selector
+													{tag airsupportrus}
+													{player "14"}
+													{state operatable}
+												}
+												{control AI}
+											}
+										}
+									}
+									{"switch"
+										{"case"
+											{condition
+												{type entities}
+												{selector
+													{source advanced}
+													{group
+														{select
+															{tag
+																{tag player}
+															}
+														}
+														{include
+															{player
+																{player "15"}
+															}
+														}
+													}
+												}
+											}
+											{"player"
+												{selector
+													{tag airsupportrus}
+												}
+												{operation set}
+												{player "15"}
+											}
+											{"actor_state"
+												{selector
+													{tag airsupportrus}
+													{player "15"}
+													{state operatable}
+												}
+												{control AI}
+											}
+										}
+									}
+									{"switch"
+										{"case"
+											{condition
+												{type entities}
+												{selector
+													{source advanced}
+													{group
+														{select
+															{tag
+																{tag player}
+															}
+														}
+														{include
+															{player
+																{player "10"}
+															}
+														}
+													}
+												}
+											}
+											{"player"
+												{selector
+													{tag airsupportrus}
+												}
+												{operation set}
+												{player "10"}
+											}
+											{"actor_state"
+												{selector
+													{tag airsupportrus}
+													{player "10"}
+													{state operatable}
+												}
+												{control AI}
+											}
+										}
+									}
+									{"switch"
+										{"case"
+											{condition
+												{type entities}
+												{selector
+													{source advanced}
+													{group
+														{select
+															{tag
+																{tag player}
+															}
+														}
+														{include
+															{player
+																{player "9"}
+															}
+														}
+													}
+												}
+											}
+											{"player"
+												{selector
+													{tag airsupportrus}
+												}
+												{operation set}
+												{player "9"}
+											}
+											{"actor_state"
+												{selector
+													{tag airsupportrus}
+													{player "9"}
+													{state operatable}
+												}
+												{control AI}
+											}
+										}
+									}
+									{"switch"
+										{"case"
+											{condition
+												{type entities}
+												{selector
+													{source advanced}
+													{group
+														{select
+															{tag
+																{tag player}
+															}
+														}
+														{include
+															{player
+																{player "8"}
+															}
+														}
+													}
+												}
+											}
+											{"player"
+												{selector
+													{tag airsupportrus}
+												}
+												{operation set}
+												{player "8"}
+											}
+											{"actor_state"
+												{selector
+													{tag airsupportrus}
+													{player "8"}
+													{state operatable}
+												}
+												{control AI}
+											}
+										}
+									}
+									{"switch"
+										{"case"
+											{condition
+												{type entities}
+												{selector
+													{source advanced}
+													{group
+														{select
+															{tag
+																{tag player}
+															}
+														}
+														{include
+															{player
+																{player "7"}
+															}
+														}
+													}
+												}
+											}
+											{"player"
+												{selector
+													{tag airsupportrus}
+												}
+												{operation set}
+												{player "7"}
+											}
+											{"actor_state"
+												{selector
+													{tag airsupportrus}
+													{player "7"}
+													{state operatable}
+												}
+												{control AI}
+											}
+										}
+									}																			
 									{"autoassign"
 										{selector
 											{tag airsuppotrus}
@@ -82988,6 +83338,265 @@
 											}
 										}
 									}
+									{"switch"
+										{"case"
+											{condition
+												{type entities}
+												{selector
+													{source advanced}
+													{group
+														{select
+															{tag
+																{tag player}
+															}
+														}
+														{include
+															{player
+																{player "13"}
+															}
+														}
+													}
+												}
+											}
+											{"player"
+												{selector
+													{tag airsupportger}
+												}
+												{operation set}
+												{player "13"}
+											}
+											{"actor_state"
+												{selector
+													{tag airsupportger}
+													{player "13"}
+													{state operatable}
+												}
+												{control AI}
+											}
+										}
+									}
+									{"switch"
+										{"case"
+											{condition
+												{type entities}
+												{selector
+													{source advanced}
+													{group
+														{select
+															{tag
+																{tag player}
+															}
+														}
+														{include
+															{player
+																{player "14"}
+															}
+														}
+													}
+												}
+											}
+											{"player"
+												{selector
+													{tag airsupportger}
+												}
+												{operation set}
+												{player "14"}
+											}
+											{"actor_state"
+												{selector
+													{tag airsupportger}
+													{player "14"}
+													{state operatable}
+												}
+												{control AI}
+											}
+										}
+									}
+									{"switch"
+										{"case"
+											{condition
+												{type entities}
+												{selector
+													{source advanced}
+													{group
+														{select
+															{tag
+																{tag player}
+															}
+														}
+														{include
+															{player
+																{player "15"}
+															}
+														}
+													}
+												}
+											}
+											{"player"
+												{selector
+													{tag airsupportger}
+												}
+												{operation set}
+												{player "15"}
+											}
+											{"actor_state"
+												{selector
+													{tag airsupportger}
+													{player "15"}
+													{state operatable}
+												}
+												{control AI}
+											}
+										}
+									}
+									{"switch"
+										{"case"
+											{condition
+												{type entities}
+												{selector
+													{source advanced}
+													{group
+														{select
+															{tag
+																{tag player}
+															}
+														}
+														{include
+															{player
+																{player "10"}
+															}
+														}
+													}
+												}
+											}
+											{"player"
+												{selector
+													{tag airsupportger}
+												}
+												{operation set}
+												{player "10"}
+											}
+											{"actor_state"
+												{selector
+													{tag airsupportger}
+													{player "10"}
+													{state operatable}
+												}
+												{control AI}
+											}
+										}
+									}
+									{"switch"
+										{"case"
+											{condition
+												{type entities}
+												{selector
+													{source advanced}
+													{group
+														{select
+															{tag
+																{tag player}
+															}
+														}
+														{include
+															{player
+																{player "9"}
+															}
+														}
+													}
+												}
+											}
+											{"player"
+												{selector
+													{tag airsupportger}
+												}
+												{operation set}
+												{player "9"}
+											}
+											{"actor_state"
+												{selector
+													{tag airsupportger}
+													{player "9"}
+													{state operatable}
+												}
+												{control AI}
+											}
+										}
+									}
+									{"switch"
+										{"case"
+											{condition
+												{type entities}
+												{selector
+													{source advanced}
+													{group
+														{select
+															{tag
+																{tag player}
+															}
+														}
+														{include
+															{player
+																{player "8"}
+															}
+														}
+													}
+												}
+											}
+											{"player"
+												{selector
+													{tag airsupportger}
+												}
+												{operation set}
+												{player "8"}
+											}
+											{"actor_state"
+												{selector
+													{tag airsupportger}
+													{player "8"}
+													{state operatable}
+												}
+												{control AI}
+											}
+										}
+									}
+									{"switch"
+										{"case"
+											{condition
+												{type entities}
+												{selector
+													{source advanced}
+													{group
+														{select
+															{tag
+																{tag player}
+															}
+														}
+														{include
+															{player
+																{player "7"}
+															}
+														}
+													}
+												}
+											}
+											{"player"
+												{selector
+													{tag airsupportger}
+												}
+												{operation set}
+												{player "7"}
+											}
+											{"actor_state"
+												{selector
+													{tag airsupportger}
+													{player "7"}
+													{state operatable}
+												}
+												{control AI}
+											}
+										}
+									}																		
 									{"autoassign"
 										{selector
 											{tag airsupportger}
@@ -83393,6 +84002,117 @@
 														}
 														{include
 															{player
+																{player "13"}
+															}
+														}
+													}
+												}
+											}
+											{"player"
+												{selector
+													{tag airsupportrus}
+												}
+												{operation set}
+												{player "13"}
+											}
+											{"actor_state"
+												{selector
+													{tag airsupportrus}
+													{player "13"}
+													{state operatable}
+												}
+												{control AI}
+											}
+										}
+									}
+									{"switch"
+										{"case"
+											{condition
+												{type entities}
+												{selector
+													{source advanced}
+													{group
+														{select
+															{tag
+																{tag player}
+															}
+														}
+														{include
+															{player
+																{player "14"}
+															}
+														}
+													}
+												}
+											}
+											{"player"
+												{selector
+													{tag airsupportrus}
+												}
+												{operation set}
+												{player "14"}
+											}
+											{"actor_state"
+												{selector
+													{tag airsupportrus}
+													{player "14"}
+													{state operatable}
+												}
+												{control AI}
+											}
+										}
+									}
+									{"switch"
+										{"case"
+											{condition
+												{type entities}
+												{selector
+													{source advanced}
+													{group
+														{select
+															{tag
+																{tag player}
+															}
+														}
+														{include
+															{player
+																{player "15"}
+															}
+														}
+													}
+												}
+											}
+											{"player"
+												{selector
+													{tag airsupportrus}
+												}
+												{operation set}
+												{player "15"}
+											}
+											{"actor_state"
+												{selector
+													{tag airsupportrus}
+													{player "15"}
+													{state operatable}
+												}
+												{control AI}
+											}
+										}
+									}									
+									{"switch"
+										{"case"
+											{condition
+												{type entities}
+												{selector
+													{source advanced}
+													{group
+														{select
+															{tag
+																{tag player}
+															}
+														}
+														{include
+															{player
 																{player "10"}
 															}
 														}
@@ -83707,6 +84427,117 @@
 											}
 										}
 									}
+									{"switch"
+										{"case"
+											{condition
+												{type entities}
+												{selector
+													{source advanced}
+													{group
+														{select
+															{tag
+																{tag player}
+															}
+														}
+														{include
+															{player
+																{player "13"}
+															}
+														}
+													}
+												}
+											}
+											{"player"
+												{selector
+													{tag airsupportger}
+												}
+												{operation set}
+												{player "13"}
+											}
+											{"actor_state"
+												{selector
+													{tag airsupportger}
+													{player "13"}
+													{state operatable}
+												}
+												{control AI}
+											}
+										}
+									}
+									{"switch"
+										{"case"
+											{condition
+												{type entities}
+												{selector
+													{source advanced}
+													{group
+														{select
+															{tag
+																{tag player}
+															}
+														}
+														{include
+															{player
+																{player "14"}
+															}
+														}
+													}
+												}
+											}
+											{"player"
+												{selector
+													{tag airsupportger}
+												}
+												{operation set}
+												{player "14"}
+											}
+											{"actor_state"
+												{selector
+													{tag airsupportger}
+													{player "14"}
+													{state operatable}
+												}
+												{control AI}
+											}
+										}
+									}
+									{"switch"
+										{"case"
+											{condition
+												{type entities}
+												{selector
+													{source advanced}
+													{group
+														{select
+															{tag
+																{tag player}
+															}
+														}
+														{include
+															{player
+																{player "15"}
+															}
+														}
+													}
+												}
+											}
+											{"player"
+												{selector
+													{tag airsupportger}
+												}
+												{operation set}
+												{player "15"}
+											}
+											{"actor_state"
+												{selector
+													{tag airsupportger}
+													{player "15"}
+													{state operatable}
+												}
+												{control AI}
+											}
+										}
+									}									
 									{"switch"
 										{"case"
 											{condition
@@ -87647,6 +88478,8 @@
 					}
 					{"talk"
 						{selector
+							{amount 1
+							}
 							{tag player}
 						}
 						{text "$/cutcoms"}
@@ -90762,6 +91595,8 @@
 					}
 					{"talk"
 						{selector
+							{amount 1
+							}
 							{tag player}
 							{state operatable}
 						}
