@@ -837,6 +837,18 @@
 	{on animation_end "landing"
 		{view show "parachute_x"}
 		{spawn "inf_crate_rus"}
+		{spawn "ammobox_art_usa"}
+		{spawn "ammobox_art_fra"}
+		{spawn "ammobox_art_pol"}
+		{spawn "ammobox_art_eng"}
+		{spawn "ammobox_art_jap"}
+		{spawn "ammobox_art_ita"}
+		{spawn "inf_crate_eng"}
+		{spawn "inf_crate_usa"}
+		{spawn "inf_crate_fra"}
+		{spawn "inf_crate_pol"}
+		{spawn "inf_crate_jap"}
+		{spawn "inf_crate_ita"}
 		{spawn "inf_crate_ger"}
 		    {inactive 0}
 			{tags remove "hidden"}
@@ -957,6 +969,10 @@
 {"pointer_going"
 	{on spawn
 		{tags add "pointer_going"}
+		
+		{delay 6
+			{tags add "acknowledged"}
+		}
 		{spawn "flare_artillery"}
 	}
 	{on "show"
@@ -1120,6 +1136,9 @@
 		{tags add "flare"}
 		{add_view "smoke_flare_green" "smoke" "root"}
 		{view start "smoke"}
+		{delay 6 
+			{tags add "acknowledged"}
+			}
 		{delay 60 2 {view stop "smoke"}}
 		{delay 60 {delete}}
 	}
@@ -1441,6 +1460,9 @@
 {"artillery_aim"			;// mission helper
 	{on spawn
 		{tags add "artillery_aim"}
+		{delay 6
+			{tags add "acknowledged"}
+		}
 		{delay 70
 		    {tags remove "artillery_aim"}
 		}
