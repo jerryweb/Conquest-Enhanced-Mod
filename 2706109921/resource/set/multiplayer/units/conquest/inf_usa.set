@@ -1,0 +1,134 @@
+;// CP + Scores + CW
+
+;////////////////// INSTRUCTIONS //////////////////
+; In this file onee configures the humans which are spawned in vehicles or squads
+; The humans have a CP and cost associated with them which collectively add up for the final squad value
+; Check ../settings.set for syntax instructions!!
+;//////////////////////////////////////////////////
+
+;SDL
+(define "usa_tankman"
+	{tags "mid %side infantry man"}
+	{cp 0}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
+{"mp/usa/mid/vehicle_supporter"	("usa_tankman" side(usa)) {cost 5.0}}
+{"mp/usa/mid/tankman"			("usa_tankman" side(usa)) {cost 4.0}}
+{"mp/usa/mid/tankman2"	("usa_tankman" side(usa)) {cost 8.0}}
+{"mp/usa/mid/pilot"	("usa_tankman" side(usa)) {cost 1.0}}
+
+
+(define "usa_regular"
+	{tags "mid %side infantry man %lvl"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 1.5}
+	{score_factor 0.05}
+)
+{"mp/usa/mid/mgun"			("usa_regular" side(usa) lvl(lvl1 lvl2 lvl3)) {cost 45.0}} ; has mg
+{"mp/usa/mid/rifle"		("usa_regular" side(usa) lvl(lvl1 lvl2)) {cost 8.0}}
+{"mp/usa/mid/rifle2"		("usa_regular" side(usa) lvl(lvl1 lvl2)) {cost 8.0}}
+{"mp/usa/mid/smg"		    ("usa_regular" side(usa) lvl(lvl1 lvl2)) {cost 10.0}}
+{"mp/usa/mid/smg2"		    ("usa_regular" side(usa) lvl(lvl1 lvl2)) {cost 10.0}}
+{"mp/usa/mid/flamer2"			("usa_regular" side(usa) lvl(lvl1 lvl2)) {cost 10.0}}
+
+(define "usa_regular_advanced"
+	{tags "mid %side infantry man %lvl"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.05}
+)
+{"mp/usa/mid/rifle_grenade"		("usa_regular_advanced" side(usa) lvl(lvl1 lvl2 lvl3)) {cost 35.0}} ; rifle grenade
+{"mp/usa/mid/saper"		("usa_regular_advanced" side(usa) lvl()) {cost 60.0}}
+{"mp/usa/mid/flamer"			("usa_regular_advanced" side(usa) lvl(lvl1 lvl2)) {cost 70.0}}
+{"mp/usa/mid/ap_miner"		("usa_regular_advanced" side(usa) lvl()) {cost 60.0}}
+{"mp/usa/mid/at_miner"		("usa_regular_advanced" side(usa) lvl()) {cost 60.0}}
+{"mp/usa/mid/gr_launcher"				("usa_regular_advanced" side(usa) lvl(lvl1 lvl2 lvl3)) {cost 75.0}}
+{"mp/usa/mid/squadleader"				("usa_regular_advanced" side(usa) lvl(lvl1 lvl2)) {cost 15.0}}
+{"mp/usa/mid/squadleader2"				("usa_regular_advanced" side(usa) lvl(lvl1 lvl2)) {cost 15.0}}
+{"mp/usa/mid/bazooker"		("usa_regular_advanced" side(usa) lvl(lvl1 lvl2 lvl3 lvl4)) {cost 70.0}} ; Bazooker
+{"mp/usa/mid/bazooker2"		("usa_regular_advanced" side(usa) lvl(lvl1 lvl2)) {cost 20.0}} ; 
+
+(define "usa_pioniere"
+	{tags "mid %side infantry man lvl2 lvl3 lvl4"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 3}
+	{score_factor 0.05}
+)
+{"mp/usa/mid/elite"		("usa_pioniere" side(usa)) {cost 20.0}}
+{"mp/usa/mid/elite2"		("usa_pioniere" side(usa)) {cost 45.0}}
+{"mp/usa/mid/elite3"		("usa_pioniere" side(usa)) {cost 20.0}}
+{"mp/usa/mid/elite4"		("usa_pioniere" side(usa)) {cost 20.0}}
+{"mp/usa/mid/elite5"		("usa_pioniere" side(usa)) {cost 20.0}}
+{"mp/usa/mid/elite6"		("usa_pioniere" side(usa)) {cost 45.0}}
+{"mp/usa/mid/elite7"		("usa_pioniere" side(usa)) {cost 20.0}}
+{"mp/usa/mid/elite8"		("usa_pioniere" side(usa)) {cost 20.0}}
+{"mp/usa/mid/elite_at"		("usa_pioniere" side(usa)) {cost 70.0}} ; Bazooker
+
+
+(define "usa_radioman"
+	{tags "mid %side infantry man lvl4"}
+	{cp 4}
+	{basic}
+	{breed}
+	{cw 4.0}
+	{score_factor 0.05}
+)
+{"mp/usa/mid/radioman"		("usa_radioman" side(usa)) {cost 55.0}}
+
+
+(define "usa_sturmovik"
+	{tags "mid %side infantry man lvl3 lvl4"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 4}
+	{score_factor 0.05}
+)
+{"mp/usa/mid/sturmovik"		("usa_sturmovik" side(usa)) {cost 30.0}}
+{"mp/usa/mid/sturmovik2"		("usa_sturmovik" side(usa)) {cost 50.0}}
+{"mp/usa/mid/sturmovik3"		("usa_sturmovik" side(usa)) {cost 30.0}} 
+{"mp/usa/mid/sturmovik4"		("usa_sturmovik" side(usa)) {cost 30.0}}
+{"mp/usa/mid/sturmovik4b"		("usa_sturmovik" side(usa)) {cost 30.0}}
+{"mp/usa/mid/sturmovik5"		("usa_sturmovik" side(usa)) {cost 50.0}}
+{"mp/usa/mid/sturmovik5b"		("usa_sturmovik" side(usa)) {cost 30.0}}
+{"mp/usa/mid/sturmovik6"		("usa_sturmovik" side(usa)) {cost 30.0}}
+{"mp/usa/mid/sturmovik6b"		("usa_sturmovik" side(usa)) {cost 30.0}}
+
+(define "usa_medic"
+	{tags "mid %side infantry man"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0}
+)
+{"mp/usa/mid/medic"		("usa_medic" side(usa)) {cost 40.0}}
+
+(define "usa_officer"
+	{tags "mid %side infantry man officer"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.2}
+)
+{"mp/usa/mid/officer"		("usa_officer" side(usa)) {cost 350.0}}
+
+(define "usa_sniper"
+	{tags "mid %side infantry man sniper lvl3 lvl4"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.05}
+)
+{"mp/usa/mid/sniper"		("usa_sniper" side(usa)) {cost 150.0}}

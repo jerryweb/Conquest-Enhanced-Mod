@@ -1,0 +1,130 @@
+;// CP + Scores + CW
+
+;////////////////// INSTRUCTIONS //////////////////
+; In this file onee configures the humans which are spawned in vehicles or squads
+; The humans have a CP and cost associated with them which collectively add up for the final squad value
+; Check ../settings.set for syntax instructions!!
+;//////////////////////////////////////////////////
+
+;SDL
+(define "ita_tankman"
+	{tags "mid %side infantry man"}
+	{cp 0}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.02}
+)
+{"mp/ita/mid/vehicle_supporter"	("ita_tankman" side(ita)) {cost 5.0}}
+{"mp/ita/mid/tankman"			("ita_tankman" side(ita)) {cost 4.0}}
+{"mp/ita/mid/tankman2"	("ita_tankman" side(ita)) {cost 8.0}}
+{"mp/ita/mid/pilot"	("ita_tankman" side(ita)) {cost 1.0}}
+
+
+(define "ita_regular"
+	{tags "mid %side infantry man lvl1"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 1.5}
+	{score_factor 0.04}
+)
+{"mp/ita/mid/mgun"			("ita_regular" side(ita)) {cost 45.0}} ; has mg
+{"mp/ita/mid/mgun2"			("ita_regular" side(ita)) {cost 45.0}} ; has mg
+{"mp/ita/mid/mgun3"			("ita_regular" side(ita)) {cost 45.0}} ; has mg
+
+{"mp/ita/mid/rifle"		("ita_regular" side(ita)) {cost 8.0}}
+{"mp/ita/mid/rifle2"		("ita_regular" side(ita)) {cost 8.0}}
+{"mp/ita/mid/rifle3"		("ita_regular" side(ita)) {cost 8.0}}
+{"mp/ita/mid/rifle4"		("ita_regular" side(ita)) {cost 8.0}}
+{"mp/ita/mid/rifle5"		("ita_regular" side(ita)) {cost 8.0}}
+
+{"mp/ita/mid/smg"		    ("ita_regular" side(ita)) {cost 10.0}}
+{"mp/ita/mid/smg2"		    ("ita_regular" side(ita)) {cost 10.0}}
+{"mp/ita/mid/smg3"		    ("ita_regular" side(ita)) {cost 10.0}}
+{"mp/ita/mid/smg4"		    ("ita_regular" side(ita)) {cost 10.0}}
+
+(define "ita_regular_advanced"
+	{tags "mid %side infantry man lvl2 lvl3 lvl4"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 2.0}
+	{score_factor 0.06}
+)
+{"mp/ita/mid/saper"		("ita_regular_advanced" side(ita)) {cost 60.0}}
+{"mp/ita/mid/flamer"			("ita_regular_advanced" side(ita)) {cost 70.0}}
+{"mp/ita/mid/ap_miner"		("ita_regular_advanced" side(ita)) {cost 60.0}}
+{"mp/ita/mid/at_miner"		("ita_regular_advanced" side(ita)) {cost 60.0}}
+;{"mp/ita/mid/gr_launcher"				("ita_regular_advanced" side(ita)) {cost 75.0}}
+{"mp/ita/mid/squadleader"				("ita_regular_advanced" side(ita)) {cost 15.0}}
+{"mp/ita/mid/at_rifle"		("ita_regular_advanced" side(ita)) {cost 40.0}} ; has AT
+
+(define "ita_pioniere"
+	{tags "mid %side infantry man lvl2"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 5.0}
+	{score_factor 0.05}
+)
+{"mp/ita/mid/elite"		("ita_pioniere" side(ita)) {cost 20.0}}
+{"mp/ita/mid/elite2"		("ita_pioniere" side(ita)) {cost 45.0}}
+{"mp/ita/mid/elite3"		("ita_pioniere" side(ita)) {cost 20.0}}
+{"mp/ita/mid/elite4"		("ita_pioniere" side(ita)) {cost 45.0}}
+
+
+(define "ita_radioman"
+	{tags "mid %side infantry man lvl4"}
+	{cp 4}
+	{basic}
+	{breed}
+	{cw 4.0}
+	{score_factor 0.05}
+)
+{"mp/ita/mid/radioman"		("ita_radioman" side(ita)) {cost 55.0}}
+
+
+(define "ita_sturmovik"
+	{tags "mid %side infantry man lvl3"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 4.0}
+	{score_factor 0.05}
+)
+{"mp/ita/mid/sturmovik"		("ita_sturmovik" side(ita)) {cost 30.0}}
+{"mp/ita/mid/sturmovik2"		("ita_sturmovik" side(ita)) {cost 50.0}}
+{"mp/ita/mid/sturmovik3"		("ita_sturmovik" side(ita)) {cost 30.0}} 
+{"mp/ita/mid/sturmovik4"		("ita_sturmovik" side(ita)) {cost 30.0}}
+
+
+(define "ita_medic"
+	{tags "mid %side infantry man"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 0}
+	{score_factor -0.5}
+)
+{"mp/ita/mid/medic"		("ita_medic" side(ita)) {cost 40.0}}
+
+(define "ita_officer"
+	{tags "mid %side infantry man officer"}
+	{cp 4}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.1}
+)
+{"mp/ita/mid/officer"		("ita_officer" side(ita)) {cost 350.0}}
+
+(define "ita_sniper"
+	{tags "mid %side infantry man sniper lvl3 lvl4"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.05}
+)
+{"mp/ita/mid/sniper"		("ita_sniper" side(ita)) {cost 150.0}}
