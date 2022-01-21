@@ -1,0 +1,86 @@
+;SDL
+
+;////////////////// INSTRUCTIONS //////////////////
+;Buttons go as follows, displayed in-game in this order:
+
+; inf1       - infantry squads
+; inf2       - infantry single units
+; empl       - Emplacements, AA, AT, Mortars, Howitzers
+; vehicles   - vehicles, armoured cars, supplies
+; tanks      - main battle tanks, TDs, SPGs
+; doctrine   - specific doctrine setups
+
+; TEMP: Note all levels have been brought down to 1 to remove unit locks.
+; Squads currently have an MP cost of 0 - their cost is currently calculated as the sum of their soldiers cost, see inf_ger.set
+; Check ../settings.set for syntax instructions!!
+; unit limits per game are not defined here but in gamemode presets
+
+;user defined set tags that should be featured on units:
+;all artillery heavyart cannon mediumcan heavycan light medium heavy infantry supply
+;these tags allow player to disable certain sets for custom setups like "no heavy artillery" 
+;//////////////////////////////////////////////////
+
+
+
+;_________________________________________________
+;|               Wheeled vehicles                 |
+;|________________________________________________|
+
+
+{"morris_cs8"
+	("vehicle"  side(eng) period(mid) min_stage(1) max_stage(99) cw(0) cp(18) crew(vehicle_supporter:2))
+	{cost 250}
+}
+
+{"heavy_mg_bren"
+	("emplacement" side(eng) period(mid) min_stage(1) max_stage(99) cw(0) cp(0) cd(5) crew(vehicle_supporter:1) condition(barricade) action(heavy_mg_bren))
+	{cost 20}{not_for_player_sale 1}
+}
+{"heavy_mg_303_bren"
+	("emplacement" side(eng) period(mid) min_stage(1) max_stage(99) cw(0) cp(0) cd(5) crew(vehicle_supporter:1) condition(barricade) action(303_bren))
+	{cost 20}{not_for_player_sale 1}
+}
+{"heavy_mg_qf40mm"
+	("emplacement" side(eng) period(mid) min_stage(1) max_stage(99) cw(0) cp(0) cd(5) crew(vehicle_supporter:1) condition(barricade) action(qf40mm))
+	{cost 20}{not_for_player_sale 1}
+}
+{"heavy_mg_qf2pdr"
+	("emplacement" side(eng) period(mid) min_stage(1) max_stage(99) cw(0) cp(0) cd(5) crew(vehicle_supporter:1) condition(barricade) action(qf2pdr))
+	{cost 20}{not_for_player_sale 1}
+}
+{"heavy_mg_qf6pdr"
+	("emplacement" side(eng) period(mid) min_stage(1) max_stage(99) cw(0) cp(0) cd(5) crew(vehicle_supporter:1) condition(barricade) action(qf6pdr))
+	{cost 20}{not_for_player_sale 1}
+}
+{"heavy_mg_qf17pdr"
+	("emplacement" side(eng) period(mid) min_stage(1) max_stage(99) cw(0) cp(0) cd(5) crew(vehicle_supporter:1) condition(barricade) action(qf17pdr))
+	{cost 20}{not_for_player_sale 1}
+}
+{"heavy_mg_76mm_mk_ii"
+	("emplacement" side(eng) period(mid) min_stage(1) max_stage(99) cw(0) cp(0) cd(5) crew(vehicle_supporter:1) condition(barricade) action(76mm_mk_ii))
+	{cost 20}{not_for_player_sale 1}
+}
+
+
+
+{"conquest_beaufighter"
+	("squad_vehicle2" side(eng) period(mid) min_stage(1) max_stage(99) cw(0) cp(0) crew1(pilot:1) crew2(pilot:1) vehicle(beaufighter))
+	{cost 1}
+	{action "airstrike:sc_250"}
+}
+{"light_mortar_barrage"
+    ("squad_vehicle" side(eng) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(pilot:0) vehicle(heavy_mg_mg34))
+    {cost 2}
+    {action "airstrike:light_mortar_barrage"}
+}
+{"heavy_artillery_barrage"
+    ("squad_vehicle" side(eng) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(pilot:0) vehicle(heavy_mg_maxim))
+    {cost 0}
+    {action "airstrike:heavy_arty_barrage"}
+}
+{"smoke_cover_callin"
+    ("squad_vehicle" side(eng) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(pilot:0) vehicle(sg43_stand))
+    {cost 1}
+    {action "airstrike:mortar_single_120_dummy2"}
+}
+{"beaufighter" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}

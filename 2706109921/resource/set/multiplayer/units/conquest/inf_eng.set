@@ -1,0 +1,137 @@
+;// CP + Scores + CW
+
+;////////////////// INSTRUCTIONS //////////////////
+; In this file onee configures the humans which are spawned in vehicles or squads
+; The humans have a CP and cost associated with them which collectively add up for the final squad value
+; Check ../settings.set for syntax instructions!!
+;//////////////////////////////////////////////////
+
+;SDL
+(define "eng_tankman"
+	{tags "mid %side infantry man"}
+	{cp 0}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0.05}
+)
+{"mp/eng/mid/vehicle_supporter"	("eng_tankman" side(eng)) {cost 5.0}}
+{"mp/eng/mid/tankman"			("eng_tankman" side(eng)) {cost 4.0}}
+{"mp/eng/mid/tankman2"	("eng_tankman" side(eng)) {cost 8.0}}
+{"mp/eng/mid/pilot"	("eng_tankman" side(eng)) {cost 2.0}}
+
+
+(define "eng_regular"
+	{tags "mid %side infantry man %lvl"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 1.5}
+	{score_factor 0.05}
+)
+{"mp/eng/mid/mgun"			("eng_regular" side(eng) lvl(lvl1 lvl2 lvl3)) {cost 45.0}} ; has mg
+{"mp/eng/mid/mgun2"			("eng_regular" side(eng) lvl(lvl1 lvl2 lvl3)) {cost 45.0}} ; has mg
+{"mp/eng/mid/rifle"		("eng_regular" side(eng) lvl(lvl1 lvl2)) {cost 8.0}}
+{"mp/eng/mid/rifle2"		("eng_regular" side(eng) lvl(lvl1 lvl2)) {cost 8.0}}
+{"mp/eng/mid/rifle3"		("eng_regular" side(eng) lvl(lvl1 lvl2)) {cost 8.0}}
+{"mp/eng/mid/smg"		    ("eng_regular" side(eng) lvl(lvl1 lvl2)) {cost 10.0}}
+{"mp/eng/mid/smg2"		    ("eng_regular" side(eng) lvl(lvl1 lvl2)) {cost 10.0}}
+{"mp/eng/mid/smg3"		    ("eng_regular" side(eng) lvl(lvl1 lvl2)) {cost 10.0}}
+{"mp/eng/mid/flamer2"		("eng_regular" side(eng) lvl(lvl1 lvl2)) {cost 10.0}}
+{"mp/eng/mid/at_rifle2"		("eng_regular" side(eng) lvl(lvl1 lvl2)) {cost 10.0}}
+
+(define "eng_regular_advanced"
+	{tags "mid %side infantry man %lvl"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.05}
+)
+{"mp/eng/mid/rifle_grenade"		("eng_regular_advanced" side(eng) lvl(lvl1 lvl2 lvl3)) {cost 35.0}} ; rifle grenade
+{"mp/eng/mid/saper"		("eng_regular_advanced" side(eng) lvl()) {cost 60.0}}
+{"mp/eng/mid/flamer"			("eng_regular_advanced" side(eng) lvl(lvl1 lvl2)) {cost 70.0}}
+{"mp/eng/mid/ap_miner"		("eng_regular_advanced" side(eng) lvl()) {cost 60.0}}
+{"mp/eng/mid/at_miner"		("eng_regular_advanced" side(eng) lvl()) {cost 60.0}}
+{"mp/eng/mid/gr_launcher"				("eng_regular_advanced" side(eng) lvl(lvl1 lvl2)) {cost 75.0}}
+{"mp/eng/mid/squadleader"				("eng_regular_advanced" side(eng) lvl(lvl1 lvl2)) {cost 15.0}}
+{"mp/eng/mid/squadleader2"				("eng_regular_advanced" side(eng) lvl(lvl1 lvl2)) {cost 15.0}}
+{"mp/eng/mid/bazooker"		("eng_regular_advanced" side(eng) lvl(lvl1 lvl2 lvl3 lvl4)) {cost 70.0}} ; Bazooker
+{"mp/eng/mid/bazooker2"		("eng_regular_advanced" side(eng) lvl(lvl1 lvl2)) {cost 20.0}} ; 
+{"mp/eng/mid/at_rifle"		("eng_regular_advanced" side(eng) lvl(lvl1 lvl2 lvl3)) {cost 40.0}} ; has AT
+
+(define "eng_pioniere"
+	{tags "mid %side infantry man lvl2 lvl3 lvl4"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 3}
+	{score_factor 0.05}
+)
+{"mp/eng/mid/elite"		("eng_pioniere" side(eng)) {cost 20.0}}
+{"mp/eng/mid/elite2"		("eng_pioniere" side(eng)) {cost 45.0}}
+{"mp/eng/mid/elite3"		("eng_pioniere" side(eng)) {cost 20.0}}
+{"mp/eng/mid/elite4"		("eng_pioniere" side(eng)) {cost 20.0}}
+{"mp/eng/mid/elite5"		("eng_pioniere" side(eng)) {cost 20.0}}
+{"mp/eng/mid/elite6"		("eng_pioniere" side(eng)) {cost 45.0}}
+
+
+
+(define "eng_radioman"
+	{tags "mid %side infantry man lvl4"}
+	{cp 4}
+	{basic}
+	{breed}
+	{cw 4.0}
+	{score_factor 0.05}
+)
+{"mp/eng/mid/radioman"		("eng_radioman" side(eng)) {cost 55.0}}
+
+
+(define "eng_sturmovik"
+	{tags "mid %side infantry man lvl3 lvl4"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 4}
+	{score_factor 0.05}
+)
+{"mp/eng/mid/sturmovik"		("eng_sturmovik" side(eng)) {cost 30.0}}
+{"mp/eng/mid/sturmovik2"		("eng_sturmovik" side(eng)) {cost 50.0}}
+{"mp/eng/mid/sturmovik3"		("eng_sturmovik" side(eng)) {cost 30.0}} 
+{"mp/eng/mid/sturmovik4"		("eng_sturmovik" side(eng)) {cost 30.0}}
+{"mp/eng/mid/sturmovik4b"		("eng_sturmovik" side(eng)) {cost 30.0}}
+{"mp/eng/mid/sturmovik5"		("eng_sturmovik" side(eng)) {cost 50.0}}
+{"mp/eng/mid/sturmovik5b"		("eng_sturmovik" side(eng)) {cost 30.0}}
+{"mp/eng/mid/sturmovik6"		("eng_sturmovik" side(eng)) {cost 30.0}}
+{"mp/eng/mid/sturmovik6b"		("eng_sturmovik" side(eng)) {cost 30.0}}
+
+(define "eng_medic"
+	{tags "mid %side infantry man"}
+	{cp 2}
+	{basic}
+	{breed}
+	{cw 0.5}
+	{score_factor 0}
+)
+{"mp/eng/mid/medic"		("eng_medic" side(eng)) {cost 40.0}}
+
+(define "eng_officer"
+	{tags "mid %side infantry man officer"}
+	{cp 4}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.2}
+)
+{"mp/eng/mid/officer"		("eng_officer" side(eng)) {cost 350.0}}
+
+(define "eng_sniper"
+	{tags "mid %side infantry man sniper lvl3 lvl4"}
+	{cp 1}
+	{basic}
+	{breed}
+	{cw 2}
+	{score_factor 0.05}
+)
+{"mp/eng/mid/sniper"		("eng_sniper" side(eng)) {cost 150.0}}
