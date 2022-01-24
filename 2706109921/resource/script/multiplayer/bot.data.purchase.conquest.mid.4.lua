@@ -159,6 +159,7 @@ Purchases["campaign_capture_the_flag"] = {
 				-- 2
 				{priority = 3.5, class = UnitClass.Infantry, unit = "squad_regular(jap)"},
 				{priority = 2.0, class = UnitClass.ATInfantry, unit = "single_mortar(jap)"},
+				{priority = 1.5, class = UnitClass.Infantry, unit = "single_flamer(jap)"},
 				{priority = 2.0, class = UnitClass.ATInfantry, unit = "single_riflegrenade(jap)"},
 				-- 3
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier(jap)"},
@@ -543,6 +544,7 @@ Purchases["campaign_capture_the_flag"] = {
 				-- 2
 				{priority = 3.5, class = UnitClass.Infantry, unit = "squad_regular(jap)"},
 				{priority = 2.0, class = UnitClass.ATInfantry, unit = "single_mortar(jap)"},
+				{priority = 1.5, class = UnitClass.Infantry, unit = "single_flamer(jap)"},
 				{priority = 2.0, class = UnitClass.ATInfantry, unit = "single_riflegrenade(jap)"},
 				-- 3
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier(jap)"},
@@ -941,6 +943,7 @@ Purchases["campaign_capture_the_flag"] = {
 				-- 2
 				{priority = 3.5, class = UnitClass.Infantry, unit = "squad_regular(jap)"},
 				{priority = 2.0, class = UnitClass.ATInfantry, unit = "single_mortar(jap)"},
+				{priority = 1.5, class = UnitClass.Infantry, unit = "single_flamer(jap)"},
 				{priority = 2.0, class = UnitClass.ATInfantry, unit = "single_riflegrenade(jap)"},
 				-- 3
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier(jap)"},
@@ -1333,6 +1336,7 @@ Purchases["campaign_capture_the_flag"] = {
 				-- 2
 				{priority = 3.5, class = UnitClass.Infantry, unit = "squad_regular(jap)"},
 				{priority = 2.0, class = UnitClass.ATInfantry, unit = "single_mortar(jap)"},
+				{priority = 1.5, class = UnitClass.Infantry, unit = "single_flamer(jap)"},
 				{priority = 2.0, class = UnitClass.ATInfantry, unit = "single_riflegrenade(jap)"},
 				-- 3
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier(jap)"},
@@ -1723,6 +1727,7 @@ Purchases["campaign_capture_the_flag"] = {
 				-- 2
 				{priority = 3.5, class = UnitClass.Infantry, unit = "squad_regular(jap)"},
 				{priority = 2.0, class = UnitClass.ATInfantry, unit = "single_mortar(jap)"},
+				{priority = 1.5, class = UnitClass.Infantry, unit = "single_flamer(jap)"},
 				{priority = 2.0, class = UnitClass.ATInfantry, unit = "single_riflegrenade(jap)"},
 				-- 3
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier(jap)"},
@@ -2121,6 +2126,7 @@ Purchases["campaign_capture_the_flag"] = {
 				-- 2
 				{priority = 3.5, class = UnitClass.Infantry, unit = "squad_regular(jap)"},
 				{priority = 2.0, class = UnitClass.ATInfantry, unit = "single_mortar(jap)"},
+				{priority = 1.5, class = UnitClass.Infantry, unit = "single_flamer(jap)"},
 				{priority = 2.0, class = UnitClass.ATInfantry, unit = "single_riflegrenade(jap)"},
 				-- 3
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier(jap)"},
@@ -2513,6 +2519,7 @@ Purchases["campaign_capture_the_flag"] = {
 				-- 2
 				{priority = 3.5, class = UnitClass.Infantry, unit = "squad_regular(jap)"},
 				{priority = 2.0, class = UnitClass.ATInfantry, unit = "single_mortar(jap)"},
+				{priority = 1.5, class = UnitClass.Infantry, unit = "single_flamer(jap)"},
 				{priority = 2.0, class = UnitClass.ATInfantry, unit = "single_riflegrenade(jap)"},
 				-- 3
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier(jap)"},
@@ -2898,6 +2905,7 @@ Purchases["campaign_capture_the_flag"] = {
 				-- 2
 				{priority = 3.5, class = UnitClass.Infantry, unit = "squad_regular(jap)"},
 				{priority = 2.0, class = UnitClass.ATInfantry, unit = "single_mortar(jap)"},
+				{priority = 1.5, class = UnitClass.Infantry, unit = "single_flamer(jap)"},
 				{priority = 2.0, class = UnitClass.ATInfantry, unit = "single_riflegrenade(jap)"},
 				-- 3
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier(jap)"},
@@ -3290,6 +3298,7 @@ Purchases["campaign_capture_the_flag"] = {
 				-- 2
 				{priority = 3.5, class = UnitClass.Infantry, unit = "squad_regular(jap)"},
 				{priority = 2.0, class = UnitClass.ATInfantry, unit = "single_mortar(jap)"},
+				{priority = 1.5, class = UnitClass.Infantry, unit = "single_flamer(jap)"},
 				{priority = 2.0, class = UnitClass.ATInfantry, unit = "single_riflegrenade(jap)"},
 				-- 3
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier(jap)"},
@@ -3672,6 +3681,7 @@ Purchases["campaign_capture_the_flag"] = {
 				-- 2
 				{priority = 3.5, class = UnitClass.Infantry, unit = "squad_regular(jap)"},
 				{priority = 2.0, class = UnitClass.ATInfantry, unit = "single_mortar(jap)"},
+				{priority = 1.5, class = UnitClass.Infantry, unit = "single_flamer(jap)"},
 				{priority = 2.0, class = UnitClass.ATInfantry, unit = "single_riflegrenade(jap)"},
 				-- 3
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier(jap)"},

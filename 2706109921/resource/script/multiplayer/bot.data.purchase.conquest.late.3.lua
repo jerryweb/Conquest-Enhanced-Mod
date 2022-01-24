@@ -59,6 +59,7 @@ Purchases["campaign_capture_the_flag"] = {
 				-- 2
 				{priority = 3.5, class = UnitClass.Infantry, unit = "squad_regular(jap)"},
 				{priority = 2.0, class = UnitClass.ATInfantry, unit = "single_mortar(jap)"},
+				{priority = 1.5, class = UnitClass.Infantry, unit = "single_flamer(jap)"},
 				{priority = 2.0, class = UnitClass.ATInfantry, unit = "single_riflegrenade(jap)"},
 				{priority = 1.5, class = UnitClass.Infantry, unit = "single_sniper(jap)"},
 			},
@@ -381,6 +382,7 @@ Purchases["campaign_capture_the_flag"] = {
 				-- 2
 				{priority = 3.5, class = UnitClass.Infantry, unit = "squad_regular(jap)"},
 				{priority = 2.0, class = UnitClass.ATInfantry, unit = "single_mortar(jap)"},
+				{priority = 1.5, class = UnitClass.Infantry, unit = "single_flamer(jap)"},
 				{priority = 2.0, class = UnitClass.ATInfantry, unit = "single_riflegrenade(jap)"},
 				-- 3
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier(jap)"},
@@ -625,6 +627,7 @@ Purchases["campaign_capture_the_flag"] = {
 				-- 2
 				{priority = 3.5, class = UnitClass.Infantry, unit = "squad_regular(jap)"},
 				{priority = 2.0, class = UnitClass.ATInfantry, unit = "single_mortar(jap)"},
+				{priority = 1.5, class = UnitClass.Infantry, unit = "single_flamer(jap)"},
 				{priority = 2.0, class = UnitClass.ATInfantry, unit = "single_riflegrenade(jap)"},
 				-- 3
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier(jap)"},
@@ -718,6 +721,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "150mm_type_96"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "toyota_rocket"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "type4_ha-to"},
 			},
 			["usa"] = {--USA
 			--Howitzers				
