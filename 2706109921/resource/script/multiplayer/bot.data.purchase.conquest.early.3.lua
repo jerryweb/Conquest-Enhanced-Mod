@@ -54,7 +54,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "m3a1_scout"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "m20"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "m16"},											  
-				{priority = 1.0, class = UnitClass.Vehicle, unit = "m8_grayhound"},
+				{priority = 1.0, class = UnitClass.Vehicle, unit = "m8_grayhound"},		
 			},
 			["eng"] = {--Britain
 			--Wheel_vehicles
@@ -389,6 +389,21 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Tank, unit = "r35_pol"},													
 			},
 			["jap"] = {--Japan
+			--Tanks_light
+				{priority = 1.0, class = UnitClass.AATank, unit = "crusader_aa1"},
+				{priority = 1.0, class = UnitClass.AATank, unit = "crusader_mki"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "crusader_mk6"},
+			},
+			["usa"] = {--USA
+			--Tanks_light
+				{priority = 1.0, class = UnitClass.Tank, unit = "m22"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "m3_stuart"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "m5a1"},
+			--Tanks_medium
+				{priority = 1.0, class = UnitClass.Tank, unit = "m3lee"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "m4a1"},	
+			},
+			["eng"] = {--Britain
 			--Tanks_light
 				{priority = 1.0, class = UnitClass.AATank, unit = "crusader_aa1"},
 				{priority = 1.0, class = UnitClass.AATank, unit = "crusader_mki"},
