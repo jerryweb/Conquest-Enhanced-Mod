@@ -1,7 +1,7 @@
 require([[/script/multiplayer/bot.data]])
 
 -- This enables early testing so that units come 30 seconds after start. 
-testing = false
+testing = true
 verbose = false
 
 -- Number of unit division roster files to randomly select for each period in the war 
@@ -14,7 +14,7 @@ firstWaveOffsetTime  = 720
 gameStartTime = os.clock()
 
 if testing then
-	firstWaveOffsetTime = 90
+	firstWaveOffsetTime = 50
 end 
 
 -- This is used to add the offset ONLY to the first wave
@@ -69,7 +69,7 @@ function selectArmyDivision(totalFlags)
 	print("loading")
 	-- REMOVE THIS LINE (ONLY FOR TESTING)
 	if testing then
-		-- divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.7]]
+		divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.7]]
 	end
 
 

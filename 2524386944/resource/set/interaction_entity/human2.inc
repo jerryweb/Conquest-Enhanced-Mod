@@ -1,4 +1,15 @@
 {"human"
+	{on "tester" 
+		{if not tagged "on_plane_1"
+			{if linked "bf110_para_plane"
+				{tags add "para_need_tag"}
+				{delay 15
+					{tags remove "para_need_tag"}
+				}
+			}
+		}
+	}
+
     {on bullet_hit
 		{if not tagged "player"
 		    {tags add "hit"}
