@@ -2759,6 +2759,7 @@ Purchases["campaign_capture_the_flag"] = {
 		maxRepeat = 2,
         skipPossible = false,		
 		waveDuration = 3,
+	    isHeavyArty = true,		
 		Units = {
 			["ger"] = {--Germany
 		  	    {priority = 1.0, class = UnitClass.ATTank, unit = "210mm_morser18"},

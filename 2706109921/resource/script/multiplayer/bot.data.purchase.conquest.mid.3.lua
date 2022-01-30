@@ -239,6 +239,7 @@ Purchases["campaign_capture_the_flag"] = {
 		maxRepeat = 2,
         skipPossible = false,		
 		waveDuration = 7,
+	    isHeavyArty = true,		
 		Units = {
 			["ger"] = {--Germany
 		       {priority = 2.0, class = UnitClass.ArtilleryTank, unit = "105mm_lefh18"},

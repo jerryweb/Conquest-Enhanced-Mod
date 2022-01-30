@@ -579,6 +579,7 @@ Purchases["campaign_capture_the_flag"] = {
 		maxRepeat = 3,
         skipPossible = false,		
 		waveDuration = 5,
+		isHeavyArty = true,	
 		Units = {
 			["ger"] = {--Germany
 		        {priority = 1.0, class = UnitClass.ArtilleryTank, unit = "300mm_nebelwerfer42"},
