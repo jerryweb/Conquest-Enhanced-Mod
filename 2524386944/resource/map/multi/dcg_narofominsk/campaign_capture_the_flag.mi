@@ -73048,7 +73048,7 @@
 					}
 				}
 			}
-			{"x/officerremove"
+			{## "x/officerremove"
 				{condition
 					{expression "!2"}
 					{terms
@@ -73161,7 +73161,7 @@
 					}
 				}
 			}
-			{"x/officerbuff"
+			{## "x/officerbuff"
 				{condition
 					{expression "2"}
 					{terms
@@ -73343,7 +73343,7 @@
 					}
 				}
 			}
-			{"x/xalink3"
+			{## "x/xalink3"
 				{condition
 					{expression "!1 "}
 					{terms
@@ -74957,7 +74957,7 @@
 					}
 				}
 			}
-			{"x/enemyartyset21"
+			{## "x/enemyartyset21"
 				{condition
 					{type 1}
 					{terms
@@ -76892,12 +76892,36 @@
 							{group
 								{select
 									{zone
-										{zone "gamezone"}
+										{zone "sidea1"}
+									}
+									{zone
+										{zone "sidea2"}
+									}
+									{zone
+										{zone "sidea3"}
+									}
+									{zone
+										{zone "sidea4"}
+									}
+									{zone
+										{zone "sideb1"}
+									}
+									{zone
+										{zone "sideb2"}
+									}
+									{zone
+										{zone "sideb3"}
+									}
+									{zone
+										{zone "sideb4"}
 									}
 								}
 								{include
 									{prop
 										{prop human}
+									}
+									{state
+										{state operatable}
 									}
 								}
 								{exclude
@@ -76928,19 +76952,261 @@
 									{tag
 										{tag pilot}
 									}
-									{player
-										{player "0"}
+									{tag
+										{tag hidden}
 									}
 									{state
 										{state linked}
 									}
 								}
 							}
+							{amount 20
+							}
+						}
+						{tag_add ai_inf}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{zone
+										{zone "sidea1"}
+									}
+									{zone
+										{zone "sidea2"}
+									}
+									{zone
+										{zone "sidea3"}
+									}
+									{zone
+										{zone "sidea4"}
+									}
+									{zone
+										{zone "sideb1"}
+									}
+									{zone
+										{zone "sideb2"}
+									}
+									{zone
+										{zone "sideb3"}
+									}
+									{zone
+										{zone "sideb4"}
+									}
+								}
+								{include
+									{prop
+										{prop human}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag player}
+									}
+									{state
+										{state dead}
+									}
+									{tag
+										{tag rus}
+									}
+									{tag
+										{tag ger}
+									}
+									{tag
+										{tag cmp_def}
+									}
+									{state
+										{state user_control}
+									}
+									{player
+										{player "1"}
+									}
+									{tag
+										{tag ai_inf}
+									}
+									{tag
+										{tag pilot}
+									}
+									{tag
+										{tag hidden}
+									}
+									{state
+										{state linked}
+									}
+								}
+							}
+							{amount 20
+							}
+						}
+						{tag_add ai_inf}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{zone
+										{zone "sidea1"}
+									}
+									{zone
+										{zone "sidea2"}
+									}
+									{zone
+										{zone "sidea3"}
+									}
+									{zone
+										{zone "sidea4"}
+									}
+									{zone
+										{zone "sideb1"}
+									}
+									{zone
+										{zone "sideb2"}
+									}
+									{zone
+										{zone "sideb3"}
+									}
+									{zone
+										{zone "sideb4"}
+									}
+								}
+								{include
+									{prop
+										{prop human}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag player}
+									}
+									{state
+										{state dead}
+									}
+									{tag
+										{tag rus}
+									}
+									{tag
+										{tag ger}
+									}
+									{tag
+										{tag cmp_def}
+									}
+									{state
+										{state user_control}
+									}
+									{player
+										{player "1"}
+									}
+									{tag
+										{tag ai_inf}
+									}
+									{tag
+										{tag pilot}
+									}
+									{tag
+										{tag hidden}
+									}
+									{state
+										{state linked}
+									}
+								}
+							}
+							{amount 20
+							}
+						}
+						{tag_add ai_inf}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{zone
+										{zone "sidea1"}
+									}
+									{zone
+										{zone "sidea2"}
+									}
+									{zone
+										{zone "sidea3"}
+									}
+									{zone
+										{zone "sidea4"}
+									}
+									{zone
+										{zone "sideb1"}
+									}
+									{zone
+										{zone "sideb2"}
+									}
+									{zone
+										{zone "sideb3"}
+									}
+									{zone
+										{zone "sideb4"}
+									}
+								}
+								{include
+									{prop
+										{prop human}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag player}
+									}
+									{state
+										{state dead}
+									}
+									{tag
+										{tag rus}
+									}
+									{tag
+										{tag ger}
+									}
+									{tag
+										{tag cmp_def}
+									}
+									{state
+										{state user_control}
+									}
+									{player
+										{player "1"}
+									}
+									{tag
+										{tag ai_inf}
+									}
+									{tag
+										{tag pilot}
+									}
+									{tag
+										{tag hidden}
+									}
+									{state
+										{state linked}
+									}
+								}
+							}
+							{amount 20
+							}
 						}
 						{tag_add ai_inf}
 					}
 					{"delay"
-						{time 0.1}
+						{time 5.1}
 					}
 					{"entity_state"
 						{selector
@@ -76987,11 +77253,66 @@
 									}
 								}
 							}
+							{amount 10
+							}
 						}
 						{tag_add ai_armor}
 					}
 					{"delay"
-						{time 0.1}
+						{time 5.1}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{zone
+										{zone "gamezone"}
+									}
+								}
+								{include
+									{prop
+										{prop tank}
+									}
+									{state
+										{state inhabited}
+									}
+								}
+								{exclude
+									{tag
+										{tag player_armor}
+									}
+									{tag
+										{tag no_scavenge}
+									}
+									{tag
+										{tag rus}
+									}
+									{tag
+										{tag ger}
+									}
+									{tag
+										{tag cmp_def}
+									}
+									{state
+										{state user_control}
+									}
+									{tag
+										{tag hidden}
+									}
+									{tag
+										{tag ai_armor}
+									}
+								}
+							}
+							{amount 10
+							}
+						}
+						{tag_add ai_armor}
+					}
+					{"delay"
+						{time 1.1}
 					}
 					{"entity_state"
 						{selector
@@ -77038,11 +77359,13 @@
 									}
 								}
 							}
+							{amount 1
+							}
 						}
 						{tag_add ai_car}
 					}
 					{"delay"
-						{time 0.5}
+						{time 5.5}
 					}
 					{"entity_state"
 						{selector
@@ -77107,11 +77430,155 @@
 									}
 								}
 							}
+							{amount 10
+							}
 						}
 						{tag_add ai_veh}
 					}
 					{"delay"
-						{time 0.1}
+						{time 5.5}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{zone
+										{zone "gamezone"}
+									}
+								}
+								{include
+									{prop
+										{prop vehicle}
+									}
+									{state
+										{state inhabited}
+									}
+								}
+								{exclude
+									{tag
+										{tag player_veh}
+									}
+									{tag
+										{tag no_scavenge}
+									}
+									{tag
+										{tag player_armor}
+									}
+									{tag
+										{tag player_car}
+									}
+									{tag
+										{tag rus}
+									}
+									{tag
+										{tag ger}
+									}
+									{tag
+										{tag cmp_def}
+									}
+									{state
+										{state user_control}
+									}
+									{tag
+										{tag ai_armor}
+									}
+									{tag
+										{tag ai_car}
+									}
+									{tag
+										{tag ai_veh}
+									}
+									{tag
+										{tag hidden}
+									}
+									{tag
+										{tag enemyarty}
+									}
+									{prop
+										{prop tank}
+									}
+								}
+							}
+							{amount 10
+							}
+						}
+						{tag_add ai_veh}
+					}
+					{"delay"
+						{time 5.5}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{zone
+										{zone "gamezone"}
+									}
+								}
+								{include
+									{prop
+										{prop vehicle}
+									}
+									{state
+										{state inhabited}
+									}
+								}
+								{exclude
+									{tag
+										{tag player_veh}
+									}
+									{tag
+										{tag no_scavenge}
+									}
+									{tag
+										{tag player_armor}
+									}
+									{tag
+										{tag player_car}
+									}
+									{tag
+										{tag rus}
+									}
+									{tag
+										{tag ger}
+									}
+									{tag
+										{tag cmp_def}
+									}
+									{state
+										{state user_control}
+									}
+									{tag
+										{tag ai_armor}
+									}
+									{tag
+										{tag ai_car}
+									}
+									{tag
+										{tag ai_veh}
+									}
+									{tag
+										{tag hidden}
+									}
+									{tag
+										{tag enemyarty}
+									}
+									{prop
+										{prop tank}
+									}
+								}
+							}
+							{amount 10
+							}
+						}
+						{tag_add ai_veh}
+					}
+					{"delay"
+						{time 60.1}
 					}
 					{"trigger"
 						{name "x/ai_units3"}
@@ -79189,7 +79656,7 @@
 					}
 				}
 			}
-			{"x/ammotruck"
+			{## "x/ammotruck"
 				{condition
 					{terms
 						{"1.entities"
@@ -90004,7 +90471,7 @@
 					}
 				}
 			}
-			{"x/setaiplayer"
+			{## "x/setaiplayer"
 				{condition
 					{terms
 						{"1.entities"
@@ -90955,6 +91422,876 @@
 					}
 				}
 				{actions
+					{"switch"
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_inf}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{player
+												{player "2"}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag extraplanes}
+											}
+										}
+										{include
+											{tag
+												{tag hidden}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "2"}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_inf}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{player
+												{player "3"}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag extraplanes}
+											}
+										}
+										{include
+											{tag
+												{tag hidden}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "3"}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_inf}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{player
+												{player "4"}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag extraplanes}
+											}
+										}
+										{include
+											{tag
+												{tag hidden}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "4"}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_inf}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{player
+												{player "5"}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag extraplanes}
+											}
+										}
+										{include
+											{tag
+												{tag hidden}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "5"}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_inf}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{player
+												{player "6"}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag extraplanes}
+											}
+										}
+										{include
+											{tag
+												{tag hidden}
+											}
+										}
+										{exclude
+											{tag
+												{tag extraplanes}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "6"}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_inf}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{player
+												{player "7"}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag extraplanes}
+											}
+										}
+										{include
+											{tag
+												{tag hidden}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "7"}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_inf}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{player
+												{player "8"}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag extraplanes}
+											}
+										}
+										{include
+											{tag
+												{tag hidden}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "8"}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_inf}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{player
+												{player "9"}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag extraplanes}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+											{tag
+												{tag hidden}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "9"}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_inf}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{player
+												{player "10"}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag extraplanes}
+											}
+										}
+										{include
+											{tag
+												{tag hidden}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "10"}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_inf}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{player
+												{player "11"}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag extraplanes}
+											}
+										}
+										{include
+											{tag
+												{tag hidden}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "11"}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_inf}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{player
+												{player "12"}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag extraplanes}
+											}
+										}
+										{include
+											{tag
+												{tag hidden}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "12"}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_inf}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{player
+												{player "13"}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag extraplanes}
+											}
+										}
+										{include
+											{tag
+												{tag hidden}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "13"}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_inf}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{player
+												{player "14"}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag extraplanes}
+											}
+										}
+										{include
+											{tag
+												{tag hidden}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "14"}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_inf}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{player
+												{player "15"}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag extraplanes}
+											}
+										}
+										{include
+											{tag
+												{tag hidden}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "15"}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_inf}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{player
+												{player "16"}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag extraplanes}
+											}
+										}
+										{include
+											{tag
+												{tag hidden}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "16"}
+							}
+						}
+					}
 					{"delay"
 						{time 45}
 					}
@@ -98549,7 +99886,7 @@
 					}
 				}
 			}
-			{"x/no_scavenge"
+			{## "x/no_scavenge"
 				{condition
 					{type 1}
 					{terms
@@ -102296,7 +103633,7 @@
 				}
 				{actions
 					{"delay"
-						{time 1}
+						{time 10}
 					}
 					{"switch"
 						{"case"
@@ -102470,7 +103807,7 @@
 				}
 				{actions
 					{"delay"
-						{time 1}
+						{time 10}
 					}
 					{"ables"
 						{selector
@@ -102568,7 +103905,7 @@
 						}
 					}
 					{"delay"
-						{time 5}
+						{time 15}
 					}
 					{"trigger"
 						{name "x/radio/radioon"}

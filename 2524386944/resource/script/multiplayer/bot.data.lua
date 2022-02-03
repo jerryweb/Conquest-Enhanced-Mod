@@ -9,9 +9,11 @@ FlagPriority = { Captured = 2, Enemy = 1, Neutral = 3 } -- Was Captured =1, enem
 FlagCaptureArea = {
 	Infantry = 20,
 	Captor = 30,
-	Vehicle = 50,
+	Vehicle = 40,
 	Helicopter = 3,
-	Artillery = 75
+	ATgun = 80,
+	Mortar = 100,
+	Artillery = 200
 }
 UnitClass = {
 	Infantry = "infantry",

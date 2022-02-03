@@ -387,7 +387,7 @@
 	}
 	{on contact
 		{volumes disable contact}
-		{fire radius 1 time 2 heating 0.25 effector follow}
+		{fire radius 1 time 1 heating 0.5 effector follow}
 		{if rand 0.2
 			{call_synced "spawn_fire_die"}
 		}
@@ -1406,6 +1406,7 @@
 {"pointer_bait"				;// mission objective icon/helper
 	{on spawn
 		{tags add "pointer_bait"}
+		{tags add "quest"}
 		{add_view "bait" "bait" "upper"}
 		{view start "bait"}
 	}
@@ -1413,6 +1414,7 @@
 {"pointer_wood"				;// mission objective icon/helper
 	{on spawn
 		{tags add "pointer_wood"}
+		{tags add "quest"}		
 		{add_view "wood" "wood" "upper"}
 		{view start "wood"}
 	}
@@ -1420,6 +1422,7 @@
 {"pointer_repair"				;// mission objective icon/helper
 	{on spawn
 		{tags add "pointer_repair"}
+		{tags add "quest"}		
 		{add_view "repair" "repair" "upper"}
 		{view start "repair"}
 	}
@@ -1427,6 +1430,7 @@
 {"pointer_ammo"				;// mission objective icon/helper
 	{on spawn
 		{tags add "pointer_ammo"}
+		{tags add "quest"}		
 		{add_view "ammo" "ammo" "upper"}
 		{view start "ammo"}
 	}
@@ -1434,6 +1438,7 @@
 {"pointer_mines"				;// mission objective icon/helper
 	{on spawn
 		{tags add "pointer_mines"}
+		{tags add "quest"}		
 		{add_view "mines" "mines" "upper"}
 		{view start "mines"}
 		{delay 2
@@ -1445,12 +1450,16 @@
 {"pointer_fuel"				;// mission objective icon/helper
 	{on spawn
 		{tags add "pointer_fuel"}
+		{tags add "quest"}		
 		{add_view "fuel" "fuel" "upper"}
 		{view start "fuel"}
 	}
 }
 
 {"crosshair"				;// mission objective icon/helper
+	{on spawn
+		{tags add "crosshair"}
+	}	
 	{on "mortar"
 		{tags add "mortar_bombarding"}
 		{spawn "mortar_barrage"}
@@ -1513,6 +1522,17 @@
 {"map_point_tagger"
 	{on spawn
 		{tags add "flag"}
+	}
+}
+
+{"spawn_team_a"				;// mission objective icon/helper
+	{on spawn
+		{tags add "spawn_team_a"}
+	}
+}
+{"spawn_team_b"				;// mission objective icon/helper
+	{on spawn
+		{tags add "spawn_team_b"}
 	}
 }
 

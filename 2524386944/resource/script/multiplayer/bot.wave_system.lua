@@ -2,7 +2,7 @@ require([[/script/multiplayer/bot.data]])
 
 -- This enables early testing so that units come 30 seconds after start. 
 testing = true
-verbose = false
+verbose = true
 
 -- Number of unit division roster files to randomly select for each period in the war 
 maxNumOfEarlyDivisions = 5
@@ -14,7 +14,7 @@ firstWaveOffsetTime  = 720
 gameStartTime = os.clock()
 
 if testing then
-	firstWaveOffsetTime = 50
+	firstWaveOffsetTime = 30
 end 
 
 -- This is used to add the offset ONLY to the first wave
@@ -37,6 +37,8 @@ nextTyphoonWaveToggleTime = 0
 defaultSpawnCooldownTime = {}
 
 currentWaveMaxUnitCount = 0
+
+local unitsForWave = {}
 
 function verbosePrinting( verbose, printString )
 	if verbose then
@@ -148,9 +150,8 @@ function PIter:new(data)
 		maxRepeat = 0,
 		waveDuration = nil,
 		waveStartTime = nil,
-		unlockedUnits = nil,
-		isHeavyArty = false,
-		isMortar = false
+		unlockedUnits = {},
+		isHeavyArty = false
 	}
 	
 	print("loading division: ", obj.purchases[1].divisionName)
@@ -167,61 +168,65 @@ end
 
 function PIter:nextIndex()
 
-	-- self.idx = next(self.purchases, self.idx)
-
-	-- if not self.idx then
-	-- 	self.idx = 1
-	-- end
-	-- self.nextValidWave()
 	if verbose then
 		print("finding next valid wave")
 	end
-	local availableUnits = {}
+
+
+	self.idx = next(self.purchases, self.idx)
+
+	if not self.idx then
+		self.idx = 1
+	end
 
 	-- Find the next wave that has at least 1 unlocked unit to buy
-	while #availableUnits == 0 do
+	if unitsForWave[self.idx] == nil  then 
+		local availableUnits = {}
 
-		self.idx = next(self.purchases, self.idx)
+		while #availableUnits == 0 do
 
-		if not self.idx then
-			self.idx = 1
-		end
-
-		if verbose then
-			print("wave ", self.idx)
-		end 
-		local potentialUnits = self.purchases[self.idx].Units[BotApi.Instance.army]
-		
-		if verbose then
-			print("Finding unlocked units for this wave")
-		end
-		
-		for i, unit in pairs(potentialUnits) do
-			if BotApi.Commands:IsUnitAvailable(unit.unit) then
-				if verbose then
-					print("Adding ", unit.unit, " to available units")
-				end
-				table.insert(availableUnits, unit)
-			else 
-				if verbose then
-					print(unit.unit, " is not yet available to the AI")
-				end
-			end
-		end
-		
-		if #availableUnits == 0 then
 			if verbose then
-				print("wave ", self.idx, " has no available units")
+				print("wave ", self.idx)
+			end 
+			local potentialUnits = self.purchases[self.idx].Units[BotApi.Instance.army]
+			
+			if verbose then
+				print("Finding unlocked units for this wave")
+			end
+			
+			for i, unit in pairs(potentialUnits) do
+				if BotApi.Commands:IsUnitAvailable(unit.unit) then
+					if verbose then
+						print("Adding ", unit.unit, " to available units")
+					end
+					table.insert(availableUnits, unit)
+				else 
+					if verbose then
+						print(unit.unit, " is not yet available to the AI")
+					end
+				end
+			end
+			
+			if #availableUnits == 0 then
+				if verbose then
+					print("wave ", self.idx, " has no available units")
+				end
+
+				self.idx = next(self.purchases, self.idx)
+
+				if not self.idx then
+					self.idx = 1
+				end
+
 			end
 		end
-	end	
-
-
-	--print("number of available units for wave ", self.idx, ": ", #availableUnits)
+		unitsForWave[self.idx] = availableUnits	
+		
+	end
 	
-	self.unlockedUnits = availableUnits
-
+	self.unlockedUnits = unitsForWave[self.idx]	
 	
+
 	if verbose then
 		print("grabbing wave number: ", self.purchases[self.idx].waveNumber)
 	end
@@ -245,8 +250,6 @@ function PIter:nextIndex()
 		currentWaveMaxUnitCount = self.rpt
 	end	
 
-	
-
 	if verbose then
 		print("Max number of squads for this wave: ", self.rpt)
 	end
@@ -265,19 +268,9 @@ function PIter:nextIndex()
 	end
 
 	if self.purchases[self.idx].isHeavyArty then 
-		if verbose then
-			print("setting ", self.purchases[self.idx].isHeavyArty)
-		end
-		self.isHeavyArty = self.purchases[self.idx].isHeavyArty
+		self.isHeavyArty = true
 	else
 		self.isHeavyArty = false
-	end
-
-	if self.purchases[self.idx].isMortar then 
-		print("setting mortar ", self.purchases[self.idx].isMortar)
-		self.isMortar = self.purchases[self.idx].isMortar
-	else
-		self.isMortar = false
 	end
 	
 	if verbose then

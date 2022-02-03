@@ -20,8 +20,8 @@
 		{xform zl 83.74 scale 4}
 	}
 	{Human "mp/ger/mid/pilot" 0xc802
-		{Position -312.7 3405.58}
-		{xform zl 180 y 12.57 zw 107.57}
+		{Position -312.7 3405.59}
+		{xform zl 180 y 12.57 zw 107.58}
 		{Volume "body"
 			{able {blast 0}}
 		}
@@ -66,7 +66,7 @@
 	}
 	{Human "mp/ger/mid/pilot" 0xc801
 		{Position -323.35 3439.22}
-		{xform y 12.57 zw 107.57}
+		{xform y 12.57 zw 107.58}
 		{Volume "body"
 			{able {blast 0}}
 		}
@@ -116,7 +116,7 @@
 	}
 	{Human "mp/ger/mid/fallsch_sl_asst" 0xf800
 		{Position -323.35 3439.22}
-		{xform y 12.57 zw 107.57}
+		{xform y 12.57 zw 107.58}
 		{Volume "body"
 			{able {blast 0}}
 		}
@@ -166,7 +166,7 @@
 	}
 	{Human "mp/ger/mid/fallsch_sl_asst" 0xd800
 		{Position -323.35 3439.22}
-		{xform y 12.57 zw 107.57}
+		{xform y 12.57 zw 107.58}
 		{Volume "body"
 			{able {blast 0}}
 		}
@@ -216,7 +216,7 @@
 	}
 	{Human "mp/ger/mid/fallsch_sl_asst" 0xc400
 		{Position -323.35 3439.22}
-		{xform y 12.57 zw 107.57}
+		{xform y 12.57 zw 107.58}
 		{Volume "body"
 			{able {blast 0}}
 		}
@@ -266,7 +266,7 @@
 	}
 	{Human "mp/ger/mid/fallsch_sl_asst" 0xb000
 		{Position -323.35 3439.22}
-		{xform y 12.57 zw 107.57}
+		{xform y 12.57 zw 107.58}
 		{Volume "body"
 			{able {blast 0}}
 		}
@@ -316,7 +316,7 @@
 	}
 	{Human "mp/ger/mid/fallsch_sl_asst" 0x9400
 		{Position -323.35 3439.22}
-		{xform y 12.57 zw 107.57}
+		{xform y 12.57 zw 107.58}
 		{Volume "body"
 			{able {blast 0}}
 		}
@@ -366,7 +366,7 @@
 	}
 	{Human "mp/ger/mid/fallsch_sl_asst" 0xb800
 		{Position -323.35 3439.22}
-		{xform y 12.57 zw 107.57}
+		{xform y 12.57 zw 107.58}
 		{Volume "body"
 			{able {blast 0}}
 		}
@@ -416,7 +416,7 @@
 	}
 	{Human "mp/ger/mid/fallsch_sl_asst" 0x8800
 		{Position -323.35 3439.22}
-		{xform y 12.57 zw 107.57}
+		{xform y 12.57 zw 107.58}
 		{Volume "body"
 			{able {blast 0}}
 		}
@@ -466,7 +466,7 @@
 	}
 	{Human "mp/ger/mid/fallsch_sl_asst" 0xf000
 		{Position -323.35 3439.22}
-		{xform y 12.57 zw 107.57}
+		{xform y 12.57 zw 107.58}
 		{Volume "body"
 			{able {blast 0}}
 		}
@@ -516,7 +516,7 @@
 	}
 	{Human "mp/ger/mid/fallsch_sl_asst" 0xe800
 		{Position -323.35 3439.22}
-		{xform y 12.57 zw 107.57}
+		{xform y 12.57 zw 107.58}
 		{Volume "body"
 			{able {blast 0}}
 		}
@@ -566,7 +566,7 @@
 	}
 	{Human "mp/ger/mid/fallsch_sl_asst" 0x9800
 		{Position -323.35 3439.22}
-		{xform y 12.57 zw 107.57}
+		{xform y 12.57 zw 107.58}
 		{Volume "body"
 			{able {blast 0}}
 		}
@@ -616,7 +616,7 @@
 	}
 	{Human "mp/ger/mid/fallsch_sl_asst" 0xa800
 		{Position -323.35 3439.22}
-		{xform y 12.57 zw 107.57}
+		{xform y 12.57 zw 107.58}
 		{Volume "body"
 			{able {blast 0}}
 		}
@@ -666,7 +666,7 @@
 	}
 	{Human "mp/ger/mid/fallsch_sl_asst" 0xc805
 		{Position -323.35 3439.22}
-		{xform y 12.57 zw 107.57}
+		{xform y 12.57 zw 107.58}
 		{Volume "body"
 			{able {blast 0}}
 		}
@@ -711,8 +711,7 @@
 	}
 	{Entity "bf110_para_plane" 0xc800
 		{Position -325.32 3445.02}
-		{xform zl 180 y 12.57 zw 107.57}
-		{SpawnedInFog}
+		{xform zl 180 y 12.57 zw 107.58}
 		{Volume "1blade1"
 			{able {bullet 0}{contact 0}{blast 0}{touch 0}{nowounddecal 0}}
 		}
@@ -740,6 +739,9 @@
 		{DisableObstacles}
 		{Player 1}
 		{MID 1}
+		{Chassis "airborne"
+			{AirborneMode 1}
+		}
 	}
 	{Entity "map_point" 0x8005
 		{Position -3139.87 1516.9 -0.02}
@@ -1326,7 +1328,8 @@
 					}
 				}
 			}
-			{"ai_paratroopers/sound/siren"
+			{## "ai_paratroopers/sound/siren"
+				{disabled}
 				{condition
 					{terms
 						{"1.entities"
@@ -1552,7 +1555,7 @@
 								{value 0}
 							}
 						}
-						{"2.altitude"
+						{"3.entities"
 							{selector
 								{source advanced}
 								{group
@@ -1567,6 +1570,14 @@
 										}
 										{prop
 											{prop human}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
 										}
 									}
 								}
@@ -9023,85 +9034,6 @@
 					}
 				}
 			}
-			{"plane_move"
-				{condition
-				}
-				{actions
-					{## "set_i"
-						{var "para_plane_side_start$"}
-						{op "="}
-						{value 2}
-					}
-					{## "set_i"
-						{var "para_plane_index$"}
-						{op "="}
-						{value 1}
-					}
-					{"delay"
-						{time 2}
-					}
-					{## "air_state"
-						{selector
-							{tag drop_plane}
-						}
-						{altitude 40}
-					}
-					{## "actor_to_waypoint"
-						{selector
-							{source advanced}
-							{group
-								{select
-									{tag
-										{tag drop_plane}
-									}
-								}
-								{include
-									{tag
-										{tag hidden}
-									}
-								}
-							}
-						}
-						{drop orders}
-						{waypoint "0"}
-						{clone}
-						{approach "safe teleport & rotate"}
-					}
-					{"loop" 12
-						{"actor_to_waypoint"
-							{selector
-								{source advanced}
-								{group
-									{select
-										{tag
-											{tag drop_plane}
-										}
-									}
-									{include
-										{tag
-											{tag hidden}
-										}
-									}
-								}
-							}
-							{drop orders}
-							{waypoint "0"}
-							{clone}
-							{approach "safe teleport & rotate"}
-						}
-						{"delay"
-							{time 1}
-						}
-					}
-					{## "effect"
-						{selector
-							{type human}
-							{state operatable}
-						}
-						{effect tester}
-					}
-				}
-			}
 			{"ai_paratroopers/send_drop_plane"
 				{condition
 					{terms
@@ -9445,47 +9377,6 @@
 									}
 								}
 							}
-							{"entity_state"
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag para_plane_1}
-											}
-										}
-										{include
-											{state
-												{state operatable}
-											}
-											{state
-												{state inhabited}
-											}
-											{tag
-												{tag drop_plane}
-											}
-										}
-										{exclude
-											{tag
-												{tag hidden}
-											}
-											{tag
-												{tag plane_assigned}
-											}
-											{tag
-												{tag need_orders}
-											}
-											{tag
-												{tag player_drop_plane}
-											}
-										}
-									}
-								}
-								{tag_add plane_assigned}
-							}
-							{"delay"
-								{time 0.1}
-							}
 							{"effect"
 								{selector
 									{source advanced}
@@ -9623,8 +9514,92 @@
 											}
 										}
 									}
+									{group
+										{select
+											{tag}
+										}
+										{include
+											{with_item
+												{type existance}
+												{item "cap_usa_pilot"}
+											}
+										}
+									}
+									{group
+										{include
+											{with_item
+												{type existance}
+												{item "helmet_usa_pilot"}
+											}
+										}
+									}
+									{group
+										{include
+											{with_item
+												{type existance}
+												{item "helmet_eng_pilot"}
+											}
+										}
+									}
+									{group
+										{include
+											{with_item
+												{type existance}
+												{item "jappilot_cap"}
+											}
+										}
+									}
+									{group
+										{include
+											{with_item
+												{type existance}
+												{item "cap_ita_bustina"}
+											}
+										}
+									}
 								}
 								{tag_remove on_plane_1}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"entity_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag para_plane_1}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{state
+												{state inhabited}
+											}
+											{tag
+												{tag drop_plane}
+											}
+										}
+										{exclude
+											{tag
+												{tag hidden}
+											}
+											{tag
+												{tag plane_assigned}
+											}
+											{tag
+												{tag need_orders}
+											}
+											{tag
+												{tag player_drop_plane}
+											}
+										}
+									}
+								}
+								{tag_add plane_assigned}
 							}
 							{"set_i"
 								{var "para_plane_index$"}
@@ -9939,47 +9914,6 @@
 									}
 								}
 							}
-							{"entity_state"
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag para_plane_2}
-											}
-										}
-										{include
-											{state
-												{state operatable}
-											}
-											{state
-												{state inhabited}
-											}
-											{tag
-												{tag drop_plane}
-											}
-										}
-										{exclude
-											{tag
-												{tag hidden}
-											}
-											{tag
-												{tag plane_assigned}
-											}
-											{tag
-												{tag need_orders}
-											}
-											{tag
-												{tag player_drop_plane}
-											}
-										}
-									}
-								}
-								{tag_add plane_assigned}
-							}
-							{"delay"
-								{time 0.1}
-							}
 							{"effect"
 								{selector
 									{source advanced}
@@ -10117,8 +10051,199 @@
 											}
 										}
 									}
+									{group
+										{select
+											{tag
+												{tag on_plane_2}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "cap_usa_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_2}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "helmet_usa_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_2}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "helmet_eng_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_2}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "jappilot_cap"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_2}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "cap_ita_bustina"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
 								}
 								{tag_remove on_plane_2}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"entity_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag para_plane_2}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{state
+												{state inhabited}
+											}
+											{tag
+												{tag drop_plane}
+											}
+										}
+										{exclude
+											{tag
+												{tag hidden}
+											}
+											{tag
+												{tag plane_assigned}
+											}
+											{tag
+												{tag need_orders}
+											}
+											{tag
+												{tag player_drop_plane}
+											}
+										}
+									}
+								}
+								{tag_add plane_assigned}
 							}
 							{"set_i"
 								{var "para_plane_index$"}
@@ -10597,6 +10722,156 @@
 											{with_item
 												{type existance}
 												{item "soviet_tankovy_helmet"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_3}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "cap_usa_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_3}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "helmet_usa_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_3}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "helmet_eng_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_3}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "jappilot_cap"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_3}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "cap_ita_bustina"}
 											}
 										}
 										{exclude
@@ -11091,6 +11366,156 @@
 											{with_item
 												{type existance}
 												{item "soviet_tankovy_helmet"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_4}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "cap_usa_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_4}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "helmet_usa_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_4}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "helmet_eng_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_4}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "jappilot_cap"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_4}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "cap_ita_bustina"}
 											}
 										}
 										{exclude
@@ -11594,6 +12019,156 @@
 											}
 										}
 									}
+									{group
+										{select
+											{tag
+												{tag on_plane_5}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "cap_usa_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_5}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "helmet_usa_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_5}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "helmet_eng_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_5}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "jappilot_cap"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_5}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "cap_ita_bustina"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
 								}
 								{tag_remove on_plane_5}
 							}
@@ -12068,6 +12643,156 @@
 											{with_item
 												{type existance}
 												{item "soviet_tankovy_helmet"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_6}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "cap_usa_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_6}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "helmet_usa_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_6}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "helmet_eng_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_6}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "jappilot_cap"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_6}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "cap_ita_bustina"}
 											}
 										}
 										{exclude
@@ -12558,6 +13283,156 @@
 											}
 										}
 									}
+									{group
+										{select
+											{tag
+												{tag on_plane_7}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "cap_usa_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_7}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "helmet_usa_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_7}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "helmet_eng_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_7}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "jappilot_cap"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_7}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "cap_ita_bustina"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
 								}
 								{tag_remove on_plane_7}
 							}
@@ -13040,6 +13915,156 @@
 											}
 										}
 									}
+									{group
+										{select
+											{tag
+												{tag on_plane_8}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "cap_usa_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_8}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "helmet_usa_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_8}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "helmet_eng_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_8}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "jappilot_cap"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_8}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "cap_ita_bustina"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
 								}
 								{tag_remove on_plane_8}
 							}
@@ -13345,47 +14370,6 @@
 									}
 								}
 							}
-							{"entity_state"
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag para_plane_9}
-											}
-										}
-										{include
-											{state
-												{state operatable}
-											}
-											{state
-												{state inhabited}
-											}
-											{tag
-												{tag drop_plane}
-											}
-										}
-										{exclude
-											{tag
-												{tag hidden}
-											}
-											{tag
-												{tag plane_assigned}
-											}
-											{tag
-												{tag need_orders}
-											}
-											{tag
-												{tag player_drop_plane}
-											}
-										}
-									}
-								}
-								{tag_add plane_assigned}
-							}
-							{"delay"
-								{time 0.1}
-							}
 							{"effect"
 								{selector
 									{source advanced}
@@ -13523,8 +14507,199 @@
 											}
 										}
 									}
+									{group
+										{select
+											{tag
+												{tag on_plane_9}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "cap_usa_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_9}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "helmet_usa_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_9}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "helmet_eng_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_9}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "jappilot_cap"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_9}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "cap_ita_bustina"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
 								}
 								{tag_remove on_plane_9}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"entity_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag para_plane_9}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{state
+												{state inhabited}
+											}
+											{tag
+												{tag drop_plane}
+											}
+										}
+										{exclude
+											{tag
+												{tag hidden}
+											}
+											{tag
+												{tag plane_assigned}
+											}
+											{tag
+												{tag need_orders}
+											}
+											{tag
+												{tag player_drop_plane}
+											}
+										}
+									}
+								}
+								{tag_add plane_assigned}
 							}
 							{"set_i"
 								{var "para_plane_index$"}
@@ -13714,6 +14889,13 @@
 									{"delay"
 										{time 0.1}
 									}
+									{"air_state"
+										{selector
+											{tag para_plane_10}
+										}
+										{drop orders}
+										{altitude 25}
+									}
 									{"action"
 										{selector
 											{source advanced}
@@ -13786,6 +14968,13 @@
 									}
 									{"delay"
 										{time 0.1}
+									}
+									{"air_state"
+										{selector
+											{tag para_plane_10}
+										}
+										{drop orders}
+										{altitude 25}
 									}
 									{"action"
 										{selector
@@ -13998,6 +15187,156 @@
 											{with_item
 												{type existance}
 												{item "soviet_tankovy_helmet"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_10}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "cap_usa_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_10}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "helmet_usa_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_10}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "helmet_eng_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_10}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "jappilot_cap"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_10}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "cap_ita_bustina"}
 											}
 										}
 										{exclude
@@ -14236,6 +15575,12 @@
 											{tag current_group_11}
 										}
 									}
+									{"air_state"
+										{selector
+											{tag para_plane_11}
+										}
+										{altitude 47}
+									}
 								}
 								{"default"
 									{"select"
@@ -14309,48 +15654,13 @@
 											{tag current_group_11}
 										}
 									}
-								}
-							}
-							{"entity_state"
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag para_plane_11}
-											}
+									{"air_state"
+										{selector
+											{tag para_plane_11}
 										}
-										{include
-											{state
-												{state operatable}
-											}
-											{state
-												{state inhabited}
-											}
-											{tag
-												{tag drop_plane}
-											}
-										}
-										{exclude
-											{tag
-												{tag hidden}
-											}
-											{tag
-												{tag plane_assigned}
-											}
-											{tag
-												{tag need_orders}
-											}
-											{tag
-												{tag player_drop_plane}
-											}
-										}
+										{altitude 47}
 									}
 								}
-								{tag_add plane_assigned}
-							}
-							{"delay"
-								{time 0.1}
 							}
 							{"effect"
 								{selector
@@ -14489,8 +15799,199 @@
 											}
 										}
 									}
+									{group
+										{select
+											{tag
+												{tag on_plane_11}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "cap_usa_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_11}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "helmet_usa_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_11}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "helmet_eng_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_11}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "jappilot_cap"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_11}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "cap_ita_bustina"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
 								}
 								{tag_remove on_plane_11}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"entity_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag para_plane_11}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{state
+												{state inhabited}
+											}
+											{tag
+												{tag drop_plane}
+											}
+										}
+										{exclude
+											{tag
+												{tag hidden}
+											}
+											{tag
+												{tag plane_assigned}
+											}
+											{tag
+												{tag need_orders}
+											}
+											{tag
+												{tag player_drop_plane}
+											}
+										}
+									}
+								}
+								{tag_add plane_assigned}
 							}
 							{"set_i"
 								{var "para_plane_index$"}
@@ -14972,6 +16473,156 @@
 											}
 										}
 									}
+									{group
+										{select
+											{tag
+												{tag on_plane_12}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "cap_usa_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_12}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "helmet_usa_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_12}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "helmet_eng_pilot"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_12}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "jappilot_cap"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag on_plane_12}
+											}
+											{tag
+												{tag para_need_tag}
+											}
+										}
+										{include
+											{state
+												{state linked}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+											{with_item
+												{type existance}
+												{item "cap_ita_bustina"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
 								}
 								{tag_remove on_plane_12}
 							}
@@ -14980,11 +16631,14 @@
 								{op "+"}
 								{value 1}
 							}
-							{"if"
+							{"delay"
+								{time 0.1}
+							}
+							{## "if"
 								{condition
 									{type cmp_i}
 									{var "para_plane_index$"}
-									{op ">="}
+									{op ">"}
 									{value 12}
 								}
 								{"if"
@@ -15000,6 +16654,19 @@
 					}
 					{"delay"
 						{time 1}
+					}
+					{"if"
+						{condition
+							{type cmp_i}
+							{var "para_plane_index$"}
+							{op ">"}
+							{value 12}
+						}
+						{"set_i"
+							{var "para_plane_index$"}
+							{op "="}
+							{value 1}
+						}
 					}
 					{"trigger"
 						{name "ai_paratroopers/send_drop_plane"}
@@ -15030,7 +16697,7 @@
 											{zone "sideb1"}
 										}
 										{zone
-											{zone "sideb1"}
+											{zone "sideb2"}
 										}
 										{zone
 											{zone "sideb3"}
@@ -15043,10 +16710,40 @@
 										{tag
 											{tag drop_plane}
 										}
+										{state
+											{state operatable}
+										}
+										{state
+											{state inhabited}
+										}
+										{prop
+											{prop vehicle}
+										}
 									}
 									{exclude
 										{tag
 											{tag hidden}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag plane_assigned}
+										}
+										{tag
+											{tag going_home}
+										}
+										{tag
+											{tag need_orders}
+										}
+										{tag
+											{tag dropping}
+										}
+										{tag
+											{tag player_drop_plane}
 										}
 									}
 								}
@@ -15055,9 +16752,6 @@
 					}
 				}
 				{actions
-					{"delay"
-						{time 0.5}
-					}
 					{"select"
 						{source advanced}
 						{group
@@ -15078,7 +16772,7 @@
 									{zone "sideb1"}
 								}
 								{zone
-									{zone "sideb1"}
+									{zone "sideb2"}
 								}
 								{zone
 									{zone "sideb3"}
@@ -15127,6 +16821,9 @@
 						}
 						{amount 1
 						}
+					}
+					{"delay"
+						{time 0.5}
 					}
 					{"actor_state"
 						{selector
@@ -15177,7 +16874,13 @@
 							{kind fast}
 						}
 					}
-					{## "switch"
+					{"entity_state"
+						{selector
+							{source current}
+						}
+						{tag_add need_orders}
+					}
+					{"switch"
 						{"case"
 							{condition
 								{type rand}
@@ -15185,7 +16888,9 @@
 							}
 							{"air_state"
 								{selector
-									{source current}
+									{amount 1
+									}
+									{tag need_orders}
 								}
 								{drop orders}
 								{altitude 45}
@@ -15198,7 +16903,9 @@
 							}
 							{"air_state"
 								{selector
-									{source current}
+									{amount 1
+									}
+									{tag need_orders}
 								}
 								{drop orders}
 								{altitude 40}
@@ -15211,7 +16918,9 @@
 							}
 							{"air_state"
 								{selector
-									{source current}
+									{amount 1
+									}
+									{tag need_orders}
 								}
 								{drop orders}
 								{altitude 35}
@@ -15224,7 +16933,9 @@
 							}
 							{"air_state"
 								{selector
-									{source current}
+									{amount 1
+									}
+									{tag need_orders}
 								}
 								{drop orders}
 								{altitude 30}
@@ -15237,21 +16948,23 @@
 							}
 							{"air_state"
 								{selector
-									{source current}
+									{amount 1
+									}
+									{tag need_orders}
 								}
 								{drop orders}
 								{altitude 25}
 							}
 						}
 					}
-					{"entity_state"
+					{## "effect"
 						{selector
-							{source current}
+							{tag need_orders}
 						}
-						{tag_add need_orders}
+						{effect engine_full_para_fix}
 					}
 					{"delay"
-						{time 0.2}
+						{time 0.7}
 					}
 					{"switch"
 						{"case"
@@ -15806,6 +17519,85 @@
 					}
 					{"trigger"
 						{name "ai_paratroopers/set_para_drop_strategy"}
+					}
+				}
+			}
+			{"plane_move"
+				{condition
+				}
+				{actions
+					{## "set_i"
+						{var "para_plane_side_start$"}
+						{op "="}
+						{value 2}
+					}
+					{## "set_i"
+						{var "para_plane_index$"}
+						{op "="}
+						{value 1}
+					}
+					{"delay"
+						{time 2}
+					}
+					{## "air_state"
+						{selector
+							{tag drop_plane}
+						}
+						{altitude 40}
+					}
+					{## "actor_to_waypoint"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag drop_plane}
+									}
+								}
+								{include
+									{tag
+										{tag hidden}
+									}
+								}
+							}
+						}
+						{drop orders}
+						{waypoint "0"}
+						{clone}
+						{approach "safe teleport & rotate"}
+					}
+					{"loop" 12
+						{"actor_to_waypoint"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag drop_plane}
+										}
+									}
+									{include
+										{tag
+											{tag hidden}
+										}
+									}
+								}
+							}
+							{drop orders}
+							{waypoint "0"}
+							{clone}
+							{approach "safe teleport & rotate"}
+						}
+						{"delay"
+							{time 1}
+						}
+					}
+					{## "effect"
+						{selector
+							{type human}
+							{state operatable}
+						}
+						{effect tester}
 					}
 				}
 			}

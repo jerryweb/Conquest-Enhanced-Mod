@@ -2194,21 +2194,21 @@
 
 {"conquest_bf110"
 	{on spawn
-    		{tags add "aircraft"}
+    	{tags add "aircraft"}
 		{tags add "conquest_bf110"}
 	}
 }
 
 {"bf110_e2" 
 	{on spawn
-    		{tags add "aircraft"}
+    	{tags add "aircraft"}
 	}
 }
 
 {"bf110_para_plane" 
 	{on spawn
-    		{tags add "aircraft"}
-    		{tags add "german"}
-		{tags add "drop_plane"}
+    	{tags add "aircraft"}
+    	{tags add "german"}
+    	{tags add "drop_plane"}
 	}
 }

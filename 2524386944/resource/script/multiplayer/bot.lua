@@ -2,10 +2,9 @@ require([[/script/multiplayer/bot.data]])
 require([[/script/multiplayer/bot.wave_system]])
 
 local squadDictionary = {}
-
+local qauntSquadOrderDelay = 120
+local nextQuantSquadOrderTime = 0
 local emplacementArtillery = {}
-local mortars = {}
-local mortarCounter = 0
 local IsHeavyArty = false
 local heavyArtyCounter = 0
 local artyOrderRotationPeriod = 60 * 500
@@ -19,8 +18,7 @@ local Context = {
 		WaitTimer = nil
 	},
 	SquadTimers = {},
-	IsHeavyArty = false,
-	IsMortar = false
+	IsHeavyArty = false
 }
 
 function SetSpawnCooldownTimer()
@@ -97,14 +95,12 @@ function GetNextUnitToSpawn(purchase)
 	-- print("Grabbing unlocked units for wave: ", purchase.idx)
 	local units = purchase.unlockedUnits
 	IsHeavyArty = purchase.isHeavyArty
-	IsMortar = purchase.isMortar
 
 	if not units then
 		print("wave ", purchase.idx, " has no available units")
 		return nil
 	end
 	
-	-- local unit = GetUnitToSpawn(units[BotApi.Instance.army])
 	local unit = GetUnitToSpawn(units)
 	purchase:moveNext()
 	return unit
@@ -168,7 +164,7 @@ function GetUnitToSpawn(units)
 							    t.class == UnitClass.ArtilleryTank) then
 			return t.priority * 1.5
 		end
-		
+
 		if enemyHasTanks and (t.class == UnitClass.ATTank or
 		                      t.class == UnitClass.Tank or
 							  t.class == UnitClass.HeavyTank) then
@@ -275,17 +271,8 @@ function OnGameStart()
 	UpdateUnitToSpawn(Context.Purchase)
 	SetSpawnCooldownTimer()
 
-	-- print("BotApi.Commands properties:")
-	-- print(BotApi.Commands)
-	-- local count = 0
-	-- for i, BotApi.Scene in pairs(metatable(BotApi.Scene)) do 
-	-- 	print("stuffs ", i)
-	-- 	-- count = count + 1
-	-- 	-- print(i, "properties")
-	-- 	-- for j, BotApi[1] in pairs(BotApi[count]) do
-	-- 	-- 	print(j)
-	-- 	-- end
-	-- end
+	nextQuantSquadOrderTime = os.clock() + qauntSquadOrderDelay 
+
 end
 
 function OnGameStop()
@@ -329,10 +316,6 @@ function TrySpawnUnit()
 				print("incrementing arty counter")
 			end
 
-			-- if IsMortar then 
-			-- 	mortarCounter = mortarCounter + 1
-			-- 	print("incrementing mortar counter")
-			-- end
 			currentWaveMaxUnitCount = currentWaveMaxUnitCount - 1
 			KillSpawnWaitTimer()
 			SetSpawnCooldownTimer()
@@ -364,7 +347,6 @@ function TrySpawnUnit()
 end
 
 function OnGameQuant()
-
 	if typhoonWaveModeInGameToggle then
 		if os.clock() > nextTyphoonWaveToggleTime then
 			if math.random() < 0.5 then 
@@ -395,31 +377,29 @@ function OnGameQuant()
 
 	local waypoints = BotApi.Scene.Waypoints
 
-	if #waypoints == 0 then
-		for i, squad in pairs(BotApi.Scene.Squads) do
-			-- print("squad ", squad, " with unlock time = ", squadDictionary[squad])
-			if emplacementArtillery[squad] then 
-				if not Context.SquadTimers[squad] then
-					SetSquadOrder(CaptureFlag, squad, artyOrderRotationPeriod)
+	if nextQuantSquadOrderTime <= os.clock() then
+		if #waypoints == 0 then
+			for i, squad in pairs(BotApi.Scene.Squads) do
+				-- print("squad ", squad, " with unlock time = ", squadDictionary[squad])
+				if emplacementArtillery[squad] then 
+					if not Context.SquadTimers[squad] then
+						SetSquadOrder(CaptureFlag, squad, artyOrderRotationPeriod)
+					end
+				elseif squadDictionary[squad] and  squadDictionary[squad] <= os.clock() then
+					if not Context.SquadTimers[squad] then
+						SetSquadOrder(CaptureFlag, squad, OrderRotationPeriod)
+					end
+				elseif not squadDictionary[squad] then
+				 	local squadOrderTime = math.random(180, 300)
+				 	print("nil squad ", squad, " with unlock time = ", squadDictionary[squad])
+					squadDictionary[squad] = os.clock() + squadOrderTime
 				end
-			end
-			-- if mortars[squad] then 
-			-- 	if not Context.SquadTimers[squad] then
-			-- 		SetSquadOrder(CaptureFlag, squad, OrderRotationPeriod)
-			-- 	end
-			-- end
-			if squadDictionary[squad] and  squadDictionary[squad] <= os.clock() then
-				if not Context.SquadTimers[squad] then
-					SetSquadOrder(CaptureFlag, squad, OrderRotationPeriod)
-				end
-			end
-			 if not squadDictionary[squad] then
-			 	local squadOrderTime = math.random(180, 300)
-			 	print("nil squad ", squad, " with unlock time = ", squadDictionary[squad])
-				squadDictionary[squad] = os.clock() + squadOrderTime
 			end
 		end
+		nextQuantSquadOrderTime = os.clock() + qauntSquadOrderDelay
 	end
+
+
 end
 
 function SeekAndDestroy(squad)
@@ -444,21 +424,13 @@ function CaptureFlag(squad)
 
 	-- Mortars seem to crash the game when sending them to capture a flag. Will need to investigate
 	if flag then
-		-- if emplacementArtillery[squad] then
-			print("+SeekAndDestroy with  squad", squad)
+		if rnd < 0.25 then
+			print(rnd, "+SeekAndDestroy with squad", squad)
 			BotApi.Commands:SeekAndDestroy(squad)
-		-- if rnd < 0.25 then
-		-- 	print(rnd, "+SeekAndDestroy with squad", squad)
-		-- 	BotApi.Commands:SeekAndDestroy(squad)
-		-- else
-		-- 	print(rnd, "+CaptureFlag with squad", squad)
-		-- 	if not mortars[squad] then
-		-- 		BotApi.Commands:CaptureFlag(squad, flag.name)
-		-- 	else 
-		-- 		print("oops mortar")
-		-- 		BotApi.Commands:SeekAndDestroy(squad)
-		-- 	end
-		-- end
+		else
+			print(rnd, "+CaptureFlag with squad", squad)
+			BotApi.Commands:CaptureFlag(squad, flag.name)
+		end
 	else
 			print(rnd, "!SeekAndDestroy with squad", squad)
 			BotApi.Commands:SeekAndDestroy(squad)
@@ -483,12 +455,14 @@ function SetSquadOrder(order, squad, delay)
 end
 
 function OnGameSpawn(args)
+
 	if heavyArtyCounter > 0 then
 		emplacementArtillery[args.squadId] = args
 		print("added ", args.squadId, " to heavy arty list")
 		IsHeavyArty = false
 		heavyArtyCounter = heavyArtyCounter - 1
 		local waypoints = BotApi.Scene.Waypoints
+
 		if #waypoints == 0 then
 			SetSquadOrder(CaptureFlag, args.squadId, artyOrderRotationPeriod)
 		else
@@ -496,28 +470,18 @@ function OnGameSpawn(args)
 			print("#waypoints != 0")
 		end
 	else 
-
 		local squadOrderTime = math.random(240, 300)
 		squadDictionary[args.squadId] = os.clock() + squadOrderTime
+		
 	end
-
 	-- local waypoints = BotApi.Scene.Waypoints
 
-	-- for i, waypoints in pairs(waypoints) do
-	-- 	print("points", i)
-	-- end
-	-- print("spawned squad id: ", tostring(args.unit))
-
-	
-	-- print("squad time = ", squadDictionary[args.squadId])
-	-- table.insert(squadDictionary, {squadid = args.squadId, unlockTime = os.clock + 10})
-
-	-- if #waypoints == 0 then
-	-- 	SetSquadOrder(CaptureFlag, args.squadId, OrderRotationPeriod)
-	-- else
-	-- 	GotoNextWaypoint(args.squadId)
-	-- 	print("#waypoints != 0")
-	-- end
+	-- 	if #waypoints == 0 then
+	-- 		SetSquadOrder(CaptureFlag, args.squadId, artyOrderRotationPeriod)
+	-- 	else
+	-- 		GotoNextWaypoint(args.squadId)
+	-- 		print("#waypoints != 0")
+	-- 	end
 end
 
 BotApi.Events:Subscribe(BotApi.Events.GameStart, OnGameStart)

@@ -1,15 +1,4 @@
 {"human"
-	{on "tester" 
-		{if not tagged "on_plane_1"
-			{if linked "bf110_para_plane"
-				{tags add "para_need_tag"}
-				{delay 15
-					{tags remove "para_need_tag"}
-				}
-			}
-		}
-	}
-
     {on bullet_hit
 		{if not tagged "player"
 		    {tags add "hit"}
@@ -154,6 +143,10 @@
 		{tags remove "on_plane_6"}
 		{tags remove "on_plane_7"}
 		{tags remove "on_plane_8"}
+		{tags remove "on_plane_9"}
+		{tags remove "on_plane_10"}
+		{tags remove "on_plane_11"}
+		{tags remove "on_plane_12"}
 		{tags remove "para_ready"}
 		{tags remove "player_para_ready"}
 		{tags remove "player_on_plane"}
@@ -214,6 +207,65 @@
 			}
 		}
 	}
+
+
+	{on "tag_paratroopers_on_plane" 
+		{if not tagged "on_plane_1"
+			{if not tagged "on_plane_2"
+				{if not tagged "on_plane_3"
+					{if not tagged "on_plane_4"
+						{if not tagged "on_plane_5"
+							{if not tagged "on_plane_6"
+								{if not tagged "on_plane_7"
+									{if not tagged "on_plane_8"
+										{if not tagged "on_plane_9"
+											{if not tagged "on_plane_10"
+												{if not tagged "on_plane_11"
+													{if not tagged "on_plane_12"
+														{if linked "bf110_para_plane"
+															{tags add "para_need_tag"}
+															{delay 45
+																{tags remove "para_need_tag"}
+															}
+														else linked "il2_mod42_para_plane"
+															{tags add "para_need_tag"}
+															{delay 45
+																{tags remove "para_need_tag"}
+															}
+														else linked "b25_para_plane"
+															{tags add "para_need_tag"}
+															{delay 45
+																{tags remove "para_need_tag"}
+															}
+														else linked "beaufighter_para_plane"
+															{tags add "para_need_tag"}
+															{delay 45
+																{tags remove "para_need_tag"}
+															}	
+														else linked "j2m_raiden_para_plane"
+															{tags add "para_need_tag"}
+															{delay 45
+																{tags remove "para_need_tag"}
+															}
+														else linked "sm79_para_plane"
+															{tags add "para_need_tag"}
+															{delay 45
+																{tags remove "para_need_tag"}
+															}					
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}	
 	
 	{on "fortification"
 	    {if rand 0.08
