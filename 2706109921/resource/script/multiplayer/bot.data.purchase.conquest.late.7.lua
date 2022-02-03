@@ -3,18 +3,18 @@ Purchases["campaign_capture_the_flag"] = {
 		divisionName = "Airborne Division",
 		waveNumber = 1,
 		-- Repeat = 6,
-		minRepeat = 6,
-		maxRepeat = 10,
+		minRepeat = 8,
+		maxRepeat = 12,
 		skipPossible = false,
 		waveDuration = 20,
 		Units = {
 			["ger"] = {--Germany
 				--Infantry Squads
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_fallschirmjaeger_con(ger)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_fallschirmjaeger_con"},
 			},
 			["rus"] = {--Russia
 			--Infantry Singles
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_paras_con(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rus_paras_con"},
 			},
 			["fra"] = {--France
 			--Infantry
@@ -27,7 +27,7 @@ Purchases["campaign_capture_the_flag"] = {
 				-- 3
 				{priority = 1.5, class = UnitClass.Infantry, unit = "single_flamer_late(fra)"},
 				{priority = 1.5, class = UnitClass.Infantry, unit = "single_sniper(fra)"},
-				-- 5
+				-- 5 
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier_late(fra)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_marine_late(fra)"},				
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_stormtrooper_late(fra)"},
@@ -52,19 +52,19 @@ Purchases["campaign_capture_the_flag"] = {
 			},
 			["jap"] = {--Japan
 			--Infantry
-				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier(jap)"},
+				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_airborne_jap_con"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_snlf_jap_con"},
 			},
 			["usa"] = {--USA
-				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier(usa)"},
+				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_airborne_usa_con"},
 			},
 			["eng"] = {--Britain
 			--Infantry
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_pionier_late(eng)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_airborne_eng_con"},
 			},
 			["ita"] = {--Italy
 			--Infantry
-				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier(ita)"},
-				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_stormtrooper(ita)"},
+				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_airborne_ita_con"},
 			}
 		}
 	},

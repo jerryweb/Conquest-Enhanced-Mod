@@ -353,10 +353,64 @@
 			("items_light_usa")
 			("items_heavy_ger")
 			("items_heavy_rus")
+			("items_light_fra")
+			("items_light_pol")
+			("items_light_jap")
+			("items_light_ita")
+			("items_heavy_fra")
+			("items_heavy_pol")
+			("items_heavy_jap")
+			("items_heavy_usa")	
 			("items_heavy_eng")
+			("items_heavy_ita")
 		}
 		{radius 			10.5}	;// resupply radius in meter
 		{resupplyPeriod 	1}		;// resupply period in seconds
+		{regenerationPeriod 5}		;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
+		{limit 				250}	;// max number of resupplies (0 = unlimited)
+	}
+	{DecalView supply_zone
+		{Sprite "supply_zone.ebm"
+			{Visibility 0.25}
+		}
+		{Layer grounddynamic}
+		{Visible 0}
+	}
+)
+
+(define "ger_supply_ammo"
+	{extender "supply_zone"
+		{resupply
+			("items_light_generic")
+			("items_light_ger")
+			("items_heavy_ger")
+		}
+		{radius 			10}		;// resupply radius in meter
+		{resupplyPeriod 	2}		;// resupply period in seconds
+		{regenerationPeriod 5}		;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
+		{limit 				250}	;// max number of resupplies (0 = unlimited)
+	}
+	{DecalView supply_zone
+		{Sprite "supply_zone.ebm"
+			{Visibility 0.25}
+		}
+		{Layer grounddynamic}
+		{Visible 0}
+	}
+)
+
+(define "rus_supply_ammo"
+	{extender "supply_zone"
+		{resupply
+			("items_light_generic")
+			("items_light_rus")
+			("items_light_eng")
+			("items_light_usa")
+			("items_heavy_rus")
+			("items_heavy_eng")
+		}
+		{radius 			10}		;// resupply radius in meter
+		{resupplyPeriod 	2}		;// resupply period in seconds
 		{regenerationPeriod 5}		;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
 		{limit 				250}	;// max number of resupplies (0 = unlimited)
 	}

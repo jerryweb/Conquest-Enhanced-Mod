@@ -450,6 +450,8 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Tank, unit = "comet_a34"},
 			--Tanks_heavy
 				{priority = 0.7, class = UnitClass.Tank, unit = "churchill_avre"},
+				{priority = 0.7, class = UnitClass.Tank, unit = "black_prince"},
+				
 			},
 			["ita"] = {--Italy
 			--Tanks_light
