@@ -2169,5 +2169,6 @@
     	{tags add "aircraft"}
     	{tags add "soviet"}
 		{tags add "drop_plane"}
+		{tags add "ready_to_move"}
 	}
 }

@@ -2210,5 +2210,6 @@
     	{tags add "aircraft"}
     	{tags add "german"}
     	{tags add "drop_plane"}
+    	{tags add "ready_to_move"}
 	}
 }
