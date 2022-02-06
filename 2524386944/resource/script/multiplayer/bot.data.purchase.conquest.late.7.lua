@@ -3,28 +3,15 @@ Purchases["campaign_capture_the_flag"] = {
 		divisionName = "Airborne Division",
 		waveNumber = 1,
 		-- Repeat = 6,
-		minRepeat = 1,
-		maxRepeat = 4,
+		minRepeat = 8,
+		maxRepeat = 12,
 		skipPossible = false,
 		waveDuration = 20,
 		Units = {
 			["ger"] = {--Germany
-				--Infantry Squads
-			-- 	{priority = 2.0, class = UnitClass.Infantry, unit = "squad_recon_con(ger)"},
-			-- 	{priority = 2.0, class = UnitClass.Infantry, unit = "squad_recon_armor_con"},
-			-- --Wheel_vehicles
-			-- 	{priority = 5.1, class = UnitClass.Vehicle, unit = "p204_f"},
-			-- 	{priority = 1.5, class = UnitClass.Vehicle, unit = "sdkfz231"},
-			-- 	{priority = 1.5, class = UnitClass.Vehicle, unit = "sdkfz221"},
 				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_fallschirmjaeger_para_con"},
 			},
 			["rus"] = {--Russia
-			--Infantry Singles
-			--     {priority = 2.5, class = UnitClass.Infantry, unit = "squad_recon_con(rus)"},
-			-- 	{priority = 2.0, class = UnitClass.Infantry, unit = "squad_spetsnaz(rus)"},
-			-- --Wheel_vehicles
-			-- 	{priority = 1.8, class = UnitClass.Vehicle, unit = "m3a1e1_scout_mgun"},
-			-- 	{priority = 0.5, class = UnitClass.Vehicle, unit = "ba64"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rus_paras_con"},
 			}
 		}

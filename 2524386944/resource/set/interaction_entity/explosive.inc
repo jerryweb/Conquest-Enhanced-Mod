@@ -310,6 +310,181 @@
 	}
 }
 
+{"rocket_arty_callinger"			;// Shells that fall to ground. Source Off-map artillery
+	{on spawn 
+		{play_sound "bkg_rocket"}
+		{tags add "120"}
+		{delay 7
+			{start_sound "bkg_rocket"}
+			(define "rnd_art_bomb"
+				{delay %delay 0.5
+					{spawn "300mm_nebelwerfer2" offset -250 0 1000 random_position 1000}
+				}
+			)
+			("rnd_art_bomb" delay(0.5))
+			("rnd_art_bomb" delay(1))
+			("rnd_art_bomb" delay(1.5))
+			("rnd_art_bomb" delay(2))
+			("rnd_art_bomb" delay(2.5))
+			("rnd_art_bomb" delay(3))
+						
+			("rnd_art_bomb" delay(13.5))
+			("rnd_art_bomb" delay(14))
+			("rnd_art_bomb" delay(14.5))
+			("rnd_art_bomb" delay(15))
+			("rnd_art_bomb" delay(15.5))
+			("rnd_art_bomb" delay(16))
+						
+			("rnd_art_bomb" delay(23.5))
+			("rnd_art_bomb" delay(24))
+			("rnd_art_bomb" delay(24.5))
+			("rnd_art_bomb" delay(25))
+			("rnd_art_bomb" delay(25.5))
+			("rnd_art_bomb" delay(26))
+			("rnd_art_bomb" delay(26.5))
+			{hide 31}
+		}
+	}
+}
+
+{"rocket_arty_callinrus"			;// Shells that fall to ground. Source Off-map artillery
+	{on spawn 
+		{link_sound "bkg_rocket" "weapon/shot/bkg/rocket/"}
+		{play_sound "bkg_rocket"}
+		{tags add "120"}
+		{delay 7
+			{start_sound "bkg_rocket"}
+			(define "rnd_art_bomb"
+				{delay %delay 0.5
+					{spawn "m13_rocket2" offset -250 0 1000 random_position 1000}
+					{play_sound "bkg_rocket"}
+				}
+			)
+			("rnd_art_bomb" delay(0.5))
+			("rnd_art_bomb" delay(1))
+			("rnd_art_bomb" delay(1.5))
+			("rnd_art_bomb" delay(2))
+			("rnd_art_bomb" delay(2.5))
+			("rnd_art_bomb" delay(3))
+			("rnd_art_bomb" delay(0.6))
+			("rnd_art_bomb" delay(1.1))
+			("rnd_art_bomb" delay(1.6))
+			("rnd_art_bomb" delay(2.1))
+			("rnd_art_bomb" delay(2.6))
+			("rnd_art_bomb" delay(3.1))
+			("rnd_art_bomb" delay(3.2))
+			("rnd_art_bomb" delay(3.3))
+			("rnd_art_bomb" delay(0.7))
+			("rnd_art_bomb" delay(1.2))
+			("rnd_art_bomb" delay(1.7))
+			("rnd_art_bomb" delay(2.2))
+			("rnd_art_bomb" delay(2.7))
+			("rnd_art_bomb" delay(3.4))
+			("rnd_art_bomb" delay(0.8))
+			("rnd_art_bomb" delay(1.3))
+			("rnd_art_bomb" delay(1.8))
+			("rnd_art_bomb" delay(2.3))
+			("rnd_art_bomb" delay(2.8))
+			("rnd_art_bomb" delay(3.8))
+			("rnd_art_bomb" delay(0.9))
+			("rnd_art_bomb" delay(1.9))
+			("rnd_art_bomb" delay(2.9))
+			("rnd_art_bomb" delay(2.4))
+			("rnd_art_bomb" delay(2.1))
+			("rnd_art_bomb" delay(3))
+			("rnd_art_bomb" delay(0.6))
+			("rnd_art_bomb" delay(1))
+			("rnd_art_bomb" delay(1.6))
+			("rnd_art_bomb" delay(2))
+			("rnd_art_bomb" delay(2.6))
+			("rnd_art_bomb" delay(3))
+			("rnd_art_bomb" delay(3.))
+			("rnd_art_bomb" delay(3))
+						
+			("rnd_art_bomb" delay(13.5))
+			("rnd_art_bomb" delay(14))
+			("rnd_art_bomb" delay(14.5))
+			("rnd_art_bomb" delay(15))
+			("rnd_art_bomb" delay(15.5))
+			("rnd_art_bomb" delay(16))
+			("rnd_art_bomb" delay(13.5))
+			("rnd_art_bomb" delay(14))
+			("rnd_art_bomb" delay(14.5))
+			("rnd_art_bomb" delay(15))
+			("rnd_art_bomb" delay(15.5))
+			("rnd_art_bomb" delay(16))
+			("rnd_art_bomb" delay(13.5))
+			("rnd_art_bomb" delay(14))
+			("rnd_art_bomb" delay(14.5))
+			("rnd_art_bomb" delay(15))
+			("rnd_art_bomb" delay(15.5))
+			("rnd_art_bomb" delay(16))
+			("rnd_art_bomb" delay(13.5))
+			("rnd_art_bomb" delay(14))
+			("rnd_art_bomb" delay(14.5))
+			("rnd_art_bomb" delay(15))
+			("rnd_art_bomb" delay(15.5))
+			("rnd_art_bomb" delay(16))
+			("rnd_art_bomb" delay(13.5))
+			("rnd_art_bomb" delay(14))
+			("rnd_art_bomb" delay(14.5))
+			("rnd_art_bomb" delay(15))
+			("rnd_art_bomb" delay(15.5))
+			("rnd_art_bomb" delay(16))
+			("rnd_art_bomb" delay(13.5))
+			("rnd_art_bomb" delay(14))
+			("rnd_art_bomb" delay(14.5))
+			("rnd_art_bomb" delay(15))
+			("rnd_art_bomb" delay(15.5))
+			("rnd_art_bomb" delay(16))
+						
+			("rnd_art_bomb" delay(23.5))
+			("rnd_art_bomb" delay(24))
+			("rnd_art_bomb" delay(24.5))
+			("rnd_art_bomb" delay(25))
+			("rnd_art_bomb" delay(25.5))
+			("rnd_art_bomb" delay(26))
+			("rnd_art_bomb" delay(26.5))
+			("rnd_art_bomb" delay(23.5))
+			("rnd_art_bomb" delay(24))
+			("rnd_art_bomb" delay(24.5))
+			("rnd_art_bomb" delay(25))
+			("rnd_art_bomb" delay(25.5))
+			("rnd_art_bomb" delay(26))
+			("rnd_art_bomb" delay(26.5))
+			("rnd_art_bomb" delay(23.5))
+			("rnd_art_bomb" delay(24))
+			("rnd_art_bomb" delay(24.5))
+			("rnd_art_bomb" delay(25))
+			("rnd_art_bomb" delay(25.5))
+			("rnd_art_bomb" delay(26))
+			("rnd_art_bomb" delay(26.5))
+			("rnd_art_bomb" delay(23.5))
+			("rnd_art_bomb" delay(24))
+			("rnd_art_bomb" delay(24.5))
+			("rnd_art_bomb" delay(25))
+			("rnd_art_bomb" delay(25.5))
+			("rnd_art_bomb" delay(26))
+			("rnd_art_bomb" delay(26.5))
+			("rnd_art_bomb" delay(23.5))
+			("rnd_art_bomb" delay(24))
+			("rnd_art_bomb" delay(24.5))
+			("rnd_art_bomb" delay(25))
+			("rnd_art_bomb" delay(25.5))
+			("rnd_art_bomb" delay(26))
+			("rnd_art_bomb" delay(26.5))
+			("rnd_art_bomb" delay(23.5))
+			("rnd_art_bomb" delay(24))
+			("rnd_art_bomb" delay(24.5))
+			("rnd_art_bomb" delay(25))
+			("rnd_art_bomb" delay(25.5))
+			("rnd_art_bomb" delay(26))
+			("rnd_art_bomb" delay(26.5))
+			{hide 31}
+		}
+	}
+}
+
 {"mortar_single_120_dummy2"			;// Shells that fall to ground. Source Off-map artillery
 	{on spawn 
 		{start_sound "weapon/mortar/whistle" ambient}

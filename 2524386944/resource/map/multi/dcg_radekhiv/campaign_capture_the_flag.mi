@@ -51237,8 +51237,7 @@
 								}
 							}
 						}
-						{contROl ai}
-						{fire_mode open}
+						{fire_Mode open}
 						{move_mode free}
 						{ai_move
 							{mode enable}
@@ -51436,9 +51435,8 @@
 								}
 							}
 						}
-						{contROl ai}
 						{fire_mode open}
-						{move_mode free}
+						{MOve_mode free}
 						{ai_move
 							{mode enable}
 						}
@@ -51824,7 +51822,6 @@
 											}
 										}
 									}
-									{contROl ai}
 									{fire_mode open}
 									{move_mode free}
 									{weapon_prepare on}
@@ -52087,10 +52084,9 @@
 											}
 										}
 									}
-									{contROl ai}
 									{fire_mode open}
 									{move_mode free}
-									{weapon_prepare on}
+									{weapon_prepaRE on}
 									{ai_move
 										{mode enable}
 									}
@@ -52207,7 +52203,6 @@
 								{selector
 									{tag para_attack}
 								}
-								{contROl ai}
 								{fire_mode open}
 								{move_mode free}
 								{ai_move
@@ -52320,14 +52315,13 @@
 								}
 							}
 						}
-						{contROl ai}
 						{fire_mode open}
 						{move_mode free}
 						{ai_move
 							{mode enable}
 						}
 						{movement
-							{speed assault}
+							{SPeed assault}
 						}
 					}
 					{"delay"
@@ -58627,7 +58621,7 @@
 					}
 				}
 				{actions
-					{"delay"
+					{## "delay"
 						{time 1}
 					}
 					{"entity_state"
@@ -66356,7 +66350,7 @@
 						{control ai}
 						{fire_mode hold}
 						{movement
-							{speed FAst}
+							{speed fast}
 							{kind fast}
 						}
 					}
@@ -66395,7 +66389,7 @@
 							{amount 1
 							}
 						}
-						{tag_add moveing_to_start_waypoint}
+						{tag_add moving_to_start_waypoint}
 						{tag_remove ready_to_move}
 					}
 					{## "entity_state"
@@ -66477,7 +66471,7 @@
 					{"delay"
 						{time 0.5}
 					}
-					{## "switch"
+					{"switch"
 						{"case"
 							{condition
 								{type rand}
@@ -66487,7 +66481,7 @@
 								{selector
 									{amount 1
 									}
-									{tag moveing_to_start_waypoint}
+									{tag moving_to_start_waypoint}
 								}
 								{drop orders}
 								{altitude 45}
@@ -66502,7 +66496,7 @@
 								{selector
 									{amount 1
 									}
-									{tag moveing_to_start_waypoint}
+									{tag moving_to_start_waypoint}
 								}
 								{drop orders}
 								{altitude 40}
@@ -66517,7 +66511,7 @@
 								{selector
 									{amount 1
 									}
-									{tag moveing_to_start_waypoint}
+									{tag moving_to_start_waypoint}
 								}
 								{drop orders}
 								{altitude 35}
@@ -66526,19 +66520,19 @@
 						{"case"
 							{condition
 								{type rand}
-								{value 0.8}
+								{value 1}
 							}
 							{"air_state"
 								{selector
 									{amount 1
 									}
-									{tag moveing_to_start_waypoint}
+									{tag moving_to_start_waypoint}
 								}
 								{drop orders}
-								{altitude 30}
+								{altitude 48}
 							}
 						}
-						{"case"
+						{## "case"
 							{condition
 								{type rand}
 								{value 0.1}
@@ -66547,7 +66541,7 @@
 								{selector
 									{amount 1
 									}
-									{tag moveing_to_start_waypoint}
+									{tag moving_to_start_waypoint}
 								}
 								{drop orders}
 								{altitude 25}
@@ -66558,7 +66552,7 @@
 						{selector
 							{amount 1
 							}
-							{tag need_orders}
+							{tag moving_to_start_waypoint}
 						}
 						{effect engine_full_para_fix}
 					}
@@ -66587,7 +66581,7 @@
 											{actors
 												{amount 1
 												}
-												{tag moveing_to_start_waypoint}
+												{tag moving_to_start_waypoint}
 												{type vehicle}
 												{state operatable}
 											}
@@ -66603,10 +66597,10 @@
 										{selector
 											{amount 1
 											}
-											{tag moveing_to_start_waypoint}
+											{tag moving_to_start_waypoint}
 										}
 										{tag_add at_starting_waypoint}
-										{tag_remove moveing_to_start_waypoint}
+										{tag_remove moving_to_start_waypoint}
 									}
 								}
 								{"case"
@@ -66622,7 +66616,7 @@
 											{actors
 												{amount 1
 												}
-												{tag moveing_to_start_waypoint}
+												{tag moving_to_start_waypoint}
 												{type vehicle}
 												{state operatable}
 											}
@@ -66648,7 +66642,7 @@
 											{actors
 												{amount 1
 												}
-												{tag moveing_to_start_waypoint}
+												{tag moving_to_start_waypoint}
 												{type vehicle}
 												{state operatable}
 											}
@@ -66699,7 +66693,7 @@
 											{actors
 												{amount 1
 												}
-												{tag moveing_to_start_waypoint}
+												{tag moving_to_start_waypoint}
 												{type vehicle}
 												{state operatable}
 											}
@@ -66725,7 +66719,7 @@
 											{actors
 												{amount 1
 												}
-												{tag moveing_to_start_waypoint}
+												{tag moving_to_start_waypoint}
 												{type vehicle}
 												{state operatable}
 											}
@@ -66751,7 +66745,7 @@
 											{actors
 												{amount 1
 												}
-												{tag moveing_to_start_waypoint}
+												{tag moving_to_start_waypoint}
 												{type vehicle}
 												{state operatable}
 											}
@@ -66800,13 +66794,13 @@
 						{selector
 							{amount 1
 							}
-							{tag moveing_to_start_waypoint}
+							{tag moving_to_start_waypoint}
 						}
 						{tag_add at_starting_waypoint}
-						{tag_remove moveing_to_start_waypoint}
+						{tag_remove moving_to_start_waypoint}
 					}
 					{"delay"
-						{time 1.5}
+						{time 2.25}
 					}
 					{"trigger"
 						{name "ai_paratroopers/move_para_planes_to_waypoint"}
@@ -81019,7 +81013,7 @@
 					}
 				}
 			}
-			{"x/ai_units3"
+			{## "x/ai_units3"
 				{condition
 					{terms
 						{"1.entities"

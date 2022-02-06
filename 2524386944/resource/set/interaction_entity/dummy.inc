@@ -1256,7 +1256,15 @@
 			("rnd_art_bomb" delay(16))
 			("rnd_art_bomb" delay(16.5))
 			("rnd_art_bomb" delay(17))
-			{hide 18}
+			
+			("rnd_art_bomb" delay(23.5))
+			("rnd_art_bomb" delay(24))
+			("rnd_art_bomb" delay(24.5))
+			("rnd_art_bomb" delay(25))
+			("rnd_art_bomb" delay(25.5))
+			("rnd_art_bomb" delay(26))
+			("rnd_art_bomb" delay(26.5))
+			{hide 28}
 		}
 	}
 }
@@ -1287,7 +1295,15 @@
 			("rnd_art_bomb" delay(16))
 			("rnd_art_bomb" delay(16.5))
 			("rnd_art_bomb" delay(17))
-			{hide 18}
+			
+			("rnd_art_bomb" delay(23.5))
+			("rnd_art_bomb" delay(24))
+			("rnd_art_bomb" delay(24.5))
+			("rnd_art_bomb" delay(25))
+			("rnd_art_bomb" delay(25.5))
+			("rnd_art_bomb" delay(26))
+			("rnd_art_bomb" delay(26.5))
+			{hide 28}
 		}
 	}
 }

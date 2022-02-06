@@ -50037,28 +50037,28 @@
 			{Point 7771.29 -8424.99}
 		}
 		{zone "poly"
-			{position 3076.91 6820.68 31.9585}
+			{position 3061.31 7060.37 20.0036}
 			{Name "sidea1"}
-			{Point -1258.8 -642.196}
-			{Point -1307.46 739.416}
-			{Point 1257.24 698.167}
-			{Point 1309.02 -795.386}
+			{Point -1243.2 -881.881}
+			{Point -1454.54 1020.89}
+			{Point 1373.12 896.06}
+			{Point 1324.62 -1035.07}
 		}
 		{zone "poly"
-			{position -914.358 6701.13 8}
+			{position -945.793 6960.91 4}
 			{Name "sidea2"}
-			{Point -1672.12 -909.568}
-			{Point -1931.89 838.052}
-			{Point 1890.8 805.546}
-			{Point 1713.21 -734.03}
+			{Point -1640.69 -1169.35}
+			{Point -1974.15 1091.48}
+			{Point 1870.19 1071.68}
+			{Point 1744.64 -993.813}
 		}
 		{zone "poly"
-			{position -4744.88 6692.63 33.4713}
+			{position -4807.61 6982.27 40}
 			{Name "sidea3"}
-			{Point -1336.98 -803.035}
-			{Point -1469.81 773.241}
-			{Point 1461.18 836.335}
-			{Point 1345.62 -806.541}
+			{Point -1274.25 -1092.67}
+			{Point -1498.52 1072.47}
+			{Point 1364.43 1116.39}
+			{Point 1408.35 -1096.18}
 		}
 		{zone "poly"
 			{position -5152.31 -8807.95 42}
@@ -50069,12 +50069,12 @@
 			{Point 2181.07 -745.009}
 		}
 		{zone "poly"
-			{position -913.91 -8738.4 -31}
+			{position -1021.47 -8762.88 -36.1275}
 			{Name "sideb2"}
-			{Point -1858.83 -808.454}
-			{Point -1939.63 798.525}
-			{Point 1747.45 832.952}
-			{Point 2051.01 -823.022}
+			{Point -1866.44 -796.394}
+			{Point -2147.13 737.495}
+			{Point 1855.01 857.437}
+			{Point 2158.57 -798.537}
 		}
 		{zone "poly"
 			{position 6077.21 -8719.21 177}
@@ -55915,7 +55915,6 @@
 								}
 							}
 						}
-						{control ai}
 						{fire_mode open}
 						{move_mode free}
 						{ai_move
@@ -56114,7 +56113,6 @@
 								}
 							}
 						}
-						{control ai}
 						{fire_mode open}
 						{move_mode free}
 						{ai_move
@@ -56502,7 +56500,6 @@
 											}
 										}
 									}
-									{control ai}
 									{fire_mode open}
 									{move_mode free}
 									{weapon_prepare on}
@@ -56765,7 +56762,6 @@
 											}
 										}
 									}
-									{control ai}
 									{fire_mode open}
 									{move_mode free}
 									{weapon_prepare on}
@@ -56885,7 +56881,6 @@
 								{selector
 									{tag para_attack}
 								}
-								{control ai}
 								{fire_mode open}
 								{move_mode free}
 								{ai_move
@@ -56998,7 +56993,6 @@
 								}
 							}
 						}
-						{control ai}
 						{fire_mode open}
 						{move_mode free}
 						{ai_move
@@ -63305,7 +63299,7 @@
 					}
 				}
 				{actions
-					{"delay"
+					{## "delay"
 						{time 1}
 					}
 					{"entity_state"
@@ -71034,7 +71028,7 @@
 						{control ai}
 						{fire_mode hold}
 						{movement
-							{speed FAst}
+							{speed fast}
 							{kind fast}
 						}
 					}
@@ -71073,7 +71067,7 @@
 							{amount 1
 							}
 						}
-						{tag_add moveing_to_start_waypoint}
+						{tag_add moving_to_start_waypoint}
 						{tag_remove ready_to_move}
 					}
 					{## "entity_state"
@@ -71155,7 +71149,7 @@
 					{"delay"
 						{time 0.5}
 					}
-					{## "switch"
+					{"switch"
 						{"case"
 							{condition
 								{type rand}
@@ -71165,7 +71159,7 @@
 								{selector
 									{amount 1
 									}
-									{tag moveing_to_start_waypoint}
+									{tag moving_to_start_waypoint}
 								}
 								{drop orders}
 								{altitude 45}
@@ -71180,7 +71174,7 @@
 								{selector
 									{amount 1
 									}
-									{tag moveing_to_start_waypoint}
+									{tag moving_to_start_waypoint}
 								}
 								{drop orders}
 								{altitude 40}
@@ -71195,7 +71189,7 @@
 								{selector
 									{amount 1
 									}
-									{tag moveing_to_start_waypoint}
+									{tag moving_to_start_waypoint}
 								}
 								{drop orders}
 								{altitude 35}
@@ -71204,19 +71198,19 @@
 						{"case"
 							{condition
 								{type rand}
-								{value 0.8}
+								{value 1}
 							}
 							{"air_state"
 								{selector
 									{amount 1
 									}
-									{tag moveing_to_start_waypoint}
+									{tag moving_to_start_waypoint}
 								}
 								{drop orders}
-								{altitude 30}
+								{altitude 48}
 							}
 						}
-						{"case"
+						{## "case"
 							{condition
 								{type rand}
 								{value 0.1}
@@ -71225,7 +71219,7 @@
 								{selector
 									{amount 1
 									}
-									{tag moveing_to_start_waypoint}
+									{tag moving_to_start_waypoint}
 								}
 								{drop orders}
 								{altitude 25}
@@ -71236,7 +71230,7 @@
 						{selector
 							{amount 1
 							}
-							{tag need_orders}
+							{tag moving_to_start_waypoint}
 						}
 						{effect engine_full_para_fix}
 					}
@@ -71265,7 +71259,7 @@
 											{actors
 												{amount 1
 												}
-												{tag moveing_to_start_waypoint}
+												{tag moving_to_start_waypoint}
 												{type vehicle}
 												{state operatable}
 											}
@@ -71281,10 +71275,10 @@
 										{selector
 											{amount 1
 											}
-											{tag moveing_to_start_waypoint}
+											{tag moving_to_start_waypoint}
 										}
 										{tag_add at_starting_waypoint}
-										{tag_remove moveing_to_start_waypoint}
+										{tag_remove moving_to_start_waypoint}
 									}
 								}
 								{"case"
@@ -71300,7 +71294,7 @@
 											{actors
 												{amount 1
 												}
-												{tag moveing_to_start_waypoint}
+												{tag moving_to_start_waypoint}
 												{type vehicle}
 												{state operatable}
 											}
@@ -71326,7 +71320,7 @@
 											{actors
 												{amount 1
 												}
-												{tag moveing_to_start_waypoint}
+												{tag moving_to_start_waypoint}
 												{type vehicle}
 												{state operatable}
 											}
@@ -71377,7 +71371,7 @@
 											{actors
 												{amount 1
 												}
-												{tag moveing_to_start_waypoint}
+												{tag moving_to_start_waypoint}
 												{type vehicle}
 												{state operatable}
 											}
@@ -71403,7 +71397,7 @@
 											{actors
 												{amount 1
 												}
-												{tag moveing_to_start_waypoint}
+												{tag moving_to_start_waypoint}
 												{type vehicle}
 												{state operatable}
 											}
@@ -71429,7 +71423,7 @@
 											{actors
 												{amount 1
 												}
-												{tag moveing_to_start_waypoint}
+												{tag moving_to_start_waypoint}
 												{type vehicle}
 												{state operatable}
 											}
@@ -71478,13 +71472,13 @@
 						{selector
 							{amount 1
 							}
-							{tag moveing_to_start_waypoint}
+							{tag moving_to_start_waypoint}
 						}
 						{tag_add at_starting_waypoint}
-						{tag_remove moveing_to_start_waypoint}
+						{tag_remove moving_to_start_waypoint}
 					}
 					{"delay"
-						{time 1.5}
+						{time 2.25}
 					}
 					{"trigger"
 						{name "ai_paratroopers/move_para_planes_to_waypoint"}
@@ -85716,7 +85710,7 @@
 					}
 				}
 			}
-			{"x/ai_units3"
+			{## "x/ai_units3"
 				{condition
 					{expression "1"}
 					{terms
@@ -114461,7 +114455,7 @@
 				}
 			}
 			{"1003"
-				{position -5073.46 4949.71 -39.1526}
+				{position -4848.71 5235.09 -21}
 				{radius 500}
 				{RandomPosition 1}
 				{transition "131"}
@@ -114483,7 +114477,7 @@
 				}
 			}
 			{"2002"
-				{position -1527.23 -7465.79 -37.6566}
+				{position -1526.65 -7369.07 -31.9474}
 				{radius 500}
 				{RandomPosition 1}
 				{transition "76"}
@@ -114494,7 +114488,7 @@
 				}
 			}
 			{"2003"
-				{position 5973.67 -7795.52 159}
+				{position 5975.6 -7331.75 148}
 				{radius 500}
 				{RandomPosition 1}
 				{transition "109"}
@@ -114507,119 +114501,119 @@
 		}
 		{waypoints "paradrop"
 			{"232"
-				{position -4783.46 8871.13 0}
+				{position 7667.43 -1082.13 -30.4795}
 			}
 			{"234"
-				{position -2098.95 8667.27 0}
+				{position 7757.38 6047.31 66}
 			}
 			{"236"
-				{position 908.107 8733.9 0}
+				{position 7625.78 -8212.59 180}
 			}
 			{"238"
-				{position 4120.59 8804.8 0}
+				{position 7761.2 1082.86 130}
 			}
 			{"24"
-				{position -8749.41 6404.9 0}
+				{position 7707.71 -6167.23 94}
 			}
 			{"240"
-				{position 7020.21 8535.35 0}
+				{position 7617.98 7658.77 32.6693}
 			}
 			{"242"
-				{position 8779.77 6706.13 0}
+				{position 7735.99 2975.42 87.1028}
 			}
 			{"244"
-				{position -7563.12 8744.4 0}
+				{position 7709.74 -3466.07 30}
 			}
 			{"246"
-				{position 7150.52 -10819.6 0}
+				{position -7537.26 -3398.86 47.9271}
 			}
 			{"248"
-				{position 4534.08 -10848.8 0}
+				{position -7498.96 7192.72 143.664}
 			}
 			{"250"
-				{position 1542.18 -10858.3 0}
+				{position -7576.04 2350.03 48}
 			}
 			{"252"
-				{position -1590.96 -11142.4 0}
+				{position -7523.62 5211.58 113}
 			}
 			{"254"
-				{position -4820.12 -10961 0}
+				{position -7612.76 -711.43 -36.6196}
 			}
 			{"256"
-				{position -7609.51 -10663.7 0}
+				{position -7423.7 -8669.54 181}
 			}
 			{"258"
-				{position -8973.76 -8555.79 0}
+				{position -7334.99 -7453.93 286.918}
 			}
 			{"26"
-				{position 8455.86 -9476.78 170}
+				{position -7429.34 -5000.82 141.286}
 			}
 			{"3000"
-				{position -9885.27 7877.53 0}
+				{position 9218.14 -6226.29 0}
 				{transition "24"}
 			}
 			{"3001"
-				{position -4952.51 10619 0}
+				{position 9404.39 -964.759 0}
 				{transition "232"}
 			}
 			{"3002"
-				{position -2281.95 10610.1 0}
+				{position 9297.4 6060.01 0}
 				{transition "234"}
 			}
 			{"3003"
-				{position 739.067 10481.7 0}
+				{position 8230.56 -8575.36 170}
 				{transition "236"}
 			}
 			{"3004"
-				{position 3951.55 10552.6 0}
+				{position 9116.41 1459.05 0}
 				{transition "238"}
 			}
 			{"3005"
-				{position 6851.17 10283.1 0}
+				{position 9018.04 7914.74 0}
 				{transition "240"}
 			}
 			{"3006"
-				{position 10438.8 8403.73 0}
+				{position 9062.94 3168.31 0}
 				{transition "242"}
 			}
 			{"3007"
-				{position -7627.42 11062.7 0}
+				{position 8792.3 -3408.59 0}
 				{transition "244"}
 			}
 			{"3008"
-				{position 7247.65 -12602.1 0}
+				{position -9346.48 -3257.38 0}
 				{transition "246"}
 			}
 			{"3009"
-				{position 4631.21 -12631.3 0}
+				{position -9191.43 7229.42 0}
 				{transition "248"}
 			}
 			{"3010"
-				{position 1639.31 -12640.8 0}
+				{position -9229.71 2440.13 0}
 				{transition "250"}
 			}
 			{"3011"
-				{position 9611.28 -10209 170}
+				{position -7988.01 -4922.55 111.183}
 				{transition "26"}
 			}
 			{"3012"
-				{position -1493.83 -12924.9 0}
+				{position -9021.17 5087.04 0}
 				{transition "252"}
 			}
 			{"3013"
-				{position -4722.99 -12743.5 0}
+				{position -8484.81 -617.763 0}
 				{transition "254"}
 			}
 			{"3014"
-				{position -7512.38 -12446.2 0}
+				{position -8313.59 -9264.2 167.89}
 				{transition "256"}
 			}
 			{"3015"
-				{position -10238.4 -10036.2 200}
+				{position -7779.41 -7485.23 254.02}
 				{transition "258"}
 			}
 			{"3100"
-				{position 294.54 11646.2 0}
+				{position 11500.9 1818.19 0}
 				{radius 4000}
 				{RandomPosition 1}
 				{commands
@@ -114627,7 +114621,7 @@
 				}
 			}
 			{"3101"
-				{position -1009.51 -13586.4 0}
+				{position -11486.9 -574.806 0}
 				{radius 4000}
 				{RandomPosition 1}
 				{commands

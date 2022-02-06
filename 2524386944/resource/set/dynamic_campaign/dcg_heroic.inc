@@ -7,7 +7,7 @@
 		{StartMP	0.05 min 3002 attackerMultiplier 14.0}
 		{FinishMP	0.15 attackerMultiplier 55.5}
 		{CP
-			{Base "0:0,20:0,480:10,900:10,1080:10,1300:10,1500:10,1800:0,2100:10"} ;// seconds : CP
+			{Base "0:0,20:0,480:10,900:10,1080:13,1300:13,1500:15,1800:0,2100:15"} ;// seconds : CP
 			{RoundMultiplier "0:0.2 1:0.3 2:0.4 3:0.4 4:0.5 5:0.5 6:0.6 7:0.7 8:0.8 9:0.9 10:1.0 19:1.0"} ;// games played : multiplier for CP
 			{AttackMultiplier 5.0}
 		}
@@ -25,7 +25,7 @@
 			{level_3
 				{DefenseBudgetPlayer	404.5}
 				{DefenseBudgetAI		444.5}
-				{unlock games 14 progress 0.75}
+				{unlock games 12 progress 0.75}
 			}
 		}
 	}
@@ -64,11 +64,11 @@
 				}
 			}
 			{SP ;// Special Points (airstrikes)
-				{StartVal 0}
+				{StartVal 1110}
 				{WinGain 0}
 				{LoseGain 0}
 				{MapRewards
-					{Airfield	15}
+					{Airfield	35}
 				}
 			}
 			{AP ;// Ammo points

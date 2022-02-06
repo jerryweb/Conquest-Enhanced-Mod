@@ -14,14 +14,14 @@ firstWaveOffsetTime  = 720
 gameStartTime = os.clock()
 
 if testing then
-	firstWaveOffsetTime = 30
+	firstWaveOffsetTime = 50
 end 
 
 -- This is used to add the offset ONLY to the first wave
 initialWave = true
 
 -- This variable controls whether units will spawn all at once for 15 seconds, creating a massive wave, every x seconds
-typhoonWaveMode = false
+typhoonWaveMode = true
 nextTyphoonWaveTime = 0
 typhoonWaveInterval = 90
 typhoonWaveDuration = 25

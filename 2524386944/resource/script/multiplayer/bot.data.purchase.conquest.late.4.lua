@@ -172,8 +172,24 @@ Purchases["campaign_capture_the_flag"] = {
 			}
 		}
 	},
-	{--purchase 8 light tank rush
+	{--purchase 8 paratrooper
 		waveNumber = 8,
+		-- Repeat = 6,
+		minRepeat = 8,
+		maxRepeat = 12,
+		skipPossible = false,
+		waveDuration = 20,
+		Units = {
+			["ger"] = {--Germany
+				{priority = 1.5, class = UnitClass.Infantry, unit = "squad_fallschirmjaeger_para_con"},
+			},
+			["rus"] = {--Russia
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rus_paras_con"},
+			}
+		}
+	},	
+	{--purchase 9 light tank rush
+		waveNumber = 9,
 		-- Repeat = 6,
 		minRepeat = 4,
 		maxRepeat = 6,
