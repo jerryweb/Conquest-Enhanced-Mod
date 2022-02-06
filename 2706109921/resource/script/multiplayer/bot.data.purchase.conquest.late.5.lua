@@ -183,7 +183,6 @@ Purchases["campaign_capture_the_flag"] = {
 		maxRepeat = 0,
 	    skipPossible = false,
 	    waveDuration = 6,
-		isHeavyArty = true,		    
 		Units = {
 			["ger"] = {--Germany
 		    --Howitzers
@@ -266,7 +265,7 @@ Purchases["campaign_capture_the_flag"] = {
 			["eng"] = {--Britain
 			--Tanks_heavy
 				{priority = 1.0, class = UnitClass.Tank, unit = "churchill_mk_iv"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "black_prince"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "churchill_mk_vii"},
 				{priority = 1.5, class = UnitClass.Tank, unit = "churchill_crocodile"},			
 			},
 			["ita"] = {--Italy

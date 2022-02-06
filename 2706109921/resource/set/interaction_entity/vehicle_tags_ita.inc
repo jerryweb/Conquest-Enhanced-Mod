@@ -768,7 +768,7 @@
 	{on spawn
 		{tags add "italian"}
 		{tags add "german"}
-		{tags add "drop_plane"}	
+		{tags add "hidden"}	
 		{tags add "aircraft"}
 	}
 }

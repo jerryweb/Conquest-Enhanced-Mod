@@ -630,8 +630,75 @@ Purchases["campaign_capture_the_flag"] = {
 			}
 		}
 	},
-	{--purchase 8 light tank rush
+	{--purchase 8 paratrooper wave
 		waveNumber = 8,
+		-- Repeat = 6,
+		minRepeat = 8,
+		maxRepeat = 12,
+		skipPossible = false,
+		waveDuration = 20,
+		Units = {
+			["ger"] = {--Germany
+				--Infantry Squads
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_fallschirmjaeger_con"},
+			},
+			["rus"] = {--Russia
+			--Infantry Singles
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_rus_paras_con"},
+			},
+			["fra"] = {--France
+			--Infantry
+				-- 1
+				{priority = 3.5, class = UnitClass.Infantry, unit = "squad_light_late(fra)"},
+				{priority = 2.0, class = UnitClass.ATInfantry, unit = "single_at_late(fra)"},
+				-- 2
+				{priority = 3.5, class = UnitClass.Infantry, unit = "squad_regular_late(fra)"},
+				{priority = 2.0, class = UnitClass.ATInfantry, unit = "single_riflegrenade_late(fra)"},
+				-- 3
+				{priority = 1.5, class = UnitClass.Infantry, unit = "single_flamer_late(fra)"},
+				{priority = 1.5, class = UnitClass.Infantry, unit = "single_sniper(fra)"},
+				-- 5 
+				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier_late(fra)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_marine_late(fra)"},				
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_stormtrooper_late(fra)"},
+				-- 6
+			},
+			["pol"] = {--Poland
+			--Infantry
+				-- 1
+				{priority = 3.5, class = UnitClass.Infantry, unit = "squad_light_late(pol)"},
+				{priority = 2.0, class = UnitClass.ATInfantry, unit = "single_at_late(pol)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, unit = "single_atrifle(pol)"},
+				-- 2
+				{priority = 3.5, class = UnitClass.Infantry, unit = "squad_regular_late(pol)"},
+				{priority = 2.0, class = UnitClass.ATInfantry, unit = "single_mortar_late(pol)"},
+				-- 3
+				{priority = 1.5, class = UnitClass.Infantry, unit = "single_flamer_late(pol)"},
+				{priority = 1.5, class = UnitClass.Infantry, unit = "single_sniper(pol)"},
+				-- 5
+				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier_late(pol)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_scout_late(pol)"},				
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_stormtrooper_late(pol)"},
+			},
+			["jap"] = {--Japan
+			--Infantry
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_snlf_jap_con"},
+			},
+			["usa"] = {--USA
+				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_airborne_usa_con"},
+			},
+			["eng"] = {--Britain
+			--Infantry
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_airborne_eng_con"},
+			},
+			["ita"] = {--Italy
+			--Infantry
+				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_airborne_ita_con"},
+			}
+		}
+	},	
+	{--purchase 9 light tank rush
+		waveNumber = 9,
 		-- Repeat = 6,
 		minRepeat = 4,
 		maxRepeat = 6,

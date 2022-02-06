@@ -1470,7 +1470,7 @@
 {"b25_para_plane"
 	{on spawn
 		{tags add "usa"}
-		{tags add "drop_plane"}	
+		{tags add "hidden"}
 		{tags add "aircraft"}
 	}
 }

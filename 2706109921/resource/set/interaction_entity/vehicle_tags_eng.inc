@@ -5,7 +5,7 @@
 		}
 		{tags add "english"}
 		{tags add "morris_cs8"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -59,7 +59,7 @@
 	    {tags add "AAFLAK"}
 		{tags add "english"}
 		{tags add "qf40mm"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -85,7 +85,7 @@
 	    {tags add "AAFLAK"}
 		{tags add "english"}
 		{tags add "qf3,7inch"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -113,7 +113,7 @@
 	    {tags add "light_at_gun"}
 		{tags add "english"}
 		{tags add "qf2pdr"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -139,7 +139,7 @@
 	    {tags add "medium_at_gun"}
 		{tags add "english"}
 		{tags add "qf6pdr"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -165,7 +165,7 @@
 	    {tags add "heavy_at_gun"}
 		{tags add "english"}
 		{tags add "qf17pdr"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -194,7 +194,7 @@
     	{tags add "artillery"}
 		{tags add "english"}
 		{tags add "76mm_mk_ii"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -221,7 +221,7 @@
     	{tags add "artillery"}
 		{tags add "english"}
 		{tags add "qf25pdr"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -247,7 +247,7 @@
     	{tags add "artillery"}
 		{tags add "english"}
 		{tags add "bl45"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -273,7 +273,7 @@
     	{tags add "artillery"}
 		{tags add "english"}
 		{tags add "bl72"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -299,7 +299,7 @@
     		{tags add "rocket_artillery"}
 		{tags add "english"}
 		{tags add "land_mattress"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -330,7 +330,7 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "english"}
 		{tags add "matador"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -356,7 +356,7 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "english"}
 		{tags add "matador_art"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -382,7 +382,7 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "english"}
 		{tags add "matador_eng"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -408,7 +408,7 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "english"}
 		{tags add "matador_fuel"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -434,7 +434,7 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "english"}
 		{tags add "dingo"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -460,7 +460,7 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "english"}
 		{tags add "m3halftrack_eng"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -486,7 +486,7 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "english"}
 		{tags add "humber"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -512,7 +512,7 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "english"}
 		{tags add "mk2daimler"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -538,7 +538,7 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "english"}
 		{tags add "staghound"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -570,7 +570,7 @@
     	{tags add "light_tank"}
 		{tags add "english"}
 		{tags add "crusader_aa1"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -596,7 +596,7 @@
     	{tags add "light_tank"}
 		{tags add "english"}
 		{tags add "crusader_aa2"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -622,7 +622,7 @@
     	{tags add "light_tank"}
 		{tags add "english"}
 		{tags add "crusader_mk6"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -648,7 +648,7 @@
     	{tags add "light_tank"}
 		{tags add "english"}
 		{tags add "crusader_mk6"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -674,7 +674,7 @@
     	{tags add "light_tank"}
 		{tags add "english"}
 		{tags add "crusader_mk6"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -702,7 +702,7 @@
     	{tags add "medium_tank"}
 		{tags add "english"}
 		{tags add "valentine_mkiii"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -728,7 +728,7 @@
     	{tags add "medium_tank"}
 		{tags add "english"}
 		{tags add "matilda_mkii"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -754,7 +754,7 @@
     	{tags add "medium_tank"}
 		{tags add "english"}
 		{tags add "matilda_mkii_cs"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -780,7 +780,7 @@
     	{tags add "medium_tank"}
 		{tags add "english"}
 		{tags add "cromwell_mk_iv"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -806,7 +806,7 @@
     	{tags add "medium_tank"}
 		{tags add "english"}
 		{tags add "m4a4"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -832,7 +832,7 @@
     	{tags add "medium_tank"}
 		{tags add "english"}
 		{tags add "cromwell_mk_vi"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -858,7 +858,7 @@
     	{tags add "medium_tank"}
 		{tags add "english"}
 		{tags add "comet_a34"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -884,7 +884,7 @@
     	{tags add "medium_tank"}
 		{tags add "english"}
 		{tags add "challenger_a30"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -910,7 +910,7 @@
     	{tags add "medium_tank"}
 		{tags add "english"}
 		{tags add "m4a4_firefly"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -939,7 +939,7 @@
     	{tags add "heavy_tank"}
 		{tags add "english"}
 		{tags add "churchill3"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -965,7 +965,7 @@
     	{tags add "heavy_tank"}
 		{tags add "english"}
 		{tags add "churchill_mk_ii"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -991,7 +991,7 @@
     	{tags add "heavy_tank"}
 		{tags add "english"}
 		{tags add "churchill_avre"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -1017,7 +1017,7 @@
     	{tags add "heavy_tank"}
 		{tags add "english"}
 		{tags add "churchill_mk_iv"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -1043,7 +1043,7 @@
     	{tags add "heavy_tank"}
 		{tags add "english"}
 		{tags add "churchill_mk_vii"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -1069,33 +1069,7 @@
     	{tags add "heavy_tank"}
 		{tags add "english"}
 		{tags add "churchill_crocodile"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
-	}
-}
-{"black_prince"
-	{on spawn
-    	{tags add "heavy_tank"}
-		{tags add "english"}
-		{tags add "black_prince"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -1124,7 +1098,7 @@
     	{tags add "spg"}
 		{tags add "english"}
 		{tags add "achilles"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -1150,7 +1124,7 @@
     	{tags add "spg"}
 		{tags add "english"}
 		{tags add "m4a3_105_eng"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -1176,7 +1150,7 @@
     	{tags add "spg"}
 		{tags add "english"}
 		{tags add "sexton"}
-		{delay 10
+		{delay 6
 		    {if not tagged "player_car"
 			    {if not tagged "cmp_def"
 			        {if not tagged "ger"
@@ -1197,18 +1171,3 @@
 	    }
 	}
 }
-
-;_________________________________________________
-;|               Aircraft                         |
-;|________________________________________________|
-
-{"beaufighter_para_plane"
-	{on spawn
-		{tags add "english"}
-		{tags add "drop_plane"}	
-		{tags add "aircraft"}
-	}
-}
-
-
-

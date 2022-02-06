@@ -1,33 +1,26 @@
 Purchases["standard"] = {
-	{--purchase 1
+	{--#1, 1st-3rd purchases 
 		Repeat = 3,
 		Units = {
 			["ger"] = {--Germany
-			
-
-			--Infantry 
-				{priority = 2.0, class = UnitClass.Infantry, period = "early", unit = "squad_light(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_strafbatallion(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "late", unit = "squad_volkssturm(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_regular(ger)"},
-			--	{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_pionier(ger)"},
-			--	{priority = 2.0, class = UnitClass.Infantry, period = "late", unit = "squad_grenadiere(ger)"},
-			--	{priority = 2.0, class = UnitClass.Infantry, period = "late", unit = "squad_sturm(ger)"},
-			--	{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "squad_fallschirmjaeger(ger)"},
-
-			--Automatic_weaponry
-			--AT_Weapons
-			--Howitzers
-			--Wheel_vehicles
-			--Tanks_light
-			--Tanks_medium
-			--Tanks_heavy
-			--SPG
-
+			--Infantry Squads
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_strafbatallion(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_recon(ger)"},
+				{priority = 3.5, class = UnitClass.Infantry, period = "mid", unit = "squad_regular(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_regular_armored(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_pionier(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_regular_vet(ger)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_gd_mid(ger)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "squad_lw_fusilier_late(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_recon_late(ger)"},
+				{priority = 3.5, class = UnitClass.Infantry, period = "late", unit = "squad_grenadiere_late(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_pzgrenadiere_late(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_jager_late(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_fusilier_late(ger)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "squad_gebirgsjaeger_late(ger)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "squad_pzgrenadiere_gd_late(ger)"}
 			},
 			["fra"] = {--France
-			
-
 			--Infantry 
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_light(fra)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_regular(fra)"},
@@ -127,60 +120,66 @@ Purchases["standard"] = {
 			--SPG
 			},
 			["rus"] = {--Russia
-			--Infantry
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "squad_partisan(rus)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early", unit = "squad_basic(rus)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early", unit = "squad_heavy(rus)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "mid late", unit = "squad_rifleunit(rus)"},
-			--	{priority = 2.0, class = UnitClass.Infantry, period = "mid late", unit = "squad_guardsrifle(rus)"},
-			--	{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "squad_marines(rus)"},
-			--	{priority = 1.0, class = UnitClass.Infantry, period = "early", unit = "squad_paratrooper(rus)"}
-			--Automatic_weaponry
-			--AT_Weapons
-			--Howitzers
-			--Wheel_vehicles
-			--Tanks_light
-			--Tanks_medium
-			--Tanks_heavy
-			--SPG
+			--Infantry Squads
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_conscripts(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid late", unit = "squad_partisan(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_recon(rus)"},
+				{priority = 3.5, class = UnitClass.Infantry, period = "mid late", unit = "squad_rifleunit(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid late", unit = "squad_at_rifle(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_paras(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_marines(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "squad_conscripts_late(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_recon_late(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_smg(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_guardsrifle(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_guards_smg_heavy(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "squad_marines_late(rus)"}
 			}
 		}
 	},
-	{--purchase 2m inf+btr
+	{--#2, 4th purchase, infantry + btr
 		Repeat = 1,
 		Units = {
 			["ger"] = {--Germany
-				--Infantry
-				{priority = 2.0, class = UnitClass.Infantry, period = "early", unit = "squad_light(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_strafbatallion(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "late", unit = "squad_volkssturm(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_regular(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_pionier(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "late", unit = "squad_grenadiere(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "late", unit = "squad_sturm(ger)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "squad_fallschirmjaeger(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_mg(ger)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_sniper(ger)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_flamer(ger)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_riflegrenade(ger)"},		
-				{priority = 1.0, class = UnitClass.ATInfantry, period = "early mid", unit = "single_at(ger)"},
-				{priority = 1.0, class = UnitClass.ATInfantry, period = "late", unit = "single_bazooker(ger)"},
-			--Automatic_weaponry
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "mg34_lafette"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "mid late", unit = "mg42_lafette"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "20mm_flak30"},
-			--AT_Weapons
-			--Howitzers				
+			--Infantry Singles
+				{priority = 2.0, class = UnitClass.Infantry, period = "mid late", unit = "single_mg(ger)"},
+				{priority = 1.5, class = UnitClass.ATInfantry, period = "mid", unit = "single_at(ger)"},
+				{priority = 2.0, class = UnitClass.ATInfantry, period = "late", unit = "single_bazooker(ger)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid late", unit = "single_riflegrenade(ger)"},		
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid late", unit = "single_flamer(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid late", unit = "single_sniper(ger)"},
+
+			--Infantry Squads
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_strafbatallion(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_recon(ger)"},
+				{priority = 3.5, class = UnitClass.Infantry, period = "mid", unit = "squad_regular(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_regular_armored(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_pionier(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_regular_vet(ger)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_gd_mid(ger)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "squad_lw_fusilier_late(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_recon_late(ger)"},
+				{priority = 3.5, class = UnitClass.Infantry, period = "late", unit = "squad_grenadiere_late(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_pzgrenadiere_late(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_jager_late(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_fusilier_late(ger)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "squad_gebirgsjaeger_late(ger)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "squad_pzgrenadiere_gd_late(ger)"},
+
+			--Cannons
+			--Anti_Aircraft
+			--	{priority = 2.5, class = UnitClass.ATTank, period = "mid late", unit = "20mm_flak30"},
+			--	{priority = 1.5, class = UnitClass.ATTank, period = "mid late", unit = "37mm_flak37"},
+
 			--Wheel_vehicles
-				{priority = 1.0, class = UnitClass.Vehicle, period = "early", unit = "p204_f"},
-				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid late", unit = "sdkfz251c"},
-				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid late", unit = "sdkfz231"},		
-				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid late", unit = "sdkfz221"},	
-			--Tanks_light
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "panzer1b"}		
-			--Tanks_medium
-			--Tanks_heavy			
-			--SPG
+				{priority = 0.5, class = UnitClass.Vehicle, period = "mid late", unit = "kubelwagen_mg"},
+				{priority = 2.0, class = UnitClass.Vehicle, period = "mid late", unit = "blitz3_6_flak30"},
+				{priority = 1.5, class = UnitClass.Vehicle, period = "mid late", unit = "sdkfz231"},
+				{priority = 1.5, class = UnitClass.Vehicle, period = "mid late", unit = "sdkfz221"},
+				{priority = 1.5, class = UnitClass.Vehicle, period = "early", unit = "sdkfz222"},
+
+			--Half_tracks
+				{priority = 1.0, class = UnitClass.Vehicle, period = "mid late", unit = "sdkfz251c"}
 			},
 			["fra"] = {--France
 				--Infantry
@@ -225,7 +224,7 @@ Purchases["standard"] = {
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_light(pol)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_regular(pol)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_pionier(pol)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_stormtrooper(pol)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_sturmtrooper(pol)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "single_mg(pol)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "single_sniper(pol)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "single_mortar(pol)"},		
@@ -259,7 +258,7 @@ Purchases["standard"] = {
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_light(jap)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_regular(jap)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_pionier(jap)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_stormtrooper(jap)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_sturmtrooper(jap)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "single_mg(jap)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "single_sniper(jap)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "single_mortar(jap)"},		
@@ -351,83 +350,138 @@ Purchases["standard"] = {
 			--SPG
 			},
 			["rus"] = {--Russia
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "squad_partisan(rus)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early", unit = "squad_basic(rus)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early", unit = "squad_heavy(rus)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "mid late", unit = "squad_rifleunit(rus)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "mid late", unit = "squad_guardsrifle(rus)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "squad_marines(rus)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early", unit = "squad_paratrooper(rus)"},
-			--Automatic_weaponry
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "25mm_72k"},
-			--AT_Wreapon
-			--Howitzers
+			--Infantry Singles
+				{priority = 2.0, class = UnitClass.Infantry, period = "mid late", unit = "single_mg(rus)"},
+				{priority = 1.5, class = UnitClass.ATInfantry, period = "mid late", unit = "single_at(rus)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, period = "mid", unit = "single_riflegrenade(rus)"},
+				{priority = 2.0, class = UnitClass.ATInfantry, period = "late", unit = "single_bazooker(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid late", unit = "single_flamer(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid late", unit = "single_sniper(rus)"},
+
+			--Infantry Squads
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_conscripts(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid late", unit = "squad_partisan(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_recon(rus)"},
+				{priority = 3.5, class = UnitClass.Infantry, period = "mid late", unit = "squad_rifleunit(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid late", unit = "squad_at_rifle(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_paras(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_marines(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "squad_conscripts_late(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_recon_late(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_smg(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_guardsrifle(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_guards_smg_heavy(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "squad_marines_late(rus)"},
+
+			--Cannons
+			--Anti_Aircraft
+			--	{priority = 0.5, class = UnitClass.ATTank, period = "mid late", unit = "25mm_72k"},
+			--	{priority = 1.5, class = UnitClass.ATTank, period = "mid late", unit = "37mm_61k"},
+
 			--Wheel_vehicles
-				{priority = 1.0, class = UnitClass.Vehicle, period = "early", unit = "ba20"},
-				{priority = 1.0, class = UnitClass.Vehicle, period = "mid late", unit = "ba64"},
-				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid late", unit = "ba6"},
-			--Tanks_light
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "t26_31"}		
-			--Tanks_medium
-			--Tanks_heavy
-			--SPG
+				{priority = 1.5, class = UnitClass.Vehicle, period = "mid", unit = "ba20"},
+				{priority = 1.0, class = UnitClass.Vehicle, period = "mid late", unit = "gaz_aaa_72k"},
+				{priority = 2.0, class = UnitClass.Vehicle, period = "mid late", unit = "ba6"},
+				{priority = 1.5, class = UnitClass.Vehicle, period = "late", unit = "gaz67b"},
+				{priority = 0.5, class = UnitClass.Vehicle, period = "late", unit = "ba64"}
 			}
 		}
 	},
-	{--purchase 3, inf+tanks
+	{--#3, 5th purchase, all units (no doctrine)
 		Repeat = 1,
 		Units = {
 			["ger"] = {--Germany
-				--Infantry
-				{priority = 2.0, class = UnitClass.Infantry, period = "early", unit = "squad_light(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_strafbatallion(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "late", unit = "squad_volkssturm(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_regular(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_pionier(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "late", unit = "squad_grenadiere(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "late", unit = "squad_sturm(ger)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "squad_fallschirmjaeger(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_mg(ger)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_sniper(ger)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_flamer(ger)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_riflegrenade(ger)"},		
-				{priority = 1.0, class = UnitClass.ATInfantry, period = "early mid", unit = "single_at(ger)"},
-				{priority = 1.0, class = UnitClass.ATInfantry, period = "late", unit = "single_bazooker(ger)"},
-			--Automatic_weaponry
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "mg34_lafette"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "mid late", unit = "mg42_lafette"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "20mm_flak30"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "37mm_flak37"},
-			--AT_Weapons
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "37mm_pak36"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "47mm_pakt"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "75mm_leig18"},
-			--Howitzers
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "80mm_sgrw34"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "105mm_lefh18"},
-			--	{priority = 2.0, class = UnitClass.ATTank, period = "mid late", unit = "120mm_sgrw42"},				
+			--Infantry Singles
+				{priority = 2.0, class = UnitClass.Infantry, period = "mid late", unit = "single_mg(ger)"},
+				{priority = 1.5, class = UnitClass.ATInfantry, period = "mid", unit = "single_at(ger)"},
+				{priority = 2.0, class = UnitClass.ATInfantry, period = "late", unit = "single_bazooker(ger)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid late", unit = "single_riflegrenade(ger)"},		
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid late", unit = "single_flamer(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid late", unit = "single_sniper(ger)"},
+
+			--Infantry Squads
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_strafbatallion(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_recon(ger)"},
+				{priority = 3.5, class = UnitClass.Infantry, period = "mid", unit = "squad_regular(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_regular_armored(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_pionier(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_regular_vet(ger)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_gd_mid(ger)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "squad_lw_fusilier_late(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_recon_late(ger)"},
+				{priority = 3.5, class = UnitClass.Infantry, period = "late", unit = "squad_grenadiere_late(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_pzgrenadiere_late(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_jager_late(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_fusilier_late(ger)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "squad_gebirgsjaeger_late(ger)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "squad_pzgrenadiere_gd_late(ger)"},
+
+			--Cannons
+			--HMGs
+			--	{priority = 3.5, class = UnitClass.Vehicle, period = "mid", unit = "mg34_lafette"},
+			--	{priority = 3.5, class = UnitClass.Vehicle, period = "late", unit = "mg42_lafette"},
+
+			--Anti_Aircraft
+			--	{priority = 2.5, class = UnitClass.ATTank, period = "mid late", unit = "20mm_flak30"},
+			--	{priority = 1.5, class = UnitClass.ATTank, period = "mid late", unit = "37mm_flak37"},
+
+			--Anti_Tank
+				{priority = 1.5, class = UnitClass.ATTank, period = "mid", unit = "37mm_pak36"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "50mm_pak38"},
+				{priority = 0.5, class = UnitClass.ATTank, period = "mid", unit = "75mm_pak40"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "late", unit = "37mm_pak36_late"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "late", unit = "50mm_pak38_late"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "75mm_pak40"},
+
+			--Mortars
+				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid late", unit = "80mm_sgrw34"},
+
+			--Infantry_Support
+				{priority = 1.5, class = UnitClass.ATTank, period = "mid late", unit = "75mm_leig18"},
+
+			--Artillery
+				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid late", unit = "105mm_lefh18"},
+
+			--Rocket_Artillery
+
 			--Wheel_vehicles
-				{priority = 2.0, class = UnitClass.Vehicle, period = "early", unit = "p204_f"},
-				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid late", unit = "sdkfz251c"},
-				{priority = 2.0, class = UnitClass.Vehicle, period = "early mid late", unit = "sdkfz231"},	
-				{priority = 2.0, class = UnitClass.Vehicle, period = "early", unit = "sdkfz231_6rad"},	
-				{priority = 2.0, class = UnitClass.Vehicle, period = "early mid late", unit = "sdkfz221"},		
+				{priority = 0.5, class = UnitClass.Vehicle, period = "mid late", unit = "kubelwagen_mg"},
+				{priority = 2.0, class = UnitClass.Vehicle, period = "mid late", unit = "blitz3_6_flak30"},
+				{priority = 1.5, class = UnitClass.Vehicle, period = "mid late", unit = "sdkfz231"},
+				{priority = 1.5, class = UnitClass.Vehicle, period = "mid late", unit = "sdkfz221"},
+				{priority = 1.5, class = UnitClass.Vehicle, period = "early", unit = "sdkfz222"},
+
+			--Half_tracks
+				{priority = 1.0, class = UnitClass.Vehicle, period = "mid late", unit = "sdkfz251c"},
+
 			--Tanks_light
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "panzer1b"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early", unit = "panzer2c"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "pz38t_g"},
-				{priority = 1.0, class = UnitClass.Tank, period = "late", unit = "panzer2l"},
-				{priority = 0.2, class = UnitClass.Tank, period = "late", unit = "panzer1f"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "panzer1b"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer2c"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer2f"},
+				{priority = 2.5, class = UnitClass.Tank, period = "mid", unit = "pz38t_f"},
+
 			--Tanks_medium
-				{priority = 2.0, class = UnitClass.Tank, period = "early", unit = "panzer3f"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early", unit = "panzer4f1"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid late", unit = "panzer3m"},
+				{priority = 3.5, class = UnitClass.Tank, period = "mid", unit = "panzer3j"},
+				{priority = 2.5, class = UnitClass.Tank, period = "mid", unit = "panzer3j1"},
+				{priority = 1.5, class = UnitClass.Tank, period = "mid", unit = "panzer4f1"},
+				{priority = 3.0, class = UnitClass.Tank, period = "mid", unit = "panzer4f2"},
+
+				{priority = 2.5, class = UnitClass.Tank, period = "late", unit = "panzer3m"},
+				{priority = 1.5, class = UnitClass.Tank, period = "late", unit = "panzer3n"},
+				{priority = 3.0, class = UnitClass.Tank, period = "late", unit = "panzer4g"},
+				{priority = 3.5, class = UnitClass.Tank, period = "late", unit = "panzer4h"},
+
 			--Tanks_heavy
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "mid", unit = "panzer5d"},
-				{priority = 1.0, class = UnitClass.HeavyTank, period = "mid", unit = "tiger1h"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "panzer5g"},
-				{priority = 1.0, class = UnitClass.HeavyTank, period = "late", unit = "tiger1e"}	
-			--SPG			
+				{priority = 2.5, class = UnitClass.HeavyTank, period = "late", unit = "panzer5a"},
+				{priority = 1.5, class = UnitClass.HeavyTank, period = "late", unit = "tiger1e"},
+
+			--SPG
+				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "panzerjager1"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "mid", unit = "stug3b"},
+				{priority = 2.5, class = UnitClass.ATTank, period = "late", unit = "marder3m"},
+				{priority = 3.0, class = UnitClass.ATTank, period = "late", unit = "stug3g"},
+				{priority = 2.0, class = UnitClass.ArtilleryTank, period = "late", unit = "stuh42"}
+
 			},
 			["fra"] = {--France
 				--Infantry
@@ -452,7 +506,23 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "single_flamer_late(fra)"},
 			--Automatic_weaponry
 			--AT_Weapons
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "hotchkiss_mle1914"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "13mm_hotchkiss"},
+				{priority = 0.5, class = UnitClass.ATTank, period = "early", unit = "25mm_hotchkiss_mle34"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "early", unit = "47mm_puteaux_mle37"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "75mm_mle1897"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "0_3cal_m1919a4_fr"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "0_5cal_m2hb_fr"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "40_mm_m1_fr"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "late mid", unit = "57_mm_m1_fr"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "75_mm_m1897a4_fr"},
 			--Howitzers
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early", unit = "81mm_brandt_fra"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early", unit = "155mm_m1917a4"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "early", unit = "22cm_mortier"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late mid", unit = "81_mm_m1_fr"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late", unit = "105_mm_m2a1l_fr"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "late mid", unit = "155_mm_m1918"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid", unit = "laffly_s15_toe"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "late", unit = "m3a1_scout_fr"},
@@ -481,7 +551,7 @@ Purchases["standard"] = {
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_light(pol)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_regular(pol)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_pionier(pol)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_stormtrooper(pol)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_sturmtrooper(pol)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "single_mg(pol)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "single_sniper(pol)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "single_mortar(pol)"},		
@@ -497,7 +567,24 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "single_flamer_late(pol)"},
 			--Automatic_weaponry
 			--AT_Weapons
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "ckm_wz30_mgun"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "20mm_fka"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "37mm_bofors"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "40mm_bofors"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "75mm_aa_wz36"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "early", unit = "75mm_wz97"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "303_bren_pol"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "qf40mm_pol"},
+				{priority = 0.5, class = UnitClass.ATTank, period = "late mid", unit = "qf2pdr_pol"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "late mid", unit = "qf6pdr_pol"},
+				{priority = 0.7, class = UnitClass.ATTank, period = "late mid", unit = "qf17pdr_pol"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "303_vickers_pol"},
 			--Howitzers				
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "81mm_brandt_pol"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early", unit = "105mm_wz29"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early", unit = "155mm_wz1917"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late mid", unit = "qf25pdr_pol"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late", unit = "bl45_pol"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid", unit = "wz34puteaux"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid", unit = "wz29"},
@@ -527,7 +614,7 @@ Purchases["standard"] = {
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_light(jap)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_regular(jap)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_pionier(jap)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_stormtrooper(jap)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_sturmtrooper(jap)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "single_mg(jap)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "single_sniper(jap)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "single_mortar(jap)"},		
@@ -535,7 +622,20 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.ATInfantry, period = "late", unit = "single_bazooker(jap)"},
 			--Automatic_weaponry
 			--AT_Weapons
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "type92_stan"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "20mm_type_2"},
+				{priority = 0.7, class = UnitClass.ATTank, period = "early late mid", unit = "37mm_type_94"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "75mm_type_88"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "early late mid", unit = "75mm_type_90"},
+				{priority = 0.7, class = UnitClass.ATTank, period = "early late mid", unit = "75mm_type_41"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "late mid", unit = "47mm_type_1"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "75mm_type_4"},
 			--Howitzers				
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "81mm_brandt_jap"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "105mm_type_92"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "120mm_type_38"},
+				{priority = 0.7, class = UnitClass.ArtilleryTank, period = "late", unit = "200mm_type_4"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "late mid", unit = "150mm_type_96"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid", unit = "type94aa"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "early", unit = "type87"},
@@ -569,7 +669,21 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.ATInfantry, period = "mid late", unit = "single_at(usa)"},
 			--Automatic_weaponry
 			--AT_Weapons
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "0_3cal_m1917a1_aa"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "0_5cal_m2hb"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "0_5cal_maxson"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "40_mm_m1"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "37_mm_m3"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "early late mid", unit = "75_mm_m1897a4"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "early late mid", unit = "75_mm_m1"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "late", unit = "76_mm_m5late"},
+				{priority = 0.7, class = UnitClass.ATTank, period = "late mid", unit = "90_mm_m1"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "mid", unit = "76_mm_m5"},
 			--Howitzers				
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "81_mm_m1"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "105_mm_m2a1l"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "155_mm_m2"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late mid", unit = "203_mm_m115"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid late", unit = "willysmb"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "late", unit = "willys50"},
@@ -615,7 +729,18 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "single_flamer_late(eng)"},
 			--Automatic_weaponry
 			--AT_Weapons
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "303_vickers_mki"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "qf40mm"},
+				{priority = 0.7, class = UnitClass.ATTank, period = "early late mid", unit = "qf2pdr"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "early late mid", unit = "qf6pdr"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "303_bren"},
+				{priority = 0.5, class = UnitClass.ATTank, period = "late mid", unit = "qf17pdr"},
 			--Howitzers				
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "76mm_mk_ii"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "qf3,7inch"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "qf25pdr"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "bl45"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "late", unit = "bl72"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid late", unit = "dingo"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid late", unit = "m3halftrack_eng"},
@@ -655,7 +780,17 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "single_flamer(ita)"},
 			--Automatic_weaponry
 			--AT_Weapons
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "8mm_fiat_revelli_m1914_35"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid", unit = "cannone_2065"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid", unit = "2cm_solothurn"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early mid", unit = "cannone_4732"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "early mid", unit = "cannone_7527"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early mid", unit = "obice_7513"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "8mm_breda_37"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "mid", unit = "7_5cm_pak97_38"},
 			--Howitzers				
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early mid", unit = "81mm_brandt_ita"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early mid", unit = "obice_10017"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid late", unit = "ab41"},
 			--Tanks_light
@@ -673,113 +808,124 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "stug3g_ita"}
 			},
 			["rus"] = {--Russia
-			--Infantry
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "squad_partisan(rus)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early", unit = "squad_basic(rus)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early", unit = "squad_heavy(rus)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "mid late", unit = "squad_rifleunit(rus)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "mid late", unit = "squad_guardsrifle(rus)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "squad_marines(rus)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early", unit = "squad_paratrooper(rus)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_mg(rus)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_sniper(rus)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_flamer(rus)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_riflegrenade(rus)"},		
-				{priority = 1.0, class = UnitClass.ATInfantry, period = "early mid late", unit = "single_at(rus)"},
-			--Automatic_weaponry
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "mid late", unit = "maxim"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "dshk_stan"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "25mm_72k"},
-			--AT_Weeapon
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "45mm_m37"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "mid late", unit = "75mm_m43"},
-			--	{priority = 2.0, class = UnitClass.ATTank, period = "early mid late", unit = "76mm_f22"},
-			--Howitzers
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "82mm_bm37"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "120mm_pm38"},
+			--Infantry Singles
+				{priority = 2.0, class = UnitClass.Infantry, period = "mid late", unit = "single_mg(rus)"},
+				{priority = 1.5, class = UnitClass.ATInfantry, period = "mid late", unit = "single_at(rus)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, period = "mid", unit = "single_riflegrenade(rus)"},
+				{priority = 2.0, class = UnitClass.ATInfantry, period = "late", unit = "single_bazooker(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid late", unit = "single_flamer(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid late", unit = "single_sniper(rus)"},
+
+			--Infantry Squads
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_conscripts(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid late", unit = "squad_partisan(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_recon(rus)"},
+				{priority = 3.5, class = UnitClass.Infantry, period = "mid late", unit = "squad_rifleunit(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid late", unit = "squad_at_rifle(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_paras(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_marines(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "squad_conscripts_late(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_recon_late(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_smg(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_guardsrifle(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_guards_smg_heavy(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "squad_marines_late(rus)"},
+
+			--Cannons
+			--HMGs
+			--	{priority = 3.5, class = UnitClass.Vehicle, period = "mid late", unit = "maxim"},
+			--	{priority = 1.5, class = UnitClass.Vehicle, period = "late", unit = "sg43_stand"},
+			--	{priority = 1.5, class = UnitClass.Vehicle, period = "late", unit = "dshk_stan"},
+			--	{priority = 1.5, class = UnitClass.Vehicle, period = "late", unit = "dshk_aa"},
+
+			--Anti_Aircraft
+			--	{priority = 0.5, class = UnitClass.ATTank, period = "mid late", unit = "25mm_72k"},
+			--	{priority = 1.5, class = UnitClass.ATTank, period = "mid late", unit = "37mm_61k"},
+
+			--Anti_Tank
+				{priority = 1.5, class = UnitClass.ATTank, period = "mid", unit = "45mm_m37"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "45mm_m42"},
+				{priority = 0.5, class = UnitClass.ATTank, period = "mid late", unit = "57mm_zis2"},
+				{priority = 2.0, class = UnitClass.ATTank, period = "mid late", unit = "76mm_zis3"},
+
+			--Mortars
+				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid late", unit = "82mm_bm37"},
+
+			--Infantry_Support
+				{priority = 1.5, class = UnitClass.ATTank, period = "mid", unit = "76mm_m1927"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "late", unit = "76mm_m43"},
+
+			--Artillery
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid late", unit = "122mm_m30"},
+
 			--Wheel_vehicles
-				{priority = 1.0, class = UnitClass.Vehicle, period = "early", unit = "ba20"},
-				{priority = 1.0, class = UnitClass.Vehicle, period = "mid late", unit = "ba64"},
-				{priority = 2.0, class = UnitClass.Vehicle, period = "early mid late", unit = "ba6"},
-				{priority = 1.0, class = UnitClass.Vehicle, period = "early", unit = "yag10_29k"},
+				{priority = 1.5, class = UnitClass.Vehicle, period = "mid", unit = "ba20"},
+				{priority = 1.0, class = UnitClass.Vehicle, period = "mid late", unit = "gaz_aaa_72k"},
+				{priority = 2.0, class = UnitClass.Vehicle, period = "mid late", unit = "ba6"},
+				{priority = 1.5, class = UnitClass.Vehicle, period = "late", unit = "gaz67b"},
+				{priority = 0.5, class = UnitClass.Vehicle, period = "late", unit = "ba64"},
+
 			--Tanks_light
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "t26_31"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "t26_33"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "t26_39"},
-				{priority = 1.0, class = UnitClass.Tank, period = "early mid", unit = "t40"},
-				{priority = 1.0, class = UnitClass.Tank, period = "late", unit = "t70"},
-				{priority = 1.0, class = UnitClass.Tank, period = "late", unit = "t70m"},
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "bt2"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "bt5"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "bt7"},
+				{priority = 0.1, class = UnitClass.Tank, period = "mid late", unit = "t27"},
+				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "t26_31"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "t26_39"},
+				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "t40"},
+				{priority = 3.0, class = UnitClass.Tank, period = "mid", unit = "bt7"},
+				{priority = 3.0, class = UnitClass.Tank, period = "late", unit = "t70"},
+
 			--Tanks_medium
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "t28"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "t3476_40"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "t3476_41"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid late ", unit = "t3476_43"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid late ", unit = "t3457_43"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t28"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "t3476_40"},
+				{priority = 2.5, class = UnitClass.Tank, period = "mid", unit = "t3476_41"},
+				{priority = 3.5, class = UnitClass.Tank, period = "late ", unit = "t3476_43"},
+				{priority = 2.5, class = UnitClass.Tank, period = "late ", unit = "t3485_44"},
+
 			--Tanks_heavy
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "early", unit = "kv1_40"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "mid", unit = "kv1_41"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "mid late", unit = "kv1s"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early mid", unit = "kv2_40"},
+				{priority = 1.5, class = UnitClass.HeavyTank, period = "mid", unit = "kv1_40"},
+				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "kv1s"},
+				{priority = 0.5, class = UnitClass.HeavyTank, period = "late", unit = "is1_43"},
+				{priority = 1.5, class = UnitClass.HeavyTank, period = "late", unit = "is2_43"},
+
 			--SPG
-				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "zis30"},
-				{priority = 1.0, class = UnitClass.ATTank, period = "mid late", unit = "su76"},
-				{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "su85"}
+				{priority = 2.0, class = UnitClass.ArtilleryTank, period = "mid late", unit = "su76"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "late", unit = "su85"},
+				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "late", unit = "su122"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "su152"},
 			}
 		}
 	},
-	{--purchase intermediate, tank only
+	{--#4, 6th purchase, tanks only
 		Repeat = 1,
 		Units = {
 			["ger"] = {--Germany
-			--Infantry
-			--Automatic_weaponry
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "mg34_lafette"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "mid late", unit = "mg42_lafette"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "20mm_flak30"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "37mm_flak37"},
-			--AT_Weapons
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "37mm_pak36"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "47mm_pakt"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "75mm_leig18"},
-			--Howitzers
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "80mm_sgrw34"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "105mm_lefh18"},
-			--	{priority = 2.0, class = UnitClass.ATTank, period = "mid late", unit = "120mm_sgrw42"},				
-			--Wheel_vehicles
-				{priority = 2.0, class = UnitClass.Vehicle, period = "mid", unit = "p204_f"},
-				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid late", unit = "sdkfz251c"},
-				{priority = 2.0, class = UnitClass.Vehicle, period = "early mid late", unit = "sdkfz231"},
-				{priority = 2.0, class = UnitClass.Vehicle, period = "early", unit = "sdkfz231_6rad"},	
-				{priority = 2.0, class = UnitClass.Vehicle, period = "early mid late", unit = "sdkfz221"},	
 			--Tanks_light
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "panzer1b"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early", unit = "panzer2c"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "panzer2f"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early", unit = "panzer3e"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "panzer35t"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "pz38t_f"},
-				{priority = 0.2, class = UnitClass.Tank, period = "late", unit = "panzer1f"},
-				{priority = 1.0, class = UnitClass.Tank, period = "late", unit = "panzer2l"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "panzer1b"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer2c"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer2f"},
+				{priority = 2.5, class = UnitClass.Tank, period = "mid", unit = "pz38t_f"},
+
 			--Tanks_medium
-				{priority = 2.0, class = UnitClass.Tank, period = "early", unit = "panzer3f"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early", unit = "panzer4d"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "panzer4f1"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late", unit = "panzer3n"},	
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer3j"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer3j1"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer3l"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid late", unit = "panzer3m"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "panzer4f2"},
-				{priority = 1.0, class = UnitClass.Tank, period = "late", unit = "panzer4j"},
+				{priority = 3.5, class = UnitClass.Tank, period = "mid", unit = "panzer3j"},
+				{priority = 2.5, class = UnitClass.Tank, period = "mid", unit = "panzer3j1"},
+				{priority = 1.5, class = UnitClass.Tank, period = "mid", unit = "panzer4f1"},
+				{priority = 3.0, class = UnitClass.Tank, period = "mid", unit = "panzer4f2"},
+
+				{priority = 2.5, class = UnitClass.Tank, period = "late", unit = "panzer3m"},
+				{priority = 1.5, class = UnitClass.Tank, period = "late", unit = "panzer3n"},
+				{priority = 3.0, class = UnitClass.Tank, period = "late", unit = "panzer4g"},
+				{priority = 3.5, class = UnitClass.Tank, period = "late", unit = "panzer4h"},
+
+			--Tanks_heavy
+				{priority = 2.5, class = UnitClass.HeavyTank, period = "late", unit = "panzer5a"},
+				{priority = 1.5, class = UnitClass.HeavyTank, period = "late", unit = "tiger1e"},
+
 			--SPG
-				{priority = 2.0, class = UnitClass.ATTank, period = "early", unit = "panzerjager1"},
-				{priority = 2.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "stug3b"},
-				{priority = 2.0, class = UnitClass.ATTank, period = "late", unit = "stug3g"},
-				{priority = 2.0, class = UnitClass.ATTank, period = "mid", unit = "marder2"},
-				{priority = 2.0, class = UnitClass.ATTank, period = "late", unit = "marder3m"}
+				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "panzerjager1"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "mid", unit = "stug3b"},
+				{priority = 2.5, class = UnitClass.ATTank, period = "late", unit = "marder3m"},
+				{priority = 3.0, class = UnitClass.ATTank, period = "late", unit = "stug3g"},
+				{priority = 2.0, class = UnitClass.ArtilleryTank, period = "late", unit = "stuh42"}
+
 			},
 			["fra"] = {--France
 			--Infantry
@@ -965,123 +1111,130 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "stug3g_ita"}
 			},
 			["rus"] = {--Russia
-			--Infantry
-			--Automatic_weaponry
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "mid late", unit = "maxim"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "dshk_stan"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "25mm_72k"},
-			--AT_Weeapon
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "45mm_m37"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "mid late", unit = "75mm_m43"},
-			--	{priority = 2.0, class = UnitClass.ATTank, period = "early mid late", unit = "76mm_f22"},
-			--Howitzers
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "82mm_bm37"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "120mm_pm38"},
-			--Wheel_vehicles
-				{priority = 1.0, class = UnitClass.Vehicle, period = "early", unit = "ba20"},
-				{priority = 1.0, class = UnitClass.Vehicle, period = "mid late", unit = "ba64"},
-				{priority = 2.0, class = UnitClass.Vehicle, period = "early mid", unit = "ba6"},
-				{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "yag10_29k"},
 			--Tanks_light
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "t26_31"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "t26_33"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "t26_39"},
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "t30"},
-				{priority = 1.0, class = UnitClass.Tank, period = "early mid", unit = "t40"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid late", unit = "t60"},
-				{priority = 1.0, class = UnitClass.Tank, period = "late", unit = "t70"},
-				{priority = 1.0, class = UnitClass.Tank, period = "late", unit = "t70m"},
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "bt2"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "bt5"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "bt7"},
+				{priority = 0.1, class = UnitClass.Tank, period = "mid late", unit = "t27"},
+				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "t26_31"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "t26_39"},
+				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "t40"},
+				{priority = 3.0, class = UnitClass.Tank, period = "mid", unit = "bt7"},
+				{priority = 3.0, class = UnitClass.Tank, period = "late", unit = "t70"},
+
 			--Tanks_medium
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "t28"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "t3476_40"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "t3476_41"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid late ", unit = "t3476_43"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid late ", unit = "t3457_43"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t28"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "t3476_40"},
+				{priority = 2.5, class = UnitClass.Tank, period = "mid", unit = "t3476_41"},
+				{priority = 3.5, class = UnitClass.Tank, period = "late ", unit = "t3476_43"},
+				{priority = 2.5, class = UnitClass.Tank, period = "late ", unit = "t3485_44"},
+
 			--Tanks_heavy
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "early", unit = "kv1_40"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "mid", unit = "kv1_41"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "mid late", unit = "kv1s"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early mid", unit = "kv2_40"},
+				{priority = 1.5, class = UnitClass.HeavyTank, period = "mid", unit = "kv1_40"},
+				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "kv1s"},
+				{priority = 0.5, class = UnitClass.HeavyTank, period = "late", unit = "is1_43"},
+				{priority = 1.5, class = UnitClass.HeavyTank, period = "late", unit = "is2_43"},
+
 			--SPG
-				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "zis30"},
-				{priority = 1.0, class = UnitClass.ATTank, period = "mid late", unit = "su76"},
-				{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "su85"}
+				{priority = 2.0, class = UnitClass.ArtilleryTank, period = "mid late", unit = "su76"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "late", unit = "su85"},
+				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "late", unit = "su122"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "su152"}
 			}
 		}
 	},
-	{--purchase 4
+	{--#5, 7th purchase, all units (no doctrine)
 		Repeat = 1,
 		Units = {
 			["ger"] = {--Germany
-				{priority = 2.0, class = UnitClass.Infantry, period = "early", unit = "squad_light(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_strafbatallion(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "late", unit = "squad_volkssturm(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_regular(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_pionier(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "late", unit = "squad_grenadiere(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "late", unit = "squad_sturm(ger)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "squad_fallschirmjaeger(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_mg(ger)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_sniper(ger)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_flamer(ger)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_riflegrenade(ger)"},		
-				{priority = 1.0, class = UnitClass.ATInfantry, period = "early mid", unit = "single_at(ger)"},
-				{priority = 1.0, class = UnitClass.ATInfantry, period = "late", unit = "single_bazooker(ger)"},	
-			--Automatic_weaponry
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "mg34_lafette"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "mid late", unit = "mg42_lafette"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "20mm_flak30"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "37mm_flak37"},
-			--AT_Wreapon
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "37mm_pak36"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "47mm_pakt"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "75mm_leig18"},
-			--Howitzers
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "80mm_sgrw34"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "105mm_lefh18"},
-			--	{priority = 2.0, class = UnitClass.ATTank, period = "mid late", unit = "120mm_sgrw42"},	
-			--Wheel_vehicles			
-				{priority = 2.0, class = UnitClass.Vehicle, period = "mid", unit = "p204_f"},
-				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid late", unit = "sdkfz251c"},
-				{priority = 2.0, class = UnitClass.Vehicle, period = "early", unit = "sdkfz231_6rad"},
-				{priority = 2.0, class = UnitClass.Vehicle, period = "early mid late", unit = "sdkfz231"},	
-				{priority = 2.0, class = UnitClass.Vehicle, period = "early mid late", unit = "sdkfz221"},	
+			--Infantry Singles
+				{priority = 2.0, class = UnitClass.Infantry, period = "mid late", unit = "single_mg(ger)"},
+				{priority = 1.5, class = UnitClass.ATInfantry, period = "mid", unit = "single_at(ger)"},
+				{priority = 2.0, class = UnitClass.ATInfantry, period = "late", unit = "single_bazooker(ger)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid late", unit = "single_riflegrenade(ger)"},		
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid late", unit = "single_flamer(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid late", unit = "single_sniper(ger)"},
+
+			--Infantry Squads
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_strafbatallion(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_recon(ger)"},
+				{priority = 3.5, class = UnitClass.Infantry, period = "mid", unit = "squad_regular(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_regular_armored(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_pionier(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_regular_vet(ger)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_gd_mid(ger)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "squad_lw_fusilier_late(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_recon_late(ger)"},
+				{priority = 3.5, class = UnitClass.Infantry, period = "late", unit = "squad_grenadiere_late(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_pzgrenadiere_late(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_jager_late(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_fusilier_late(ger)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "squad_gebirgsjaeger_late(ger)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "squad_pzgrenadiere_gd_late(ger)"},
+
+			--Cannons
+			--HMGs
+			--	{priority = 3.5, class = UnitClass.Vehicle, period = "mid", unit = "mg34_lafette"},
+			--	{priority = 3.5, class = UnitClass.Vehicle, period = "late", unit = "mg42_lafette"},
+
+			--Anti_Aircraft
+			--	{priority = 2.5, class = UnitClass.ATTank, period = "mid late", unit = "20mm_flak30"},
+			--	{priority = 1.5, class = UnitClass.ATTank, period = "mid late", unit = "37mm_flak37"},
+
+			--Anti_Tank
+				{priority = 1.5, class = UnitClass.ATTank, period = "mid", unit = "37mm_pak36"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "50mm_pak38"},
+				{priority = 0.5, class = UnitClass.ATTank, period = "mid", unit = "75mm_pak40"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "late", unit = "37mm_pak36_late"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "late", unit = "50mm_pak38_late"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "75mm_pak40"},
+
+			--Mortars
+				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid late", unit = "80mm_sgrw34"},
+
+			--Infantry_Support
+				{priority = 1.5, class = UnitClass.ATTank, period = "mid late", unit = "75mm_leig18"},
+
+			--Artillery
+				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid late", unit = "105mm_lefh18"},
+
+			--Rocket_Artillery
+
+			--Wheel_vehicles
+				{priority = 0.5, class = UnitClass.Vehicle, period = "mid late", unit = "kubelwagen_mg"},
+				{priority = 2.0, class = UnitClass.Vehicle, period = "mid late", unit = "blitz3_6_flak30"},
+				{priority = 1.5, class = UnitClass.Vehicle, period = "mid late", unit = "sdkfz231"},
+				{priority = 1.5, class = UnitClass.Vehicle, period = "mid late", unit = "sdkfz221"},
+				{priority = 1.5, class = UnitClass.Vehicle, period = "early", unit = "sdkfz222"},
+
+			--Half_tracks
+				{priority = 1.0, class = UnitClass.Vehicle, period = "mid late", unit = "sdkfz251c"},
+
 			--Tanks_light
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "panzer1b"},
-				{priority = 0.2, class = UnitClass.Tank, period = "late", unit = "panzer1f"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early", unit = "panzer2c"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "panzer2f"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early", unit = "panzer3e"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "panzer35t"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "pz38t_f"},
-				{priority = 1.0, class = UnitClass.Tank, period = "late", unit = "panzer2l"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "panzer1b"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer2c"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer2f"},
+				{priority = 2.5, class = UnitClass.Tank, period = "mid", unit = "pz38t_f"},
+
 			--Tanks_medium
-				{priority = 2.0, class = UnitClass.Tank, period = "early", unit = "panzer3f"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early", unit = "panzer4d"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "panzer4f1"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late", unit = "panzer3n"},	
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer3j"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer3j1"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer3l"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid late", unit = "panzer3m"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "panzer4f2"},
-				{priority = 1.0, class = UnitClass.Tank, period = "late", unit = "panzer4j"},
-			--SPG
-				{priority = 2.0, class = UnitClass.ATTank, period = "early", unit = "panzerjager1"},
-				{priority = 2.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "stug3b"},
-				{priority = 2.0, class = UnitClass.ATTank, period = "late", unit = "hetzer"},
-				{priority = 2.0, class = UnitClass.ATTank, period = "late", unit = "stug3g"},
-				{priority = 2.0, class = UnitClass.ATTank, period = "mid", unit = "marder2"},
-				{priority = 2.0, class = UnitClass.ATTank, period = "late", unit = "marder3m"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid late", unit = "stuh42"},			
+				{priority = 3.5, class = UnitClass.Tank, period = "mid", unit = "panzer3j"},
+				{priority = 2.5, class = UnitClass.Tank, period = "mid", unit = "panzer3j1"},
+				{priority = 1.5, class = UnitClass.Tank, period = "mid", unit = "panzer4f1"},
+				{priority = 3.0, class = UnitClass.Tank, period = "mid", unit = "panzer4f2"},
+
+				{priority = 2.5, class = UnitClass.Tank, period = "late", unit = "panzer3m"},
+				{priority = 1.5, class = UnitClass.Tank, period = "late", unit = "panzer3n"},
+				{priority = 3.0, class = UnitClass.Tank, period = "late", unit = "panzer4g"},
+				{priority = 3.5, class = UnitClass.Tank, period = "late", unit = "panzer4h"},
+
 			--Tanks_heavy
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "panzer5d"},
-				{priority = 1.0, class = UnitClass.HeavyTank, period = "mid", unit = "tiger1h"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "panzer5g"},
-				{priority = 1.0, class = UnitClass.HeavyTank, period = "late", unit = "tiger1e"}					
+				{priority = 2.5, class = UnitClass.HeavyTank, period = "late", unit = "panzer5a"},
+				{priority = 1.5, class = UnitClass.HeavyTank, period = "late", unit = "tiger1e"},
+
+			--SPG
+				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "panzerjager1"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "mid", unit = "stug3b"},
+				{priority = 2.5, class = UnitClass.ATTank, period = "late", unit = "marder3m"},
+				{priority = 3.0, class = UnitClass.ATTank, period = "late", unit = "stug3g"},
+				{priority = 2.0, class = UnitClass.ArtilleryTank, period = "late", unit = "stuh42"}
+
 			},
 			["fra"] = {--France
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_light(fra)"},
@@ -1104,8 +1257,24 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "single_mortar_late(fra)"},	
 				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "single_flamer_late(fra)"},
 			--Automatic_weaponry
-			--AT_Wreapon
+			--AT_Weapons
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "hotchkiss_mle1914"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "13mm_hotchkiss"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "25mm_hotchkiss_mle34"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "47mm_puteaux_mle37"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "75mm_mle1897"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "0_3cal_m1919a4_fr"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "0_5cal_m2hb_fr"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "40_mm_m1_fr"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "57_mm_m1_fr"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "75_mm_m1897a4_fr"},
 			--Howitzers
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early", unit = "81mm_brandt_fra"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early", unit = "155mm_m1917a4"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early", unit = "22cm_mortier"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late mid", unit = "81_mm_m1_fr"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late", unit = "105_mm_m2a1l_fr"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late mid", unit = "155_mm_m1918"},
 			--Wheel_vehicles			
 				{priority = 2.0, class = UnitClass.Vehicle, period = "early mid", unit = "laffly_v15t_mg"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid", unit = "laffly_s15_toe"},
@@ -1141,7 +1310,7 @@ Purchases["standard"] = {
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_light(pol)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_regular(pol)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_pionier(pol)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_stormtrooper(pol)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_sturmtrooper(pol)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "single_mg(pol)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "single_sniper(pol)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "single_mortar(pol)"},		
@@ -1157,7 +1326,24 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "single_flamer_late(pol)"},
 			--Automatic_weaponry
 			--AT_Weapons
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "ckm_wz30_mgun"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "20mm_fka"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "37mm_bofors"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "40mm_bofors"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "75mm_aa_wz36"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "75mm_wz97"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "303_bren_pol"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "qf40mm_pol"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "qf2pdr_pol"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "qf6pdr_pol"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "qf17pdr_pol"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "303_vickers_pol"},
 			--Howitzers				
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "81mm_brandt_pol"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early", unit = "105mm_wz29"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early", unit = "155mm_wz1917"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late mid", unit = "qf25pdr_pol"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late", unit = "bl45_pol"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid", unit = "wz34puteaux"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid", unit = "wz29"},
@@ -1190,7 +1376,7 @@ Purchases["standard"] = {
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_light(jap)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_regular(jap)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_pionier(jap)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_stormtrooper(jap)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_sturmtrooper(jap)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "single_mg(jap)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "single_sniper(jap)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "single_mortar(jap)"},		
@@ -1198,7 +1384,20 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.ATInfantry, period = "late", unit = "single_bazooker(jap)"},
 			--Automatic_weaponry
 			--AT_Weapons
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "type92_stan"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "20mm_type_2"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "37mm_type_94"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "75mm_type_88"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "75mm_type_90"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "75mm_type_41"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "47mm_type_1"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "75mm_type_4"},
 			--Howitzers				
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "81mm_brandt_jap"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "105mm_type_92"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "120mm_type_38"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late", unit = "200mm_type_4"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late mid", unit = "150mm_type_96"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid", unit = "type94aa"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "early", unit = "type87"},
@@ -1235,7 +1434,21 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.ATInfantry, period = "mid late", unit = "single_at(usa)"},
 			--Automatic_weaponry
 			--AT_Weapons
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "0_3cal_m1917a1_aa"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "0_5cal_m2hb"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "0_5cal_maxson"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "40_mm_m1"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "37_mm_m3"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "75_mm_m1897a4"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "75_mm_m1"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "76_mm_m5late"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "90_mm_m1"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "76_mm_m5"},
 			--Howitzers				
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "81_mm_m1"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "105_mm_m2a1l"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "155_mm_m2"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late mid", unit = "203_mm_m115"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid late", unit = "willysmb"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "late", unit = "willys50"},
@@ -1283,7 +1496,18 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "single_flamer_late(eng)"},
 			--Automatic_weaponry
 			--AT_Weapons
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "303_vickers_mki"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "qf40mm"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "qf2pdr"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "qf6pdr"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "303_bren"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "qf17pdr"},
 			--Howitzers				
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "76mm_mk_ii"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "qf3,7inch"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "qf25pdr"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "bl45"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late", unit = "bl72"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid late", unit = "dingo"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid late", unit = "m3halftrack_eng"},
@@ -1327,7 +1551,17 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "single_flamer(ita)"},
 			--Automatic_weaponry
 			--AT_Weapons
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "8mm_fiat_revelli_m1914_35"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid", unit = "cannone_2065"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid", unit = "2cm_solothurn"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early mid", unit = "cannone_4732"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early mid", unit = "cannone_7527"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early mid", unit = "obice_7513"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "8mm_breda_37"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "7_5cm_pak97_38"},
 			--Howitzers				
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early mid", unit = "81mm_brandt_ita"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early mid", unit = "obice_10017"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid late", unit = "ab41"},
 			--Tanks_light
@@ -1345,112 +1579,129 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "stug3g_ita"}
 			},
 			["rus"] = {--Russia
-				--Infantry
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "squad_partisan(rus)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early", unit = "squad_basic(rus)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early", unit = "squad_heavy(rus)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "mid late", unit = "squad_rifleunit(rus)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "mid late", unit = "squad_guardsrifle(rus)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "squad_marines(rus)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early", unit = "squad_paratrooper(rus)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_mg(rus)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_sniper(rus)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_flamer(rus)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_riflegrenade(rus)"},		
-				{priority = 1.0, class = UnitClass.ATInfantry, period = "early mid late", unit = "single_at(rus)"},
-			--Automatic_weaponry
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "mid late", unit = "maxim"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "dshk_stan"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "25mm_72k"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "37mm_61k"},
-			--AT_Wreapon
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "45mm_m37"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "57mm_zis2"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "mid late", unit = "75mm_m43"},
-			--	{priority = 2.0, class = UnitClass.ATTank, period = "early mid late", unit = "76mm_f22"},
-			--Howitzers
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "82mm_bm37"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "120mm_pm38"},
+			--Infantry Singles
+				{priority = 2.0, class = UnitClass.Infantry, period = "mid late", unit = "single_mg(rus)"},
+				{priority = 1.5, class = UnitClass.ATInfantry, period = "mid late", unit = "single_at(rus)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, period = "mid", unit = "single_riflegrenade(rus)"},
+				{priority = 2.0, class = UnitClass.ATInfantry, period = "late", unit = "single_bazooker(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid late", unit = "single_flamer(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid late", unit = "single_sniper(rus)"},
+
+			--Infantry Squads
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_conscripts(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid late", unit = "squad_partisan(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_recon(rus)"},
+				{priority = 3.5, class = UnitClass.Infantry, period = "mid late", unit = "squad_rifleunit(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid late", unit = "squad_at_rifle(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_paras(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_marines(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "squad_conscripts_late(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_recon_late(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_smg(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_guardsrifle(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_guards_smg_heavy(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "squad_marines_late(rus)"},
+
+			--Cannons
+			--HMGs
+			--	{priority = 3.5, class = UnitClass.Vehicle, period = "mid late", unit = "maxim"},
+			--	{priority = 1.5, class = UnitClass.Vehicle, period = "late", unit = "sg43_stand"},
+			--	{priority = 1.5, class = UnitClass.Vehicle, period = "late", unit = "dshk_stan"},
+			--	{priority = 1.5, class = UnitClass.Vehicle, period = "late", unit = "dshk_aa"},
+
+			--Anti_Aircraft
+			--	{priority = 0.5, class = UnitClass.ATTank, period = "mid late", unit = "25mm_72k"},
+			--	{priority = 1.5, class = UnitClass.ATTank, period = "mid late", unit = "37mm_61k"},
+
+			--Anti_Tank
+				{priority = 1.5, class = UnitClass.ATTank, period = "mid", unit = "45mm_m37"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "45mm_m42"},
+				{priority = 0.5, class = UnitClass.ATTank, period = "mid late", unit = "57mm_zis2"},
+				{priority = 2.0, class = UnitClass.ATTank, period = "mid late", unit = "76mm_zis3"},
+
+			--Mortars
+				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid late", unit = "82mm_bm37"},
+
+			--Infantry_Support
+				{priority = 1.5, class = UnitClass.ATTank, period = "mid", unit = "76mm_m1927"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "late", unit = "76mm_m43"},
+
+			--Artillery
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid late", unit = "122mm_m30"},
+
 			--Wheel_vehicles
-				{priority = 1.0, class = UnitClass.Vehicle, period = "early", unit = "ba20"},
-				{priority = 1.0, class = UnitClass.Vehicle, period = "mid late", unit = "ba64"},
-				{priority = 2.0, class = UnitClass.Vehicle, period = "early mid late", unit = "ba6"},
-				{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "yag10_29k"},
+				{priority = 1.5, class = UnitClass.Vehicle, period = "mid", unit = "ba20"},
+				{priority = 1.0, class = UnitClass.Vehicle, period = "mid late", unit = "gaz_aaa_72k"},
+				{priority = 2.0, class = UnitClass.Vehicle, period = "mid late", unit = "ba6"},
+				{priority = 1.5, class = UnitClass.Vehicle, period = "late", unit = "gaz67b"},
+				{priority = 0.5, class = UnitClass.Vehicle, period = "late", unit = "ba64"},
+
 			--Tanks_light
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "t26_31"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "t26_33"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "t26_39"},
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "t30"},
-				{priority = 1.0, class = UnitClass.Tank, period = "early mid", unit = "t40"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid late", unit = "t60"},
-				{priority = 1.0, class = UnitClass.Tank, period = "late", unit = "t70"},
-				{priority = 1.0, class = UnitClass.Tank, period = "late", unit = "t70m"},
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "bt2"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "bt5"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "bt7"},
+				{priority = 0.1, class = UnitClass.Tank, period = "mid late", unit = "t27"},
+				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "t26_31"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "t26_39"},
+				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "t40"},
+				{priority = 3.0, class = UnitClass.Tank, period = "mid", unit = "bt7"},
+				{priority = 3.0, class = UnitClass.Tank, period = "late", unit = "t70"},
+
 			--Tanks_medium
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "t28"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "t3476_40"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "t3476_41"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid late ", unit = "t3476_43"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid late ", unit = "t3457_43"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t28"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "t3476_40"},
+				{priority = 2.5, class = UnitClass.Tank, period = "mid", unit = "t3476_41"},
+				{priority = 3.5, class = UnitClass.Tank, period = "late ", unit = "t3476_43"},
+				{priority = 2.5, class = UnitClass.Tank, period = "late ", unit = "t3485_44"},
+
 			--Tanks_heavy
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "early", unit = "kv1_40"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "mid", unit = "kv1_41"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "mid late", unit = "kv1s"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "kv85"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "is1_43"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early mid", unit = "kv2_40"},
+				{priority = 1.5, class = UnitClass.HeavyTank, period = "mid", unit = "kv1_40"},
+				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "kv1s"},
+				{priority = 0.5, class = UnitClass.HeavyTank, period = "late", unit = "is1_43"},
+				{priority = 1.5, class = UnitClass.HeavyTank, period = "late", unit = "is2_43"},
+
 			--SPG
-				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "zis30"},
-				{priority = 1.0, class = UnitClass.ATTank, period = "mid late", unit = "su76"},
-				{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "su85"},
-				{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "su100"}
+				{priority = 2.0, class = UnitClass.ArtilleryTank, period = "mid late", unit = "su76"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "late", unit = "su85"},
+				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "late", unit = "su122"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "su152"},
 			}
 		}
 	},
-	{--purchase 4
+	{--#6, 8th purchase, tanks only
 		Repeat = 1,
 		Units = {
 			["ger"] = {--Germany
 			--Tanks_light
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "panzer1b"},
-				{priority = 0.2, class = UnitClass.Tank, period = "late", unit = "panzer1f"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early", unit = "panzer2c"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "panzer2f"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early", unit = "panzer3e"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "panzer35t"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "pz38t_f"},
-				{priority = 1.0, class = UnitClass.Tank, period = "late", unit = "panzer2l"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "panzer1b"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer2c"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer2f"},
+				{priority = 2.5, class = UnitClass.Tank, period = "mid", unit = "pz38t_f"},
+
 			--Tanks_medium
-				{priority = 2.0, class = UnitClass.Tank, period = "early", unit = "panzer3f"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early", unit = "panzer4d"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "panzer4f1"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late", unit = "panzer3n"},	
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer3j"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer3j1"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer3l"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid late", unit = "panzer3m"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "panzer4f2"},
-				{priority = 1.0, class = UnitClass.Tank, period = "late", unit = "panzer4j"},
-			--SPG
-				{priority = 2.0, class = UnitClass.ATTank, period = "early", unit = "panzerjager1"},
-				{priority = 2.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "stug3b"},
-				{priority = 2.0, class = UnitClass.ATTank, period = "late", unit = "hetzer"},
-				{priority = 2.0, class = UnitClass.ATTank, period = "late", unit = "stug3g"},
-				{priority = 2.0, class = UnitClass.ATTank, period = "mid", unit = "marder2"},
-				{priority = 2.0, class = UnitClass.ATTank, period = "late", unit = "marder3m"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid late", unit = "stuh42"},			
+				{priority = 3.5, class = UnitClass.Tank, period = "mid", unit = "panzer3j"},
+				{priority = 2.5, class = UnitClass.Tank, period = "mid", unit = "panzer3j1"},
+				{priority = 1.5, class = UnitClass.Tank, period = "mid", unit = "panzer4f1"},
+				{priority = 3.0, class = UnitClass.Tank, period = "mid", unit = "panzer4f2"},
+
+				{priority = 2.5, class = UnitClass.Tank, period = "late", unit = "panzer3m"},
+				{priority = 1.5, class = UnitClass.Tank, period = "late", unit = "panzer3n"},
+				{priority = 3.0, class = UnitClass.Tank, period = "late", unit = "panzer4g"},
+				{priority = 3.5, class = UnitClass.Tank, period = "late", unit = "panzer4h"},
+
 			--Tanks_heavy
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "panzer5d"},
-				{priority = 1.0, class = UnitClass.HeavyTank, period = "mid", unit = "tiger1h"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "panzer5g"},
-				{priority = 1.0, class = UnitClass.HeavyTank, period = "late", unit = "tiger1e"}					
+				{priority = 2.5, class = UnitClass.HeavyTank, period = "late", unit = "panzer5a"},
+				{priority = 1.5, class = UnitClass.HeavyTank, period = "late", unit = "tiger1e"},
+
+			--SPG
+				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "panzerjager1"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "mid", unit = "stug3b"},
+				{priority = 2.5, class = UnitClass.ATTank, period = "late", unit = "marder3m"},
+				{priority = 3.0, class = UnitClass.ATTank, period = "late", unit = "stug3g"},
+				{priority = 2.0, class = UnitClass.ArtilleryTank, period = "late", unit = "stuh42"}
+
 			},
 			["fra"] = {--France
 			--Infantry
 			--Automatic_weaponry
-			--AT_Wreapon
+			--AT_Weapons
 			--Howitzers
 			--Wheel_vehicles			
 				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid", unit = "laffly_v15t_mg"},
@@ -1642,117 +1893,129 @@ Purchases["standard"] = {
 			},
 			["rus"] = {--Russia
 			--Tanks_light
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "t26_31"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "t26_33"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "t26_39"},
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "t30"},
-				{priority = 1.0, class = UnitClass.Tank, period = "early mid", unit = "t40"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid late", unit = "t60"},
-				{priority = 1.0, class = UnitClass.Tank, period = "late", unit = "t70"},
-				{priority = 1.0, class = UnitClass.Tank, period = "late", unit = "t70m"},
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "bt2"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "bt5"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "bt7"},
+				{priority = 0.1, class = UnitClass.Tank, period = "mid late", unit = "t27"},
+				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "t26_31"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "t26_39"},
+				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "t40"},
+				{priority = 3.0, class = UnitClass.Tank, period = "mid", unit = "bt7"},
+				{priority = 3.0, class = UnitClass.Tank, period = "late", unit = "t70"},
+
 			--Tanks_medium
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "t28"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "t3476_40"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "t3476_41"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid late ", unit = "t3476_43"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid late ", unit = "t3457_43"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t28"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "t3476_40"},
+				{priority = 2.5, class = UnitClass.Tank, period = "mid", unit = "t3476_41"},
+				{priority = 3.5, class = UnitClass.Tank, period = "late ", unit = "t3476_43"},
+				{priority = 2.5, class = UnitClass.Tank, period = "late ", unit = "t3485_44"},
+
 			--Tanks_heavy
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "early", unit = "kv1_40"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "mid", unit = "kv1_41"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "mid late", unit = "kv1s"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "kv85"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "is1_43"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early mid", unit = "kv2_40"},
+				{priority = 1.5, class = UnitClass.HeavyTank, period = "mid", unit = "kv1_40"},
+				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "kv1s"},
+				{priority = 0.5, class = UnitClass.HeavyTank, period = "late", unit = "is1_43"},
+				{priority = 1.5, class = UnitClass.HeavyTank, period = "late", unit = "is2_43"},
+
 			--SPG
-				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "zis30"},
-				{priority = 1.0, class = UnitClass.ATTank, period = "mid late", unit = "su76"},
-				{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "su85"},
-				{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "su100"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late", unit = "su122"}
-			--	{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late", unit = "su152"}
+				{priority = 2.0, class = UnitClass.ArtilleryTank, period = "mid late", unit = "su76"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "late", unit = "su85"},
+				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "late", unit = "su122"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "su152"}
 			}
 		}
 	},
-	{--purchase 5
+	{--#7, 9th-11th purchases, all units (no doctrine)
 		Repeat = 3,
 		Units = {
 			["ger"] = {--Germany
-				--Infantry
-				{priority = 2.0, class = UnitClass.Infantry, period = "early", unit = "squad_light(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_strafbatallion(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "late", unit = "squad_volkssturm(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_regular(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_pionier(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "late", unit = "squad_grenadiere(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "late", unit = "squad_sturm(ger)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "squad_fallschirmjaeger(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_mg(ger)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_sniper(ger)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_flamer(ger)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_riflegrenade(ger)"},		
-				{priority = 1.0, class = UnitClass.ATInfantry, period = "early mid", unit = "single_at(ger)"},
-				{priority = 1.0, class = UnitClass.ATInfantry, period = "late", unit = "single_bazooker(ger)"},
-			--Automatic_weaponry
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "mg34_lafette"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "mid late", unit = "mg42_lafette"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "20mm_flak30"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "37mm_flak37"},
-			--AT_Wreapon
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "37mm_pak36"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "47mm_pakt"},
-			--	{priority = 2.0, class = UnitClass.ATTank, period = "early mid late", unit = "50mm_pak38"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "75mm_leig18"},
-			--	{priority = 2.0, class = UnitClass.ATTank, period = "mid late", unit = "75mm_pak40"},		
-			--Howitzers
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "80mm_sgrw34"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "105mm_lefh18"},
-			--	{priority = 2.0, class = UnitClass.ATTank, period = "early", unit = "150mm_sig33"},
-			--	{priority = 2.0, class = UnitClass.ATTank, period = "mid late", unit = "120mm_sgrw42"},				
+			--Infantry Singles
+				{priority = 2.0, class = UnitClass.Infantry, period = "mid late", unit = "single_mg(ger)"},
+				{priority = 1.5, class = UnitClass.ATInfantry, period = "mid", unit = "single_at(ger)"},
+				{priority = 2.0, class = UnitClass.ATInfantry, period = "late", unit = "single_bazooker(ger)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid late", unit = "single_riflegrenade(ger)"},		
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid late", unit = "single_flamer(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid late", unit = "single_sniper(ger)"},
+
+			--Infantry Squads
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_strafbatallion(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_recon(ger)"},
+				{priority = 3.5, class = UnitClass.Infantry, period = "mid", unit = "squad_regular(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_regular_armored(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_pionier(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_regular_vet(ger)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_gd_mid(ger)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "squad_lw_fusilier_late(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_recon_late(ger)"},
+				{priority = 3.5, class = UnitClass.Infantry, period = "late", unit = "squad_grenadiere_late(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_pzgrenadiere_late(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_jager_late(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_fusilier_late(ger)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "squad_gebirgsjaeger_late(ger)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "squad_pzgrenadiere_gd_late(ger)"},
+
+			--Cannons
+			--HMGs
+			--	{priority = 3.5, class = UnitClass.Vehicle, period = "mid", unit = "mg34_lafette"},
+			--	{priority = 3.5, class = UnitClass.Vehicle, period = "late", unit = "mg42_lafette"},
+
+			--Anti_Aircraft
+			--	{priority = 2.5, class = UnitClass.ATTank, period = "mid late", unit = "20mm_flak30"},
+			--	{priority = 1.5, class = UnitClass.ATTank, period = "mid late", unit = "37mm_flak37"},
+
+			--Anti_Tank
+				{priority = 1.5, class = UnitClass.ATTank, period = "mid", unit = "37mm_pak36"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "50mm_pak38"},
+				{priority = 0.5, class = UnitClass.ATTank, period = "mid", unit = "75mm_pak40"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "late", unit = "37mm_pak36_late"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "late", unit = "50mm_pak38_late"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "75mm_pak40"},
+
+			--Mortars
+				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid late", unit = "80mm_sgrw34"},
+
+			--Infantry_Support
+				{priority = 1.5, class = UnitClass.ATTank, period = "mid late", unit = "75mm_leig18"},
+
+			--Artillery
+				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid late", unit = "105mm_lefh18"},
+
+			--Rocket_Artillery
+
 			--Wheel_vehicles
-				{priority = 2.0, class = UnitClass.Vehicle, period = "mid", unit = "p204_f"},
-				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid late", unit = "sdkfz251c"},
-				{priority = 2.0, class = UnitClass.Vehicle, period = "early", unit = "sdkfz231_6rad"},
-				{priority = 2.0, class = UnitClass.Vehicle, period = "early mid late", unit = "sdkfz231"},			
+				{priority = 0.5, class = UnitClass.Vehicle, period = "mid late", unit = "kubelwagen_mg"},
+				{priority = 2.0, class = UnitClass.Vehicle, period = "mid late", unit = "blitz3_6_flak30"},
+				{priority = 1.5, class = UnitClass.Vehicle, period = "mid late", unit = "sdkfz231"},
+				{priority = 1.5, class = UnitClass.Vehicle, period = "mid late", unit = "sdkfz221"},
+				{priority = 1.5, class = UnitClass.Vehicle, period = "early", unit = "sdkfz222"},	
+
+			--Half_tracks
+				{priority = 1.0, class = UnitClass.Vehicle, period = "mid late", unit = "sdkfz251c"},
+
 			--Tanks_light
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "panzer1b"},
-				{priority = 0.2, class = UnitClass.Tank, period = "late", unit = "panzer1f"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early", unit = "panzer2c"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "panzer2f"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early", unit = "panzer3e"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "panzer35t"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "pz38t_f"},
-				{priority = 1.0, class = UnitClass.Tank, period = "late", unit = "panzer2l"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "panzer1b"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer2c"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer2f"},
+				{priority = 2.5, class = UnitClass.Tank, period = "mid", unit = "pz38t_f"},
+
 			--Tanks_medium
-				{priority = 2.0, class = UnitClass.Tank, period = "early", unit = "panzer3f"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early", unit = "panzer4d"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "panzer4f1"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late", unit = "panzer3n"},	
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer3j"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer3j1"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer3l"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid late", unit = "panzer3m"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "panzer4f2"},
-				{priority = 1.0, class = UnitClass.Tank, period = "late", unit = "panzer4j"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "panzer3_flamm"},	
-			--SPG
-				{priority = 2.0, class = UnitClass.ATTank, period = "early", unit = "panzerjager1"},
-				{priority = 2.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "stug3b"},
-				{priority = 2.0, class = UnitClass.ATTank, period = "late", unit = "stug3g"},
-				{priority = 2.0, class = UnitClass.ATTank, period = "late", unit = "hetzer"},
-				{priority = 2.0, class = UnitClass.ATTank, period = "mid", unit = "marder2"},
-				{priority = 2.0, class = UnitClass.ATTank, period = "late", unit = "marder3m"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid late", unit = "stuh42"},		
-				{priority = 2.0, class = UnitClass.ATTank, period = "late", unit = "stug3g_late"},
+				{priority = 3.5, class = UnitClass.Tank, period = "mid", unit = "panzer3j"},
+				{priority = 2.5, class = UnitClass.Tank, period = "mid", unit = "panzer3j1"},
+				{priority = 1.5, class = UnitClass.Tank, period = "mid", unit = "panzer4f1"},
+				{priority = 3.0, class = UnitClass.Tank, period = "mid", unit = "panzer4f2"},
+
+				{priority = 2.5, class = UnitClass.Tank, period = "late", unit = "panzer3m"},
+				{priority = 1.5, class = UnitClass.Tank, period = "late", unit = "panzer3n"},
+				{priority = 3.0, class = UnitClass.Tank, period = "late", unit = "panzer4g"},
+				{priority = 3.5, class = UnitClass.Tank, period = "late", unit = "panzer4h"},
+
 			--Tanks_heavy
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "panzer5d"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "panzer5a"},
-				{priority = 1.0, class = UnitClass.HeavyTank, period = "mid", unit = "tiger1h"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "panzer5g"},
-				{priority = 1.0, class = UnitClass.HeavyTank, period = "late", unit = "tiger1e"}			
+				{priority = 2.5, class = UnitClass.HeavyTank, period = "late", unit = "panzer5a"},
+				{priority = 1.5, class = UnitClass.HeavyTank, period = "late", unit = "tiger1e"},
+
 			--SPG
+				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "panzerjager1"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "mid", unit = "stug3b"},
+				{priority = 2.5, class = UnitClass.ATTank, period = "late", unit = "marder3m"},
+				{priority = 3.0, class = UnitClass.ATTank, period = "late", unit = "stug3g"},
+				{priority = 2.0, class = UnitClass.ArtilleryTank, period = "late", unit = "stuh42"}
+
 			},
 			["fra"] = {--France
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_light(fra)"},
@@ -1775,10 +2038,27 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "single_mortar_late(fra)"},	
 				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "single_flamer_late(fra)"},
 			--Automatic_weaponry
-			--AT_Wreapon
+			--AT_Weapons
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "hotchkiss_mle1914"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "13mm_hotchkiss"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "25mm_hotchkiss_mle34"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "47mm_puteaux_mle37"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "75mm_mle1897"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "0_3cal_m1919a4_fr"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "0_5cal_m2hb_fr"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "40_mm_m1_fr"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "57_mm_m1_fr"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "75_mm_m1897a4_fr"},
 			--Howitzers
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early", unit = "81mm_brandt_fra"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early", unit = "155mm_m1917a4"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early", unit = "22cm_mortier"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late mid", unit = "81_mm_m1_fr"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late", unit = "105_mm_m2a1l_fr"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late mid", unit = "155_mm_m1918"},
 			--Wheel_vehicles			
 				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid", unit = "laffly_s15_toe"},
+				{priority = 1.0, class = UnitClass.Vehicle, period = "early", unit = "autocanon_75mm"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "late", unit = "m3a1_scout_fr"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "late", unit = "m8_grayhound_fr"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "late", unit = "m20_fr"},
@@ -1811,7 +2091,7 @@ Purchases["standard"] = {
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_light(pol)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_regular(pol)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_pionier(pol)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_stormtrooper(pol)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_sturmtrooper(pol)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "single_mg(pol)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "single_sniper(pol)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "single_mortar(pol)"},		
@@ -1827,7 +2107,24 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "single_flamer_late(pol)"},
 			--Automatic_weaponry
 			--AT_Weapons
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "ckm_wz30_mgun"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "20mm_fka"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "37mm_bofors"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "40mm_bofors"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "75mm_aa_wz36"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "75mm_wz97"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "303_bren_pol"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "qf40mm_pol"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "qf2pdr_pol"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "qf6pdr_pol"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "qf17pdr_pol"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "303_vickers_pol"},
 			--Howitzers				
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "81mm_brandt_pol"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early", unit = "105mm_wz29"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early", unit = "155mm_wz1917"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late mid", unit = "qf25pdr_pol"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late", unit = "bl45_pol"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid", unit = "wz34"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid", unit = "wz34puteaux"},
@@ -1861,7 +2158,7 @@ Purchases["standard"] = {
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_light(jap)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_regular(jap)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_pionier(jap)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_stormtrooper(jap)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_sturmtrooper(jap)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "single_mg(jap)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "single_sniper(jap)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "single_mortar(jap)"},		
@@ -1869,7 +2166,20 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.ATInfantry, period = "late", unit = "single_bazooker(jap)"},
 			--Automatic_weaponry
 			--AT_Weapons
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "type92_stan"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "20mm_type_2"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "37mm_type_94"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "75mm_type_88"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "75mm_type_90"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "75mm_type_41"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "47mm_type_1"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "75mm_type_4"},
 			--Howitzers				
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "81mm_brandt_jap"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "105mm_type_92"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "120mm_type_38"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late", unit = "200mm_type_4"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late mid", unit = "150mm_type_96"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid", unit = "type94aa"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "early", unit = "type87"},
@@ -1906,7 +2216,21 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.ATInfantry, period = "mid late", unit = "single_at(usa)"},
 			--Automatic_weaponry
 			--AT_Weapons
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "0_3cal_m1917a1_aa"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "0_5cal_m2hb"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "0_5cal_maxson"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "40_mm_m1"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "37_mm_m3"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "75_mm_m1897a4"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "75_mm_m1"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "76_mm_m5late"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "90_mm_m1"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "76_mm_m5"},
 			--Howitzers				
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "81_mm_m1"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "105_mm_m2a1l"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "155_mm_m2"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late mid", unit = "203_mm_m115"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid late", unit = "willysmb"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "late", unit = "willys50"},
@@ -1956,7 +2280,18 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "single_flamer_late(eng)"},
 			--Automatic_weaponry
 			--AT_Weapons
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "303_vickers_mki"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "qf40mm"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "qf2pdr"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "qf6pdr"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "303_bren"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "qf17pdr"},
 			--Howitzers				
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "76mm_mk_ii"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "qf3,7inch"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "qf25pdr"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "bl45"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late", unit = "bl72"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid late", unit = "dingo"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid late", unit = "m3halftrack_eng"},
@@ -2000,7 +2335,17 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "single_flamer(ita)"},
 			--Automatic_weaponry
 			--AT_Weapons
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "8mm_fiat_revelli_m1914_35"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid", unit = "cannone_2065"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid", unit = "2cm_solothurn"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early mid", unit = "cannone_4732"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early mid", unit = "cannone_7527"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "early mid", unit = "obice_7513"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "8mm_breda_37"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "7_5cm_pak97_38"},
 			--Howitzers				
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early mid", unit = "81mm_brandt_ita"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early mid", unit = "obice_10017"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid late", unit = "ab41"},
 			--Tanks_light
@@ -2018,121 +2363,159 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "stug3g_ita"}
 			},
 			["rus"] = {--Russia
-			--Infantry
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "squad_partisan(rus)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early", unit = "squad_basic(rus)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early", unit = "squad_heavy(rus)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "mid late", unit = "squad_rifleunit(rus)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "mid late", unit = "squad_guardsrifle(rus)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "squad_marines(rus)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early", unit = "squad_paratrooper(rus)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_mg(rus)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_sniper(rus)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_flamer(rus)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_riflegrenade(rus)"},		
-				{priority = 1.0, class = UnitClass.ATInfantry, period = "early mid late", unit = "single_at(rus)"},
-			--Automatic_weaponry
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "mid late", unit = "maxim"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "dshk_stan"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "25mm_72k"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "37mm_61k"},
-			--AT_Weapons
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "45mm_m37"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "57mm_zis2"},
-			--	{priority = 2.0, class = UnitClass.ATTank, period = "mid late", unit = "76mm_zis3"},
-			--	{priority = 2.0, class = UnitClass.ATTank, period = "early mid late", unit = "76mm_f22"},
-			--Howitzers
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "82mm_bm37"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "120mm_pm38"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "203mm_b4"},
+			--Infantry Singles
+				{priority = 2.0, class = UnitClass.Infantry, period = "mid late", unit = "single_mg(rus)"},
+				{priority = 1.5, class = UnitClass.ATInfantry, period = "mid late", unit = "single_at(rus)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, period = "mid", unit = "single_riflegrenade(rus)"},
+				{priority = 2.0, class = UnitClass.ATInfantry, period = "late", unit = "single_bazooker(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid late", unit = "single_flamer(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid late", unit = "single_sniper(rus)"},
+
+			--Infantry Squads
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_conscripts(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid late", unit = "squad_partisan(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_recon(rus)"},
+				{priority = 3.5, class = UnitClass.Infantry, period = "mid late", unit = "squad_rifleunit(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid late", unit = "squad_at_rifle(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_paras(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_marines(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "squad_conscripts_late(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_recon_late(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_smg(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_guardsrifle(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_guards_smg_heavy(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "squad_marines_late(rus)"},
+
+			--Cannons
+			--HMGs
+			--	{priority = 3.5, class = UnitClass.Vehicle, period = "mid late", unit = "maxim"},
+			--	{priority = 1.5, class = UnitClass.Vehicle, period = "late", unit = "sg43_stand"},
+			--	{priority = 1.5, class = UnitClass.Vehicle, period = "late", unit = "dshk_stan"},
+			--	{priority = 1.5, class = UnitClass.Vehicle, period = "late", unit = "dshk_aa"},
+
+			--Anti_Aircraft
+			--	{priority = 0.5, class = UnitClass.ATTank, period = "mid late", unit = "25mm_72k"},
+			--	{priority = 1.5, class = UnitClass.ATTank, period = "mid late", unit = "37mm_61k"},
+
+			--Anti_Tank
+				{priority = 1.5, class = UnitClass.ATTank, period = "mid", unit = "45mm_m37"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "45mm_m42"},
+				{priority = 0.5, class = UnitClass.ATTank, period = "mid late", unit = "57mm_zis2"},
+				{priority = 2.0, class = UnitClass.ATTank, period = "mid late", unit = "76mm_zis3"},
+
+			--Mortars
+				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid late", unit = "82mm_bm37"},
+
+			--Infantry_Support
+				{priority = 1.5, class = UnitClass.ATTank, period = "mid", unit = "76mm_m1927"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "late", unit = "76mm_m43"},
+
+			--Artillery
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid late", unit = "122mm_m30"},
+
+			--Wheel_vehicles
+				{priority = 1.5, class = UnitClass.Vehicle, period = "mid", unit = "ba20"},
+				{priority = 1.0, class = UnitClass.Vehicle, period = "mid late", unit = "gaz_aaa_72k"},
+				{priority = 2.0, class = UnitClass.Vehicle, period = "mid late", unit = "ba6"},
+				{priority = 1.5, class = UnitClass.Vehicle, period = "late", unit = "gaz67b"},
+				{priority = 0.5, class = UnitClass.Vehicle, period = "late", unit = "ba64"},
+
 			--Tanks_light
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "t26_31"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "t26_33"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "t26_39"},
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "t30"},
-				{priority = 1.0, class = UnitClass.Tank, period = "early mid", unit = "t40"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid late", unit = "t60"},
-				{priority = 1.0, class = UnitClass.Tank, period = "late", unit = "t70"},
-				{priority = 1.0, class = UnitClass.Tank, period = "late", unit = "t70m"},
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "bt2"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "bt5"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "bt7"},
+				{priority = 0.1, class = UnitClass.Tank, period = "mid late", unit = "t27"},
+				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "t26_31"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "t26_39"},
+				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "t40"},
+				{priority = 3.0, class = UnitClass.Tank, period = "mid", unit = "bt7"},
+				{priority = 3.0, class = UnitClass.Tank, period = "late", unit = "t70"},
+
 			--Tanks_medium
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "t28"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "t3476_40"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "t3476_41"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid late ", unit = "t3476_43"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid late ", unit = "t3457_43"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t28"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "t3476_40"},
+				{priority = 2.5, class = UnitClass.Tank, period = "mid", unit = "t3476_41"},
+				{priority = 3.5, class = UnitClass.Tank, period = "late ", unit = "t3476_43"},
+				{priority = 2.5, class = UnitClass.Tank, period = "late ", unit = "t3485_44"},
+
 			--Tanks_heavy
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "early", unit = "kv1_40"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "mid", unit = "kv1_41"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "mid late", unit = "kv1s"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "kv85"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "is1_43"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "is2_44"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early mid", unit = "kv2_40"},
+				{priority = 1.5, class = UnitClass.HeavyTank, period = "mid", unit = "kv1_40"},
+				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "kv1s"},
+				{priority = 0.5, class = UnitClass.HeavyTank, period = "late", unit = "is1_43"},
+				{priority = 1.5, class = UnitClass.HeavyTank, period = "late", unit = "is2_43"},
+
 			--SPG
-				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "zis30"},
-				{priority = 1.0, class = UnitClass.ATTank, period = "mid late", unit = "su76"},
-				{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "su85"},
-				{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "su100"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late", unit = "su122"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late", unit = "su152"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "su100y"}
+				{priority = 2.0, class = UnitClass.ArtilleryTank, period = "mid late", unit = "su76"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "late", unit = "su85"},
+				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "late", unit = "su122"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "su152"},
 			}
 		}
 	},
-	{--purchase 5
+	{--#8, 12th purchase, tanks only with doctrines (no heavy doctrine)
 		Repeat = 1,
 		Units = {
 			["ger"] = {--Germany
-			--Infantry	
 			--Tanks_light
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "panzer1b"},
-				{priority = 0.2, class = UnitClass.Tank, period = "late", unit = "panzer1f"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early", unit = "panzer2c"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "panzer2f"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early", unit = "panzer3e"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "panzer35t"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "pz38t_f"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "panzer1b"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer2c"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer2f"},
+				{priority = 2.5, class = UnitClass.Tank, period = "mid", unit = "pz38t_f"},
+
+				--Doctrine Units
+				{priority = 1.5, class = UnitClass.Tank, period = "mid", unit = "pz35t"},
+				{priority = 2.5, class = UnitClass.Tank, period = "mid", unit = "pz38t_a"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "pz38t_g"},
+				{priority = 0.1, class = UnitClass.Tank, period = "late", unit = "panzer1f"},
 				{priority = 1.0, class = UnitClass.Tank, period = "late", unit = "panzer2l"},
+
 			--Tanks_medium
-				{priority = 2.0, class = UnitClass.Tank, period = "early", unit = "panzer3f"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early", unit = "panzer4d"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "panzer4f1"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late", unit = "panzer3n"},	
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer3j"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer3j1"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer3l"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid late", unit = "panzer3m"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "panzer4f2"},
-				{priority = 1.0, class = UnitClass.Tank, period = "late", unit = "panzer4j"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "panzer3_flamm"},	
-			--SPG
-				{priority = 2.0, class = UnitClass.ATTank, period = "early", unit = "panzerjager1"},
-				{priority = 2.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "stug3b"},
-				{priority = 2.0, class = UnitClass.ATTank, period = "late", unit = "stug3g"},
-				{priority = 2.0, class = UnitClass.ATTank, period = "late", unit = "hetzer"},
-				{priority = 2.0, class = UnitClass.ATTank, period = "mid", unit = "marder2"},
-				{priority = 2.0, class = UnitClass.ATTank, period = "late", unit = "marder3m"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid late", unit = "stuh42"},		
-				{priority = 2.0, class = UnitClass.ATTank, period = "late", unit = "stug3g_late"},
+				{priority = 3.5, class = UnitClass.Tank, period = "mid", unit = "panzer3j"},
+				{priority = 2.5, class = UnitClass.Tank, period = "mid", unit = "panzer3j1"},
+				{priority = 1.5, class = UnitClass.Tank, period = "mid", unit = "panzer4f1"},
+				{priority = 3.0, class = UnitClass.Tank, period = "mid", unit = "panzer4f2"},
+
+				{priority = 2.5, class = UnitClass.Tank, period = "late", unit = "panzer3m"},
+				{priority = 1.5, class = UnitClass.Tank, period = "late", unit = "panzer3n"},
+				{priority = 3.0, class = UnitClass.Tank, period = "late", unit = "panzer4g"},
+				{priority = 3.5, class = UnitClass.Tank, period = "late", unit = "panzer4h"},
+				
+				--Doctrine Units
+				{priority = 2.5, class = UnitClass.Tank, period = "mid", unit = "panzer3e"},
+				{priority = 2.5, class = UnitClass.Tank, period = "mid", unit = "panzer3f"},
+				{priority = 2.5, class = UnitClass.Tank, period = "mid", unit = "panzer3l"},
+				{priority = 0.5, class = UnitClass.Tank, period = "mid late", unit = "panzer3_flamm"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "panzer4d"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer4g"},
+				{priority = 3.0, class = UnitClass.Tank, period = "late", unit = "panzer4j"},
+
 			--Tanks_heavy
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "panzer5d"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "panzer5a"},
-				{priority = 1.0, class = UnitClass.HeavyTank, period = "mid", unit = "tiger1h"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "panzer5g"},
-				{priority = 1.0, class = UnitClass.HeavyTank, period = "late", unit = "tiger1e"}			
+				{priority = 2.5, class = UnitClass.HeavyTank, period = "late", unit = "panzer5a"},
+				{priority = 1.5, class = UnitClass.HeavyTank, period = "late", unit = "tiger1e"},
+
 			--SPG
+				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "panzerjager1"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "mid", unit = "stug3b"},
+				{priority = 2.5, class = UnitClass.ATTank, period = "late", unit = "marder3m"},
+				{priority = 3.0, class = UnitClass.ATTank, period = "late", unit = "stug3g"},
+				{priority = 2.0, class = UnitClass.ArtilleryTank, period = "late", unit = "stuh42"},
+
+				--Doctrine Units
+				{priority = 2.0, class = UnitClass.ATTank, period = "mid", unit = "marder2"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "mid", unit = "stug3f"},
+				{priority = 0.1, class = UnitClass.ArtilleryTank, period = "mid", unit = "bison"},
+				{priority = 0.1, class = UnitClass.ArtilleryTank, period = "mid", unit = "sig33b"},
+				{priority = 0.1, class = UnitClass.Tank, period = "late", unit = "grille_m"},
+				{priority = 2.5, class = UnitClass.ATTank, period = "late", unit = "hetzer"},
+				{priority = 0.5, class = UnitClass.ATTank, period = "late", unit = "stug3g_late"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late", unit = "sturmpanzer4"}
 			},
 			["fra"] = {--France
 			--Infantry
 			--Automatic_weaponry
-			--AT_Wreapon
+			--AT_Weapons
 			--Howitzers
 			--Wheel_vehicles			
 				{priority = 2.0, class = UnitClass.Vehicle, period = "early mid", unit = "laffly_v15t_mg"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid", unit = "laffly_s15_toe"},
+				{priority = 1.0, class = UnitClass.Vehicle, period = "early", unit = "autocanon_75mm"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "late", unit = "m3a1_scout_fr"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "late", unit = "m8_grayhound_fr"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "late", unit = "m20_fr"},
@@ -2317,134 +2700,202 @@ Purchases["standard"] = {
 			},
 			["rus"] = {--Russia
 			--Tanks_light
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "t26_31"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "t26_33"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "t26_39"},
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "t30"},
-				{priority = 1.0, class = UnitClass.Tank, period = "early mid", unit = "t40"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid late", unit = "t60"},
-				{priority = 1.0, class = UnitClass.Tank, period = "late", unit = "t70"},
-				{priority = 1.0, class = UnitClass.Tank, period = "late", unit = "t70m"},
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "bt2"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "bt5"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "bt7"},
+				{priority = 0.1, class = UnitClass.Tank, period = "mid late", unit = "t27"},
+				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "t26_31"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "t26_39"},
+				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "t40"},
+				{priority = 3.0, class = UnitClass.Tank, period = "mid", unit = "bt7"},
+				{priority = 3.0, class = UnitClass.Tank, period = "late", unit = "t70"},
+
+				--Doctrine Units
+				{priority = 0.1, class = UnitClass.Tank, period = "mid", unit = "kht26"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t26_33"},
+				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "bt2_da2"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "bt2"},
+				{priority = 1.5, class = UnitClass.Tank, period = "mid", unit = "bt5"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t30"},
+				{priority = 3.0, class = UnitClass.Tank, period = "mid", unit = "t60"},
+				{priority = 1.0, class = UnitClass.Tank, period = "late", unit = "t60"},
+				{priority = 3.0, class = UnitClass.Tank, period = "late", unit = "t70m"},
+				{priority = 1.5, class = UnitClass.Tank, period = "late", unit = "valentine7"},
+				{priority = 1.0, class = UnitClass.Tank, period = "late", unit = "valentine9"},
+
 			--Tanks_medium
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "t28"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "t3476_40"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "t3476_41"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid late ", unit = "t3476_43"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid late ", unit = "t3457_43"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t28"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "t3476_40"},
+				{priority = 2.5, class = UnitClass.Tank, period = "mid", unit = "t3476_41"},
+				{priority = 3.5, class = UnitClass.Tank, period = "late ", unit = "t3476_43"},
+				{priority = 2.5, class = UnitClass.Tank, period = "late ", unit = "t3485_44"},
+
+				--Doctrine Units
+				{priority = 0.1, class = UnitClass.Tank, period = "mid", unit = "t3457_41"},
+				{priority = 3.5, class = UnitClass.Tank, period = "mid", unit = "t3476_42"},
+				{priority = 0.1, class = UnitClass.Tank, period = "late ", unit = "t3457_43"},
+				{priority = 1.0, class = UnitClass.Tank, period = "late ", unit = "t3476_43_flame"},
+
 			--Tanks_heavy
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "early", unit = "kv1_40"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "mid", unit = "kv1_41"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "mid late", unit = "kv1s"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "kv85"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "is1_43"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "is2_44"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early mid", unit = "kv2_40"},
+				{priority = 1.5, class = UnitClass.HeavyTank, period = "mid", unit = "kv1_40"},
+				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "kv1s"},
+				{priority = 0.5, class = UnitClass.HeavyTank, period = "late", unit = "is1_43"},
+				{priority = 1.5, class = UnitClass.HeavyTank, period = "late", unit = "is2_43"},
+
 			--SPG
-				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "zis30"},
-				{priority = 1.0, class = UnitClass.ATTank, period = "mid late", unit = "su76"},
-				{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "su85"},
-				{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "su100"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late", unit = "su122"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late", unit = "su152"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "su100y"}
+				{priority = 2.0, class = UnitClass.ArtilleryTank, period = "mid late", unit = "su76"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "late", unit = "su85"},
+				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "late", unit = "su122"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "su152"},
+
+				--Doctrine Units
+				{priority = 0.1, class = UnitClass.ATTank, period = "mid", unit = "zis30"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "su122"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "su100"}
 			}
 		}
 	},
-	{--purchase 6
+	{--#9, 13th-infinite purchases, all units with doctrines
 		Repeat = 0, --infinite
 		Units = {
 			["ger"] = {--Germany
-			--Infantry
-				{priority = 2.0, class = UnitClass.Infantry, period = "early", unit = "squad_light(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "mid", unit = "squad_strafbatallion(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "late", unit = "squad_volkssturm(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_regular(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_pionier(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "late", unit = "squad_grenadiere(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "late", unit = "squad_sturm(ger)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "squad_fallschirmjaeger(ger)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_mg(ger)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_sniper(ger)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_flamer(ger)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_riflegrenade(ger)"},		
-				{priority = 1.0, class = UnitClass.ATInfantry, period = "early mid", unit = "single_at(ger)"},
-				{priority = 1.0, class = UnitClass.ATInfantry, period = "late", unit = "single_bazooker(ger)"},
-			--Automatic_weaponry
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "mg34_lafette"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "mid late", unit = "mg42_lafette"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "20mm_flak30"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "37mm_flak37"},
-			--AT_Wreapon
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "37mm_pak36"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "47mm_pakt"},
-			--	{priority = 2.0, class = UnitClass.ATTank, period = "early mid late", unit = "50mm_pak38"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "75mm_leig18"},
-			--	{priority = 2.0, class = UnitClass.ATTank, period = "early", unit = "88mm_flak18"},
-			--	{priority = 2.0, class = UnitClass.ATTank, period = "mid late", unit = "88mm_flak36"},
-			--	{priority = 2.0, class = UnitClass.ATTank, period = "mid late", unit = "75mm_pak40"},		
-			--Howitzers
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "80mm_sgrw34"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "105mm_lefh18"},
-			--	{priority = 2.0, class = UnitClass.ATTank, period = "early", unit = "150mm_sig33"},
-			--	{priority = 2.0, class = UnitClass.ATTank, period = "early mid late", unit = "150mm_sfh18"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "150mm_nebelwerfer41"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "210mm_morser18"},
-			--	{priority = 2.0, class = UnitClass.ATTank, period = "mid late", unit = "120mm_sgrw42"},				
+			--Infantry Singles
+				{priority = 2.0, class = UnitClass.Infantry, period = "mid late", unit = "single_mg(ger)"},
+				{priority = 1.5, class = UnitClass.ATInfantry, period = "mid", unit = "single_at(ger)"},
+				{priority = 2.0, class = UnitClass.ATInfantry, period = "late", unit = "single_bazooker(ger)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, period = "mid late", unit = "single_riflegrenade(ger)"},		
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid late", unit = "single_flamer(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid late", unit = "single_sniper(ger)"},
+
+			--Infantry Squads
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_strafbatallion(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_recon(ger)"},
+				{priority = 3.5, class = UnitClass.Infantry, period = "mid", unit = "squad_regular(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_regular_armored(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_pionier(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_regular_vet(ger)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_gd_mid(ger)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "squad_lw_fusilier_late(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_recon_late(ger)"},
+				{priority = 3.5, class = UnitClass.Infantry, period = "late", unit = "squad_grenadiere_late(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_pzgrenadiere_late(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_jager_late(ger)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_fusilier_late(ger)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "squad_gebirgsjaeger_late(ger)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "squad_pzgrenadiere_gd_late(ger)"},
+
+			--Cannons
+			--HMGs
+			--	{priority = 3.5, class = UnitClass.Vehicle, period = "mid", unit = "mg34_lafette"},
+			--	{priority = 3.5, class = UnitClass.Vehicle, period = "late", unit = "mg42_lafette"},
+
+			--Anti_Aircraft
+			--	{priority = 2.5, class = UnitClass.ATTank, period = "mid late", unit = "20mm_flak30"},
+			--	{priority = 1.5, class = UnitClass.ATTank, period = "mid late", unit = "37mm_flak37"},
+
+			--Anti_Tank
+				{priority = 1.5, class = UnitClass.ATTank, period = "mid", unit = "37mm_pak36"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "50mm_pak38"},
+				{priority = 0.5, class = UnitClass.ATTank, period = "mid", unit = "75mm_pak40"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "late", unit = "37mm_pak36_late"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "late", unit = "50mm_pak38_late"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "late", unit = "75mm_pak40"},
+
+			--Mortars
+				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid late", unit = "80mm_sgrw34"},
+
+				--Doctrine Units
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "late", unit = "120mm_sgrw42"},
+
+			--Infantry_Support
+				{priority = 1.5, class = UnitClass.ATTank, period = "mid late", unit = "75mm_leig18"},
+
+			--Artillery
+				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid late", unit = "105mm_lefh18"},
+
+			--Rocket_Artillery
+				--Doctrine Units
+			--	{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid late", unit = "150mm_nebelwerfer41"},
+			--	{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid late", unit = "300mm_nebelwerfer42"},
+
 			--Wheel_vehicles
-				{priority = 2.0, class = UnitClass.Vehicle, period = "mid", unit = "p204_f"},
-				{priority = 2.0, class = UnitClass.Vehicle, period = "early", unit = "sdkfz231_6rad"},
-				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid late", unit = "sdkfz251c"},
-				{priority = 2.0, class = UnitClass.Vehicle, period = "early mid late", unit = "sdkfz231"},			
+				{priority = 0.5, class = UnitClass.Vehicle, period = "mid late", unit = "kubelwagen_mg"},
+				{priority = 2.0, class = UnitClass.Vehicle, period = "mid late", unit = "blitz3_6_flak30"},
+				{priority = 1.5, class = UnitClass.Vehicle, period = "mid late", unit = "sdkfz231"},
+				{priority = 1.5, class = UnitClass.Vehicle, period = "mid late", unit = "sdkfz221"},
+				{priority = 1.5, class = UnitClass.Vehicle, period = "early", unit = "sdkfz222"},
+
+				--Doctrine Units
+				{priority = 0.5, class = UnitClass.Vehicle, period = "late", unit = "sdkfz234_2"},
+
+			--Half_tracks
+				{priority = 1.0, class = UnitClass.Vehicle, period = "mid late", unit = "sdkfz251c"},
+
+				--Doctrine Units
+				{priority = 0.1, class = UnitClass.ATTank, period = "mid", unit = "sdkfz10_pak38"},
+				{priority = 0.1, class = UnitClass.ATTank, period = "mid", unit = "sdkfz8_flak18"},
+
 			--Tanks_light
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "panzer1b"},
-				{priority = 0.2, class = UnitClass.Tank, period = "late", unit = "panzer1f"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early", unit = "panzer2c"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "panzer2f"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early", unit = "panzer3e"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "panzer35t"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "pz38t_f"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "panzer1b"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer2c"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer2f"},
+				{priority = 2.5, class = UnitClass.Tank, period = "mid", unit = "pz38t_f"},
+
+				--Doctrine Units
+				{priority = 1.5, class = UnitClass.Tank, period = "mid", unit = "pz35t"},
+				{priority = 2.5, class = UnitClass.Tank, period = "mid", unit = "pz38t_a"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "pz38t_g"},
+				{priority = 0.1, class = UnitClass.Tank, period = "late", unit = "panzer1f"},
 				{priority = 1.0, class = UnitClass.Tank, period = "late", unit = "panzer2l"},
+
 			--Tanks_medium
-				{priority = 2.0, class = UnitClass.Tank, period = "early", unit = "panzer3f"},
-				{priority = 2.0, class = UnitClass.ArtilleryTank, period = "early", unit = "panzer4d"},
-				{priority = 2.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "panzer4f1"},
-				{priority = 2.0, class = UnitClass.ArtilleryTank, period = "late", unit = "panzer3n"},	
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer3j"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer3j1"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer3l"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid late", unit = "panzer3m"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer4f2"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "panzer4g"},
-				{priority = 1.0, class = UnitClass.Tank, period = "late", unit = "panzer4h"},
-				{priority = 2.0, class = UnitClass.Tank, period = "late", unit = "panzer4j"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "panzer3_flamm"},	
-			--SPG
-				{priority = 2.0, class = UnitClass.ATTank, period = "early", unit = "panzerjager1"},
-				{priority = 2.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "stug3b"},
-				{priority = 2.0, class = UnitClass.ATTank, period = "late", unit = "stug3g"},
-				{priority = 2.0, class = UnitClass.ATTank, period = "late", unit = "hetzer"},
-				{priority = 2.0, class = UnitClass.ATTank, period = "mid", unit = "marder2"},
-				{priority = 2.0, class = UnitClass.ATTank, period = "late", unit = "marder3m"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid late", unit = "stuh42"},	
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late", unit = "sturmpanzer4"},
-				{priority = 2.0, class = UnitClass.ATTank, period = "late", unit = "stug3g_late"},
+				{priority = 3.5, class = UnitClass.Tank, period = "mid", unit = "panzer3j"},
+				{priority = 2.5, class = UnitClass.Tank, period = "mid", unit = "panzer3j1"},
+				{priority = 1.5, class = UnitClass.Tank, period = "mid", unit = "panzer4f1"},
+				{priority = 3.0, class = UnitClass.Tank, period = "mid", unit = "panzer4f2"},
+
+				{priority = 2.5, class = UnitClass.Tank, period = "late", unit = "panzer3m"},
+				{priority = 1.5, class = UnitClass.Tank, period = "late", unit = "panzer3n"},
+				{priority = 3.0, class = UnitClass.Tank, period = "late", unit = "panzer4g"},
+				{priority = 3.5, class = UnitClass.Tank, period = "late", unit = "panzer4h"},
+				
+				--Doctrine Units
+				{priority = 2.5, class = UnitClass.Tank, period = "mid", unit = "panzer3e"},
+				{priority = 2.5, class = UnitClass.Tank, period = "mid", unit = "panzer3f"},
+				{priority = 2.5, class = UnitClass.Tank, period = "mid", unit = "panzer3l"},
+				{priority = 0.5, class = UnitClass.Tank, period = "mid late", unit = "panzer3_flamm"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "panzer4d"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "panzer4g"},
+				{priority = 3.0, class = UnitClass.Tank, period = "late", unit = "panzer4j"},
+
 			--Tanks_heavy
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "panzer5d"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "panzer5a"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "mid", unit = "tiger1h"},
-				{priority = 1.0, class = UnitClass.HeavyTank, period = "late", unit = "panzer5g"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "tiger1e"},
-				{priority = 1.0, class = UnitClass.HeavyTank, period = "late", unit = "tiger2p"},
-				{priority = 0.5, class = UnitClass.HeavyTank, period = "late", unit = "tiger2h"},		
+				{priority = 2.5, class = UnitClass.HeavyTank, period = "late", unit = "panzer5a"},
+				{priority = 1.5, class = UnitClass.HeavyTank, period = "late", unit = "tiger1e"},
+
+				--Doctrine Units
+				{priority = 0.5, class = UnitClass.HeavyTank, period = "mid", unit = "tiger1h"},
+				{priority = 0.0, class = UnitClass.HeavyTank, period = "late", unit = "panzer5d"},
+				{priority = 2.5, class = UnitClass.HeavyTank, period = "late", unit = "panzer5g"},
+				{priority = 0.1, class = UnitClass.HeavyTank, period = "late", unit = "tiger1hunt"},
+				{priority = 1.0, class = UnitClass.HeavyTank, period = "late", unit = "tiger2h"},
+
 			--SPG
-				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "early", unit = "bison"},		
-				{priority = 0.5, class = UnitClass.ATTank, period = "mid", unit = "sig33"},			
-				{priority = 0.5, class = UnitClass.ATTank, period = "mid", unit = "ferdinand"},	
-				{priority = 0.5, class = UnitClass.ATTank, period = "mid", unit = "sturmtiger"},	
-				{priority = 0.5, class = UnitClass.ATTank, period = "late", unit = "jagdpanther"}
+				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "panzerjager1"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "mid", unit = "stug3b"},
+				{priority = 2.5, class = UnitClass.ATTank, period = "late", unit = "marder3m"},
+				{priority = 3.0, class = UnitClass.ATTank, period = "late", unit = "stug3g"},
+				{priority = 2.0, class = UnitClass.ArtilleryTank, period = "late", unit = "stuh42"},
+
+				--Doctrine Units
+				{priority = 2.0, class = UnitClass.ATTank, period = "mid", unit = "marder2"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "mid", unit = "stug3f"},
+				{priority = 0.1, class = UnitClass.ArtilleryTank, period = "mid", unit = "bison"},
+				{priority = 0.1, class = UnitClass.ArtilleryTank, period = "mid", unit = "sig33b"},
+				{priority = 0.1, class = UnitClass.Tank, period = "late", unit = "grille_m"},
+				{priority = 2.5, class = UnitClass.ATTank, period = "late", unit = "hetzer"},
+				{priority = 0.5, class = UnitClass.ATTank, period = "late", unit = "stug3g_late"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late", unit = "sturmpanzer4"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "jagdpanther"},
+				{priority = 0.1, class = UnitClass.ATTank, period = "late", unit = "ferdinand"},
+				{priority = 0.1, class = UnitClass.ATTank, period = "late", unit = "sturmtiger"}
+
 			},
 			["fra"] = {--France
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_light(fra)"},
@@ -2468,10 +2919,27 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "single_mortar_late(fra)"},	
 				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "single_flamer_late(fra)"},
 			--Automatic_weaponry
-			--AT_Wreapon
+			--AT_Weapons
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "hotchkiss_mle1914"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "13mm_hotchkiss"},
+				{priority = 0.3, class = UnitClass.ATTank, period = "early", unit = "25mm_hotchkiss_mle34"},
+				{priority = 0.3, class = UnitClass.ATTank, period = "early", unit = "47mm_puteaux_mle37"},
+				{priority = 0.3, class = UnitClass.ATTank, period = "early", unit = "75mm_mle1897"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "0_3cal_m1919a4_fr"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "0_5cal_m2hb_fr"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "40_mm_m1_fr"},
+				{priority = 0.3, class = UnitClass.ATTank, period = "late mid", unit = "57_mm_m1_fr"},
+				{priority = 0.3, class = UnitClass.ATTank, period = "late mid", unit = "75_mm_m1897a4_fr"},
 			--Howitzers
+				{priority = 0.3, class = UnitClass.ArtilleryTank, period = "early", unit = "81mm_brandt_fra"},
+				{priority = 0.3, class = UnitClass.ArtilleryTank, period = "early", unit = "155mm_m1917a4"},
+				{priority = 0.3, class = UnitClass.ArtilleryTank, period = "early", unit = "22cm_mortier"},
+				{priority = 0.3, class = UnitClass.ArtilleryTank, period = "late mid", unit = "81_mm_m1_fr"},
+				{priority = 0.3, class = UnitClass.ArtilleryTank, period = "late", unit = "105_mm_m2a1l_fr"},
+				{priority = 0.3, class = UnitClass.ArtilleryTank, period = "late mid", unit = "155_mm_m1918"},
 			--Wheel_vehicles			
 				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid", unit = "laffly_s15_toe"},
+				{priority = 1.0, class = UnitClass.Vehicle, period = "early", unit = "autocanon_75mm"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "late", unit = "m3a1_scout_fr"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "late", unit = "m8_grayhound_fr"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "late", unit = "m20_fr"},
@@ -2505,7 +2973,7 @@ Purchases["standard"] = {
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_light(pol)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_regular(pol)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_pionier(pol)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_stormtrooper(pol)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_sturmtrooper(pol)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "single_mg(pol)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "single_sniper(pol)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "single_mortar(pol)"},		
@@ -2521,7 +2989,24 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "single_flamer_late(pol)"},
 			--Automatic_weaponry
 			--AT_Weapons
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "ckm_wz30_mgun"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "20mm_fka"},
+				{priority = 0.3, class = UnitClass.ATTank, period = "early", unit = "37mm_bofors"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "40mm_bofors"},
+				{priority = 0.3, class = UnitClass.ATTank, period = "early", unit = "75mm_aa_wz36"},
+				{priority = 0.3, class = UnitClass.ATTank, period = "early", unit = "75mm_wz97"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "303_bren_pol"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "qf40mm_pol"},
+				{priority = 0.3, class = UnitClass.ATTank, period = "late mid", unit = "qf2pdr_pol"},
+				{priority = 0.3, class = UnitClass.ATTank, period = "late mid", unit = "qf6pdr_pol"},
+				{priority = 0.3, class = UnitClass.ATTank, period = "late mid", unit = "qf17pdr_pol"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "303_vickers_pol"},
 			--Howitzers				
+				{priority = 0.3, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "81mm_brandt_pol"},
+				{priority = 0.3, class = UnitClass.ArtilleryTank, period = "early", unit = "105mm_wz29"},
+				{priority = 0.3, class = UnitClass.ArtilleryTank, period = "early", unit = "155mm_wz1917"},
+				{priority = 0.3, class = UnitClass.ArtilleryTank, period = "late mid", unit = "qf25pdr_pol"},
+				{priority = 0.3, class = UnitClass.ArtilleryTank, period = "late", unit = "bl45_pol"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid", unit = "wz34"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid", unit = "wz34puteaux"},
@@ -2555,7 +3040,7 @@ Purchases["standard"] = {
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_light(jap)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_regular(jap)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_pionier(jap)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_stormtrooper(jap)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "squad_sturmtrooper(jap)"},
 				{priority = 2.0, class = UnitClass.Infantry, period = "early mid", unit = "single_mg(jap)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "single_sniper(jap)"},
 				{priority = 1.0, class = UnitClass.Infantry, period = "early mid", unit = "single_mortar(jap)"},		
@@ -2563,7 +3048,20 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.ATInfantry, period = "late", unit = "single_bazooker(jap)"},
 			--Automatic_weaponry
 			--AT_Weapons
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "type92_stan"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "20mm_type_2"},
+				{priority = 0.3, class = UnitClass.ATTank, period = "early late mid", unit = "37mm_type_94"},
+				{priority = 0.3, class = UnitClass.ATTank, period = "early late mid", unit = "75mm_type_88"},
+				{priority = 0.3, class = UnitClass.ATTank, period = "early late mid", unit = "75mm_type_90"},
+				{priority = 0.3, class = UnitClass.ATTank, period = "early late mid", unit = "75mm_type_41"},
+				{priority = 0.3, class = UnitClass.ATTank, period = "late mid", unit = "47mm_type_1"},
+				{priority = 0.3, class = UnitClass.ATTank, period = "late mid", unit = "75mm_type_4"},
 			--Howitzers				
+				{priority = 0.3, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "81mm_brandt_jap"},
+				{priority = 0.3, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "105mm_type_92"},
+				{priority = 0.3, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "120mm_type_38"},
+				{priority = 0.3, class = UnitClass.ArtilleryTank, period = "late", unit = "200mm_type_4"},
+				{priority = 0.3, class = UnitClass.ArtilleryTank, period = "late mid", unit = "150mm_type_96"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid", unit = "type95"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid", unit = "type94aa"},
@@ -2601,7 +3099,21 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.ATInfantry, period = "mid late", unit = "single_at(usa)"},
 			--Automatic_weaponry
 			--AT_Weapons
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "0_3cal_m1917a1_aa"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "0_5cal_m2hb"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "0_5cal_maxson"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "40_mm_m1"},
+				{priority = 0.3, class = UnitClass.ATTank, period = "early late mid", unit = "37_mm_m3"},
+				{priority = 0.3, class = UnitClass.ATTank, period = "early late mid", unit = "75_mm_m1897a4"},
+				{priority = 0.3, class = UnitClass.ATTank, period = "early late mid", unit = "75_mm_m1"},
+				{priority = 0.3, class = UnitClass.ATTank, period = "late", unit = "76_mm_m5late"},
+				{priority = 0.3, class = UnitClass.ATTank, period = "late mid", unit = "90_mm_m1"},
+				{priority = 0.3, class = UnitClass.ATTank, period = "mid", unit = "76_mm_m5"},
 			--Howitzers				
+				{priority = 0.3, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "81_mm_m1"},
+				{priority = 0.3, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "105_mm_m2a1l"},
+				{priority = 0.3, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "155_mm_m2"},
+				{priority = 0.3, class = UnitClass.ArtilleryTank, period = "late mid", unit = "203_mm_m115"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid late", unit = "willysmb"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "late", unit = "willys50"},
@@ -2652,7 +3164,18 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "single_flamer_late(eng)"},
 			--Automatic_weaponry
 			--AT_Weapons
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "303_vickers_mki"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early late mid", unit = "qf40mm"},
+				{priority = 0.3, class = UnitClass.ATTank, period = "early late mid", unit = "qf2pdr"},
+				{priority = 0.3, class = UnitClass.ATTank, period = "early late mid", unit = "qf6pdr"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "late mid", unit = "303_bren"},
+				{priority = 0.3, class = UnitClass.ATTank, period = "late mid", unit = "qf17pdr"},
 			--Howitzers				
+				{priority = 0.3, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "76mm_mk_ii"},
+				{priority = 0.3, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "qf3,7inch"},
+				{priority = 0.3, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "qf25pdr"},
+				{priority = 0.3, class = UnitClass.ArtilleryTank, period = "early late mid", unit = "bl45"},
+				{priority = 0.3, class = UnitClass.ArtilleryTank, period = "late", unit = "bl72"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid late", unit = "dingo"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "mid late", unit = "m3halftrack_eng"},
@@ -2697,7 +3220,17 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "single_flamer(ita)"},
 			--Automatic_weaponry
 			--AT_Weapons
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "8mm_fiat_revelli_m1914_35"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid", unit = "cannone_2065"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid", unit = "2cm_solothurn"},
+				{priority = 0.3, class = UnitClass.ATTank, period = "early mid", unit = "cannone_4732"},
+				{priority = 0.3, class = UnitClass.ATTank, period = "early mid", unit = "cannone_7527"},
+				{priority = 0.3, class = UnitClass.ATTank, period = "early mid", unit = "obice_7513"},
+			--	{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "8mm_breda_37"},
+				{priority = 0.3, class = UnitClass.ATTank, period = "mid", unit = "7_5cm_pak97_38"},
 			--Howitzers				
+				{priority = 0.3, class = UnitClass.ArtilleryTank, period = "early mid", unit = "81mm_brandt_ita"},
+				{priority = 0.3, class = UnitClass.ArtilleryTank, period = "early mid", unit = "obice_10017"},
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid late", unit = "ab41"},
 				{priority = 1.0, class = UnitClass.Vehicle, period = "early mid late", unit = "autocannone10017"},
@@ -2716,76 +3249,140 @@ Purchases["standard"] = {
 				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "stug3g_ita"}
 			},
 			["rus"] = {--Russia
-			--Infantry
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "squad_partisan(rus)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early", unit = "squad_basic(rus)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early", unit = "squad_heavy(rus)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "mid late", unit = "squad_rifleunit(rus)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "mid late", unit = "squad_guardsrifle(rus)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "squad_marines(rus)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early", unit = "squad_paratrooper(rus)"},
-				{priority = 2.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_mg(rus)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_sniper(rus)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_flamer(rus)"},
-				{priority = 1.0, class = UnitClass.Infantry, period = "early mid late", unit = "single_riflegrenade(rus)"},		
-				{priority = 1.0, class = UnitClass.ATInfantry, period = "early mid late", unit = "single_at(rus)"},
-			--Automatic_weaponry
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "mid late", unit = "maxim"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "dshk_stan"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "25mm_72k"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "37mm_61k"},
-			--AT_Wreapon
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "45mm_m37"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "57mm_zis2"},
-			--	{priority = 2.0, class = UnitClass.ATTank, period = "mid late", unit = "76mm_zis3"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "mid late", unit = "75mm_m43"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "76mm_m1927"},
-			--	{priority = 2.0, class = UnitClass.ATTank, period = "early mid late", unit = "76mm_f22"},
-			--	{priority = 2.0, class = UnitClass.ATTank, period = "early mid late", unit = "85mm_52k"},
-			--Howitzers
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "82mm_bm37"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early mid late", unit = "120mm_pm38"},
-			--	{priority = 2.0, class = UnitClass.ATTank, period = "early mid late", unit = "122mm_m30"},
-			--	{priority = 2.0, class = UnitClass.ATTank, period = "early mid late", unit = "152mm_ml20"},
-			--	{priority = 1.0, class = UnitClass.ATTank, period = "early", unit = "203mm_b4"},
+			--Infantry Singles
+				{priority = 2.0, class = UnitClass.Infantry, period = "mid late", unit = "single_mg(rus)"},
+				{priority = 1.5, class = UnitClass.ATInfantry, period = "mid late", unit = "single_at(rus)"},
+				{priority = 1.0, class = UnitClass.ATInfantry, period = "mid", unit = "single_riflegrenade(rus)"},
+				{priority = 2.0, class = UnitClass.ATInfantry, period = "late", unit = "single_bazooker(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid late", unit = "single_flamer(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid late", unit = "single_sniper(rus)"},
+
+			--Infantry Squads
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_conscripts(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid late", unit = "squad_partisan(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_recon(rus)"},
+				{priority = 3.5, class = UnitClass.Infantry, period = "mid late", unit = "squad_rifleunit(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid late", unit = "squad_at_rifle(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "mid", unit = "squad_paras(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "mid", unit = "squad_marines(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "squad_conscripts_late(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_recon_late(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_smg(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_guardsrifle(rus)"},
+				{priority = 1.5, class = UnitClass.Infantry, period = "late", unit = "squad_guards_smg_heavy(rus)"},
+				{priority = 1.0, class = UnitClass.Infantry, period = "late", unit = "squad_marines_late(rus)"},
+
+			--Cannons
+			--HMGs
+			--	{priority = 3.5, class = UnitClass.Vehicle, period = "mid late", unit = "maxim"},
+			--	{priority = 1.5, class = UnitClass.Vehicle, period = "late", unit = "sg43_stand"},
+			--	{priority = 1.5, class = UnitClass.Vehicle, period = "late", unit = "dshk_stan"},
+			--	{priority = 1.5, class = UnitClass.Vehicle, period = "late", unit = "dshk_aa"},
+
+				--Doctrine Units
+			--	{priority = 1.5, class = UnitClass.Vehicle, period = "mid", unit = "dshk_stan"},
+			--	{priority = 1.5, class = UnitClass.Vehicle, period = "mid", unit = "dshk_aa"},
+
+			--Anti_Aircraft
+			--	{priority = 0.5, class = UnitClass.ATTank, period = "mid late", unit = "25mm_72k"},
+			--	{priority = 1.5, class = UnitClass.ATTank, period = "mid late", unit = "37mm_61k"},
+
+			--Anti_Tank
+				{priority = 1.5, class = UnitClass.ATTank, period = "mid", unit = "45mm_m37"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "45mm_m42"},
+				{priority = 0.5, class = UnitClass.ATTank, period = "mid late", unit = "57mm_zis2"},
+				{priority = 2.0, class = UnitClass.ATTank, period = "mid late", unit = "76mm_zis3"},
+				
+				--Doctrine Units
+				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "76mm_m1902"},
+				{priority = 0.5, class = UnitClass.ATTank, period = "mid", unit = "76mm_f22"},
+
+			--Mortars
+				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid late", unit = "82mm_bm37"},
+
+				--Doctrine Units
+				{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid late", unit = "120mm_pm38"},
+
+			--Infantry_Support
+				{priority = 1.5, class = UnitClass.ATTank, period = "mid", unit = "76mm_m1927"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "late", unit = "76mm_m43"},
+
+			--Artillery
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid late", unit = "122mm_m30"},
+
+			--Rocket_Artillery
+				--Doctrine Units
+			--	{priority = 0.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "bm13_studebaker"},
+			--	{priority = 0.5, class = UnitClass.ArtilleryTank, period = "late", unit = "bm31_12"},
+
 			--Wheel_vehicles
-				{priority = 1.0, class = UnitClass.Vehicle, period = "early", unit = "ba20"},
-				{priority = 1.0, class = UnitClass.Vehicle, period = "mid late", unit = "ba64"},
-				{priority = 2.0, class = UnitClass.Vehicle, period = "early mid late", unit = "ba6"},
+				{priority = 1.5, class = UnitClass.Vehicle, period = "mid", unit = "ba20"},
+				{priority = 1.0, class = UnitClass.Vehicle, period = "mid late", unit = "gaz_aaa_72k"},
+				{priority = 2.0, class = UnitClass.Vehicle, period = "mid late", unit = "ba6"},
+				{priority = 1.5, class = UnitClass.Vehicle, period = "late", unit = "gaz67b"},
+				{priority = 0.5, class = UnitClass.Vehicle, period = "late", unit = "ba64"},
+
 			--Tanks_light
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "t26_31"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "t26_33"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "t26_39"},
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "t30"},
-				{priority = 1.0, class = UnitClass.Tank, period = "early mid", unit = "t40"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid late", unit = "t60"},
-				{priority = 1.0, class = UnitClass.Tank, period = "late", unit = "t70"},
-				{priority = 1.0, class = UnitClass.Tank, period = "late", unit = "t70m"},
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "bt2"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "bt5"},
-				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "bt7"},
+				{priority = 0.1, class = UnitClass.Tank, period = "mid late", unit = "t27"},
+				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "t26_31"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "t26_39"},
+				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "t40"},
+				{priority = 3.0, class = UnitClass.Tank, period = "mid", unit = "bt7"},
+				{priority = 3.0, class = UnitClass.Tank, period = "late", unit = "t70"},
+
+				--Doctrine Units
+				{priority = 0.1, class = UnitClass.Tank, period = "mid", unit = "kht26"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t26_33"},
+				{priority = 0.5, class = UnitClass.Tank, period = "mid", unit = "bt2_da2"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "bt2"},
+				{priority = 1.5, class = UnitClass.Tank, period = "mid", unit = "bt5"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t30"},
+				{priority = 3.0, class = UnitClass.Tank, period = "mid", unit = "t60"},
+				{priority = 1.0, class = UnitClass.Tank, period = "late", unit = "t60"},
+				{priority = 3.0, class = UnitClass.Tank, period = "late", unit = "t70m"},
+				{priority = 1.5, class = UnitClass.Tank, period = "late", unit = "valentine7"},
+				{priority = 1.0, class = UnitClass.Tank, period = "late", unit = "valentine9"},
+
 			--Tanks_medium
-				{priority = 1.0, class = UnitClass.Tank, period = "early", unit = "t28"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "t3476_40"},
-				{priority = 2.0, class = UnitClass.Tank, period = "early mid", unit = "t3476_41"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid late ", unit = "t3476_43"},
-				{priority = 1.0, class = UnitClass.Tank, period = "mid late ", unit = "t3457_43"},
+				{priority = 1.0, class = UnitClass.Tank, period = "mid", unit = "t28"},
+				{priority = 2.0, class = UnitClass.Tank, period = "mid", unit = "t3476_40"},
+				{priority = 2.5, class = UnitClass.Tank, period = "mid", unit = "t3476_41"},
+				{priority = 3.5, class = UnitClass.Tank, period = "late ", unit = "t3476_43"},
+				{priority = 2.5, class = UnitClass.Tank, period = "late ", unit = "t3485_44"},
+
+				--Doctrine Units
+				{priority = 0.1, class = UnitClass.Tank, period = "mid", unit = "t3457_41"},
+				{priority = 3.5, class = UnitClass.Tank, period = "mid", unit = "t3476_42"},
+				{priority = 0.1, class = UnitClass.Tank, period = "late ", unit = "t3457_43"},
+				{priority = 1.0, class = UnitClass.Tank, period = "late ", unit = "t3476_43_flame"},
+
 			--Tanks_heavy
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "early", unit = "kv1_40"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "mid", unit = "kv1_41"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "mid late", unit = "kv1s"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "kv85"},
-				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "is1_43"},
+				{priority = 1.5, class = UnitClass.HeavyTank, period = "mid", unit = "kv1_40"},
+				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "kv1s"},
+				{priority = 0.5, class = UnitClass.HeavyTank, period = "late", unit = "is1_43"},
+				{priority = 1.5, class = UnitClass.HeavyTank, period = "late", unit = "is2_43"},
+
+				--Doctrine Units
+				{priority = 1.5, class = UnitClass.HeavyTank, period = "mid", unit = "kv1_41"},
+				{priority = 2.0, class = UnitClass.HeavyTank, period = "mid", unit = "kv1s"},
+				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "mid", unit = "kv2_40"},
+				{priority = 0.1, class = UnitClass.ATTank, period = "mid", unit = "su100y"},
+				{priority = 0.5, class = UnitClass.HeavyTank, period = "late", unit = "churchill3"},
+				{priority = 0.5, class = UnitClass.HeavyTank, period = "late", unit = "kv85"},
 				{priority = 2.0, class = UnitClass.HeavyTank, period = "late", unit = "is2_44"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "early mid", unit = "kv2_40"},
+
 			--SPG
-				{priority = 1.0, class = UnitClass.ATTank, period = "mid", unit = "zis30"},
-				{priority = 1.0, class = UnitClass.ATTank, period = "mid late", unit = "su76"},
-				{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "su85"},
+				{priority = 2.0, class = UnitClass.ArtilleryTank, period = "mid late", unit = "su76"},
+				{priority = 1.5, class = UnitClass.ATTank, period = "late", unit = "su85"},
+				{priority = 1.5, class = UnitClass.ArtilleryTank, period = "late", unit = "su122"},
+				{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "su152"},
+
+				--Doctrine Units
+				{priority = 0.1, class = UnitClass.ATTank, period = "mid", unit = "zis30"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "su122"},
 				{priority = 1.0, class = UnitClass.ATTank, period = "late", unit = "su100"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late", unit = "su122"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "late", unit = "su152"},
-				{priority = 1.0, class = UnitClass.ArtilleryTank, period = "mid", unit = "su100y"}
+				{priority = 2.0, class = UnitClass.ATTank, period = "late", unit = "isu122s"},
+				{priority = 2.0, class = UnitClass.ATTank, period = "late", unit = "isu152"}
 			}
 		}
 	}

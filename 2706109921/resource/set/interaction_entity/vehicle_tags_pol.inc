@@ -85,6 +85,32 @@
 	    }
 	}
 }
+{"40mm_bofors"
+	{on spawn
+	    {tags add "AAFLAK"}
+		{tags add "polish"}
+		{tags add "qf40mm_pol"}
+		{delay 6
+		    {if not tagged "player_car"
+			    {if not tagged "cmp_def"
+			        {if not tagged "ger"
+				        {if not tagged "rus"
+					        {if not tagged "player_armor"
+							    {if not tagged "player_veh"
+								    {if not tagged "player"
+									    {if not tagged "hidden"
+									        {tags add "ai_aa-disabled"}
+										}
+									}
+								}
+						    }
+					    }
+				    }
+			    }
+		   }
+	    }
+	}
+}
 {"qf40mm_pol"
 	{on spawn
 	    {tags add "AAFLAK"}
@@ -215,7 +241,6 @@
 	    }
 	}
 }
-
 {"20mm_fka"
 	{on spawn
 	    {tags add "AAFLAK"}

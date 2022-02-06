@@ -45,7 +45,7 @@
 					else rand 1
 						{call "sandbag_ring_heap_straight_with_lane"}
 					}
-				else tagged "90_mm_m1"
+				else tagged "mmm190"
 					{call "deactivate_vehicle"}
 					{start_sound "vehicle/deploy/foxhole"}
 					{if rand 0.2
