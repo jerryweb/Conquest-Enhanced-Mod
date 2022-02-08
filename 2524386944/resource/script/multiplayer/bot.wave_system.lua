@@ -21,7 +21,7 @@ end
 initialWave = true
 
 -- This variable controls whether units will spawn all at once for 15 seconds, creating a massive wave, every x seconds
-typhoonWaveMode = true
+typhoonWaveMode = false
 nextTyphoonWaveTime = 0
 typhoonWaveInterval = 90
 typhoonWaveDuration = 25
@@ -71,7 +71,7 @@ function selectArmyDivision(totalFlags)
 	print("loading")
 	-- REMOVE THIS LINE (ONLY FOR TESTING)
 	if testing then
-		divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.7]]
+		divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.mid.4]]
 	end
 
 

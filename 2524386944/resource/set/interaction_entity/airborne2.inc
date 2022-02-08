@@ -249,6 +249,9 @@
 
 {"sm79_para_plane"
 	("bf110_sound")
+	{on "air_attack"
+		{play_sound "attack"}
+	}
 }
 
 {"j2m_raiden_para_plane"

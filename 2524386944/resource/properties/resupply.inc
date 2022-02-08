@@ -438,6 +438,49 @@
 	}
 )
 
+(define "ger_truck_ammo"
+	{extender "supply_zone"
+		{resupply
+			("items_light_generic")
+			("items_light_ger")
+		}
+		{mechanicResources {amount 10}{value 10}}
+		{radius 			12}		;// resupply radius in meter
+		{resupplyPeriod 	2}		;// resupply period in seconds
+		{regenerationPeriod 3}		;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
+		{limit 				500}	;// max number of resupplies (0 = unlimited)
+	}
+	{DecalView supply_zone
+		{Sprite "supply_zone.ebm"
+			{Visibility 0.25}
+		}
+		{Layer grounddynamic}
+		{Visible 0}
+	}
+)
+(define "rus_truck_ammo"
+	{extender "supply_zone"
+		{resupply
+			("items_light_generic")
+			("items_light_rus")
+			("items_light_eng")
+			("items_light_usa")
+		}
+		{mechanicResources {amount 10}{value 10}}
+		{radius 			12}		;// resupply radius in meter
+		{resupplyPeriod 	2}		;// resupply period in seconds
+		{regenerationPeriod 3}		;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
+		{limit 				500}	;// max number of resupplies (0 = unlimited)
+	}
+	{DecalView supply_zone
+		{Sprite "supply_zone.ebm"
+			{Visibility 0.25}
+		}
+		{Layer grounddynamic}
+		{Visible 0}
+	}
+)
+
 (define "truck_ammo_heavy"
 	{extender "supply_zone"
 		{resupply

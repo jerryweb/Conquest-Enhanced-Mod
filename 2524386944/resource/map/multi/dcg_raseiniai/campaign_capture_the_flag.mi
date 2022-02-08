@@ -64162,7 +64162,7 @@
 						{tag_remove cmp_mg}
 					}
 					{"delay"
-						{time 1}
+						{time 0.5}
 					}
 					{"entity_state"
 						{selector
@@ -64200,9 +64200,6 @@
 									}
 									{prop
 										{prop vehicle}
-									}
-									{zone
-										{zone "combat"}
 									}
 								}
 								{exclude
@@ -65184,7 +65181,7 @@
 						{"default"}
 					}
 					{"delay"
-						{time 1}
+						{time 0.5}
 					}
 					{"effect"
 						{selector
@@ -65193,7 +65190,19 @@
 							{group
 								{select
 									{tag
-										{tag light_at_gun}
+										{tag "85mm_52k"}
+									}
+									{tag
+										{tag "88mm_flak18"}
+									}
+									{tag
+										{tag "88mm_flak36"}
+									}
+									{tag
+										{tag mortars}
+									}
+									{tag
+										{tag heavy_at_gun}
 									}
 									{tag
 										{tag aaflak}
@@ -65203,11 +65212,11 @@
 									{tag
 										{tag cmp_mg}
 									}
+									{state
+										{state operatable}
+									}
 								}
 								{exclude
-									{tag
-										{tag heavy_at_gun}
-									}
 									{tag
 										{tag medium_at_gun}
 									}
@@ -65217,13 +65226,19 @@
 									{tag
 										{tag player_veh}
 									}
+									{tag
+										{tag player}
+									}
+									{tag
+										{tag preplaced_flak_gun}
+									}
 								}
 							}
 						}
-						{effect construction_sandbag_cannon_shallow}
+						{effect sandbag_heavy_flak}
 					}
 					{"delay"
-						{time 1}
+						{time 5.5}
 					}
 					{"effect"
 						{selector
@@ -65233,9 +65248,6 @@
 								{select
 									{tag
 										{tag medium_at_gun}
-									}
-									{tag
-										{tag heavy_at_gun}
 									}
 									{tag
 										{tag dshk_aa}
@@ -65286,7 +65298,7 @@
 						{effect construction_sandbag_cannon_standard}
 					}
 					{"delay"
-						{time 1}
+						{time 5.5}
 					}
 					{"effect"
 						{selector
@@ -65295,27 +65307,21 @@
 							{group
 								{select
 									{tag
-										{tag "85mm_52k"}
+										{tag light_at_gun}
 									}
 									{tag
-										{tag "88mm_flak18"}
-									}
-									{tag
-										{tag "88mm_flak36"}
-									}
-									{tag
-										{tag mortars}
+										{tag aaflak}
 									}
 								}
 								{include
 									{tag
 										{tag cmp_mg}
 									}
-									{state
-										{state operatable}
-									}
 								}
 								{exclude
+									{tag
+										{tag heavy_at_gun}
+									}
 									{tag
 										{tag medium_at_gun}
 									}
@@ -65326,14 +65332,26 @@
 										{tag player_veh}
 									}
 									{tag
-										{tag player}
+										{tag "40_mm_m1"}
+									}
+									{tag
+										{tag qf40mm}
+									}
+									{tag
+										{tag "40_mm_m1_fr"}
+									}
+									{tag
+										{tag qf40mm_pol}
 									}
 								}
 							}
 						}
-						{effect sandbag_heavy_flak}
+						{effect construction_sandbag_cannon_shallow}
 					}
-					{"delay"
+					{## "delay"
+						{time 5.5}
+					}
+					{## "delay"
 						{time 5}
 					}
 					{## "ables"
@@ -88591,6 +88609,876 @@
 					{"switch"
 						{"case"
 							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_inf}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{player
+												{player "2"}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag air_vehicle}
+											}
+										}
+										{include
+											{tag
+												{tag hidden}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "2"}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_inf}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{player
+												{player "3"}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag air_vehicle}
+											}
+										}
+										{include
+											{tag
+												{tag hidden}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "3"}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_inf}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{player
+												{player "4"}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag air_vehicle}
+											}
+										}
+										{include
+											{tag
+												{tag hidden}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "4"}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_inf}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{player
+												{player "5"}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag air_vehicle}
+											}
+										}
+										{include
+											{tag
+												{tag hidden}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "5"}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_inf}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{player
+												{player "6"}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag air_vehicle}
+											}
+										}
+										{include
+											{tag
+												{tag hidden}
+											}
+										}
+										{exclude
+											{tag
+												{tag air_vehicle}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "6"}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_inf}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{player
+												{player "7"}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag air_vehicle}
+											}
+										}
+										{include
+											{tag
+												{tag hidden}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "7"}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_inf}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{player
+												{player "8"}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag air_vehicle}
+											}
+										}
+										{include
+											{tag
+												{tag hidden}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "8"}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_inf}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{player
+												{player "9"}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag air_vehicle}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+											{tag
+												{tag hidden}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "9"}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_inf}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{player
+												{player "10"}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag air_vehicle}
+											}
+										}
+										{include
+											{tag
+												{tag hidden}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "10"}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_inf}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{player
+												{player "11"}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag air_vehicle}
+											}
+										}
+										{include
+											{tag
+												{tag hidden}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "11"}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_inf}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{player
+												{player "12"}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag air_vehicle}
+											}
+										}
+										{include
+											{tag
+												{tag hidden}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "12"}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_inf}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{player
+												{player "13"}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag air_vehicle}
+											}
+										}
+										{include
+											{tag
+												{tag hidden}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "13"}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_inf}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{player
+												{player "14"}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag air_vehicle}
+											}
+										}
+										{include
+											{tag
+												{tag hidden}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "14"}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_inf}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{player
+												{player "15"}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag air_vehicle}
+											}
+										}
+										{include
+											{tag
+												{tag hidden}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "15"}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag ai_inf}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{player
+												{player "16"}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag air_vehicle}
+											}
+										}
+										{include
+											{tag
+												{tag hidden}
+											}
+										}
+										{exclude
+											{tag
+												{tag player}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "16"}
+							}
+						}
+					}					
+					{"switch"
+						{"case"
+							{condition
 								{type cmp_i}
 								{var "user_nation$"}
 								{op "=="}
@@ -88773,7 +89661,7 @@
 											}
 										}
 										{enemies
-											{tag fpc2}
+											{tag fpc3}
 										}
 										{clone}
 										{move_from_back}
@@ -88819,6 +89707,154 @@
 										{waypoint "3"}
 									}
 								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{tag fpc4}
+											{zone "fpc4"}
+										}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"air_attack"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag airstrike_ger}
+													}
+												}
+												{include
+													{tag
+														{tag hidden}
+													}
+												}
+											}
+										}
+										{enemies
+											{tag fpc4}
+										}
+										{clone}
+										{move_from_back}
+										{force_placement}
+										{random_weapon 0}
+										{attack_altitude 40}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"entity_state"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag airstrike_ger}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+												}
+												{exclude
+													{tag
+														{tag hidden}
+													}
+												}
+											}
+										}
+										{tag_add planebarrage}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"action"
+										{selector
+											{tag planebarrage}
+										}
+										{drop "orders sensor senseless"}
+										{action move}
+										{waypoint "4"}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{tag fpc5}
+											{zone "fpc5"}
+										}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"air_attack"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag airstrike_ger}
+													}
+												}
+												{include
+													{tag
+														{tag hidden}
+													}
+												}
+											}
+										}
+										{enemies
+											{tag fpc5}
+										}
+										{clone}
+										{move_from_back}
+										{force_placement}
+										{random_weapon 0}
+										{attack_altitude 40}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"entity_state"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag airstrike_ger}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+												}
+												{exclude
+													{tag
+														{tag hidden}
+													}
+												}
+											}
+										}
+										{tag_add planebarrage}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"action"
+										{selector
+											{tag planebarrage}
+										}
+										{drop "orders sensor senseless"}
+										{action move}
+										{waypoint "5"}
+									}
+								}																
 							}
 						}
 						{"case"
@@ -89005,7 +90041,7 @@
 											}
 										}
 										{enemies
-											{tag fpc2}
+											{tag fpc3}
 										}
 										{clone}
 										{move_from_back}
@@ -89051,6 +90087,154 @@
 										{waypoint "3"}
 									}
 								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{tag fpc4}
+											{zone "fpc4"}
+										}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"air_attack"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag airstrike_rus}
+													}
+												}
+												{include
+													{tag
+														{tag hidden}
+													}
+												}
+											}
+										}
+										{enemies
+											{tag fpc4}
+										}
+										{clone}
+										{move_from_back}
+										{force_placement}
+										{random_weapon 0}
+										{attack_altitude 40}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"entity_state"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag airstrike_rus}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+												}
+												{exclude
+													{tag
+														{tag hidden}
+													}
+												}
+											}
+										}
+										{tag_add planebarrage}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"action"
+										{selector
+											{tag planebarrage}
+										}
+										{drop "orders sensor senseless"}
+										{action move}
+										{waypoint "4"}
+									}
+								}
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{tag fpc5}
+											{zone "fpc5"}
+										}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"air_attack"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag airstrike_rus}
+													}
+												}
+												{include
+													{tag
+														{tag hidden}
+													}
+												}
+											}
+										}
+										{enemies
+											{tag fpc5}
+										}
+										{clone}
+										{move_from_back}
+										{force_placement}
+										{random_weapon 0}
+										{attack_altitude 40}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"entity_state"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag airstrike_rus}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+												}
+												{exclude
+													{tag
+														{tag hidden}
+													}
+												}
+											}
+										}
+										{tag_add planebarrage}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"action"
+										{selector
+											{tag planebarrage}
+										}
+										{drop "orders sensor senseless"}
+										{action move}
+										{waypoint "5"}
+									}
+								}																
 							}
 						}
 					}

@@ -50,7 +50,7 @@
 	{uncover 330}
 	{h_fov 360}
 	{v_fov 120}
-	("glass" args 80)
+	("glass" args 50)
 }
 
 {"soldier_focused"						; // Secondary vision when soldier is looking through scope or binoculars
