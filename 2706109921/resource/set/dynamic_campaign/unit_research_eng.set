@@ -67,15 +67,16 @@
 	
 
 	; ---Light Tanks---
-	{"matilda_mkii_cs"		requires 	""			costs 2}
-	{"crusader_mki"		requires 	"matilda_mkii_cs"			costs 4}
+	
+	{"crusader_mki"		requires 	""			costs 4}
 	{"crusader_mki_cs"		requires 	"crusader_mki"			costs 4}
-	{"crusader_aa1"		requires 	"crusader_mki_cs"			costs 4}
-	{"crusader_aa2"	requires 	"crusader_mki_cs"				costs 3}
+	{"crusader_aa1"		requires 	"crusader_mki"			costs 4}
+	{"crusader_aa2"	requires 	"crusader_aa1"				costs 3}
 	{"crusader_mk6"		requires 	"crusader_mki_cs"			costs 4}
 
 	
 	; ---Medium Tanks---
+	{"matilda_mkii_cs"		requires 	"matilda_mkii"			costs 2}
 	{"valentine_mkiii"	requires 	"crusader_mk6"			costs 2}
 	{"matilda_mkii"	requires 	"crusader_mk6"			costs 3}
 	{"cromwell_mk_iv"	requires 	"matilda_mkii"			costs 3}
@@ -83,7 +84,7 @@
 	{"cromwell_mk_vi"		requires 	"matilda_mkii"			costs 4}
 	{"challenger_a30"	requires 	"cromwell_mk_iv"		costs 5}
 	{"m4a4_firefly"	requires 	"m4a4"			costs 5}
-	{"comet_a34"	requires 	"cromwell_mk_iv"		costs 5}
+	{"comet_a34"	requires 	"challenger_a30"		costs 5}
 	
 	; ---Heavy Tanks---
 	{"churchill_avre"	requires 	"cromwell_mk_iv"		costs 5}	
@@ -91,6 +92,7 @@
 	{"churchill_mk_iv"	requires 	"churchill_mk_ii"		costs 4}
 	{"churchill_mk_vii"	requires 	"churchill_mk_ii"		costs 6}
 	{"churchill_crocodile"	requires 	"churchill_mk_vii"		costs 5}
+	{"black_prince"		requires 	"churchill_mk_vii"		costs 3}
 
 	; ---Self Propelled Guns---
 	{"achilles"		requires 	"qf17pdr"			costs 6}
@@ -194,7 +196,7 @@
 
 
 	; ---Light Tanks---
-	{"matilda_mkii_cs"		0 12}
+	
 	{"crusader_mki_cs"		2 12}
 	{"crusader_aa2"		2 13}
 	{"crusader_aa1"		1 13}
@@ -204,6 +206,7 @@
 	
 	; ---Medium Tanks---
 	{"valentine_mkiii"		3 13}
+	{"matilda_mkii_cs"		4 12}
 	{"matilda_mkii"			4 13}
 	{"cromwell_mk_iv"		5 13}
 	{"m4a4"			6 13}
@@ -221,6 +224,7 @@
 	{"churchill_mk_vii"	8 16}
 	
 	{"churchill_crocodile"	8 17}
+	{"black_prince"	8 18}
 
 	; ---Self Propelled Guns---
 	{"achilles"			5 18}

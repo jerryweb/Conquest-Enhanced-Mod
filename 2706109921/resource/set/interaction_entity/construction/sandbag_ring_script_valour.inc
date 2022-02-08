@@ -25,7 +25,7 @@
 					else rand 1
 						{call "sandbag_ring_heap_straight_with_lane"}
 					}
-				else tagged "qf40mm_pol"
+				else tagged "40mm_bofors"
 					{call "deactivate_vehicle"}
 					{start_sound "vehicle/deploy/foxhole"}
 					{if rand 0.2
@@ -35,6 +35,16 @@
 					else rand 1
 						{call "sandbag_ring_heap_straight_with_lane"}
 					}
+				else tagged "qf40mm_pol"
+					{call "deactivate_vehicle"}
+					{start_sound "vehicle/deploy/foxhole"}
+					{if rand 0.2
+						{call "sandbag_ring_heap_curved"}
+					else rand 0.6
+						{call "sandbag_ring_heap_straight"}
+					else rand 1
+						{call "sandbag_ring_heap_straight_with_lane"}
+					}					
 				else tagged "40_mm_m1"
 					{call "deactivate_vehicle"}
 					{start_sound "vehicle/deploy/foxhole"}

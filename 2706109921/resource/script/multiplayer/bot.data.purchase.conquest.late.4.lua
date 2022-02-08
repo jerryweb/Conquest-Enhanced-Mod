@@ -54,7 +54,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.5, class = UnitClass.Infantry, unit = "single_flamer_late(eng)"},
 				-- 5
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_scout_late(eng)"},
-				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_stormtrooper_late(eng)"},			
+				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_stormtrooper_late(eng)"},	
 			},
 			["ita"] = {--Italy
 			--Infantry
@@ -445,7 +445,6 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 0.8, class = UnitClass.HeavyTank, unit = "m26e4_pershing"},
 			},
 			["eng"] = {--Britain
-				{priority = 1.0, class = UnitClass.Tank, unit = "m4a4"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "m4a4_firefly"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "comet_a34"},
 			--Tanks_heavy

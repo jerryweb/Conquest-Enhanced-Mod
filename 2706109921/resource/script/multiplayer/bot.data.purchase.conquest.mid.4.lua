@@ -64,7 +64,9 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "staghound"},
 			},
 			["ita"] = {--Italy
-				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_regular(ita)"},
+				-- {priority = 2.0, class = UnitClass.Infantry, unit = "squad_regular(ita)"},
+				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_airborne_ita_con"},
+
 			}
 		}
 	},

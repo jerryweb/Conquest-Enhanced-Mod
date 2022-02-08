@@ -35,13 +35,12 @@ Purchases["campaign_capture_the_flag"] = {
 				-- 2
 				{priority = 3.5, class = UnitClass.Infantry, unit = "squad_regular_late(fra)"},
 				{priority = 2.0, class = UnitClass.ATInfantry, unit = "single_riflegrenade_late(fra)"},
-				-- 3
 				-- 5
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_marine_late(fra)"},				
 			--Wheel_vehicles
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "m8_grayhound_fr"},
 				{priority = 1.0, class = UnitClass.Vehicle, unit = "m20_fr"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "panhard"},												,
+				{priority = 1.0, class = UnitClass.Vehicle, unit = "panhard"},												
 			},
 			["pol"] = {--Poland
 			--Infantry
@@ -375,7 +374,6 @@ Purchases["campaign_capture_the_flag"] = {
 				-- 3
 				-- 5
 				{priority = 1.0, class = UnitClass.Infantry, unit = "squad_marine_late(fra)"},				
-											,
 			},
 			["pol"] = {--Poland
 			--Infantry

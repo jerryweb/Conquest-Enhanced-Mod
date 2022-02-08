@@ -323,11 +323,18 @@
 (include "ammo_jap.inc")
 (include "ammo_pol.inc")
 (include "ammo_usa.inc")
+(include "ammo_eng.inc")	
+(include "ammo_ita.inc")	
+		
 
 (define "supply_medic"
 	{extender "supply_zone"
 		{resupply
 			("items_medic")
+			("items_medic_fra")
+			("items_medic_pol")
+			("items_medic_jap")
+			("items_medic_usa")
 		}
 		{radius 			5.5}	;// resupply radius in meter
 		{resupplyPeriod 	1}		;// resupply period in seconds
@@ -431,6 +438,10 @@
 			("items_light_rus")
 			("items_light_eng")
 			("items_light_usa")
+			("items_light_fra")
+			("items_light_pol")
+			("items_light_jap")
+			("items_light_ita")
 		}
 		{radius 			15}		;// resupply radius in meter
 		{resupplyPeriod 	5}		;// resupply period in seconds
@@ -456,7 +467,17 @@
 			("items_light_usa")
 			("items_heavy_ger")
 			("items_heavy_rus")
+			("items_light_fra")
+			("items_light_pol")
+			("items_light_jap")
+			("items_light_ita")
+			("items_heavy_fra")
+			("items_heavy_pol")
+			("items_heavy_jap")
+			("items_heavy_usa")	
 			("items_heavy_eng")
+			("items_heavy_ita")
+
 		}
 		{radius 			15}		;// resupply radius in meter
 		{resupplyPeriod 	10}		;// resupply period in seconds
@@ -496,6 +517,49 @@
 	}
 )
 
+(define "ger_truck_ammo"
+	{extender "supply_zone"
+		{resupply
+			("items_light_generic")
+			("items_light_ger")
+		}
+		{mechanicResources {amount 10}{value 10}}
+		{radius 			12}		;// resupply radius in meter
+		{resupplyPeriod 	2}		;// resupply period in seconds
+		{regenerationPeriod 3}		;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
+		{limit 				500}	;// max number of resupplies (0 = unlimited)
+	}
+	{DecalView supply_zone
+		{Sprite "supply_zone.ebm"
+			{Visibility 0.25}
+		}
+		{Layer grounddynamic}
+		{Visible 0}
+	}
+)
+(define "rus_truck_ammo"
+	{extender "supply_zone"
+		{resupply
+			("items_light_generic")
+			("items_light_rus")
+			("items_light_eng")
+			("items_light_usa")
+		}
+		{mechanicResources {amount 10}{value 10}}
+		{radius 			12}		;// resupply radius in meter
+		{resupplyPeriod 	2}		;// resupply period in seconds
+		{regenerationPeriod 3}		;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
+		{limit 				500}	;// max number of resupplies (0 = unlimited)
+	}
+	{DecalView supply_zone
+		{Sprite "supply_zone.ebm"
+			{Visibility 0.25}
+		}
+		{Layer grounddynamic}
+		{Visible 0}
+	}
+)
+
 (define "truck_ammo_heavy"
 	{extender "supply_zone"
 		{resupply
@@ -522,6 +586,51 @@
 	}
 )
 
+(define "ger_truck_ammo_heavy"
+	{extender "supply_zone"
+		{resupply
+			("items_light_generic")
+			("items_light_ger")
+			("items_heavy_ger")
+		}
+		{radius 			12}			;// resupply radius in meter
+		{resupplyPeriod 	2}			;// resupply period in seconds
+		{regenerationPeriod 2}			;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
+		{limit 				1500}		;// max number of resupplies (0 = unlimited)
+	}
+	{DecalView supply_zone
+		{Sprite "supply_zone.ebm"
+			{Visibility 0.25}
+		}
+		{Layer grounddynamic}
+		{Visible 0}
+	}
+)
+(define "rus_truck_ammo_heavy"
+	{extender "supply_zone"
+		{resupply
+			("items_light_generic")
+			("items_light_rus")
+			("items_light_eng")
+			("items_light_usa")
+			("items_heavy_rus")
+			("items_heavy_eng")
+		}
+		{radius 			12}			;// resupply radius in meter
+		{resupplyPeriod 	2}			;// resupply period in seconds
+		{regenerationPeriod 2}			;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
+		{limit 				1500}		;// max number of resupplies (0 = unlimited)
+	}
+	{DecalView supply_zone
+		{Sprite "supply_zone.ebm"
+			{Visibility 0.25}
+		}
+		{Layer grounddynamic}
+		{Visible 0}
+	}
+)
+
+
 (define "truck_ammo_heavyger"
 	{extender "supply_zone"
 		{resupply
@@ -531,7 +640,7 @@
 		}
 		{radius 			15}			;// resupply radius in meter
 		{resupplyPeriod 	1}			;// resupply period in seconds
-		{regenerationPeriod 3}			;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
+		{regenerationPeriod 2}			;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
 		{limit 				1500}		;// max number of resupplies (0 = unlimited)
 	}
 	{DecalView supply_zone
@@ -555,7 +664,7 @@
 		}
 		{radius 			15}			;// resupply radius in meter
 		{resupplyPeriod 	1}			;// resupply period in seconds
-		{regenerationPeriod 3}			;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
+		{regenerationPeriod 2}			;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
 		{limit 				1500}		;// max number of resupplies (0 = unlimited)
 	}
 	{DecalView supply_zone
