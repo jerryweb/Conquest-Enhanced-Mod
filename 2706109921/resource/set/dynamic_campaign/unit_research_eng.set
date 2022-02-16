@@ -27,7 +27,7 @@
 	{"squad_pionier_late(eng)"		requires	"squad_regular_late(eng)"		costs 2 }
 	{"squad_scout_late(eng)"		requires	"squad_regular_late(eng)"		costs 3 }
 	{"squad_stormtrooper_late(eng)"		requires	"squad_pionier_late(eng)"		costs 4 }
-
+	{"mechanized_infantry_eng"		requires 	"squad_pionier_late(eng)"		costs 3 }
 
 ;TOTAL: 0
 
@@ -68,11 +68,11 @@
 
 	; ---Light Tanks---
 	
-	{"crusader_mki"		requires 	""			costs 4}
-	{"crusader_mki_cs"		requires 	"crusader_mki"			costs 4}
-	{"crusader_aa1"		requires 	"crusader_mki"			costs 4}
-	{"crusader_aa2"	requires 	"crusader_aa1"				costs 3}
-	{"crusader_mk6"		requires 	"crusader_mki_cs"			costs 4}
+	{"crusader_mki"		requires 	""			costs 2}
+	{"crusader_mki_cs"		requires 	"crusader_mki"			costs 2}
+	{"crusader_aa1"		requires 	"crusader_mki"			costs 2}
+	{"crusader_aa2"	requires 	"crusader_aa1"				costs 2}
+	{"crusader_mk6"		requires 	"crusader_mki"			costs 3}
 
 	
 	; ---Medium Tanks---
@@ -81,7 +81,7 @@
 	{"matilda_mkii"	requires 	"crusader_mk6"			costs 3}
 	{"cromwell_mk_iv"	requires 	"matilda_mkii"			costs 3}
 	{"m4a4"		requires 	"matilda_mkii"			costs 4}
-	{"cromwell_mk_vi"		requires 	"matilda_mkii"			costs 4}
+	{"cromwell_mk_vi"		requires 	"cromwell_mk_iv"			costs 4}
 	{"challenger_a30"	requires 	"cromwell_mk_iv"		costs 5}
 	{"m4a4_firefly"	requires 	"m4a4"			costs 5}
 	{"comet_a34"	requires 	"challenger_a30"		costs 5}
@@ -151,7 +151,7 @@
 	{"squad_pionier_late(eng)"	4 6}
 	{"squad_scout_late(eng)"	5 6}
 	{"squad_stormtrooper_late(eng)"		6 6}
-
+	{"mechanized_infantry_eng"  7 6}
 
 	;---MG---
 	{"303_bren"			0 7}

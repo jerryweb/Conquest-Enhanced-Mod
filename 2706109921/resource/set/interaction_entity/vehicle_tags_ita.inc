@@ -5,25 +5,7 @@
 		}
 		{tags add "french"}
 		{tags add "laffly_v15t"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disablededcar"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 
@@ -33,27 +15,7 @@
 	    {tags add "HMG"}
 		{tags add "italian"}
 		{tags add "8mm_breda_37"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-									        {if not tagged "preplaced_mg"
-									        	{tags add "enemymg"}
-									    	}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"cannone_2065"
@@ -61,27 +23,7 @@
 	    {tags add "HMG"}
 		{tags add "italian"}
 		{tags add "cannone_2065"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-									        {if not tagged "preplaced_mg"
-									        	{tags add "enemymg"}
-									    	}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 
@@ -94,25 +36,7 @@
 	    {tags add "light_at_gun"}
 		{tags add "italian"}
 		{tags add "2cm_solothurn"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-									        {tags add "ai_atgun-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"cannone_4732"
@@ -120,25 +44,7 @@
 	    {tags add "light_at_gun"}
 		{tags add "italian"}
 		{tags add "cannone_4732"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-									        {tags add "ai_atgun-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"cannone_7527"
@@ -146,25 +52,7 @@
 	    {tags add "medium_at_gun"}
 		{tags add "italian"}
 		{tags add "cannone_7527"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-									        {tags add "ai_atgun-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"7_5cm_pak97_38"
@@ -172,25 +60,7 @@
 	    {tags add "heavy_at_gun"}
 		{tags add "italian"}
 		{tags add "cmpak9738"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-									        {tags add "ai_atgun-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 
@@ -200,25 +70,7 @@
     	{tags add "artillery"}
 		{tags add "italian"}
 		{tags add "obice_7513"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "enemyarty-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	
 	}
 }
@@ -227,25 +79,7 @@
     	{tags add "artillery"}
 		{tags add "italian"}
 		{tags add "81mm_brandt_ita"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "enemyarty-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"obice_10017"
@@ -253,25 +87,7 @@
     	{tags add "artillery"}
 		{tags add "italian"}
 		{tags add "obice_10017"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "enemyarty-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"obice_210"
@@ -279,25 +95,7 @@
     	{tags add "artillery"}
 		{tags add "italian"}
 		{tags add "obice_210"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "enemyarty-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 
@@ -311,25 +109,7 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "italian"}
 		{tags add "fiat626"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_car-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
     }
 }
 {"fiat626_fuel"
@@ -337,25 +117,7 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "italian"}
 		{tags add "fiat626_fuel"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_car-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
     }
 }
 {"fiat626_inf"
@@ -363,25 +125,7 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "italian"}
 		{tags add "fiat626_inf"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_car-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
     }
 }
 {"fiat626_art"
@@ -389,25 +133,7 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "italian"}
 		{tags add "fiat626_art"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_car-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
     }
 }
 {"fiat626_eng"
@@ -415,25 +141,7 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "italian"}
 		{tags add "fiat626_eng"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_car-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
     }
 }
 {"as42"
@@ -441,25 +149,7 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "italian"}
 		{tags add "as42"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disablededcar"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"ab41"
@@ -467,25 +157,7 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "italian"}
 		{tags add "ab41"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_car-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"autocannone10017"
@@ -493,25 +165,7 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "italian"}
 		{tags add "autocannone10017"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_car-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 
@@ -525,25 +179,7 @@
     	{tags add "light_tank"}
 		{tags add "italian"}
 		{tags add "cv35"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"l640"
@@ -551,25 +187,7 @@
     	{tags add "light_tank"}
 		{tags add "italian"}
 		{tags add "l640"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								   {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 
@@ -580,25 +198,7 @@
     	{tags add "medium_tank"}
 		{tags add "italian"}
 		{tags add "m1441"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"m1542"
@@ -606,25 +206,7 @@
     	{tags add "medium_tank"}
 		{tags add "italian"}
 		{tags add "m1542"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"pz3n_ita"
@@ -632,25 +214,7 @@
     	{tags add "medium_tank"}
 		{tags add "italian"}
 		{tags add "pz3n_ita"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"pz4g_ita"
@@ -658,25 +222,7 @@
     	{tags add "medium_tank"}
 		{tags add "italian"}
 		{tags add "pz4g_ita"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 
@@ -686,25 +232,7 @@
     	{tags add "spg"}
 		{tags add "italian"}
 		{tags add "m7518"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"m7534"
@@ -712,25 +240,7 @@
     	{tags add "spg"}
 		{tags add "italian"}
 		{tags add "m7534"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"stug3g_ita"
@@ -738,25 +248,7 @@
     	{tags add "spg"}
 		{tags add "italian"}
 		{tags add "stug3g_ita"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 

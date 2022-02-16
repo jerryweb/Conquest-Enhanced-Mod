@@ -27,7 +27,7 @@
 	{"squad_pionier_late(fra)"		requires	"squad_regular_late(fra)"		costs 2 }
 	{"squad_marine_late(fra)"		requires	"squad_regular_late(fra)"		costs 3 }
 	{"squad_stormtrooper_late(fra)"		requires	"squad_pionier_late(fra)"		costs 4 }
-
+	{"mechanized_infantry_fra"		requires 	"squad_pionier_late(fra)"		costs 3 }
 
 ;TOTAL: 0
 
@@ -51,7 +51,7 @@
 ; ---AT Guns---
 	{"25mm_hotchkiss_mle34"		requires	""				costs 0}
 	{"47mm_puteaux_mle37"		requires	"25mm_hotchkiss_mle34"				costs 2}
-	{"57_mm_m1_fr"		requires	"47mm_puteaux_mle37"				costs 4}
+	{"57_mm_m1_fr"				requires	"47mm_puteaux_mle37"				costs 4}
 
 
 ; ---Infantry Guns---
@@ -59,38 +59,39 @@
 
 ; ---Artillery---
 	{"105_mm_m2a1l_fr"	requires	"75_mm_m1897a4_fr"		costs 3}
-	{"155_mm_m1918"		requires	"75_mm_m1897a4_fr"		costs 4}
+	{"155_mm_m1918"		requires	"105_mm_m2a1l_fr"		costs 4}
 	{"22cm_mortier"		requires	"155_mm_m1918"		costs 2}
 
 ;---Armored Cars---
 	{"m3a1_scout_fr"	requires 	""				costs 1}
-	{"m20_fr" 		requires 	"m3a1_scout_fr"			costs 1}
+	{"m20_fr" 			requires 	"m3a1_scout_fr"			costs 1}
 	{"m8_grayhound_fr" 	requires 	"m20_fr"			costs 2}
-	{"m17_fr" 		requires 	"m20_fr"			costs 3}
+	{"m17_fr" 			requires 	"m20_fr"			costs 3}
 	{"m4halftrack_fr" 	requires 	"m20_fr"			costs 4}
 	{"laffly_v15t_mg" 	requires 	""			costs 0}
 	{"laffly_s15_toe" 	requires 	"laffly_v15t_mg"			costs 1}
-	{"laffly15tcc" 	requires 	"laffly_s15_toe 47mm_puteaux_mle37"			costs 3}
+	{"laffly15tcc" 		requires 	"laffly_s15_toe 47mm_puteaux_mle37"			costs 3}
 	{"autocanon_75mm" 	requires 	"laffly15tcc 75_mm_m1897a4_fr"			costs 2}
 	
 
 	; ---Light Tanks---
-	{"m5a1_fr"		requires 	""				costs 2}
-	{"m8_fr"		requires 	"m5a1_fr"			costs 2}
-	{"r39"		requires 	"r35"			costs 1}
-	{"h39"		requires 	"r39"			costs 1}
+	{"m5a1_fr"			requires 	"r39"				costs 2}
+	{"m8_fr"			requires 	"m5a1_fr"			costs 2}
+	{"r35"				requires 	""			costs 1}
+	{"r39"				requires 	"r35"			costs 1}
+	{"h39"				requires 	"r39"			costs 1}
 
 
 	; ---Medium Tanks---
-	{"char_d2"		requires 	"h39"			costs 2}
-	{"s35"		requires 	"char_d2"			costs 2}
+	{"char_d2"			requires 	"h39"			costs 2}
+	{"s35"				requires 	"char_d2"			costs 2}
 	{"cavalier_mk_vii"	requires 	"m5a1_fr"			costs 4}
-	{"m4a3_75_fr"		requires 	"s35r"			costs 4}
+	{"m4a3_75_fr"		requires 	"s35"			costs 4}
 	{"m4a3_76_fr"		requires 	"m4a3_75_fr"			costs 4}
 	
 	
 	; ---Heavy Tanks---
-    	{"b1bis"	requires 	"s35"			costs 5}
+    {"b1bis"			requires 	"s35"			costs 3}
 
 
 	; ---Self Propelled Guns---
@@ -148,7 +149,7 @@
 	{"squad_pionier_late(fra)"	3 6}
 	{"squad_marine_late(fra)"	4 6}
 	{"squad_stormtrooper_late(fra)"		5 6}
-
+	{"mechanized_infantry_fra"  6 6}
 
 	;---MG---
 	{"0_3cal_m1919a4_fr"		0 7}
@@ -201,6 +202,7 @@
 	; ---Light Tanks---
 	{"m5a1_fr"			2 12}
 	{"m8_fr"			3 12}
+	{"r35"				1 15}
 	{"r39"				1 14}
 	{"h39"				2 14}
 	

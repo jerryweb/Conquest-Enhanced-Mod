@@ -5,25 +5,7 @@
 		}
 		{tags add "english"}
 		{tags add "morris_cs8"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disablededcar"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"303_bren"
@@ -31,27 +13,6 @@
 	    {tags add "HMG"}
 		{tags add "english"}
 		{tags add "303_bren"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-									        {if not tagged "preplaced_mg"
-									        	{tags add "enemymg"}
-									    	}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"qf40mm"
@@ -59,25 +20,6 @@
 	    {tags add "AAFLAK"}
 		{tags add "english"}
 		{tags add "qf40mm"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-									        {tags add "ai_aa-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"qf3,7inch"
@@ -85,25 +27,6 @@
 	    {tags add "AAFLAK"}
 		{tags add "english"}
 		{tags add "qf3,7inch"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-									        {tags add "ai_aa-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 
@@ -113,25 +36,7 @@
 	    {tags add "light_at_gun"}
 		{tags add "english"}
 		{tags add "qf2pdr"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-									        {tags add "ai_atgun-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"qf6pdr"
@@ -139,25 +44,7 @@
 	    {tags add "medium_at_gun"}
 		{tags add "english"}
 		{tags add "qf6pdr"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-									        {tags add "ai_atgun-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"qf17pdr"
@@ -165,25 +52,7 @@
 	    {tags add "heavy_at_gun"}
 		{tags add "english"}
 		{tags add "qf17pdr"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-									        {tags add "ai_atgun-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 
@@ -194,25 +63,7 @@
     	{tags add "artillery"}
 		{tags add "english"}
 		{tags add "76mm_mk_ii"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "enemyarty-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	
 	}
 }
@@ -221,25 +72,7 @@
     	{tags add "artillery"}
 		{tags add "english"}
 		{tags add "qf25pdr"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "enemyarty-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"bl45"
@@ -247,25 +80,7 @@
     	{tags add "artillery"}
 		{tags add "english"}
 		{tags add "bl45"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "enemyarty-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"bl72"
@@ -273,25 +88,7 @@
     	{tags add "artillery"}
 		{tags add "english"}
 		{tags add "bl72"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "enemyarty-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"land_mattress"
@@ -299,25 +96,7 @@
     		{tags add "rocket_artillery"}
 		{tags add "english"}
 		{tags add "land_mattress"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "enemyarty-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    	}
+
 	}
 }
 ;_________________________________________________
@@ -330,25 +109,7 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "english"}
 		{tags add "matador"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_car-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
     }
 }
 {"matador_art"
@@ -356,25 +117,7 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "english"}
 		{tags add "matador_art"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_car-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
     }
 }
 {"matador_eng"
@@ -382,25 +125,7 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "english"}
 		{tags add "matador_eng"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_car-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
     }
 }
 {"matador_fuel"
@@ -408,25 +133,7 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "english"}
 		{tags add "matador_fuel"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_car-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
     }
 }
 {"dingo"
@@ -434,25 +141,6 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "english"}
 		{tags add "dingo"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disablededcar"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"m3halftrack_eng"
@@ -460,25 +148,6 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "english"}
 		{tags add "m3halftrack_eng"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_car-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"humber"
@@ -486,25 +155,6 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "english"}
 		{tags add "humber"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_car-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"mk2daimler"
@@ -512,25 +162,6 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "english"}
 		{tags add "mk2daimler"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_rocketarty-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"staghound"
@@ -538,25 +169,7 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "english"}
 		{tags add "staghound"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_rocketarty-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 
@@ -570,25 +183,7 @@
     	{tags add "light_tank"}
 		{tags add "english"}
 		{tags add "crusader_aa1"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"crusader_aa2"
@@ -596,25 +191,7 @@
     	{tags add "light_tank"}
 		{tags add "english"}
 		{tags add "crusader_aa2"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"crusader_mk6"
@@ -622,25 +199,7 @@
     	{tags add "light_tank"}
 		{tags add "english"}
 		{tags add "crusader_mk6"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								   {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"crusader_mki"
@@ -648,25 +207,7 @@
     	{tags add "light_tank"}
 		{tags add "english"}
 		{tags add "crusader_mk6"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								   {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"crusader_mki_cs"
@@ -674,25 +215,7 @@
     	{tags add "light_tank"}
 		{tags add "english"}
 		{tags add "crusader_mk6"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								   {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 
@@ -702,25 +225,7 @@
     	{tags add "medium_tank"}
 		{tags add "english"}
 		{tags add "valentine_mkiii"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"matilda_mkii"
@@ -728,25 +233,7 @@
     	{tags add "medium_tank"}
 		{tags add "english"}
 		{tags add "matilda_mkii"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"matilda_mkii_cs"
@@ -754,25 +241,7 @@
     	{tags add "medium_tank"}
 		{tags add "english"}
 		{tags add "matilda_mkii_cs"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"cromwell_mk_iv"
@@ -780,25 +249,7 @@
     	{tags add "medium_tank"}
 		{tags add "english"}
 		{tags add "cromwell_mk_iv"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"m4a4"
@@ -806,25 +257,7 @@
     	{tags add "medium_tank"}
 		{tags add "english"}
 		{tags add "m4a4"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"cromwell_mk_vi"
@@ -832,25 +265,7 @@
     	{tags add "medium_tank"}
 		{tags add "english"}
 		{tags add "cromwell_mk_vi"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"comet_a34"
@@ -858,25 +273,7 @@
     	{tags add "medium_tank"}
 		{tags add "english"}
 		{tags add "comet_a34"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"challenger_a30"
@@ -884,25 +281,7 @@
     	{tags add "medium_tank"}
 		{tags add "english"}
 		{tags add "challenger_a30"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"m4a4_firefly"
@@ -910,25 +289,7 @@
     	{tags add "medium_tank"}
 		{tags add "english"}
 		{tags add "m4a4_firefly"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 
@@ -939,25 +300,7 @@
     	{tags add "heavy_tank"}
 		{tags add "english"}
 		{tags add "churchill3"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"churchill_mk_ii"
@@ -965,25 +308,7 @@
     	{tags add "heavy_tank"}
 		{tags add "english"}
 		{tags add "churchill_mk_ii"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"churchill_avre"
@@ -991,25 +316,7 @@
     	{tags add "heavy_tank"}
 		{tags add "english"}
 		{tags add "churchill_avre"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"churchill_mk_iv"
@@ -1017,25 +324,7 @@
     	{tags add "heavy_tank"}
 		{tags add "english"}
 		{tags add "churchill_mk_iv"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"churchill_mk_vii"
@@ -1043,25 +332,7 @@
     	{tags add "heavy_tank"}
 		{tags add "english"}
 		{tags add "churchill_mk_vii"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"churchill_crocodile"
@@ -1069,25 +340,7 @@
     	{tags add "heavy_tank"}
 		{tags add "english"}
 		{tags add "churchill_crocodile"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"black_prince"
@@ -1095,25 +348,7 @@
     	{tags add "heavy_tank"}
 		{tags add "english"}
 		{tags add "black_prince"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 
@@ -1124,25 +359,7 @@
     	{tags add "spg"}
 		{tags add "english"}
 		{tags add "achilles"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"m4a3_105_eng"
@@ -1150,25 +367,7 @@
     	{tags add "spg"}
 		{tags add "english"}
 		{tags add "m4a3_105_eng"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 {"sexton"
@@ -1176,25 +375,7 @@
     	{tags add "spg"}
 		{tags add "english"}
 		{tags add "sexton"}
-		{delay 10
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
+
 	}
 }
 

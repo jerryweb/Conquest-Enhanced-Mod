@@ -127,7 +127,6 @@
 	{item "bandage_ger"						1 {value 1}}
 	{item "bandage_rus"						1 {value 1}}
 	{item "tent_kit"						1 {value 1}}
-	
 )
 
 (define "items_heavy_ger"
@@ -163,7 +162,7 @@
 	{item "bulletger_50_l60"	"he"		"ammo" 1 {value 5}}
 	{item "bulletger_50_l60"	"heat"		"ammo" 1 {value 10}}
 
-	{item "bulletger_75_l24"	"apche"		"ammo" 1 {value 5}}
+	{item "bulletger_75_l24"	"apcbche"	"ammo" 1 {value 5}}
 	{item "bulletger_75_l24"	"he"		"ammo" 1 {value 5}}
 	{item "bulletger_75_l24"	"heat"		"ammo" 1 {value 10}}
 	{item "bulletger_75_l24"	"heata"		"ammo" 1 {value 10}}
@@ -207,7 +206,7 @@
 	{item "bulletger_210"		"he"		"ammo" 1 {value 50}}
 
 	{item "150mm_nebelwerfer"				"ammo" 1 {value 50}}
-	{item "300mm_nebelwerfer"				"ammo" 1 {value 800}}
+	{item "300mm_nebelwerfer"				"ammo" 1 {value 80}}
 	{item "380mm_rw61"						"ammo" 1 {value 100}}
 )
 
@@ -325,7 +324,6 @@
 (include "ammo_usa.inc")
 (include "ammo_eng.inc")	
 (include "ammo_ita.inc")	
-		
 
 (define "supply_medic"
 	{extender "supply_zone"
@@ -335,6 +333,8 @@
 			("items_medic_pol")
 			("items_medic_jap")
 			("items_medic_usa")
+			("items_medic_eng")
+			("items_medic_ita")
 		}
 		{radius 			5.5}	;// resupply radius in meter
 		{resupplyPeriod 	1}		;// resupply period in seconds
@@ -367,7 +367,7 @@
 			("items_heavy_fra")
 			("items_heavy_pol")
 			("items_heavy_jap")
-			("items_heavy_usa")	
+			("items_heavy_usa")
 			("items_heavy_eng")
 			("items_heavy_ita")
 		}
@@ -429,7 +429,6 @@
 		{Visible 0}
 	}
 )
-
 (define "flag_ammo"
 	{extender "supply_zone"
 		{resupply
@@ -477,7 +476,6 @@
 			("items_heavy_usa")	
 			("items_heavy_eng")
 			("items_heavy_ita")
-
 		}
 		{radius 			15}		;// resupply radius in meter
 		{resupplyPeriod 	10}		;// resupply period in seconds
@@ -574,27 +572,6 @@
 		}
 		{radius 			15}			;// resupply radius in meter
 		{resupplyPeriod 	1}			;// resupply period in seconds
-		{regenerationPeriod 3}			;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
-		{limit 				1500}		;// max number of resupplies (0 = unlimited)
-	}
-	{DecalView supply_zone
-		{Sprite "supply_zone.ebm"
-			{Visibility 0.25}
-		}
-		{Layer grounddynamic}
-		{Visible 0}
-	}
-)
-
-(define "ger_truck_ammo_heavy"
-	{extender "supply_zone"
-		{resupply
-			("items_light_generic")
-			("items_light_ger")
-			("items_heavy_ger")
-		}
-		{radius 			12}			;// resupply radius in meter
-		{resupplyPeriod 	2}			;// resupply period in seconds
 		{regenerationPeriod 2}			;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
 		{limit 				1500}		;// max number of resupplies (0 = unlimited)
 	}
@@ -606,30 +583,6 @@
 		{Visible 0}
 	}
 )
-(define "rus_truck_ammo_heavy"
-	{extender "supply_zone"
-		{resupply
-			("items_light_generic")
-			("items_light_rus")
-			("items_light_eng")
-			("items_light_usa")
-			("items_heavy_rus")
-			("items_heavy_eng")
-		}
-		{radius 			12}			;// resupply radius in meter
-		{resupplyPeriod 	2}			;// resupply period in seconds
-		{regenerationPeriod 2}			;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
-		{limit 				1500}		;// max number of resupplies (0 = unlimited)
-	}
-	{DecalView supply_zone
-		{Sprite "supply_zone.ebm"
-			{Visibility 0.25}
-		}
-		{Layer grounddynamic}
-		{Visible 0}
-	}
-)
-
 
 (define "truck_ammo_heavyger"
 	{extender "supply_zone"
