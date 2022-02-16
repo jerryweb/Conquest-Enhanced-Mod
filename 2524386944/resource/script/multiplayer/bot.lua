@@ -179,6 +179,21 @@ function UpdateUnitToSpawn(purchase)
 end
 
 function OnGameStart()
+	print("player team is ", BotApi.Instance.enemyTeam)
+	print("bot team size is ", BotApi.Instance.teamSize)
+
+	-- print("BotApi.Instance properties:")
+	-- local count = 0
+	-- for i, inst in pairs((BotApi.Instance)) do 
+	-- 	print("stuffs ", inst)
+	-- 	-- count = count + 1
+	-- 	-- print(i, "properties")
+	-- 	-- for j, BotApi[1] in pairs(BotApi[count]) do
+	-- 	-- 	print(j)
+	-- 	-- end
+	-- end
+
+
 	math.randomseed(os.time()*BotApi.Instance.hostId)
 	math.random() math.random() math.random() math.random()
 	print("TESTING MODE ACTIVATED = ", testing)
@@ -192,28 +207,32 @@ function OnGameStart()
 
 	print("Total flags detected:", totalFlags)
 
-	if not testing then
-		if totalFlags >= 4 then
-			if math.random() < 0.5 then -- 50% chance to change when enemy reinforcements spawn 
-				firstWaveOffsetTime = math.random(480,780) 
-				print("changing first wave offset to ", firstWaveOffsetTime)
-			end
-		else 
-			if math.random() < 0.3 then -- 30% chance to change when enemy reinforcements spawn 
-				firstWaveOffsetTime = math.random(480,780) 
-				print("changing first wave offset to ", firstWaveOffsetTime)
-			end
-		end
-	end
+	-- if not testing then
+	-- 	if totalFlags >= 4 then
+	-- 		if math.random() < 0.5 then -- 50% chance to change when enemy reinforcements spawn 
+	-- 			firstWaveOffsetTime = math.random(480,780) 
+	-- 			print("changing first wave offset to ", firstWaveOffsetTime)
+	-- 		end
+	-- 	else 
+	-- 		if math.random() < 0.3 then -- 30% chance to change when enemy reinforcements spawn 
+	-- 			firstWaveOffsetTime = math.random(480,780) 
+	-- 			print("changing first wave offset to ", firstWaveOffsetTime)
+	-- 		end
+	-- 	end
+	-- end
+
+	setFirstWaveOffset(totalFlags)
+	
 	if not testing then
 		if math.random() < 0.5 then -- 50% chance to for typhoon wave mode 
 			setTyphoonWaveMode()
 		end
+			-- 30% chance to toggle ingame typhoon wave mode 
+		if math.random() < 0.3 then
+			activateToggleTyphoonWaveMode()
+		end
 	end
-	-- 30% chance to toggle ingame typhoon wave mode 
-	if math.random() < 0.3 then
-		activateToggleTyphoonWaveMode()
-	end
+
 
 	
 	print("first enemy wave will start at ", gameStartTime + firstWaveOffsetTime)
@@ -268,7 +287,7 @@ function OnGameStart()
 	end
 
 	Context.Purchase = PIter:new(purchases)
-	UpdateUnitToSpawn(Context.Purchase)
+	-- UpdateUnitToSpawn(Context.Purchase)
 	SetSpawnCooldownTimer()
 
 	nextQuantSquadOrderTime = os.clock() + qauntSquadOrderDelay 
@@ -315,11 +334,12 @@ function TrySpawnUnit()
 				heavyArtyCounter = heavyArtyCounter + 1
 				print("incrementing arty counter")
 			end
-
 			currentWaveMaxUnitCount = currentWaveMaxUnitCount - 1
+			
 			KillSpawnWaitTimer()
 			SetSpawnCooldownTimer()
 			UpdateUnitToSpawn(Context.Purchase)
+			
 			return
 		end
 	else
@@ -422,19 +442,19 @@ function CaptureFlag(squad)
 	-- local rnd = 0.1 + choice
 	local rnd = math.random() + choice
 
-	-- Mortars seem to crash the game when sending them to capture a flag. Will need to investigate
 	if flag then
-		if rnd < 0.25 then
+		-- if rnd < 0.25 then
 			print(rnd, "+SeekAndDestroy with squad", squad)
 			BotApi.Commands:SeekAndDestroy(squad)
-		else
-			print(rnd, "+CaptureFlag with squad", squad)
-			BotApi.Commands:CaptureFlag(squad, flag.name)
-		end
+	-- 	else
+	-- 		print(rnd, "+CaptureFlag with squad", squad)
+	-- 		BotApi.Commands:CaptureFlag(squad, flag.name)
+	-- 	end
 	else
 			print(rnd, "!SeekAndDestroy with squad", squad)
 			BotApi.Commands:SeekAndDestroy(squad)
 	end
+	
 end
 
 function SetSquadOrder(order, squad, delay)
@@ -474,14 +494,6 @@ function OnGameSpawn(args)
 		squadDictionary[args.squadId] = os.clock() + squadOrderTime
 		
 	end
-	-- local waypoints = BotApi.Scene.Waypoints
-
-	-- 	if #waypoints == 0 then
-	-- 		SetSquadOrder(CaptureFlag, args.squadId, artyOrderRotationPeriod)
-	-- 	else
-	-- 		GotoNextWaypoint(args.squadId)
-	-- 		print("#waypoints != 0")
-	-- 	end
 end
 
 BotApi.Events:Subscribe(BotApi.Events.GameStart, OnGameStart)

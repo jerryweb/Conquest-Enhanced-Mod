@@ -34,7 +34,3 @@ Purchases["battle_zones"] = Purchases["standard"]
 Purchases["combined_arms"] = Purchases["standard"]
 Purchases["koth"] = Purchases["standard"]
 Purchases["evacuation"] = Purchases["standard"]
-
-
-
-

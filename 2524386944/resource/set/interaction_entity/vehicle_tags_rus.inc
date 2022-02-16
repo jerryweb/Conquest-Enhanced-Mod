@@ -4,27 +4,6 @@
 	    {tags add "HMG"}
 		{tags add "soviet"}
 		{tags add "maxim"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-									        {if not tagged "preplaced_mg"
-									        	{tags add "enemymg"}
-									    	}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"dshk_stan"
@@ -32,27 +11,6 @@
 	    {tags add "HMG"}
 		{tags add "soviet"}
 		{tags add "dshk_stan"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-									        {if not tagged "preplaced_mg"
-									        	{tags add "enemymg"}
-									    	}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"dshk_aa"
@@ -60,27 +18,6 @@
 	    {tags add "HMG"}
 		{tags add "soviet"}
 		{tags add "dshk_aa"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-									    	{if not tagged "preplaced_mg"
-									        	{tags add "enemymg"}
-									    	}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"25mm_72k"
@@ -88,25 +25,6 @@
 	    {tags add "AAFLAK"}
 		{tags add "soviet"}
 		{tags add "25mm_72k"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-									        {tags add "ai_aa-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"37mm_61k"
@@ -114,25 +32,6 @@
 	    {tags add "AAFLAK"}
 		{tags add "soviet"}
 		{tags add "37mm_61k"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-									        {tags add "ai_aa-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 
@@ -143,25 +42,6 @@
 	    {tags add "light_at_gun"}
 		{tags add "soviet"}
 		{tags add "m41_ampulomet"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-									        {tags add "ai_atgun-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"45mm_m37"
@@ -169,25 +49,6 @@
 	    {tags add "light_at_gun"}
 		{tags add "soviet"}
 		{tags add "45mm_m37"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-									        {tags add "ai_atgun-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"45mm_m42"
@@ -195,25 +56,6 @@
 	    {tags add "light_at_gun"}
 		{tags add "soviet"}
 		{tags add "45mm_m42"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-									        {tags add "ai_atgun-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"57mm_zis2"
@@ -221,25 +63,6 @@
 	    {tags add "medium_at_gun"}
 		{tags add "soviet"}
 		{tags add "57mm_zis2"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-									        {tags add "ai_atgun-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"76mm_f22"
@@ -247,25 +70,6 @@
 	    {tags add "medium_at_gun"}
 		{tags add "soviet"}
 		{tags add "76_f22"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-									        {tags add "ai_atgun-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"76mm_zis3"
@@ -273,25 +77,6 @@
 	    {tags add "medium_at_gun"}
 		{tags add "soviet"}
 		{tags add "76mm_zis3"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-									        {tags add "ai_atgun-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"85mm_52k"
@@ -299,25 +84,6 @@
 	    {tags add "heavy_at_gun"}
 		{tags add "soviet"}
 		{tags add "85mm_52k"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-									        {tags add "ai_atgun-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"100mm_bs3"
@@ -325,25 +91,6 @@
 	    {tags add "heavy_at_gun"}
 		{tags add "soviet"}
 		{tags add "100mm_bs3"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-									        {tags add "ai_atgun-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 
@@ -351,57 +98,16 @@
 ;HOWITZERS
 {"76mm_m1927"
 	{on spawn
-    	{tags add "artillery"}
+    	{tags add "medium_at_gun"}
 		{tags add "soviet"}
 		{tags add "76mm_m1927"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "enemyarty-disabled"}
-										    
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
-	
 	}
 }
 {"76mm_m43"
 	{on spawn
-    	{tags add "artillery"}
+    	{tags add "medium_at_gun"}
 		{tags add "soviet"}
 		{tags add "76mm_m43"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "enemyarty-disabled"}
-										    
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"82mm_bm37"
@@ -409,25 +115,6 @@
 		{tags add "artillery"}
 		{tags add "soviet"}
 		{tags add "82mm_bm37"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "enemyarty-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"120mm_pm38"
@@ -435,25 +122,6 @@
 		{tags add "artillery"}
 		{tags add "soviet"}
 		{tags add "120mm_pm38"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "enemyarty-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"122mm_m30"
@@ -461,25 +129,6 @@
     	{tags add "artillery"}
 		{tags add "soviet"}
 		{tags add "122mm_m30"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "enemyarty-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"122mm_a19"
@@ -488,25 +137,6 @@
 	{tags add "heavy_artillery"}
 		{tags add "soviet"}
 		{tags add "122mm_a19"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "enemyarty-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"152mm_ml20"
@@ -515,26 +145,6 @@
 	{tags add "heavy_artillery"}
 		{tags add "soviet"}
 		{tags add "152mm_ml20"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "enemyarty-disabled"}
-										    
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"203mm_b4"
@@ -543,26 +153,6 @@
 	{tags add "heavy_artillery"}
 		{tags add "soviet"}
 		{tags add "203mm_b4"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "enemyarty-disabled"}
-										    
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 
@@ -576,25 +166,6 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "soviet"}
 		{tags add "gaz_aaa"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_car-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
     }
 }
 {"gaz_aaa_supply"
@@ -602,25 +173,6 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "soviet"}
 		{tags add "gaz_aaa_supply"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_car-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
     }
 }
 {"gaz_fuel"
@@ -628,25 +180,6 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "soviet"}
 		{tags add "gaz_fuel"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_car-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
     }
 }
 {"gaz_aaa_72k"
@@ -654,25 +187,6 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "soviet"}
 		{tags add "gas_aaa_72k"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disablededcar"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"zis5"
@@ -680,25 +194,6 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "soviet"}
 		{tags add "zis5"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_car-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"zis5eng"
@@ -706,25 +201,6 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "soviet"}
 		{tags add "zis5eng"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_car-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"bm13_studebaker"
@@ -788,25 +264,6 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "soviet"}
 		{tags add "gaz67b"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disablededcar"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"gaz67"
@@ -816,25 +273,6 @@
 		}
 		{tags add "soviet"}
 		{tags add "gaz67"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disablededcar"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"ba20"
@@ -842,25 +280,6 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "soviet"}
 		{tags add "ba20"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disablededcar"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"ba6"
@@ -868,25 +287,6 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "soviet"}
 		{tags add "ba6"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disablededcar"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"ba64"
@@ -894,25 +294,6 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "soviet"}
 		{tags add "ba64"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disablededcar"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"universal_carrier_rus"
@@ -920,25 +301,6 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "soviet"}
 		{tags add "universal_carrier_rus"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disablededcar"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"mmg_carrier_rus"
@@ -946,25 +308,6 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "soviet"}
 		{tags add "mmg_carrier_rus"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disablededcar"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"m3a1e1_scout_mgun"
@@ -972,25 +315,6 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "soviet"}
 		{tags add "m3a1e1_scout_mgun"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disablededcar"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 ;_________________________________________________
@@ -1003,25 +327,6 @@
     	{tags add "light_tank"}
 		{tags add "soviet"}
 		{tags add "t27"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"t37a"
@@ -1029,25 +334,6 @@
     	{tags add "light_tank"}
 		{tags add "soviet"}
 		{tags add "t37a"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								   {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"t40"
@@ -1055,25 +341,6 @@
     	{tags add "light_tank"}
 		{tags add "soviet"}
 		{tags add "t40"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								   {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"t30"
@@ -1081,25 +348,6 @@
     	{tags add "light_tank"}
 		{tags add "soviet"}
 		{tags add "t30"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"t60"
@@ -1107,25 +355,6 @@
     	{tags add "light_tank"}
 		{tags add "soviet"}
 		{tags add "t60"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"t70"
@@ -1133,50 +362,12 @@
     	{tags add "light_tank"}
 		{tags add "soviet"}
 		{tags add "t70"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"t70m"
 	{on spawn
     	{tags add "light_tank"}
 		{tags add "t70m"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"bt2_da2"
@@ -1184,25 +375,6 @@
     	{tags add "light_tank"}
 		{tags add "soviet"}
 		{tags add "bt2_da2"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"bt2"
@@ -1210,25 +382,6 @@
     	{tags add "light_tank"}
 		{tags add "soviet"}
 		{tags add "bt2"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"bt5"
@@ -1236,25 +389,6 @@
     	{tags add "light_tank"}
 		{tags add "soviet"}
 		{tags add "bt5"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"bt7"
@@ -1262,25 +396,6 @@
     	{tags add "light_tank"}
 		{tags add "soviet"}
 		{tags add "bt7"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"t26_31"
@@ -1288,25 +403,6 @@
     	{tags add "light_tank"}
 		{tags add "soviet"}
 		{tags add "t26_31"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"kht26"
@@ -1314,25 +410,6 @@
     	{tags add "light_tank"}
 		{tags add "soviet"}
 		{tags add "kht26"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"t26_33"
@@ -1340,25 +417,6 @@
     	{tags add "light_tank"}
 		{tags add "soviet"}
 		{tags add "t26_33"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"t26_39"
@@ -1366,25 +424,6 @@
     	{tags add "light_tank"}
 		{tags add "soviet"}
 		{tags add "t26_39"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"valentine2"
@@ -1392,25 +431,6 @@
     	{tags add "light_tank"}
 		{tags add "soviet"}
 		{tags add "valentine2"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"valentine7"
@@ -1418,25 +438,6 @@
     	{tags add "light_tank"}
 		{tags add "soviet"}
 		{tags add "valentine7"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"valentine9"
@@ -1444,25 +445,6 @@
     	{tags add "light_tank"}
 		{tags add "soviet"}
 		{tags add "valentine9"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 
@@ -1472,25 +454,6 @@
     	{tags add "medium_tank"}
 		{tags add "soviet"}
 		{tags add "t28"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"t3476_40"
@@ -1498,25 +461,6 @@
     	{tags add "medium_tank"}
 		{tags add "soviet"}
 		{tags add "t3476_40"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"t3476_41"
@@ -1524,25 +468,6 @@
     	{tags add "medium_tank"}
 		{tags add "soviet"}
 		{tags add "t3476_41"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"t3457_41"
@@ -1550,25 +475,6 @@
     	{tags add "medium_tank"}
 		{tags add "soviet"}
 		{tags add "t3457_41"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"t3476_42"
@@ -1576,25 +482,6 @@
     	{tags add "medium_tank"}
 		{tags add "soviet"}
 		{tags add "t3476_42"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"t3476_43"
@@ -1602,25 +489,6 @@
     	{tags add "medium_tank"}
 		{tags add "soviet"}
 		{tags add "t3476_43"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"t3457_43"
@@ -1628,25 +496,6 @@
     	{tags add "medium_tank"}
 		{tags add "soviet"}
 		{tags add "t3457_43"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"t3476_43_flame"
@@ -1654,25 +503,6 @@
     	{tags add "medium_tank"}
 		{tags add "soviet"}
 		{tags add "t3476_43_flame"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"t3485_44"
@@ -1680,25 +510,6 @@
     	{tags add "medium_tank"}
 		{tags add "soviet"}
 		{tags add "t3485_44"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 
@@ -1708,25 +519,6 @@
     	{tags add "heavy_tank"}
 		{tags add "soviet"}
 		{tags add "churchill3"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"kv1_40"
@@ -1734,25 +526,6 @@
     	{tags add "heavy_tank"}
 		{tags add "soviet"}
 		{tags add "kv1_40"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"kv1_41"
@@ -1760,25 +533,6 @@
     	{tags add "heavy_tank"}
 		{tags add "soviet"}
 		{tags add "kv1_41"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"kv2_40"
@@ -1786,25 +540,6 @@
     	{tags add "heavy_tank"}
 		{tags add "soviet"}
 		{tags add "kv2_40"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"kv1s"
@@ -1812,25 +547,6 @@
     	{tags add "heavy_tank"}
 		{tags add "soviet"}
 		{tags add "kv1s"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"kv85"
@@ -1838,25 +554,6 @@
     	{tags add "heavy_tank"}
 		{tags add "soviet"}
 		{tags add "kv85"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"is1_43"
@@ -1864,25 +561,6 @@
     	{tags add "heavy_tank"}
 		{tags add "soviet"}
 		{tags add "is1_43"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"is2_43"
@@ -1890,25 +568,6 @@
     	{tags add "heavy_tank"}
 		{tags add "soviet"}
 		{tags add "is2_43"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"is2_44"
@@ -1916,25 +575,6 @@
     	{tags add "heavy_tank"}
 		{tags add "soviet"}
 		{tags add "is2_44"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 
@@ -1944,25 +584,6 @@
     	{tags add "spg"}
 		{tags add "soviet"}
 		{tags add "zis30"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"su76"
@@ -1970,25 +591,6 @@
     	{tags add "spg"}
 		{tags add "soviet"}
 		{tags add "su76"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"su85"
@@ -1996,25 +598,6 @@
     	{tags add "spg"}
 		{tags add "soviet"}
 		{tags add "su85"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"su100"
@@ -2022,25 +605,6 @@
     	{tags add "spg"}
 		{tags add "soviet"}
 		{tags add "su100"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"su122"
@@ -2048,25 +612,6 @@
     	{tags add "spg"}
 		{tags add "soviet"}
 		{tags add "su122"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"su152"
@@ -2074,25 +619,6 @@
     	{tags add "spg"}
 		{tags add "soviet"}
 		{tags add "su152"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"isu122s"
@@ -2100,25 +626,6 @@
     	{tags add "spg"}
 		{tags add "soviet"}
 		{tags add "isu122s"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"isu152"
@@ -2126,25 +633,6 @@
     	{tags add "spg"}
 		{tags add "soviet"}
 		{tags add "isu152"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "ai_armor-disabled"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 ;_______________________________________________

@@ -207,7 +207,7 @@
 	{item "bulletger_210"		"he"		"ammo" 1 {value 50}}
 
 	{item "150mm_nebelwerfer"				"ammo" 1 {value 50}}
-	{item "300mm_nebelwerfer"				"ammo" 1 {value 800}}
+	{item "300mm_nebelwerfer"				"ammo" 1 {value 80}}
 	{item "380mm_rw61"						"ammo" 1 {value 100}}
 )
 

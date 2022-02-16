@@ -459,6 +459,17 @@
 	}
 }
 
+{"fx_piece_flame 45"			;// causes flamer thrower fuel to burn up after delay (disables far shooting)
+	{on "delete_time" overload
+		{delay 1.2
+			{call "end"}
+		}
+	}
+	{on "fire_radius" overload
+		{fire radius 0.9 time 1.2 heating 0.75 follow}
+	}
+}
+
 {"fx_piece_flame 60"			;// causes flamer thrower fuel to burn up after delay (disables far shooting)
 	{on "delete_time" overload
 		{delay 1.5
@@ -1309,27 +1320,109 @@
 }
 
 {"smoke_cover_callin"
-    {on spawn
-		{if not tagged "fired"
-			{tags add "fired"}
+    {on spawn 
+		{delay 7
 			(define "rnd_art_bomb"
 				{delay %delay 0.5
-					{spawn "mortar_single_120_dummy2" offset -250 0 1000}
+					{spawn "75mm_ger_l24_sm2" offset -250 0 1000 random_position 1000}
 				}
 			)
+			("rnd_art_bomb" delay(0.5))
+			("rnd_art_bomb" delay(1))
+			("rnd_art_bomb" delay(1.5))
+			("rnd_art_bomb" delay(2))
+			("rnd_art_bomb" delay(2.5))
+			("rnd_art_bomb" delay(3))
+			("rnd_art_bomb" delay(0.6))
+			("rnd_art_bomb" delay(1.1))
+			("rnd_art_bomb" delay(1.6))
+			("rnd_art_bomb" delay(2.1))
+			("rnd_art_bomb" delay(2.6))
+			("rnd_art_bomb" delay(3.1))
+			("rnd_art_bomb" delay(3.2))
+			("rnd_art_bomb" delay(3.3))
+			("rnd_art_bomb" delay(0.7))
+			("rnd_art_bomb" delay(1.2))
+			("rnd_art_bomb" delay(1.7))
+			("rnd_art_bomb" delay(2.2))
+			("rnd_art_bomb" delay(2.7))
+			("rnd_art_bomb" delay(3.4))
+			("rnd_art_bomb" delay(0.8))
+			("rnd_art_bomb" delay(1.3))
+			("rnd_art_bomb" delay(1.8))
+			("rnd_art_bomb" delay(2.3))
+			("rnd_art_bomb" delay(2.8))
+			("rnd_art_bomb" delay(3.8))
+			("rnd_art_bomb" delay(0.9))
+			("rnd_art_bomb" delay(1.9))
+			("rnd_art_bomb" delay(2.9))
+			("rnd_art_bomb" delay(2.4))
+			("rnd_art_bomb" delay(2.1))
+			("rnd_art_bomb" delay(3))
+			("rnd_art_bomb" delay(0.6))
+			("rnd_art_bomb" delay(1))
+			("rnd_art_bomb" delay(1.6))
+			("rnd_art_bomb" delay(2))
+			("rnd_art_bomb" delay(2.6))
+			("rnd_art_bomb" delay(3))
+			("rnd_art_bomb" delay(3.))
+			("rnd_art_bomb" delay(3))
+			
+			{hide 61}
 		}
 	}
 }
 
 {"smoke_cover_callinger"
-    {on spawn
-		{if not tagged "fired"
-			{tags add "fired"}
+    {on spawn 
+		{delay 7
 			(define "rnd_art_bomb"
 				{delay %delay 0.5
-					{spawn "mortar_single_120_dummy2" offset -250 0 1000}
+					{spawn "75mm_ger_l24_sm2" offset -250 0 1000 random_position 1000}
 				}
 			)
+			("rnd_art_bomb" delay(0.5))
+			("rnd_art_bomb" delay(1))
+			("rnd_art_bomb" delay(1.5))
+			("rnd_art_bomb" delay(2))
+			("rnd_art_bomb" delay(2.5))
+			("rnd_art_bomb" delay(3))
+			("rnd_art_bomb" delay(0.6))
+			("rnd_art_bomb" delay(1.1))
+			("rnd_art_bomb" delay(1.6))
+			("rnd_art_bomb" delay(2.1))
+			("rnd_art_bomb" delay(2.6))
+			("rnd_art_bomb" delay(3.1))
+			("rnd_art_bomb" delay(3.2))
+			("rnd_art_bomb" delay(3.3))
+			("rnd_art_bomb" delay(0.7))
+			("rnd_art_bomb" delay(1.2))
+			("rnd_art_bomb" delay(1.7))
+			("rnd_art_bomb" delay(2.2))
+			("rnd_art_bomb" delay(2.7))
+			("rnd_art_bomb" delay(3.4))
+			("rnd_art_bomb" delay(0.8))
+			("rnd_art_bomb" delay(1.3))
+			("rnd_art_bomb" delay(1.8))
+			("rnd_art_bomb" delay(2.3))
+			("rnd_art_bomb" delay(2.8))
+			("rnd_art_bomb" delay(3.8))
+			("rnd_art_bomb" delay(0.9))
+			("rnd_art_bomb" delay(1.9))
+			("rnd_art_bomb" delay(2.9))
+			("rnd_art_bomb" delay(2.4))
+			("rnd_art_bomb" delay(2.1))
+			("rnd_art_bomb" delay(3))
+			("rnd_art_bomb" delay(0.6))
+			("rnd_art_bomb" delay(1))
+			("rnd_art_bomb" delay(1.6))
+			("rnd_art_bomb" delay(2))
+			("rnd_art_bomb" delay(2.6))
+			("rnd_art_bomb" delay(3))
+			("rnd_art_bomb" delay(3.))
+			("rnd_art_bomb" delay(3))
+						
+			{hide 61}
 		}
 	}
 }

@@ -12,28 +12,28 @@
 
 
 {"human"								; // Standard human vision
-	{uncover 25}
+	{uncover 20}
 	{h_fov 100}
 	{v_fov 180}
 	("spotting" args 1.0)
 }
 
 {"human_peripheral"						; // Additional all-round (weaker) situational awareness vision for humans
-	{uncover 15}
+	{uncover 10}
 	{h_fov 240}
 	{v_fov 120}
 	("spotting" args 0.2)
 }
 
 {"human_elite"							; // Soldiers with better vision (elites, officers, snipers)
-	{uncover 25}
+	{uncover 20}
 	{h_fov 120}
 	{v_fov 180}
 	("spotting" args 1.0)
 }
 
 {"human_recon"							; // Soldiers with dedicated best vision (recon soldiers)
-	{uncover 25}
+	{uncover 20}
 	{h_fov 120}
 	{v_fov 180}
 	("spotting" args 1.25)
@@ -54,7 +54,7 @@
 }
 
 {"soldier_focused"						; // Secondary vision when soldier is looking through scope or binoculars
-	{uncover 15}
+	{uncover 10}
 	{h_fov 70}
 	{v_fov 150}
 	;("spotting" args 1)			; // Disabled secondary vision when looking through scopes or binoculars
@@ -78,18 +78,46 @@
 	("spotting" args 1)
 }
 
-{"cannon_mgun"							; // Machine Gun tripods
+{"cannon_range_200"						; // Gunner Vision - Gun range 200m or less (direct fire only)
 	{uncover 25}
-	{h_fov 50}
+	{h_fov 30}
 	{v_fov 170}
-	("spotting" args 1)
+	("spotting2" args 1.5 50)
 }
 
-{"cannon_crew"							; // Cannon peripheral / loader vision
-	{uncover 15}
-	{h_fov 280}
+{"cannon_range_210"						; // Gunner Vision - Gun range 210m (direct fire only)
+	{uncover 25}
+	{h_fov 30}
 	{v_fov 170}
-	("spotting" args 0.6)
+	("spotting2" args 1.5 60)
+}
+
+{"cannon_range_220"						; // Gunner Vision - Gun range 220m (direct fire only)
+	{uncover 25}
+	{h_fov 30}
+	{v_fov 170}
+	("spotting2" args 1.5 70)
+}
+
+{"cannon_range_230"						; // Gunner Vision - Gun range 230m (direct fire only)
+	{uncover 25}
+	{h_fov 30}
+	{v_fov 170}
+	("spotting2" args 1.5 80)
+}
+
+{"cannon_range_240"						; // Gunner Vision - Gun range 240m (direct fire only)
+	{uncover 25}
+	{h_fov 30}
+	{v_fov 170}
+	("spotting2" args 1.5 90)
+}
+
+{"cannon_range_250"						; // Gunner Vision - Gun range 250m (direct fire only)
+	{uncover 25}
+	{h_fov 30}
+	{v_fov 170}
+	("spotting2" args 1.5 100)
 }
 
 ;/*=============== Cannon End ===============*/
@@ -133,6 +161,13 @@
 	{h_fov 60}
 	{v_fov 90}
 	("spotting" args 1.25)
+}
+
+{"tank_main_mg"							; // Gunner vision when main gun is MG
+	{uncover 20}
+	{h_fov 15}
+	{v_fov 30}
+	("spotting" args 1.0)
 }
 
 {"tank_main-l"							; // Light tank gunner vision
@@ -206,6 +241,52 @@
 }
 
 ;/*=============== Tank End ===============*/
+
+;/*=============== New Setup Begin ===============*/
+
+{"tank_range_200"							; // Gunner Vision - Gun range 200m or less (direct fire only)
+	{uncover 20}
+	{h_fov 15}
+	{v_fov 30}
+	("spotting2" args 1.5 50)
+}
+
+{"tank_range_210"							; // Gunner Vision - Gun range 210m (direct fire only)
+	{uncover 20}
+	{h_fov 15}
+	{v_fov 30}
+	("spotting2" args 1.5 60)
+}
+
+{"tank_range_220"							; // Gunner Vision - Gun range 220m (direct fire only)
+	{uncover 20}
+	{h_fov 15}
+	{v_fov 30}
+	("spotting2" args 1.5 70)
+}
+
+{"tank_range_230"							; // Gunner Vision - Gun range 230m (direct fire only)
+	{uncover 20}
+	{h_fov 15}
+	{v_fov 30}
+	("spotting2" args 1.5 80)
+}
+
+{"tank_range_240"							; // Gunner Vision - Gun range 240m (direct fire only)
+	{uncover 20}
+	{h_fov 15}
+	{v_fov 30}
+	("spotting2" args 1.5 90)
+}
+
+{"tank_range_250"							; // Gunner Vision - Gun range 250m (direct fire only)
+	{uncover 20}
+	{h_fov 15}
+	{v_fov 30}
+	("spotting2" args 1.5 100)
+}
+
+;/*=============== New Setup End ===============*/
 
 ;/*=============== Airborne Begin ===============*/
 
