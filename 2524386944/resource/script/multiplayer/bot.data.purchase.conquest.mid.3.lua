@@ -73,8 +73,7 @@ Purchases["campaign_capture_the_flag"] = {
 			},
 			["ita"] = {--Italy
 			--Infantry
-				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_light(ita)"},
-				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_regular(ita)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "mechanized_infantry_ita"},
 			    {priority = 1.0, class = UnitClass.Vehicle, unit = "cv35"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "l640"},
 			}
@@ -91,7 +90,7 @@ Purchases["campaign_capture_the_flag"] = {
 			["ger"] = {--Germany
 			--Tanks_heavy
 				{priority = 1.0, class = UnitClass.HeavyTank, unit = "panzer5d"},
-				{priority = 0.5, class = UnitClass.HeavyTank, unit = "tiger1h"},
+				{priority = 1.0, class = UnitClass.HeavyTank, unit = "tiger1h"},
 			--Tanks_medium
 				{priority = 3.5, class = UnitClass.Tank, unit = "panzer3j"},
 				{priority = 2.5, class = UnitClass.Tank, unit = "panzer3j1"},
@@ -291,11 +290,11 @@ Purchases["campaign_capture_the_flag"] = {
 			["ger"] = {--Germany
 			--SPG
 				{priority = 1.5, class = UnitClass.ATTank, unit = "stug3f"},
-				{priority = 3.0, class = UnitClass.ATTank, unit = "stug3g"},
-							{priority = 4.0, class = UnitClass.ArtilleryTank, unit = "stuh42"},
+				{priority = 2.0, class = UnitClass.ATTank, unit = "stug3g"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "stuh42"},
 			--SPG
-				{priority = 0.1, class = UnitClass.ArtilleryTank, unit = "sturmpanzer4"},
-				{priority = 0.1, class = UnitClass.ArtilleryTank, unit = "bison"},
+				{priority = 0.8, class = UnitClass.ArtilleryTank, unit = "sturmpanzer4"},
+				{priority = 0.8, class = UnitClass.ArtilleryTank, unit = "bison"},
 				{priority = 1.1, class = UnitClass.ArtilleryTank, unit = "sig33b"},
 				{priority = 0.1, class = UnitClass.ArtilleryTank, unit = "sturmtiger"},
 			},
@@ -349,7 +348,7 @@ Purchases["campaign_capture_the_flag"] = {
 			["ger"] = {--Germany
 			--Tanks_heavy
 				{priority = 1.0, class = UnitClass.HeavyTank, unit = "panzer5d"},
-				{priority = 0.5, class = UnitClass.HeavyTank, unit = "tiger1h"},
+				{priority = 1.0, class = UnitClass.HeavyTank, unit = "tiger1h"},
 			--Tanks_medium
 				{priority = 3.5, class = UnitClass.Tank, unit = "panzer3j"},
 				{priority = 2.5, class = UnitClass.Tank, unit = "panzer3j1"},
@@ -493,6 +492,7 @@ Purchases["campaign_capture_the_flag"] = {
 			["ita"] = {--Italy
 			--Infantry
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_regular(ita)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "mechanized_infantry_ita"},
 			}
 		}
 	},

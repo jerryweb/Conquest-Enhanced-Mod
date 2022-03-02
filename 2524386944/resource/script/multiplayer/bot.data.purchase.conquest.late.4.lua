@@ -75,11 +75,11 @@ Purchases["campaign_capture_the_flag"] = {
 		Units = {
 			["ger"] = {--Germany
 			--Tanks_medium
-				{priority = 0.1, class = UnitClass.HeavyTank, unit = "tiger1hunt"},
+				{priority = 0.5, class = UnitClass.HeavyTank, unit = "tiger1hunt"},
 				{priority = 1.0, class = UnitClass.HeavyTank, unit = "tiger2h"},
-				{priority = 2.5, class = UnitClass.HeavyTank, unit = "panzer5a"},
-				{priority = 2.5, class = UnitClass.HeavyTank, unit = "panzer5g"},
-				{priority = 3.0, class = UnitClass.Tank, unit = "panzer4j"},
+				{priority = 1.5, class = UnitClass.HeavyTank, unit = "panzer5a"},
+				{priority = 1.5, class = UnitClass.HeavyTank, unit = "panzer5g"},
+				{priority = 1.8, class = UnitClass.Tank, unit = "panzer4j"},
 			},
 			["rus"] = {--Russia
             --Tanks_medium
@@ -252,9 +252,9 @@ Purchases["campaign_capture_the_flag"] = {
 		Units = {
 			["ger"] = {--Germany
 			--SPG
-			    {priority = 0.1, class = UnitClass.ATTank, unit = "ferdinand"},
+			    {priority = 0.5, class = UnitClass.ATTank, unit = "ferdinand"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "jagdpanther"},
-				{priority = 0.1, class = UnitClass.ArtilleryTank, unit = "sturmtiger"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, unit = "sturmtiger"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "sturmpanzer4"},
 			},
 			["rus"] = {--Russia
@@ -404,11 +404,11 @@ Purchases["campaign_capture_the_flag"] = {
 		Units = {
 			["ger"] = {--Germany
 			--Tanks_medium
-				{priority = 0.1, class = UnitClass.HeavyTank, unit = "tiger1hunt"},
+				{priority = 0.5, class = UnitClass.HeavyTank, unit = "tiger1hunt"},
 				{priority = 1.0, class = UnitClass.HeavyTank, unit = "tiger2h"},
-				{priority = 2.5, class = UnitClass.HeavyTank, unit = "panzer5a"},
-				{priority = 2.5, class = UnitClass.HeavyTank, unit = "panzer5g"},
-				{priority = 3.0, class = UnitClass.Tank, unit = "panzer4j"},
+				{priority = 1.5, class = UnitClass.HeavyTank, unit = "panzer5a"},
+				{priority = 1.5, class = UnitClass.HeavyTank, unit = "panzer5g"},
+				{priority = 1.8, class = UnitClass.Tank, unit = "panzer4j"},
 			},
 			["rus"] = {--Russia
             --Tanks_medium
@@ -707,7 +707,7 @@ Purchases["campaign_capture_the_flag"] = {
 		Units = {
 			["ger"] = {--Germany
 			--Wheel_vehicles
-				{priority = 2.5, class = UnitClass.Vehicle, unit = "sdkfz234_2"},
+				{priority = 1.5, class = UnitClass.Vehicle, unit = "sdkfz234_2"},
 				{priority = 1.5, class = UnitClass.Vehicle, unit = "blitz3_6_flak30"},
 					{priority = 1.0, class = UnitClass.Tank, unit = "panzer2l"},
 					{priority = 1.5, class = UnitClass.Vehicle, unit = "sdkfz221"},

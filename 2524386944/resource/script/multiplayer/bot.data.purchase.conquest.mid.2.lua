@@ -50,6 +50,7 @@ Purchases["campaign_capture_the_flag"] = {
 			},
 			["ita"] = {--Italy
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_pionier(ita)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "mechanized_infantry_ita"},
 			}
 		}
 	},
@@ -654,6 +655,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 2.0, class = UnitClass.Infantry, unit = "squad_stormtrooper(ita)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "single_mg(ita)"},
 				{priority = 1.0, class = UnitClass.Infantry, unit = "single_flamer(ita)"},
+				{priority = 1.0, class = UnitClass.Infantry, unit = "mechanized_infantry_ita"},
 			}
 		}
 	},

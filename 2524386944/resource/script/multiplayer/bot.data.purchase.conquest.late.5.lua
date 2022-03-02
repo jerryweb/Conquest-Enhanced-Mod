@@ -502,7 +502,7 @@ Purchases["campaign_capture_the_flag"] = {
 			["ger"] = {--Germany
 			--SPG
 				{priority = 1.0, class = UnitClass.ATTank, unit = "marder3m"},
-				{priority = 0.1, class = UnitClass.ArtilleryTank, unit = "sig33b"},
+				{priority = 0.3, class = UnitClass.ArtilleryTank, unit = "sig33b"},
 			},
 			["rus"] = {--Russia
 			--SPG

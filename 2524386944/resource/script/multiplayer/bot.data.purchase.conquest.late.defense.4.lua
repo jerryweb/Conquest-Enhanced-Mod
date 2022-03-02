@@ -75,11 +75,11 @@ Purchases["campaign_capture_the_flag"] = {
 		Units = {
 			["ger"] = {--Germany
 			--Tanks_medium
-				{priority = 0.1, class = UnitClass.HeavyTank, unit = "tiger1hunt"},
+				{priority = 0.5, class = UnitClass.HeavyTank, unit = "tiger1hunt"},
 				{priority = 1.0, class = UnitClass.HeavyTank, unit = "tiger2h"},
-				{priority = 2.5, class = UnitClass.HeavyTank, unit = "panzer5a"},
-				{priority = 2.5, class = UnitClass.HeavyTank, unit = "panzer5g"},
-				{priority = 3.0, class = UnitClass.Tank, unit = "panzer4j"},
+				{priority = 1.5, class = UnitClass.HeavyTank, unit = "panzer5a"},
+				{priority = 1.5, class = UnitClass.HeavyTank, unit = "panzer5g"},
+				{priority = 1.9, class = UnitClass.Tank, unit = "panzer4j"},
 			},
 			["rus"] = {--Russia
             --Tanks_medium

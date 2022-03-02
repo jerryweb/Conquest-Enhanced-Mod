@@ -10,30 +10,30 @@ Purchases["campaign_capture_the_flag"] = {
 		Units = {
 			["ger"] = {--Germany
 			--Tanks_heavy
-			    {priority = 2.5, class = UnitClass.HeavyTank, unit = "panzer5a"},
-				{priority = 2.0, class = UnitClass.HeavyTank, unit = "panzer5g"},
-				{priority = 1.5, class = UnitClass.HeavyTank, unit = "tiger1e"},
-				{priority = 0.5, class = UnitClass.HeavyTank, unit = "tiger1h"},
-				{priority = 0.2, class = UnitClass.HeavyTank, unit = "tiger1hunt"},
-				{priority = 0.1, class = UnitClass.HeavyTank, unit = "tiger2h"},
+			    {priority = 1.2, class = UnitClass.HeavyTank, unit = "panzer5a"},
+				{priority = 1.0, class = UnitClass.HeavyTank, unit = "panzer5g"},
+				{priority = 1.2, class = UnitClass.HeavyTank, unit = "tiger1e"},
+				{priority = 1.2, class = UnitClass.HeavyTank, unit = "tiger1h"},
+				{priority = 1.0, class = UnitClass.HeavyTank, unit = "tiger1hunt"},
+				{priority = 1.2, class = UnitClass.HeavyTank, unit = "tiger2h"},
 			--Tanks_medium
-			    {priority = 2.5, class = UnitClass.Tank, unit = "panzer3m"},
-				{priority = 3.5, class = UnitClass.Tank, unit = "panzer4h"},
-				{priority = 3.0, class = UnitClass.Tank, unit = "panzer4j"},
+			    {priority = 1.0, class = UnitClass.Tank, unit = "panzer3m"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "panzer4h"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "panzer4j"},
 			},
 			["rus"] = {--Russia
 			--Tanks_heavy
-				{priority = 0.1, class = UnitClass.HeavyTank, unit = "churchill3"},
-				{priority = 0.1, class = UnitClass.HeavyTank, unit = "kv85"},
+				{priority = 1.1, class = UnitClass.HeavyTank, unit = "churchill3"},
+				{priority = 1.1, class = UnitClass.HeavyTank, unit = "kv85"},
 				{priority = 1.0, class = UnitClass.HeavyTank, unit = "kv1s"},
 				{priority = 1.5, class = UnitClass.HeavyTank, unit = "is1_43"},
 				{priority = 1.0, class = UnitClass.HeavyTank, unit = "is2_43"},
 				{priority = 1.0, class = UnitClass.HeavyTank, unit = "is2_44"},
             --Tanks_medium
-				{priority = 3.5, class = UnitClass.Tank, unit = "t3476_43"},
-				{priority = 0.1, class = UnitClass.Tank, unit = "t3457_43"},
-				{priority = 0.5, class = UnitClass.Tank, unit = "t3476_43_flame"},
-				{priority = 2.5, class = UnitClass.Tank, unit = "t3485_44"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "t3476_43"},
+				{priority = 1.1, class = UnitClass.Tank, unit = "t3457_43"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "t3476_43_flame"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "t3485_44"},
 			},
 			["fra"] = {--France
 			--Tanks_light

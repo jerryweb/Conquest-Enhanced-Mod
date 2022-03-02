@@ -154,6 +154,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 3.0, class = UnitClass.Tank, unit = "panzer4j"},
 			--Tanks_light
 				{priority = 0.6, class = UnitClass.Tank, unit = "panzer2f"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "panzer2l"},
 			--SPG
 			},
 			["rus"] = {--Russia

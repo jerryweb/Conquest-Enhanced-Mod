@@ -8,7 +8,7 @@ local emplacementArtillery = {}
 local IsHeavyArty = false
 local heavyArtyCounter = 0
 local artyOrderRotationPeriod = 60 * 500
-
+local totalFlags = 0
 
 local Context = {
 	Purchase = nil,
@@ -199,7 +199,7 @@ function OnGameStart()
 	print("TESTING MODE ACTIVATED = ", testing)
 	gameStartTime = os.clock()
 	
-	local totalFlags = 0
+ 	totalFlags = 0
 	for i, flag in pairs(BotApi.Scene.Flags) do
 		print("flag name: ", flag.name)
 		totalFlags = totalFlags + 1
@@ -440,16 +440,16 @@ end
 function CaptureFlag(squad)
 	local flag = GetFlagToCapture(BotApi.Scene.Flags, GetFlagPriority)
 	-- local rnd = 0.1 + choice
-	local rnd = math.random() + choice
+	-- local rnd = math.random() + choice
 
 	if flag then
-		-- if rnd < 0.25 then
+		-- if rnd < 0.999 then
 			print(rnd, "+SeekAndDestroy with squad", squad)
 			BotApi.Commands:SeekAndDestroy(squad)
-	-- 	else
-	-- 		print(rnd, "+CaptureFlag with squad", squad)
-	-- 		BotApi.Commands:CaptureFlag(squad, flag.name)
-	-- 	end
+		-- else
+		-- 	print(rnd, "+CaptureFlag with squad", squad)
+		-- 	BotApi.Commands:CaptureFlag(squad, flag.name)
+		-- end
 	else
 			print(rnd, "!SeekAndDestroy with squad", squad)
 			BotApi.Commands:SeekAndDestroy(squad)
@@ -476,23 +476,34 @@ end
 
 function OnGameSpawn(args)
 
-	if heavyArtyCounter > 0 then
-		emplacementArtillery[args.squadId] = args
-		print("added ", args.squadId, " to heavy arty list")
-		IsHeavyArty = false
-		heavyArtyCounter = heavyArtyCounter - 1
+	-- When there's only 1 flag, we want the ai to just attack the player and flag directly to keep the game interesting
+	if totalFlags == 1 then
 		local waypoints = BotApi.Scene.Waypoints
-
 		if #waypoints == 0 then
 			SetSquadOrder(CaptureFlag, args.squadId, artyOrderRotationPeriod)
 		else
 			GotoNextWaypoint(args.squadId)
 			print("#waypoints != 0")
 		end
-	else 
-		local squadOrderTime = math.random(240, 300)
-		squadDictionary[args.squadId] = os.clock() + squadOrderTime
-		
+	else
+		if heavyArtyCounter > 0 then
+			emplacementArtillery[args.squadId] = args
+			print("added ", args.squadId, " to heavy arty list")
+			IsHeavyArty = false
+			heavyArtyCounter = heavyArtyCounter - 1
+			local waypoints = BotApi.Scene.Waypoints
+
+			if #waypoints == 0 then
+				SetSquadOrder(CaptureFlag, args.squadId, artyOrderRotationPeriod)
+			else
+				GotoNextWaypoint(args.squadId)
+				print("#waypoints != 0")
+			end
+		else 
+			local squadOrderTime = math.random(240, 300)
+			squadDictionary[args.squadId] = os.clock() + squadOrderTime
+			
+		end
 	end
 end
 

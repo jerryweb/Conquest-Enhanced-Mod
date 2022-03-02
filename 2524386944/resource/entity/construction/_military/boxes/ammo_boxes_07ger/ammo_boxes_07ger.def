@@ -1,0 +1,28 @@
+{game_entity
+	(include "/properties/construction.inc")
+	{props "inventory_box" "spread_items" "shed" "big" "wood"}
+	{extension "ammo_box_07ger.mdl"}
+
+	{extender "inventory"
+		{box
+			{weight 5000}
+			{size 8 6}
+			{item "s" "mine" 120}
+			{item "tmi_35" "mine" 60}
+		}
+	}
+
+	{volume "body1"
+		{Tags "body" "fire"}
+		{thickness 10}
+		{able {Obstacle 0}}
+		{able {touch}}
+	}
+	{volume "body"
+		{Tags "body" "fire"}
+		{thickness 10}
+		{able {visible 1}}
+		{able {touch}}
+	}
+	{lodclass "decor_medium"}
+}

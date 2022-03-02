@@ -7,9 +7,9 @@
 		{StartMP	0.05 min 222 attackerMultiplier 13.00}
 		{FinishMP	0.05 attackerMultiplier 66.8}
 		{CP
-			{Base "0:0,20:0,480:10,900:10,1100:11,1800:0,2200:12"} ;// seconds : CP
-			{RoundMultiplier "0:0.2 1:0.3 2:0.4 3:0.4 4:0.5 5:0.5 6:0.6 7:0.7 8:0.8 9:0.9 10:1.0 19:1.0"} ;// games played : multiplier
-			{AttackMultiplier 3.0}
+			{Base "0:0,20:0,300:10,900:10,1100:11,1900:0,2200:12"} ;// seconds : CP
+			{RoundMultiplier "0:0.2 1:0.3 2:0.4 3:0.4 4:0.5 5:0.6 6:0.7 7:0.8 8:1.0 9:1.0 10:1.0 19:1.0"} ;// games played : multiplier
+			{AttackMultiplier 4.0}
 		}
 		{DefenseLevel
 			{level_1
@@ -65,7 +65,7 @@
 			}
 			{SP ;// Special Points (airstrikes)
 				{StartVal 0}
-				{WinGain 0}
+				{WinGain "1:3 4:5 6:7 8:6 10:9 12:15 14:21"}
 				{LoseGain 0}
 				{MapRewards
 					{Airfield	35}
@@ -77,16 +77,17 @@
 				{LoseGain "1:200"}
 				{MapRewards
 					{Ammodepot	2500}
-					{Factory	2200}
+					{Factory	1100}
 				}
 			}
 			{RP ;// Research points
 				{StartVal 12}
-				{WinGain 4}
+				{WinGain 5}
 				{LoseGain 1}
 				{MapRewards
 					{Bonus		1}
 					{Research	4}
+					{Factory	1}
 				}
 			}
 			{Budget

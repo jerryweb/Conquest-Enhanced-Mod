@@ -1,15 +1,15 @@
 {Heroic
 	{GlobalMaxCP 1900}
-	{StageCP 130 130 130 130 130 130 130}
+	{StageCP 110 110 110 110 110 110 110}
 	{SpecialCP 1001}					;// airstrikes special tab
 	{EmplacementCP 50}				;// buildable with engineer
 	{Bots
 		{StartMP	0.05 min 3002 attackerMultiplier 14.0}
 		{FinishMP	0.15 attackerMultiplier 55.5}
 		{CP
-			{Base "0:0,50:0,480:10,900:10,1080:11,1300:11,1500:12,1800:0,2100:13"} ;// seconds : CP
-			{RoundMultiplier "0:0.2 1:0.3 2:0.4 3:0.4 4:0.5 5:0.5 6:0.6 7:0.7 8:0.8 9:0.9 10:1.0 19:1.0"} ;// games played : multiplier for CP
-			{AttackMultiplier 5.0}
+			{Base "0:0,50:0,300:10,900:10,1080:11,1300:11,1500:12,1900:0,2100:13"} ;// seconds : CP
+			{RoundMultiplier "0:0.2 1:0.3 2:0.4 3:0.4 4:0.5 5:0.6 6:0.7 7:0.8 8:1.0 9:1.0 10:1.0 19:1.0"} ;// games played : multiplier for CP
+			{AttackMultiplier 4.5}
 		}
 		{DefenseLevel
 			{level_1
@@ -65,7 +65,7 @@
 			}
 			{SP ;// Special Points (airstrikes)
 				{StartVal 0}
-				{WinGain 0}
+				{WinGain "1:2 4:3 6:5 8:6 10:7 12:8 14:10"}
 				{LoseGain 0}
 				{MapRewards
 					{Airfield	35}
@@ -77,20 +77,21 @@
 				{LoseGain "1:200"}
 				{MapRewards
 					{Ammodepot	2500}
-					{Factory	2000}
+					{Factory	1000}
 				}
 			}
 			{RP ;// Research points
 				{StartVal 8}
-				{WinGain 2}
+				{WinGain "1:2 6:3 10:4 15:5"}
 				{LoseGain 1}
 				{MapRewards
 					{Bonus		1}
 					{Research	3}
+					{Factory	1}
 				}
 			}
 			{Budget
-				{Start "0:650 4:650 8:650 12:650 16:650 20:650"} ;// games played : starting CP of each match 
+				{Start "0:555 4:555 8:555 12:555 16:555 20:555"} ;// games played : starting CP of each match 
 				{PointsPerSecond 0} ;// CP income
 				{Limit 1001} ;// Max CP 
 			}

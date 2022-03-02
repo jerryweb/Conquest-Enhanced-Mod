@@ -10,16 +10,6 @@ maxNumOfMidDivisions = 6
 maxNumOfLateDivisions = 7
 firstWaveOffsetTime  = 720
 
--- Wave offset is used to set how much extra time the first wave will last in since the wave is loaded automatically
-gameStartTime = os.clock()
-
-if testing then
-	firstWaveOffsetTime = 50
-end 
-
--- This is used to add the offset ONLY to the first wave
-initialWave = true
-
 -- This variable controls whether units will spawn all at once for 15 seconds, creating a massive wave, every x seconds
 typhoonWaveMode = false
 nextTyphoonWaveTime = 0
@@ -33,6 +23,16 @@ typhoonWaveToggleInterval = 300
 -- Next movment at ingame time at which a chance to toggle typhoon wave mode
 nextTyphoonWaveToggleTime = 0
 
+
+-- Wave offset is used to set how much extra time the first wave will last in since the wave is loaded automatically
+gameStartTime = os.clock()
+
+-- if testing then
+-- 	firstWaveOffsetTime = 50
+-- end 
+
+-- This is used to add the offset ONLY to the first wave
+initialWave = true
 
 defaultSpawnCooldownTime = {}
 
@@ -86,7 +86,7 @@ function selectArmyDivision(totalFlags)
 	print("loading")
 	-- REMOVE THIS LINE (ONLY FOR TESTING)
 	if testing then
-		divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.mid.6]]
+		-- divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.2]]
 	end
 
 
@@ -95,7 +95,7 @@ end
 
 function setFirstWaveOffset( flags )
 	if flags == 1 then
-		firstWaveOffsetTime = 480
+		firstWaveOffsetTime = 300
 	elseif flags == 2 then
 		firstWaveOffsetTime = 700
 	elseif flags == 3 then
@@ -103,14 +103,22 @@ function setFirstWaveOffset( flags )
 	elseif flags == 4 then
 		firstWaveOffsetTime = 1700
 	elseif flags == 5 then
-		firstWaveOffsetTime = 750
+		firstWaveOffsetTime = 760
 	end
 
+	firstWaveOffsetTime = randomizeFirstWaveTimeChance(firstWaveOffsetTime)
 	if testing then
 		firstWaveOffsetTime = 50
 	end 
-
+	print("changing first wave offset to ", firstWaveOffsetTime)
 	return firstWaveOffsetTime
+end
+
+function randomizeFirstWaveTimeChance(offsetTime) 
+	if math.random() < 0.3 then -- 50% chance to change when enemy reinforcements spawn 
+		offsetTime = offsetTime + math.random(-120, 120) 
+	end
+	return offsetTime
 end
 
 function setNextTyphoonWaveTime() 

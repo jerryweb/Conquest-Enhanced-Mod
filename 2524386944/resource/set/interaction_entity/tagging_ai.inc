@@ -164,6 +164,7 @@
 				}
 			}
 		}
+		
 		{tags remove "test"}
 	}
 }

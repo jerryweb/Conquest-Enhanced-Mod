@@ -33,9 +33,28 @@
 		}
 	}
 	
+
+
+	{on "tag_medic_reviving"
+		{tags add "reviving"}
+		{delay 10 
+			{if tagged "reviving"
+				{tags remove "reviving"}
+			}
+		}
+	}
+
 	{on "stop_healing"
 		{if not tagged "carry_off"
 		    {view pause "marker_healing"}
+		}
+		{tags remove "reviving"}
+	}
+
+	{on "medic_get_body"
+		{tags add "picking_up_body"}
+		{delay 15
+			{tags remove "picking_up_body"}
 		}
 	}
 	
@@ -112,11 +131,86 @@
 	
 	{on board out 							;// exiting a vehicle
 		{if linked "sdkfz251c"
-			{if not tagged "player"
-			    {delay 0.01
-				    {tags add "panzergrenadiers"}
-			    }
+			{if not user_control
+				{if not tagged "player"
+				    {delay 0.01
+					    {tags add "panzergrenadiers"}
+					    {tags add "ai_inf"}
+				    }
+				}
 			}
+		else linked "blitz3_6"
+			{if not user_control
+				{if not tagged "player"
+				    {delay 0.01
+					    {tags add "panzergrenadiers"}
+					    {tags add "ai_inf"}
+				    }
+				}
+			}
+		else linked "m3halftrack_fr"
+			{if not user_control
+				{if not tagged "player"
+				    {delay 0.01
+					    {tags add "freeroam"}
+					    {tags add "ai_inf"}
+				    }
+				}
+			}
+		else linked "m3halftrack_eng"
+			{if not user_control
+				{if not tagged "player"
+				    {delay 0.01
+					    {tags add "freeroam"}
+					    {tags add "ai_inf"}
+				    }
+				}
+			}
+		else linked "m3_usa"
+			{if not user_control
+				{if not tagged "player"
+				    {delay 0.01
+					    {tags add "freeroam"}
+					    {tags add "ai_inf"}
+				    }
+				}
+			}
+		else linked "as37"
+			{if not user_control
+				{if not tagged "player"
+				    {delay 0.01
+					    {tags add "freeroam"}
+					    {tags add "ai_inf"}
+				    }
+				}
+			}
+		else linked "type1_ho-ki_mg"
+			{if not user_control
+				{if not tagged "player"
+				    {delay 0.01
+					    {tags add "freeroam"}
+					    {tags add "ai_inf"}
+				    }
+				}
+			}
+		else linked "type1_ho-ki"
+			{if not user_control
+				{if not tagged "player"
+				    {delay 0.01
+					    {tags add "freeroam"}
+					    {tags add "ai_inf"}
+				    }
+				}
+			}	
+		else linked "m3halftrack_pol"
+			{if not user_control
+				{if not tagged "player"
+				    {delay 0.01
+					    {tags add "freeroam"}
+					    {tags add "ai_inf"}
+				    }
+				}
+			}																			
 		else linked "airborne"
 			{delay 0.01
 				{call "eject"}
