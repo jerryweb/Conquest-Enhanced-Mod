@@ -1,4 +1,4 @@
-MaxSquadSize = 22
+MaxSquadSize = 2
 OrderRotationPeriod = 1 * 60 * 1000 -- 2:30 min (ms)
 SpawnCooldownTime = {
 	Min = 1 * 500, -- 10 sec (ms) -- 20s

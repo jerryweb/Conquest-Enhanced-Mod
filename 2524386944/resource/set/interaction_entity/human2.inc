@@ -134,7 +134,7 @@
 			{if not user_control
 				{if not tagged "player"
 				    {delay 0.01
-					    {tags add "panzergrenadiers"}
+					    {tags add "freeroam"}
 					    {tags add "ai_inf"}
 				    }
 				}
@@ -143,7 +143,7 @@
 			{if not user_control
 				{if not tagged "player"
 				    {delay 0.01
-					    {tags add "panzergrenadiers"}
+					    {tags add "freeroam"}
 					    {tags add "ai_inf"}
 				    }
 				}
