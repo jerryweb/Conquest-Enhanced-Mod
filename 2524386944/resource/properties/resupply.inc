@@ -145,6 +145,9 @@
 
 	{item "bulletger_25"		"ap"		"ammo" 3 {value 5}}
 
+	{item "bulletger_28"		"apcr"		"ammo" 1 {value 10}}
+	{item "bulletger_28"		"he"		"ammo" 2 {value 5}}
+
 	{item "bulletger_37"		"aphe"		"ammo" 2 {value 5}}
 	{item "bulletger_37"		"apcr"		"ammo" 1 {value 10}}
 	{item "bulletger_37"		"he"		"ammo" 2 {value 5}}
@@ -163,7 +166,7 @@
 	{item "bulletger_50_l60"	"he"		"ammo" 1 {value 5}}
 	{item "bulletger_50_l60"	"heat"		"ammo" 1 {value 10}}
 
-	{item "bulletger_75_l24"	"apcbche"		"ammo" 1 {value 5}}
+	{item "bulletger_75_l24"	"apcbche"	"ammo" 1 {value 5}}
 	{item "bulletger_75_l24"	"he"		"ammo" 1 {value 5}}
 	{item "bulletger_75_l24"	"heat"		"ammo" 1 {value 10}}
 	{item "bulletger_75_l24"	"heata"		"ammo" 1 {value 10}}
@@ -192,6 +195,7 @@
 
 	{item "bulletger_105"		"aphe"		"ammo" 1 {value 5}}
 	{item "bulletger_105"		"he"		"ammo" 1 {value 5}}
+	{item "bulletger_105_"		"he"		"ammo" 1 {value 5}}
 	{item "bulletger_105"		"heat"		"ammo" 1 {value 10}}
 
 	{item "bulletger_128"		"apcbche"	"ammo" 1 {value 5}}
@@ -206,9 +210,9 @@
 
 	{item "bulletger_210"		"he"		"ammo" 1 {value 50}}
 
-	{item "150mm_nebelwerfer"				"ammo" 1 {value 50}}
-	{item "300mm_nebelwerfer"				"ammo" 1 {value 80}}
-	{item "380mm_rw61"						"ammo" 1 {value 100}}
+	{item "150mm_nebelwerfer"				"ammo" 1 {value 20}}
+	{item "300mm_nebelwerfer"				"ammo" 1 {value 30}}
+	{item "380mm_rw61"						"ammo" 1 {value 50}}
 )
 
 (define "items_heavy_rus"
@@ -269,8 +273,8 @@
 	{item "bulletrus_203"		"he"		"ammo" 1 {value 50}}
 
 	{item "82mm_rs82"						"ammo" 1 {value 15}}
-	{item "132mm_bm13"						"ammo" 1 {value 60}}
-	{item "300mm_bm30"						"ammo" 1 {value 80}}
+	{item "132mm_bm13"						"ammo" 1 {value 20}}
+	{item "300mm_bm30"						"ammo" 1 {value 30}}
 )
 
 (define "items_heavy_eng"
@@ -373,11 +377,14 @@
 			("items_light_rus")
 			("items_light_eng")
 			("items_light_usa")
+			("items_heavy_ger")
+			("items_heavy_rus")
+			("items_heavy_eng")
 		}
 		{radius 			15}		;// resupply radius in meter
 		{resupplyPeriod 	5}		;// resupply period in seconds
 		{regenerationPeriod 5}		;// regeneration period in seconds, +1 supply every x seconds (0 = no regeneration)
-		{limit 				250}	;// max number of resupplies (0 = unlimited)
+		{limit 				500}	;// max number of resupplies (0 = unlimited)
 	}
 	{DecalView supply_zone
 		{Sprite "supply_zone.ebm"

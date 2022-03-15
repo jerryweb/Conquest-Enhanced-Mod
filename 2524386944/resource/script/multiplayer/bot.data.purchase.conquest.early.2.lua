@@ -253,9 +253,10 @@ Purchases["campaign_capture_the_flag"] = {
 		Units = {
 			["ger"] = {--Germany
 			--SPG
-				{priority = 1.5, class = UnitClass.ATTank, unit = "37mm_pak36"},
-				{priority = 0.5, class = UnitClass.ATTank, unit = "47mm_pakt"},
-				{priority = 1.5, class = UnitClass.ArtilleryTank, unit = "75mm_leig18"},
+				{priority = 0.8, class = UnitClass.ATTank, unit = "28mm_pzb41"},
+				{priority = 1.0, class = UnitClass.ATTank, unit = "37mm_pak36"},
+				{priority = 0.8, class = UnitClass.ATTank, unit = "47mm_pakt"},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "75mm_leig18"},
 			},
 			["rus"] = {--Russia
 			--SPG
@@ -517,6 +518,7 @@ Purchases["campaign_capture_the_flag"] = {
 		    --Tanks_medium
 				{priority = 0.5, class = UnitClass.Tank, unit = "t28"},
 				{priority = 1.5, class = UnitClass.Tank, unit = "bt5"},
+				{priority = 0.7, class = UnitClass.Tank, unit = "bt7a"},
 			--Tanks_light
 			   	{priority = 2.0, class = UnitClass.Tank, unit = "t26_33"},
 				{priority = 2.0, class = UnitClass.Tank, unit = "t26_39"},

@@ -513,15 +513,16 @@ Purchases["campaign_capture_the_flag"] = {
 			},
 			["rus"] = {--Russia
 			--Tanks_heavy
-				{priority = 0.1, class = UnitClass.HeavyTank, unit = "kv1_40"},
+				{priority = 0.3, class = UnitClass.HeavyTank, unit = "kv1_40"},
 		    --Tanks_medium
 				{priority = 0.5, class = UnitClass.Tank, unit = "t28"},
-				{priority = 1.5, class = UnitClass.Tank, unit = "bt5"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "bt5"},
+				{priority = 0.5, class = UnitClass.Tank, unit = "bt7a"},
 			--Tanks_light
 			   	{priority = 2.0, class = UnitClass.Tank, unit = "t26_33"},
 				{priority = 2.0, class = UnitClass.Tank, unit = "t26_39"},
-					{priority = 0.5, class = UnitClass.Tank, unit = "t3476_40"},
-				{priority = 0.5, class = UnitClass.Tank, unit = "t3476_41"},
+					{priority = 1.0, class = UnitClass.Tank, unit = "t3476_40"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "t3476_41"},
 		    },
 			["fra"] = {--France
 			--Tanks_light

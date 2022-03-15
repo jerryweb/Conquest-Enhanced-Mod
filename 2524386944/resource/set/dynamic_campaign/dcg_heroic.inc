@@ -7,7 +7,7 @@
 		{StartMP	0.05 min 3002 attackerMultiplier 14.0}
 		{FinishMP	0.15 attackerMultiplier 55.5}
 		{CP
-			{Base "0:0,50:0,300:10,900:10,1080:11,1300:11,1500:12,1900:0,2100:13"} ;// seconds : CP
+			{Base "0:0,60:0,300:10,900:10,1080:11,1300:11,1500:12,1900:13,2100:13"} ;// seconds : CP
 			{RoundMultiplier "0:0.2 1:0.3 2:0.4 3:0.4 4:0.5 5:0.6 6:0.7 7:0.8 8:1.0 9:1.0 10:1.0 19:1.0"} ;// games played : multiplier for CP
 			{AttackMultiplier 4.5}
 		}
@@ -31,7 +31,7 @@
 	}
 	{PaybackFactor 0.2}		;// MP paid back when loosing solider, squad or vehicle
 	{SellFactor 0.7}
-	{ScavengedVehicleSellFactor 0.5}		;// captured enemy vehicle 
+	{ScavengedVehicleSellFactor 1.0}		;// captured enemy vehicle 
 	{RiskFactor
 		{Low
 			{BotResources 8.0}

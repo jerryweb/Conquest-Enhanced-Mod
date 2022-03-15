@@ -274,12 +274,11 @@ Purchases["campaign_capture_the_flag"] = {
 		Units = {
 			["ger"] = {--Germany
 			--SPG
-				{priority = 1.6, class = UnitClass.ATTank, unit = "stug3g_late"},
-				{priority = 1.6, class = UnitClass.ATTank, unit = "stug3g"},
+				{priority = 1.1, class = UnitClass.ATTank, unit = "stug3g_late"},
 				{priority = 1.1, class = UnitClass.Tank, unit = "grille_m"},
-				{priority = 1.2, class = UnitClass.ArtilleryTank, unit = "stuh42"},
+				{priority = 1.1, class = UnitClass.ArtilleryTank, unit = "stuh42"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "sturmpanzer4"},
-				{priority = 1.1, class = UnitClass.ArtilleryTank, unit = "sturmtiger"},
+				{priority = 0.8, class = UnitClass.ArtilleryTank, unit = "sturmtiger"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "jagdpanther"}
 			},
 			["rus"] = {--Russia

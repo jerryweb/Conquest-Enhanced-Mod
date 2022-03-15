@@ -209,26 +209,6 @@
 		{tags add "rocket_artillery"}
 		{tags add "soviet"}
 		{tags add "bm13_studebaker"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "enemy_rocketarty"}
-										    {tags add "enemyarty"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"bm31_12"
@@ -237,26 +217,6 @@
 		{tags add "rocket_artillery"}
 		{tags add "soviet"}
 		{tags add "bm31_12"}
-		{delay 6
-		    {if not tagged "player_car"
-			    {if not tagged "cmp_def"
-			        {if not tagged "ger"
-				        {if not tagged "rus"
-					        {if not tagged "player_armor"
-							    {if not tagged "player_veh"
-								    {if not tagged "player"
-									    {if not tagged "hidden"
-										    {tags add "enemy_rocketarty"}
-										    {tags add "enemyarty"}
-										}
-									}
-								}
-						    }
-					    }
-				    }
-			    }
-		   }
-	    }
 	}
 }
 {"gaz67b"
@@ -396,6 +356,13 @@
     	{tags add "light_tank"}
 		{tags add "soviet"}
 		{tags add "bt7"}
+	}
+}
+{"bt7a"
+	{on spawn
+    	{tags add "spg"}
+		{tags add "soviet"}
+		{tags add "bt7a"}
 	}
 }
 {"t26_31"

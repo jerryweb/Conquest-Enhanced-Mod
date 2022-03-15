@@ -223,14 +223,12 @@ function OnGameStart()
 
 	setFirstWaveOffset(totalFlags)
 	
-	if not testing then
-		if math.random() < 0.5 then -- 50% chance to for typhoon wave mode 
-			setTyphoonWaveMode()
-		end
-			-- 30% chance to toggle ingame typhoon wave mode 
-		if math.random() < 0.3 then
-			activateToggleTyphoonWaveMode()
-		end
+	if math.random() < chanceToSetTyphoonWaveMode then -- 50% chance to for typhoon wave mode 
+		setTyphoonWaveMode()
+	end
+		-- 30% chance to toggle ingame typhoon wave mode 
+	if math.random() < chanceToSetTyphoonWaveModeToggle then
+		activateToggleTyphoonWaveMode()
 	end
 
 
@@ -278,9 +276,9 @@ function OnGameStart()
 	    SpawnCooldownTime.Max = SpawnCooldownTime.Max * spawnMultiplier
 	    defaultSpawnCooldownTime = SpawnCooldownTime
 
-	    if typhoonWaveMode then
-	    	 setTyphoonWaveMode()
-	    end
+	    -- if typhoonWaveMode then
+	    -- 	 setTyphoonWaveMode()
+	    -- end
 	    
 	    print("Spawn multipliers (min, max):", SpawnCooldownTime.Min, SpawnCooldownTime.Max)
 	    purchases = divisionPurchases
@@ -369,7 +367,7 @@ end
 function OnGameQuant()
 	if typhoonWaveModeInGameToggle then
 		if os.clock() > nextTyphoonWaveToggleTime then
-			if math.random() < 0.5 then 
+			if math.random() < chanceToggleTyphoonWaveMode then 
 				print("Flipping typhoon wave mode")
 				if typhoonWaveMode then
 					disableTyphoonWaveMode()
@@ -439,17 +437,16 @@ end
 
 function CaptureFlag(squad)
 	local flag = GetFlagToCapture(BotApi.Scene.Flags, GetFlagPriority)
-	-- local rnd = 0.1 + choice
-	-- local rnd = math.random() + choice
+	local rnd = math.random() + choice
 
 	if flag then
-		-- if rnd < 0.999 then
+		if rnd < 0.9 then
 			print(rnd, "+SeekAndDestroy with squad", squad)
 			BotApi.Commands:SeekAndDestroy(squad)
-		-- else
-		-- 	print(rnd, "+CaptureFlag with squad", squad)
-		-- 	BotApi.Commands:CaptureFlag(squad, flag.name)
-		-- end
+		else
+			print(rnd, "+CaptureFlag with squad", squad)
+			BotApi.Commands:CaptureFlag(squad, flag.name)
+		end
 	else
 			print(rnd, "!SeekAndDestroy with squad", squad)
 			BotApi.Commands:SeekAndDestroy(squad)

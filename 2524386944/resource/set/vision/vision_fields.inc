@@ -160,7 +160,14 @@
 	{uncover 25}
 	{h_fov 60}
 	{v_fov 90}
-	("spotting" args 1.25)
+	("spotting" args 1.5)
+}
+
+{"recon_open"							; // Open Top Recon gunner vision
+	{uncover 25}
+	{h_fov 90}
+	{v_fov 170}
+	("spotting" args 2.0)
 }
 
 {"tank_main_mg"							; // Gunner vision when main gun is MG
@@ -255,35 +262,35 @@
 	{uncover 20}
 	{h_fov 15}
 	{v_fov 30}
-	("spotting2" args 1.5 60)
+	("spotting2" args 1.5 50)
 }
 
 {"tank_range_220"							; // Gunner Vision - Gun range 220m (direct fire only)
 	{uncover 20}
 	{h_fov 15}
 	{v_fov 30}
-	("spotting2" args 1.5 70)
+	("spotting2" args 1.5 60)
 }
 
 {"tank_range_230"							; // Gunner Vision - Gun range 230m (direct fire only)
 	{uncover 20}
 	{h_fov 15}
 	{v_fov 30}
-	("spotting2" args 1.5 80)
+	("spotting2" args 1.5 60)
 }
 
 {"tank_range_240"							; // Gunner Vision - Gun range 240m (direct fire only)
 	{uncover 20}
 	{h_fov 15}
 	{v_fov 30}
-	("spotting2" args 1.5 90)
+	("spotting2" args 1.5 70)
 }
 
 {"tank_range_250"							; // Gunner Vision - Gun range 250m (direct fire only)
 	{uncover 20}
 	{h_fov 15}
 	{v_fov 30}
-	("spotting2" args 1.5 100)
+	("spotting2" args 1.5 70)
 }
 
 ;/*=============== New Setup End ===============*/

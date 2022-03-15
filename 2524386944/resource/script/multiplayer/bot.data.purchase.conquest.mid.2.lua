@@ -138,11 +138,12 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.HeavyTank, unit = "kv2_40"},
 				{priority = 2.0, class = UnitClass.HeavyTank, unit = "kv1_41"},
 	        --Tanks_medium
+	        	{priority = 1.0, class = UnitClass.Tank, unit = "bt7a"},
 				{priority = 2.0, class = UnitClass.Tank, unit = "t3476_40"},
 				{priority = 2.5, class = UnitClass.Tank, unit = "t3476_41"},
 				{priority = 0.1, class = UnitClass.Tank, unit = "t3457_41"},
-				{priority = 3.5, class = UnitClass.Tank, unit = "t3476_42"},
-				{priority = 3.5, class = UnitClass.Tank, unit = "t3476_43"},
+				{priority = 2.5, class = UnitClass.Tank, unit = "t3476_42"},
+				{priority = 2.5, class = UnitClass.Tank, unit = "t3476_43"},
 			--Tanks_light
 				{priority = 1.0, class = UnitClass.Tank, unit = "t30"},
 				{priority = 0.5, class = UnitClass.Tank, unit = "t40"},
@@ -493,11 +494,12 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.0, class = UnitClass.HeavyTank, unit = "kv2_40"},
 				{priority = 2.0, class = UnitClass.HeavyTank, unit = "kv1_41"},
 	        --Tanks_medium
+	        	{priority = 1.0, class = UnitClass.Tank, unit = "bt7a"},
 				{priority = 2.0, class = UnitClass.Tank, unit = "t3476_40"},
 				{priority = 2.5, class = UnitClass.Tank, unit = "t3476_41"},
-				{priority = 0.1, class = UnitClass.Tank, unit = "t3457_41"},
-				{priority = 3.5, class = UnitClass.Tank, unit = "t3476_42"},
-				{priority = 3.5, class = UnitClass.Tank, unit = "t3476_43"},
+				{priority = 1.1, class = UnitClass.Tank, unit = "t3457_41"},
+				{priority = 2.5, class = UnitClass.Tank, unit = "t3476_42"},
+				{priority = 2.5, class = UnitClass.Tank, unit = "t3476_43"},
 			--Tanks_light
 				{priority = 1.0, class = UnitClass.Tank, unit = "t30"},
 				{priority = 0.5, class = UnitClass.Tank, unit = "t40"},

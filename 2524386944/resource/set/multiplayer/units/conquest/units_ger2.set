@@ -59,6 +59,10 @@
 }
 
 ; AT WEAPONRY
+{"heavy_mg_28mm_pzb41"
+	("emplacement" side(ger) period(mid) min_stage(1) max_stage(6) cw(0) cp(0) cd(5) crew(artilleryman:3) condition(barricade) action(28mm_pzb41))
+	{cost 140}{not_for_player_sale 1}
+}
 {"heavy_mg_37mm_pak36"
 	("emplacement" side(ger) period(mid) min_stage(3) max_stage(99) cw(0) cp(0) cd(5) crew(artilleryman:4) condition(barricade) action(37mm_pak36))
 	{cost 180}{not_for_player_sale 1}
@@ -99,7 +103,7 @@
 
 {"conquest_bf110"
 	("squad_vehicle2" side(ger) period(mid) min_stage(1) max_stage(99) cw(0) cp(0) crew1(pilot:1) crew2(pilot:1) vehicle(bf110_e2))
-	{cost 1} 
+	{cost 5} 
 	{action "airstrike:sc_250"} 
 }
 {"light_mortar_barrageger"
@@ -117,7 +121,11 @@
     {cost 1} 
     {action "airstrike:smoke_cover_callin"}
 }
-
+{"recon_run"
+	("squad_vehicle2" side(ger) period(mid) min_stage(1) max_stage(99) cw(0) cp(0) crew1(pilot:1) crew2(pilot:0) vehicle(bf109_f4))
+	{cost 2}
+	{action "airstrike:pistol_ammo"}
+}
 {"rocket_arty_callinger"
     ("squad_vehicle" side(ger) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(pilot:0) vehicle(sg43_stand))
     {cost 14} 

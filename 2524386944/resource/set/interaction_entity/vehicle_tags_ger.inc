@@ -33,6 +33,14 @@
 }
 
 ; AT WEAPONRY
+{"28mm_pzb41"
+	{on spawn
+	    {tags add "light_at_gun"}
+		{tags add "german"}
+		{tags add "28mm_pzb41"}
+
+	}
+}
 {"37mm_pak36"
 	{on spawn
 	    {tags add "light_at_gun"}
@@ -179,6 +187,21 @@
 		{tags add "kubelwagen_mg"}
 	}
 }
+{"kubelwagen_dak"
+	{on spawn
+    	{tags add "wheeled_vehicle"}
+		{tags add "german"}
+		{tags add "kubelwagen_dak"}
+	}
+}
+{"kettenkrad_eng"
+	{on spawn
+    	{tags add "wheeled_vehicle"}
+		{tags add "german"}
+		{tags add "kettenkrad_eng"}
+	}
+}
+
 {"blitz3_6"
 	{on spawn
     	{tags add "wheeled_vehicle"}
@@ -207,6 +230,20 @@
     	{tags add "wheeled_vehicle"}
 		{tags add "german"}
 		{tags add "sdkfz251c"}
+	}
+}
+{"sdkfz250a_3"
+	{on spawn
+    	{tags add "wheeled_vehicle"}
+		{tags add "german"}
+		{tags add "sdkfz250a_3"}
+	}
+}
+{"sdkfz250a_11"
+	{on spawn
+    	{tags add "wheeled_vehicle"}
+		{tags add "german"}
+		{tags add "sdkfz250a_11"}
 	}
 }
 {"sdkfz221"
@@ -450,21 +487,21 @@
 }
 {"panzer5d"
 	{on spawn
-    	{tags add "medium_tank"}
+    	{tags add "heavy_tank"}
 		{tags add "german"}
 		{tags add "panzer5d"}
 	}
 }
 {"panzer5a"
 	{on spawn
-    	{tags add "medium_tank"}
+    	{tags add "heavy_tank"}
 		{tags add "german"}
 		{tags add "panzer5a"}
 	}
 }
 {"panzer5g"
 	{on spawn
-    	{tags add "medium_tank"}
+    	{tags add "heavy_tank"}
 		{tags add "german"}
 		{tags add "panzer5g"}
 	}

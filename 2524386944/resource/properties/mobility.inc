@@ -25,22 +25,42 @@
 		{Fast (* %speed 0.9)}																							;// Sprint speed. Double click movement order
 		{MaxSpeed %speed}																						;// Max speed.
 		{maxSpeedAtMaxTurn (* %speed (* (/ %track 30) (/ %power (* %weight 5))))}								;// Direct Control, Max speed the vehicle is limited to when executing a tight turn.
-
-	;	{TurnTime (/ 360 (+ (/ %power %weight) (/ (* %speed %track) 10)))};/									;// Direct Control, Time it takes to do a full 360 degree at max turn speed, mathematical approximation
-		{TurnTime (/ 360 %traverse)};/								                                          	;// Direct Control, Time it takes to do a full 360 degree at max turn speed, fetching custom define
-		
+		{TurnTime (/ 360 %traverse)};/																			;// Direct Control, Time it takes to do a full 360 degree at max turn speed, fetching custom define
 		{TurnStart (+ 0.75 (* (/ %weight 6) 0.04))};/															;// Direct Control, Time for vehicle to from 0°/s rotation speed to max rotation speed.
 		{TurnStop (+ 0.75 (* (/ %weight 6) 0.04))};/															;// Direct Control, Time for vehicle to from max rotation speed to 0°/s rotation speed to max rotation speed.
-
-
-		{TurnRadius (+ 8 (+ (/ %weight 30) (/ (* 1000 %weight) (* %traverse %power))))}		                    ;// AI turning radius, lower = able to turn more without stopping.
-
-
+		{TurnRadius (+ 8 (+ (/ %weight 30) (/ (* 1000 %weight) (* %traverse %power))))}							;// AI turning radius, lower = able to turn more without stopping.
 		{StartTime (* 5 (/ %speed (/ %power %weight)))}															;// Time for vehicle to accelerate from 0kph to max speed.		
 		{StopTime (+ 1.50 (* %weight 0.04))}																	;// Time to come to a complete stop from max speed with out applying brakes. "Coasting".
 		{BrakeTime (+ 0.80 (* %weight 0.04))}																	;// Time to come to a complete stop from max speed with brakes applied.
+		{Gears 0.5 0.65 0.8 0.9 1.0}																			;// Forward gear ratios
+		{RearGears 0.05 (/ %reverse %speed)};/																	;// Reverse max speed.
+		{GearSwitchDelay 0.5}																					;// Time to switch between forward and reverse.
+		{MaxSlope 	75}																							;// Maximum slope to drive up hill
+		{FallSlope 	75}																							;// Maximum slope before physics kick in
+	}
+	{FuelBag
+		{volume %fuel}						;// Fuel capacity in Litres.
+		{rate (* 10 (/ %fuel %range))};/	;// Fuel cunsumption rate. Based on off-road range of vehicle.
+		{remain %fuel}						;// Amount of fuel in vehicle when spawned.
+		{fuel "%type"}						;// Fuel type.
+	}
+)
 
-		{Gears 0.5 0.65 0.8 0.9 1.0}																				;// Forward gear ratios
+(define "mobility_goliath"
+	{Locomotion
+		{Slow 10}																								;// Slow speed. Mainly used in mission scripting
+		{Normal (* %speed 0.5)} 																				;// Standard speed. Single click movement order
+		{Fast %speed}																							;// Sprint speed. Double click movement order
+		{MaxSpeed %speed}																						;// Max speed.
+		{maxSpeedAtMaxTurn (* %speed (* (/ %track 30) (/ %power (* %weight 5))))}								;// Direct Control, Max speed the vehicle is limited to when executing a tight turn.
+		{TurnTime (/ 360 %traverse)};/																			;// Direct Control, Time it takes to do a full 360 degree at max turn speed, fetching custom define
+		{TurnStart (+ 0.35 (* (/ %weight 6) 0.04))};/															;// Direct Control, Time for vehicle to from 0°/s rotation speed to max rotation speed.
+		{TurnStop (+ 0.3 (* (/ %weight 6) 0.04))};/															;// Direct Control, Time for vehicle to from max rotation speed to 0°/s rotation speed to max rotation speed.
+		{TurnRadius (+ 8 (+ (/ %weight 30) (/ (* 1000 %weight) (* %traverse %power))))}							;// AI turning radius, lower = able to turn more without stopping.
+		{StartTime (* 4 (/ %speed (/ %power %weight)))}															;// Time for vehicle to accelerate from 0kph to max speed.		
+		{StopTime (+ 0.60 (* %weight 0.04))}																	;// Time to come to a complete stop from max speed with out applying brakes. "Coasting".
+		{BrakeTime (+ 0.30 (* %weight 0.04))}																	;// Time to come to a complete stop from max speed with brakes applied.
+		{Gears 0.5 0.65 0.8 0.9 1.0}																			;// Forward gear ratios
 		{RearGears 0.05 (/ %reverse %speed)};/																	;// Reverse max speed.
 		{GearSwitchDelay 0.5}																					;// Time to switch between forward and reverse.
 		{MaxSlope 	75}																							;// Maximum slope to drive up hill
@@ -138,6 +158,7 @@
 		{Fast	 (* 1.0 (/ (* %speed %power) (* %weight %aerodynamics)))};/	;// Sprint speed. Double click movement order
 		{Maxspeed(* 1.0	(/ (* %speed %power) (* %weight %aerodynamics)))};/	;// max speed while in flight mode in kph
 		{turnRadius		(* 0.3 %turn)} 										;// radius to do a 360° turn in meters
+
 	}
 
 	{FuelBag

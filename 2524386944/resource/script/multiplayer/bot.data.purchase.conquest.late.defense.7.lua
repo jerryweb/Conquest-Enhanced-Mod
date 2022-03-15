@@ -425,6 +425,7 @@ Purchases["campaign_capture_the_flag"] = {
 		Units = {
 			["ger"] = {--Germany
 			--Tanks_medium
+				{priority = 1.5, class = UnitClass.HeavyTank, unit = "tiger1e"},
 				{priority = 2.5, class = UnitClass.Tank, unit = "panzer3m"},
 				{priority = 1.5, class = UnitClass.Tank, unit = "panzer4h"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "panzer4j"},

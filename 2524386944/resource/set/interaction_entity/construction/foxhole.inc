@@ -27,8 +27,20 @@
 				{if rand 0.4
 					{if not "stage1"
 						{call_synced "stage1"}
+					else 
+						{call_synced "stage2"}
 					}
-				else rand 0.4
+				else rand 0.25
+					{call_synced "stage2"}
+				}
+			else min_energy 0.4
+				{if rand 0.20
+					{if not "stage1"
+						{call_synced "stage1"}
+					else 
+						{call_synced "stage2"}
+					}
+				else rand 0.1
 					{call_synced "stage2"}
 				}
 			}

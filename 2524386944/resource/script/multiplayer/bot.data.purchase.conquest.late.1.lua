@@ -192,6 +192,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 1.3, class = UnitClass.HeavyTank, unit = "is2_43"},
 				{priority = 0.9, class = UnitClass.HeavyTank, unit = "is2_44"},
             --Tanks_medium
+            	{priority = 0.5, class = UnitClass.Tank, unit = "bt7a"},
 				{priority = 1.5, class = UnitClass.Tank, unit = "t3476_42"},
 				{priority = 1.5, class = UnitClass.Tank, unit = "t3476_43"},
 				{priority = 1.1, class = UnitClass.Tank, unit = "t3457_43"},

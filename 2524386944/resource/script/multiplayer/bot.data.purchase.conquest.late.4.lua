@@ -584,7 +584,7 @@ Purchases["campaign_capture_the_flag"] = {
 		isHeavyArty = true,	
 		Units = {
 			["ger"] = {--Germany
-		        {priority = 1.0, class = UnitClass.ArtilleryTank, unit = "300mm_nebelwerfer42"},
+		        {priority = 3.0, class = UnitClass.ArtilleryTank, unit = "300mm_nebelwerfer42"},
 				{priority = 1.0, class = UnitClass.ATTank, unit = "210mm_morser18"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "150mm_sfh18"},
 			},
@@ -633,8 +633,8 @@ Purchases["campaign_capture_the_flag"] = {
 	{--purchase 8 paratrooper wave
 		waveNumber = 8,
 		-- Repeat = 6,
-		minRepeat = 8,
-		maxRepeat = 12,
+		minRepeat = 4,
+		maxRepeat = 8,
 		skipPossible = true,
 		waveDuration = 20,
 		Units = {

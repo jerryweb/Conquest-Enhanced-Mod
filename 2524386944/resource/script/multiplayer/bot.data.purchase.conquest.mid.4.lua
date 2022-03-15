@@ -376,6 +376,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 0.5, class = UnitClass.HeavyTank, unit = "kv2_40"},
 				{priority = 1.4, class = UnitClass.HeavyTank, unit = "kv1s"},
 				{priority = 0.5, class = UnitClass.HeavyTank, unit = "is1_43"},
+				{priority = 1.1, class = UnitClass.Tank, unit = "t3457_41"},
 			       --Tanks_medium
 			},
 			["fra"] = {--France

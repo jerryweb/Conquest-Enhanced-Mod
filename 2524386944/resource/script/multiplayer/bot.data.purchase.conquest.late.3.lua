@@ -159,13 +159,14 @@ Purchases["campaign_capture_the_flag"] = {
 			},
 			["rus"] = {--Russia
             --Tanks_medium
-				{priority = 3.5, class = UnitClass.Tank, unit = "t3476_42"},
-				{priority = 3.5, class = UnitClass.Tank, unit = "t3476_43"},
+           		{priority = 1.0, class = UnitClass.Tank, unit = "bt7a"},
+				{priority = 1.5, class = UnitClass.Tank, unit = "t3476_42"},
+				{priority = 1.5, class = UnitClass.Tank, unit = "t3476_43"},
 				{priority = 0.1, class = UnitClass.Tank, unit = "t3457_43"},
-				{priority = 3.5, class = UnitClass.Tank, unit = "t3476_43"},
+				{priority = 1.5, class = UnitClass.Tank, unit = "t3476_43"},
 				{priority = 0.5, class = UnitClass.Tank, unit = "t3485_44"},
 			--Tanks_light
-				{priority = 3.0, class = UnitClass.Tank, unit = "t60"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "t60"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "t70m"},
 			},
 			["fra"] = {--France	
@@ -430,11 +431,11 @@ Purchases["campaign_capture_the_flag"] = {
 		Units = {
 			["ger"] = {--Germany
 			--SPG
-		     		{priority = 2.5, class = UnitClass.ATTank, unit = "stug3g_late"},
-					{priority = 1.5, class = UnitClass.ATTank, unit = "hetzer"},
-				{priority = 1.0, class = UnitClass.ATTank, unit = "marder2"},
-				{priority = 0.5, class = UnitClass.ATTank, unit = "marder3m"},
+		     	{priority = 1.5, class = UnitClass.ATTank, unit = "stug3g_late"},
+				{priority = 1.5, class = UnitClass.ATTank, unit = "hetzer"},
+				{priority = 1.0, class = UnitClass.ATTank, unit = "marder3m"},
 				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "stuh42"},
+				{priority = 0.8, class = UnitClass.ATTank, unit = "ferdinand"},
 			},
 			["rus"] = {--Russia
 			--SPG
@@ -497,14 +498,16 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 0.6, class = UnitClass.Tank, unit = "panzer2f"},
 			--SPG
 			},
-			["rus"] = {--Russia
+["rus"] = {--Russia
             --Tanks_medium
-				{priority = 3.5, class = UnitClass.Tank, unit = "t3476_42"},
-				{priority = 3.5, class = UnitClass.Tank, unit = "t3476_43"},
+           		{priority = 1.0, class = UnitClass.Tank, unit = "bt7a"},
+				{priority = 1.5, class = UnitClass.Tank, unit = "t3476_42"},
+				{priority = 1.5, class = UnitClass.Tank, unit = "t3476_43"},
+				{priority = 0.1, class = UnitClass.Tank, unit = "t3457_43"},
+				{priority = 1.5, class = UnitClass.Tank, unit = "t3476_43"},
 			--Tanks_light
-				{priority = 3.0, class = UnitClass.Tank, unit = "t70m"},
-				{priority = 2.0, class = UnitClass.Tank, unit = "t60"},
-				{priority = 1.0, class = UnitClass.Tank, unit = "bt7"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "t60"},
+				{priority = 1.0, class = UnitClass.Tank, unit = "t70m"},
 			},
 			["fra"] = {--France
 			--Tanks_light
@@ -676,11 +679,12 @@ Purchases["campaign_capture_the_flag"] = {
 		-- Repeat = 2,
 		minRepeat = 1,
 		maxRepeat = 2,
-        skipPossible = false,		
+        skipPossible = true,		
 		waveDuration = 5,
 		Units = {
 			["ger"] = {--Germany
-		        {priority = 11.0, class = UnitClass.ArtilleryTank, unit = "300mm_nebelwerfer42"},
+		        {priority = 1.0, class = UnitClass.ArtilleryTank, unit = "300mm_nebelwerfer42"},
+		        {priority = 1.0, class = UnitClass.ArtilleryTank, unit = "150mm_nebelwerfer41"},
 			},
 			["rus"] = {--Russia
 				{priority = 11.0, class = UnitClass.ArtilleryTank, unit = "bm31_12"},

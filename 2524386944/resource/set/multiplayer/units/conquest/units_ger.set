@@ -26,7 +26,16 @@
 ;|________________________________________________|
 
 ;---------------
+("squad_with1types_conquest" side(ger) period(mid) min_stage(3) max_stage(99) name(single_officer)		c1(officer:1))
 
+("squad_with3types_conquest" side(ger) period(mid) min_stage(3) max_stage(99) name(squad_officer_con)	c1(nco:1) c2(officer:1) c3(rifleman_1:2))
+
+{"squad_officer_kubel_con"
+	("squad_vehicle4"		 side(ger) period(mid) min_stage(3) max_stage(99) cw(3) cp(2) vehicle(kubelwagen) crew1(rifleman_1:1) crew2(officer:1) crew3(nco:1) crew4(medic:1)) 
+}
+{"squad_officer_250_3_con"
+	("squad_vehicle6"		 side(ger) period(mid) min_stage(3) max_stage(99) cw(3) cp(2) vehicle(sdkfz250a_3) crew1(rifleman_1:1) crew2(mg_crew_asst:1) crew3(officer:1) crew4(nco:1) crew5(rifleman_1:1) crew6(medic:1)) 
+}
 
 ("squad_with3types_conquest" side(ger) period(mid) min_stage(1) max_stage(5) name(squad_osttruppen_con) 		c1(nco:1) c2(osttrupp_1:4) c3(osttrupp_2:4))
 ("squad_with3types_conquest" side(ger) period(mid) min_stage(1) max_stage(5) name(squad_strafbatallion_con)		c1(convict_3:1) c2(convict_2:2) c3(convict_1:7))
@@ -41,10 +50,10 @@
 ;//	("squad_2vehicle6"		 side(ger) period(mid) min_stage(3) max_stage(99) cw(3) cp(2) vehicle(kubelwagen) crew1(recon_rifle:1) crew2(recon_sl:1) crew3(recon_rifle:2) crew4(recon_sl_asst:1) crew5(recon_mg:1) crew6(recon_mg_asst:1)) 
 ;//}
 {"squad_recon_motor_con"
-	("squad_vehicle3"		 side(ger) period(mid) min_stage(3) max_stage(99) cw(3) cp(2) vehicle(kubelwagen) crew1(recon_sl:1) crew2(recon_rifle:2) crew3(recon_mg:1)) 
+	("squad_vehicle3"		 side(ger) period(mid) min_stage(3) max_stage(99) cw(3) cp(2) vehicle(kubelwagen_dak) crew1(recon_sl:1) crew2(recon_rifle:2) crew3(recon_mg:1)) 
 }
 {"squad_regular_motor_con"
-	("squad_vehicle6"		 side(ger) period(mid) min_stage(4) max_stage(99) cw(3) cp(5) vehicle(blitz3_6) crew1(rifleman_1:1) crew2(nco:1) crew3(nco_asst_sa:1) crew4(rifleman_1:5) crew5(mgun_1:2) crew6(mgun_2_rifle:2) crew7(antitank_1:1)) 
+	("squad_vehicle7"		 side(ger) period(mid) min_stage(4) max_stage(99) cw(3) cp(5) vehicle(blitz3_6) crew1(rifleman_1:1) crew2(nco:1) crew3(nco_asst_sa:1) crew4(rifleman_1:5) crew5(mgun_1:2) crew6(mgun_2_rifle:2) crew7(antitank_1:1)) 
 }
 
 ;//{"squad_recon_armor_con"
@@ -138,6 +147,10 @@
 }
 
 ; AT WEAPONRY
+{"28mm_pzb41"
+	("vehicle" side(ger) period(mid) min_stage(1) max_stage(5) cw(0) cp(6) crew(artilleryman:3))
+	{cost 140}
+}
 {"37mm_pak36"
 	("vehicle" side(ger) period(mid) min_stage(1) max_stage(99) cw(0) cp(6) crew(artilleryman:4))
 	{cost 180}
@@ -206,13 +219,29 @@
 	("vehicle"  side(ger) period(mid) min_stage(2) max_stage(99) cw(3) cp(0) crew(mgun_2:2))
 	{cost 70}
 }
+{"kubelwagen_dak"
+	("vehicle"  side(ger) period(mid) min_stage(1) max_stage(99) cw(1) cp(0) crew(mgun_2:2))
+	{cost 70} {not_for_player_sale 1}
+}
 {"blitz3_6"
 	("vehicle"  side(ger) period(mid) min_stage(1) max_stage(99) cw(0) cp(1) crew(rifleman_1:1))
 	{cost 100}
 }
+{"kettenkrad_eng"
+	("vehicle2" side(ger) period(mid) min_stage(2) max_stage(99) cw(1) cp(2) crew1(engineer_1:1) crew2(engineer_2:1))
+	{cost 50}
+}
 {"sdkfz10"
 	("vehicle"  side(ger) period(mid) min_stage(2) max_stage(99) cw(0) cp(4) crew(rifleman_1:1))
 	{cost 150}
+}
+{"sdkfz250a_3"
+	("vehicle"  side(ger) period(mid) min_stage(3) max_stage(99) cw(2) cp(0) crew(recon_rifle:3))
+	{cost 200} {not_for_player_sale 1}
+}
+{"sdkfz250a_11"
+	("vehicle"  side(ger) period(mid) min_stage(3) max_stage(6) cw(2) cp(8) crew(artilleryman:4))
+	{cost 250}
 }
 {"sdkfz251c"
 	("vehicle"  side(ger) period(mid) min_stage(3) max_stage(99) cw(3) cp(6) crew(rifleman_1:2))

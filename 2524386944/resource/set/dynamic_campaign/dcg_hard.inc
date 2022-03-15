@@ -1,6 +1,6 @@
 {Hard
 	{GlobalMaxCP 1900}
-	{StageCP 140 140 140 140 140 140 140}
+	{StageCP 110 110 110 110 110 110 110}
 	{SpecialCP 1001}					;// airstrikes special tab
 	{EmplacementCP 50}				;// buildable with engineer
 	{Bots
@@ -8,7 +8,7 @@
 		{FinishMP	0.15 attackerMultiplier 55.5}
 		{CP
 			{Base "0:0,20:0,300:10,900:10,1080:11,1300:11,1500:12,1900:0,2100:12"} ;// seconds : CP
-			{RoundMultiplier "0:0.2 1:0.3 2:0.4 3:0.4 4:0.5 5:0.6 6:0.7 7:0.8 8:1.0 9:1.0 10:1.0 19:1.0"} ;// games played : multiplier for CP
+			{RoundMultiplier "0:0.2 1:0.3 2:0.4 3:0.5 4:0.5 5:0.6 6:0.7 7:0.8 8:1.0 9:1.0 10:1.0 19:1.0"} ;// games played : multiplier for CP
 			{AttackMultiplier 4.0}
 		}
 		{DefenseLevel
@@ -64,7 +64,7 @@
 				}
 			}
 			{SP ;// Special Points (airstrikes)
-				{StartVal 1110}
+				{StartVal 0}
 				{WinGain "1:2 4:5 6:7 8:6 10:9 12:10 14:12"}
 				{LoseGain 0}
 				{MapRewards
@@ -91,7 +91,7 @@
 				}
 			}
 			{Budget
-				{Start "0:690 4:690 8:690 12:690 16:690 20:690"} ;// games played : starting CP of each match 
+				{Start "0:550 4:550 8:550 12:550 16:550 20:550"} ;// games played : starting CP of each match 
 				{PointsPerSecond 0} ;// CP income
 				{Limit 1001} ;// Max CP 
 			}

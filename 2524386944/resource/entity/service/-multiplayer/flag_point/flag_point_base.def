@@ -8,20 +8,27 @@
 	{placer}
     {extender "structure"
 		{place "sandbags" "flagpoint_sandbags"}
-		{place "ammo" "flagpoint_ammo"}	
+		{place "ammo" "netting_square"}	
     }
 	
 	{extender "fortification"
 		{level
-			{steps 0}
-			{radius -1.05}
+			{steps 0} ; elements on each quarter of the circle - set to 0 to have 1 element in the center
+			{radius 0}  ; radius in game length
+		    {angle 90}                    ; rotation of the fortification circle - omit to set the angle automatically
+			;{azimuth +2}                 ; azimuth for every element - omit to set the azimuth automatically
+            {elementAngle 180}            ; rotation of every element - omit to set the elementAngle automatically
+            {buildTime 60}                ; time that a single engineer will require to build this fortification level
+            ;{skip "0 1 2"}                ; elements that will not be built, counting from the right of the Entity
 			{elementAngle 180}
 			{buildTime 60}
+			{entity "flagpoint_ammo"}      ; name of entity used for the fortification
 			{"ger"
 				{entity "heavy_mg_mg34"}
 				{entity "heavy_mg_mg42"}
 				{entity "heavy_mg_20mm_flak30"}
 				{entity "heavy_mg_37mm_flak37"}
+				{entity "heavy_mg_28mm_pzb41"}
 				{entity "heavy_mg_37mm_pak36"}
 				{entity "heavy_mg_47mm_pakt"}
 				{entity "heavy_mg_50mm_pak38"}
@@ -62,25 +69,52 @@
 			}
 		}
 		{level
-			{steps 1}
-			{radius 5}
+			{steps 2}
+			{radius 13}
+			{angle 0}
 			{buildTime 60}
-			{entity "sandbag_structured_curved"}
-			{skip "0"}
+			{entity "sandbag_heap_curved"}
+			;{skip "0"}
+		}
+		{level
+			{steps 6}
+			{radius 25}
+			{azimuth 8}
+			{angle 45}
+			{elementAngle 5}
+			{buildTime 60}
+			{entity "sandbag_structured_straight"}
+			;{skip "0"}
 		}
 		{level
 			{steps 1}
-			{radius 2.8}
+			{radius 8.5}
+			{buildTime 120}
+			{entity "watch_tower"}
+			;{skip "0"}
+		}
+		{level
+			{steps 5}
+			{radius 9}
+			{angle 45}
+			{azimuth 14}
 			{buildTime 60}
 			{entity "sandbag_framed_straight"}
-			{skip "0"}
 		}
+		;{level
+		;	{steps 0}
+		;	{radius 0}
+		;	{angle 0}
+		;	{buildTime 60}
+		;	{entity "flak-ring"}
+		;}
 		{level
-			{steps 1}
-			{radius 2}
-			{buildTime 60}
-			{entity "flagpoint_ammo"}
-			{skip "0 2"}
+			{steps 10}
+			{radius 35}
+			{azimuth 9}
+			{buildTime 240}
+			{entity "hedgehog2"}
+			;{skip "0"}
 		}
 	}
 	

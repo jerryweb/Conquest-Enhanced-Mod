@@ -1,35 +1,18 @@
 require([[/script/multiplayer/bot.data]])
-
--- This enables early testing so that units come 30 seconds after start. 
-testing = false
-verbose = false
+require([[/conquest_configuration/bot.conquest_configuration]])
 
 -- Number of unit division roster files to randomly select for each period in the war 
 maxNumOfEarlyDivisions = 5
 maxNumOfMidDivisions = 6
 maxNumOfLateDivisions = 7
-firstWaveOffsetTime  = 720
 
 -- This variable controls whether units will spawn all at once for 15 seconds, creating a massive wave, every x seconds
 typhoonWaveMode = false
 nextTyphoonWaveTime = 0
-typhoonWaveInterval = 90
-typhoonWaveDuration = 25
-
--- This controls whether typhoon wave mode can turn on or off dynamically ingame
-typhoonWaveModeInGameToggle = false
--- This is the interval at which the typhoon wave mode can toggle on or off during a game
-typhoonWaveToggleInterval = 300
--- Next movment at ingame time at which a chance to toggle typhoon wave mode
-nextTyphoonWaveToggleTime = 0
 
 
 -- Wave offset is used to set how much extra time the first wave will last in since the wave is loaded automatically
 gameStartTime = os.clock()
-
--- if testing then
--- 	firstWaveOffsetTime = 50
--- end 
 
 -- This is used to add the offset ONLY to the first wave
 initialWave = true
@@ -39,12 +22,6 @@ defaultSpawnCooldownTime = {}
 currentWaveMaxUnitCount = 0
 
 local unitsForWave = {}
-
-function verbosePrinting( verbose, printString )
-	if verbose then
-		print(printString)
-	end
-end
 
 function resetArrayIndex(idx)
 	if not idx then
@@ -85,38 +62,38 @@ function selectArmyDivision(totalFlags)
 	end
 	print("loading")
 	-- REMOVE THIS LINE (ONLY FOR TESTING)
-	if testing then
-		-- divisionPurchaseModel = [[/script/multiplayer/bot.data.purchase.conquest.late.2]]
+	if testing and testingDivision then
+		divisionPurchaseModel = testingDivision
 	end
-
+	
 
 	return divisionPurchaseModel
 end
 
 function setFirstWaveOffset( flags )
 	if flags == 1 then
-		firstWaveOffsetTime = 300
+		firstWaveOffsetTime = oneFlagOffsetTime
 	elseif flags == 2 then
-		firstWaveOffsetTime = 700
+		firstWaveOffsetTime = twoFlagOffsetTime
 	elseif flags == 3 then
-		firstWaveOffsetTime = 1400
+		firstWaveOffsetTime = threeFlagOffsetTime
 	elseif flags == 4 then
-		firstWaveOffsetTime = 1700
+		firstWaveOffsetTime = fourFlagOffsetTime
 	elseif flags == 5 then
-		firstWaveOffsetTime = 760
+		firstWaveOffsetTime = fiveFlagOffsetTime
 	end
 
 	firstWaveOffsetTime = randomizeFirstWaveTimeChance(firstWaveOffsetTime)
 	if testing then
-		firstWaveOffsetTime = 50
+		firstWaveOffsetTime = firstWaveOffsetTimeForTesting
 	end 
 	print("changing first wave offset to ", firstWaveOffsetTime)
 	return firstWaveOffsetTime
 end
 
 function randomizeFirstWaveTimeChance(offsetTime) 
-	if math.random() < 0.3 then -- 50% chance to change when enemy reinforcements spawn 
-		offsetTime = offsetTime + math.random(-120, 120) 
+	if math.random() < chanceToOffsetFirstWave then -- chance to change when enemy reinforcements spawn 
+		offsetTime = offsetTime + math.random(lowerBoundFirstWaveOffset, upperBoundFirstWaveOffset) 
 	end
 	return offsetTime
 end

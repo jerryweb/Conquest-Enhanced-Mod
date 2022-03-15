@@ -266,9 +266,13 @@
 		}
 	}
 	{on blast_hit
-		{if min_energy 8 
-			{impulse up 5 1 dir 5 1}
-		  else min_energy 0.5
+		{if min_energy 25
+			{hide 1}
+		else min_energy 15
+			{impulse up 10 0.3 dir 5 0.5}
+		else min_energy 8 
+			{impulse up 5 0.3 dir 5 0.5}
+		else min_energy 0.5
 			{impulse up 1 0.3 dir 1 0.5}
 		}
 	}
@@ -280,6 +284,9 @@
 		 else stuff "zenite"
 			{impulse up 0.2 0.1 dir 0.1 0.05}
 		}
+	}
+	{on contact
+		{impulse up 0.1 0.1 dir 0.1 0.1}
 	}
 }
 
@@ -1633,7 +1640,50 @@
 		{tags add "flag"}
 	}
 }
+{"arrow_enemy"				;// mission objective icon/helper
+	{on spawn
+		{tags add "arrow_enemy"}
+	}
+}
 
+{"arrow_friendly"			;// mission objective icon/helper
+	{on spawn
+		{tags add "arrow_enemy"}
+	}
+}
+
+{"arrow_enemy_left"			;// mission objective icon/helper
+	{on spawn
+		{tags add "arrow_enemy_left"}
+	}
+}
+
+{"arrow_enemy_right"		;// mission objective icon/helper
+	{on spawn
+		{tags add "arrow_friendly_straight"}
+	}
+}
+
+{"arrow_enemy_straight"		;// mission objective icon/helper
+	{on spawn
+		{tags add "arrow_enemy_right"}
+	}
+}
+{"arrow_friendly_left"		;// mission objective icon/helper
+	{on spawn
+		{tags add "arrow_friendly_left"}
+	}
+}
+{"arrow_friendly_right"		;// mission objective icon/helper
+	{on spawn
+		{tags add "arrow_friendly_right"}
+	}
+}
+{"arrow_friendly_straight"	;// mission objective icon/helper
+	{on spawn
+		{tags add "arrow_friendly_straight"}
+	}
+}
 {"spawn_team_a"				;// mission objective icon/helper
 	{on spawn
 		{tags add "spawn_team_a"}

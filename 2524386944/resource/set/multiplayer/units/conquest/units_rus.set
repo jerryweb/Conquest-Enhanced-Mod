@@ -26,7 +26,13 @@
 ;|             inf1                               |
 ;|________________________________________________|
 
+("squad_with1types_conquest" side(rus) period(mid) min_stage(3) max_stage(99) name(single_officer)		c1(commisar:1))
 
+("squad_with3types_conquest" side(rus) period(mid) min_stage(3) max_stage(99) name(squad_officer_con)	c1(nco:1) c2(commisar:1) c3(sniper:2))
+
+{"squad_officer_gaz_con"
+	("squad_vehicle3"		 side(rus) period(mid) min_stage(3) max_stage(99) cw(3) cp(2) vehicle(gaz67) crew1(nco:1) crew2(commisar:1) crew3(sniper:2)) 
+}
 ("squad_with3types_conquest" side(rus) period(mid) min_stage(1) max_stage(99) name(squad_border)			c1(militia_1:2)	c2(militia_2:2)  c3(militia_3:2))
 
 
@@ -76,7 +82,6 @@
 ("squad_with2types_conquest" side(rus) period(mid) min_stage(4) max_stage(99) name(single_engineer)		c1(engineer_1:1) c2(engineer_2:1))
 ("squad_with2types_conquest" side(rus) period(mid) min_stage(3) max_stage(99) name(single_flamer)		c1(flamer:1) c2(rifleman_1:2))
 ("squad_with1types_conquest" side(rus) period(mid) min_stage(3) max_stage(99) name(single_sniper)		c1(sniper:1))
-("squad_with1types_conquest" side(rus) period(mid) min_stage(3) max_stage(99) name(single_officer)		c1(commisar:1))
 
 ;_________________________________________________
 ;|                  Emplacements                  |
@@ -92,6 +97,10 @@
 {"maxim"
 	("vehicle2" side(rus) period(mid) min_stage(1) max_stage(99) cw(4) cp(1) crew1(mg_crew:1) crew2(mg_crew_asst:1))
 	{cost 85}
+}
+{"sg43_stand"
+	("vehicle2" side(rus) period(mid) min_stage(6) max_stage(99) cw(2) cp(4) crew1(mg_crew:1) crew2(mg_crew_asst:1))
+	{cost 75}
 }
 {"dshk_stan"
 	("vehicle2" side(rus) period(mid) min_stage(3) max_stage(99) cw(4) cp(1) crew1(mg_crew:1) crew2(mg_crew_asst:1))
@@ -228,6 +237,10 @@
 	("vehicle2" side(rus) period(mid) min_stage(3) max_stage(99) cw(3) cp(10) crew1(tankman:3) crew2(tank_commander:1))
 	{cost 270}
 }
+{"ba10"
+	("vehicle2" side(rus) period(mid) min_stage(3) max_stage(99) cw(2) cp(10) crew1(tankman:3) crew2(tank_commander:1))
+	{cost 280}
+}
 {"ba64"
 	("vehicle2" side(rus) period(mid) min_stage(7) max_stage(99) cw(0) cp(8) crew1(tankman:1) crew2(tank_commander:1))
 	{cost 160}
@@ -292,6 +305,10 @@
 {"bt7"
 	("vehicle2" side(rus) period(mid) min_stage(3) max_stage(6) cw(0) cp(14) crew1(tankman:2) crew2(tank_commander:1))
 	{cost 310}
+}
+{"bt7a"
+	("vehicle2" side(rus) period(mid) min_stage(4) max_stage(6) cw(4) cp(14) crew1(tankman:2) crew2(tank_commander:1))
+	{cost 320}
 }
 {"t26_31"
 	("vehicle2" side(rus) period(mid) min_stage(1) max_stage(3) cw(3) cp(8) crew1(tankman:2) crew2(tank_commander:1))

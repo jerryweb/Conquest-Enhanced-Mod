@@ -3,8 +3,8 @@ Purchases["campaign_capture_the_flag"] = {
 		divisionName = "Airborne Division",
 		waveNumber = 1,
 		-- Repeat = 6,
-		minRepeat = 8,
-		maxRepeat = 12,
+		minRepeat = 6,
+		maxRepeat = 8,
 		skipPossible = true,
 		waveDuration = 20,
 		Units = {
@@ -123,12 +123,14 @@ Purchases["campaign_capture_the_flag"] = {
 	    waveDuration = 10,
 		Units = {
 			["ger"] = {--Germany
+				{priority = 1.0, class = UnitClass.HeavyTank, unit = "tiger1e"},
 			--Tanks_medium
-				{priority = 2.5, class = UnitClass.Tank, unit = "panzer3m"},
+				{priority = 1.5, class = UnitClass.Tank, unit = "panzer3m"},
 				{priority = 1.5, class = UnitClass.Tank, unit = "panzer3n"},
-				{priority = 3.0, class = UnitClass.Tank, unit = "panzer4g"},
-				{priority = 3.5, class = UnitClass.Tank, unit = "panzer4h"},
-				{priority = 3.0, class = UnitClass.Tank, unit = "panzer4j"},
+				{priority = 2.0, class = UnitClass.Tank, unit = "panzer4g"},
+				{priority = 2.5, class = UnitClass.Tank, unit = "panzer4h"},
+				{priority = 2.0, class = UnitClass.Tank, unit = "panzer4j"},
+
 			--Tanks_light
 				{priority = 0.6, class = UnitClass.Tank, unit = "panzer2f"},
 			--SPG
@@ -471,12 +473,13 @@ Purchases["campaign_capture_the_flag"] = {
 		waveDuration = 15,
 		Units = {
 			["ger"] = {--Germany
+				{priority = 0.8, class = UnitClass.HeavyTank, unit = "tiger1e"},
 			--Tanks_medium
 				{priority = 2.5, class = UnitClass.Tank, unit = "panzer3m"},
 				{priority = 1.5, class = UnitClass.Tank, unit = "panzer4h"},
 				{priority = 1.0, class = UnitClass.Tank, unit = "panzer4j"},
 			--Tanks_light
-				{priority = 0.6, class = UnitClass.Tank, unit = "panzer2f"},
+				{priority = 0.9, class = UnitClass.Tank, unit = "panzer2f"},
 			--SPG
 			},
 			["rus"] = {--Russia
@@ -660,7 +663,8 @@ Purchases["campaign_capture_the_flag"] = {
 		isHeavyArty = true,
 		Units = {
 			["ger"] = {--Germany
-		        {priority = 11.0, class = UnitClass.ArtilleryTank, unit = "300mm_nebelwerfer42", isHeavyArty = true},
+		        {priority = 1.0, class = UnitClass.ArtilleryTank, unit = "300mm_nebelwerfer42", isHeavyArty = true},
+				{priority = 1.0, class = UnitClass.ArtilleryTank, unit = "150mm_nebelwerfer41"},
 			},
 			["rus"] = {--Russia
 				{priority = 11.0, class = UnitClass.ArtilleryTank, unit = "bm31_12", isHeavyArty = true},

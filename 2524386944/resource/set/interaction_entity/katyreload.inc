@@ -122,145 +122,146 @@
 }
 {"flag_point_campaign_4"
     {on spawn
-	    {delay 50
-		    {if tagged "game_on"
-			    {if tagged "rusflag"
-				    {spawn "ammo_boxes_01rus" random_position 550}
-			    else tagged "gerflag"
-		            {spawn "ammo_boxes_07ger" random_position 550}
-				}
-			}
-		}
+	    (mod "mp"
+		    {delay 5
+		        {spawn "ammo_point" random_position 1}
+			    {spawn "ammo_boxes_01rus" random_position 75}
+			    {spawn "ammo_boxes_07ger" random_position 75}
+		    }
+		)
 	}
 }
 {"flag_point_campaign_3"
     {on spawn
-	    {delay 50
-		    {if tagged "game_on"
-			    {if tagged "rusflag"
-				    {spawn "ammo_boxes_01rus" random_position 550}
-			    else tagged "gerflag"
-		            {spawn "ammo_boxes_07ger" random_position 550}
-				}
-			}
-		}
+	    (mod "mp"
+		    {delay 5
+		        {spawn "ammo_point" random_position 1}
+			    {spawn "ammo_boxes_01rus" random_position 75}
+			    {spawn "ammo_boxes_07ger" random_position 75}
+		    }
+		)
 	}
 }
 {"flag_point_campaign_2"
     {on spawn
-	    {delay 50
-		    {if tagged "game_on"
-			    {if tagged "rusflag"
-				    {spawn "ammo_boxes_01rus" random_position 550}
-			    else tagged "gerflag"
-		            {spawn "ammo_boxes_07ger" random_position 550}
-				}
-			}
-		}
+	    (mod "mp"
+		    {delay 5
+		        {spawn "ammo_point" random_position 1}
+			    {spawn "ammo_boxes_01rus" random_position 75}
+			    {spawn "ammo_boxes_07ger" random_position 75}
+		    }
+		)
 	}
 }	
 {"flag_point_campaign_1"
     {on spawn
-	    {delay 50
-		    {if tagged "game_on"
-			    {if tagged "rusflag"
-				    {spawn "ammo_boxes_01rus" random_position 550}
-			    else tagged "gerflag"
-		            {spawn "ammo_boxes_07ger" random_position 550}
-				}
-			}
-		}
+	    (mod "mp"
+		    {delay 5
+		        {spawn "ammo_point" random_position 1}
+			    {spawn "ammo_boxes_01rus" random_position 75}
+			    {spawn "ammo_boxes_07ger" random_position 75}
+		    }
+		)
 	}
 }
 {"flag_point_campaign_5"
     {on spawn
-	    {delay 50
-		    {if tagged "game_on"
-			    {if tagged "rusflag"
-				    {spawn "ammo_boxes_01rus" random_position 550}
-			    else tagged "gerflag"
-		            {spawn "ammo_boxes_07ger" random_position 550}
-				}
-			}
-		}
-	}    
+	    (mod "mp"
+		    {delay 5
+		        {spawn "ammo_point" random_position 1}
+			    {spawn "ammo_boxes_01rus" random_position 75}
+			    {spawn "ammo_boxes_07ger" random_position 75}
+		    }
+		)
+	}
 }
 {"ammo_boxes_01rus"
     {on spawn
-	    {tags add "rus"}
-		{tags add "heavy_at"}
-		{tags add "lootbox"}
-		(define "rnd_art_bomb"
-			{delay %delay 0.5
-				{spawn "pointer_mines"}
-			}
+	    (mod "mp"
+		    {tags add "rus"}
+		    {tags add "heavy_at"}
+		    {tags add "lootbox"}
+		    (define "rnd_art_bomb"
+		    	{delay %delay 0.5
+		    		{spawn "pointer_mines"}
+		    	}
+		    )
+		    ("rnd_art_bomb" delay(0.5))
+		    ("rnd_art_bomb" delay(1.5))
+		    ("rnd_art_bomb" delay(2.5))
+		    ("rnd_art_bomb" delay(3.5))
+		    ("rnd_art_bomb" delay(5.5))
+		    ("rnd_art_bomb" delay(7.5))
+		    ("rnd_art_bomb" delay(9.5))
+		    ("rnd_art_bomb" delay(11.5))
+		    ("rnd_art_bomb" delay(13.5))
+		    ("rnd_art_bomb" delay(15.5))
+		    ("rnd_art_bomb" delay(17.5))
+		    ("rnd_art_bomb" delay(19.5))
+		    ("rnd_art_bomb" delay(21.5))
+		    ("rnd_art_bomb" delay(23.5))
+		    ("rnd_art_bomb" delay(25.5))
+		    ("rnd_art_bomb" delay(27.5))
+		    ("rnd_art_bomb" delay(29.5))
+		    ("rnd_art_bomb" delay(31.5))
+		    ("rnd_art_bomb" delay(33.5))
+		    ("rnd_art_bomb" delay(35.5))
+		    ("rnd_art_bomb" delay(37.5))
+		    ("rnd_art_bomb" delay(39.5))
+		    ("rnd_art_bomb" delay(41.5))
+		    ("rnd_art_bomb" delay(43.5))
+		    ("rnd_art_bomb" delay(45.5))
+		    ("rnd_art_bomb" delay(47.5))
+		    ("rnd_art_bomb" delay(49.5))
 		)
-		("rnd_art_bomb" delay(0.5))
-		("rnd_art_bomb" delay(1.5))
-		("rnd_art_bomb" delay(2.5))
-		("rnd_art_bomb" delay(3.5))
-		("rnd_art_bomb" delay(5.5))
-		("rnd_art_bomb" delay(7.5))
-		("rnd_art_bomb" delay(9.5))
-		("rnd_art_bomb" delay(11.5))
-		("rnd_art_bomb" delay(13.5))
-		("rnd_art_bomb" delay(15.5))
-		("rnd_art_bomb" delay(17.5))
-		("rnd_art_bomb" delay(19.5))
-		("rnd_art_bomb" delay(21.5))
-		("rnd_art_bomb" delay(23.5))
-		("rnd_art_bomb" delay(25.5))
-		("rnd_art_bomb" delay(27.5))
-		("rnd_art_bomb" delay(29.5))
-		("rnd_art_bomb" delay(31.5))
-		("rnd_art_bomb" delay(33.5))
-		("rnd_art_bomb" delay(35.5))
-		("rnd_art_bomb" delay(37.5))
-		("rnd_art_bomb" delay(39.5))
-		("rnd_art_bomb" delay(41.5))
-		("rnd_art_bomb" delay(43.5))
-		("rnd_art_bomb" delay(45.5))
-		("rnd_art_bomb" delay(47.5))
-		("rnd_art_bomb" delay(49.5))
 	}
 }
 
 {"ammo_boxes_07ger"
     {on spawn
-	    {tags add "ger"}
-		{tags add "heavy_at"}
-		{tags add "lootbox"}
-		(define "rnd_art_bomb"
-			{delay %delay 0.5
-				{spawn "pointer_mines"}
-			}
+	    (mod "mp"
+		    {tags add "ger"}
+		    {tags add "heavy_at"}
+		    {tags add "lootbox"}
+		    (define "rnd_art_bomb"
+		    	{delay %delay 0.5
+		    		{spawn "pointer_mines"}
+		    	}
+		    )
+		    ("rnd_art_bomb" delay(0.5))
+		    ("rnd_art_bomb" delay(1.5))
+		    ("rnd_art_bomb" delay(2.5))
+		    ("rnd_art_bomb" delay(3.5))
+		    ("rnd_art_bomb" delay(5.5))
+		    ("rnd_art_bomb" delay(7.5))
+		    ("rnd_art_bomb" delay(9.5))
+		    ("rnd_art_bomb" delay(11.5))
+		    ("rnd_art_bomb" delay(13.5))
+		    ("rnd_art_bomb" delay(15.5))
+		    ("rnd_art_bomb" delay(17.5))
+		    ("rnd_art_bomb" delay(19.5))
+		    ("rnd_art_bomb" delay(21.5))
+		    ("rnd_art_bomb" delay(23.5))
+		    ("rnd_art_bomb" delay(25.5))
+		    ("rnd_art_bomb" delay(27.5))
+		    ("rnd_art_bomb" delay(29.5))
+		    ("rnd_art_bomb" delay(31.5))
+		    ("rnd_art_bomb" delay(33.5))
+		    ("rnd_art_bomb" delay(35.5))
+		    ("rnd_art_bomb" delay(37.5))
+		    ("rnd_art_bomb" delay(39.5))
+		    ("rnd_art_bomb" delay(41.5))
+		    ("rnd_art_bomb" delay(43.5))
+		    ("rnd_art_bomb" delay(45.5))
+		    ("rnd_art_bomb" delay(47.5))
+		    ("rnd_art_bomb" delay(49.5))
 		)
-		("rnd_art_bomb" delay(0.5))
-		("rnd_art_bomb" delay(1.5))
-		("rnd_art_bomb" delay(2.5))
-		("rnd_art_bomb" delay(3.5))
-		("rnd_art_bomb" delay(5.5))
-		("rnd_art_bomb" delay(7.5))
-		("rnd_art_bomb" delay(9.5))
-		("rnd_art_bomb" delay(11.5))
-		("rnd_art_bomb" delay(13.5))
-		("rnd_art_bomb" delay(15.5))
-		("rnd_art_bomb" delay(17.5))
-		("rnd_art_bomb" delay(19.5))
-		("rnd_art_bomb" delay(21.5))
-		("rnd_art_bomb" delay(23.5))
-		("rnd_art_bomb" delay(25.5))
-		("rnd_art_bomb" delay(27.5))
-		("rnd_art_bomb" delay(29.5))
-		("rnd_art_bomb" delay(31.5))
-		("rnd_art_bomb" delay(33.5))
-		("rnd_art_bomb" delay(35.5))
-		("rnd_art_bomb" delay(37.5))
-		("rnd_art_bomb" delay(39.5))
-		("rnd_art_bomb" delay(41.5))
-		("rnd_art_bomb" delay(43.5))
-		("rnd_art_bomb" delay(45.5))
-		("rnd_art_bomb" delay(47.5))
-		("rnd_art_bomb" delay(49.5))
+	}
+}
+
+{"ammo_point"
+    {on spawn
+	    {tags add "mortar"}
+		{tags add "ammo_point"}
 	}
 }
