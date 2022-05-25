@@ -207,6 +207,14 @@
 		{tags add "no_scavenge"}
 	}
 }
+{"bm_8_24"
+	{on spawn
+		{tags add "rocket_artillery"}
+		{tags add "soviet"}
+    	{tags add "light_tank"}
+		{tags add "bm_8_24"}
+	}
+}
 
 ;_________________________________________________
 ;|               Wheeled vehicles                 |
@@ -290,6 +298,8 @@
 		{tags add "no_scavenge"}
 	}
 }
+
+
 {"gaz67b"
 	{on spawn
     	{tags add "wheeled_vehicle"}
@@ -377,14 +387,6 @@
 		{tags add "ba11"}
 	}
 }
-{"bm8-48"
-	{on spawn
-    	{tags add "wheeled_vehicle"}
-		{tags add "soviet"}
-		{tags add "bm8-48"}
-	}
-}
-
 {"m3"
 	{on spawn
     	{tags add "wheeled_vehicle"}
@@ -474,18 +476,7 @@
 		{tags add "t80"}
 	}
 }
-{"bm_8_24"
-	{on spawn
-    	{tags add "light_tank"}
-		{tags add "bm_8_24"}
-	}
-}
-{"at-1"
-	{on spawn
-    	{tags add "light_tank"}
-		{tags add "at-1"}
-	}
-}
+
 
 {"bt2_da2"
 	{on spawn
@@ -798,6 +789,12 @@
 }
 
 ;SPG
+{"at-1"
+	{on spawn
+    	{tags add "spg"}
+		{tags add "at-1"}
+	}
+}
 {"zis30"
 	{on spawn
     	{tags add "spg"}

@@ -228,7 +228,27 @@
 
 	}
 }
-
+{"zgkw303f"
+	{on spawn
+    	{tags add "rocket_artillery"}
+		{tags add "german"}
+		{tags add "zgkw303f"}
+	}
+}
+{"sdkfz4"
+	{on spawn
+    	{tags add "rocket_artillery"}
+		{tags add "german"}
+		{tags add "sdkfz4"}
+	}
+}
+{"sdkfz251_1_stuka"
+	{on spawn
+    	{tags add "rocket_artillery"}
+		{tags add "german"}
+		{tags add "sdkfz251_1_stuka"}
+	}
+}
 ;_________________________________________________
 ;|               Wheeled vehicles                 |
 ;|________________________________________________|
@@ -907,27 +927,6 @@
 }
 
 ;--- Panzerhaubitzen, Sturmpanzer & Panzerwerfer ---
-{"zgkw303f"
-	{on spawn
-    	{tags add "spg"}
-		{tags add "german"}
-		{tags add "zgkw303f"}
-	}
-}
-{"sdkfz4"
-	{on spawn
-    	{tags add "spg"}
-		{tags add "german"}
-		{tags add "sdkfz4"}
-	}
-}
-{"sdkfz251_1_stuka"
-	{on spawn
-    	{tags add "spg"}
-		{tags add "german"}
-		{tags add "sdkfz251_1_stuka"}
-	}
-}
 {"bison"
 	{on spawn
     	{tags add "spg"}
@@ -965,7 +964,7 @@
 }
 {"wespe"
 	{on spawn
-    	{tags add "spg"}
+    	{tags add "artillery"}
 		{tags add "german"}
 		{tags add "wespe"}
 	}
@@ -979,14 +978,14 @@
 }
 {"b1sf"
 	{on spawn
-    	{tags add "spg"}
+    	{tags add "artillery"}
 		{tags add "german"}
 		{tags add "b1sf"}
 	}
 }
 {"hummel"
 	{on spawn
-    	{tags add "spg"}
+    	{tags add "artillery"}
 		{tags add "german"}
 		{tags add "hummel"}
 	}
