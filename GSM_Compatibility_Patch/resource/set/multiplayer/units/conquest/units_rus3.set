@@ -1,0 +1,41 @@
+;SDL
+
+;////////////////// INSTRUCTIONS //////////////////
+;Buttons go as follows, displayed in-game in this order:
+
+; inf1       - infantry squads
+; inf2       - infantry single units
+; empl       - Emplacements, AA, AT, Mortars, Howitzers
+; vehicles   - vehicles, armoured cars, supplies
+; tanks      - main battle tanks, TDs, SPGs
+; doctrine   - specific doctrine setups
+
+; TEMP: Note all levels have been brought down to 1 to remove unit locks.
+; Squads currently have an MP cost of 0 - their cost is currently calculated as the sum of their soldiers cost, see inf_ger.set
+; Check ../settings.set for syntax instructions!!
+; unit limits per game are not defined here but in gamemode presets
+
+;user defined set tags that should be featured on units:
+;all artillery heavyart cannon mediumcan heavycan light medium heavy infantry supply
+;these tags allow player to disable certain sets for custom setups like "no heavy artillery"
+;//////////////////////////////////////////////////
+
+
+;_________________________________________________
+;|             inf1                               |
+;|________________________________________________|
+
+
+("squad_with1types_conquest" side(rus) period(mid) min_stage(3) max_stage(99) name(single_officer)		c1(commisar:1))
+
+("squad_with3types_conquest" side(rus) period(mid) min_stage(3) max_stage(99) name(squad_officer_con)	c1(nco:1) c2(commisar:1) c3(sniper:2))
+
+{"squad_officer_gaz_con"
+	("squad_vehicle3"		 side(rus) period(mid) min_stage(3) max_stage(99) cw(3) cp(2) vehicle(gaz67) crew1(nco:1) crew2(commisar:1) crew3(sniper:2)) 
+}
+
+;_________________________________________________
+;|             inf2                               |
+;|________________________________________________|
+
+("squad_with2types_conquest" side(rus) period(mid) min_stage(0) max_stage(0)  name(single_tankman)		c1(tank_commander:1) c2(tankman:3))
