@@ -81,6 +81,8 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 0.5, class = UnitClass.ArtilleryTank, unit = "300mm_nebelwerfer42ai"},
 				{priority = 0.5, class = UnitClass.ArtilleryTank, unit = "zgkw303f"},
 				{priority = 0.5, class = UnitClass.ArtilleryTank, unit = "sdkfz4"},
+				{priority = 0.5, class = UnitClass.ArtilleryTank, unit = "sdkfz251_1_stuka"},
+				
 			--Wheel_vehicles
 				{priority = 0.5, class = UnitClass.Vehicle, unit = "kubelwagen_mg"},
 				{priority = 2.0, class = UnitClass.AATank, unit = "blitz3_6_flak30"},
@@ -136,7 +138,6 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 0.7, class = UnitClass.Tank, unit = "wirbelwind"},
 				{priority = 0.7, class = UnitClass.Tank, unit = "ostwind"},
 				{priority = 0.5, class = UnitClass.Tank, unit = "kugelblitz"},
-				{priority = 0.1, class = UnitClass.Tank, unit = "maus"},
 				{priority = 0.4, class = UnitClass.Tank, unit = "t3476_43_ger"},
 				{priority = 0.4, class = UnitClass.Tank, unit = "t3485_44_ger"},
 				{priority = 0.3, class = UnitClass.Tank, unit = "m4a4_firefly_ger"},
@@ -151,6 +152,7 @@ Purchases["campaign_capture_the_flag"] = {
 				{priority = 0.1, class = UnitClass.HeavyTank, unit = "tiger2p"},
 				{priority = 1.0, class = UnitClass.HeavyTank, unit = "tiger2h"},
 				{priority = 0.4, class = UnitClass.HeavyTank, unit = "pz756r"},
+				{priority = 0.4, class = UnitClass.Tank, unit = "maus"},
 
 			--SPG
 				{priority = 1.0, class = UnitClass.ATTank,  unit = "panzerjager1"},

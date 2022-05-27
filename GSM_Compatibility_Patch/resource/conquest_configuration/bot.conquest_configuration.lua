@@ -62,9 +62,9 @@
 	typhoonWaveToggleInterval = 120
 
 	-- Number of unit division roster files to randomly select for each period in the war 
-	maxEarlyDivisionCount = 9
-	maxMidDivisionCount = 8
-	maxLateDivisionCount = 8
+	maxNumOfEarlyDivisions = 9
+	maxNumOfMidDivisions = 8
+	maxNumOfLateDivisions = 8
 
 -- =============================== Logging DO NOT MODIFY =======================================
 	print("Initial player conquest configuration:")
