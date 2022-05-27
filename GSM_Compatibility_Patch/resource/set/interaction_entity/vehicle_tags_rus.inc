@@ -187,7 +187,6 @@
     	{tags add "artillery"}
 		{tags add "soviet"}
 		{tags add "203mm_b4"}
-		{tags add "no_scavenge"}
 	}
 }
 {"su14"
@@ -196,15 +195,14 @@
     	{tags add "artillery"}
 		{tags add "soviet"}
 		{tags add "su14"}
-		{tags add "no_scavenge"}
 	}
 }
 {"su5"
 	{on spawn
+    	{tags add "super_heavy_artillery"}
     	{tags add "artillery"}
 		{tags add "soviet"}
 		{tags add "su5"}
-		{tags add "no_scavenge"}
 	}
 }
 {"bm_8_24"

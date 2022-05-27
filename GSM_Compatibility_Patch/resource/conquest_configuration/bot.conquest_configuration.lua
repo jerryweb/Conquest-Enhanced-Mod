@@ -29,7 +29,7 @@
 
 
 	-- This is the division that will always be selected when testing. If you want to randomly select one, just set it to nil
-	testingDivision = [[/script/multiplayer/bot.data.purchase.conquest.mid.7]] 
+	testingDivision = [[/script/multiplayer/bot.data.purchase.conquest.mid.8]] 
 
 	-- Chance that the enemy might come earlier or later than the preset first wave offest. Example: 30% chance enemy comes earlier or later than the standard prep time
 	chanceToOffsetFirstWave = 0.3
@@ -62,8 +62,8 @@
 	typhoonWaveToggleInterval = 120
 
 	-- Number of unit division roster files to randomly select for each period in the war 
-	maxEarlyDivisionCount = 6
-	maxMidDivisionCount = 7
+	maxEarlyDivisionCount = 9
+	maxMidDivisionCount = 8
 	maxLateDivisionCount = 8
 
 -- =============================== Logging DO NOT MODIFY =======================================

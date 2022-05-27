@@ -453,14 +453,14 @@
 }
 {"sdkfz234_3"
 	{on spawn
-    	{tags add "wheeled_vehicle"}
+    	{tags add "spg"}
 		{tags add "german"}
 		{tags add "sdkfz234_3"}
 	}
 }
 {"sdkfz234_4"
 	{on spawn
-    	{tags add "wheeled_vehicle"}
+    	{tags add "spg"}
 		{tags add "german"}
 		{tags add "sdkfz234_4"}
 	}
@@ -965,27 +965,31 @@
 {"wespe"
 	{on spawn
     	{tags add "artillery"}
+		{tags add "super_heavy_artillery"}
 		{tags add "german"}
 		{tags add "wespe"}
-	}
-}
-{"geschuetzwagen_ivb"
-	{on spawn
-    	{tags add "spg"}
-		{tags add "german"}
-		{tags add "geschuetzwagen_ivb"}
 	}
 }
 {"b1sf"
 	{on spawn
     	{tags add "artillery"}
+		{tags add "super_heavy_artillery"}
 		{tags add "german"}
 		{tags add "b1sf"}
+	}
+}
+{"geschuetzwagen_ivb"
+	{on spawn
+    	{tags add "artillery"}
+		{tags add "super_heavy_artillery"}
+		{tags add "german"}
+		{tags add "geschuetzwagen_ivb"}
 	}
 }
 {"hummel"
 	{on spawn
     	{tags add "artillery"}
+		{tags add "super_heavy_artillery"}
 		{tags add "german"}
 		{tags add "hummel"}
 	}

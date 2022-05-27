@@ -7,7 +7,7 @@
 		{StartMP	0.05 min 3002 attackerMultiplier 14.0}
 		{FinishMP	0.15 attackerMultiplier 55.5}
 		{CP
-			{Base "0:0,60:0,300:11,960:10,1080:10,1300:10,1500:11,1900:10,2100:10"} ;// seconds : CP
+			{Base "0:0,60:10,300:11,960:10,1080:10,1300:10,1500:11,1900:10,2100:10"} ;// seconds : CP
 			{RoundMultiplier "0:0.2 1:0.5 2:0.4 3:0.6 4:0.5 5:0.6 6:0.7 7:0.8 8:1.0 9:1.0 10:1.1 12:1.2"} ;// games played : multiplier for CP
 			{AttackMultiplier 3.9}
 		}
