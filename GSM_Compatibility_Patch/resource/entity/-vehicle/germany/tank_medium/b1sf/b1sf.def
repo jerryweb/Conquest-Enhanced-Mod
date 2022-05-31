@@ -1,0 +1,118 @@
+{game_entity
+	(include "/properties/tank_assaultgun.ext")
+	(include "/properties/shadow/tank.inc"  scale(1.2))
+	(include "/properties/selection/vehicle.inc"  scale(1.1))
+	{props "spg" "medium" "-turret" "vision_lev06" "muzzle_100mm_105mm" "shell_eject" "shield" "tractor" "tractor_light" "open_top" "detect_spg"}
+
+	{PatherId "panzer3"}
+	{targetclass "tank_medium"}
+	{targetSelector "cannon_howitzer"}
+
+	("tank_medium_tier2")
+
+	("tracks" repair(30) thickness(20))
+	("gun" repair(30) thickness(25))
+
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 55
+			{front 60}
+			{top 25}	
+			{rear 55}
+			{bottom 20}
+		}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 55
+			{front 60}
+			{top 25}	
+			{rear 55}
+			{bottom 20}
+		}
+	}
+	{volume "engine"
+		{thickness 50}
+	}
+
+	{extender "shield"
+			{on}
+	}
+
+	{component "shieldl1" {tags "shield"}}
+	("shield" args "shieldl1" 20)
+
+	("crew_2_human")
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_tank_right"} {end "seat_gunner_stand"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_left"} {end "seat_gunner_stand"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+	}
+	(define "crew_human"
+		{placer
+			{place "%place" {group "%group"} {linkbone "%bone"} {turnoff {sensor} {shadow}}}
+		}
+		{boarder
+			{door "%door"}
+			{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+		}
+	)
+	("crew_human_visible" place(commander)	door1(emit1) door2(emit2) visor(main) group(crew))
+	("crew_human_visible" place(charger)	door1(emit1) door2(emit2) visor(main) group(crew))
+
+	{extender "inventory"
+		{box
+			{item "ammo bulletger_105 he" 36}		;42 rounds
+			{item "ammo bulletger_105 heat" 6}
+			{item "geballteladung_3kg" 1}
+		}
+	}
+
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{weapon "105mm_lefh18" filling "ammo bulletger_105 he" 1}
+			{RestoreIKAfterAim}
+			("abm_dymamic"
+				zeroing(4.0)
+				dispersion(0.25)
+			)
+		}
+	}
+
+
+	{mass 32500}
+	{Chassis
+		("tank_trace" fx("tracks_big") step(0.20) len(0.5))
+		("mobility_tank"
+			speed(28) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(4) ;---------Max speed in reverse on road, km/h.
+			traverse(22) ;-------Track traverse, per second, in degrees.
+			weight(32.5) ;-------Weight in Tonnes.
+			power(307) ;---------Engine Power, in hp. //engine under normal use was rated 265hp at 2600 rpm
+			track(6) ;-----------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(310) ;----------Fuel capacity in Litres.
+			type(fuel) ;---------Fuel type. (diesel OR fuel)
+			range(85) ;----------Range in km, off-road.
+		)
+	}
+
+
+	{Extension "b1sf.mdl"}
+
+	{bone "turret"
+		{limits -15 15}
+		{speed2 6}
+	}
+	{bone "gun_rot"
+		{limits -45 4}
+		{speed2 4}
+	}
+}

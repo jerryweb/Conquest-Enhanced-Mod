@@ -1,0 +1,147 @@
+{game_entity
+	(include "/properties/tank_assaultgun.ext")
+	(include "/properties/shadow/tank.inc"  scale(1.2))
+	(include "/properties/selection/vehicle.inc"  scale(1.1))
+	{props "td" "medium" "vision_lev06" "muzzle_100mm_105mm" "open_top" "detect_spg" "shell_eject"}
+
+	{PatherId "panzer3"}
+	{targetclass "tank_medium"}
+	{targetSelector "cannon_howitzer"}
+
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+
+	("tank_medium_tier2")
+
+	("tracks" repair(30) thickness(20))
+	("gun" repair(30) thickness(25))
+
+	{volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 15
+			{front 30}
+			{top 10}
+			{bottom 10}
+		}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 15
+			{front 30}
+			{top 10}
+			{bottom 10}
+		}
+	}
+	{volume "engine"		
+		{thickness 20
+			{front 10}
+			{top 10}
+		}
+	}
+	{volume "turret"
+		{thickness 15
+			{front 20}		
+		}
+	}
+	{volume "mantlet"
+		{thickness 50}
+	}
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_Kv"} {end "seat_gunner_stand"}}
+			{reverse 	{end	"emit_body"}}
+		}
+		{anm "charger"
+			{forward	{begin	"board_Kv"} {end "pose_pak40_charger"}}
+			{reverse 	{end	"emit_body" 1} {base "open_back_door" -1}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_Kv"} {end "pose_pak40_gunlayer"}}
+			{reverse 	{end	"emit_body" 1} {base "open_back_door" -1}}
+		}
+		{anm "commander"
+			{forward	{begin	"board_Kv"} {end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_body" 1} {base "open_back_door" -1}}
+		}
+	}
+
+	(define "crew_human"
+		{placer
+			{place "%place" {group "crew"} {linkbone "%place"} {turnoff {sensor} {shadow}}}
+		}
+		{boarder
+			{door "%door1"}
+			{door "%door2"}
+			{link "%door1" "%place" {anm "%place"} {forward putoff} {reverse puton}}
+			{link "%door2" "%place" {anm "%place"} {forward putoff} {reverse puton}}
+		}
+	)
+
+	{placer
+		{place "driver" {group "crew"} {visor "driver"}}
+	}
+	{placer
+		{place "gunner" {visor "main"}}
+	}
+	{boarder
+		{door "emit1"}
+		{door "emit1"}
+		{link "emit1" "driver" {anm "driver"} {forward putoff} {reverse puton}}
+	}
+	("crew_human" place(commander)	door1(emit1)	door1(emit2))
+	("crew_human" place(gunner)	door1(emit1)	door1(emit2))
+	("crew_human" place(charger)	door1(emit1)	door1(emit2))
+
+	{extender "inventory"
+		{box
+			{item "ammo bulletger_105 he" 39}		;60 rounds
+			{item "ammo bulletger_105 aphe" 10}
+			{item "ammo bulletger_105 heat" 10}
+			{item "geballteladung_3kg" 1}
+		}
+	}
+
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{weapon "105mm_lefh18" filling "ammo bulletger_105 he" 1}
+			{RestoreIKAfterAim}
+			("abm_dymamic"
+				zeroing(4.0)
+				dispersion(0.25)
+			)
+		}
+	}
+
+
+
+	{mass 18000}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.45))
+		("mobility_tank"
+			speed(35) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(8) ;---------Max speed in reverse on road, km/h.
+			traverse(27) ;-------Track traverse, per second, in degrees.
+			weight(18.0) ;-------Weight in Tonnes.
+			power(180) ;---------Engine Power, in hp. //engine under normal use was rated 265hp at 2600 rpm
+			track(4.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(410) ;----------Fuel capacity in Litres.
+			type(fuel) ;---------Fuel type. (diesel OR fuel)
+			range(130) ;---------Range in km, off-road.
+		)
+	}
+
+	{Extension "sfl_4b.mdl"}
+
+	{bone "gun_rot"
+		{limits -75 8}
+		{speed2 5}
+	}
+	{bone "turret"
+		{speed2 6}
+	}
+}

@@ -1,0 +1,171 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/shadow/tank.inc"  scale(1.2))
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	{props "medium" "vision_lev04" "mantlet" "muzzle_37mm_40mm_auto_sides" "open_top" "shell_eject"}
+	{Extension "ostwind.mdl"}
+	{PatherId "panzer4"}
+	{targetclass "tank_medium"}
+	{targetSelector "tank_medium"}
+
+	("tank_medium_tier2")
+
+	("tracks" repair(30) thickness(20))
+	("gun" repair(30) thickness(15))
+
+	{volume "sticky"
+		{tags "grenade_fg_target"}
+		{able clear {contact} {touch}}
+		{component "sticky_body"}
+	}	
+	{component "sticky_body"}
+	{volume "body1"			; Hull
+		{thickness 30
+			{front 80}		; 50mm base + 30mm plate
+			{top 20}		; Glacis
+			{rear 10}
+			{bottom 10}
+		}
+	}
+	{volume "body2"			; Superstructure
+		{thickness 30
+			{front 80}		; 50mm base + 30mm plate
+			{top 12}
+			{rear 10}
+		}
+	}
+	{volume "engine"
+		{thickness 30
+			{front 30}
+			{top 20}
+			{rear 30}
+		}
+	}
+	{volume "turret"
+		{thickness 25
+			{front 25}
+			{top 16}
+		}
+	}
+	{volume "mantlet"
+		{thickness 15}
+	}
+	
+	(define "crew_human"
+		{placer
+			{place "%place" {group "crew"} {linkbone "%place"} {turnoff {sensor} {shadow}} {openForCrush}}
+		}
+		{boarder
+			{door "%door1"}
+			{door "%door2"}
+			{link "%door1" "%place" {anm "%place"} {forward putoff} {reverse puton}}
+			{link "%door2" "%place" {anm "%place"} {forward putoff} {reverse puton}}
+			
+		}
+	)
+	
+	{placer
+		{place "driver" {visor "driver"}}
+		{place "commander" {visor "main"}}
+		{place "gunner" {visor "main"}}
+		{place "charger" {visor "main"}}
+	}	
+	
+	{boarder
+		{door "emit0"}
+		{link "emit0" "driver" {anm "driver"} {forward putoff} {reverse puton}}
+	}
+
+	("crew_driver")
+	("crew_human" place(gunner)	door1(emit2))
+	("crew_human" place(charger)	door1(emit3))
+	("crew_human" place(commander)	door1(emit3))
+	
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_pz4_driver"} {end "seat_gunner_stand"} {base "open_driver"}}
+			{reverse 	{end	"board_pz4_driver" -1} {base "open_driver" -1}}
+		}
+		{anm "charger"
+			{forward	{begin	"board_tank_left"} {end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "commander"
+			{forward	{begin	"board_tank_left"} {end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_tank_right"} {end "pose_gunner_ostwind"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_highArmor"} 	{end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_lowArmor"} {end "pose_seat_armor_2"}}
+			{reverse 	{end	"emit_body"}}
+		}
+		{anm "armor2"
+			{forward	{begin	"board_lowArmor"} {end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+	
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor1))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor2))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
+			
+	{extender "inventory"
+		{box
+			{item "bulletger_37_auto ap" 304}	
+			{item "bulletger_37_auto he" 696}
+			{item "ammo mgun_ger belt" 1350}
+		}
+	}
+
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{weapon "37mm_flak43" filling "bulletger_37_auto he" 8}
+			("abm_dymamic_aa"
+				zeroing(1.95)
+				dispersion(0.24)
+			)
+		}
+		{place "mgun1"
+			{type "hull"}
+			{weapon "mg34_tank" filled}
+			{foresight "foresight4"}
+			{gunner "commander"}
+			{charger "commander"}
+			("abm_mgun")
+			{basic}
+		}
+	}
+	
+
+	{mass 25000}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.45))
+		("mobility_tank"
+			speed(39) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(8) ;---------Max speed in reverse on road, km/h.
+			traverse(30) ;-------Track traverse, per second, in degrees.
+			weight(25) ;-------Weight in Tonnes.
+			power(265) ;---------Engine Power, in hp. //engine under normal use was rated 265hp at 2600 rpm
+			track(4.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(470) ;----------Fuel capacity in Litres.
+			type(fuel) ;---------Fuel type. (diesel OR fuel)
+			range(130) ;---------Range in km, off-road.
+		)
+	}
+
+	{bone "gun_rot"
+		{speed2 50}
+	}
+	{bone "turret"
+		{speed2 33}
+	}
+}

@@ -1,0 +1,265 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/shadow/tank.inc" scale(1.0))
+	(include "/properties/selection/vehicle.inc" scale(1.0))
+	{props "light" "vision_lev03" "muzzle_20mm_25mm_auto" "detect_tank_light" "shell_eject"}
+	{targetclass "tank_light"}
+	{targetSelector "tank_zenite"}
+	{patherId "panzer1"}
+	{collider "tank.light"}
+
+	("tank_light_tier1")
+	("tracks" repair(30) thickness(15))
+	("gun" repair(30) thickness(15))
+	
+	{Volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 
+			{front 13}	
+			{left 13}	
+			{right 13}
+			{rear 13}
+			{bottom 8}
+			{top 8}
+		}
+	}
+	{Volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 
+			{front 13}	
+			{left 13}	
+			{right 13}
+			{rear 13}
+			{bottom 8}
+			{top 8}
+		}
+	}
+	{Volume "body3"
+		{tags "body"}
+		{component "body"}
+		{thickness 
+			{front 13}	
+			{left 13}	
+			{right 13}
+			{rear 13}
+			{bottom 8}
+			{top 8}
+		}
+	}
+	{Volume "body4"
+		{tags "body"}
+		{component "body"}
+		{thickness 
+			{front 13}	
+			{left 13}	
+			{right 13}
+			{rear 13}
+			{bottom 8}
+			{top 8}
+		}
+	}
+	{Volume "body5"
+		{tags "body"}
+		{component "body"}
+		{thickness 
+			{front 13}	
+			{left 13}	
+			{right 13}
+			{rear 13}
+			{bottom 8}
+			{top 8}
+		}
+	}
+	{Volume "body6"
+		{tags "body"}
+		{component "body"}
+		{thickness 
+			{front 13}	
+			{left 13}	
+			{right 13}
+			{rear 13}
+			{bottom 8}
+			{top 8}
+		}
+	}
+	{Volume "body7"
+		{tags "body"}
+		{component "body"}
+		{thickness 
+			{front 13}	
+			{left 13}	
+			{right 13}
+			{rear 13}
+			{bottom 8}
+			{top 8}
+		}
+	}
+	{Volume "body8"
+		{tags "body"}
+		{component "body"}
+		{thickness 
+			{front 13}	
+			{left 13}	
+			{right 13}
+			{rear 13}
+			{bottom 8}
+			{top 8}
+		}
+	}
+	{Volume "body9"
+		{tags "body"}
+		{component "body"}
+		{thickness 
+			{front 13}	
+			{left 13}	
+			{right 13}
+			{rear 13}
+			{bottom 8}
+			{top 8}
+		}
+	}
+	{Volume "body_cover1"
+		{Thickness 13}
+	}
+	{Volume "body_cover2"
+		{Thickness 13}
+	}
+	{Volume "body_cover3"
+		{Thickness 13}
+	}
+	{Volume "body_cover4"
+		{Thickness 13}
+	}
+	{Volume "body_cover5"
+		{Thickness 13}
+	}
+	{Volume "end1"
+		{Thickness 7}
+	}
+	{Volume "end2"
+		{Thickness 7}
+	}
+	{Volume "engine"
+		{tags "engine"}
+		{component "engine"}
+		{thickness 5}
+	}
+	{Volume "mantlet"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 7}
+	}
+	{Volume "turret_cover1"
+		{Thickness 7}
+	}
+	{Volume "turret_cover2"
+		{Thickness 7}
+	}
+	{Volume "turret_cover4"
+		{Thickness 7}
+	}
+	{Volume "turret"
+		{tags "turret"}
+		{component "turret"}
+		{thickness 
+			{front 7}
+		}
+	}
+
+	{extender "shield"
+		{on}
+	}
+	{component "shieldl1" {tags "shield"}}
+	{component "shieldl2" {tags "shield"}}
+	{component "shieldl3" {tags "shield"}}
+	{component "shieldl4" {tags "shield"}}
+	{component "shieldl5" {tags "shield"}}
+	{component "shieldr1" {tags "shield"}}
+	{component "shieldr2" {tags "shield"}}
+	{component "shieldr3" {tags "shield"}}
+	{component "shieldr4" {tags "shield"}}
+	{component "shieldr5" {tags "shield"}}
+
+	("shield_group" args "shieldl1" 8 "shield")
+	("shield_group" args "shieldl2" 8 "shield")
+	("shield_group" args "shieldl3" 8 "shield")
+	("shield_group" args "shieldl4" 8 "shield")
+	("shield_group" args "shieldl5" 8 "shield")
+	("shield_group" args "shieldr1" 8 "shield")
+	("shield_group" args "shieldr2" 8 "shield")
+	("shield_group" args "shieldr3" 8 "shield")
+	("shield_group" args "shieldr4" 8 "shield")
+	("shield_group" args "shieldr5" 8 "shield")
+
+
+
+	(define "crew_human_visible"
+		{placer	{place "%place" {group "crew"} {linkbone "%place"} {visor "%visor"} {turnoff {sensor} {shadow} {targetable}}}  	}
+		{boarder {door "%door"}	{link "%door" "%place" {anm "%place"} {forward putoff} {reverse puton}}}
+	)
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_tank"} {end "pose_flak38-1_charger"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "commander"			
+			{forward	{begin	"board_tank"} {end "pose_flak38-1_gunlayer"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "charger"
+			{forward	{begin "board_SdKfz251-1"} {end "pose_flak30_loader"} {base "board"}}
+			{reverse	{end "emit_body" 1}}
+		}
+	}
+
+	("crew_human_visible" place(driver)	door(emit0) visor(driver))
+	("crew_human_visible" place(commander)	door(emit1) visor(main))
+	("crew_human_visible" place(charger)	door(emit1) visor(main))
+
+
+	{extender "inventory"
+		{box
+			{item "bulletger_20_auto he" 200}
+			{item "bulletger_20_auto ap" 100}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{weapon "20mm_flak38" filling "bulletger_20_auto he" 20}
+			{gunner "commander"}
+			("abm_dymamic_aa"
+				zeroing(2.9)
+				dispersion(0.08)
+			)
+		}
+	}
+
+	{mass 5500}
+	{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.15) len(0.43))
+		("mobility_tank"
+			speed(31) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(6) ;---------Max speed in reverse on road, km/h.
+			traverse(30) ;-------Track traverse, per second, in degrees.
+			weight(5.5) ;--------Weight in Tonnes.
+			power(60) ;---------Engine Power, in hp.
+			track(4) ;-----------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(140) ;----------Fuel capacity in Litres.
+			type(fuel) ;---------Fuel type. (diesel OR fuel)
+			range(145) ;---------Range in km, off-road.
+		)
+	}
+
+	{Extension "flak_pz1a.mdl"}
+
+	{bone "gun_rot"
+		{speed2 15}
+	}
+	{bone "turret"
+		{speed2 35}
+	}
+}

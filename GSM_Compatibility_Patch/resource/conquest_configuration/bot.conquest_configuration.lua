@@ -29,7 +29,7 @@
 
 
 	-- This is the division that will always be selected when testing. If you want to randomly select one, just set it to nil
-	testingDivision = [[/script/multiplayer/bot.data.purchase.conquest.mid.8]] 
+	testingDivision = [[/script/multiplayer/bot.data.purchase.conquest.early.9]] 
 
 	-- Chance that the enemy might come earlier or later than the preset first wave offest. Example: 30% chance enemy comes earlier or later than the standard prep time
 	chanceToOffsetFirstWave = 0.3

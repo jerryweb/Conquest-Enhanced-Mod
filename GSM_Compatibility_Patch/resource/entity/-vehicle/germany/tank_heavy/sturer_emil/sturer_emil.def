@@ -1,0 +1,149 @@
+{game_entity
+	(include "/properties/tank_assaultgun.ext")
+	(include "/properties/shadow/tank.inc" scale(1.2))
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	{props "td" "heavy" "-turret" "mantlet" "vision_lev05" "muzzle_122mm_128mm" "open_top" "detect_td_heavy" "shell_eject"} 
+
+	{targetclass "tank_heavy"}
+	{targetSelector "tank_spg"}
+	{PatherId "su100y"}
+	{collider "tank.heavy"}
+
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+	
+	{sensor
+		{visor "main"
+			{vision "tank_main-m"}
+			{bone "visor1"}
+		}
+		{visor "around"
+			{vision "none"}
+		}
+	}
+
+	("tank_heavy_tier1")
+
+	("gun" repair(30) thickness(30))
+
+	{volume "sticky"
+		{tags "grenade_fg_target"}
+		{able clear {contact} {touch}}
+		{component "sticky_body"}
+	}
+	{component "sticky_body"}
+
+	{Volume "body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 20
+			{front 50}
+			{rear 20}
+			{bottom 20}
+		}
+	}
+	{Volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 20
+			{front 50}
+			{rear 20}
+			{bottom 20}
+		}
+	}
+	{Volume "body3"
+		{tags "body"}
+		{component "body"}
+		{thickness 20
+			{front 50}
+			{rear 20}
+			{bottom 20}
+		}
+	}
+
+	
+	{volume "engine"		;
+		{thickness 30}
+	}
+	{volume "mantlet"		; Front Mantlet
+		{thickness 50}
+	}
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_tank_left"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "left"
+			{forward	{begin	"board_tank_left"} {end "pose_pak40_gunlayer" 10}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_tank_right"} {end "pose_pak40_charger" 10}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+	}
+
+	{placer
+		{place "driver" {group "crew"} {visor "driver"}}
+	}
+	{boarder
+		{door "emit0"}
+		{link "emit0" "driver" {anm "driver"} {forward putoff} {reverse puton}}
+	}
+
+
+	("crew_human_visible_anm"	place(commander) door(emit1) door2(emit1) visor(around) anm_left(right)	anm_right(right))
+	("crew_human_visible_anm"	place(gunner)	 door(emit1) door2(emit1) visor(main)	anm_left(left)	anm_right(left))
+	("crew_human_visible_anm"	place(charger)	 door(emit0) door2(emit0) visor(main)	anm_left(left)	anm_right(left))
+	("crew_human_visible_anm"	place(charger2)	 door(emit1) door2(emit1) visor(main)	anm_left(left)	anm_right(left))
+
+	{extender "inventory"
+		{box
+				{item "bulletger_128 apche" 10}
+				{item "bulletger_128 he" 5}
+				{item "geballteladung_3kg" 1}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "128mm_K40" filling "bulletger_128 apche"}
+			{gunner "gunner"}
+			{charger "charger"}
+			("abm_dymamic_td"
+				zeroing(3.5)
+				dispersion(0.25)
+			)
+		}
+	}
+	
+	{mass 36500}
+	{Chassis
+		("tank_trace" fx("tracks_big") step(0.47) len(0.82))
+		("mobility_tank"
+			speed(26) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(5) ;--------Max speed in reverse on road, km/h. (+2 of real life speed)
+			traverse(23) ;-------Track traverse, per second, in degrees.
+			weight(36.5) ;---------Weight in Tonnes.
+			power(310) ;---------Engine Power, in hp. //engine was governed to 2500 max rpm which reduced it from 700HP to 600HP
+			track(3.3) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(540) ;----------Fuel capacity in Litres.
+			type(fuel) ;---------Fuel type. (diesel OR fuel)
+			range(80) ;----------Range in km, off-road.
+		)
+	}
+
+	{Extension "pzsfl5.mdl"}
+
+	{bone "turret"
+		{limits -5 7}
+		{speed2 5}
+	}
+	{bone "gun_rot"
+		{speed2 3}
+		{limits -15 10}
+	}
+}

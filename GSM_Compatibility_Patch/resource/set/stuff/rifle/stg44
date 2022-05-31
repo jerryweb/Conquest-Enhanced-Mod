@@ -1,0 +1,44 @@
+{from "pattern rifle"
+	{tag "-rifle smg smg_shell assaultrifle"}
+	{filling "ammo stg44" 30}
+	{entity "stg44"}
+	{fireSound "rifle/stg44_shot"}
+	{fireSoundclose "rifle/stg44_shot/3p/"}
+	{reloadSound "stg"}
+	{calibre 7.92}
+	{mass 4.6}
+
+	("fire rate" rpm(500))
+	("velocity" mps(685))
+	("assault_rifle")
+
+	("armor health" damage(15))
+	("power" speed(685) calibre(7.92))
+	{thirdpersonparams inherit "human default"
+		{level 1
+		    {zoom}
+			{linkBone	"right_hand"	}
+			{distanceset 		0}
+			{distance			30}	; activation distance
+			{delta		20		}		; distance delta
+			{nearspace_views 	"fps_arms"	}
+			{nearspace_weapon	1	}
+			{camera "human_zoom1"}
+		    {offset		24.0 0.12 3.2}
+			{blur_strength 10}
+			{hide_hitmarker 0}
+			{forceGrass 1}
+			{disable_fow 0}
+			{with_owner
+				{viewoff 	"head"	}
+				{boneon 	"fps_arms"	}
+			}
+			{with_weapon
+				{viewoff	"fx_light"}
+				{viewon 	"fps_arms"	}
+			}
+			{vignette	"/texture/common/environment/lens_effects/zoom_vignette_infantry_01"}
+			{blur_mask	"/texture/common/environment/lens_effects/zoom_vignette_infantry_01_mask"}
+		}
+	}
+}

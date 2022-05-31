@@ -1,0 +1,43 @@
+{from "pattern at_rifle"
+	{tag "auto_eject"}
+	{filling "ammo atrifle_rus" 5}
+	{entity "ptrs"}
+	{fireSound "rifle/ptrd_shot"}
+	{fireSoundclose "rifle/ptrd_shot/3p/"}
+	{reloadSound "ptrd"}
+	{calibre 14.5}
+	{mass 17.3}
+
+	{projectileDamageTable {0 42} {30 39} {60 36} {90 27} {120 18}}
+	("fire rate" rpm(30))
+	("velocity" mps(1013))
+	{thirdpersonparams inherit "human default"
+		{level 1
+			{linkBone	"right_hand"	}
+			{distanceset 		40}
+			{distance			40}	; activation distance
+			{delta		20		}		; distance delta
+			{nearspace_views 	"fps_arms"	}
+			{nearspace_weapon	1	}
+			{camera "human_zoom1.25"}
+			;{offset		0 12 4.5}
+			{offset		34.5 0.5 3.0}
+			{blur_strength 10}
+			{hide_hitmarker 1}
+			{forceGrass 1}
+			{disable_fow 0}
+			{with_owner
+				{viewoff 	"head"	}
+				{boneon 	"fps_arms"	}
+			}
+			{with_weapon
+				{viewoff	"fx_light"}
+				{viewon 	"fps_arms"	}
+			}
+			;{vignette	"/texture/common/environment/lens_effects/zoom_vignette_infantry_01"}
+			;{blur_mask	"/texture/common/environment/lens_effects/zoom_vignette_infantry_01_mask"}
+			{no_grain}
+			{no_rim_light}
+		}
+	}
+}

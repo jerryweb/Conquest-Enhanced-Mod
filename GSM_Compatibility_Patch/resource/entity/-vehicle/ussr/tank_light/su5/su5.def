@@ -1,0 +1,143 @@
+{game_entity
+	(include "/properties/tank_assaultgun.ext")
+	(include "/properties/shadow/tank.inc" scale(1.3))
+	(include "/properties/selection/vehicle.inc" scale(0.7))
+	{props "spg" "light" "vision_lev02" "muzzle_122mm_128mm" "shell_eject" "tractor" "tractor_medium" "open_top" "detect_spg" "shell_eject"}
+	{targetclass "tank_light"}
+	{patherId "t26"}
+	{collider "tank.light"}
+	{targetSelector "cannon_howitzer"}
+
+	("tank_light_tier1")
+
+	("tracks" repair(30) thickness(15))
+	("gun" repair(30) thickness(15))
+
+	{Volume "Body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 15
+			{top 10}
+			{bottom 7}
+		}
+	}
+	{Volume "Body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 15
+			{top 10}
+			{bottom 7}
+		}
+	}
+	{volume "turret"
+		{thickness 15}
+	}
+	{volume "engine"		
+		{thickness 15}
+	}
+	
+  	{boarder
+		{anm "driver"
+			{forward	{begin	"board_t34_driver"} {end "seat_gunner_stand"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+		{anm "commander"
+			{forward	{begin	"board_LowTank_stand"} {end "seat_armor"}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+
+		{anm "gunner"
+			{forward	{begin	"board_LowTank_stand_1"} {end "pose_pak40_gunlayer" 10}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+		{anm "gunner2"
+			{forward	{begin	"board_LowTank_stand_1"} {end "pose_155gpf_charger" 10}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+		{anm "charger"
+			{forward	{begin	"board_LowTank_stand"} {end "pose_155gpf_gunlayer" 10}}
+			{reverse 	{end	"emit_tank_1"}}
+		}
+	}
+	(define "crew_human"
+		{placer
+			{place "%place" {group "%group"} {visor "%visor"}}
+		}
+		{boarder
+			{door "%door"}
+			{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+		}
+	)
+	(define "crew_human_visible"
+		{placer
+			{place "%place" {group "%group"} {linkbone "%place"} {visor "%visor"}}
+		}
+		{boarder
+			{door "%door"}
+			{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+		}
+	)
+
+	("crew_human"	      place(driver)	door(emit0) group(crew) animation(driver) visor(driver))
+	("crew_human_visible" place(charger)	door(emit1) group(crew)	 animation(charger)   visor(main))
+	("crew_human_visible" place(commander)	door(emit1) group(crew)	 animation(commander) visor(main))
+	("crew_human_visible" place(gunner)	door(emit2) group(crew)	 animation(gunner)    visor(main))
+	("crew_human_visible" place(gunner2)	door(emit2) group(crew)	 animation(gunner2)   visor(main))
+
+	{placer 
+		{place "charger" {openForCrush}}
+		{place "gunner" {openForCrush}}
+		{place "commander" {openForCrush}}
+		{place "gunner2" {openForCrush}}
+   	}
+
+	{extender "inventory"
+		{box
+			{item "bulletrus_122_l22 he" 19}		;20 rounds
+			{item "satchel_charge_rus" 1}
+		}
+	}
+
+	{Weaponry
+		{place "gun"
+			{weapon "122mm_m10" filling "bulletrus_122_l22 he" 1}
+			{gunner "gunner"}
+			{charger "charger"}
+			("abm_dymamic"
+				zeroing(3.5)
+				dispersion(0.25)
+			)
+		}
+	}
+
+	{mass 10500}
+	{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.2) len(0.37))
+		("mobility_tank"
+			speed(30) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(3) ;--------Max speed in reverse on road, km/h.
+			traverse(25) ;-------Track traverse, per second, in degrees.
+			weight(10.5) ;------Weight in Tonnes.
+			power(80) ;----------Engine Power, in hp.
+			track(7.0) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(290) ;----------Fuel capacity in Litres.
+			type(fuel) ;---------Fuel type. (diesel OR fuel)
+			range(140) ;---------Range in km, off-road.
+		)
+	}
+
+
+	(mod "mp"
+		{brain
+			{properties
+				{fire_mode hold}
+			}
+		}
+	)
+
+	{Extension "su5.mdl"}
+
+	{bone "turret"
+		{speed2 6}
+	}
+}

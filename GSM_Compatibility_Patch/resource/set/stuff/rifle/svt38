@@ -1,0 +1,46 @@
+{from "pattern rifle"
+	{filling "ammo rifle_rus" 10}
+	{entity "svt38"}
+	{fireSound "rifle/svt_shot/"}
+	{fireSoundclose "rifle/svt_shot/3p/"}
+	{reloadSound "svt"}
+	{calibre 7.62}
+	{mass 3.85}
+
+	("velocity" mps(830))
+	("semi_rifle")
+	{parameters "clip"
+		("reload time" seconds(10))
+	}
+	("power" speed(830) calibre(7.62))
+	{thirdpersonparams inherit "human default"
+		{level 1
+			{linkBone	"right_hand"	}
+			{distanceset 		40}
+			{distance			40}	; activation distance
+			{delta		20		}		; distance delta
+			{nearspace_views 	"fps_arms"	}
+			{nearspace_weapon	1	}
+			{camera "human_zoom1.25"}
+			;{offset		0 12 5}
+			{offset		34.1 0.20 2.15	}
+			{blur_strength 10}
+			{hide_hitmarker 1}
+			{forceGrass 1}
+			{disable_fow 0}
+			{with_owner
+				{viewoff 	"head"	}
+				{viewoff 	"face"	}
+				{boneon 	"fps_arms"	}
+			}
+			{with_weapon
+				{viewoff	"fx_light"}
+				{viewon 	"fps_arms"	}
+			}
+			;{vignette	"/texture/common/environment/lens_effects/zoom_vignette_infantry_01"}
+			;{blur_mask	"/texture/common/environment/lens_effects/zoom_vignette_infantry_01_mask"}
+			{no_grain}
+			{no_rim_light}
+		}
+	}
+}

@@ -1,0 +1,44 @@
+{from "pattern rifle"
+	{filling "ammo rifle_ger clip" 5}
+	{entity "k98"}
+	{fireSound "rifle/kar98_shot"}
+	{fireSoundclose "rifle/kar98_shot/3p/"}
+	{reloadSound "kar98"}
+	{calibre 7.92}
+	{mass 3.9}
+
+	("velocity" mps(760))
+	("bolt_action")
+	("k98_rate")
+	("power" speed(760) calibre(7.92))
+	{thirdpersonparams inherit "human default"
+		{level 1
+			{linkBone	"right_hand"	}
+			{distanceset 		40}
+			{distance			40}	; activation distance
+			{delta		20		}		; distance delta
+			{nearspace_views 	"fps_arms"	}
+			{nearspace_weapon	1	}
+			{camera "human_zoom1.25"}
+			;{offset		0 12 5}
+			{offset		36.1 0.20 2.12	}
+			{blur_strength 10}
+			{hide_hitmarker 1}
+			{forceGrass 1}
+			{disable_fow 0}
+			{with_owner
+				{viewoff 	"head"	}
+				{viewoff 	"face"	}
+				{boneon 	"fps_arms"	}
+			}
+			{with_weapon
+				{viewoff	"fx_light"}
+				{viewon 	"fps_arms"	}
+			}
+			;{vignette	"/texture/common/environment/lens_effects/zoom_vignette_infantry_01"}
+			;{blur_mask	"/texture/common/environment/lens_effects/zoom_vignette_infantry_01_mask"}
+			{no_grain}
+			{no_rim_light}
+		}
+	}
+}

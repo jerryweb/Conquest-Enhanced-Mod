@@ -1,0 +1,157 @@
+{game_entity
+	(include "/properties/tank_assaultgun.ext")
+	(include "/properties/shadow/tank.inc" scale(1.2))
+	(include "/properties/selection/vehicle.inc" scale(1.1))
+	{props "td" "medium" "-turret" "opened" "vision_lev04" "muzzle_85mm_93mm_sides" "shield" "detect_td_medium" "shell_eject"}
+	{PatherId "panzer3"}
+	{targetclass "tank_medium"}
+	{targetSelector "tank_medium"}
+
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+
+	("tank_medium_tier2")
+
+	("tracks" repair(30) thickness(20))
+	("gun" repair(30) thickness(25))
+
+	{volume "sticky"
+		{tags "grenade_fg_target"}
+		{able clear {contact} {touch}}
+		{component "sticky_body"}
+	}	
+	{component "sticky_body"}
+
+
+	{volume "body1"
+		{component "body"}
+		{tags "body"}
+		{thickness 20
+			{front 30}
+			{top 12}		
+		}
+	}
+	{volume "body2"
+		{component "body"}
+		{tags "body"}
+		{thickness 20
+			{front 30}
+			{top 12}		
+		}
+	}
+	{volume "body3"
+		{component "body"}
+		{tags "body"}
+		{thickness 20
+			{front 30}
+			{top 12}		
+		}
+	}
+	{volume "engine"
+		{thickness 20
+			{front 10}
+			{top 10}
+			{rear 20}
+		}
+	}
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_hummel_driver"} {end "seat_gunner_stand"} {base "open_driver"}}
+			{reverse 	{end	"board_hummel_driver" -1} {base "open_driver" }}
+		}
+		{anm "gunner2"
+			{forward	{begin	"board_hummel_driver"} {end "seat_gunner_stand"} {base "open_driver"}}
+			{reverse 	{end	"board_hummel_driver" -1} {base "open_driver" }}
+		}
+		{anm "charger"
+			{forward	{begin	"board_hummel"} {end "pose_pak40_gunlayer"} {base "open_back_door"}}
+			{reverse 	{end	"emit_body" 1} {base "open_back_door" -1}}
+		}
+		{anm "gunner"
+			{forward	{begin	"board_hummel"} {end "pose_pak40_charger"} {base "open_back_door"}}
+			{reverse 	{end	"emit_body" 1} {base "open_back_door" -1}}
+		}
+		{anm "commander"
+			{forward	{begin	"board_hummel"} {end "pose_pak40_gunlayer"} {base "open_back_door"}}
+			{reverse 	{end	"emit_body" 1} {base "open_back_door" -1}}
+		}
+	}
+
+	(define "crew_human"
+		{placer
+			{place "%place" {group "crew"} {linkbone "%place"} {turnoff {sensor} {shadow}}}
+		}
+		{boarder
+			{door "%door1"}
+			{door "%door2"}
+			{link "%door1" "%place" {anm "%place"} {forward putoff} {reverse puton}}
+			{link "%door2" "%place" {anm "%place"} {forward putoff} {reverse puton}}
+		}
+	)
+
+	{placer
+		{place "driver" {group "crew"} {visor "driver"}}
+		{place "gunner2" {group "crew"} {visor "main"}}
+	}
+	{placer
+		{place "gunner" {visor "main"}}
+	}
+	{boarder
+		{door "emit0"}
+		{door "emit1"}
+		{link "emit0" "driver" {anm "driver"} {forward putoff} {reverse puton}}
+		{link "emit0" "gunner2" {anm "gunner2"} {forward putoff} {reverse puton}}
+	}
+
+	("crew_human" place(commander)	door1(emit1))
+	("crew_human" place(gunner)	    door1(emit1))
+	("crew_human" place(charger)	door1(emit1))
+
+	{extender "inventory"
+		{box
+			{item "bulletger_88_l71 apcbche" 29} 	; 40 rounds
+			{item "bulletger_88_l71 he" 10}
+			{item "geballteladung_3kg" 1}
+		}
+	}
+
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "88mm_pak43" filling "bulletger_88_l71 apcbche" 1}
+			("abm_dymamic_td"
+				zeroing(2.5)
+				dispersion(0.25)
+			)
+		}
+	}
+
+	{mass 23500}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.45))
+		("mobility_tank"
+			speed(40) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(9) ;---------Max speed in reverse on road, km/h.
+			traverse(30) ;-------Track traverse, per second, in degrees.
+			weight(23.5) ;-------Weight in Tonnes.
+			power(265) ;---------Engine Power, in hp. //engine under normal use was rated 265hp at 2600 rpm
+			track(4.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(680) ;----------Fuel capacity in Litres.
+			type(fuel) ;---------Fuel type. (diesel OR fuel)
+			range(210) ;---------Range in km, off-road.
+		)
+	}
+
+	{Extension "nashorn.mdl"}
+	
+	{bone "gun_rot"
+		{speed2 5}
+	}
+	{bone "gun_rot1"
+		{speed2 5}
+	}
+
+}

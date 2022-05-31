@@ -1,0 +1,171 @@
+{game_entity	
+	(include "/properties/tank_assaultgun.ext")
+	(include "/properties/shadow/tank.inc" scale(1.2))
+	(include "/properties/selection/vehicle.inc" scale(1.1))
+	{props "td" "medium" "-turret" "opened" "vision_lev04" "muzzle_100mm_105mm" "shield" "detect_td_medium" "shell_eject"}
+	{PatherId "panzer3"}
+	{targetclass "tank_medium"}
+	{targetSelector "tank_medium"}
+
+;	{extension "crew.ext"}
+
+	("tank_medium_tier2")
+
+	("tracks" repair(30) thickness(20))
+	("gun" repair(30) thickness(25))
+
+        {volume "body"
+		{tags "body"}
+		{component "body"}
+		{thickness 20
+			{front 50}
+			{top 12}		
+		}
+	}
+	{volume "body2"
+		{tags "body"}
+		{component "body"}
+		{thickness 20
+			{front 50}
+			{top 12}		
+		}
+	}
+	{volume "body_sheilds3"
+		{tags "body_sheilds"}
+		{component "body_sheilds"}
+		{thickness 20
+			{front 50}
+			{top 12}		
+		}
+	}
+        {volume "body4"
+		{tags "gun"}
+		{component "gun"}
+		{thickness 20
+			{front 50}
+			{top 12}		
+		}
+	}
+	{volume "body5"
+		{tags "body"}
+		{component "body"}
+		{thickness 20
+			{front 50}
+			{top 12}		
+		}
+	}
+	{Volume "ekran_body1"
+		{tags "body"}
+		{component "body"}
+		{thickness 50}
+	}
+	{volume "engine"
+		{thickness 20
+			{front 10}
+			{top 10}
+			{rear 20}
+		}
+	}
+	{volume "mantlet"
+		{thickness 50}
+	}
+
+	{extender "shield"
+			{on}
+	}
+
+	{component "shieldl1" {tags "shield"}}
+	{component "shieldl2" {tags "shield"}}
+	{component "shieldl3" {tags "shield"}}
+	{component "shieldl4" {tags "shield"}}
+	{component "shieldr1" {tags "shield"}}
+	{component "shieldr2" {tags "shield"}}
+	{component "shieldr3" {tags "shield"}}
+	{component "shieldr4" {tags "shield"}}
+
+	("shield" args "shieldl1" 8)
+	("shield" args "shieldl2" 8)
+	("shield" args "shieldl3" 8)
+	("shield" args "shieldl4" 8)
+	("shield" args "shieldr1" 8)
+	("shield" args "shieldr2" 8)
+	("shield" args "shieldr3" 8)
+	("shield" args "shieldr4" 8)
+
+
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_pz4_driver"} {end "seat_Willis_passenger"}}
+			{reverse 	{end	"board_pz4_driver" -1}}
+		}
+	        {anm "left"
+		        {forward	{begin	"board_tank_left"} {end "pose_flak41_gunlayer"}}
+		        {reverse 	{end	"emit_tank_1_hold"}}
+	        }
+		{anm "right"
+			{forward	{begin	"board_tank_right"} {end "seat_Willis_passenger"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+	}
+
+	("crew_human_visible_anm"	place(charger2)  door(emit4) door2(emit4) visor(driver) 	anm_left(left)    anm_right(left))
+	("crew_human_visible_anm"	place(commander) door(emit5) door2(emit5) visor(around) 	anm_left(right)   anm_right(right))
+	("crew_human_visible_anm"	place(gunner) 	 door(emit3) door2(emit3) visor(main) 	 	anm_left(right)   anm_right(right))
+	("crew_human_visible_anm"	place(charger) 	 door(emit2) door2(emit2) visor(main) 	 	anm_left(left)    anm_right(left))
+
+	{placer
+		{place "driver" {group "crew"} {visor "driver"}}
+	}
+	{boarder
+		{door "emit1"}
+		{link "emit1" "driver" {anm "driver"} {forward putoff} {reverse puton}}
+	}
+
+	
+
+	{extender "inventory"
+		{box
+			{item "bulletger_105 aphe" 8}
+			{item "bulletger_105 apcbche" 10}
+			{item "bulletger_105 he" 8}
+		}
+	}
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "105mm_K18" filling "bulletger_105 aphe" 1}
+			("abm_dymamic_td"
+				zeroing(3.5)
+				dispersion(0.25)
+			)
+		}
+	}
+
+	{mass 22000}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(1.05))
+		("mobility_tank"	
+			speed(28)  ;---------Max speed when fully accelerated on road, km/h.
+			reverse(6);----------Max speed in reverse on road, km/h.
+			traverse(15) ;-------Track traverse, per second, in degrees.
+			weight(22) ;-------Weight in Tonnes.
+			power(180) ;---------Engine Power, in hp. //engine under normal use was rated 265hp at 2600 rpm
+			track(5) ;-----------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(310) ;----------Fuel capacity in Litres.
+			type(fuel) ;---------Fuel type. (diesel OR fuel)
+			range(95) ;----------Range in km, off-road.
+		)
+	}
+
+	{Extension "dicker_max.mdl"}
+
+	{bone "gun_rot"
+		{speed2 4}
+	}
+	{bone "turret"
+		{speed2 5}
+	}
+}
+

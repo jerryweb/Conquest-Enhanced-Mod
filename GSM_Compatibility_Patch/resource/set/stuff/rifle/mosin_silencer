@@ -1,0 +1,45 @@
+{from "pattern rifle"
+	{tag "silenced"}
+	{filling "ammo rifle_rus clip" 5}
+	{entity "mosin_silencer"}
+	{fireSound	"pistol/welrod/"}
+	{fireSoundclose	"pistol/welrod/3p/"}
+	{reloadSound "mosin"}
+	{calibre 7.62}
+	{mass 4}
+
+	("velocity" mps(565))
+	("bolt_action")
+	("mosin_rate")
+	("power" speed(565) calibre(7.62))
+	{thirdpersonparams inherit "human default"
+		{level 1
+			{linkBone	"right_hand"	}
+			{distanceset 		40}
+			{distance			40}	; activation distance
+			{delta		20		}		; distance delta
+			{nearspace_views 	"fps_arms"	}
+			{nearspace_weapon	1	}
+			{camera "human_zoom1.25"}
+			;{offset		0 12 5}
+			{offset		36.1 0.20 2.35	}
+			{blur_strength 10}
+			{hide_hitmarker 1}
+			{forceGrass 1}
+			{disable_fow 0}
+			{with_owner
+				{viewoff 	"head"	}
+				{viewoff 	"face"	}
+				{boneon 	"fps_arms"	}
+			}
+			{with_weapon
+				{viewoff	"fx_light"}
+				{viewon 	"fps_arms"	}
+			}
+			;{vignette	"/texture/common/environment/lens_effects/zoom_vignette_infantry_01"}
+			;{blur_mask	"/texture/common/environment/lens_effects/zoom_vignette_infantry_01_mask"}
+			{no_grain}
+			{no_rim_light}
+		}
+	}
+}

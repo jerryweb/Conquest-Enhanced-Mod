@@ -1,0 +1,190 @@
+{game_entity
+	(include "/properties/tank_assaultgun.ext")
+	(include "/properties/shadow/tank.inc" scale(1.3))
+	(include "/properties/selection/vehicle.inc" scale(0.9))
+	{props "spg" "light" "-turret" "vision_lev06" "muzzle_150mm_155mm" "shield" "tractor" "tractor_light" "open_top" "detect_spg" "shell_eject"}
+	{targetclass "tank_light"}
+	{targetSelector "cannon_howitzer"}
+	{patherId "panzer2"}
+	{collider "tank.light"}
+
+	("tank_light_tier1")
+	
+	("tracks" repair(30) thickness(15))
+	("gun" repair(30) thickness(30))
+
+	{volume "sticky"
+		{tags "grenade_fg_target"}
+		{able clear {contact} {touch}}
+		{component "sticky_body"}
+	}
+	{component "sticky_body"}
+
+	{Volume "body1"
+		{component "body"}
+		{tags "body"}
+		{thickness 15
+			{front 35}
+			{top 8}	
+			{rear 20}
+			{bottom 5}
+		}
+	}
+
+	{Volume "Magazine"
+		{Thickness 15}
+	}
+	{Volume "Left2"
+		{Thickness 15}
+	}
+	{Volume "right2"
+		{Thickness 15}
+	}
+	{Volume "Left1"
+		{Thickness 10}
+	}
+	{Volume "right1"
+		{Thickness 10}
+	}
+
+	{Volume "Inventory_vol"
+		{Thickness 3}
+	}
+
+	{Volume "baffleBT1"
+		{Thickness 20}
+	}
+	{Volume "baffleBT2"
+		{Thickness 15}
+	}
+	{Volume "baffleBT3"
+		{Thickness 15}
+	}
+	{Volume "baffleBT4"
+		{Thickness 15}
+	}
+	{Volume "baffleBT5"
+		{Thickness 15}
+	}
+
+	{Volume "BodyShieldL"
+		{component "turret"}
+		{tags "turret"}
+		{Thickness 30}
+	}
+	{Volume "BodyShieldR"
+		{component "turret"}
+		{tags "turret"}
+		{Thickness 30}
+	}
+
+	{Volume "box1"
+		{Thickness 5}
+	}
+	{Volume "box2"
+		{Thickness 35}
+	}
+	{Volume "box3"
+		{Thickness 6}
+	}
+	{volume "engine"
+		{thickness 13
+			{front 5}
+			{top 8}
+			{bottom 5}
+		}
+	}
+	{volume "turret"
+		{thickness 30}
+	}
+
+	{extender "shield"
+		{on}
+	}
+	{component "shieldL1" {tags "shield"}}
+        {component "shieldR1" {tags "shield"}}
+	{component "shieldL2" {tags "shield"}}
+        {component "shieldR2" {tags "shield"}}
+	("shield" args "shieldL1" 6)
+	("shield" args "shieldL2" 6)
+	("shield" args "shieldR1" 6)
+	("shield" args "shieldR2" 6)
+
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_pz4_driver"} {end "seat_gunner_stand"} {base "open_driver"}}
+			{reverse 	{end	"board_pz4_driver" -1} {base "open_driver" 1}}
+		}
+		{anm "charger"
+			{forward	{begin	"board_tank_right"} {end "pose_pak40_gunlayer"} }
+			{reverse 	{end	"emit_body" 1} }
+		}
+		{anm "gunner"
+			{forward	{begin	"board_tank_right"} {end "pose_pak40_charger"} }
+			{reverse 	{end	"emit_body" 1}}
+		}
+		{anm "commander"
+			{forward	{begin	"board_tank_right"} {end "seat_m7_com"} }
+			{reverse 	{end	"emit_body" 1}}
+		}
+	}
+
+	{boarder
+		{door "emit0"}
+		{door "emit1"}
+		{door "emit2"}
+		{link "emit0" "driver" {anm "driver"} {forward putoff} {reverse puton}}
+	}
+
+
+	("crew_human"	place(driver) 	 door(emit0) door2(emit0) visor(driver) anm_left(driver) anm_right(driver))
+	("crew_human_visible_anm"	place(charger) 	 door(emit1) door2(emit1) visor(driver) anm_left(charger) anm_right(charger))
+	("crew_human_visible_anm"	place(commander) door(emit1) door2(emit1) visor(around) anm_left(commander)  anm_right(commander))
+	("crew_human_visible_anm"	place(gunner) 	 door(emit2) door2(emit2) visor(main)   anm_left(gunner)   anm_right(gunner))
+
+	{extender "inventory"
+		{box
+			{item "bulletger_150_l11 he" 17}		
+			{item "geballteladung_3kg" 1}
+		}
+	}
+
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "150mm_sig33" filling "bulletger_150_l11 he" 1}
+			("abm_dymamic"
+				zeroing(4.5)
+				dispersion(0.25)
+			)
+		}
+	}
+
+	{mass 16000}
+	{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.2) len(0.76))
+		("mobility_tank"
+			speed(46) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(9) ;--------Max speed in reverse on road, km/h.
+			traverse(35) ;-------Track traverse, per second, in degrees.
+			weight(16.0) ;-------Weight in Tonnes.
+			power(135) ;---------Engine Power, in hp.
+			track(4.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(235) ;----------Fuel capacity in Litres.
+			type(fuel) ;---------Fuel type. (diesel OR fuel)
+			range(105) ;---------Range in km, off-road.
+		)
+	}
+
+	{Extension "bison2.mdl"}
+
+	{bone "turret"
+		{speed2 3}
+		{limits -3 1}
+	}
+	{bone "gun_rot"
+		{speed2 6}
+		{limits -50 3}
+	}
+}
