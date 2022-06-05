@@ -1,20 +1,16 @@
-{from "pattern mgun"
-	{tag "mgun_light"}
-	{inventory {size 6 2}}
-	{filling "mgun_ger" 25}
-	{entity "mg13_no_bipod"}
-	{fireSound "mgun/breda_burst"}
-	{fireSoundclose "mgun/breda_burst/3p"}
-	{reloadSound "mg34"}
-	{calibre 7.92}
-	{mass 13.3}
+{from "pattern rpg_weapon"
+	{filling "ammo bazooka" 1}
+	{entity "bazooka_m1a1"}
+	{fireSound "reactive/bazooka_fire/"}
+	{reloadsound "bazooka"}
+	{calibre 60}
+	{mass 6}
 
-	("fire rate" rpm(600))
-	("velocity" mps(890))
+	("velocity" mps(80.8))
 
-	("burst_short")
-	("spreading_low")
-	("power" speed(890) calibre(7.92))
+	("penetration" args 80)
+	("armor health" damage(210))
+	("human health" damage(210))
 	{thirdpersonparams inherit "human default"
 		{level 1
 			{linkBone	"right_hand"	}
@@ -24,8 +20,8 @@
 			{nearspace_views 	"fps_arms"	}
 			{nearspace_weapon	1	}
 			{camera "human_zoom1.25"}
-			{offset		35.5 0.3 3.8}
-
+			;{offset		0 12 4.5}
+			{offset		37.5 -0.7 1.30	}
 			{blur_strength 10}
 			{hide_hitmarker 1}
 			{forceGrass 1}

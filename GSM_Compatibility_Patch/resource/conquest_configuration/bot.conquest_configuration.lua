@@ -7,7 +7,7 @@
 	-- This enables testing mode for debugging, and is not advised for regular play. Make sure this is off unless you are specifcally testing for something. 
 	testing = true
 	-- This will print a lot more debug statments in the log when playing but may impact performance. 
-	verbose = false
+	verbose = true
 
 	------------------------- Prep Time before Enemy Reinforcements ----------------------------
 	-- Default time in seconds when the AI will begin to call in reinforcements. The corresponding difficulty file will also need to be changed to the 
@@ -29,7 +29,7 @@
 
 
 	-- This is the division that will always be selected when testing. If you want to randomly select one, just set it to nil
-	testingDivision = [[/script/multiplayer/bot.data.purchase.conquest.early.9]] 
+	testingDivision = [[/script/multiplayer/bot.data.purchase.conquest.late.9]] 
 
 	-- Chance that the enemy might come earlier or later than the preset first wave offest. Example: 30% chance enemy comes earlier or later than the standard prep time
 	chanceToOffsetFirstWave = 0.3
@@ -64,7 +64,9 @@
 	-- Number of unit division roster files to randomly select for each period in the war 
 	maxNumOfEarlyDivisions = 9
 	maxNumOfMidDivisions = 8
-	maxNumOfLateDivisions = 8
+	maxNumOfMidDefensiveDivisions = 6
+	maxNumOfLateDivisions = 9
+	maxNumOfLateDefensiveDivisions = 7
 
 -- =============================== Logging DO NOT MODIFY =======================================
 	print("Initial player conquest configuration:")
@@ -86,3 +88,9 @@
 	print("Default typhoon wave mode duration: ", typhoonWaveDuration)
 	print("Typhoon wave mode dynamic toggle chance: ", chanceToSetTyphoonWaveModeToggle)
 	print("Default typhoon wave mode dynamic toggle: ", typhoonWaveToggleInterval)
+
+	print("Max number of early divisions: ", maxNumOfEarlyDivisions)
+	print("Max number of mid divisions: ", maxNumOfMidDivisions)
+	print("Max number of mid AI defensive divisions: ", maxNumOfMidDefensiveDivisions)
+	print("Max number of late divisions: ", maxNumOfLateDivisions)
+	print("Max number of late AI defensive divisions: ", maxNumOfLateDefensiveDivisions)
