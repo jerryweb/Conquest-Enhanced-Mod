@@ -1,0 +1,154 @@
+;Exported by: caps
+;Date:        Fri Jul  5 09:46:56 2019
+;File:        F:\!_Work\tank_cover\3D\tank_cover_03.max
+{Skeleton
+	{bone "cover_wall"
+    {Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+        {Position 0 	 -70 	 -5}
+    }
+    {bone "cover_wall2"
+    {Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+        {Position 25 	 -70 	 -5}
+    }
+    {bone "cover_wall3"
+    {Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+        {Position -25 	 -70 	-5}
+    }
+    {bone "cover_wall4"
+    {Orientation
+-1 0 0
+0 1 0
+0 0 1
+		}
+        {Position 0 	 65 	 -5}
+    }
+    {bone "cover_wall5"
+    {Orientation
+-1 0 0
+0 1 0
+0 0 1
+		}
+        {Position 25 	 65 	 -5}
+    }
+    {bone "cover_wall6"
+    {Orientation
+-1 0 0
+0 1 0
+0 0 1
+		}
+        {Position -25 	 65 	 -5}
+    }
+    {bone "cover_wall7"
+    {Orientation
+0 1 0
+1 0 0
+0 0 1
+		}
+        {Position 70 	 60 	 -5}
+    }
+    {bone "cover_wall8"
+    {Orientation
+0 1 0
+1 0 0
+0 0 1
+		}
+        {Position 75 	 0 	 -5}
+    }
+    {bone "cover_wall9"
+    {Orientation
+0 1 0
+1 0 0
+0 0 1
+		}
+        {Position 75 	 -60 	 -5}
+    }
+    {bone "tank_cover"
+		{parameters "CommonMesh;Ground;Land;Align;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{VolumeView "tank_cover.ply" {Ground}}
+	}
+}
+{Area "cut"
+	{Polygon2
+		{Radius 0}
+		{Vertex 36.2535 -106.727}
+		{Vertex 56.2579 -102.337}
+		{Vertex 68.6462 -80.3617}
+		{Vertex 67.0021 86.91}
+		{Vertex 56.6466 100.018}
+		{Vertex 13.1672 101.471}
+		{Vertex -50.0574 101.289}
+		{Vertex -62.9586 91.3802}
+		{Vertex -71.3892 46.8046}
+		{Vertex -69.9286 -65.0545}
+		{Vertex -64.3602 -96.3154}
+		{Vertex -37.0669 -107.207}
+	}
+	{Rotate}
+}
+{volume "body" ;l/r , f/b, height
+	{box 200 260 30}
+	{bone "tank_cover"}
+	{matrix34
+		1 0 0
+		0 1 0
+		0 0 1
+		0 5 15
+	}
+}
+{##volume "body1" ;l/r , f/b, height
+	{box 10 220 27}
+	{bone "tank_cover"}
+	{matrix34
+		1 0 0
+		0 1 0
+		0 0 1
+		75 10 0
+	}
+}
+{##volume "body2" ;l/r , f/b, height
+	{box 10 220 27}
+	{bone "tank_cover"}
+	{matrix34
+		1 0 0
+		0 1 0
+		0 0 1
+		-75 10 0
+	}
+}
+{##volume "body3" ;l/r , f/b, height
+	{box 140 10 27}
+	{bone "tank_cover"}
+	{matrix34
+		1 0 0
+		0 1 0
+		0 0 1
+		0 115 0
+	}
+}
+{##volume "body4" ;l/r , f/b, height
+	{box 140 10 15}
+	{bone "tank_cover"}
+	{matrix34
+		1 0 0
+		0 1 0
+		0 0 1
+		0 -115 0
+	}
+}

@@ -1,0 +1,59 @@
+;//---Off Map Support---
+	{tech "heavy_artillery_barrage"			requires "152mm_ml20_artillery_barrage"				costs 3 position 12 3}
+	{tech "super_heavy_artillery_barrage"	requires "heavy_artillery_barrage"					costs 5 position 14 3}
+
+	{tech "rocket_artillery_barrage"		requires "152mm_ml20_artillery_barrage"				costs 5 position 11 2}
+	{tech "heavy_rocket_artillery_barrage"	requires "rocket_artillery_barrage"					costs 5 position 13 2}
+
+	{"conquest_po2"							requires	"squad_officer_gaz_con"					costs 1  position 4 4}
+	{"conquest_yak1"						requires	"ba20_command conquest_po2"				costs 1  position 6 4}
+	{"conquest_il2"							requires	"conquest_yak1"							costs 1  position 8 4}
+	{tech "controllable_plane_sov"			requires 	"conquest_il2"							costs 3 position 10 4}
+	
+	{tech "player_paradrop_sov"				requires "squad_officer_con(rus) squad_paras_con(rus)"		costs 0 position 10 5}
+
+	{tech "supply_drop_76mm_m43"			requires "squad_officer_con(rus) squad_paras_con(rus) 76mm_m43"	costs 0 position 10 6}
+    {tech "supply_drop_bpk"					requires "squad_officer_con(rus) squad_paras_con(rus) 76mm_bpk76"	costs 0 position 10 7}
+    {tech "supply_drop_maxim"				requires "squad_officer_con(rus) squad_paras_con(rus) maxim"		costs 0 position 10 8}
+
+	{"supply_drop_allies"					requires "squad_officer_con(rus) gaz_aaa_supply"				costs 0 position 8 9}
+    ;{ tech "allied_infantry_callin"		requires "squad_officer_gaz_con"		costs 2  position 4 1}
+
+;//---SQUADS---    
+
+
+;//---Medium Tanks---
+	{"t34m"			requires	"single_engineer(rus) t3476_40"	costs 1  position 3 42}
+
+;//---AI ONLY---
+	{"single_signaller(rus)"					requires	""									costs 999999  position 14 52}
+
+    {tech "600mm_thor"				requires ""			costs 0 position 5 11}
+    {"emplacement_305mm_mb_2_12"				requires "600mm_thor zis5eng"			costs 7 position 7 11}
+    
+    {tech "bt42"				requires ""			costs 0 position 4 10}
+    {"mmpillbox_dummy"				requires "bt42 zis5eng"			costs 0 position 5 10}
+    
+    {tech "cckw_fuel"				requires ""			costs 0 position 8 10}
+    {"aa_regelbau_dummy"				requires "cckw_fuel zis5eng"			costs 0 position 9 10}
+    {"flak_ring_dummy"				requires "cckw_fuel zis5eng"			costs 0 position 10 10}
+    {"pillbox_dummy"				requires "cckw_fuel zis5eng"			costs 0 position 11 10}
+    
+    {"emplacement_152mm_ml20"				requires "zis5eng 152mm_ml20"			costs 0 position 5 33}
+    
+    {"maxim_emplacement"				requires "zis5eng maxim"			costs 0 position 2 20}
+    {"maxim_x4_emplacement"				requires "maxim_emplacement"			costs 1 position 3 20}
+    {"supply_crate_build"				requires "zis5eng"			costs 0 position 3 10}
+    {"emplacement_82mm_bm37"				requires " zis5eng 82mm_bm37"			costs 0 position 4 22}
+    {"blitz3_6_radio"				requires " single_engineer(rus)"			costs 1 position 1 3}
+
+    {"sandbag_bunker_ds39_stand"				requires "ds39_stand single_engineer(rus)"			costs 1 position 2 22} ;added june 21 2025
+    {"sandbag_bunker_sg43_stand"				requires "sg43_stand single_engineer(rus)"			costs 1 position 3 22} ;added june 21 2025
+    {"regel_bau_76mm_zis3"				requires "76mm_zis3 single_engineer(rus)"			costs 1 position 6 27} ;added june 27 2025
+;TOTAL:
+
+
+  
+	
+
+

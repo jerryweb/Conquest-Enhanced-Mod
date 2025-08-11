@@ -1,0 +1,155 @@
+{game_entity
+	(include "/properties/construction.inc")
+	{obstacleID "small_building"}
+	{props "wood" "big" "parts" "construction" "slow_on_crush" "tower_wood"}
+	("armor_use_volume_thickness")
+	{CompoundObstacles}
+
+	{extension "watch_tower.mdl"}
+
+	{volume "roof01"
+		{Tags "roof" "fire"}
+		{thickness 2}
+		{able {visible 0}{Obstacle 0}}
+	}
+	{volume "body02"
+		{Tags "body" "fire"}
+		{thickness 90}
+		{able {visible 0}}
+	}
+	{volume "body03"
+		{Tags "body" "fire"}
+		{thickness 90}
+		{able {visible 0}}
+	}
+	{volume "body04"
+		{Tags "body" "fire"}
+		{thickness 90}
+		{able {visible 0}}
+	}
+	{volume "body05"
+		{Tags "body" "fire"}
+		{thickness 90}
+		{able {visible 0}}
+	}
+	{volume "body06"
+		{Tags "body" "fire"}
+		{thickness 90}
+		{able {visible 0}{holed}{Obstacle 0}}
+	}
+	{volume "body07"
+		{Tags "body" "fire"}
+		{thickness 20}
+		{able {visible 0}{Obstacle 0}{contact 0}}
+	}
+	{volume "body08"
+		{Tags "body" "fire"}
+		{thickness 20}
+		{able {visible 0}{Obstacle 0}{contact 0}}
+	}
+	{volume "body09"
+		{Tags "body" "fire"}
+		{thickness 20}
+		{able {visible 0}{Obstacle 0}{contact 0}}
+	}
+	{volume "body10"
+		{Tags "body" "fire"}
+		{thickness 20}
+		{able {visible 0}{Obstacle 0}{contact 0}}
+	}
+	{volume "body11"
+		{Tags "body" "fire"}
+		{thickness 40}
+		{able {visible 0}}
+	}
+	{volume "body12"
+		{Tags "body" "fire"}
+		{thickness 40}
+		{able {visible 0}}
+	}
+	{volume "body13"
+		{Tags "body" "fire"}
+		{thickness 20}
+		{able {visible 0}{Obstacle 0}{contact 0}}
+	}
+	{volume "body14"
+		{Tags "body" "fire"}
+		{thickness 20}
+		{able {visible 0}{Obstacle 0}{contact 0}}
+	}
+	{volume "body15"
+		{Tags "body" "fire"}
+		{thickness 20}
+		{able {visible 0}{Obstacle 0}{contact 0}}
+	}
+	{volume "body16"
+		{Tags "body" "fire"}
+		{thickness 20}
+		{able {visible 0}{Obstacle 0}{contact 0}}
+	}
+	{volume "body17"
+		{Tags "body" "fire"}
+		{thickness 40}
+		{able {visible 0}{Obstacle 0}}
+	}
+	{volume "hole1"
+		{able clear {hole}{touch 1}}
+	}
+	{volume "place1"
+		{Tags "attach" "1"}
+		{able clear {touch 1}{Obstacle 0}}
+	}
+	{volume "place2"
+		{Tags "attach" "2"}
+		{able clear {touch 1}{Obstacle 0}}
+	}
+	{volume "place3"
+		{Tags "attach" "3"}
+		{able clear {touch 1}{Obstacle 0}}
+	}
+	{volume "place4"
+		{Tags "attach" "4"}
+		{able clear {touch 1}{Obstacle 0}}
+	}
+
+	{mass 30000}
+
+	{placer
+		
+		{place "sandbag"
+			{entity "sandbag_watchtower"}
+			{Linkbone "sandbag"}
+			{handlebone "body"}
+		}
+	}
+
+	{Boarder
+		{door "emit" {queue 0}}
+		{node "node_ladder_bottom"}
+		{node "node_ladder_top"}
+
+		{anm "ladder_bind"
+			{forward {begin "stand_climb_stairs"}}
+			{reverse {end "stand_climb_stairs" -1}}
+		}
+		{anm "ladder"
+			{forward {speed 1.2} {loop "stand_upstairs"}}
+			{reverse {speed 1.2} {loop "stand_upstairs" -1}}
+		}
+
+		{link "emit" "node_ladder_bottom" {anm "ladder_bind"} {forward putoff} {reverse puton}}
+		{link "node_ladder_bottom" "node_ladder_top" {anm "ladder"}}
+
+		{link "node_ladder_top" "1" {forward puton} {reverse putoff}}
+		{link "node_ladder_top" "2" {forward puton} {reverse putoff}}
+		{link "node_ladder_top" "3" {forward puton} {reverse putoff}}
+		{link "node_ladder_top" "4" {forward puton} {reverse putoff}}
+		{link "1" "2"}
+		{link "1" "3"}
+		{link "1" "4"}
+		{link "2" "3"}
+		{link "2" "4"}
+		{link "3" "4"}
+	}
+	{extender "edifice"}
+}

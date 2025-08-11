@@ -1,0 +1,282 @@
+{game_entity
+	(include "/properties/tank_unarmed.ext")
+	(include "/properties/selection/vehicle_big.inc" scale(1.25))
+	(include "/properties/cannon_crew.ext")
+	{extension "600mm_thor.mdl"}
+	{props "600mm_thor" "with_gun" "cannon" "heavy" "-hatch" "-engine" "motorized" "vision_lev05_can" "muzzle_600mm" "no_sandbags" "no_shell" "detect_artillery" "artillery_minimap_heavy" "c_how_s_hvy"}
+	{able "-select"}
+	{PatherId "thor"}
+	{targetclass "howitzer"}
+	{targetSelector "cannon_howitzer"}
+
+	{sensor
+		{visor "main"
+			{vision "cannon_range_280"}
+			{bone "visor"}
+		}
+		{visor "artillery"
+	        {vision "cannon_range_280"}
+	        {bone "driver1"}
+	    }
+	}
+
+	("tank_medium_tier3")
+
+	("tracks" repair(45) thickness(30))
+	("gun" repair(45) thickness(50))
+
+	{volume "body1"
+		{thickness 15}
+	}
+	{volume "body2"
+		{thickness 15}
+	}
+	{volume "body3"
+		{thickness 15}
+	}
+	{volume "body4"
+		{thickness 15}
+	}
+	{volume "body5"
+		{thickness 15}
+	}
+	{volume "engine1"
+		{thickness 15}
+	}
+	{volume "barrel1"
+		{thickness 30}
+	}
+	{volume "barrel2"
+		{thickness 30}
+	}
+	{volume "barrel3"
+		{thickness 50}
+	}
+	{volume "barrel4"
+		{thickness 50}
+	}
+	{volume "barrel5"
+		{thickness 50}
+	}
+	{volume "armor1"
+		{thickness 4}
+	}
+	{volume "armor2"
+		{thickness 4}
+	}
+	{volume "armor3"
+		{thickness 4}
+	}
+	{volume "armor4"
+		{thickness 4}
+	}
+	{volume "armor5"
+		{thickness 4}
+	}
+	{volume "armor6"
+		{thickness 4}
+	}
+	{volume "shell1"
+		{thickness 10}
+		{tags "shell1"}
+	}
+	{volume "shell2"
+		{thickness 10}
+		{tags "shell2"}
+	}
+
+	(define "crew_human_visible_anm"
+		{placer
+			{place "%place"
+				{group "crew"}
+				{visor "%visor"}
+				{linkbone "%place"}
+				{turnoff %off}
+				%extra
+			}
+		}
+
+		{boarder
+			{anm "1_gunner"
+				{forward {begin "board_thor_front"} {end "pose_thor_gunner_animation" 10}}
+				{reverse {end "emit_tank_2_hold"}}
+			}
+			{anm "1_gunner2"
+				{forward {begin "board_thor_front"} {end "pose_thor_gunner2_animation" 10}}
+				{reverse {end "emit_tank_2_hold"}}
+			}
+			{anm "1_charger"
+				{forward {begin "board_thor_front"} {end "pose_thor_charger_animation" 10}}
+				{reverse {end "emit_tank_2_hold"}}
+			}
+			{anm "1_charger2"
+				{forward {begin "board_thor_front"} {end "pose_thor_charger2_animation" 10}}
+				{reverse {end "emit_tank_2_hold"}}
+			}
+			{anm "1_commander"
+				{forward {begin "board_thor_front"} {end "pose_watch_binocular" 10}}
+				{reverse {end "emit_tank_2_hold"}}
+			}
+
+			{anm "2_gunner"
+				{forward {begin "board_thor_rear"} {end "pose_thor_gunner_animation" 10}}
+				{reverse {end "emit_tank_2_hold"}}
+			}
+			{anm "2_gunner2"
+				{forward {begin "board_thor_rear"} {end "pose_thor_gunner2_animation" 10}}
+				{reverse {end "emit_tank_2_hold"}}
+			}
+			{anm "2_charger"
+				{forward {begin "board_thor_rear"} {end "pose_thor_charger_animation" 10}}
+				{reverse {end "emit_tank_2_hold"}}
+			}
+			{anm "2_charger2"
+				{forward {begin "board_thor_rear"} {end "pose_thor_charger2_animation" 10}}
+				{reverse {end "emit_tank_2_hold"}}
+			}
+			{anm "2_commander"
+				{forward {begin "board_thor_rear"} {end "pose_watch_binocular" 10}}
+				{reverse {end "emit_tank_2_hold"}}
+			}
+
+			{anm "1_driver1"	;// gunner
+				{forward {end "seat_thor_driver1"}} ;3
+				{reverse {end "emit_tank_2_hold"}}
+			}
+			{anm "1_driver2"	;// gunner2
+				{forward {end "seat_thor_driver2"}}
+				{reverse {end "emit_tank_2_hold"}}
+			}
+			{anm "1_driver3"	;// charger
+				{forward {end "seat_thor_driver3"}} ;4
+				{reverse {end "emit_tank_2_hold"}}
+			}
+			{anm "1_driver4"	;// charger2
+				{forward {end "seat_thor_driver4"}} ;1
+				{reverse {end "emit_tank_2_hold"}}
+			}
+			{anm "1_driver5"	;// commander
+				{forward {end "pose_watch_binocular"}}
+				{reverse {end "emit_tank_2_hold"}}
+			}
+
+			{anm "2_driver1"	;// gunner
+				{forward {end "seat_thor_driver1"}}
+				{reverse {end "emit_tank_2_hold"}}
+			}
+			{anm "2_driver2"	;// gunner2
+				{forward {end "seat_thor_driver2"}}
+				{reverse {end "emit_tank_2_hold"}}
+			}
+			{anm "2_driver3"	;// charger
+				{forward {end "seat_thor_driver3"}}
+				{reverse {end "emit_tank_2_hold"}}
+			}
+			{anm "2_driver4"	;// charger2
+				{forward {end "seat_thor_driver4"}}
+				{reverse {end "emit_tank_2_hold"}}
+			}
+			{anm "2_driver5"	;// commander
+				{forward {end "pose_watch_binocular"}}
+				{reverse {end "emit_tank_2_hold"}}
+			}
+
+			{door "emit1"}
+			{door "emit2"}
+			{door "emit3"}
+
+			{link "emit1" "%place" {anm "1_%place"} {forward putoff} {reverse puton}}
+			{link "emit2" "%place" {anm "2_%place"} {forward putoff} {reverse puton}}
+			{link "emit3" "%place" {anm "2_%place"} {forward putoff} {reverse puton}}
+
+			{link "driver1" "gunner"}
+			{link "driver2" "gunner2"}
+			{link "driver3" "charger"}
+			{link "driver4" "charger2"}
+			{link "driver5" "commander"}
+		}
+	)
+
+	("crew_human_visible_anm" place(gunner)			visor(main) extra() off({sensor}))
+	("crew_human_visible_anm" place(gunner2)		visor(main) extra() off())
+	("crew_human_visible_anm" place(charger)		visor(main) extra() off())
+	("crew_human_visible_anm" place(charger2)		visor(main) extra() off())
+	("crew_human_visible_anm" place(commander)		visor(main) extra() off())
+
+	("crew_human_visible_anm" place(driver1)		visor(artillery) extra() off())
+	("crew_human_visible_anm" place(driver2)		visor(artillery) extra() off())
+	("crew_human_visible_anm" place(driver3)		visor(artillery) extra() off())
+	("crew_human_visible_anm" place(driver4)		visor(artillery) extra() off())
+	("crew_human_visible_anm" place(driver5)		visor(artillery) extra() off())
+
+	{extender "cannon"
+		{animation
+			{switch "close"}
+			;// "gunner" "gunner2" "charger" "charger2" "commander"
+			{move "" "" "" "" ""}
+			{aim "thor_gunner_animation" "thor_gunner2_animation" "" "" ""}
+			{fire "" "" "" "" ""}
+			{reload "thor_gunner_reload_animation" "thor_gunner2_reload_animation" "thor_charger_animation" "thor_charger2_animation" ""}
+		}
+		{move {workers "driver1" "driver2" "driver3" "driver4" "driver5" minWorkers 1} {obstacle "close"}}	;// move state: cannon being pushed and which positions play animations
+		{attack {workers "gunner" "gunner2" "charger" "charger2" "commander"} {obstacle "open"}}			;// fire/attack state: cannon aim, fire, and reload events
+	}
+
+	{extender "inventory"
+		{box
+			{Size 9 9}
+			{item "ammo bulletger_600 he" 3}
+			{item "ammo bulletger_600 he2" 2}
+		}
+	}
+
+	(define "restore_ik_time"
+		{RestoreIKTime 4}
+	)
+
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{weapon "600mm_karl" filling "bulletger_600 he" 1}
+			{RestoreIKAfterAim}
+			{basic}
+			("abm_dymamic_gun"
+				zeroing(10.0)	; // time it takes to aim until the reticle shrinks. Bigger values, more control.
+				dispersion(1)	; // time it takes to distort the reticle when you move the gun (how abrupt it loses zeroing). Bigger values, more control.
+			)
+			{rotate}
+		}
+	}
+
+	{mass 124000}
+	{Chassis "track"
+		("tank_trace_ex" fx("tracks_mid") step(0.52) len(0.8) boneleft("wheell4") boneright("wheelr4"))
+		("mobility_tank"
+			speed(6) ;-----------Max speed when fully accelerated on road, km/h.
+			reverse(6);----------Max speed in reverse on road, km/h.
+			traverse(7) ;--------Track traverse, per second, in degrees.
+			weight(124) ;--------Weight in Tonnes.
+			power(580) ;---------Engine Power, in hp.
+			track(3.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(1200) ;---------Fuel capacity in Litres.
+			type(diesel) ;-------Fuel type. (diesel OR fuel)
+			range(60) ;----------Range in km, off-road.
+		)
+	}
+
+	{bone "basis"
+		{speed2 1.75}
+	}
+	{bone "foresight1"
+		{limits -10 20}
+		{speed2 2}
+	}
+
+	(mod "mp"
+		{brain
+			{properties
+				{fire_mode open}
+			}
+		}
+	)
+}

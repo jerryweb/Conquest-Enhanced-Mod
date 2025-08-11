@@ -1,0 +1,35 @@
+(include "airborne.ext")
+
+{Chassis "airborne"
+	{locomotion
+		{Maxspeed		75	}	;// max speed while in flight mode in kph
+		{turnRadius		50	}	;// radius to do a 360ø turn in meters
+		{StartTime		8	}	;// time to accelerate to max speed from 0 kph in seconds
+		{BrakeTime		3	}	;// time to decelerate from max speed to 0 kph in seconds when using brakes (hard stop)
+		{StopTime		5	}	;// time to decelerate from max speed to 0 kph in seconds when coasting to a stop (not applying forward motion)
+		{SplineRadius	10	}	;// limit turning radius on the splines (path planner parameter), meters
+	}
+	{FuelBag
+		{volume 500 }			;// maximum capacity of fuel tank in liters
+		{rate   10 	}			;// how much fuel is consumed during movemen
+		{remain 500 }			;// how much fuel is in fuel tank at spawn
+		{fuel "fuel"}			;// type of fuel used. "fuel" = petrol/gasoline. "diesel" = diesel
+	}
+	{speed						;/* Chassis "airborne" is a unique movement mode that only uses 1 speed (max speed) and ignores these speeds*/
+		{Slow	60	}			;// ignored
+		{Normal	80	}			;// ignored
+		{Fast	100	}			;// ignored
+	}
+
+	("air_movement")
+	{sideSlopeSpeed 	45	}	;// how quickly in degrees per second that aircraft rolls 
+	{maxSideSlope 		15	}	;// limit in degrees that aircraft can roll while in a turn
+	{maxElevationSpeed 	8	}	;// climb rate, how many meters per second aircraft changes altitude when in full climb or dive
+	{elevationAcceleration 8}	;// how quickly aircraft can change from level flight to full climb or dive. (m/s^2)
+	{altitude 28}
+	{MaxAirborneAltitude 100}
+}
+
+{chassisManager
+	{current "airborne"}
+}

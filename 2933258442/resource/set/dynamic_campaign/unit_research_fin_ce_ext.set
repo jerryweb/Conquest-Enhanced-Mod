@@ -1,0 +1,42 @@
+;//---Off Map Support---	
+	{tech "heavy_artillery_barrage"			requires "155mm_h17_artillery_barrage"		costs 3 position 12 3}
+	{tech "super_heavy_artillery_barrage"	requires "heavy_artillery_barrage"			costs 5 position 14 3}
+
+	{tech "rocket_artillery_barrage"		requires "155mm_h17_artillery_barrage"		costs 5 position 11 2}
+	{tech "heavy_rocket_artillery_barrage"	requires "rocket_artillery_barrage"			costs 5 position 13 2}
+
+	{"conquest_blenheim_recon"			requires	"squad_officer_con(fin)"			costs 1  position 4 4}
+	{"conquest_blenheim_light"			requires	"ba20_command_fin conquest_blenheim_recon"			costs 1  position 6 4}
+	{"conquest_blenheim"				requires	"conquest_blenheim_light"			costs 1  position 8 4}
+	{tech "controllable_plane_fin"		requires 	"conquest_blenheim"					costs 3  position 10 4}	
+
+	{tech "supply_drop_axis"				requires "conquest_blenheim ford_v3000_ammo"	costs 0 position 10 8}
+    ;{tech "allied_infantry_callin"		requires "squad_officer_con(fin)"		costs 2  position 4 1}
+
+;//---SQUADS---  
+	{"ba20_command_fin"				requires	"squad_officer_con(fin)"					costs 2 position 6 2}
+
+;//---Light Tanks---
+	{"pz38h_w40"					requires		"150mm_rkh41 t50_fin"				 	costs 3 position 10 27}
+
+;//---AI ONLY---
+	{"single_signaller(fin)"					requires	""								costs 999999  position 9 39}
+
+;TOTAL:
+
+	
+    {"mmpillbox_dummy"				requires "ford_v3000_eng"			costs 0 position 5 10}
+    
+    {tech "cckw_fuel"				requires ""			costs 0 position 6 11}
+    {"aa_regelbau_dummy"				requires "cckw_fuel ford_v3000_eng"			costs 0 position 7 12}
+    {"flak_ring_dummy"				requires "cckw_fuel ford_v3000_eng"			costs 0 position 8 11}
+    {"pillbox_dummy"				requires "cckw_fuel ford_v3000_eng"			costs 0 position 9 11}
+    {"flak_ring_88mm_flak36"				requires "cckw_fuel ford_v3000_eng 75mm_itk37"			costs 0 position 9 27}
+    {"aa_regelbau_flak_ring_88mm_flak36"				requires "cckw_fuel ford_v3000_eng 75mm_itk37"			costs 0 position 9 28}
+    {"regel_bau_pak_75mm_pak40"				requires "cckw_fuel ford_v3000_eng 75mm_k44"			costs 0 position 6 30}
+    {"emplacement_155mm_gpf_platform"				requires "ford_v3000_eng 155mm_h17"			costs 0 position 7 32}
+    {"emplacement_50mm_kwk39_platform"				requires "cckw_fuel ford_v3000_eng 40mm_itk38b"			costs 0 position 5 25}
+    {"mgun_ring_emplacement"				requires " ford_v3000_eng ds39_stand_fin"			costs 0 position 2 23}
+    {"supply_crate_build"				requires " ford_v3000_eng"			costs 0 position 3 13}
+    {"emplacement_80mm_sgrw34_rapid"				requires " ford_v3000_eng 81mm_krh36"			costs 0 position 4 23}
+    {"blitz3_6_radio"				requires " single_engineer(fin)"			costs 1 position 1 3}

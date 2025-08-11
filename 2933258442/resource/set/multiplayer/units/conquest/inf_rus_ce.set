@@ -1,0 +1,423 @@
+;SDL
+
+;===================================
+;        INSTRUCTIONS    
+;===================================
+
+; In this file onee configures the humans which are spawned in vehicles or squads
+; The humans have a CP and cost associated with them which collectively add up for the final squad value
+; Check ../settings_inf.set for the global defines for CP, capture weight (CW), score, etc.
+
+;===================================
+;        PRICING CHART	       
+;===================================
+
+; // Standard prices below are for tier2 infantry
+
+;shotgun 		= 5
+;mosin 			= 8
+;pps43 			= 10
+;ppsh41 stick 	= 10
+;svt38/40 		= 13
+;m1928a1 		= 12
+;pps43 			= 10
+;ppsh41 stick 	= 10
+;ppsh41 drum	= 13
+;ppd 			= 13
+;avt40 			= 15
+;dp27			= 40
+;dt				= 40
+;rifle grenade 	= +10
+;any % pzfaust 	= +2
+;any pzfaust 	= +5
+;any flamer		= 60
+;engineer		= 50
+;miner 			= 40
+
+; // price modifiers (If not tier2)
+;tier 0 		= -3, MG -10
+;tier 1 		= -1, MG -10
+;tier 1 vet 	= 0, MG 0
+;tier 2 vet		= +2, MG +5
+;tier 3 		= +5, MG +10
+;tier 3 vet 	= +8, MG +15
+;tier 4 		= +10, MG +20
+;tier 4 vet 	= +13, MG +25
+
+
+;===================================
+;        BREED DECLARATIONS       
+;===================================
+
+; // Specials
+
+{"mp/rus/mid/artilleryman"		("inf_tankman" side(rus) cost(5.0))}
+{"mp/rus/mid/tankman"			("inf_tankman" side(rus) cost(25.0))}
+{"mp/rus/mid/tank_commander"	("inf_tankman" side(rus) cost(15.0))}
+{"mp/rus/mid/pilot"				("inf_tankman" side(rus) cost(0.0))}
+
+{"mp/rus/mid/medic"				("inf_medic" side(rus) cost(40.0))}
+
+{"mp/rus/mid/commisar"			("inf_officer" side(rus) cost(300.0))}
+
+{"mp/rus/mid/sniper"			("inf_sniper" side(rus) r(2) rm(8) cost(150.0))}
+{"mp/rus/late/sniper"			("inf_sniper" side(rus) r(9) rm(99) cost(150.0))}
+
+;// tier 1
+
+{"mp/rus/mid/penal_rifle"		("inf_tier1" side(rus) lvl(lvl1) r(1) rm(8) cost(7.0))} ; mosin
+{"mp/rus/mid/penal_smg"			("inf_tier1" side(rus) lvl(lvl1) r(1) rm(8) cost(12.0))} ; ppsh41 drum
+{"mp/rus/mid/nkvd_2"			("inf_tier1" side(rus) lvl(lvl1) r(1) rm(8) cost(7.0))} ; mosin
+{"mp/rus/mid/nkvd_3"			("inf_tier1" side(rus) lvl(lvl1) r(1) rm(8) cost(7.0))} ; mosin
+{"mp/rus/mid/nkvd_4"			("inf_tier1" side(rus) lvl(lvl1) r(1) rm(8) cost(7.0))} ; mosin
+
+{"mp/rus/mid/partisan_1"		("inf_tier1" side(rus) lvl(lvl1) r(1) rm(8) cost(7.0))} ; mosin
+{"mp/rus/mid/partisan_2"		("inf_tier1" side(rus) lvl(lvl1) r(1) rm(8) cost(7.0))} ; mosin
+{"mp/rus/mid/partisan_3"		("inf_tier1" side(rus) lvl(lvl1) r(1) rm(8) cost(9.0))} ; mp40
+{"mp/rus/mid/partisan_4"		("inf_tier1" side(rus) lvl(lvl1) r(1) rm(8) cost(4.0))} ; shotgun
+{"mp/rus/mid/partisan_5"		("inf_tier1" side(rus) lvl(lvl1) r(1) rm(8) cost(30.0))} ; mg34
+
+{"mp/rus/mid/conscript_rifle"	("inf_tier1" side(rus) lvl(lvl1) r(1) rm(8) cost(7.0))} ; mosin
+{"mp/rus/mid/conscript_nco"		("inf_tier1" side(rus) lvl(lvl1) r(1) rm(8) cost(12.0))} ; ppsh41 drum
+{"mp/rus/mid/conscript_smg"		("inf_tier1" side(rus) lvl(lvl1) r(1) rm(8) cost(12.0))} ; ppd40
+
+{"mp/rus/mid/militia_1"			("inf_tier1" side(rus) lvl(lvl1) r(1) rm(8) cost(12.0))} ; svt
+{"mp/rus/mid/militia_2"			("inf_tier1" side(rus) lvl(lvl1) r(1) rm(8) cost(7.0))} ; mosin
+{"mp/rus/mid/militia_3"			("inf_tier1" side(rus) lvl(lvl1) r(1) rm(8) cost(7.0))} ; mosin
+
+;// tier 1 vet
+
+{"mp/rus/late/vet_partisan_dp"			("inf_tier1" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(40.0))} ; dp27
+{"mp/rus/late/vet_partisan_drum"		("inf_tier1" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; ppsh41 drum
+{"mp/rus/late/vet_partisan_drum_pzf"	("inf_tier1" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(15.0))} ; ppsh41 drum + % pzfaust 60
+{"mp/rus/late/vet_partisan_k98"			("inf_tier1" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; k98
+{"mp/rus/late/vet_partisan_mg34"		("inf_tier1" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(45.0))} ; mg34 belt
+{"mp/rus/late/vet_partisan_mg42"		("inf_tier1" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(45.0))} ; mg42 belt
+{"mp/rus/late/vet_partisan_mosin"		("inf_tier1" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; mosin
+{"mp/rus/late/vet_partisan_mosin_pzf"	("inf_tier1" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; mosin + % pzfaust 30
+{"mp/rus/late/vet_partisan_mp40"		("inf_tier1" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; mp40
+{"mp/rus/late/vet_partisan_mp40_pzf"	("inf_tier1" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(12.0))} ; mp40 + % pzfaust 60
+{"mp/rus/late/vet_partisan_pps43"		("inf_tier1" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; mp40
+{"mp/rus/late/vet_partisan_stick"		("inf_tier1" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; ppsh41 stick
+{"mp/rus/late/vet_partisan_svt40"		("inf_tier1" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; svt40
+
+;// tier 2
+
+{"mp/rus/mid/mg_crew"			("inf_tier2_lite" side(rus) lvl() r(1) rm(8) cost(7.0))} ; tt pistol
+{"mp/rus/mid/mg_crew_asst"		("inf_tier2_lite" side(rus) lvl() r(1) rm(8) cost(8.0))} ; mosin
+
+{"mp/rus/mid/mgun_1"					("inf_tier2" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(40.0))} ; dp27
+{"mp/rus/mid/mgun_2"					("inf_tier2_lite" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+
+{"mp/rus/mid/mg_dt"						("inf_tier2" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(40.0))} ; dt
+{"mp/rus/mid/mg_asst_dt"				("inf_tier2_lite" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+
+{"mp/rus/mid/nkvd_mg"					("inf_tier2" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(40.0))} ; dp27
+{"mp/rus/mid/nkvd_mg_asst"				("inf_tier2_lite" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+
+{"mp/rus/mid/recon_mg"					("inf_tier2" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(40.0))} ; dp27
+{"mp/rus/mid/recon_mg_asst"				("inf_tier2_lite" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+
+{"mp/rus/mid/rifle"						("inf_tier2_lite" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+{"mp/rus/mid/rifleman_1"				("inf_tier2_lite" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+{"mp/rus/mid/rifleman_2"				("inf_tier2_lite" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; svt
+{"mp/rus/mid/rifleman_3"				("inf_tier2_lite" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+{"mp/rus/mid/rifle-svt"					("inf_tier2_lite" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(15.0))} ; avt
+{"mp/rus/mid/senior_sa"					("inf_tier2" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; svt
+{"mp/rus/mid/senior_rifle"				("inf_tier2" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+{"mp/rus/mid/senior_smg"				("inf_tier2" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; ppsh41 drum
+
+{"mp/rus/mid/nco"						("inf_tier2" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; ppd
+{"mp/rus/mid/nco_rifle"					("inf_tier2" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; svt40
+{"mp/rus/mid/nco_42"					("inf_tier2" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; ppsh41 stick
+
+{"mp/rus/mid/nkvd_1"					("inf_tier2" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; ppsh41 drum
+
+{"mp/rus/mid/nkvd_nco_rifle"			("inf_tier2" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+{"mp/rus/mid/nkvd_nco_smg"				("inf_tier2" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; ppsh41 stick
+{"mp/rus/mid/nkvd_recon_nco"			("inf_tier2" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; ppsh41 stick
+{"mp/rus/mid/nkvd_recon_rifle"			("inf_tier2_lite" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+{"mp/rus/mid/nkvd_recon_smg"			("inf_tier2" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; ppsh41 stick
+{"mp/rus/mid/nkvd_sa"					("inf_tier2_lite" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; svt40
+{"mp/rus/mid/nkvd_rifle"				("inf_tier2_lite" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+
+{"mp/rus/mid/nkvd_sapper_builder"		("inf_tier2" side(rus) lvl() r(1) rm(8) cost(25.0))} ; mosin + engineer
+{"mp/rus/mid/nkvd_sapper_nco_rifle"		("inf_tier2" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+{"mp/rus/mid/nkvd_sapper_rifle"			("inf_tier2_lite" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+
+{"mp/rus/mid/nkvd_senior_rifle"			("inf_tier2" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+{"mp/rus/mid/nkvd_senior_sa"			("inf_tier2" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; svt40
+{"mp/rus/mid/nkvd_senior_smg_stick"		("inf_tier2" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; ppsh41 stick
+{"mp/rus/mid/nkvd_smg_drum"				("inf_tier2" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; ppsh41 drum
+{"mp/rus/mid/nkvd_smg_stick"			("inf_tier2" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; ppsh41 stick
+
+{"mp/rus/mid/recon_nco"					("inf_tier2" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; ppsh41 stick
+{"mp/rus/mid/recon_rifle"				("inf_tier2_lite" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+{"mp/rus/mid/recon_smg"					("inf_tier2" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; ppsh41 stick
+
+{"mp/rus/mid/sapper_builder"			("inf_tier2" side(rus) lvl() r(1) rm(8) cost(25.0))} ; mosin + engineer
+{"mp/rus/mid/sapper_mine_ap"			("inf_tier2" side(rus) lvl() r(1) rm(8) cost(20.0))} ; mosin + AP mine
+{"mp/rus/mid/sapper_mine_at"			("inf_tier2" side(rus) lvl() r(1) rm(8) cost(20.0))} ; mosin + AT mine
+{"mp/rus/mid/sapper_nco_rifle"			("inf_tier2" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+{"mp/rus/mid/sapper_rifle"				("inf_tier2_lite" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+
+{"mp/rus/mid/smg_1"						("inf_tier2" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; ppsh41 drum
+{"mp/rus/mid/smg_2"						("inf_tier2" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; ppsh41 stick
+{"mp/rus/mid/smg_3"						("inf_tier2" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; ppd40
+{"mp/rus/mid/smg_drum"					("inf_tier2" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; ppsh41 drum
+{"mp/rus/mid/smg_m1928"					("inf_tier2" side(rus) lvl() r(1) rm(8) cost(12.0))} ; m1928a1
+
+{"mp/rus/mid/antitank_1"				("inf_tier2" side(rus) lvl(lvl1 lvl2 lvl3 lvl4) r(1) rm(8) cost(40.0))} ; ptrd bolt
+{"mp/rus/mid/antitank_ptrs"				("inf_tier2" side(rus) lvl(lvl1 lvl2 lvl3 lvl4) r(1) rm(8) cost(45.0))} ; ptrs semi
+
+{"mp/rus/mid/nkvd_at_rifle"				("inf_tier2" side(rus) lvl(lvl1 lvl2 lvl3 lvl4) r(1) rm(8) cost(40.0))} ; ptrd bolt
+{"mp/rus/mid/nkvd_at_asst"				("inf_tier2_lite" side(rus) lvl(lvl1 lvl2 lvl3 lvl4) r(1) rm(8) cost(8.0))} ; mosin
+
+{"mp/rus/mid/antitank_2"				("inf_tier2_lite" side(rus) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+{"mp/rus/mid/antitank_3"				("inf_tier2" side(rus) lvl(lvl1 lvl2 lvl3 lvl4) r(1) rm(8) cost(18.0))} ; Rifle Grenade HE
+{"mp/rus/mid/antitank_4"				("inf_tier2" side(rus) lvl(lvl1 lvl2 lvl3 lvl4) r(1) rm(8) cost(18.0))} ; Rifle Grenade AT (weak)
+
+{"mp/rus/mid/engineer_1"				("inf_tier3" side(rus) lvl() r(1) rm(8) cost(50.0))}
+{"mp/rus/mid/engineer_2"				("inf_tier3" side(rus) lvl() r(1) rm(8) cost(50.0))}
+{"mp/rus/mid/flamer"					("inf_tier3" side(rus) lvl(lvl2 lvl3 lvl4) r(1) rm(8) cost(60.0))}
+{"mp/rus/mid/miner-ap"					("inf_tier3" side(rus) lvl() r(1) rm(8) cost(40.0))}
+{"mp/rus/mid/miner-at"					("inf_tier3" side(rus) lvl() r(1) rm(8) cost(40.0))}
+
+
+{"mp/rus/late/mgun_1"					("inf_tier2" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(40.0))} ; dp27
+{"mp/rus/late/mgun_2"					("inf_tier2_lite" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; mosin
+{"mp/rus/late/mgun_3"					("inf_tier2" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; ppsh41 drum
+
+{"mp/rus/late/recon_nco"				("inf_tier2" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; ppsh41 drum
+{"mp/rus/late/recon_sa"					("inf_tier2_lite" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; svt40
+{"mp/rus/late/recon_rifle"				("inf_tier2_lite" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; mosin
+{"mp/rus/late/recon_smg"				("inf_tier2" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; ppsh41 drum
+{"mp/rus/late/recon_smg2"				("inf_tier2" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; pps43
+
+{"mp/rus/late/smg_1"					("inf_tier2" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; ppsh41 drum
+{"mp/rus/late/smg_2"					("inf_tier2" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; pps43
+{"mp/rus/late/smg_3"					("inf_tier2" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; ppsh41 drum
+{"mp/rus/late/smg_stick"				("inf_tier2" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; ppsh41 stick
+
+{"mp/rus/late/rifleman_1"				("inf_tier2_lite" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; mosin
+{"mp/rus/late/rifleman_2"				("inf_tier2_lite" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; mosin
+{"mp/rus/late/rifleman_3"				("inf_tier2_lite" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; svt40
+{"mp/rus/late/senior_rifle"				("inf_tier2" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; mosin
+{"mp/rus/late/senior_sa"				("inf_tier2" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; svt40
+{"mp/rus/late/senior_smg"				("inf_tier2" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; ppsh41 drum
+{"mp/rus/late/senior_smg_pps43"			("inf_tier2" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; pps43
+{"mp/rus/late/senior_smg_stick"			("inf_tier2" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; ppsh41 stick
+
+{"mp/rus/late/sapper_builder"			("inf_tier2" side(rus) lvl() r(9) rm(99) cost(25.0))} ; mosin + engineer
+{"mp/rus/late/sapper_miner_ap"			("inf_tier2" side(rus) lvl() r(9) rm(99) cost(20.0))} ; mosin
+{"mp/rus/late/sapper_miner_at"			("inf_tier2" side(rus) lvl() r(9) rm(99) cost(20.0))} ; mosin
+{"mp/rus/late/sapper_flamer"			("inf_tier2" side(rus) lvl() r(9) rm(99) cost(40.0))} ; flamer
+{"mp/rus/late/sapper_rifle"				("inf_tier2_lite" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; mosin
+{"mp/rus/late/sapper_senior"			("inf_tier2" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; mosin
+{"mp/rus/late/sapper_smg_pps43"			("inf_tier2" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; pps43
+{"mp/rus/late/sapper_smg_stick"			("inf_tier2" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; ppsh41 stick
+
+{"mp/rus/late/antitank_1"				("inf_tier2" side(rus) lvl() r(9) rm(99) cost(50.0))} ; bazooka
+{"mp/rus/late/antitank_2"				("inf_tier2" side(rus) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(40.0))} ; ptrd bolt
+{"mp/rus/late/antitank_3"				("inf_tier2_lite" side(rus) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(18.0))} ; svt40 + pzfaust
+{"mp/rus/late/antitank_4"				("inf_tier2_lite" side(rus) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(15.0))} ; pps43 + pzfaust
+{"mp/rus/late/antitank_5"				("inf_tier2" side(rus) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(80.0))} ; Panzershreck
+{"mp/rus/late/antitank_ptrs"			("inf_tier2" side(rus) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(45.0))} ; ptrs semi
+{"mp/rus/late/antitank_asst"			("inf_tier2_lite" side(rus) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(10.0))} ; pps43 + AT rifle ammo
+{"mp/rus/late/antitank_asst2"			("inf_tier2_lite" side(rus) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(10.0))} ; pps43 + Pzschreck ammo
+
+{"mp/rus/late/flamer"					("inf_tier2" side(rus) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(60.0))}
+
+{"mp/rus/late/nco"						("inf_tier2" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; ppsh41 drum
+{"mp/rus/late/nco_pps43"				("inf_tier2" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; pps43
+{"mp/rus/late/nco_stick"				("inf_tier2" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; ppsh41 stick
+{"mp/rus/late/nkvd_1"					("inf_tier2" side(rus) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; ppsh41 drum
+
+;// tier 2 vet
+
+{"mp/rus/mid/guard_1"					("inf_tier2_lite" side(rus) lvl(lvl2 lvl3) r(3) rm(8) cost(10.0))} ; mosin
+{"mp/rus/mid/guard_2"					("inf_tier2_lite" side(rus) lvl(lvl2 lvl3) r(3) rm(8) cost(15.0))} ; svt40
+{"mp/rus/mid/guard_3"					("inf_tier2" side(rus) lvl(lvl2 lvl3) r(3) rm(8) cost(15.0))} ; ppsh41 drum
+{"mp/rus/mid/guard_4"					("inf_tier2" side(rus) lvl(lvl2 lvl3) r(3) rm(8) cost(45.0))} ; dp27
+{"mp/rus/mid/guard_5"					("inf_tier2" side(rus) lvl(lvl2 lvl3) r(3) rm(8) cost(10.0))} ; mosin + dp ammo
+{"mp/rus/mid/guard_senior"				("inf_tier2" side(rus) lvl(lvl2 lvl3) r(3) rm(8) cost(15.0))} ; svt40
+{"mp/rus/mid/guard_nco"					("inf_tier2" side(rus) lvl(lvl2 lvl3) r(3) rm(8) cost(15.0))} ; ppsh41 drum
+
+{"mp/rus/late/vet_nco"					("inf_tier2" side(rus) lvl() r(9) rm(99) cost(15.0))} ; ppsh41 drum
+{"mp/rus/late/vet_nco_pps43"			("inf_tier2" side(rus) lvl() r(9) rm(99) cost(12.0))} ; pps43
+{"mp/rus/late/vet_nco_stick"			("inf_tier2" side(rus) lvl() r(9) rm(99) cost(12.0))} ; ppsh41 stick
+
+{"mp/rus/late/guards_mgun_1"			("inf_tier2" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(45.0))} ; dp27
+{"mp/rus/late/guards_mgun_2"			("inf_tier2" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(10.0))} ; mosin
+{"mp/rus/late/guards_mgun_3"			("inf_tier2" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; ppsh41 drum
+{"mp/rus/late/guards_nco"				("inf_tier2" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; ppsh41 drum
+{"mp/rus/late/guards_nco_pps43"			("inf_tier2" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(12.0))} ; pps43
+{"mp/rus/late/guards_nco_stick"			("inf_tier2" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(12.0))} ; ppsh41 stick
+{"mp/rus/late/guards_rifleman_1"		("inf_tier2_lite" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(10.0))} ; mosin
+{"mp/rus/late/guards_rifleman_2"		("inf_tier2_lite" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(10.0))} ; mosin
+{"mp/rus/late/guards_rifleman_3"		("inf_tier2_lite" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; svt40
+{"mp/rus/late/guards_smg_1"				("inf_tier2" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; ppsh41 drum
+{"mp/rus/late/guards_smg_2"				("inf_tier2" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(12.0))} ; pps43
+{"mp/rus/late/guards_smg_3"				("inf_tier2" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; ppsh41 drum
+{"mp/rus/late/guards_senior_rifle"		("inf_tier2" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(10.0))} ; mosin
+{"mp/rus/late/guards_senior_sa"			("inf_tier2" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; svt40
+{"mp/rus/late/guards_senior_smg"		("inf_tier2" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; ppsh41 drum
+{"mp/rus/late/guards_senior_smg_pps43"	("inf_tier2" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(12.0))} ; pps43
+{"mp/rus/late/guards_senior_smg_stick"	("inf_tier2" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(12.0))} ; ppsh41 stick
+{"mp/rus/late/guards_smg_stick"			("inf_tier2" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(12.0))} ; ppsh41 stick
+
+;// tier 3
+
+{"mp/rus/mid/mountain_nco"				("inf_tier3" side(rus) lvl(lvl2 lvl3) r(3) rm(8) cost(15.0))} ; ppsh41 stick
+{"mp/rus/mid/mountain_senior"			("inf_tier3" side(rus) lvl(lvl2 lvl3) r(3) rm(8) cost(15.0))} ; ppsh41 stick
+{"mp/rus/mid/mountain_1"				("inf_tier3" side(rus) lvl(lvl2 lvl3) r(3) rm(8) cost(18.0))} ; svt40
+{"mp/rus/mid/mountain_2"				("inf_tier3" side(rus) lvl(lvl2 lvl3) r(3) rm(8) cost(15.0))} ; ppsh41 stick
+{"mp/rus/mid/mountain_3"				("inf_tier3" side(rus) lvl(lvl2 lvl3) r(3) rm(8) cost(13.0))} ; mosin
+{"mp/rus/mid/mountain_mg"				("inf_tier3" side(rus) lvl(lvl2 lvl3) r(3) rm(8) cost(20.0))} ; dp27
+{"mp/rus/mid/mountain_mg_asst"			("inf_tier3" side(rus) lvl(lvl2 lvl3) r(3) rm(8) cost(13.0))} ; mosin
+
+{"mp/rus/mid/nkvd_mountain_nco"			("inf_tier3" side(rus) lvl(lvl2 lvl3) r(3) rm(8) cost(15.0))} ; ppsh41 stick
+{"mp/rus/mid/nkvd_mountain_senior"		("inf_tier3" side(rus) lvl(lvl2 lvl3) r(3) rm(8) cost(15.0))} ; ppsh41 stick
+{"mp/rus/mid/nkvd_mountain_sa"			("inf_tier3" side(rus) lvl(lvl2 lvl3) r(3) rm(8) cost(18.0))} ; svt40
+{"mp/rus/mid/nkvd_mountain_smg_stick"	("inf_tier3" side(rus) lvl(lvl2 lvl3) r(3) rm(8) cost(15.0))} ; ppsh41 stick
+{"mp/rus/mid/nkvd_mountain_rifle"		("inf_tier3" side(rus) lvl(lvl2 lvl3) r(3) rm(8) cost(13.0))} ; mosin
+{"mp/rus/mid/nkvd_mountain_mg"			("inf_tier3" side(rus) lvl(lvl2 lvl3) r(3) rm(8) cost(20.0))} ; dp27
+{"mp/rus/mid/nkvd_mountain_mg_asst"		("inf_tier3" side(rus) lvl(lvl2 lvl3) r(3) rm(8) cost(13.0))} ; mosin
+
+{"mp/rus/mid/marine_reg_mg"				("inf_tier3" side(rus) lvl(lvl2 lvl3) r(3) rm(8) cost(20.0))} ; dp27
+{"mp/rus/mid/marine_reg_mg_asst"		("inf_tier3" side(rus) lvl(lvl2 lvl3) r(3) rm(8) cost(13.0))} ; mosin
+{"mp/rus/mid/marine_reg_nco"			("inf_tier3" side(rus) lvl(lvl2 lvl3) r(3) rm(8) cost(15.0))} ; ppsh41 stick
+{"mp/rus/mid/marine_reg_rifle"			("inf_tier3" side(rus) lvl(lvl2 lvl3) r(3) rm(8) cost(13.0))} ; mosin
+{"mp/rus/mid/marine_reg_sa"				("inf_tier3" side(rus) lvl(lvl2 lvl3) r(3) rm(8) cost(18.0))} ; svt40
+{"mp/rus/mid/marine_reg_senior"			("inf_tier3" side(rus) lvl(lvl2 lvl3) r(3) rm(8) cost(18.0))} ; svt40
+{"mp/rus/mid/marine_reg_smg_m1928"		("inf_tier3" side(rus) lvl(lvl2 lvl3) r(3) rm(8) cost(17.0))} ; m1928a1
+
+{"mp/rus/late/cav_mg"					("inf_tier3" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(20.0))} ; dp27
+{"mp/rus/late/cav_mg_asst"				("inf_tier3" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(13.0))} ; mosin
+{"mp/rus/late/cav_mg_asst_smg"			("inf_tier3" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(18.0))} ; ppsh41 drum
+{"mp/rus/late/cav_nco"					("inf_tier3" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(18.0))} ; ppsh41 drum
+{"mp/rus/late/cav_nco_pps43"			("inf_tier3" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; pps43
+{"mp/rus/late/cav_nco_stick"			("inf_tier3" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; ppsh41 stick
+{"mp/rus/late/cav_rifle"				("inf_tier3" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(13.0))} ; mosin
+{"mp/rus/late/cav_sa"					("inf_tier3" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(18.0))} ; svt40
+{"mp/rus/late/cav_senior_rifle"			("inf_tier3" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(13.0))} ; mosin
+{"mp/rus/late/cav_senior_sa"			("inf_tier3" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(18.0))} ; svt40
+{"mp/rus/late/cav_senior_smg"			("inf_tier3" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(18.0))} ; ppsh41 drum
+{"mp/rus/late/cav_senior_smg_pps43"		("inf_tier3" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; pps43
+{"mp/rus/late/cav_senior_smg_stick"		("inf_tier3" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; ppsh41 stick
+{"mp/rus/late/cav_smg_drum"				("inf_tier3" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(18.0))} ; ppsh41 drum
+{"mp/rus/late/cav_smg_pps43"			("inf_tier3" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; pps43
+{"mp/rus/late/cav_smg_stick"			("inf_tier3" side(rus) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; ppsh41 stick
+
+
+; // tier 3 vet
+
+{"mp/rus/late/guards_cav_mg"				("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(25.0))} ; dp27
+{"mp/rus/late/guards_cav_mg_asst"			("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(16.0))} ; mosin
+{"mp/rus/late/guards_cav_mg_asst_smg"		("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; ppsh41 drum
+{"mp/rus/late/guards_cav_nco"				("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; ppsh41 drum
+{"mp/rus/late/guards_cav_nco_pps43"			("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; pps43
+{"mp/rus/late/guards_cav_nco_stick"			("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; ppsh41 stick
+{"mp/rus/late/guards_cav_rifle"				("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(16.0))} ; mosin
+{"mp/rus/late/guards_cav_sa"				("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; svt40
+{"mp/rus/late/guards_cav_senior_rifle"		("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(16.0))} ; mosin
+{"mp/rus/late/guards_cav_senior_sa"			("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; svt40
+{"mp/rus/late/guards_cav_senior_smg"		("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; ppsh41 drum
+{"mp/rus/late/guards_cav_senior_smg_pps43"	("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; pps43
+{"mp/rus/late/guards_cav_senior_smg_stick"	("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; ppsh41 stick
+{"mp/rus/late/guards_cav_smg_drum"			("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; ppsh41 drum
+{"mp/rus/late/guards_cav_smg_pps43"			("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; pps43
+{"mp/rus/late/guards_cav_smg_stick"			("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; ppsh41 stick
+
+{"mp/rus/late/guards_marine_mg"				("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(25.0))} ; dp27
+{"mp/rus/late/guards_marine_mg_asst"		("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(16.0))} ; mosin
+{"mp/rus/late/guards_marine_nco"			("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; pps43
+{"mp/rus/late/guards_marine_rifle"			("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(16.0))} ; mosin
+{"mp/rus/late/guards_marine_sa"				("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; svt40
+{"mp/rus/late/guards_marine_sa_pzf"			("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(26.0))} ; svt40 + pzfaust 60
+{"mp/rus/late/guards_marine_smg"			("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; ppsh41 drum
+{"mp/rus/late/guards_marine_senior"			("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; ppsh41 drum
+
+{"mp/rus/late/elite_guards_mg"				("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(25.0))} ; dp27
+{"mp/rus/late/elite_guards_mg_asst"			("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(16.0))} ; mosin
+{"mp/rus/late/elite_guards_mg_asst_smg"		("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; ppsh41 drum
+{"mp/rus/late/elite_guards_nco"				("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; ppsh41 drum
+{"mp/rus/late/elite_guards_nco_pps43"		("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; pps43
+{"mp/rus/late/elite_guards_nco_stick"		("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; ppsh41 stick
+{"mp/rus/late/elite_guards_rifle"			("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(16.0))} ; mosin
+{"mp/rus/late/elite_guards_sa"				("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; svt40
+{"mp/rus/late/elite_guards_senior_rifle"	("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(16.0))} ; mosin
+{"mp/rus/late/elite_guards_senior_sa"		("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; svt40
+{"mp/rus/late/elite_guards_senior_smg"		("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; ppsh41 drum
+{"mp/rus/late/elite_guards_senior_smg_pps43"("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; pps43
+{"mp/rus/late/elite_guards_senior_smg_stick"("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; ppsh41 stick
+{"mp/rus/late/elite_guards_smg_drum"		("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; ppsh41 drum
+{"mp/rus/late/elite_guards_smg_pps43"		("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; pps43
+{"mp/rus/late/elite_guards_smg_stick"		("inf_tier3" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; ppsh41 stick
+
+; // tier 4
+
+{"mp/rus/mid/para_1"					("inf_tier4" side(rus) lvl(lvl3 lvl4) r(4) rm(6) cost(18.0))} ; ppsh41 drum
+{"mp/rus/mid/para_2"					("inf_tier4" side(rus) lvl(lvl3 lvl4) r(4) rm(6) cost(18.0))} ; svt40
+{"mp/rus/mid/para_3"					("inf_tier4" side(rus) lvl(lvl3 lvl4) r(4) rm(6) cost(15.0))} ; ppsh41 stick
+{"mp/rus/mid/para_4"					("inf_tier4" side(rus) lvl(lvl3 lvl4) r(4) rm(6) cost(20.0))} ; avt40
+{"mp/rus/mid/para_5"					("inf_tier4" side(rus) lvl(lvl3 lvl4) r(4) rm(6) cost(13.0))} ; mosin
+{"mp/rus/mid/para_nco"					("inf_tier4" side(rus) lvl(lvl3 lvl4) r(4) rm(6) cost(15.0))} ; ppsh41 stick
+{"mp/rus/mid/para_mg"					("inf_tier4" side(rus) lvl(lvl3 lvl4) r(4) rm(6) cost(30.0))} ; dp27
+{"mp/rus/mid/para_mg_asst"				("inf_tier4" side(rus) lvl(lvl3 lvl4) r(4) rm(6) cost(18.0))} ; svt40
+
+{"mp/rus/mid/nkvd_mountain_cav_mg"		("inf_tier4" side(rus) lvl(lvl3 lvl4) r(5) rm(8) cost(30.0))} ; dp27
+{"mp/rus/mid/nkvd_mountain_cav_mg_asst"	("inf_tier4" side(rus) lvl(lvl3 lvl4) r(5) rm(8) cost(18.0))} ; mosin
+{"mp/rus/mid/nkvd_mountain_cav_nco"		("inf_tier4" side(rus) lvl(lvl3 lvl4) r(5) rm(8) cost(20.0))} ; ppsh41 stick
+{"mp/rus/mid/nkvd_mountain_cav_rifle"	("inf_tier4" side(rus) lvl(lvl3 lvl4) r(5) rm(8) cost(18.0))} ; mosin
+{"mp/rus/mid/nkvd_mountain_cav_sa"		("inf_tier4" side(rus) lvl(lvl3 lvl4) r(5) rm(8) cost(23.0))} ; svt40
+{"mp/rus/mid/nkvd_mountain_cav_senior"	("inf_tier4" side(rus) lvl(lvl3 lvl4) r(5) rm(8) cost(23.0))} ; ppsh41 drum
+{"mp/rus/mid/nkvd_mountain_cav_smg"		("inf_tier4" side(rus) lvl(lvl3 lvl4) r(5) rm(8) cost(20.0))} ; ppsh41 stick
+
+{"mp/rus/mid/marine_1"					("inf_tier4" side(rus) lvl(lvl3 lvl4) r(5) rm(8) cost(23.0))} ; svt40
+{"mp/rus/mid/marine_2"					("inf_tier4" side(rus) lvl(lvl3 lvl4) r(5) rm(8) cost(20.0))} ; ppsh41 stick
+{"mp/rus/mid/marine_3"					("inf_tier4" side(rus) lvl(lvl3 lvl4) r(5) rm(8) cost(30.0))} ; dp27
+{"mp/rus/mid/marine_4"					("inf_tier4" side(rus) lvl(lvl3 lvl4) r(5) rm(8) cost(23.0))} ; svt40
+{"mp/rus/mid/marine_mg_asst"			("inf_tier4" side(rus) lvl(lvl3 lvl4) r(5) rm(8) cost(18.0))} ; mosin
+{"mp/rus/mid/marine_5"					("inf_tier4" side(rus) lvl(lvl3 lvl4) r(5) rm(8) cost(18.0))} ; mosin
+{"mp/rus/mid/marine_senior"				("inf_tier4" side(rus) lvl(lvl3 lvl4) r(5) rm(8) cost(23.0))} ; svt40
+{"mp/rus/mid/marine_smg_m1928"			("inf_tier4" side(rus) lvl(lvl3 lvl4) r(5) rm(8) cost(22.0))} ; m1928a1
+
+{"mp/rus/mid/spetsnaz_1"				("inf_tier4" side(rus) lvl() r(1) rm(8) cost(30.0))} ; ppsh41 stick
+{"mp/rus/mid/spetsnaz_2"				("inf_tier4" side(rus) lvl() r(1) rm(8) cost(33.0))} ; ppsh41 drum
+{"mp/rus/mid/spetsnaz_3"				("inf_tier4" side(rus) lvl() r(1) rm(8) cost(30.0))} ; ppsh41 stick
+
+{"mp/rus/late/assault-sap_1"			("inf_tier4" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(25.0))} ; ppsh41 drum
+{"mp/rus/late/assault-sap_2"			("inf_tier4" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(22.0))} ; pps43 + % pzfaust 60
+{"mp/rus/late/assault-sap_3"			("inf_tier4" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(25.0))} ; ppsh41 drum
+{"mp/rus/late/assault-sap_4"			("inf_tier4" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(40.0))} ; flamer
+{"mp/rus/late/assault-sap_at"			("inf_tier4" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(33.0))} ; ppsh41 drum + pzfaust 60 (2x)
+{"mp/rus/late/assault-sap_atr"			("inf_tier4" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(40.0))} ; PTRS
+{"mp/rus/late/assault-sap_sl"			("inf_tier4" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; pps43
+{"mp/rus/late/assault-sap_sl_asst"		("inf_tier4" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(22.0))} ; pps43 + % pzfaust 60
+{"mp/rus/late/assault-sap_sl_asst_mg"	("inf_tier4" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(25.0))} ; dp27
+
+{"mp/rus/late/mountain_cav_mg"			("inf_tier4" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(30.0))} ; dp27
+{"mp/rus/late/mountain_cav_mg_asst"		("inf_tier4" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; mosin
+{"mp/rus/late/mountain_cav_nco"			("inf_tier4" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(23.0))} ; ppsh41 drum
+{"mp/rus/late/mountain_cav_rifle"		("inf_tier4" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; mosin
+{"mp/rus/late/mountain_cav_sa"			("inf_tier4" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(23.0))} ; svt40
+{"mp/rus/late/mountain_cav_senior"		("inf_tier4" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(23.0))} ; ppsh41 drum
+{"mp/rus/late/mountain_cav_smg"			("inf_tier4" side(rus) lvl(lvl3 lvl4) r(9) rm(99) cost(23.0))} ; ppsh41 drum
+
+
+; // tier 4 vet
+
+{"mp/rus/mid/guard_para_mg"				("inf_tier4" side(rus) lvl(lvl3 lvl4) r(7) rm(10) cost(35.0))} ; dp27
+{"mp/rus/mid/guard_para_mg_asst"		("inf_tier4" side(rus) lvl(lvl3 lvl4) r(7) rm(10) cost(21.0))} ; mosin
+{"mp/rus/mid/guard_para_mg_asst_dt"		("inf_tier4" side(rus) lvl(lvl3 lvl4) r(7) rm(10) cost(21.0))} ; mosin
+{"mp/rus/mid/guard_para_mg_dt"			("inf_tier4" side(rus) lvl(lvl3 lvl4) r(7) rm(10) cost(35.0))} ; dt
+{"mp/rus/mid/guard_para_nco"			("inf_tier4" side(rus) lvl(lvl3 lvl4) r(7) rm(10) cost(26.0))} ; ppsh41 drum
+{"mp/rus/mid/guard_para_nco_asst_sa"	("inf_tier4" side(rus) lvl(lvl3 lvl4) r(7) rm(10) cost(28.0))} ; avt40
+{"mp/rus/mid/guard_para_nco_asst_smg"	("inf_tier4" side(rus) lvl(lvl3 lvl4) r(7) rm(10) cost(23.0))} ; ppsh41 drum
+{"mp/rus/mid/guard_para_rifle"			("inf_tier4" side(rus) lvl(lvl3 lvl4) r(7) rm(10) cost(21.0))} ; mosin
+{"mp/rus/mid/guard_para_sa"				("inf_tier4" side(rus) lvl(lvl3 lvl4) r(7) rm(10) cost(26.0))} ; svt40
+{"mp/rus/mid/guard_para_smg"			("inf_tier4" side(rus) lvl(lvl3 lvl4) r(7) rm(10) cost(26.0))} ; ppsh41 drum
+
+{"mp/rus/mid/signaller"					("inf_signaller" side(rus) lvl(lvl3 lvl4) r(99) rm(99) cost(170.0))}
+{"mp/rus/late/signaller"				("inf_signaller_late" side(rus) lvl(lvl3 lvl4) r(99) rm(99) cost(170.0))}

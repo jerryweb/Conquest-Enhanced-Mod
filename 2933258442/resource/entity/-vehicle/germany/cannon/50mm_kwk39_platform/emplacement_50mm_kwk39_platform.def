@@ -1,0 +1,88 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	{extension "emplacement_50mm_kwk39_platform.mdl"}
+	(include "/properties/selection/vehicle.inc" scale(0.7))
+	{props "vision_lev03_can" "muzzle_50mm_57mm_sides" "detect_atgun_small" "c_at_med" "no_scavenge" "new_emplacement"}
+
+	("gun" repair(30) thickness(25))
+	("shield_group" args "shield1" 8 "shield")
+	("shield_group" args "shield2" 8 "shield")
+	("shield_group" args "shield3" 8 "shield")
+
+	("armor_medium_cannon")
+	("crew_wheeled_cannon_3")
+
+	{volume "body2" {able {holed}}}
+	{volume "shield1" {able {holed}}}
+	{volume "armor1" {thickness 6}}
+	{volume "armor2" {thickness 6}}
+
+	{placer
+		{place "driver1" remove}
+		{place "driver2" remove}
+		{place "driver3" remove}
+		{place "seat1" remove}
+		{place "seat2" remove}
+		{place "seat3" remove}
+	}
+
+	{boarder
+		{anm "gunner"
+			{forward {end "seat_kwk39_gunner" 10}}
+		}
+		{anm "charger"
+			{forward {end "pose_pdr25_charger" 10}}
+		}
+		{anm "commander"
+			{forward {end "pose_watch_binocular" 10}}
+		}
+	}
+
+	{extender "cannon"
+		{animation
+			{switch "close"}
+			;// "gunner" "charger" "commander"
+			{move "" "" ""}
+			{aim "" "" ""}
+			{fire "" "" ""}
+			{reload "" "cannon_pdr25_charger" ""}
+		}
+		{move {workers clear} {obstacle "close"}}
+		{attack {workers "" "" ""} {obstacle "open"}}		;// fire/attack state: cannon aim, fire, and reload events
+		{trailing {workers clear}}
+		{rotate_ik_Limit 0}
+	}
+
+	{extender "inventory"
+		{box
+			{item "bulletger_50_l60 apche" 30}
+			{item "bulletger_50_l60 he" 30}
+		}
+	}
+
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{weapon "50mm_pak38" filling "bulletger_50_l60 apche" 1}
+			{charger "charger"}
+			{RestoreIKAfterAim}
+			("abm_dymamic_gun"
+				zeroing(1.50)
+				dispersion(0.35)
+			)
+		}
+	}
+    {extender "structure"
+		{place "sandbag_cover" "sandbag_heap_straight"}
+	}
+
+	{mass 1500}
+
+	{bone "gun_rot"
+		{limits -8 35}
+		{speed2 9}
+	}
+	{bone "turret"
+		{speed2 15}
+	}
+}

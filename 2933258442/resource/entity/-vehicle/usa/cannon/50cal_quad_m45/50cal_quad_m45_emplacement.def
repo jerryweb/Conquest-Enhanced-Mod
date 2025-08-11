@@ -1,0 +1,129 @@
+{game_entity
+	(include "/properties/cannon_mgun.ext")
+	{extension "50cal_quad_m45_emplacement.mdl"}
+	{props "vision_lev00_can" "muzzle_hmg" "-carried" "fixed" "detect_cannon_aa" "50cal_quad_m45" "c_mg_heavy" "no_scavenge" "new_emplacement"}
+	{targetclass "cannon_bullet"}
+	{targetSelector "cannon_zenite"}
+
+	("shield_group" args "shield" 5 "shield")
+	("shield_group" args "shield1" 5 "shield")
+	("shield_group" args "shield2" 5 "shield")
+	("shield_group" args "shield3" 5 "shield")
+
+	;("gun" repair(30) thickness(15))
+
+	{volume "magazine01" {thickness 6}}
+	{volume "magazine02" {thickness 6}}
+	{volume "magazine03" {thickness 6}}
+	{volume "magazine04" {thickness 6}}
+	{volume "barrel1" {thickness 6}}
+	{volume "barrel2" {thickness 6}}
+	{volume "barrel3" {thickness 6}}
+	{volume "barrel4" {thickness 6}}
+	{volume "barrel5" {thickness 6}}
+	{volume "barrel6" {thickness 6}}
+	{volume "barrel7" {thickness 6}}
+	{volume "barrel8" {thickness 6}}
+	{volume "barrel9" {thickness 6}}
+	{volume "barrel10" {thickness 6}}
+
+	{extender "shield" {on}}
+
+	{boarder
+		{anm "gunner"
+			{forward {end "seat_m45_gunner" 10}}
+		}
+		{anm "commander"
+			{forward {end "pose_flak30_loader" 10}}
+		}
+		{anm "driver1"	;// gunner
+			{forward {end "mortar_driver_l" 10}}
+		}
+		{anm "driver2"	;// commander
+			{forward {end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "seat1"	;// gunner
+			{forward {end "seat_m45_gunner" 10}}
+		}
+		{anm "seat2"	;// commander
+			{forward {end "pose_flak30_seatr" 10}}
+		}
+	}
+
+	{extender "cannon"
+		{animation
+			{switch "close"}
+			;// "gunner" "commander"
+			{move "mortar_driver_l" "cannon_pak40_pusher_left"}
+			{aim "" ""}
+			{reload "" "flak30_loader"}
+		}
+		{move {workers "driver1" "driver2" minWorkers 1} {obstacle "close"}} ;// move state: cannon being pushed and which positions play animations
+		{attack {obstacle "open"}}
+		{rotate_ik_Limit 0}
+	}
+
+	{extender "inventory"
+		{box
+			{item "ammo hmgun_usa api" 1600} ;// API, AA or aircraft ammunition, explodes on impact
+			{item "sandbag_vehicle" 1}
+		}
+	}
+
+	{Weaponry
+		{place "mgun"
+			{Barrels 4}
+			{type "main"}
+			{foresight "foresight14"}
+			{gunner "gunner"}
+			{charger "commander"}
+			{weapon "browning_m2_x4" filling "hmgun_usa api" 800}
+			("abm_mgun")
+			{Rotate}
+			{basic}
+		}
+	}
+
+	{mass 1087}
+	{Chassis "track"
+		("car_trace" fx("tracewheel05a") step(0.14) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility_cannon"
+			speed(9.0) ;--------------------------------Max speed.
+			weight(1087) ;-------------------------------Weight in Kilograms.
+		)
+	}
+	{bone "gun_rot"
+		{limits -5 88}
+		{speed2 60}
+	}
+	{bone "turret"
+		{speed2 60}
+	}
+    {extender "structure"
+		{place "sandbag_scatter" "sandbag_spread"}
+	}
+    {extender "structure"
+		{place "sandbag_test" "sandbag_structured_straight"}
+	}			
+    {extender "structure"
+		{place "sandbag_left_01" "sandbag_heap_straight"}
+	}
+    {extender "structure"
+		{place "sandbag_left_02" "sandbag_heap_straight"}
+	}
+    {extender "structure"
+		{place "sandbag_left_03" "sandbag_heap_straight"}
+	}
+    {extender "structure"
+		{place "sandbag_cover" "sandbag_heap_straight"}
+	}	
+	;{extender "structure"
+        ;{place "sandbag_cover_front1" "sandbag_structured_straight"}
+    ;}
+    ;{extender "structure"
+        ;{place "sandbag_cover_left1" "sandbag_structured_curved_big"}
+    ;}
+    ;{extender "structure"
+        ;{place "sandbag_cover_right1" "sandbag_structured_curved_big"}
+    ;}
+}

@@ -1,0 +1,167 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	
+	{extension "regel_bau_76mm_m5_m1.mdl"}
+	{props "wheeled" "vision_lev03_can" "muzzle_75mm_76mm" "cannon_sandbag_standard" "detect_atgun" "c_at_med" "player_emplacement" "no_scavenge" "new_emplacement"}
+	{targetclass "cannon_big"}
+	{targetSelector "cannon_big"}
+
+	("wheel" args "wheelright")
+	("wheel" args "wheelleft")
+
+	("gun" repair(30) thickness(30))
+	("shield_group" args "shield1" 8 "shield")
+	("shield_group" args "shield2" 8 "shield")
+	("shield_group" args "shield3" 8 "shield")
+
+	("armor_medium_cannon")
+	("crew_wheeled_cannon_4")
+
+	{volume "shield1" {able {holed}}}
+	{volume "shield2" {able {holed}}}
+
+	{boarder
+		{anm "gunner"
+			{forward {end "pose_new_cannon_gunner_fire" 10}}
+		}
+		{anm "charger"
+			{forward {end "pose_new_cannon_charger_fire" 10}}
+		}
+		{anm "charger2"
+			{forward {end "pose_new_cannon_charger2_fire" 10}}
+		}
+		{anm "commander"
+			{forward {end "pose_new_cannon_commander_fire" 10}}
+		}
+		{anm "driver1"	;// gunner
+			{forward {end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "driver2"	;// charger
+			{forward {end "cannon_pak40_pusher_right" 10}}
+		}
+		{anm "driver3"	;// charger2
+			{forward {end "mgun_browning_driver_l" 10}}
+		}
+		{anm "driver4"	;// commander
+			{forward {end "mgun_browning_driver_r" 10}}
+		}
+		{anm "seat1"	;// gunner
+			{forward {end "pose_seat_cannon_left" 10}}
+		}
+		{anm "seat2"	;// charger
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+		{anm "seat3"	;// charger2
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+		{anm "seat4"	;// commander
+			{forward {end "pose_seat_cannon_left" 10}}
+		}
+	}
+	    {placer
+        {place "driver1" remove}
+        {place "driver2" remove}
+        {place "driver3" remove}
+        {place "driver4" remove}
+    }
+	{extender "cannon"
+		{animation
+			{switch "close"}
+			;// "gunner" "charger" "charger2" "commander"
+			{move "cannon_pak40_pusher_left" "cannon_pak40_pusher_right" "mortar_driver_l" "mgun_browning_driver_r" }
+			{aim "cannon_small_gunner_aim" "cannon_small_charger_aim" "cannon_small_charger2_aim" "cannon_small_commander_aim"}
+			{fire "cannon_small_gunner_fire" "cannon_small_charger_fire" "cannon_small_charger2_fire" "cannon_small_commander_fire"}
+			{reload "cannon_small_gunner_reload" "cannon_small_charger_reload" "cannon_small_charger2_reload" "cannon_small_commander_reload"}
+		}
+		{move {workers clear} {obstacle "close"}}			;// move state: cannon being pushed and which positions play animations
+		{attack {workers "gunner" "charger" "charger2" "commander"} {obstacle "open"}}		;// fire/attack state: cannon aim, fire, and reload events
+		{rotate_ik_Limit 25}        ;// move state: cannon being pushed and which positions play animations
+		{trailing {workers "seat1" "seat2" "seat3" "seat4"}}								;// trailing state: cannon is being towed {obstacle} not needed. Uses "close"
+        
+	}
+
+	{extender "inventory"
+		{box
+			{item "bulletusa_76x585 ap" 34}	;50 rounds, 70/30% AP/HE
+			{item "bulletusa_76x585 he" 15}
+		}
+	}
+
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{weapon "76mm_m5" filling "bulletusa_76x585 ap" 1}
+			{charger "charger charger2" minWorkers 1}
+			{RestoreIKAfterAim}
+			("abm_dymamic_gun"
+				zeroing(2.0)
+				dispersion(0.35)
+			)
+		}
+	}
+
+	{mass 2210}
+ {extender "structure"
+        {place "sandbag_cover" "regel_bau_pak"}
+    }
+    {extender "structure"
+    {place "sandbag_7d" "sandbag_one"}
+}
+{extender "structure"
+    {place "sandbag_7e" "sandbag_one"}
+}
+{extender "structure"
+    {place "sandbag_7f" "sandbag_one"}
+}
+{extender "structure"
+    {place "sandbag_80" "sandbag_one"}
+}
+{extender "structure"
+    {place "sandbag_81" "sandbag_one"}
+}
+{extender "structure"
+    {place "sandbag_82" "sandbag_one"}
+}
+{extender "structure"
+    {place "sandbag_83" "sandbag_one"}
+}
+{extender "structure"
+    {place "sandbag_84" "sandbag_one"}
+}
+{extender "structure"
+    {place "sandbag_85" "sandbag_one"}
+}
+{extender "structure"
+    {place "sandbag_86" "sandbag_one"}
+}
+{extender "structure"
+    {place "sandbag_87" "sandbag_one"}
+}
+{extender "structure"
+    {place "sandbag_88" "sandbag_one"}
+}
+{extender "structure"
+    {place "sandbag_8a" "sandbag_one"}
+}
+{extender "structure"
+    {place "sandbag_7c" "sandbag_one"}
+}
+{extender "structure"
+    {place "sandbag_400e" "sandbag_one"}
+}
+{extender "structure"
+    {place "sandbag_4010" "sandbag_one"}
+}
+{extender "structure"
+    {place "sandbag_4011" "sandbag_one"}
+}
+{extender "structure"
+    {place "sandbag_4012" "sandbag_three_bis"}
+}
+{extender "structure"
+    {place "sandbag_4013" "sandbag_three_bis"}
+}
+{extender "structure"
+    {place "sandbag_2006" "sandbag_one"}
+	}    
+}

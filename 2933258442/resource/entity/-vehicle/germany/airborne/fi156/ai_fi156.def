@@ -1,0 +1,104 @@
+{game_entity
+	(include "/properties/airborne_drop_plane_ce.ext")
+	(include "/properties/selection/airborne.inc" scale(1.5))
+	{props "wheeled" "wood" "-steel" "vision_lev01_air" "fi156" "ai_recon_plane"}
+	{extension "fi156.mdl"}
+	{PatherID "fi156"}
+
+	{sensor
+		{Visor "main"
+			{vision "cannon_range_600"}
+		}
+		{Visor "rear"
+			{vision "cannon_range_600"}
+			;{vision "airborne_main"}
+			;{bone "foresight6"}
+		}
+		{visor "around"
+			{vision "airborne_scout"}
+			{bone "basis"}
+		}
+	}
+
+	("recon_tier2")
+
+	{boarder
+		{anm "driver"
+			{forward {begin "board_plane_left"} {end "seat_fi156_driver"} {base "open"}}
+			{reverse {end "board_plane_left" -1} {base "open" -1}}
+		}
+		{anm "gunner"
+			{forward {begin "board_plane_left"} {end "seat_fi156_gunner"} {base "open"}}
+			{reverse {end "board_plane_left" -1} {base "open" -1}}
+		}
+	}
+
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver) group(crew))
+	("crew_human" place(gunner) bone(gunner) door(emit1) animation(gunner) group(crew))
+
+	{Placer
+		{place "driver" {visor "main"} {turnOff {targetable}}}
+		{place "gunner" {visor "rear"} {turnOff {targetable}}}
+	}
+
+	("single_engine")
+
+	("wheel" args "wheelr")
+	("wheel" args "wheell")
+	("wheel" args "wheelback")
+
+	{volume "gear_l" {material "steel"}}
+	{volume "gear_r" {material "steel"}}
+	{volume "wheell" {material "steel"}}
+	{volume "wheelr" {material "steel"}}
+	{volume "wheelback" {material "steel"}}
+	{volume "engine1" {material "steel"}}
+
+	{Chassis "wheel"
+		("car_trace" fx("tracewheel05") step(0.07) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+	}
+
+	{Chassis "airborne"
+		("flight_model"
+			speed(176) ;//----------Max speed (at sea level), km/h.
+			climb_speed(6) ;//------Climb rate at sea level, in m/s
+			turn(180) ;//-----------Turn-and-burn radius in meters, tightest sustained turn
+			turnMP(150) ;//---------Turn-and-burn radius in meters, tightest sustained turn
+			aerodynamics(0.5) ;//---Aerodynamic efficiency rating (0-3)
+			weight(1325) ;//--------Weight in kg.
+			power(237) ;//----------Horse Power.
+			fuel(150) ;//-----------Fuel capacity in Liters.
+			range(385) ;//----------Distance can travel with full fuel tank, in km.
+			roll_rate(20) ;//-------Roll rate, in degrees per second.
+			roll_angle(50) ;//------Maximum roll angle, in degrees.
+		)
+	}
+
+	{mass 1325}
+
+	{extender "inventory"
+		{box
+			{item "ammo mgun_ger doubledrum" 300}		; 5 drums (75 rounds each)
+		}
+	}
+
+	{Weaponry
+		{place "mgun4"
+			{type "rear"}
+			{weapon "mg15" filling "ammo mgun_ger doubledrum" 75}
+			{foresight "foresight6"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			("abm_rear_mg")
+			{ai_in_manual}
+			{basic}
+		}
+	}
+    (mod "mp"
+		{brain
+			{properties
+				{fire_mode hold}
+			}
+		}
+	)
+}

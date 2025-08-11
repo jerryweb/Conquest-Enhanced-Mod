@@ -1,0 +1,72 @@
+{game_entity
+	(include "/properties/cannon_mgun.ext")
+	{extension "m1917_30cal_emplacement.mdl"}
+	{props "wheeled" "vision_lev00_can" "cannon_sandbag_small" "detect_cannon_aa" "c_mg_med" "-carried" "fixed" "c_mg_med" "m1917_30cal" "no_scavenge" "new_emplacement"}
+
+	{boarder
+		{anm "gunner"
+			{forward {end "pose_maxim_gunner" 10}}
+		}
+		{anm "commander"
+			{forward {end "pose_mg_lafette_commander" 10}}
+		}
+		
+	}
+    
+    {placer
+		{place "driver1" remove}
+		{place "driver2" remove}
+	}
+
+	{extender "cannon"
+		{animation
+		;// "gunner" "commander"
+			{move "" ""}
+			{fire "maxim_gunner_stand_fire" "maxim_commander_stand_fire"}
+			{reload "maxim_gunner_stand_reload" "maxim_commander_stand_reload"}
+			{aim "maxim_gunner_stand_reload" "maxim_commander_stand_reload"}
+		}
+        {rotate_ik_Limit 35}
+        {move {workers clear} {obstacle "close"}}
+	}
+
+	{extender "inventory"
+		{box
+			{item "ammo mgun_usa belt" 1000}
+			{item "sandbag_vehicle" 2}
+		}
+	}
+
+	{Weaponry
+		{place "mgun"
+			{type "main"}
+			{charger "gunner"}
+			{weapon "browning_m17a1" filling "ammo mgun_usa belt" 250}
+			("abm_mgun")
+			{Rotate}
+		}
+	}
+
+	{mass 42.3}
+	{Chassis
+		("mobility_cannon"
+			speed(12) ;----------------------------------Max speed.
+			weight(42.3) ;-------------------------------Weight in Kilograms.
+		)
+	}
+
+	{bone "basis"
+		{speed2 20}
+	}
+	{bone "gun_rot"
+		{limits -30 60}
+		{speed2 60}
+	}
+	{bone "turret"
+		{limits -5 5}
+		{speed2 40}
+	}
+    {extender "structure"
+		{place "sandbag_cover" "watch_tower_new"}
+	}
+}

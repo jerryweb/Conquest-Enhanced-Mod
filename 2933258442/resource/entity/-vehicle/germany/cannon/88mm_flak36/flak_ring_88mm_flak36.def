@@ -1,0 +1,135 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	{extension "flak_ring_88mm_flak36.mdl"}
+	(include "/properties/selection/vehicle.inc" scale(1.1))
+	{props "wheeled" "invisible" "vision_lev04_can" "muzzle_85mm_93mm" "trailer" "trailer_heavy" "detect_atgun" "c_aa_hvy" "player_emplacement" "flak_ring_aa" "no_scavenge" "new_emplacement"}
+	{PatherID "cannon.large"}
+	{targetclass "cannon_big"}
+	{targetSelector "cannon_aa"}
+
+	{extender "enumerator"
+		{digit_folder "moe"}
+	}
+
+	{sensor
+		{visor "main"
+			{vision "cannon_range_210"}
+		}
+	}
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelright2")
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelleft2")
+
+	("gun" repair(30) thickness(30))
+	("shield" args "shield" 8)
+
+	("armor_heavy_cannon")
+	("crew_wheeled_cannon_5")
+
+	{volume "body9" {tags "invisible"}} ;// volume disabled on carriage hidden 
+	{volume "body10" {tags "invisible"}} ;// volume disabled on carriage hidden 
+	{volume "shield" {able {holed}}}
+	{volume "wheelleft1" {tags "invisible"}}
+	{volume "wheelleft2" {tags "invisible"}}
+	{volume "wheelright1" {tags "invisible"}}
+	{volume "wheelright2" {tags "invisible"}}
+
+	{extender "shield" {on}}
+
+	{boarder
+		{anm "gunner"
+			{forward {end "pose_flak_gunner" 10}}
+		}
+		{anm "gunner2"
+			{forward {end "pose_flak_gunner2" 10}}
+		}
+		{anm "charger"
+			{forward {end "pose_flak_charger" 10}}
+		}
+		{anm "charger2"
+			{forward {end "pose_flak_charger2" 10}}
+		}
+		{anm "commander"
+			{forward {end "pose_flak_commander" 10}}
+		}
+		{anm "driver1"	;// gunner
+			{forward {end "cannon_pak40_pusher_right" 10}}
+		}
+		{anm "driver2"	;// gunner2
+			{forward {end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "driver3"	;// charger
+			{forward {end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "driver4"	;// charger2
+			{forward {end "cannon_pak40_pusher_right" 10}}
+		}
+		{anm "driver5"	;// commander
+			{forward {end "cannon_pak40_pusher_right" 10}}
+		}
+		{anm "seat1"	;// gunner
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+		{anm "seat2"	;// gunner2
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+		{anm "seat3"	;// charger
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+		{anm "seat4"	;// charger2
+			{forward {end "pose_seat_cannon_left" 10}}
+		}
+		{anm "seat5"	;// commander
+			{forward {end "pose_seat_cannon_left" 10}}
+		}
+	}
+
+	{extender "cannon"
+		{animation
+			{switch "close"}
+			;// "gunner" "gunner2" "charger" "charger2" "commander"
+			{move "cannon_pak40_pusher_right" "cannon_pak40_pusher_left" "cannon_pak40_pusher_left" "cannon_pak40_pusher_right" "cannon_pak40_pusher_right"}
+			{aim "flak_gunner_aim" "flak_gunner2_aim" "flak_charger_aim" "flak_charger2_aim" "flak_commander_aim"}
+			{fire "flak_gunner_fire" "flak_gunner2_fire" "flak_charger_fire" "flak_charger2_fire" "flak_commander_fire"}
+			{reload "flak_gunner_reload" "flak_gunner2_reload" "flak_charger_reload" "flak_charger2_reload" "flak_commander_reload"}
+		}
+		{move {workers clear} {obstacle "close"}}	;// move state: cannon being pushed and which positions play animations
+		{attack {workers "gunner" "gunner2" "charger" "charger2" "commander"} {obstacle "open"}}	;// fire/attack state: cannon aim, fire, and reload events
+		{trailing {workers "seat1" "seat2" "seat3" "seat4" "seat5"}}								;// trailing state: cannon is being towed {obstacle} not needed. Uses "close"
+		{rotate_ik_Limit 0}
+	}
+
+	{extender "inventory"
+		{box
+			{item "bulletger_88_l56 apcbche" 19}		; 45 rounds
+			{item "bulletger_88_l56 he" 25}
+		}
+	}
+
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "88mm_flak36" filling "bulletger_88_l56 apcbche" 1}
+			{gunner "gunner gunner2" minWorkers 1}
+			{charger "charger charger2" minWorkers 1}
+			("abm_dymamic_aa"
+				zeroing(2.25)
+				dispersion(0.50)
+			)
+		}
+	}
+
+	{mass 7400}
+
+	{bone "gun_rot"
+		{limits -3 85}
+		{speed2 15}
+	}
+	{bone "turret"
+		{speed2 20}
+	}
+
+}

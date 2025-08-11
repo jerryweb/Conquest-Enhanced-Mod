@@ -1,0 +1,471 @@
+;SDL
+
+;===================================
+;        INSTRUCTIONS    
+;===================================
+
+; In this file onee configures the humans which are spawned in vehicles or squads
+; The humans have a CP and cost associated with them which collectively add up for the final squad value
+; Check ../settings_inf.set for the global defines for CP, capture weight (CW), score, etc.
+
+;===================================
+;        PRICING CHART	       
+;===================================
+
+; // Standard prices below are for tier2 infantry
+
+;k98 			= 8
+;mp40/mp38 		= 10
+;g41 			= 13
+;g43 			= 13
+;mkb42(h)		= 20
+;stg44			= 20
+;fg42 			= 22
+;MG26(t)		= 25
+;MG13			= 25
+;mg34 drum 		= 40
+;mg34 belt 		= 45
+;mg42 drum 		= 40
+;mg42 belt 		= 45
+;rifle grenade	= +10
+;marksman 		= +2
+;any % pzfaust 	= +2
+;any pzfaust 	= +5
+;any flamer		= 60
+;engineer		= 50
+;miner 			= 40
+
+; // price modifiers (If not tier2)
+;tier 0 		= -3, MG -10
+;tier 1 		= -1, MG -10
+;tier 1 vet 	= 0, MG 0
+;tier 2 vet		= +2, MG +5
+;tier 3 		= +5, MG +10
+;tier 3 vet 	= +8, MG +15
+;tier 4 		= +10, MG +20
+;tier 4 vet 	= +13, MG +25
+
+
+;===================================
+;        BREED DECLARATIONS       
+;===================================
+
+; // Specials
+
+{"mp/ger/mid/artilleryman"			("inf_tankman" side(ger) cost(1.0))}
+{"mp/ger/mid/tankman"				("inf_tankman" side(ger) cost(25.0))}
+{"mp/ger/mid/tankman_stug"			("inf_tankman" side(ger) cost(20.0))}
+{"mp/ger/mid/tankman_pzjag"			("inf_tankman" side(ger) cost(4.0))}
+{"mp/ger/mid/tank_commander"		("inf_tankman" side(ger) cost(25.0))}
+{"mp/ger/mid/tank_commander_stug"	("inf_tankman" side(ger) cost(25.0))}
+{"mp/ger/mid/tank_commander_pzjag"	("inf_tankman" side(ger) cost(10.0))}
+{"mp/ger/mid/pilot"					("inf_tankman" side(ger) cost(0.0))}
+{"mp/ger/mid/tankman_ace"			("inf_tankman" side(ger) cost(25.0))}
+{"mp/ger/mid/tank_commander_ace"	("inf_tankman" side(ger) cost(30.0))}
+
+{"mp/ger/mid/medic"					("inf_medic" side(ger) cost(40.0))}
+{"mp/ger/late/medic"					("inf_medic" side(ger) cost(40.0))}
+
+{"mp/ger/mid/officer"				("inf_officer" side(ger) cost(300.0))}
+{"mp/ger/late/officer_lw"			("inf_officer" side(ger) cost(150.0))}
+
+
+{"mp/ger/mid/sniper"				("inf_sniper" side(ger) r(2) rm(99) cost(150.0))}
+{"mp/ger/mid/sniper_elite"			("inf_sniper" side(ger) r(3) rm(99) cost(170.0))}
+
+;// tier 0
+
+{"mp/ger/late/volkssturm_pol"	("inf_tier1" side(ger) lvl(lvl1) r(12) rm(99) cost(7.0))} ; smg
+{"mp/ger/late/volkssturm_rifle"	("inf_tier1" side(ger) lvl(lvl1) r(12) rm(99) cost(5.0))} ; k98
+{"mp/ger/late/volkssturm_pzf"	("inf_tier1" side(ger) lvl(lvl1) r(12) rm(99) cost(10.0))} ; k98 + pzfaust 100
+{"mp/ger/late/volkssturm_smg"	("inf_tier1" side(ger) lvl(lvl1) r(12) rm(99) cost(12.0))} ; mp40 + pzfaust 60
+{"mp/ger/late/volkssturm_mg"	("inf_tier1" side(ger) lvl(lvl1) r(12) rm(99) cost(28.0))} ; MG42 drum (50 round)
+
+;// tier 1
+
+{"mp/ger/mid/convict_1"		("inf_tier1" side(ger) lvl(lvl1) r(1) rm(8) cost(6.0))} ; k98
+{"mp/ger/mid/convict_2"		("inf_tier1" side(ger) lvl(lvl1) r(1) rm(8) cost(6.0))} ; mp40
+{"mp/ger/mid/convict_3"		("inf_tier1" side(ger) lvl(lvl1) r(1) rm(8) cost(25.0))} ; mp40
+{"mp/ger/mid/osttrupp_1"	("inf_tier1" side(ger) lvl(lvl1) r(1) rm(8) cost(6.0))} ; k98
+{"mp/ger/mid/osttrupp_2"	("inf_tier1" side(ger) lvl(lvl1) r(1) rm(8) cost(6.0))} ; k98
+
+{"mp/ger/mid/luft_1"		("inf_tier1" side(ger) lvl(lvl1) r(1) rm(8) cost(10.0))} ; mp40
+{"mp/ger/mid/luft_2"		("inf_tier1" side(ger) lvl(lvl1) r(1) rm(8) cost(8.0))} ; k98
+{"mp/ger/mid/luft_3"		("inf_tier1" side(ger) lvl(lvl1) r(1) rm(8) cost(30.0))} ; mg13
+{"mp/ger/mid/luft_4"		("inf_tier1" side(ger) lvl(lvl1) r(1) rm(8) cost(8.0))} ; k98
+{"mp/ger/mid/luft_5"		("inf_tier1" side(ger) lvl(lvl1) r(1) rm(8) cost(8.0))} ; k98
+
+{"mp/ger/mid/ersatz_rifle"		("inf_tier1" side(ger) lvl(lvl1) r(1) rm(8) cost(7.0))} ; mp40
+{"mp/ger/mid/ersatz_sl"			("inf_tier1" side(ger) lvl(lvl1) r(1) rm(8) cost(7.0))} ; k98
+{"mp/ger/mid/ersatz_sl_asst"	("inf_tier1" side(ger) lvl(lvl1) r(1) rm(8) cost(9.0))} ; mp40
+;// tier 2
+
+{"mp/ger/mid/mg_crew"		("inf_tier2_lite" side(ger) lvl() r(1) rm(8) cost(7.0))} ;p38 pistol
+{"mp/ger/mid/mg_crew_asst"	("inf_tier2_lite" side(ger) lvl() r(1) rm(8) cost(8.0))} ;k98
+
+{"mp/ger/mid/mgun_1"		("inf_tier2" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(40.0))} ; MG34 belt
+{"mp/ger/mid/mgun_2"		("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+{"mp/ger/mid/mgun_2_rifle"	("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+{"mp/ger/mid/mgun_3"		("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+
+{"mp/ger/mid/rifleman_1"	("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+{"mp/ger/mid/rifleman_2"	("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+{"mp/ger/mid/rifleman_3"	("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+
+{"mp/ger/mid/nco"			("inf_tier2" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(20.0))} ; mp40
+{"mp/ger/mid/nco_asst"		("inf_tier2" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(18.0))} ; k98
+{"mp/ger/mid/nco_asst_sa"	("inf_tier2" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; g41
+
+{"mp/ger/mid/recon_mg"		("inf_tier2" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(60.0))} ; mg34 drum
+{"mp/ger/mid/recon_mg_asst"	("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+{"mp/ger/mid/recon_rifle"	("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+{"mp/ger/mid/recon_sl"		("inf_tier2" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(20.0))} ; mp40
+{"mp/ger/mid/recon_sl_asst"	("inf_tier2" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+
+{"mp/ger/mid/pz_recon_mg"		("inf_tier2" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(40.0))} ; mg34 drum
+{"mp/ger/mid/pz_recon_mg_asst"	("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+{"mp/ger/mid/pz_recon_rifle"	("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+{"mp/ger/mid/pz_recon_sl"		("inf_tier2" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; mp40
+{"mp/ger/mid/pz_recon_sl_asst"	("inf_tier2" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+
+{"mp/ger/mid/smg_1"			("inf_tier2" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; mp40
+{"mp/ger/mid/smg_2"			("inf_tier2" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; mp40
+{"mp/ger/mid/smg_3"			("inf_tier2" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; mp40
+{"mp/ger/mid/smg_mkb"		("inf_tier2" side(ger) lvl(lvl2 lvl3) r(1) rm(8) cost(15.0))} ; mkb42(h)
+
+{"mp/ger/mid/antitank_1"	("inf_tier2" side(ger) lvl(lvl1 lvl2 lvl3 lvl4) r(1) rm(8) cost(15.0))} ; AT Rifle
+{"mp/ger/mid/antitank_2"	("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98 + at rifle ammo
+{"mp/ger/mid/antitank_3"	("inf_tier2" side(ger) lvl(lvl1 lvl2 lvl3 lvl4) r(1) rm(8) cost(28.0))} ; Rifle Grenade HE and HEAT
+{"mp/ger/mid/antitank_4"	("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98 + grenade ammo
+
+{"mp/ger/mid/engineer_1"	("inf_tier3" side(ger) lvl() r(1) rm(8) cost(50.0))}
+{"mp/ger/mid/engineer_2"	("inf_tier3" side(ger) lvl() r(1) rm(8) cost(50.0))}
+{"mp/ger/later/engineer_1"	("inf_tier3" side(ger) lvl() r(1) rm(8) cost(50.0))}
+{"mp/ger/later/engineer_2"	("inf_tier3" side(ger) lvl() r(1) rm(8) cost(50.0))}
+{"mp/ger/mid/flamer"		("inf_tier3" side(ger) lvl(lvl2 lvl3 lvl4) r(1) rm(8) cost(90.0))}
+
+{"mp/ger/mid/miner-ap"		("inf_tier3" side(ger) lvl() r(1) rm(8) cost(50.0))}
+{"mp/ger/mid/miner-at"		("inf_tier3" side(ger) lvl() r(1) rm(8) cost(50.0))}
+
+{"mp/ger/mid/scout_1"		("inf_tier2" side(ger) lvl(lvl2 lvl3) r(1) rm(8) cost(35.0))} ; g43 marksman
+{"mp/ger/mid/scout_2"		("inf_tier2" side(ger) lvl(lvl2 lvl3) r(1) rm(8) cost(45.0))} ; mkb42h
+
+{"mp/ger/mid/pioneer_1"		("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(18.0))} ; k98
+{"mp/ger/mid/pioneer_2"		("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; k98
+{"mp/ger/mid/pioneer_3"		("inf_tier2" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(30.0))} ; flamethrower
+{"mp/ger/mid/pioneer_4"		("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(18.0))} ; k98
+{"mp/ger/mid/pioneer_at"	("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(28.0))} ; k98
+{"mp/ger/mid/pioneer_mgun"	("inf_tier2" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(35.0))} ; mg34 belt
+{"mp/ger/mid/pioneer_mgun_ammo_carrier"	("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+{"mp/ger/mid/pioneer_mgun_asst"	("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+{"mp/ger/mid/pioneer_sl"		("inf_tier2" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; mp40
+{"mp/ger/mid/pioneer_sl_asst"	("inf_tier2" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(12.0))} ; g41
+
+{"mp/ger/mid/pz_pio_flame"			("inf_tier2" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(33.0))} ; flamethrower
+{"mp/ger/mid/pz_pio_mg"				("inf_tier2" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(45.0))} ; mg34 belt
+{"mp/ger/mid/pz_pio_mg_ammo_carrier"("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+{"mp/ger/mid/pz_pio_mg_asst"		("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; pistol
+{"mp/ger/mid/pz_pio_rifle"			("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+{"mp/ger/mid/pz_pio_rifle_gren"		("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+{"mp/ger/mid/pz_pio_rifle_mine"		("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+{"mp/ger/mid/pz_pio_sl"				("inf_tier2" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; mp40
+{"mp/ger/mid/pz_pio_sl_asst"		("inf_tier2" side(ger) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; g41
+
+{"mp/ger/late/nco"			("inf_tier2" side(ger) lvl() r(9) rm(99) cost(25.0))} ; stg44
+
+{"mp/ger/late/smg_1"		("inf_tier2" side(ger) lvl() r(9) rm(99) cost(10.0))} ; mp40
+
+{"mp/ger/late/antitank_1"	("inf_tier2" side(ger) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(80.0))} ; pistol + Pzshreck
+{"mp/ger/late/antitank_2"	("inf_tier2" side(ger) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(15.0))} ; mp40 + pzfaust60 + Pzschreck ammo
+{"mp/ger/late/antitank_3"	("inf_tier2" side(ger) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(18.0))} ; g43 + pzfaust60
+
+{"mp/ger/late/gren_rifle"			("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; k98
+{"mp/ger/late/gren_rifle_pzf"		("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; k98 + pzfaust 30
+{"mp/ger/late/gren_smg"				("inf_tier2" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; mp40
+{"mp/ger/late/gren_sa"				("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; g43
+{"mp/ger/late/gren_rifle_grenadier"	("inf_tier2" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(18.0))} ; rifle grenade
+{"mp/ger/late/gren_mg"				("inf_tier2" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(45.0))} ; mg42 belt (100 round)
+{"mp/ger/late/gren_mg_asst"			("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; k98
+{"mp/ger/late/gren_sl"				("inf_tier2" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; mp40
+{"mp/ger/late/gren_sl_asst"			("inf_tier2" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; k98
+{"mp/ger/late/gren_sl_asst_sniper"	("inf_tier2" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(80.0))} ; k98 scope + % pzfaust 30
+{"mp/ger/late/gren_sl_asst_smg"		("inf_tier2" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(12.0))} ; mp40 + % pzfaust 30
+{"mp/ger/late/gren_sturm_mg"		("inf_tier2" side(ger) lvl(lvl1 lvl2) r(11) rm(99) cost(35.0))} ; mg42 belt (100 round)
+{"mp/ger/late/gren_sturm_mg_asst"	("inf_tier2" side(ger) lvl(lvl1 lvl2) r(11) rm(99) cost(20.0))} ; stg44
+{"mp/ger/late/gren_sturm_pzf"		("inf_tier2" side(ger) lvl(lvl1 lvl2) r(11) rm(99) cost(23.0))} ; stg44 + pzfaust 60
+{"mp/ger/late/gren_sturm_sa_scope"	("inf_tier2" side(ger) lvl(lvl1 lvl2) r(11) rm(99) cost(40.0))} ; g43 scope
+{"mp/ger/late/gren_sturm_sl"		("inf_tier2" side(ger) lvl(lvl1 lvl2) r(11) rm(99) cost(20.0))} ; stg44
+{"mp/ger/late/gren_sturm_sl_asst"	("inf_tier2" side(ger) lvl(lvl1 lvl2) r(11) rm(99) cost(20.0))} ; stg44 + % faustpatrone 30
+{"mp/ger/late/gren_sturm_stg"		("inf_tier2" side(ger) lvl(lvl1 lvl2) r(11) rm(99) cost(20.0))} ; stg44
+
+{"mp/ger/late/lw_jag_mg"			("inf_tier2" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(35.0))} ; mg42 belt (100 round)
+{"mp/ger/late/lw_jag_mg_asst"		("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; k98
+{"mp/ger/late/lw_jag_mg34"			("inf_tier2" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(35.0))} ; mg34 belt (100 round)
+{"mp/ger/late/lw_jag_rifle"			("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; k98
+{"mp/ger/late/lw_jag_rifle_pzf"		("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; k98 + pzfaust 30
+{"mp/ger/late/lw_jag_rifle_gren"	("inf_tier2" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(18.0))} ; rifle grenade
+{"mp/ger/late/lw_jag_sa"			("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; g43
+{"mp/ger/late/lw_jag_sl"			("inf_tier2" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; mp40
+{"mp/ger/late/lw_jag_sl_asst"		("inf_tier2" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; k98 + % pzfaust 60
+{"mp/ger/late/lw_jag_sl_asst_scope"	("inf_tier2" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(60.0))} ; k98 scope + % pzfaust 60
+{"mp/ger/late/lw_jag_smg"			("inf_tier2" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; mp38
+
+{"mp/ger/late/pzgren_at"			("inf_tier2" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(80.0))} ; pzschreck
+{"mp/ger/late/pzgren_rifle"			("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; k98
+{"mp/ger/late/pzgren_rifle_pzf"		("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; k98 + pzfaust 30
+{"mp/ger/late/pzgren_rifle_pzf2"	("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; k98 + % pzfaust 30
+{"mp/ger/late/pzgren_sa"			("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; g43
+{"mp/ger/late/pzgren_mg"			("inf_tier2" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(45.0))} ; mg42 belt (100 round)
+{"mp/ger/late/pzgren_mg_asst"		("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; k98
+{"mp/ger/late/pzgren_sl"			("inf_tier2" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; mp40
+{"mp/ger/late/pzgren_sl_asst"		("inf_tier2" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(15.0))} ; g43 + % pzfaust 60
+{"mp/ger/late/pzgren_stg"			("inf_tier2" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(20.0))} ; stg44
+{"mp/ger/late/pzgren_sturm_pzf"		("inf_tier2" side(ger) lvl(lvl1 lvl2) r(11) rm(99) cost(25.0))} ; stg44 + pzfaust 30
+{"mp/ger/late/pzgren_sturm_sa_scope"("inf_tier2" side(ger) lvl(lvl1 lvl2) r(11) rm(99) cost(80.0))} ; g43 scope
+{"mp/ger/late/pzgren_sturm_stg"		("inf_tier2" side(ger) lvl(lvl1 lvl2) r(11) rm(99) cost(20.0))} ; stg44
+{"mp/ger/late/pzgren_sturm_sl"		("inf_tier2" side(ger) lvl(lvl1 lvl2) r(11) rm(99) cost(20.0))} ; stg44
+{"mp/ger/late/pzgren_sturm_sl_asst"	("inf_tier2" side(ger) lvl(lvl1 lvl2) r(11) rm(99) cost(22.0))} ; stg44 + % pzfaust 30
+
+{"mp/ger/late/pz_recon_mg"			("inf_tier2" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(40.0))} ; mg42 drum
+{"mp/ger/late/pz_recon_mg_asst"		("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; k98
+{"mp/ger/late/pz_recon_rifle"		("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; k98
+{"mp/ger/late/pz_recon_sl_asst_rifle"("inf_tier2" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; k98
+{"mp/ger/late/pz_recon_sl_asst_sa"	("inf_tier2" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; g43
+{"mp/ger/late/pz_recon_sl_asst_stg"	("inf_tier2" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(20.0))} ; stg44
+{"mp/ger/late/pz_recon_sl_rifle"	("inf_tier2" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; k98
+{"mp/ger/late/pz_recon_sl_smg"		("inf_tier2" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; mp40
+
+{"mp/ger/late/volksg_at"			("inf_tier2" side(ger) lvl(lvl1 lvl2) r(11) rm(99) cost(80.0))} ; pistol + pzschreck
+{"mp/ger/late/volksg_at2"			("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(11) rm(99) cost(8.0))} ; k98
+{"mp/ger/late/volksg_mg"			("inf_tier2" side(ger) lvl(lvl1 lvl2) r(11) rm(99) cost(35.0))} ; mg42 belt (100 round)
+{"mp/ger/late/volksg_mg_asst"		("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(11) rm(99) cost(8.0))} ; k98
+{"mp/ger/late/volksg_mg_asst_sa"	("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(11) rm(99) cost(13.0))} ; g43
+{"mp/ger/late/volksg_rifle"			("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(11) rm(99) cost(8.0))} ; k98
+{"mp/ger/late/volksg_rifle_pzf"		("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(11) rm(99) cost(13.0))} ; k98 + pzfaust 60
+{"mp/ger/late/volksg_rifle_grenadier"("inf_tier2" side(ger) lvl(lvl1 lvl2) r(11) rm(99) cost(18.0))} ; rifle grenade
+{"mp/ger/late/volksg_rifle_grenadier2"("inf_tier2" side(ger) lvl(lvl1 lvl2) r(11) rm(99) cost(18.0))} ; rifle grenade, 20 ammo
+{"mp/ger/late/volksg_sa"			("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(11) rm(99) cost(13.0))} ; g43
+{"mp/ger/late/volksg_sa_pzf"		("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(11) rm(99) cost(18.0))} ; g43 + pzfaust 60
+{"mp/ger/late/volksg_sa_scope"		("inf_tier2" side(ger) lvl(lvl1 lvl2) r(11) rm(99) cost(40.0))} ; g43 scope
+{"mp/ger/late/volksg_sl"			("inf_tier2" side(ger) lvl(lvl1 lvl2) r(11) rm(99) cost(20.0))} ; stg44
+{"mp/ger/late/volksg_sl_asst"		("inf_tier2" side(ger) lvl(lvl1 lvl2) r(11) rm(99) cost(22.0))} ; stg44 + % pzfaust 60
+{"mp/ger/late/volksg_sl_asst_smg"	("inf_tier2" side(ger) lvl(lvl1 lvl2) r(11) rm(99) cost(15.0))} ; mp40 + % pzfaust 60
+{"mp/ger/late/volksg_sl_smg"		("inf_tier2" side(ger) lvl(lvl1 lvl2) r(11) rm(99) cost(10.0))} ; mp40
+{"mp/ger/late/volksg_smg"			("inf_tier2" side(ger) lvl(lvl1 lvl2) r(11) rm(99) cost(10.0))} ; mp40
+{"mp/ger/late/volksg_stg"			("inf_tier2" side(ger) lvl(lvl1 lvl2) r(11) rm(99) cost(20.0))} ; stg44
+{"mp/ger/late/volksg_smg_pzf"		("inf_tier2" side(ger) lvl(lvl1 lvl2) r(11) rm(99) cost(15.0))} ; mp40 + pzfaust 60
+{"mp/ger/late/volksg_stg_pzf"		("inf_tier2" side(ger) lvl(lvl1 lvl2) r(11) rm(99) cost(25.0))} ; stg44 + pzfaust 60
+
+{"mp/ger/late/pz_pio_at"			("inf_tier2" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(80.0))} ; pistol + pzschreck
+{"mp/ger/late/pz_pio_flame"			("inf_tier2" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(33.0))} ; flamethrower
+{"mp/ger/late/pz_pio_gren"			("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; k98
+{"mp/ger/late/pz_pio_mg"			("inf_tier2" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(45.0))} ; mg42 belt (100 round)
+{"mp/ger/late/pz_pio_mg_asst"		("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; k98
+{"mp/ger/late/pz_pio_mine"			("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; k98 ;detector
+{"mp/ger/late/pz_pio_pzf"			("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; k98 + pzfaust 30
+{"mp/ger/late/pz_pio_rifle"			("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; k98
+{"mp/ger/late/pz_pio_rifle_gren"	("inf_tier2" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(18.0))} ; rifle grenade
+{"mp/ger/late/pz_pio_sa"			("inf_tier2_lite" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; g43
+{"mp/ger/late/pz_pio_sl"			("inf_tier2" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; mp40
+{"mp/ger/late/pz_pio_sl_asst"		("inf_tier2" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; k98 + % pzfaust 60
+{"mp/ger/late/pz_pio_sl_stg"		("inf_tier2" side(ger) lvl(lvl1 lvl2) r(9) rm(99) cost(20.0))} ; stg44
+
+;// tier 2 vet
+
+{"mp/ger/mid/vet_mg"		("inf_tier2" side(ger) lvl(lvl2 lvl3) r(1) rm(8) cost(50.0))} ; mg34 belt
+{"mp/ger/mid/vet_mg_asst"	("inf_tier2" side(ger) lvl(lvl2 lvl3) r(1) rm(8) cost(10.0))} ; k98
+{"mp/ger/mid/vet_nco"		("inf_tier2" side(ger) lvl(lvl2 lvl3) r(1) rm(8) cost(12.0))} ; mp40
+{"mp/ger/mid/vet_nco_asst"	("inf_tier2" side(ger) lvl(lvl2 lvl3) r(1) rm(8) cost(15.0))} ; g41
+{"mp/ger/mid/vet_rifle"		("inf_tier2_lite" side(ger) lvl(lvl2 lvl3) r(1) rm(8) cost(10.0))} ; k98
+{"mp/ger/mid/vet_sa"		("inf_tier2" side(ger) lvl(lvl2 lvl3) r(1) rm(8) cost(15.0))} ; g41
+
+;// tier 3
+
+{"mp/ger/mid/jager_mg"			("inf_tier3" side(ger) lvl(lvl2 lvl3) r(1) rm(11) cost(55.0))} ; MG42 belt
+{"mp/ger/mid/jager_mg_asst"		("inf_tier3" side(ger) lvl(lvl2 lvl3) r(1) rm(11) cost(13.0))} ; k98
+{"mp/ger/mid/jager_rifle"		("inf_tier3" side(ger) lvl(lvl2 lvl3) r(1) rm(11) cost(13.0))} ; k98
+{"mp/ger/mid/jager_sl"			("inf_tier3" side(ger) lvl(lvl2 lvl3) r(1) rm(11) cost(15.0))} ; mp40
+{"mp/ger/mid/jager_sl_asst"		("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(17.0))} ; mp40 + % pzfaust 60
+{"mp/ger/mid/jager_smg"			("inf_tier3" side(ger) lvl(lvl2 lvl3) r(1) rm(11) cost(15.0))} ; mp40
+{"mp/ger/mid/jager_smg_pzf"		("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(20.0))} ; mp40 + pzfaust
+
+{"mp/ger/late/fusilier_mg"					("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(35.0))} ; MG42 belt (100 round)
+{"mp/ger/late/fusilier_mg_asst"				("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(13.0))} ; k98
+{"mp/ger/late/fusilier_mg_asst_smg"			("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; mp40
+{"mp/ger/late/fusilier_rifle"				("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(13.0))} ; k98
+{"mp/ger/late/fusilier_rifle_pzf"			("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(18.0))} ; k98 + pzfaust 60
+{"mp/ger/late/fusilier_rifle_grenadier"		("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(23.0))} ; rifle grenade
+{"mp/ger/late/fusilier_sa"					("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(18.0))} ; g43
+{"mp/ger/late/fusilier_sl"					("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; mp40
+{"mp/ger/late/fusilier_sl_asst"				("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; k98 + % pzfaust
+{"mp/ger/late/fusilier_sl_asst_sa_scope"	("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(50.0))} ; g43 scope + % pzfaust
+{"mp/ger/late/fusilier_sl_asst_scope"		("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(50.0))} ; k98 scope + % pzfaust
+{"mp/ger/late/fusilier_sl_asst_smg"			("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(17.0))} ; mp40 + % pzfaust 60
+{"mp/ger/late/fusilier_smg"					("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; mp40
+{"mp/ger/late/fusilier_smg_pzf"				("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(20.0))} ; mp40 + pzfaust 60
+{"mp/ger/late/fusilier_smg_pzf2"			("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(17.0))} ; mp40 + % pzfaust 60
+{"mp/ger/late/fusilier_stg"					("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(25.0))} ; stg44
+
+{"mp/ger/late/jager_sturm_mg"			("inf_tier3" side(ger) lvl(lvl2 lvl3) r(12) rm(99) cost(35.0))} ; MG42 belt (100 round)
+{"mp/ger/late/jager_sturm_mg_asst"		("inf_tier3" side(ger) lvl(lvl2 lvl3) r(12) rm(99) cost(18.0))} ; g43
+{"mp/ger/late/jager_sturm_sa"			("inf_tier3" side(ger) lvl(lvl2 lvl3) r(12) rm(99) cost(18.0))} ; g43
+{"mp/ger/late/jager_sturm_sl"			("inf_tier3" side(ger) lvl(lvl2 lvl3) r(12) rm(99) cost(25.0))} ; stg44
+{"mp/ger/late/jager_sturm_sl_asst"		("inf_tier3" side(ger) lvl(lvl2 lvl3) r(12) rm(99) cost(27.0))} ; stg44 + % pzfaust 60
+{"mp/ger/late/jager_sturm_stg"			("inf_tier3" side(ger) lvl(lvl2 lvl3) r(12) rm(99) cost(25.0))} ; stg44
+{"mp/ger/late/jager_sturm_stg_pzf"		("inf_tier3" side(ger) lvl(lvl2 lvl3) r(12) rm(99) cost(27.0))} ; stg44 + pzfaust 60
+
+{"mp/ger/late/begleitgren_at"			("inf_tier3" side(ger) lvl() r(10) rm(99) cost(80.0))} ; pzschreck
+{"mp/ger/late/begleitgren_rifle"		("inf_tier3" side(ger) lvl() r(10) rm(99) cost(13.0))} ; k98
+{"mp/ger/late/begleitgren_rifle_pzf"	("inf_tier3" side(ger) lvl() r(10) rm(99) cost(18.0))} ; k98 + pzfaust 60
+{"mp/ger/late/begleitgren_mg"			("inf_tier3" side(ger) lvl() r(10) rm(99) cost(55.0))} ; MG42 belt (100 round)
+{"mp/ger/late/begleitgren_mg_asst"		("inf_tier3" side(ger) lvl() r(10) rm(99) cost(13.0))} ; k98
+{"mp/ger/late/begleitgren_sl"			("inf_tier3" side(ger) lvl() r(10) rm(99) cost(15.0))} ; mp40
+{"mp/ger/late/begleitgren_sl_asst"		("inf_tier3" side(ger) lvl() r(10) rm(99) cost(15.0))} ; k98 + % pzfaust 100
+{"mp/ger/late/begleitgren_sl_stg"		("inf_tier3" side(ger) lvl() r(10) rm(99) cost(25.0))} ; stg44
+{"mp/ger/late/begleitgren_sl_asst_stg"	("inf_tier3" side(ger) lvl() r(10) rm(99) cost(27.0))} ; stg44 + % pzfaust 100
+{"mp/ger/late/begleitgren_sa"			("inf_tier3" side(ger) lvl() r(10) rm(99) cost(18.0))} ; g43
+{"mp/ger/late/begleitgren_sa_pzf"		("inf_tier3" side(ger) lvl() r(10) rm(99) cost(23.0))} ; g43 + pzfaust 60
+{"mp/ger/late/begleitgren_stg"			("inf_tier3" side(ger) lvl() r(10) rm(99) cost(25.0))} ; stg44
+
+;// tier 3 vet
+
+{"mp/ger/mid/gd_rifle"			("inf_tier3" side(ger) lvl(lvl2 lvl3) r(1) rm(8) cost(16.0))} ; k98
+{"mp/ger/mid/gd_sa"				("inf_tier3" side(ger) lvl(lvl2 lvl3) r(1) rm(8) cost(21.0))} ; g41
+{"mp/ger/mid/gd_mg"				("inf_tier3" side(ger) lvl(lvl2 lvl3) r(1) rm(8) cost(33.0))} ; MG34 belt
+{"mp/ger/mid/gd_mg_asst"		("inf_tier3" side(ger) lvl(lvl2 lvl3) r(1) rm(8) cost(16.0))} ; k98
+{"mp/ger/mid/gd_sl"				("inf_tier3" side(ger) lvl(lvl2 lvl3) r(1) rm(8) cost(18.0))} ; mp40
+{"mp/ger/mid/gd_sl_asst"		("inf_tier3" side(ger) lvl(lvl2 lvl3) r(1) rm(8) cost(21.0))} ; g41
+
+{"mp/ger/late/lehr_pzgren_at"				("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(75.0))} ; pistol + pzschreck
+{"mp/ger/late/lehr_pzgren_mg"				("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(33.0))} ; mg42 belt (100 round)
+{"mp/ger/late/lehr_pzgren_mg_asst"			("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(16.0))} ; k98
+{"mp/ger/late/lehr_pzgren_rifle"			("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(16.0))} ; k98
+{"mp/ger/late/lehr_pzgren_rifle_pzf"		("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(21.0))} ; k98 + pzfaust 30
+{"mp/ger/late/lehr_pzgren_rifle_pzf2"		("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(18.0))} ; k98 + % pzfaust 30
+{"mp/ger/late/lehr_pzgren_sa"				("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(21.0))} ; g43
+{"mp/ger/late/lehr_pzgren_sa_pzf"			("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(26.0))} ; g43 + pzfaust 60
+{"mp/ger/late/lehr_pzgren_sl"				("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(18.0))} ; mp40
+{"mp/ger/late/lehr_pzgren_sl_asst"			("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(23.0))} ; g43 + % pzfaust 60
+{"mp/ger/late/lehr_pzgren_stg"				("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(28.0))} ; stg44
+{"mp/ger/late/lehr_pzgren_sturm_sl"			("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(28.0))} ; stg44
+{"mp/ger/late/lehr_pzgren_sturm_sl_asst"	("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(30.0))} ; stg44 + % pzfaust 100
+{"mp/ger/late/lehr_pzgren_sturm_stg"		("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(28.0))} ; stg44
+{"mp/ger/late/lehr_pzgren_sturm_stg_pzf"	("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(33.0))} ; stg44 + pzfaust 60
+{"mp/ger/late/lehr_pzgren_sturm_stg_pzf2"	("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(30.0))} ; stg44 + % pzfaust 60
+
+{"mp/ger/late/gd_pzgren_rifle"				("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(16.0))} ; k98
+{"mp/ger/late/gd_pzgren_sa"					("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(21.0))} ; g43
+{"mp/ger/late/gd_pzgren_rifle_pzf"			("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(21.0))} ; k98 + pzfaust 100
+{"mp/ger/late/gd_pzgren_sa_pzf"				("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(26.0))} ; g43 + pzfaust 100
+{"mp/ger/late/gd_pzgren_mg"					("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(33.0))} ; mg42 belt (100 round)
+{"mp/ger/late/gd_pzgren_mg_asst"			("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(16.0))} ; k98
+{"mp/ger/late/gd_pzgren_sl"					("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(28.0))} ; stg44
+{"mp/ger/late/gd_pzgren_sl_asst"			("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(23.0))} ; g43 + % pzfaust 100
+{"mp/ger/late/gd_pzgren_stg"				("inf_tier3" side(ger) lvl(lvl2 lvl3) r(9) rm(99) cost(30.0))} ; stg44 + % pzfaust 100 
+
+;// tier 4
+
+{"mp/ger/mid/blau_1"		("inf_tier4" side(ger) lvl(lvl3) r(1) rm(8) cost(20.0))} ; mp40
+{"mp/ger/mid/blau_2"		("inf_tier4" side(ger) lvl(lvl3) r(1) rm(8) cost(18.0))} ; k98
+{"mp/ger/mid/blau_3"		("inf_tier4" side(ger) lvl(lvl3) r(1) rm(8) cost(23.0))} ; g41
+{"mp/ger/mid/blau_4"		("inf_tier4" side(ger) lvl(lvl3) r(1) rm(8) cost(35.0))} ; mg34 belt
+{"mp/ger/mid/blau_5"		("inf_tier4" side(ger) lvl(lvl3) r(1) rm(8) cost(20.0))} ; mp41
+{"mp/ger/mid/blau_6"		("inf_tier4" side(ger) lvl(lvl3) r(1) rm(8) cost(18.0))} ; k98
+
+{"mp/ger/mid/gebirgs_mg"		("inf_tier4" side(ger) lvl(lvl3 lvl4) r(1) rm(8) cost(30.0))} ; mg34 doubledrum (75 round)
+{"mp/ger/mid/gebirgs_mg_asst"	("inf_tier4" side(ger) lvl(lvl3 lvl4) r(1) rm(8) cost(18.0))} ;k98
+{"mp/ger/mid/gebirgs_rifle"		("inf_tier4" side(ger) lvl(lvl3 lvl4) r(1) rm(8) cost(18.0))} ;k98
+{"mp/ger/mid/gebirgs_sl"		("inf_tier4" side(ger) lvl(lvl3 lvl4) r(1) rm(8) cost(20.0))} ;mp40
+{"mp/ger/mid/gebirgs_sl_asst"	("inf_tier4" side(ger) lvl(lvl3 lvl4) r(1) rm(8) cost(20.0))} ;mp40
+{"mp/ger/mid/gebirgs_smg"		("inf_tier4" side(ger) lvl(lvl3 lvl4) r(1) rm(8) cost(20.0))} ;mp40
+
+{"mp/ger/mid/fallsch_mg"			("inf_tier4" side(ger) lvl(lvl3 lvl4) r(1) rm(8) cost(25.0))} ; mg42 belt
+{"mp/ger/mid/fallsch_mg_asst"		("inf_tier4" side(ger) lvl(lvl3 lvl4) r(1) rm(8) cost(18.0))} ; k98
+{"mp/ger/mid/fallsch_crew"			("inf_tier4" side(ger) lvl(lvl3 lvl4) r(1) rm(8) cost(18.0))} ; k98
+{"mp/ger/mid/fallsch_rifle"			("inf_tier4" side(ger) lvl(lvl3 lvl4) r(1) rm(8) cost(18.0))} ; k98
+{"mp/ger/mid/fallsch_rifle_grenadier"("inf_tier4" side(ger) lvl(lvl3 lvl4) r(1) rm(8) cost(18.0))}; k98 rifle grenade
+{"mp/ger/mid/fallsch_sa"			("inf_tier4" side(ger) lvl(lvl3 lvl4) r(1) rm(8) cost(23.0))} ; g43
+{"mp/ger/mid/fallsch_rifle_scope"	("inf_tier4" side(ger) lvl(lvl3 lvl4) r(1) rm(8) cost(40.0))} ; k98 scope
+{"mp/ger/mid/fallsch_sl"			("inf_tier4" side(ger) lvl(lvl3 lvl4) r(1) rm(8) cost(20.0))} ; mp40
+{"mp/ger/mid/fallsch_sl_asst"		("inf_tier4" side(ger) lvl(lvl3 lvl4) r(1) rm(8) cost(20.0))} ; mp40
+{"mp/ger/mid/fallsch_sl_asst_fg"	("inf_tier4" side(ger) lvl(lvl3 lvl4) r(1) rm(8) cost(28.0))} ; fg42
+{"mp/ger/mid/fallsch_smg"			("inf_tier4" side(ger) lvl(lvl3 lvl4) r(1) rm(8) cost(20.0))} ; mp40
+
+{"mp/ger/mid/fallsch_recon_mg"				("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(30.0))} ; mg42 belt (100 round)
+{"mp/ger/mid/fallsch_recon_mg_asst"		("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; k98
+{"mp/ger/mid/fallsch_recon_mg_asst_gren"	("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(28.0))} ; k98 + rifle grenade
+{"mp/ger/mid/fallsch_recon_mg34"			("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(35.0))} ; mg34 belt (100 round)
+{"mp/ger/mid/fallsch_recon_sl"				("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; mp40
+{"mp/ger/mid/fallsch_recon_sl_asst"		("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(25.0))} ; mp40 + pzfaust 100
+
+
+{"mp/ger/mid/brand_1"		("inf_tier4" side(ger) lvl(lvl3 lvl4) r(1) rm(8) cost(20.0))} ; mp41
+{"mp/ger/mid/brand_2"		("inf_tier4" side(ger) lvl(lvl3 lvl4) r(1) rm(8) cost(33.0))} ; MG42 drum
+{"mp/ger/mid/brand_3"		("inf_tier4" side(ger) lvl(lvl3 lvl4) r(1) rm(8) cost(18.0))} ; k98
+{"mp/ger/mid/brand_4"		("inf_tier4" side(ger) lvl(lvl3 lvl4) r(1) rm(8) cost(18.0))} ; k98
+{"mp/ger/mid/brand_5"		("inf_tier4" side(ger) lvl(lvl3 lvl4) r(1) rm(8) cost(20.0))} ; mp41
+{"mp/ger/mid/brand_6"		("inf_tier4" side(ger) lvl(lvl3 lvl4) r(1) rm(8) cost(23.0))} ; g41
+
+{"mp/ger/late/gebirgs_mg"					("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(45.0))} ; MG42 belt (100 round)
+{"mp/ger/late/gebirgs_mg_asst"				("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; k98
+{"mp/ger/late/gebirgs_rifle"				("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; k98
+{"mp/ger/late/gebirgs_sl"					("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(30.0))} ; stg44
+{"mp/ger/late/gebirgs_sl_asst"				("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(22.0))} ; mp40 + % pzfaust 100
+{"mp/ger/late/gebirgs_smg"					("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; mp40
+{"mp/ger/late/gebirgs_smg_pzf"				("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(25.0))} ; mp40 + pzfaust 100
+{"mp/ger/late/gebirgs_stg"					("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(30.0))} ; stg44
+
+{"mp/ger/late/gebirgs_recon_mg"				("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(45.0))} ; MG42 belt (100 round)
+{"mp/ger/late/gebirgs_recon_mg_asst"		("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; k98
+{"mp/ger/late/gebirgs_recon_mg34"			("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(45.0))} ; MG34 belt (100 round)
+{"mp/ger/late/gebirgs_recon_rifle"			("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; k98
+{"mp/ger/late/gebirgs_recon_rifle_pzf"		("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(23.0))} ; k98 + pzfaust 60
+{"mp/ger/late/gebirgs_recon_rifle_pzf2"		("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; k98 + pzfaust 30
+{"mp/ger/late/gebirgs_recon_sl"				("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(30.0))} ; stg44
+{"mp/ger/late/gebirgs_recon_sl_asst"		("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; k98 + % pzfaust 100
+{"mp/ger/late/gebirgs_recon_sl_asst_smg"	("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(22.0))} ; mp40 + % pzfaust 100
+{"mp/ger/late/gebirgs_recon_smg"			("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; mp40
+{"mp/ger/late/gebirgs_recon_smg_pzf"		("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(25.0))} ; mp40 + pzfaust 60
+{"mp/ger/late/gebirgs_recon_smg_pzf2"		("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(22.0))} ; mp40 + % pzfaust 30
+
+{"mp/ger/late/fallsch_mg"					("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(35.0))} ; mg42 belt (100 round)
+{"mp/ger/late/fallsch_mg_asst"				("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; k98
+{"mp/ger/late/fallsch_rifle"				("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; k98
+{"mp/ger/late/fallsch_rifle_pzf"			("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(23.0))} ; k98 + pzfaust 30
+{"mp/ger/late/fallsch_rifle_grenadier"		("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(28.0))} ; k98 + rifle grenade
+{"mp/ger/late/fallsch_sa"					("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(23.0))} ; g43
+{"mp/ger/late/fallsch_sa_pzf"				("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(25.0))} ; g43 + % pzfaust 60
+{"mp/ger/late/fallsch_sa_scope"				("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(40.0))} ; g43 scope + % pzfaust 30
+{"mp/ger/late/fallsch_rifle_scope"			("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(40.0))} ; k98 scope + % pzfaust 60
+{"mp/ger/late/fallsch_sl"					("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; mp40
+{"mp/ger/late/fallsch_sl_asst"				("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(25.0))} ; mp40 + pzfaust 100
+{"mp/ger/late/fallsch_sl_asst_fg"			("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(37.0))} ; fg42 + pzfaust 100
+
+{"mp/ger/late/fallsch_pio_mg"				("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(60.0))} ; mg42 belt
+{"mp/ger/late/fallsch_pio_mg_asst"			("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; k98
+{"mp/ger/late/fallsch_pio_rifle"			("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; k98
+{"mp/ger/late/fallsch_pio_rifle_grenadier"	("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(28.0))} ; k98 + rifle grenade
+{"mp/ger/late/fallsch_pio_rifle_pzf"		("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; k98 + pzfaust 60
+{"mp/ger/late/fallsch_pio_rifle_scope"		("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(120.0))} ; k98 scope + % pzfaust 60
+{"mp/ger/late/fallsch_pio_sl"				("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; mp40
+{"mp/ger/late/fallsch_pio_sl_asst"			("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; mp40 + pzfaust 60
+{"mp/ger/late/fallsch_pio_sl_asst_stg"		("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(30.0))} ; stg + pzfaust 60
+
+{"mp/ger/late/fallsch_recon_mg"				("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(30.0))} ; mg42 belt (100 round)
+{"mp/ger/late/fallsch_recon_mg_asst"		("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; k98
+{"mp/ger/late/fallsch_recon_mg_asst_gren"	("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(28.0))} ; k98 + rifle grenade
+{"mp/ger/late/fallsch_recon_mg34"			("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(35.0))} ; mg34 belt (100 round)
+{"mp/ger/late/fallsch_recon_sl"				("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; mp40
+{"mp/ger/late/fallsch_recon_sl_asst"		("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(25.0))} ; mp40 + pzfaust 100
+{"mp/ger/late/fallsch_recon_sl_asst_fg"		("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(37.0))} ; fg42 + pzfaust 100
+{"mp/ger/late/fallsch_recon_sl_asst_stg"	("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(34.0))} ; fg42 + pzfaust 100
+
+{"mp/ger/late/brand_1"						("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; mp41
+{"mp/ger/late/brand_2"						("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(40.0))} ; MG42 drum
+{"mp/ger/late/brand_3"						("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; k98 + % pzfaust 60
+{"mp/ger/late/brand_4"						("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; k98
+{"mp/ger/late/brand_5"						("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(35.0))} ; stg44 + pzfaust 60
+{"mp/ger/late/brand_6"						("inf_tier4" side(ger) lvl(lvl3 lvl4) r(9) rm(99) cost(28.0))} ; g43 + pzfaust 60
+
+{"mp/ger/mid/signaller"						("inf_signaller" 		side(ger) lvl(lvl3 lvl4) r(99) rm(99) cost(170.0))}
+{"mp/ger/late/signaller"					("inf_signaller_late" 	side(ger) lvl(lvl3 lvl4) r(99) rm(99) cost(170.0))}

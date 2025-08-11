@@ -1,0 +1,201 @@
+;Exported by:	 guita
+;Date:			 21.04.2022 21:51:13
+;File:			 D:\Git\3D_Scenes\GoH_3D_vehicles_rus\vehicles\btr\ba20\ba20_command_xx.max
+{skeleton
+	{bone "basis"
+		{orientation
+			1 	 0 	 0
+			0 	 -1 	 0
+			0 	 0 	 1
+		}
+		{bone "body"
+			{parameters "id=body;"}
+			{matrix34
+				0.9995 	 0.0262 	 -0.0175
+				-0.0256 	 0.9991 	 0.0349
+				0.0183 	 -0.0344 	 0.9992
+				-3.3188 	 0.4725 	 14.5065
+			}
+			{VolumeView "body.ply"}
+			{bone "antenna"
+				{matrix34
+					1 	 0 	 0
+					0 	 1 	 0
+					0 	 0 	 1
+					-8.9908 	 0 	 8.5003
+				}
+				{VolumeView "antenna.ply"}
+			}
+			{bone revolute "turret"
+				{parameters "id=turret;"}
+				{matrix34
+					0.9853 	 0.1564 	 -0.0689
+					-0.1561 	 0.9877 	 0.0109
+					0.0698 	 0 	 0.9976
+					-20.6405 	 -0.6197 	 12.6114
+				}
+				{VolumeView "turret.ply"}
+				{bone "part1"
+					{parameters "id=part1;"}
+					{matrix34
+						-0.9569 	 0 	 -0.2903
+						0 	 1 	 0
+						0.2903 	 0 	 -0.9569
+						-6.9975 	 -0.8987 	 7.8556
+					}
+					{VolumeView "part1.ply"}
+				}
+			}
+			{bone "part5"
+				{parameters "id=part5;"}
+				{Position 31.807 	 -14.3499 	 -10.7465}
+				{VolumeView "part5.ply"}
+			}
+			{bone "part4"
+				{parameters "id=part4;"}
+				{Position 31.807 	 14.35 	 -10.7465}
+				{VolumeView "part4.ply"}
+			}
+			{bone "part6"
+				{parameters "id=part6;"}
+				{matrix34
+					0.9995 	 -0.0256 	 0.0183
+					0.0262 	 0.9991 	 -0.0344
+					-0.0175 	 0.0349 	 0.9992
+					-24.4009 	 -14.0719 	 -10.0915
+				}
+				{VolumeView "part6.ply"}
+			}
+			{bone "part7"
+				{parameters "id=part7;"}
+				{matrix34
+					0.9995 	 -0.0256 	 0.0183
+					0.0262 	 0.9991 	 -0.0344
+					-0.0175 	 0.0349 	 0.9992
+					-23.6497 	 14.6011 	 -11.0796
+				}
+				{VolumeView "part7.ply"}
+			}
+			{bone "part3"
+				{parameters "id=part3;"}
+				{matrix34
+					0.9995 	 -0.0256 	 0.0183
+					0.0262 	 0.9991 	 -0.0344
+					-0.0175 	 0.0349 	 0.9992
+					9.0225 	 -11.449 	 4.0573
+				}
+				{VolumeView "part3.ply"}
+			}
+			{bone "part2"
+				{parameters "id=part2;"}
+				{matrix34
+					0.9995 	 -0.0256 	 0.0183
+					0.0262 	 0.9991 	 -0.0344
+					-0.0175 	 0.0349 	 0.9992
+					10.1402 	 11.6278 	 2.2552
+				}
+				{VolumeView "part2.ply"}
+			}
+		}
+	}
+}
+{volume "body1"
+	{polyhedron "body1.vol"}
+	{bone "body"}
+	{Position -11.1057 	 0 	 2.9037}
+}
+{volume "body2"
+	{polyhedron "body2.vol"}
+	{bone "body"}
+	{Position -15.445 	 0 	 -9.0784}
+}
+{volume "body3"
+	{polyhedron "body3.vol"}
+	{bone "body"}
+	{Position 23.5277 	 0 	 -8.942}
+}
+{volume "engine"
+	{polyhedron "engine.vol"}
+	{bone "body"}
+	{Position 23.5283 	 0 	 -0.1819}
+}
+{volume "part1"
+	{polyhedron "part1.vol"}
+	{bone "part1"}
+	{matrix34
+		1 	 0 	 0
+		0 	 1 	 0
+		0 	 0 	 1
+		5.3538 	 -0.0001 	 0.8698
+	}
+}
+{volume "part2"
+	{box 11.1269 14.801 0.466231}
+	{bone "part2"}
+	{matrix34
+		0.961 	 0.2188 	 -0.1693
+		0.1986 	 -0.12 	 0.9727
+		-0.1925 	 0.9684 	 0.1588
+		-0.0041 	 0.0561 	 0.2468
+	}
+}
+{volume "part3"
+	{box 11.1269 14.801 0.466231}
+	{bone "part3"}
+	{matrix34
+		-0.9854 	 0.1682 	 -0.0257
+		0 	 0.1513 	 0.9885
+		0.1701 	 0.9741 	 -0.149
+		-0.0105 	 -0.0524 	 -0.0524
+	}
+}
+{volume "part4"
+	{cylinder 4.74213 3.15986}
+	{bone "part4"}
+	{matrix34
+		0.9987 	 0.0481 	 0.0165
+		0 	 -0.325 	 0.9457
+		0.0509 	 -0.9445 	 -0.3246
+		0.0103 	 -0.1905 	 -0.0655
+	}
+}
+{volume "part5"
+	{cylinder 4.87205 2.80078}
+	{bone "part5"}
+	{matrix34
+		1 	 0 	 0
+		0 	 0 	 1
+		0 	 -1 	 0
+		-0.0143 	 0.3197 	 0.0188
+	}
+}
+{volume "part6"
+	{cylinder 4.66797 2.97343}
+	{bone "part6"}
+	{matrix34
+		-0.4377 	 -0.1283 	 -0.8899
+		0.8974 	 0 	 -0.4413
+		0.0566 	 -0.9917 	 0.1151
+		-0.0441 	 0.2007 	 -0.0897
+	}
+}
+{volume "part7"
+	{cylinder 4.67717 3.17709}
+	{bone "part7"}
+	{matrix34
+		0.9973 	 -0.0729 	 -0.0049
+		0 	 -0.0677 	 0.9977
+		-0.073 	 -0.995 	 -0.0675
+		-0.0154 	 -0.2093 	 -0.0142
+	}
+}
+{volume "turret"
+	{polyhedron "turret.vol"}
+	{bone "turret"}
+	{matrix34
+		1 	 0 	 0
+		0 	 1 	 0
+		0 	 0 	 1
+		1.3275 	 0.0049 	 3.3888
+	}
+}

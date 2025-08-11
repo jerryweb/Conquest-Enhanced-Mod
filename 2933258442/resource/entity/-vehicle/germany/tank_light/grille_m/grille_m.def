@@ -1,0 +1,84 @@
+{game_entity
+	(include "/properties/tank_assaultgun.ext")
+	(include "/properties/shadow/tank.inc" scale(1.3))
+	(include "/properties/selection/vehicle.inc" scale(1.1))
+	{props "td" "light" "-turret" "mantlet" "vision_lev02" "muzzle_37mm_40mm_auto_sides" "shield" "open_top" "detect_tank_light" "shell_eject"}
+	{extension "grille_m.mdl"}
+	(include "grille_m.ext")
+	{targetclass "tank_light"}
+	{targetSelector "tank_zenite"}
+	{patherId "panzer38"}
+	{collider "tank.light"}
+
+	{boarder
+		{anm "driver"
+			{forward {begin "board_t34_driver"} {end "seat_gunner_stand"} {base "open_driver"}}
+			{reverse {end "emit_t34_hold"} {base "open_driver"}}
+		}
+		{anm "left"
+			{forward {begin "board_tank_left"} {end "pose_flak30_loader" 10}}
+			{reverse {end "emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward {begin "board_tank_right"} {end "pose_flak30_gunner" 10}}
+			{reverse {end "emit_tank_2_hold"}}
+		}
+	}
+
+	("crew_driver" 							 	door(emit0) door2(emit1) door3(emit2))
+	("crew_human_visible_anm" place(gunner)		door(emit2) door2(emit2) visor(main)   anm_left(right)	anm_right(right))
+	("crew_human_visible_anm" place(commander)	door(emit1) door2(emit1) visor(around) anm_left(left)	anm_right(left))
+
+	{sensor
+		{visor "around"
+			{vision "vehicle_around"}		;// better vision than a in-closed turret 
+		}
+	}
+
+	{extender "inventory"
+		{box
+			{item "bulletger_30_auto apcr" 320}		; 8 belts of 80 rounds
+			{item "bulletger_30_auto he" 320}
+			{item "geballteladung_3kg" 1}
+		}
+	}
+
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{weapon "30mm_mk103" filling "bulletger_30_auto apcr" 80}
+			{gunner "gunner"}
+			{charger "commander"}
+			("abm_dymamic_autocannon"
+				zeroing(2.5)
+				dispersion(0.20)
+			)
+			{rotate}
+		}
+	}
+
+	{mass 11000}
+	{Chassis
+		("tank_trace" fx("tracks_sm2") step(0.2) len(0.55))
+		("mobility_tank"
+			speed(47) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(8);----------Max speed in reverse on road, km/h.
+			traverse(35) ;-------Track traverse, per second, in degrees.
+			weight(11.0) ;-------Weight in Tonnes.
+			power(150) ;---------Engine Power, in hp.
+			track(4.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(218) ;----------Fuel capacity in Litres.
+			type(fuel) ;---------Fuel type. (diesel OR fuel)
+			range(140) ;---------Range in km, off-road.
+		)
+	}
+
+	{bone "gun_rot"
+		{limits -10 60}
+		{speed2 10}
+	}
+	{bone "turret"
+		{limits -8 8}
+		{speed2 8}
+	}
+}

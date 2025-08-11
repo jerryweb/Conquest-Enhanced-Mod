@@ -1,0 +1,26 @@
+{game_entity
+	{Extension "paradrop_ammo.mdl"}
+	{props "paratrooper" "parachute_attach" "ammo_crate" "ce_drop"}
+	{lodclass "vehicle"}
+
+	{volume "body"
+		{able clear {contact_ground}}
+		{thickness 1}
+		{density 0.1}
+	}
+	{volume "chute"
+		{able clear}
+		{thickness 1}
+		{density 0.007}
+	}
+	{mass 99}
+
+
+{Placer
+		{place "attach"
+			{Linkbone "attach"}
+			{entity "mg34_lafette"}
+			{handlebone "basis"}
+		}
+	}
+}

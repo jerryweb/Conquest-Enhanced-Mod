@@ -1,0 +1,1268 @@
+{actor	
+
+
+(define "board_car"
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_Kubel_driver"} {end "seat_driver_car"} {base "doorleft"}}
+			{reverse 	{end	"board_Kubel_driver" -1} {base "doorleft" -1}}
+		}
+	}
+)
+(define "board_car_2"
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_Kubel_leftpassenger"} {end "seat_driver_car"} {base "doorleft"}}
+			{reverse 	{end	"board_Kubel_leftpassenger" -1} {base "doorleft" -1}}
+		}
+		{anm "right"
+			{forward	{begin	"board_Kubel_rightpassenger"} {end "seat_passenger"} {base "doorright"}}
+			{reverse 	{end	"board_Kubel_rightpassenger" -1} {base "doorright" -1}}
+		}
+	}
+)
+
+(define "board_highcar"
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_big-highcar_driver"} {end "seat_driver_car"} {base "doorleft"}}
+			{reverse 	{end	"board_big-highcar_driver" -1} {base "doorleft" -1}}
+		}
+	}
+)
+
+(define "board_highcar_2"
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_big-highcar_driver"} {end "seat_driver_car"} {base "doorleft"}}
+			{reverse 	{end	"board_big-highcar_driver" -1} {base "doorleft" -1}}
+		}
+		{anm "right"
+			{forward	{begin	"board_big-highcar"} {end "seat_passenger"} {base "doorright"}}
+			{reverse 	{end	"board_big-highcar" -1} {base "doorright" -1}}
+		}
+	}
+)
+
+(define "board_highcar_4"
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_big-highcar_driver"} {end "seat_driver_car"} {base "doorleft"}}
+			{reverse 	{end	"board_big-highcar_driver" -1} {base "doorleft" -1}}
+		}
+		{anm "right"
+			{forward	{begin	"board_big-highcar"} {end "seat_passenger"} {base "doorright"}}
+			{reverse 	{end	"board_big-highcar" -1} {base "doorright" -1}}
+		}
+		{anm "left1"
+			{forward	{begin	"board_big-highcar_driver"} {end "seat_passenger"} {base "doorleft1"}}
+			{reverse 	{end	"board_big-highcar_driver" -1} {base "doorleft1" -1}}
+		}
+		{anm "right1"
+			{forward	{begin	"board_big-highcar"} {end "seat_passenger"} {base "doorright1"}}
+			{reverse 	{end	"board_big-highcar" -1} {base "doorright1" -1}}
+		}
+	}
+)
+
+(define "board_car_2_back"
+	{boarder
+		{anm "passenger1"
+			{forward	{begin	"board_Kubel_leftpassenger"} {end "seat_passenger"} {base "doorleft1"}}
+			{reverse 	{end	"board_Kubel_leftpassenger" -1} {base "doorleft1" -1}}
+		}
+		{anm "passenger2"
+			{forward	{begin	"board_Kubel_rightpassenger"} {end "seat_passenger"} {base "doorright1"}}
+			{reverse 	{end	"board_Kubel_rightpassenger" -1} {base "doorright1" -1}}
+		}
+	}
+)
+
+(define "board_armoredcar_2"
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_body"} {end "seat_passenger"} {base "doorleft"}}
+			{reverse 	{end	"emit_body"} {base "doorleft" -1}}
+		}
+		{anm "right"
+			{forward	{begin	"board_body"} {end "seat_passenger"} {base "doorright"}}
+			{reverse 	{end	"emit_body"} {base "doorright" -1}}
+		}
+	}
+)
+
+(define "board_tank_1"
+	{boarder
+		{anm "anim_board_tank"
+			{forward	{begin	"board_tank"}{end "seat_gunner_stand"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+	}
+)
+
+(define "board_tank_1_gaz"
+	{boarder
+		{anm "anim_board_tank"
+			{forward	{begin	"board_tank"}{end "pose_mgun_stan"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+	}
+)
+
+(define "board_lowtank_1"
+	{boarder
+		{anm "anim_board_tank"
+			{forward {begin "board_LowTank_stand"} {end "seat_gunner_stand"}}
+			{reverse {end "emit_tank_1_hold" 1}}
+		}
+	}
+)
+
+(define "board_doorback_1"
+	{boarder
+		{anm "passenger"
+			{forward	{begin	"board_dodge_body"} {end "seat_passenger"} {base "doorback"}}
+			{reverse 	{end	"emit_body"} {base "doorback" -1}}
+		}
+	}
+)
+
+(define "board_doorback_2"
+	{boarder
+		{anm "passenger1"
+			{forward	{begin	"board_SdKfz251-1"} {end "seat_passenger"} {base "doorback2"}}
+			{reverse 	{end	"emit_tank_1"} {base "doorback2" -1}}
+		}
+		{anm "passenger2"
+			{forward	{begin	"board_SdKfz251-1"} {end "seat_passenger"} {base "doorback1"}}
+			{reverse 	{end	"emit_body"} {base "doorback1" -1}}
+		}
+	}
+)
+
+(define "board_hightank_2"
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_sherman_right"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_sherman_left"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+	}
+)
+
+(define "board_armor_1"
+	{boarder
+		{anm "passenger"
+			{forward	{begin	"board_HighArmor"} 	{end "seat_armor"}}
+			{reverse 	{end	"emit_tank_1_hold"}}
+		}
+	}
+)
+
+;board helicopter driver front left
+(define "board_helicopter"
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_big-highcar_driver"} {end "seat_driver_car"} {base "doorfront"}}
+			{reverse	{end	"board_big-highcar_driver" -1} {base "doorfront" -1}}
+		}
+	}
+)
+
+;board helicopter driver right and commander left
+(define "board_helicopter_2"
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_big-midcar"} {end "seat_driver_car"} {base "doorback"}}
+			{reverse	{end	"board_big-midcar" -1} {base "doorback" -1}}
+		}
+		{anm "commander"
+			{forward	{begin	"board_big-midcar_driver"} {end "seat_driver_car"} {base "doorfront"}}
+			{reverse	{end	"board_big-midcar_driver" -1} {base "doorfront" -1}}
+		}
+	}
+)
+
+;board helicopter driver right and commander left
+(define "board_helicopter_2_high"
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_plane_left"} {end "seat_driver_car"} {base "doorback"}}
+			{reverse	{end	"board_plane_left" -1} {base "doorback" -1}}
+		}
+		{anm "commander"
+			{forward	{begin	"board_big-highcar_driver"} {end "seat_driver_car"} {base "doorfront"}}
+			{reverse	{end	"board_big-highcar_driver" -1} {base "doorfront" -1}}
+		}
+	}
+)
+
+;board helicopter on left side only
+(define "board_helicopter_2_left"
+	{boarder
+		{anm "driver"
+			{forward	{begin	"board_big-highcar_driver"} {end "seat_driver_car"} {base "doorback"}}
+			{reverse	{end	"board_big-highcar_driver" -1} {base "doorback" -1}}
+		}
+		{anm "commander"
+			{forward	{begin	"board_big-highcar_driver"} {end "seat_driver_car"} {base "doorfront"}}
+			{reverse	{end	"board_big-highcar_driver" -1} {base "doorfront" -1}}
+		}
+	}
+)
+
+;board helicopter passengers left and right
+(define "board_helicopter_sides"
+	{boarder
+		{anm "passenger_left"
+			{forward	{begin	"board_sdkfz251-1"} {end "seat_passenger"} {base "doorleft1"}}
+			{reverse	{end	"emit_tank_1"} {base "doorleft1" -1}}
+		}
+		{anm "passenger_right"
+			{forward	{begin	"board_sdkfz251-1"} {end "seat_passenger"} {base "doorright1"}}
+			{reverse	{end	"emit_tank_1"} {base "doorright1" -1}}
+		}
+	}
+)
+
+(define "board_mortar"
+	{boarder
+		{anm "gunner"
+			{forward	{begin	"squat_from_stand_empty"}{end "pose_pak40_gunlayer" 10}}
+		}
+		{anm "commander"
+			{forward	{begin	"squat_from_stand_empty"}{end "pose_pak40_charger" 10}}
+		}
+		{anm "driver1"
+			{forward {end "mortar_driver_r" 10}}
+		}
+		{anm "driver2"
+			{forward {end "mortar_driver_l" 10}}
+		}
+		{link "driver1" "gunner"}
+		{link "driver2" "commander"}
+	}
+)
+
+(define "board_boat"
+	{boarder
+		{anm "passenger"
+			{forward	{begin	"board_rubber_boat"} {end "seat_passenger"}}
+			{reverse 	{end	"board_rubber_boat" -1}}
+		}
+	}
+)
+
+;//////////////////////////////////////////////////////////////////////////////
+
+(define "crew_visible"
+	{placer
+		{place "%place"
+			{group "%group"}
+			{linkbone "%place"}
+			{turnoff {sensor} {targetable}}
+		}
+	}
+	{boarder
+		{door "%door"}
+		{door "%door2"}
+		{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+		{link "%door2" "%place" {anm "%animation2"} {forward putoff} {reverse puton}}
+	}
+)
+
+(define "crew_1_visible"
+	("board_car")
+	("crew_visible" place(commander)	door(emit1) animation(left)			group(crew))
+)
+
+(define "crew_2_visible"
+	("board_car_2")
+	("crew_visible" place(driver)		door(emit1) animation(left)			group(crew))
+	("crew_visible" place(commander)	door(emit2) animation(right)		group(crew))
+)
+(define "crew_3_visible"
+	("crew_2_visible")
+	("board_highcar_4")
+	("crew_visible" place(gunner)		door(emit4) animation(right1)		group(crew))
+)
+
+(define "crew_4_visible_nocomm"
+	("board_highcar_4")
+	("crew_visible" place(driver)		door(emit1) animation(left)			group(crew))
+	("crew_visible" place(gunner)		door(emit4) animation(right1)		group(crew))
+	("crew_visible" place(seat02)		door(emit2) animation(right)		group(crew))
+	("crew_visible" place(seat01)		door(emit3) animation(left1)		group(crew))
+)
+
+(define "seat_2_visible"
+	("board_car_2_back")
+	("crew_visible" place(seat01)		door(emit3) animation(passenger1)	group(crew))
+	("crew_visible" place(seat02)		door(emit4) animation(passenger2)	group(crew))
+)
+
+(define "seat_4_visible_armor"
+	("board_armor_1")
+	("crew_visible" place(seat01)		door(emit3) animation(passenger)	group(passenger))
+	("crew_visible" place(seat02)		door(emit4) animation(passenger)	group(passenger))
+	("crew_visible" place(seat03)		door(emit5) animation(passenger)	group(passenger))
+	("crew_visible" place(seat04)		door(emit6) animation(passenger)	group(passenger))
+)
+
+(define "seat_4_visible"
+	("board_doorback_1")
+	("crew_visible" place(seat01)		door(emit3) animation(passenger)	group(passenger))
+	("crew_visible" place(seat02)		door(emit4) animation(passenger)	group(passenger))
+	("crew_visible" place(seat03)		door(emit3) animation(passenger)	group(passenger))
+	("crew_visible" place(seat04)		door(emit4) animation(passenger)	group(passenger))
+)
+(define "seat_6_visible"
+	("seat_4_visible")
+	("crew_visible" place(seat05)		door(emit3) animation(passenger)	group(passenger))
+	("crew_visible" place(seat06)		door(emit4) animation(passenger)	group(passenger))
+)
+(define "seat_8_visible"
+	("seat_6_visible")
+	("crew_visible" place(seat07)		door(emit3) animation(passenger)	group(passenger))
+	("crew_visible" place(seat08)		door(emit4) animation(passenger)	group(passenger))
+)
+(define "seat_9_visible"
+	("seat_8_visible")	
+	("crew_visible" place(seat09)		door(emit3) animation(passenger)	group(passenger))
+)
+(define "seat_10_visible"
+	("seat_9_visible")
+	("crew_visible" place(seat10)		door(emit4) animation(passenger)	group(passenger))
+)
+
+(define "seat_7_visible_2"
+	("board_armoredcar_2")
+	("crew_visible" place(seat01)		door(emit3) animation(left)			group(passenger))
+	("crew_visible" place(seat02)		door(emit4) animation(right)		group(passenger))
+	("crew_visible" place(seat03)		door(emit3) animation(left)			group(passenger))
+	("crew_visible" place(seat04)		door(emit4) animation(right)		group(passenger))
+	("crew_visible" place(seat05)		door(emit3) animation(left)			group(passenger))
+	("crew_visible" place(seat06)		door(emit4) animation(right)		group(passenger))
+	("crew_visible" place(seat07)		door(emit3) animation(left)			group(passenger))
+)
+
+(define "crew_2_helicopter"
+	("board_helicopter_2")
+	("crew_visible" place(driver)		door(emit2) animation(driver))
+	("crew_visible" place(commander)	door(emit1) animation(commander))
+)
+
+(define "seat_3-14_helicopter"
+	("board_doorback_1")
+	("crew_visible" place(passenger3)	door(emit2) animation(passenger)	group(passenger))
+	("crew_visible" place(passenger4)	door(emit2) animation(passenger)	group(passenger))
+	("crew_visible" place(passenger5)	door(emit2) animation(passenger)	group(passenger))
+	("crew_visible" place(passenger6)	door(emit2) animation(passenger)	group(passenger))
+	("crew_visible" place(passenger7)	door(emit3) animation(passenger)	group(passenger))
+	("crew_visible" place(passenger8)	door(emit3) animation(passenger)	group(passenger))
+	("crew_visible" place(passenger9)	door(emit3) animation(passenger)	group(passenger))
+	("crew_visible" place(passenger10)	door(emit3) animation(passenger)	group(passenger))
+	("crew_visible" place(passenger11)	door(emit3) animation(passenger)	group(passenger))
+	("crew_visible" place(passenger12)	door(emit3) animation(passenger)	group(passenger))
+	("crew_visible" place(passenger13)	door(emit3) animation(passenger)	group(passenger))
+	("crew_visible" place(passenger14)	door(emit2) animation(passenger)	group(passenger))
+)
+(define "crew_helicopter_passenger"
+	("board_helicopter")	
+	("crew_visible" place(driver)		door(emit1) animation(driver)		group(crew))
+	("crew_visible" place(commander)	door(emit1) animation(driver)		group(crew))
+	("crew_visible" place(passenger1)	door(emit1) animation(driver)		group(passenger))
+	("crew_visible" place(passenger2)	door(emit1) animation(driver)		group(passenger))
+	("seat_3-14_helicopter")
+)
+(define "crew_helicopter_mg"
+	("board_helicopter")
+	("crew_visible" place(driver)		door(emit1) animation(driver)		group(crew))
+	("crew_visible" place(commander)	door(emit1) animation(driver)		group(crew))
+	("crew_visible" place(gunner1)		door(emit1) animation(driver)		group(crew))
+	("crew_visible" place(gunner2)		door(emit1) animation(driver)		group(crew))
+	("seat_3-14_helicopter")
+)
+
+
+;//////////////////////////////////////////////////////////////////////////////
+
+(define "crew_invisible"
+	{placer
+		{place "%place"
+			{group "%group"}
+		}
+	}
+	{boarder
+		{door "%door"}
+		{door "%door2"}
+		{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+		{link "%door2" "%place" {anm "%animation2"} {forward putoff} {reverse puton}}
+	}
+)
+
+(define "crew_2_invisible"
+	("board_tank_1")
+	("crew_invisible" place(driver)	door(emit1) door2(emit2) animation(anim_board_tank) animation2(anim_board_tank) group(crew))
+	("crew_invisible" place(gunner)	door(emit1) door2(emit2) animation(anim_board_tank) animation2(anim_board_tank) group(crew))
+)
+(define "crew_3_invisible"
+	("crew_2_invisible")
+	("crew_invisible" place(commander) door(emit1) door2(emit2) animation(anim_board_tank) animation2(anim_board_tank) group(crew))
+)
+(define "crew_3_invisible_btr"
+	("crew_invisible" place(driver)	door(emit1) door2(emit2) animation(left) animation2(right) group(crew))
+	("crew_invisible" place(gunner)	door(emit1) door2(emit2) animation(left) animation2(right) group(crew))
+	("crew_invisible" place(commander) door(emit1) door2(emit2) animation(left) animation2(right) group(crew))
+)
+(define "crew_4_invisible"
+	("board_hightank_2")
+	("crew_invisible" place(driver)		door(emit1) door2(emit2) animation(left) animation2(right) group(crew))
+	("crew_invisible" place(gunner)		door(emit1) door2(emit2) animation(left) animation2(right) group(crew))
+	("crew_invisible" place(commander)	door(emit1) door2(emit2) animation(left) animation2(right) group(crew))
+	("crew_invisible" place(charger)	door(emit1) door2(emit2) animation(left) animation2(right) group(crew))
+)
+
+(define "crew_2_invisible_nogun"
+	("board_tank_1")
+	("crew_invisible" place(driver)		door(emit1) door2(emit2) animation(anim_board_tank) animation2(anim_board_tank) group(crew))
+	("crew_invisible" place(commander)	door(emit1) door2(emit2) animation(anim_board_tank) animation2(anim_board_tank) group(crew))
+)
+
+(define "crew_3_invisible_opengun"
+	("crew_2_invisible")
+	("crew_open" place(commander) bone(gunner2) door(emit1) door2(emit2) animation(anim_board_tank) animation2(anim_board_tank) group(crew))
+)
+(define "crew_4_invisible_opengun"
+	("board_hightank_2")
+	("board_tank_1")
+	("crew_invisible" place(driver)		door(emit1) door2(emit2) animation(left) animation2(right) group(crew))
+	("crew_invisible" place(gunner)		door(emit1) door2(emit2) animation(left) animation2(right) group(crew))
+	("crew_open" place(commander) bone(gunner2) door(emit1) door2(emit2) animation(anim_board_tank) animation2(anim_board_tank) group(crew))
+	("crew_invisible" place(charger)	door(emit1) door2(emit2) animation(left) animation2(right) group(crew))
+)
+
+;//////////////////////////////////////////////////////////////////////////////
+
+(define "crew_open"
+	{placer
+		{place "%place"
+			{group "%group"}
+			{linkbone "%bone"}
+			{openForCrush}
+		}
+	}
+	{boarder
+		{door "%door"}
+		{door "%door2"}
+		{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+		{link "%door2" "%place" {anm "%animation2"} {forward putoff} {reverse puton}}
+	}
+)
+
+(define "crew_gunner_open"
+	("board_tank_1")
+	("crew_open" place(gunner2) bone(gunner2) door(emit1) door2(emit2) animation(anim_board_tank) animation2(anim_board_tank) group(crew))
+)
+
+(define "crew_gunner_back"
+	("board_lowtank_1")
+	("crew_open" place(gunner) bone(gunner) door(emit3) door2(emit4) animation(anim_board_tank) animation2(anim_board_tank) group(crew))
+)
+
+;//////////////////////////////////////////////////////////////////////////////
+
+(define "seat_invisible"
+	{placer
+		{place "%place"
+			{group "%group"}
+		}
+	}
+	{boarder
+		{door "%door"}
+		{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+	}
+)
+
+(define "seat_7_invisible"
+	("board_doorback_2")
+	("seat_invisible" place(seat01)	door(emit3) animation(passenger1) group(crew))
+	("seat_invisible" place(seat02)	door(emit4) animation(passenger2) group(crew))
+	("seat_invisible" place(seat03)	door(emit3) animation(passenger1) group(crew))
+	("seat_invisible" place(seat04)	door(emit4) animation(passenger2) group(crew))
+	("seat_invisible" place(seat05)	door(emit3) animation(passenger1) group(crew))
+	("seat_invisible" place(seat06)	door(emit4) animation(passenger2) group(crew))
+	("seat_invisible" place(seat07)	door(emit3) animation(passenger1) group(crew))
+)
+
+;//////////////////////////////////////////////////////////////////////////////
+
+(define "crew_mortar"
+	("board_mortar")
+	("crew_open" place(gunner)		bone(gunner)	door(emit1) animation(gunner)		group(crew))
+	("crew_open" place(commander)	bone(commander)	door(emit2) animation(commander)	group(crew))
+	("crew_open" place(driver1)		bone(driver1)	door(emit1) animation(driver1)		group(crew))
+	("crew_open" place(driver2)		bone(driver2)	door(emit2) animation(driver2)		group(crew))
+)
+
+;//////////////////////////////////////////////////////////////////////////////
+ 
+
+ 
+    {PatherID  "vehicle.large"}
+{obstacleID "tank"}
+{Simulation {Able 1}}
+{props "dummy_emplacement" "steel" "vehicle" "obstacle_ignore_height" "emit_on_sink"}
+{able "emit_passangers_on_enemy" "repaired" "-minimap" "ally_crew" "-select"}
+{lodclass "vehicle_small"}
+{collider "vehicle"}
+
+
+
+{boarder}
+{placer {crew}}
+
+(define "brain_vehicle"
+	{brain "vehicle"
+		{state "vehicle"}
+		{const "crush/min_danger_zone_time"		1}
+		{const "crush/min_danger_zone_length"	1}
+	}
+)
+(define "rate"			;artificial increase to actually lose fuel in the game
+	{rate (* 20 %r)}
+)
+
+{## extender "detail"
+	{random}
+}
+
+{extender "vehicle_vitality"}
+
+(define "chassis_defaults"
+	{Locomotion
+		{Slow	10	}	; km/h
+		{Normal	17	}
+		{Fast	30	}
+	}
+	{FuelBag
+		{volume 200}	; liters
+		{rate	20}		; liters per kilometer
+		{remain 200}
+		{fuel "fuel"}
+	}
+)
+
+(define "Speed"
+	{Fast (* 0.8 %s)}
+	{MaxSpeed %s}
+	;{maxSpeedAtMaxTurn (* 0.3 %s)}
+)
+
+(define "volume_simple"
+	{volume %0
+		{tags %1}
+		{component %1}
+		{thickness %2}
+	}
+)
+
+(define "make_component"
+	{volume %0
+		{tags %1}
+		{component %1}
+	}
+)
+
+(define "volume_visibility"
+	{volume %0
+		{able {visible %1}}
+	}
+)
+
+(define "glass"
+	{volume %0						;adress volume named %0
+		{thickness %1}
+		{tags "glass"}
+		{component %0}				;assign a component of the same name as volume (if it exists)
+		{able {NoWoundDecal}}
+	}
+	{component %0					;create a component with name %0
+		{tags "glass"}				;assign tag "glass" to this component to be adressed like: {perks {component tag "glass"	{category "glass_heavy"}}}
+	}
+)
+
+(define "wheel"
+	{volume %0
+		{thickness 0.5}
+		{tags "wheel"}
+		{component %0}
+		{able {NoWoundDecal}}
+	}
+	{component %0
+		{RepairTime 10}
+		{RepairOrder 4}
+		{tags "wheel"}
+	}
+)
+
+(define "tracks"
+	{volume "trackleft"
+		{thickness 20}
+		{tags "mover" "track"}
+		{able {NoWoundDecal}}
+	}
+	{volume "trackright"
+		{thickness 20}
+		{tags "mover" "track"}
+		{able {NoWoundDecal}}
+	}
+	{component "trackleft"
+		{RepairTime 10}
+		{RepairOrder 4}
+		{tags "mover" "track"}
+	}
+	{component "trackright"
+		{RepairTime 10}
+		{RepairOrder 4}
+		{tags "mover" "track"}
+	}
+)
+
+(define "car_trace"
+	{Track %wheell
+		{Tracer
+			{View %fx}
+			{Bone %bonel}
+			{Step %step}
+		}
+	}
+	{Track %wheelr
+		{Tracer 
+			{View %fx}
+			{Bone %boner}
+			{Step %step}
+		}
+	}
+)
+
+(define "tank_trace_ex"
+	{Track "left"
+		{Tracer
+			{View %fx} ; "tracks"
+			{Bone %boneleft}
+			{Step %step}			; 0.7 meters
+		}
+		{TextureScroller
+			{Bone "TrackL"}
+			{Length %len}		; 0.6 meters per animation
+		}
+	}
+	{Track "right"
+		{Tracer 
+			{View %fx}
+			{Bone %boneright}
+			{Step %step}			; in meters
+		}
+		{TextureScroller
+			{Bone "TrackR"}
+			{Length %len}		; meters per animation
+		}
+	}
+)
+
+(define "tank_trace"
+	("tank_trace_ex" fx(%fx) step(%step) len(%len) boneleft("FXtraceL1") boneright("FXtraceR1"))
+)
+
+(define "suspension_8x8_defaults"
+	{bone "suspension_l1"
+		{limits -0.3 0.1}	; down/up move limit, meters
+		{speed2 0.5}		; suspension move speed, m/s
+	}
+	{bone "suspension_l2"
+		{limits -0.3 0.1}
+		{speed2 0.5}
+	}
+	{bone "suspension_l3"
+		{limits -0.3 0.1}
+		{speed2 0.5}
+	}
+	{bone "suspension_l4"
+		{limits -0.3 0.1}
+		{speed2 0.5}
+	}
+	{bone "suspension_r1"
+		{limits -0.3 0.1}
+		{speed2 0.5}
+	}
+	{bone "suspension_r2"
+		{limits -0.3 0.1}
+		{speed2 0.5}
+	}
+	{bone "suspension_r3"
+		{limits -0.3 0.1}
+		{speed2 0.5}
+	}
+	{bone "suspension_r4"
+		{limits -0.3 0.1}
+		{speed2 0.5}
+	}
+)
+
+(define "suspension_6x6_defaults"
+	{bone "suspension_l1"
+		{limits -0.05 0.1}	; down/up move limit, meters
+		{speed2 0.5}		; suspension move speed, m/s
+	}
+	{bone "suspension_r1"
+		{limits -0.05 0.1}
+		{speed2 0.5}
+	}
+	{bone "suspension_l3"
+		{limits -0.05 0.1}
+		{speed2 0.5}
+	}
+	{bone "suspension_r3"
+		{limits -0.05 0.1}
+		{speed2 0.5}
+	}
+	{bone "suspension_l4"
+		{limits -0.05 0.1}
+		{speed2 0.5}
+	}
+	{bone "suspension_r4"
+		{limits -0.05 0.1}
+		{speed2 0.5}
+	}
+)
+
+(define "suspension_4x4_defaults"
+	{bone "suspension_l1"
+		{limits -0.05 0.1}	; down/up move limit, meters
+		{speed2 0.5}		; suspension move speed, m/s
+	}
+	{bone "suspension_r1"
+		{limits -0.05 0.1}
+		{speed2 0.5}
+	}
+	{bone "suspension_l2"
+		{limits -0.05 0.1}
+		{speed2 0.5}
+	}
+	{bone "suspension_r2"
+		{limits -0.05 0.1}
+		{speed2 0.5}
+	}
+)
+
+(define "shield"
+	{armor
+		{setting "shield"
+			{thickness %0}
+			{volumes "shield*"}
+		}
+	}
+)
+
+{Weaponry
+	{ManualAccuracy 2.5}
+	{ManualAccuracyZoom 5.0}
+}
+
+{RimLight}
+    
+    
+ (define "crew_inside"
+	{boarder
+		{anm "gunner"
+			{forward	{end "seat_driver_car"}}
+		}
+		{anm "commander"
+			{forward	{end "seat_driver_car"}}
+		}
+		{anm "passenger"
+			{forward	{end "seat_driver_car"}}
+		}
+	}
+)
+(define "crew_human"
+	{placer
+		{place "%place"
+			{group "%place"} {linkbone "%bone"} {openForCrush}
+		}
+	}
+	{boarder
+		{door "emit"}
+		{door "emit1"}
+		{door "emit2"}
+		{door "emit3"}
+		{door "emit4"}
+		{link "emit" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+		{link "emit1" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+		{link "emit2" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+		{link "emit3" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+		{link "emit4" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+	}
+)
+
+(define "crew_2_human"
+	("crew_inside")
+	("crew_human" place(gunner)		bone(gunner)	door(emit1) animation(gunner))
+	("crew_human" place(commander)	bone(commander)	door(emit2) animation(commander))
+	{placer
+		{place "gunner" {group "crew"}}
+		{place "commander" {group "crew"}}
+	}
+)
+(define "crew_gunner"
+	("crew_inside")
+	("crew_human" place(gunner)		bone(gunner)	door(emit) animation(gunner))
+)
+
+(define "stand_human"
+	{placer
+		{place "%place" {group "%place"} {linkbone "%bone"} {openForCrush}} 
+	}
+	{boarder
+		{door "emit"}
+		{door "emit1"}
+		{door "emit2"}
+		{door "emit3"}
+		{door "emit4"}
+		{link "emit"	"%place" {anm "%animation"} {forward putoff}}
+		{link "emit1"	"%place" {anm "%animation"} {forward putoff}}
+		{link "emit2"	"%place" {anm "%animation"} {forward putoff}}
+		{link "emit3"	"%place" {anm "%animation"} {forward putoff}}
+		{link "emit4"	"%place" {anm "%animation"} {forward putoff}}
+	}
+)
+
+(define "crew_stan_gunner"
+	{boarder
+		{anm "gunner"
+			{forward	{end "pose_mgun_stan"}}
+		}
+	}
+	("stand_human" place(gunner)	bone(gunner)	animation(gunner))
+)
+{placer
+	{place "gunner" {visor "main"}}
+}
+
+(define "crew_gun"
+	("crew_2_human")
+	("crew_human" place(driver1) bone(driver1) door(emit1) animation(driver1))
+	("crew_human" place(driver2) bone(driver2) door(emit2) animation(driver2))
+	{placer
+		{place "driver1" {visor "commander"}}
+		{place "driver2" {visor "commander"}}
+	}
+	{boarder
+		{link "driver1" "gunner"}
+		{link "driver2" "commander"}
+	}
+)
+
+(define "crew_wheeled_gun"
+	("crew_gun")
+	("crew_human" place(seat1)   bone(seat1)   door(emit1) animation(seat1))
+	("crew_human" place(seat2)   bone(seat2)   door(emit2) animation(seat2))
+	{placer
+		{place "seat1" {visor "commander"}}
+		{place "seat2" {visor "commander"}}
+	}
+	{boarder
+		{link "seat1" "driver1"}
+		{link "seat2" "driver2"}
+	}
+)
+
+
+
+(define "armor_cannon"
+	{armor
+		{setting "turret"
+			{thickness %tur}
+			{threshold  {blast {value %t_thr}}}
+			{volumes "turret*"}
+		}
+		{setting "gun"
+			{thickness %tur}
+			{threshold  {blast {value (* 0.8 %t_thr)}}}
+			{volumes "gun*"}
+		}
+		{setting "shield"
+			{thickness %s}
+			{volumes "shield*"}
+		}
+		{setting "wheel"
+			{thickness %w}
+			{volumes "wheel*"}
+		}
+		{setting "body"
+			{thickness %b}
+			{threshold  {blast {value %t_thr}}}
+			{volumes "body*"}
+		}
+	}
+)
+
+(define "armor_mortar"
+	("armor_cannon" tur(5) t_thr(3) s(3) b(5) w(10))
+)
+(define "armor_light"
+	("armor_cannon" tur(7) t_thr(3) s(4) b(10) w(10))
+)
+(define "armor_medium"
+	("armor_cannon" tur(7) t_thr(6) s(4) b(10) w(14))
+)
+(define "armor_heavy"
+	("armor_cannon" tur(7) t_thr(7) s(10) b(10) w(14))
+)
+
+
+(define "loco_params"
+	{StopTime	0.2}
+	{BrakeTime	0.7}
+	{TurnRadius	3}
+	{TurnStart	0.8}
+	{TurnStop	0.5}
+	{Gears		0.35 0.5 0.7 1.0}
+	{RearGears	0.33 0.5}
+)
+
+
+(define "loco_carrier"
+	{locomotion
+		("loco_params")
+		{MaxSlope   50}
+		{FallSlope  50}
+		{Slow 		6.75}
+		{Normal 	10}
+		{Fast 		13.8}
+		{MaxSpeed	15}
+		{StartTime	1}
+		{TurnTime	2}
+		{TurnRadius	2}
+	}
+)
+
+(define "loco_carrier_big"
+	{locomotion
+		("loco_params")
+		{Slow 		2.7} ; 6 * 0.45
+		{Normal 	4} ; 6 * 0.67
+		{Fast 		5.5} ; 6 * 0.92
+		{MaxSpeed	6}
+		{StartTime	2}
+		{TurnTime	6}
+		{TurnRadius	2}
+	}
+)
+
+(define "loco_small"
+	{locomotion
+		("loco_params")
+		{MaxSlope   50}
+		{FallSlope  60}
+		{Slow 		5.4} ; 12 * 0.45
+		{Normal 	8} 	; 12 * 0.67
+		{Fast 		11} ; 12 * 0.92
+		{MaxSpeed	12}
+		{StartTime	2}
+		{TurnTime	4}
+		{TurnRadius	2}
+	}
+)
+
+(define "loco_medium"
+	{locomotion
+		("loco_params")
+		{FallSlope  60}
+		{Slow 		4.5} ; 10 * 0.45
+		{Normal 	6.7} ; 10 * 0.67
+		{Fast 		9.2} ; 10 * 0.92
+		{MaxSpeed	10}
+		{StartTime	3}
+		{TurnTime	10}
+		{TurnRadius	3}
+	}
+)
+
+(define "loco_massive"
+	{locomotion
+		("loco_params")
+		{FallSlope  60}
+		{Slow 		3.6} ; 8 * 0.45
+		{Normal 	5.35} ; 8 * 0.67
+		{Fast 		7.35} ; 8 * 0.92
+		{MaxSpeed	8}
+		{StartTime	4}
+		{TurnTime	10}
+		{TurnRadius	3}
+	}
+)
+
+(define "loco_big"
+	{locomotion
+		("loco_params")
+		{FallSlope  60}
+		{Slow 		2.7} ; 6 * 0.45
+		{Normal 	4} ; 6 * 0.67
+		{Fast 		5.5} ; 6 * 0.92
+		{MaxSpeed	6}
+		{StartTime	5}
+		{TurnTime	20}
+		{TurnRadius	3}
+	}
+)
+
+(define "loco_verybig"
+	{locomotion
+		("loco_params")
+		{FallSlope  60}
+		{Slow 		1.35} ; 3 * 0.45
+		{Normal 	2} ; 3 * 0.67
+		{Fast 		2.75} ; 3 * 0.92
+		{MaxSpeed	3}
+		{StartTime	5}
+		{TurnTime	25}
+		{TurnRadius	3}
+	}
+)   
+    
+(define "accuracy_by_motion" ;  spreading depending on the speed of "body", "gun" volumes
+	{AccuracyByMotion
+        {MaxLinearSpeed %max_linear}               ;km/h
+        {ByLinearSpeed %accuracy_by_linear}
+        {MaxAngularSpeed %max_angular}             ;deg/s
+        {ByAngularSpeed %accuracy_by_angular}
+        {DisorderTime %disorder_time}              ;s
+        {OrderTime %order_time}                    ;s
+    }
+)
+
+(define "abm_low"
+    ("accuracy_by_motion"
+        max_linear(15) accuracy_by_linear(0.3)
+        max_angular(25) accuracy_by_angular(0.3)
+        disorder_time(0) order_time(0.75)
+    )
+)
+(define "abm_medium"
+    ("accuracy_by_motion"
+        max_linear(15) accuracy_by_linear(0.4)
+        max_angular(25) accuracy_by_angular(0.4)
+        disorder_time(0) order_time(0.75)
+    )
+)
+(define "abm_high"
+    ("accuracy_by_motion"
+        max_linear(15) accuracy_by_linear(0.5)
+        max_angular(25) accuracy_by_angular(0.5)
+        disorder_time(0) order_time(0.75)
+    )
+)
+
+(define "abm_mgun"
+	("accuracy_by_motion"
+		max_linear(10) accuracy_by_linear(0.5)
+		max_angular(30) accuracy_by_angular(0.5)
+		disorder_time(0) order_time(0.75)
+	)
+)
+(define "abm_zenite"
+    ("accuracy_by_motion"
+        max_linear(10) accuracy_by_linear(0.5)
+        max_angular(15) accuracy_by_angular(0.5)
+        disorder_time(0) order_time(0.75)
+    )
+)
+(define "abm_howitzer"
+    ("accuracy_by_motion"
+        max_linear(5) accuracy_by_linear(0.5)
+        max_angular(5) accuracy_by_angular(0.5)
+        disorder_time(0) order_time(5.0)
+    )
+)    
+    
+    {brain "vehicle" {state "vehicle"}}
+{simulation {able 1} {disableLinked 1}}
+{PatherID "cannon.small"}
+{collider "cannon"}
+{mass 50}
+
+{targetClass "cannon"}
+{targetSelector "cannon"}
+
+{obstacleID "tank"}
+{constrain ground}
+{props "dummy_emplacement" "mg_stan" "cannon" "emit_on_sink" "dummy_mg_eject"  "no_scavenge"}
+{able "emit_crew_on_injure"}
+{lodclass "cannon_small"}
+
+("crew_stan_gunner")
+{placer
+	{crew}
+	{place "gunner" {visor "main"}}
+}
+
+{sensor
+	{visor "main"
+		{vision "human"}
+	}
+}
+
+{extender "inventory"
+	{Box
+		{Size 6 10}
+		{weight 1000}
+	}
+}
+
+{Weaponry
+	{place "mgun"
+		{charger "gunner"}
+		{LinkBone "mgun"}
+		{LinkAnimation "off"}
+	}
+}
+
+{boarder
+	{anm "gunner"
+		{forward	{end "pose_mgun_stan"}}
+	}
+}
+
+{extender "cannon"
+	{animation
+		{aim ""}
+		{reload "mgun_stan_charger" ""}
+	}
+	{move {workers clear} {obstacle "close"}}
+	{attack {workers "gunner"} {obstacle "open"}}
+}
+
+{extender "talk"
+	{talker "cannon"}
+}
+
+{volume "body"
+	{thickness 3}
+}
+{component "body"
+	{RepairTime 30}
+	{RepairOrder 0}
+}
+
+{volume "shield" 
+	{thickness 10}
+}
+{component "shield" 
+	{RepairTime 20}
+	{RepairOrder 5}
+}
+{extender "shield"
+	{off}
+	{no_blast}
+}
+
+{volume "select"
+	{able clear {select}}
+	{density 0}
+}
+
+{volume "gun"
+	{thickness 3}
+	{able {Visible 0} {Obstacle 0} {Contact 0} {nolook 1}}
+}
+
+
+
+{armor
+	{setting "shield"
+		{volumes "*shield*"}
+		{thickness 10}
+	}
+}
+
+("armor_cannon" tur(3) t_thr(3) s(7) b(3) w(3))
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	{collider "cannon_small"}
+	{props "dummy_emplacement" "vision_cannon_medium" "cannon_small" "no_scavenge"}	
+	{targetclass "cannon" "bullet"}
+	
+	{extender "enumerator"}
+		
+	;volume, component/tag, thickness
+
+
+	{Volume "body5"
+		{thickness 100}
+	}
+	{Volume "body6"
+		{thickness 100}
+	}
+	{Volume "body7"
+		{thickness 100}
+	}
+	{Volume "touch"
+		{able clear {touch}}
+	}
+
+	{Volume "bounds"
+		{able clear }
+	}
+
+	
+
+	{Extension "heavy_mg_m2.mdl"}
+
+	{bone "turret" 
+		{limits -60 60}
+	}
+    
+	
+}

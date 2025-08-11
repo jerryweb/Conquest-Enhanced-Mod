@@ -1,0 +1,68 @@
+{game_entity
+	(include "/properties/cannon_mgun.ext")
+	{extension "mgun_ring_emplacement.mdl"}
+	{props "vision_lev00_can" "-carried" "fixed" "vision_lev00_can" "detect_cannon_aa" "no_sandbags" "c_mg_med" "hatch" "no_scavenge" "new_emplacement"}
+
+	{volume "body1"
+		{thickness 10}
+		{able {holed}}
+	}
+	{volume "turret1" {thickness 10}}
+
+	("shield_group" args "shield1" 8 "shield")
+	("shield_group" args "shield2" 8 "shield")
+
+	{placer
+		{place "commander" remove}
+		{place "driver1" remove}
+		{place "driver2" remove}
+	}
+
+	{boarder
+		{anm "gunner"
+			{forward {end "pose_jagdtiger_aa"} {base "mgun_aa"}}
+			{reverse {base "mgun_aa" -1}}
+		}
+	}
+
+	{extender "cannon"
+		{animation
+		;// "gunner"
+			{move ""}
+			{fire ""}
+			{reload ""}
+		}
+		{move {workers clear} {obstacle "close"}}
+		{attack {workers "gunner"} {obstacle "open"}}
+	}
+
+	{extender "inventory"
+		{weapon "mgun" {mask "mountable"}}
+		{box
+			{item "mg42_belt_long" filled {user "mgun"}}
+			{item "ammo mgun_ger belt" 1000}
+		}
+	}
+	
+	{Weaponry
+		{place "mgun"
+			{type "main"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			{LinkBone "mgun"}
+			{LinkAnimation "off"}
+			("abm_mgun")
+			{Rotate}
+		}
+	}
+    {extender "structure"
+		{place "sandbag_cover" "watch_tower_new"}
+	}
+
+	{mass 50}
+
+	{bone "turret"
+		{speed2 60}
+	}
+}
+

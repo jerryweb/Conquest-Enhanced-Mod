@@ -1,0 +1,1 @@
+-- Used for mod config overwrites. Those files should be located in an identical folder structure within that mod.

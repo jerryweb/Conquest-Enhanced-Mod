@@ -1,0 +1,119 @@
+{game_entity
+	(include "/properties/airborne.ext")
+	(include "/properties/selection/airborne.inc" scale(2.25))
+	{props "wheeled" "bomber_ce" "bf110_e2" "ai" "vision_lev02_air"}
+	{extension "bf110_e2.mdl"}
+	{PatherID "bf110"}
+	
+
+	{sensor
+		{Visor "rear"
+			{vision "airborne_main"}
+			{bone "foresight6"}
+		}
+	}
+
+	("fighter_tier2")
+
+	{boarder
+		{anm "driver"
+			{forward {begin "board_plane_left"} {end "seat_driver_car"} {base "open"}}
+			{reverse {end "board_plane_left" -1} {base "open" -1}}
+		}
+		{anm "gunner"
+			{forward {begin "board_plane_left"} {end "seat_driver_car"} {base "open1"}}
+			{reverse {end "board_plane_left" -1} {base "open1" -1}}
+		}
+	}
+
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver) group(crew))
+	("crew_human" place(gunner) bone(gunner) door(emit2) animation(gunner) group(crew))
+
+	{Placer
+		{place "driver" {visor "main"} {turnOff {targetable}}}
+		{place "gunner" {visor "rear"} {turnOff {targetable}}}
+	}
+
+	("double_engine")
+	("wheel" args "wheelr")
+	("wheel" args "wheell")
+	("wheel" args "wheelback")
+
+	{Chassis "wheel"
+		("car_trace" fx("tracewheel05") step(0.07) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+	}
+
+	{Chassis "airborne"
+		("flight_model"
+			speed(480)  ;//---------Max speed (at sea level), km/h.
+			climb_speed(11) ;//-----Climb rate at sea level, in m/s
+			turn(250) ;//-----------Turn-and-burn radius in meters, tightest sustained turn
+			turnMP(41) ;//----------Turn-and-burn radius in meters, tightest sustained turn in Multiplayer
+			aerodynamics(1.55) ;//--Aerodynamic efficiency rating (0-3)
+			weight(7600) ;//--------Weight in kg.
+			power(2200) ;//---------Horse Power.
+			fuel(1300) ;//----------Fuel capacity in Liters.
+			range(1500) ;//---------Distance can travel with full fuel tank, in km.
+			roll_rate(40) ;//-------Roll rate, in degrees per second.
+			roll_angle(65) ;//------Maximum roll angle, in degrees.
+		)
+	}
+
+	{mass 7600}
+
+	{extender "inventory"
+		{box
+			{item "bullet_20_auto aphe" 240}			; 4 drums (60 rounds each)
+			{item "ammo mgun_ger doubledrum" 300}		; 5 drums (75 rounds each)
+		}
+	}
+
+	{Weaponry
+		{place "bomb1"
+			{weapon "bomb_dropper_ger_250x2" filled}
+			{barrels 2}
+			{gunner "driver"}
+			{shooter "shooter_bb"}
+			{charger "driver"}
+			{basic}
+		}
+		{place "bomb"
+			{weapon "bomb_dropper_ger_50x4" filled}
+			{barrels 4}
+			{gunner "driver"}
+			{shooter "shooter_b"}
+			{charger "driver"}
+			{basic}
+		}
+		{place "gun"
+			{weapon "20mm_mgff" filled}
+			{barrels 2}
+			{foresight "foresight1"}
+			{shooter "shooter"}
+			{charger "driver"}
+			{gunner "driver"}
+			{ai_in_manual}
+			{basic}
+		}
+		{place "mgun2"
+			{weapon "mg17_bf110" filled}
+			{barrels 4}
+			{foresight "foresight4"}
+			{shooter "shooter_mg"}
+			{charger "driver"}
+			{gunner "driver"}
+			{ai_in_manual}
+			{basic}
+		}
+		{place "mgun4"
+			{type "rear"}
+			{weapon "mg15" filling "ammo mgun_ger doubledrum" 75}
+			{foresight "foresight6"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			("abm_rear_mg")
+			{ai_in_manual}
+			{basic}
+		}
+	}
+}

@@ -1,0 +1,94 @@
+{game_entity
+	(include "/properties/cannon_mgun.ext")
+    
+	{extension "emplacement_81mm_m1.mdl"}
+	{props "-mg_stan" "with_gun" "mortar" "vision_lev01_can" "detect_artillery_small" "cannon_sandbag_standard" "artillery_minimap_light" "c_mtr_med" "mortar_pit_emplacement" "81mm_m1" "no_scavenge" "new_emplacement"} 
+	(mod not "mp" {able "emit_on_attack"})
+	{targetclass "howitzer"}
+	{targetSelector "cannon_howitzer"}
+
+	{sensor
+		{visor "main"
+			{vision "cannon_mortar"}
+			{bone "visor"}
+		}
+	}
+
+	{placer
+		{place "gunner" {visor "main"}}
+	}
+
+	{boarder
+		{anm "gunner"
+			{forward {end "pose_mortar_82bm37_gunner" 10}}
+		}
+		{anm "commander"
+			{forward {end "pose_mortar_82bm37_commander" 10}}
+		}
+		{anm "driver1"
+			{forward {end "mortar_driver_r" 10}}
+		}
+		{anm "driver2"
+			{forward {end "mortar_driver_l" 10}}
+		}
+	}
+
+	{extender "cannon"
+		{animation
+			{switch "close"}
+			;// "gunner" "commander"
+			{move "mortar_driver_r" "mortar_driver_l"}
+			{aim "mortar_82bm37_gunner_aim" "mortar_82bm37_commander_aim"}
+			{fire "mortar_82bm37_gunner_fire" "mortar_82bm37_commander_fire"}
+			{reload "" "mortar_82bm37_commander_reload"}
+		}
+		{move {workers clear} {obstacle "close"}}
+		{attack {obstacle "open"}}
+	}
+
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{weapon "weapon 81mm_m1" filling "ammo mortarusa_81 he" 1}
+			{RestoreIKAfterAim}
+			{gunner "gunner"}
+			{charger "gunner"}
+			{basic}
+			("abm_dymamic_mortar"
+				zeroing(3.0)	; // time it takes to aim until the reticle shrinks. Bigger values, more control.
+				dispersion(1)   ; // time it takes to distort the reticle when you move the gun (how abrupt it loses zeroing). Bigger values, more control.
+			)
+		}
+	}
+
+	{mass 62}
+	{Chassis
+		("mobility_cannon"
+			speed(12) ;----------------------------------Max speed.
+			weight(62) ;---------------------------------Weight in Kilograms.
+		)
+	}
+
+	{bone "basis"
+		{speed2 15}
+	}
+	{bone "turret"
+		{limits -10 10}
+		{speed2 20}
+	}
+	{bone "foresight"
+		{limits -25 20}
+		{speed2 10}
+	}
+
+
+	{extender "inventory"
+		{box
+			{item "ammo mortarusa_81 he" 25}
+			{item "ammo mortarusa_81 he2" 5}
+			{item "ammo mortarusa_81 wp" 10}
+			{item "sandbag_vehicle" 2}
+		}
+	}
+
+}

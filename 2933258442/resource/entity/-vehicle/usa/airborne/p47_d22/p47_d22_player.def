@@ -1,0 +1,83 @@
+{game_entity
+	(include "/properties/airborne.ext")
+	(include "/properties/selection/airborne.inc" scale(1.7))
+	{props "wheeled" "vision_lev02_air" "player_plane" "p47_d22"}
+	{extension "p47_d22.mdl"}
+	{PatherID "p47"}
+
+	("fighter_tier2")
+
+	{boarder
+		{anm "driver"
+			{forward {begin "board_plane_left"} {end "seat_driver_car"} {base "open1"}}
+			{reverse {end "board_plane_left" -1} {base "open1" -1}}
+		}
+	}
+
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver) group(crew))
+
+	{Placer
+		{place "driver" {turnOff {targetable}}}
+	}
+
+	("single_engine")
+
+	("wheel" args "wheelr")
+	("wheel" args "wheell")
+	("wheel" args "wheelback")
+
+	{Chassis "wheel"
+		("car_trace" fx("tracewheel05") step(0.07) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+	}
+
+	{Chassis "airborne"
+		("flight_model"
+			speed(580)  ;//---------Max speed (at sea level), km/h.
+			climb_speed(12) ;//-----Climb rate at sea level, in m/s
+			turn(200) ;//-----------Turn-and-burn radius in meters, tightest sustained turn
+			turnMP(200) ;//----------Turn-and-burn radius in meters, tightest sustained turn in Multiplayer
+			aerodynamics(2.5) ;//---Aerodynamic efficiency rating (0-3)
+			weight(6200) ;//--------Weight in kg.
+			power(2600) ;//---------Horse Power.
+			fuel(250) ;//----------Fuel capacity in Liters.
+			range(120) ;//---------Distance can travel with full fuel tank, in km.
+			roll_rate(60) ;//-------Roll rate, in degrees per second.
+			roll_angle(65) ;//------Maximum roll angle, in degrees.
+		)
+	}
+
+	{mass 3150}
+
+	{extender "inventory"
+		{box
+			;{item "ammo hmgun_usa  api" 2560}
+		}
+	}
+
+	{Weaponry
+		{place "mgun"
+			{weapon "browning_m2_x8" filling "ammo hmgun_usa api" 2560}
+			{barrels 8}
+			{foresight "foresight4"}
+			{shooter "shooter"}
+			{charger "driver"}
+			{gunner "driver"}
+			{ai_in_manual}
+			{basic}
+		}
+		{place "bomb1"
+			{weapon "bomb_dropper_usa_250x3" filled}
+			{barrels 3}
+			{gunner "driver"}
+			{shooter "shooter_bb"}
+			{charger "driver"}
+			{basic}
+		}
+	}
+    {brain 
+        {properties
+            {control user}
+        }
+    }
+	("mp_gun_limits")
+}

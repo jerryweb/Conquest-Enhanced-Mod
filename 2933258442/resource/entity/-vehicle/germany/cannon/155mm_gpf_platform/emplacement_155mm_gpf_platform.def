@@ -1,0 +1,94 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	{extension "emplacement_155mm_gpf_platform.mdl"}
+	(include "/properties/selection/vehicle.inc" scale(0.8))
+	{props "155mm_gpf" "vision_lev05_can" "no_shell" "muzzle_150mm_155mm" "detect_artillery" "artillery_minimap_heavy" "howitzer_pit_emplacement" "no_scavenge" "new_emplacement"}
+	{targetclass "howitzer"}
+	{targetSelector "cannon_howitzer"}
+
+	("gun" repair(30) thickness(30))
+
+	("armor_heavy_cannon")
+	("crew_wheeled_cannon_5")
+
+	{volume "body2" {able {holed}}}
+
+	{placer
+		{place "driver1" remove}
+		{place "driver2" remove}
+		{place "driver3" remove}
+		{place "driver4" remove}
+		{place "driver5" remove}
+		{place "seat1" remove}
+		{place "seat2" remove}
+		{place "seat3" remove}
+		{place "seat4" remove}
+		{place "seat5" remove}
+	}
+
+	{boarder
+		{anm "gunner"
+			{forward {end "seat_gpf_platform_gunner" 10}}
+		}
+		{anm "gunner2"
+			{forward {end "pose_thor_gunner_animation" 10}}
+		}
+		{anm "charger"
+			{forward {end "pose_flak_charger" 10}}
+		}
+		{anm "charger2"
+			{forward {end "pose_flak_commander" 10}}
+		}
+		{anm "commander"
+			{forward {end "pose_watch_binocular" 10}}  
+		}
+	}
+
+	{extender "cannon"
+		{animation
+			{switch "close"}
+			;// "gunner" "gunner2" "charger" "charger2" "commander"
+			{move "" "" "" "" ""}
+			{aim "" "thor_gunner_animation" "" "" ""}
+			{fire "" "" "flak_charger_fire" "" "flak_commander_fire"}
+			{reload "" "thor_gunner_reload_animation" "flak_charger_reload" "" "flak_commander_reload"}
+		}
+		{move {workers clear} {obstacle "close"}}
+		{attack {workers "" "" "" "" ""} {obstacle "open"}}		;// fire/attack state: cannon aim, fire, and reload events
+		{trailing {workers clear}}
+		{rotate_ik_Limit 0}
+	}
+
+	{extender "inventory"
+		{box
+			{item "bullet_155 ger he" 10}
+		}
+	}
+
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "155mm_gpf_bunker" filling "bullet_155 ger he" 1}
+			{gunner "gunner gunner2" minWorkers 1}
+			{charger "charger charger2" minWorkers 1}
+			("abm_dymamic_gun"
+				zeroing(8.0)	; // time it takes to aim until the reticle shrinks. Bigger values, more control.
+				dispersion(1)	; // time it takes to distort the reticle when you move the gun (how abrupt it loses zeroing). Bigger values, more control.
+			)
+		}
+	}
+
+	{mass 14000}
+
+	{bone "gun_rot"
+		{limits -2 29}
+		{speed2 3}
+	}
+	{bone "turret"
+		{limits -65 65}
+		{speed2 3}
+	}
+	
+}
+

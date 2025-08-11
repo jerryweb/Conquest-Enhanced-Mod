@@ -1,0 +1,58 @@
+;SDL
+
+	; armor notes
+	; tracks 10mm
+	; gun 20mm
+
+	("armoredcar_tier2")
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelright2")
+	("wheel" args "wheelleft2")
+
+
+	("turret" repair(50))
+
+	("fuel" args "fuel")
+	("ammo" args "ammo1")
+	("transmission" args "transmission")
+
+	{volume "body1"			; Hull Front
+		{thickness 6
+			{top 6}			; Glacis
+			{bottom 3}
+		}
+	}
+	{volume "body2"			; Hull Driver Cabin
+		{thickness 6
+			{top 6}
+		}
+		{tags "no_target"}
+	}
+	{volume "body3"			; Superstructure Rear
+		{thickness 6
+			{top 6}
+			{rear 4}
+			{front 3}
+			{bottom 3}
+		}
+		{tags "no_target"}
+	}
+	{volume "engine"
+		{thickness 6
+			{top 6}
+			{rear 3}
+			{bottom 3}
+		}
+	}
+	{volume "turret"		; Turret
+		{thickness 6
+			{top 6}
+		}
+	}
+	{volume "cupola"
+		{thickness 6
+			{top 6}
+		}
+	}

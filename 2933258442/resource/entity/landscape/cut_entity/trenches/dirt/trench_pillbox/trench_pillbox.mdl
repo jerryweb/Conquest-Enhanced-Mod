@@ -1,0 +1,190 @@
+;Exported by:	 guita
+;Date:			 13.04.2022 18:30:57
+;File:			 D:\Git\3D_Scenes\GoH_3D_environment_export\3d_landscape\cut_entity\trenches\dirt\ground_pillbox\ground_pillbox_export.max
+{skeleton
+	{bone "trench_ground"
+		{parameters "commonmesh;land;ground;align;"}
+		{orientation
+			1 	 0 	 0
+			0 	 -1 	 0
+			0 	 0 	 1
+		}
+		{VolumeView "trench_ground.ply" {Ground}}
+		{bone "wood"
+			{parameters "commonmesh;align;"}
+			{VolumeView "wood.ply"}
+		}
+		{bone "ground_add"
+			{parameters "commonmesh;align;"}
+			{VolumeView "ground_add.ply"}
+		}
+		{bone "wood2"
+			{Position -24.1062 	 0.2099 	 0}
+			{VolumeView "wood2.ply"}
+		}
+		{bone "exterior"
+			{parameters "commonmesh;align;"}
+			{VolumeView "exterior.ply"}
+		}
+		{bone "attach1"
+			{matrix34
+				-1 	 0 	 0
+				0 	 -1 	 0
+				0 	 0 	 1
+				4.9256 	 -1.5619 	 -19.7904
+			}
+		}
+        {bone "sub_piece4"
+			{parameters "commonmesh;land;align;"}
+            {Matrix34
+			  -1 	 0 	 0
+			0 	 -1 	 0
+			0 	 0 	 1
+56.9375 -2.1106 0.1314
+			}
+			{VolumeView "trenchexit.ply"}
+		}
+	}
+}
+{obstacle "body1"
+	{obb2
+		{center -25.6006 14.3592}
+		{extent 1.96765 17.9715}
+		{axis 0.43888 0.898546}
+	}
+	{rotate}
+	{Tags "body" "fire"}
+}
+{obstacle "body2"
+	{obb2
+		{center -25.1502 -13.8292}
+		{extent 17.2501 1.82515}
+		{axis 0.898895 0.438164}
+	}
+	{rotate}
+	{Tags "body" "fire"}
+}
+{obstacle "body3"
+	{obb2
+		{center 31.9415 13.8166}
+		{extent 18.0098 2.83128}
+		{axis 1 0}
+	}
+	{rotate}
+	{Tags "body" "fire"}
+}
+{obstacle "body4"
+	{obb2
+		{center 31.867 -13.7475}
+		{extent 17.9354 2.76544}
+		{axis 1 0}
+	}
+	{rotate}
+	{Tags "body" "fire"}
+}
+{obstacle "body5"
+	{obb2
+		{center -14.7476 -0}
+		{extent 6.42384 26.2205}
+		{axis 1 0}
+	}
+	{rotate}
+	{Tags "body" "fire"}
+}
+{obstacle "body6"
+	{obb2
+		{center 4.96063 23.6417}
+		{extent 26.3386 7.37205}
+		{axis 1 0}
+	}
+	{rotate}
+	{Tags "body" "fire"}
+}
+{obstacle "body7"
+	{obb2
+		{center 4.96063 -23.6417}
+		{extent 26.3386 7.37205}
+		{axis 1 0}
+	}
+	{rotate}
+	{Tags "body" "fire"}
+}
+{area "cut"
+	{polygon2
+		{radius 0}
+		{vertex -15 -25}
+		{vertex 25 -25}
+		{vertex 100 -15}
+		{vertex 100 15}
+		{vertex 25 25}
+		{vertex -15 25}
+	}
+	{rotate}
+}
+{area "interior"
+	{polygon2
+		{radius 0}
+		{vertex -10.7819 -20}
+		{vertex 20 -20}
+		{vertex 80 -15}
+		{vertex 80 15}
+		{vertex 20 20}
+		{vertex -10.7819 20}
+	}
+	{rotate}
+}
+{volume "body1"
+	{box 35.9144 3.64235 16.4362}
+	{bone "trench_ground"}
+	{matrix34
+		0.8949 	 0.4462 	 0
+		-0.4462 	 0.8949 	 0
+		0 	 0 	 1
+		-25.6006 	 -14.3592 	 8.2181
+	}
+}
+{volume "body2"
+	{box 34.4993 3.64235 16.4362}
+	{bone "trench_ground"}
+	{matrix34
+		0.8988 	 -0.4384 	 0
+		0.4384 	 0.8988 	 0
+		0 	 0 	 1
+		-25.1502 	 13.8292 	 8.2181
+	}
+}
+{volume "body3"
+	{polyhedron "body3.vol"}
+	{bone "trench_ground"}
+	{Position 32.2919 	 -13.706 	 -3.1709}
+}
+{volume "body4"
+	{polyhedron "body4.vol"}
+	{bone "trench_ground"}
+	{Position 32.2919 	 13.7008 	 -3.1709}
+}
+{volume "body5"
+	{box 12.8477 52.441 25.1711}
+	{bone "trench_ground"}
+	{Position -14.7476 	 0 	 -9.5427}
+}
+{volume "body6"
+	{box 52.6772 14.7441 35.9055}
+	{bone "trench_ground"}
+	{Position 4.9606 	 -23.6417 	 -2.1229}
+}
+{volume "body7"
+	{box 52.6772 14.7441 35.9055}
+	{bone "trench_ground"}
+	{Position 4.9606 	 23.6417 	 -2.1229}
+}
+{volume "place01"
+	{box 22.9268 24.023 39.3964}
+	{bone "trench_ground"}
+	{Position -10.4954 	 -0.0018 	 -0.0922}
+}
+{volume "roof"
+	{polyhedron "roof.vol"}
+	{bone "exterior"}
+	{Position 4.0103 	 0 	 20.8368}
+}

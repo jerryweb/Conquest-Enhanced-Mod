@@ -1,0 +1,78 @@
+{game_entity
+	(include "/properties/airborne.ext")
+	{props "wheeled" "fighter" "bf109_g6" "ai" "vision_lev02_air"}
+	{PatherID "bf109"}
+	(include "/properties/selection/airborne.inc" scale(1.5))
+
+	("fighter_tier1")
+
+	{boarder
+		{anm "driver"
+			{forward {begin "board_plane_left"} {end "seat_driver_car"} {base "open1"}}
+			{reverse {end "board_plane_left" -1} {base "open1" -1}}
+		}
+	}
+
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver) group(crew))
+
+	{Placer
+		{place "driver" {turnOff {targetable}}}
+	}
+
+	("single_engine")
+
+	("wheel" args "wheelr")
+	("wheel" args "wheell")
+	("wheel" args "wheelback")
+
+	{Chassis "wheel"
+		("car_trace" fx("tracewheel05") step(0.07) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+	}
+
+	{Chassis "airborne"
+		("flight_model"
+			speed(520)  ;//---------Max speed (at sea level), km/h.
+			climb_speed(20) ;//-----Climb rate at sea level, in m/s
+			turn(230) ;//-----------Turn-and-burn radius in meters, tightest sustained turn
+			turnMP(38) ;//----------Turn-and-burn radius in meters, tightest sustained turn in Multiplayer
+			aerodynamics(2.4) ;//---Aerodynamic efficiency rating (0-3)
+			weight(3070) ;//--------Weight in kg.
+			power(1470) ;//---------Horse Power.
+			fuel(500) ;//-----------Fuel capacity in Liters.
+			range(350) ;//----------Distance can travel with full fuel tank, in km.
+			roll_rate(60) ;//-------Roll rate, in degrees per second.
+			roll_angle(65) ;//------Maximum roll angle, in degrees.
+		)
+	}
+
+	{mass 3070}
+
+	{extender "inventory"
+		{box
+			{item "ammo hmgun_ger" 600}			; 2 MG131 guns (300 rounds per gun)
+		}
+	}
+
+	{Weaponry
+		{place "gun"
+			{weapon "20mm_mg151" filled}
+			{foresight "foresight1"}
+			{charger "driver"}
+			{gunner "driver"}
+			{ai_in_manual}
+			{basic}
+		}
+		{place "mgun2"
+			{weapon "13mm_mg131" filled}
+			{barrels 2}
+			{foresight "foresight1"}
+			{shooter "shooter_mg"}
+			{charger "driver"}
+			{gunner "driver"}
+			{ai_in_manual}
+			{basic}
+		}
+	}
+
+	{extension "bf109_g6.mdl"}
+}

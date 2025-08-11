@@ -1,0 +1,80 @@
+{game_entity
+	(include "/properties/airborne.ext")
+	(include "/properties/selection/airborne.inc" scale(1.5))
+	{props "wheeled" "fighter" "bf109_f4" "ai" "vision_lev02_air"}
+	{extension "bf109_f4.mdl"}
+	{PatherID "bf109"}
+
+	("fighter_tier1")
+
+	{boarder
+		{anm "driver"
+			{forward {begin "board_plane_left"} {end "seat_driver_car"} {base "open1"}}
+			{reverse {end "board_plane_left" -1} {base "open1" -1}}
+		}
+	}
+
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver) group(crew))
+
+	{Placer
+		{place "driver" {turnOff {targetable}}}
+	}
+
+	("single_engine")
+
+	("wheel" args "wheelr")
+	("wheel" args "wheell")
+	("wheel" args "wheelback")
+
+	{Chassis "wheel"
+		("car_trace" fx("tracewheel05") step(0.07) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+	}
+
+	{Chassis "airborne"
+		("flight_model"
+			speed(530)  ;//---------Max speed (at sea level), km/h.
+			climb_speed(21) ;//-----Climb rate at sea level, in m/s
+			turn(200) ;//-----------Turn-and-burn radius in meters, tightest sustained turn
+			turnMP(33) ;//----------Turn-and-burn radius in meters, tightest sustained turn in Multiplayer
+			aerodynamics(2.5) ;//---Aerodynamic efficiency rating (0-3)
+			weight(2890) ;//--------Weight in kg.
+			power(1350) ;//---------Horse Power.
+			fuel(500) ;//-----------Fuel capacity in Liters.
+			range(350) ;//----------Distance can travel with full fuel tank, in km.
+			roll_rate(60) ;//-------Roll rate, in degrees per second.
+			roll_angle(65) ;//------Maximum roll angle, in degrees.
+		)
+	}
+
+	{mass 3150}
+
+	{extender "inventory"
+		{box
+			{item "ammo mgun_ger belt" 2000}			; 2 MG17 guns (1000 rounds per gun)
+		}
+	}
+
+	{Weaponry
+		{place "gun"
+			{weapon "20mm_mg151" filled}
+			{foresight "foresight1"}
+			{charger "driver"}
+			{gunner "driver"}
+			{ai_in_manual}
+			{basic}
+		}
+		{place "mgun2"
+			{weapon "mg17_bf109" filled}
+			{barrels 2}
+			{foresight "foresight4"}
+			{shooter "shooter_mg"}
+			{charger "driver"}
+			{gunner "driver"}
+			{ai_in_manual}
+			{basic}
+		}
+	}
+
+	("mp_gun_limits")
+	("mp_mgun_limits")
+}

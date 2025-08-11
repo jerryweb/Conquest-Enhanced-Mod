@@ -1,0 +1,630 @@
+;SDL
+
+;===================================
+;        INSTRUCTIONS    
+;===================================
+
+; In this file onee configures the humans which are spawned in vehicles or squads
+; The humans have a CP and cost associated with them which collectively add up for the final squad value
+; Check ../settings_inf.set for the global defines for CP, capture weight (CW), score, etc.
+
+;===================================
+;        PRICING CHART	       
+;===================================
+
+
+; // Standard prices below are for tier2 infantry
+;m1903 			= 8
+;thompson 20	= 9
+;thompson 30/m3 = 10
+;carbine 		= 10
+;garand 		= 13
+;bar			= 20
+;m1919a6 belt	= 40
+;rifle grenade	= +20
+;marksman 		= +2
+;any % pzfaust 	= +2
+;any pzfaust 	= +5
+;any flamer		= 60
+;engineer		= 50
+;miner 			= 40
+
+; // price modifiers (If not tier2)
+;tier 0 		= -3, MG -10
+;tier 1 		= -1, MG -10
+;tier 1 vet 	= -1, MG -5
+;tier 2 vet		= +2, MG +5
+;tier 3 		= +5, MG +10
+;tier 3 vet 	= +8, MG +15
+;tier 4 		= +10, MG +20
+;tier 4 vet 	= +13, MG +25
+
+
+;===================================
+;        BREED DECLARATIONS       
+;===================================
+
+; // Specials
+{"mp/usa/early/artilleryman"		("inf_tankman" side(usa) cost(5.0))}
+{"mp/usa/mid/artilleryman"			("inf_tankman" side(usa) cost(5.0))}
+{"mp/usa/mid/crew"					("inf_tankman" side(usa) cost(5.0))}
+{"mp/usa/mid/driver"				("inf_tankman" side(usa) cost(5.0))}
+{"mp/usa/mid/driver_smg"			("inf_tankman" side(usa) cost(5.0))}
+
+{"mp/usa/early/tankman"				("inf_tankman" side(usa) cost(25.0))}
+{"mp/usa/mid/tankman"				("inf_tankman" side(usa) cost(25.0))}
+{"mp/usa/late/tankman"				("inf_tankman" side(usa) cost(25.0))}
+{"mp/usa/late/tankman_m1"			("inf_tankman" side(usa) cost(25.0))}
+{"mp/usa/late/tankman_m3"			("inf_tankman" side(usa) cost(25.0))}
+{"mp/usa/mid/tankman_m1"			("inf_tankman" side(usa) cost(25.0))}
+{"mp/usa/mid/tankman_smg"			("inf_tankman" side(usa) cost(25.0))}
+{"mp/usa/early/tank_commander"		("inf_tankman" side(usa) cost(25.0))}
+{"mp/usa/mid/tank_commander"		("inf_tankman" side(usa) cost(25.0))}
+{"mp/usa/late/tank_commander"		("inf_tankman" side(usa) cost(25.0))}
+{"mp/usa/late/tank_com_m1"			("inf_tankman" side(usa) cost(25.0))}
+{"mp/usa/late/tank_com_m3"			("inf_tankman" side(usa) cost(25.0))}
+{"mp/usa/mid/tank_com_m1"			("inf_tankman" side(usa) cost(25.0))}
+{"mp/usa/mid/tank_com_smg"			("inf_tankman" side(usa) cost(25.0))}
+
+{"mp/usa/mid/vehicle_crew"			("inf_tankman" side(usa) cost(4.0))}
+{"mp/usa/mid/vehicle_crew_m1"		("inf_tankman" side(usa) cost(4.0))}
+{"mp/usa/mid/vehicle_com"			("inf_tankman" side(usa) cost(10.0))}
+
+{"mp/usa/mid/pilot"					("inf_tankman" side(usa) cost(0.0))}
+
+{"mp/usa/mid/medic"					("inf_medic" side(usa) cost(40.0))}
+
+{"mp/usa/mid/officer_2lt"			("inf_officer" side(usa) cost(300.0))} ; m1 carbine + binocs
+{"mp/usa/mid/officer_1lt"			("inf_tier2" side(usa) lvl(lvl1) r(99) rm(9)cost(125.0))} ; m1 carbine + binocs
+{"mp/usa/mid/ar1_company_com"		("inf_tier2" side(usa) lvl(lvl1) r(99) rm(99)cost(125.0))} ; m1 carbine + binocs
+{"mp/usa/late/ar_company_com"		("inf_tier2" side(usa) lvl(lvl1) r(99) rm(99)cost(125.0))} ; m1 carbine + binocs
+
+{"mp/usa/mid/rifle_sniper"			("inf_sniper" side(usa) r(2) rm(99) cost(150.0))} ; m1903a4
+
+; // Tier 1
+
+{"mp/usa/mid/mp_carbine"			("inf_tier1" side(usa) lvl(lvl1) r(1) rm(8) cost(9.0))} ; m1 carbine
+{"mp/usa/mid/mp_rifle"				("inf_tier1" side(usa) lvl(lvl1) r(1) rm(8) cost(12.0))} ; m1 garand
+{"mp/usa/mid/mp_rifle_m1903"		("inf_tier1" side(usa) lvl(lvl1) r(1) rm(8) cost(7.0))} ; m1903
+{"mp/usa/mid/mp_sl_asst"			("inf_tier1" side(usa) lvl(lvl1) r(1) rm(8) cost(12.0))} ; m1 garand
+{"mp/usa/mid/mp_sl_rifle"			("inf_tier1" side(usa) lvl(lvl1) r(1) rm(8) cost(12.0))} ; m1 garand
+{"mp/usa/mid/mp_smg"				("inf_tier1" side(usa) lvl(lvl1) r(1) rm(8) cost(8.0))} ; m1928 thompson 20
+
+{"mp/usa/mid/45th_rifle"			("inf_tier1" side(usa) lvl(lvl1) r(1) rm(8) cost(12.0))} ; m1 garand
+{"mp/usa/mid/45th_rifle_at_asst"	("inf_tier1" side(usa) lvl() r(9) rm(99) cost(12.0))} ; m1 garand + bazooka ammo
+{"mp/usa/mid/45th_rifle_at_m1a1"	("inf_tier1" side(usa) lvl() r(9) rm(99)cost(42.0))} ; m1 garand + m1a1 bazooka
+{"mp/usa/mid/45th_rifle_band"		("inf_tier1" side(usa) lvl(lvl1) r(1) rm(8) cost(12.0))} ; m1 garand
+{"mp/usa/mid/45th_rifle_bar"		("inf_tier1" side(usa) lvl(lvl1) r(1) rm(8) cost(19.0))} ; m1918a2 bar
+{"mp/usa/mid/45th_rifle_bar_ammo"	("inf_tier1" side(usa) lvl(lvl1) r(1) rm(8) cost(12.0))} ; m1 garand + bar ammo
+{"mp/usa/mid/45th_rifle_bar_asst"	("inf_tier1" side(usa) lvl(lvl1) r(1) rm(8) cost(12.0))} ; m1 garand + bar ammo
+{"mp/usa/mid/45th_rifle_gren"		("inf_tier1" side(usa) lvl(lvl1) r(1) rm(8) cost(27.0))} ; m1903 + rifle grenade
+{"mp/usa/mid/45th_rifle_sniper"		("inf_tier1" side(usa) lvl(lvl1) r(1) rm(8) cost(90.0))} ; m1903a4
+{"mp/usa/mid/45th_sl_asst"			("inf_tier1" side(usa) lvl(lvl1) r(1) rm(8) cost(12.0))} ; m1 garand
+{"mp/usa/mid/45th_sl_asst_gren"		("inf_tier1" side(usa) lvl(lvl1) r(1) rm(8) cost(27.0))} ; m1903 + rifle grenade
+{"mp/usa/mid/45th_sl_rifle"			("inf_tier1" side(usa) lvl(lvl1) r(1) rm(8) cost(12.0))} ; m1 garand
+{"mp/usa/mid/45th_sl_smg"			("inf_tier1" side(usa) lvl(lvl1) r(1) rm(8) cost(8.0))} ; m1 thompson 20
+
+
+;// tier 2
+
+{"mp/usa/mid/mg_crew"				("inf_tier2_lite" side(usa) lvl() r(1) rm(8) cost(8.0))} ; m1911
+{"mp/usa/mid/mg_crew_asst"			("inf_tier2_lite" side(usa) lvl() r(1) rm(8) cost(13.0))} ; m1 garand
+
+{"mp/usa/mid/rifle"					("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; m1 garand
+{"mp/usa/mid/rifle_m1903"			("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; m1903
+{"mp/usa/mid/rifle_at"				("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; m1 garand + m7 mines
+{"mp/usa/mid/rifle_band"			("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; m1 garand
+{"mp/usa/mid/rifle_band2"			("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; m1 garand
+{"mp/usa/mid/rifle_scout"			("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; m1 garand
+
+{"mp/usa/mid/1st_rifle"				("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; m1 garand
+{"mp/usa/mid/1st_rifle_m1903"		("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; m1903
+{"mp/usa/mid/1st_rifle_at"			("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; m1 garand + m7 mines
+{"mp/usa/mid/1st_rifle_band"		("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; m1 garand
+{"mp/usa/mid/1st_rifle_band2"		("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; m1 garand
+{"mp/usa/mid/1st_rifle_scout"		("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; m1 garand
+
+{"mp/usa/mid/ar1_driver"			("inf_tier2_lite" side(usa) lvl() r(1) rm(8) cost(9.0))} ; m1928 thompson 20
+{"mp/usa/mid/ar1_rifle"				("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; m1 garand
+{"mp/usa/mid/ar1_rifle_at"			("inf_tier2_lite" side(usa) lvl() r(1) rm(8) cost(13.0))} ; m1 garand + m7 mines
+{"mp/usa/mid/ar1_rifle_band"		("inf_tier2_lite" side(usa) lvl() r(1) rm(8) cost(13.0))} ; m1 garand
+{"mp/usa/mid/ar1_rifle_band2"		("inf_tier2_lite" side(usa) lvl() r(1) rm(8) cost(13.0))} ; m1 garand
+{"mp/usa/mid/ar1_recon_rifle"		("inf_tier2_lite" side(usa) lvl() r(1) rm(8) cost(13.0))} ; m1 garand
+{"mp/usa/mid/ar1_recon_carbine"		("inf_tier2_lite" side(usa) lvl() r(1) rm(8) cost(10.0))} ; m1 carbine
+
+{"mp/usa/mid/ar2_driver"			("inf_tier2_lite" side(usa) lvl() r(1) rm(8) cost(9.0))} ; m1928 thompson 20
+{"mp/usa/mid/ar2_rifle"				("inf_tier2_lite" side(usa) lvl() r(1) rm(8) cost(13.0))} ; m1 garand
+{"mp/usa/mid/ar2_rifle_at"			("inf_tier2_lite" side(usa) lvl() r(1) rm(8) cost(13.0))} ; m1 garand + m7 mines
+{"mp/usa/mid/ar2_rifle_band"		("inf_tier2_lite" side(usa) lvl() r(1) rm(8) cost(13.0))} ; m1 garand
+{"mp/usa/mid/ar2_rifle_band2"		("inf_tier2_lite" side(usa) lvl() r(1) rm(8) cost(13.0))} ; m1 garand
+{"mp/usa/mid/ar2_recon_rifle"		("inf_tier2_lite" side(usa) lvl() r(1) rm(8) cost(13.0))} ; m1 garand
+{"mp/usa/mid/ar2_recon_carbine"		("inf_tier2_lite" side(usa) lvl() r(1) rm(8) cost(10.0))} ; m1 carbine
+
+{"mp/usa/mid/rifle_at_asst_m1"		("inf_tier2_lite" side(usa) lvl() r(9) rm(99) cost(13.0))} ; m1 garand + bazooka ammo
+{"mp/usa/mid/rifle_at_asst_m1a1"	("inf_tier2_lite" side(usa) lvl() r(9) rm(99) cost(13.0))} ; m1 garand + bazooka ammo
+{"mp/usa/mid/rifle_at_m1"			("inf_tier2" side(usa) lvl() r(9) rm(99) cost(43.0))} ; m1 garand + m1 bazooka
+{"mp/usa/mid/rifle_at_m1a1"			("inf_tier2" side(usa) lvl() r(9) rm(99) cost(43.0))} ; m1 garand + m1a1 bazooka
+{"mp/usa/mid/rifle_bar"				("inf_tier2" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(20.0))} ; m1918a2 bar
+{"mp/usa/mid/rifle_bar_ammo"		("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; m1 garand + bar ammo
+{"mp/usa/mid/rifle_bar_asst"		("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; m1 garand + bar ammo
+{"mp/usa/mid/rifle_gren"			("inf_tier2" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(28.0))} ; m1903 + rifle grenade
+{"mp/usa/mid/sl_asst"				("inf_tier2" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; m1 garand
+{"mp/usa/mid/sl_asst_gren"			("inf_tier2" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(28.0))} ; m1903 + rifle grenade
+{"mp/usa/mid/sl_rifle"				("inf_tier2" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; m1 garand
+{"mp/usa/mid/sl_smg"				("inf_tier2" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(9.0))} ; m1 thompson 20
+{"mp/usa/mid/sl_smg_m1928"			("inf_tier2" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(9.0))} ; m1928a1 thompson 20
+{"mp/usa/mid/smg"					("inf_tier2" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; m1 thompson
+{"mp/usa/mid/smg_20"				("inf_tier2" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(9.0))} ; m1 thompson 20
+{"mp/usa/mid/smg_m1928"				("inf_tier2" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(9.0))} ; m1928a1 thompson 20
+
+{"mp/usa/mid/1st_rifle_at_asst_m1"	("inf_tier2_lite" side(usa) lvl() r(9) rm(99) cost(13.0))} ; m1 garand + bazooka ammo
+{"mp/usa/mid/1st_rifle_at_asst_m1a1"("inf_tier2_lite" side(usa) lvl() r(9) rm(99) cost(13.0))} ; m1 garand + bazooka ammo
+{"mp/usa/mid/1st_rifle_at_m1"		("inf_tier2" side(usa) lvl() r(9) rm(99) cost(43.0))} ; m1 garand + m1 bazooka
+{"mp/usa/mid/1st_rifle_at_m1a1"		("inf_tier2" side(usa) lvl() r(9) rm(99) cost(43.0))} ; m1 garand + m1a1 bazooka
+{"mp/usa/mid/1st_rifle_bar"			("inf_tier2" side(usa) lvl() r(1) rm(8) cost(20.0))} ; m1918a2 bar
+{"mp/usa/mid/1st_rifle_bar_ammo"	("inf_tier2_lite" side(usa) lvl() r(1) rm(8) cost(13.0))} ; m1 garand + bar ammo
+{"mp/usa/mid/1st_rifle_bar_asst"	("inf_tier2_lite" side(usa) lvl() r(1) rm(8) cost(13.0))} ; m1 garand + bar ammo
+{"mp/usa/mid/1st_rifle_gren"		("inf_tier2" side(usa) lvl() r(1) rm(8) cost(28.0))} ; m1903 + rifle grenade
+{"mp/usa/mid/1st_rifle_sniper"		("inf_tier2" side(usa) lvl() r(1) rm(8) cost(50.0))} ; m1903a4
+{"mp/usa/mid/1st_sl_asst"			("inf_tier2" side(usa) lvl() r(1) rm(8) cost(13.0))} ; m1 garand
+{"mp/usa/mid/1st_sl_asst_gren"		("inf_tier2" side(usa) lvl() r(1) rm(8) cost(28.0))} ; m1903 + rifle grenade
+{"mp/usa/mid/1st_sl_rifle"			("inf_tier2" side(usa) lvl() r(1) rm(8) cost(13.0))} ; m1 garand
+{"mp/usa/mid/1st_sl_smg"			("inf_tier2" side(usa) lvl() r(1) rm(8) cost(9.0))} ; m1 thompson 20
+{"mp/usa/mid/1st_sl_smg_m1928"		("inf_tier2" side(usa) lvl() r(1) rm(8) cost(9.0))} ; m1928a1 thompson 20
+{"mp/usa/mid/1st_smg"				("inf_tier2" side(usa) lvl() r(1) rm(8) cost(10.0))} ; m1 thompson
+{"mp/usa/mid/1st_smg_20"			("inf_tier2" side(usa) lvl() r(1) rm(8) cost(9.0))} ; m1 thompson 20
+{"mp/usa/mid/1st_smg_m1928"			("inf_tier2" side(usa) lvl() r(1) rm(8) cost(9.0))} ; m1928a1 thompson 20
+
+{"mp/usa/mid/ar1_rifle_at_asst_m1"	("inf_tier2_lite" side(usa) lvl() r(9) rm(99) cost(13.0))} ; m1 garand + bazooka ammo
+{"mp/usa/mid/ar1_rifle_at_asst_m1a1"("inf_tier2_lite" side(usa) lvl() r(9) rm(99) cost(13.0))} ; m1 garand + bazooka ammo
+{"mp/usa/mid/ar1_rifle_at_m1"		("inf_tier2" side(usa) lvl() r(9) rm(99) cost(43.0))} ; m1 garand + m1 bazooka
+{"mp/usa/mid/ar1_rifle_at_m1a1"		("inf_tier2" side(usa) lvl() r(9) rm(99) cost(43.0))} ; m1 garand + m1a1 bazooka
+{"mp/usa/mid/ar1_rifle_bar"			("inf_tier2" side(usa) lvl() r(1) rm(8) cost(20.0))} ; m1918a2 bar
+{"mp/usa/mid/ar1_rifle_bar_ammo"	("inf_tier2_lite" side(usa) lvl() r(1) rm(8) cost(13.0))} ; m1 garand + bar ammo
+{"mp/usa/mid/ar1_rifle_bar_asst"	("inf_tier2_lite" side(usa) lvl() r(1) rm(8) cost(13.0))} ; m1 garand + bar ammo
+{"mp/usa/mid/ar1_rifle_gren"		("inf_tier2" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(28.0))} ; m1903 + rifle grenade
+{"mp/usa/mid/ar1_rifle_sniper"		("inf_tier2" side(usa) lvl() r(1) rm(8) cost(50.0))} ; m1903a4
+{"mp/usa/mid/ar1_sl_asst"			("inf_tier2" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; m1 garand
+{"mp/usa/mid/ar1_sl_asst_carbine"	("inf_tier2" side(usa) lvl() r(1) rm(8) cost(10.0))} ; m1 carbine
+{"mp/usa/mid/ar1_sl_carbine"		("inf_tier2" side(usa) lvl() r(1) rm(8) cost(10.0))} ; m1 carbine
+{"mp/usa/mid/ar1_sl_rifle"			("inf_tier2" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; m1 garand
+{"mp/usa/mid/ar1_recon_smg"			("inf_tier2" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(9.0))} ; m1 thompson 20
+{"mp/usa/mid/ar1_recon_tl"			("inf_tier2" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; m1 carbine
+
+{"mp/usa/mid/ar2_rifle_at_asst"		("inf_tier2_lite" side(usa) lvl() r(9) rm(99) cost(13.0))} ; m1 garand + bazooka ammo
+{"mp/usa/mid/ar2_rifle_at_m1a1"		("inf_tier2" side(usa) lvl() r(9) rm(99) cost(43.0))} ; m1 garand + m1a1 bazooka
+{"mp/usa/mid/ar2_rifle_bar"			("inf_tier2" side(usa) lvl() r(1) rm(8) cost(20.0))} ; m1918a2 bar
+{"mp/usa/mid/ar2_rifle_bar_ammo"	("inf_tier2_lite" side(usa) lvl() r(1) rm(8) cost(13.0))} ; m1 garand + bar ammo
+{"mp/usa/mid/ar2_rifle_bar_asst"	("inf_tier2_lite" side(usa) lvl() r(1) rm(8) cost(13.0))} ; m1 garand + bar ammo
+{"mp/usa/mid/ar2_rifle_gren"		("inf_tier2" side(usa) lvl() r(1) rm(8) cost(28.0))} ; m1903 + rifle grenade
+{"mp/usa/mid/ar2_rifle_sniper"		("inf_tier2" side(usa) lvl() r(1) rm(8) cost(50.0))} ; m1903a4
+{"mp/usa/mid/ar2_sl_asst"			("inf_tier2" side(usa) lvl() r(1) rm(8) cost(13.0))} ; m1 garand
+{"mp/usa/mid/ar2_sl_asst_carbine"	("inf_tier2" side(usa) lvl() r(1) rm(8) cost(10.0))} ; m1 carbine
+{"mp/usa/mid/ar2_sl_carbine"		("inf_tier2" side(usa) lvl() r(1) rm(8) cost(10.0))} ; m1 carbine
+{"mp/usa/mid/ar2_sl_rifle"			("inf_tier2" side(usa) lvl() r(1) rm(8) cost(13.0))} ; m1 garand
+{"mp/usa/mid/ar2_recon_smg"			("inf_tier2" side(usa) lvl() r(1) rm(8) cost(9.0))} ; m1 thompson 20
+{"mp/usa/mid/ar2_recon_tl"			("inf_tier2" side(usa) lvl() r(1) rm(8) cost(10.0))} ; m1 carbine
+{"mp/usa/mid/ar2_platoon_com"		("inf_tier2" side(usa) lvl() r(1) rm(8) cost(15.0))} ; m1 carbine
+{"mp/usa/mid/ar2_platoon_ssgt"		("inf_tier2" side(usa) lvl() r(1) rm(8) cost(15.0))} ; m1 carbine
+
+{"mp/usa/mid/cav_driver"			("inf_tier2_lite" side(usa) lvl() r(1) rm(8) cost(10.0))} ; m1 carbine
+{"mp/usa/mid/cav_gunner"			("inf_tier2_lite" side(usa) lvl() r(1) rm(8) cost(13.0))} ; m1 garand
+{"mp/usa/mid/cav_rifle"				("inf_tier2_lite" side(usa) lvl() r(1) rm(8) cost(13.0))} ; m1 garand
+{"mp/usa/mid/cav_sec_lead"			("inf_tier2" side(usa) lvl() r(1) rm(8) cost(13.0))} ; m1 garand
+
+{"mp/usa/late/cav_driver"			("inf_tier2_lite" side(usa) lvl() r(9) rm(99) cost(10.0))} ; m1a1 thompson
+{"mp/usa/late/cav_gunner"			("inf_tier2_lite" side(usa) lvl() r(9) rm(99) cost(10.0))} ; m1 carbine
+{"mp/usa/late/cav_tl"				("inf_tier2" side(usa) lvl() r(9) rm(99) cost(10.0))} ; m1 carbine
+
+{"mp/usa/mid/antitank_asst_m1"		("inf_tier2_lite" side(usa) lvl() r(9) rm(99) cost(13.0))} ; m1 garand + bazooka ammo
+{"mp/usa/mid/antitank_asst_m1a1"	("inf_tier2_lite" side(usa) lvl() r(9) rm(99) cost(13.0))} ; m1 garand + bazooka ammo
+{"mp/usa/mid/antitank_m1"			("inf_tier2" side(usa) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(43.0))} ; m1 garand + m1 bazooka
+{"mp/usa/mid/antitank_m1a1"			("inf_tier2" side(usa) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(70.0))} ; m1 garand + m1a1 bazooka
+{"mp/usa/mid/antitank_gren"			("inf_tier2" side(usa) lvl(lvl1 lvl2 lvl3 lvl4) r(1) rm(8) cost(28.0))} ; m1903 + rifle grenade
+
+{"mp/usa/late/antitank_asst"		("inf_tier2_lite" side(usa) lvl() r(9) rm(99) cost(13.0))} ; m1 garand + bazooka ammo
+{"mp/usa/late/antitank_m9"			("inf_tier2" side(usa) lvl(lvl2 lvl3 lvl4) r(10) rm(99) cost(75.0))} ; m1 garand + m9 bazooka
+{"mp/usa/late/antitank_m9a1"		("inf_tier2" side(usa) lvl(lvl2 lvl3 lvl4) r(11) rm(99) cost(80.0))} ; m1 garand + m9a1 bazooka
+{"mp/usa/late/antitank_gren"		("inf_tier2" side(usa) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(33.0))} ; m1 garand + rifle grenade
+{"mp/usa/late/late_antitank_m18"	("inf_tier2" side(usa) lvl(lvl3 lvl4) r(12) rm(99) cost(175.0))} ; m18 recoilless
+{"mp/usa/late/late_antitank_m18_asst"	("inf_tier2_lite" side(usa) lvl() r(12) rm(99) cost(8.0))} ; m1911 + m18 recoilless ammo
+{"mp/usa/late/late_antitank_m18_ammo"	("inf_tier2_lite" side(usa) lvl() r(12) rm(99) cost(10.0))} ; m1 carbine + m18 recoilless ammo
+
+{"mp/usa/mid/engineer_at_asst_m1"	("inf_tier2_lite" side(usa) lvl() r(9) rm(99) cost(13.0))} ; m1 garand + bazooka ammo
+{"mp/usa/mid/engineer_at_asst_m1a1"	("inf_tier2_lite" side(usa) lvl() r(9) rm(99) cost(13.0))} ; m1 garand + bazooka ammo
+{"mp/usa/mid/engineer_at_m1"		("inf_tier2" side(usa) lvl() r(9) rm(99) cost(43.0))} ; m1 garand + m1 bazooka
+{"mp/usa/mid/engineer_at_m1a1"		("inf_tier2" side(usa) lvl() r(9) rm(99) cost(43.0))} ; m1 garand + m1a1 bazooka
+{"mp/usa/mid/engineer_builder"		("inf_tier3" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(50.0))} ; m1 garand + builder
+{"mp/usa/mid/engineer_flamer"		("inf_tier2" side(usa) lvl(lvl2 lvl3 lvl4) r(1) rm(8) cost(40.0))} ; m1a1 flamer
+{"mp/usa/mid/engineer_gren"			("inf_tier3" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(28.0))} ; m1903 + rifle grenade
+{"mp/usa/mid/engineer_mine_ap"		("inf_tier3" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(40.0))} ; m1 garand + AP mines
+{"mp/usa/mid/engineer_mine_at"		("inf_tier3" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(40.0))} ; m1 garand + AT mines
+{"mp/usa/mid/engineer_rifle"		("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; m1 garand
+{"mp/usa/mid/engineer_sl"			("inf_tier2" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; m1 garand
+{"mp/usa/mid/engineer_sl_asst"		("inf_tier2" side(usa) lvl() r(1) rm(8) cost(13.0))} ; m1 garand
+{"mp/usa/mid/engineer_sl_asst_gren"	("inf_tier2" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(28.0))} ; m1903 + rifle grenade
+{"mp/usa/mid/engineer_smg"			("inf_tier2" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(9.0))} ; m1 thompson 20
+{"mp/usa/mid/engineer_recon"		("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; m1 carbine
+{"mp/usa/mid/engineer_recon_gren"	("inf_tier2" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(28.0))} ; m1903 + rifle grenade
+{"mp/usa/mid/engineer_recon_sec_lead"("inf_tier2" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; m1 carbine
+{"mp/usa/mid/engineer_recon_tl"		("inf_tier2" side(usa) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; m1 carbine
+
+{"mp/usa/late/ar_crew"				("inf_tier2_lite" side(usa) lvl() r(9) rm(99) cost(10.0))} ; m1 carbine
+{"mp/usa/late/ar_driver"			("inf_tier2_lite" side(usa) lvl() r(9) rm(99) cost(10.0))} ; m3 grease
+
+{"mp/usa/late/rifle"				("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; m1 garand
+{"mp/usa/late/rifle_at"				("inf_tier2_lite" side(usa) lvl() r(9) rm(99) cost(13.0))} ; m1 garand + m7 mines
+{"mp/usa/late/rifle_band"			("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; m1 garand
+{"mp/usa/late/rifle_band2"			("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; m1 garand
+{"mp/usa/late/rifle_scout"			("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; m1 garand
+{"mp/usa/late/rifle_at_asst"		("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; m1 garand + bazooka ammo
+{"mp/usa/late/rifle_at_m1a1"		("inf_tier2" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(43.0))} ; m1 garand + m1a1 bazooka
+{"mp/usa/late/rifle_at_m9a1"		("inf_tier2" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(43.0))} ; m1 garand + m9a1 bazooka
+{"mp/usa/late/rifle_bar"			("inf_tier2" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(20.0))} ; m1918a2 bar
+{"mp/usa/late/rifle_bar_ammo"		("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; m1 garand + bar ammo
+{"mp/usa/late/rifle_bar_ammo2"		("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; m1 garand + bar ammo
+{"mp/usa/late/rifle_bar_asst"		("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; m1 garand + bar ammo
+{"mp/usa/late/rifle_bar_asst2"		("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; m1 garand + bar ammo
+{"mp/usa/late/rifle_gren"			("inf_tier2" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(23.0))} ; m1 garand + rifle grenade
+{"mp/usa/late/sl_asst"				("inf_tier2" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; m1 garand
+{"mp/usa/late/sl_asst_gren"			("inf_tier2" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(23.0))} ; m1 garand + rifle grenade
+{"mp/usa/late/sl_rifle"				("inf_tier2" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; m1 garand
+{"mp/usa/late/sl_smg"				("inf_tier2" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; m1a1 thompson
+{"mp/usa/late/smg"					("inf_tier2" side(usa) lvl() r(9) rm(99) cost(10.0))} ; m1a1 thompson
+{"mp/usa/late/smg_20"				("inf_tier2" side(usa) lvl() r(9) rm(99) cost(9.0))} ; m1a1 thompson 20
+{"mp/usa/late/smg_m3"				("inf_tier2" side(usa) lvl() r(9) rm(99) cost(10.0))} ; m3 grease
+
+{"mp/usa/late/late_sl_rifle"		("inf_tier2" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; m1 garand
+
+{"mp/usa/late/ar_carbine_gren"		("inf_tier2" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(20.0))} ; m1 carbine + rifle grenade
+{"mp/usa/late/ar_rifle"				("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; m1 garand
+{"mp/usa/late/ar_rifle_at"			("inf_tier2_lite" side(usa) lvl() r(9) rm(99) cost(13.0))} ; m1 garand + m7 mines
+{"mp/usa/late/ar_rifle_band"		("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; m1 garand
+{"mp/usa/late/ar_rifle_band2"		("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; m1 garand
+{"mp/usa/late/ar_recon_rifle"		("inf_tier2_lite" side(usa) lvl() r(9) rm(99) cost(13.0))} ; m1 garand
+{"mp/usa/late/ar_rifle_at_asst"		("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; m1 garand + bazooka ammo
+{"mp/usa/late/ar_rifle_at_m1a1"		("inf_tier2" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(43.0))} ; m1 garand + m1a1 bazooka
+{"mp/usa/late/ar_rifle_at_m9a1"		("inf_tier2" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(43.0))} ; m1 garand + m9a1 bazooka
+{"mp/usa/late/ar_rifle_bar"			("inf_tier2" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(20.0))} ; m1918a2 bar
+{"mp/usa/late/ar_rifle_bar_ammo"	("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; m1 garand + bar ammo
+{"mp/usa/late/ar_rifle_bar_asst"	("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; m1 garand + bar ammo
+{"mp/usa/late/ar_rifle_gren"		("inf_tier2" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(23.0))} ; m1 garand + rifle grenade
+{"mp/usa/late/ar_rifle_sniper"		("inf_tier2" side(usa) lvl() r(9) rm(99) cost(50.0))} ; m1903a4
+{"mp/usa/late/ar_sl_asst"			("inf_tier2" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; m1 garand
+{"mp/usa/late/ar_sl_asst_carbine"	("inf_tier2" side(usa) lvl() r(9) rm(99) cost(10.0))} ; m1 carbine
+{"mp/usa/late/ar_sl_carbine"		("inf_tier2" side(usa) lvl() r(9) rm(99) cost(10.0))} ; m1 carbine
+{"mp/usa/late/ar_sl_rifle"			("inf_tier2" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; m1 garand
+{"mp/usa/late/ar_recon_smg"			("inf_tier2" side(usa) lvl() r(9) rm(99) cost(10.0))} ; m1a1 thompson
+{"mp/usa/late/ar_recon_tl"			("inf_tier2" side(usa) lvl() r(9) rm(99) cost(13.0))} ; m1 garand
+{"mp/usa/late/ar_platoon_com_mp"	("inf_tier2" side(usa) lvl() r(9) rm(99) cost(15.0))} ; m1 carbine
+{"mp/usa/late/ar_platoon_tsgt"		("inf_tier2" side(usa) lvl() r(9) rm(99) cost(15.0))} ; m1 carbine
+
+{"mp/usa/late/late_engineer_at_asst"		("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; m1 garand + bazooka ammo
+{"mp/usa/late/late_engineer_at_m1a1"		("inf_tier2" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(43.0))} ; m1 garand + m1a1 bazooka
+{"mp/usa/late/late_engineer_at_m9a1"		("inf_tier2" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(43.0))} ; m1 garand + m9a1 bazooka
+{"mp/usa/late/late_engineer_builder"		("inf_tier2" side(usa) lvl() r(9) rm(99) cost(50.0))} ; m1 garand + builder
+{"mp/usa/late/late_engineer_flamer"			("inf_tier2" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(40.0))} ; m2 flamer
+{"mp/usa/late/late_engineer_gren"			("inf_tier2" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(23.0))} ; m1 garand + rifle grenade
+{"mp/usa/late/late_engineer_mine_ap"		("inf_tier2" side(usa) lvl() r(9) rm(99) cost(25.0))} ; m1 garand + AP mines
+{"mp/usa/late/late_engineer_mine_at"		("inf_tier2" side(usa) lvl() r(9) rm(99) cost(25.0))} ; m1 garand + AT mines
+{"mp/usa/late/late_engineer_rifle"			("inf_tier2_lite" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; m1 garand
+{"mp/usa/late/late_engineer_sl"				("inf_tier2" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; m1 garand
+{"mp/usa/late/late_engineer_sl_asst"		("inf_tier2" side(usa) lvl(lvl1 lvl2) r(9) rm(99) cost(23.0))} ; m1 garand + rifle grenade
+{"mp/usa/late/late_engineer_smg"			("inf_tier2" side(usa) lvl() r(9) rm(99) cost(10.0))} ; m3 grease
+
+;// tier 2+ vet
+
+{"mp/usa/mid/vet_rifle"				("inf_tier2_lite" side(usa) lvl(lvl2 lvl3) r(1) rm(8) cost(18.0))} ; m1 garand
+{"mp/usa/mid/vet_rifle_at"			("inf_tier2" side(usa) lvl(lvl2 lvl3) r(1) rm(8) cost(18.0))} ; m1 garand + m7 mines
+{"mp/usa/mid/vet_rifle_at_asst_m1"	("inf_tier2" side(usa) lvl(lvl2 lvl3) r(9) rm(99) cost(18.0))} ; m1 garand + bazooka ammo
+{"mp/usa/mid/vet_rifle_at_asst_m1a1"("inf_tier2" side(usa) lvl(lvl2 lvl3) r(9) rm(99) cost(18.0))} ; m1 garand + bazooka ammo
+{"mp/usa/mid/vet_rifle_at_m1"		("inf_tier2" side(usa) lvl(lvl2 lvl3) r(9) rm(99) cost(48.0))} ; m1 garand + m1 bazooka
+{"mp/usa/mid/vet_rifle_at_m1a1"		("inf_tier2" side(usa) lvl(lvl2 lvl3) r(9) rm(99) cost(48.0))} ; m1 garand + m1a1 bazooka
+{"mp/usa/mid/vet_rifle_band"		("inf_tier2_lite" side(usa) lvl(lvl2 lvl3) r(1) rm(8) cost(18.0))} ; m1 garand
+{"mp/usa/mid/vet_rifle_bar"			("inf_tier2" side(usa) lvl(lvl2 lvl3) r(1) rm(8) cost(25.0))} ; m1918a2 bar
+{"mp/usa/mid/vet_rifle_bar_ammo"	("inf_tier2" side(usa) lvl(lvl2 lvl3) r(1) rm(8) cost(18.0))} ; m1 garand + bar ammo
+{"mp/usa/mid/vet_rifle_bar_asst"	("inf_tier2" side(usa) lvl(lvl2 lvl3) r(1) rm(8) cost(18.0))} ; m1 garand + bar ammo
+{"mp/usa/mid/vet_rifle_gren"		("inf_tier2" side(usa) lvl(lvl2 lvl3) r(1) rm(8) cost(33.0))} ; m1903 + rifle grenade
+{"mp/usa/mid/vet_rifle_sniper"		("inf_tier2" side(usa) lvl(lvl2 lvl3) r(1) rm(8) cost(55.0))} ; m1903a4
+{"mp/usa/mid/vet_sl_asst"			("inf_tier2" side(usa) lvl(lvl2 lvl3) r(1) rm(8) cost(18.0))} ; m1 garand
+{"mp/usa/mid/vet_sl_asst_gren"		("inf_tier2" side(usa) lvl(lvl2 lvl3) r(1) rm(8) cost(33.0))} ; m1903 + rifle grenade
+{"mp/usa/mid/vet_sl_rifle"			("inf_tier2" side(usa) lvl(lvl2 lvl3) r(1) rm(8) cost(18.0))} ; m1 garand
+{"mp/usa/mid/vet_sl_smg"			("inf_tier2" side(usa) lvl(lvl2 lvl3) r(1) rm(8) cost(15.0))} ; m1 thompson
+{"mp/usa/mid/vet_smg"				("inf_tier2" side(usa) lvl(lvl2 lvl3) r(1) rm(8) cost(15.0))} ; m1 thompson
+
+{"mp/usa/late/ar2_driver"				("inf_tier2" side(usa) lvl() r(1) rm(8) cost(10.0))} ; m3 grease
+{"mp/usa/late/ar2_camo_rifle"			("inf_tier2_lite" side(usa) lvl(lvl2 lvl3) r(9) rm(99) cost(13.0))} ; m1 garand
+{"mp/usa/late/ar2_camo_rifle_band"		("inf_tier2_lite" side(usa) lvl(lvl2 lvl3) r(9) rm(99) cost(13.0))} ; m1 garand
+{"mp/usa/late/ar2_camo_rifle_at_asst"	("inf_tier2" side(usa) lvl(lvl2 lvl3) r(9) rm(99) cost(13.0))} ; m1 garand + bazooka ammo
+{"mp/usa/late/ar2_camo_rifle_at_m1a1"	("inf_tier2" side(usa) lvl(lvl2 lvl3) r(9) rm(99) cost(43.0))} ; m1 garand + m1a1 bazooka
+{"mp/usa/late/ar2_camo_rifle_bar"		("inf_tier2" side(usa) lvl(lvl2 lvl3) r(9) rm(99) cost(20.0))} ; m1918a2 bar
+{"mp/usa/late/ar2_camo_rifle_bar_asst"	("inf_tier2" side(usa) lvl(lvl2 lvl3) r(9) rm(99) cost(13.0))} ; m1 garand + bar ammo
+{"mp/usa/late/ar2_camo_rifle_gren"		("inf_tier2" side(usa) lvl(lvl2 lvl3) r(9) rm(99) cost(23.0))} ; m1 garand + rifle grenade
+{"mp/usa/late/ar2_camo_sl_asst"			("inf_tier2" side(usa) lvl(lvl2 lvl3) r(9) rm(99) cost(13.0))} ; m1 garand
+{"mp/usa/late/ar2_camo_sl_rifle"		("inf_tier2" side(usa) lvl(lvl2 lvl3) r(9) rm(99) cost(13.0))} ; m1 garand
+
+{"mp/usa/late/late_vet_rifle"			("inf_tier2_lite" side(usa) lvl(lvl2 lvl3) r(9) rm(99) cost(18.0))} ; m1 garand
+{"mp/usa/late/late_vet_rifle_at"		("inf_tier2" side(usa) lvl(lvl2 lvl3) r(9) rm(99) cost(18.0))} ; m1 garand + m7 mines
+{"mp/usa/late/late_vet_rifle_at_asst"	("inf_tier2" side(usa) lvl(lvl2 lvl3) r(9) rm(99) cost(18.0))} ; m1 garand + bazooka ammo
+{"mp/usa/late/late_vet_rifle_at_m9"		("inf_tier2" side(usa) lvl(lvl2 lvl3) r(9) rm(99) cost(48.0))} ; m1 garand + m9 bazooka
+{"mp/usa/late/late_vet_rifle_at_m9a1"	("inf_tier2" side(usa) lvl(lvl2 lvl3) r(9) rm(99) cost(48.0))} ; m1 garand + m9a1 bazooka
+{"mp/usa/late/late_vet_rifle_band"		("inf_tier2_lite" side(usa) lvl(lvl2 lvl3) r(9) rm(99) cost(18.0))} ; m1 garand
+{"mp/usa/late/late_vet_rifle_bar"		("inf_tier2" side(usa) lvl(lvl2 lvl3) r(9) rm(99) cost(25.0))} ; m1918a2 bar
+{"mp/usa/late/late_vet_rifle_bar_ammo"	("inf_tier2" side(usa) lvl(lvl2 lvl3) r(9) rm(99) cost(18.0))} ; m1 garand + bar ammo
+{"mp/usa/late/late_vet_rifle_bar_asst"	("inf_tier2" side(usa) lvl(lvl2 lvl3) r(9) rm(99) cost(18.0))} ; m1 garand + bar ammo
+{"mp/usa/late/late_vet_rifle_gren"		("inf_tier2" side(usa) lvl(lvl2 lvl3) r(9) rm(99) cost(28.0))} ; m1 garand + rifle grenade
+{"mp/usa/late/late_vet_rifle_sniper"	("inf_tier2" side(usa) lvl(lvl2 lvl3) r(9) rm(99) cost(55.0))} ; m1903a4
+{"mp/usa/late/late_vet_sl_asst"			("inf_tier2" side(usa) lvl(lvl2 lvl3) r(9) rm(99) cost(18.0))} ; m1 garand
+{"mp/usa/late/late_vet_sl_asst_gren"	("inf_tier2" side(usa) lvl(lvl2 lvl3) r(9) rm(99) cost(28.0))} ; m1 garand + rifle grenade
+{"mp/usa/late/late_vet_sl_rifle"		("inf_tier2" side(usa) lvl(lvl2 lvl3) r(9) rm(99) cost(18.0))} ; m1 garand
+{"mp/usa/late/late_vet_sl_smg"			("inf_tier2" side(usa) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; m1a1 thompson
+{"mp/usa/late/late_vet_sl_smg_m3"		("inf_tier2" side(usa) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; m3 grease
+{"mp/usa/late/late_vet_smg"				("inf_tier2" side(usa) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; m1a1 thompson
+{"mp/usa/late/late_vet_smg_m3"			("inf_tier2" side(usa) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; m3 grease
+
+;// tier 3
+
+{"mp/usa/mid/ar1_platoon_com"			("inf_tier3" side(usa) lvl() r(1) rm(8) cost(15.0))} ; m1 carbine
+{"mp/usa/mid/ar1_platoon_ssgt"			("inf_tier3" side(usa) lvl() r(1) rm(8) cost(15.0))} ; m1 carbine
+{"mp/usa/mid/ar1_company_1st_sgt"		("inf_tier3" side(usa) lvl() r(1) rm(8) cost(15.0))} ; m1 carbine
+{"mp/usa/late/ar_company_1st_sgt"		("inf_tier3" side(usa) lvl() r(1) rm(8) cost(15.0))} ; m1 carbine
+
+{"mp/usa/mid/82nd_glider_at_asst"		("inf_tier3" side(usa) lvl() r(9) rm(99) cost(18.0))} ; m1 garand + bazooka ammo
+{"mp/usa/mid/82nd_glider_at_m1a1"		("inf_tier3" side(usa) lvl() r(9) rm(99) cost(48.0))} ; m1 garand + m1a1 bazooka
+{"mp/usa/mid/82nd_glider_bar"			("inf_tier3" side(usa) lvl(lvl2 lvl3) r(1) rm(10) cost(25.0))} ; m1918a2 bar
+{"mp/usa/mid/82nd_glider_bar_ammo"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(1) rm(10) cost(18.0))} ; m1 garand + bar ammo
+{"mp/usa/mid/82nd_glider_bar_asst"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(1) rm(10) cost(18.0))} ; m1 garand + bar ammo
+{"mp/usa/mid/82nd_glider_rifle"			("inf_tier3" side(usa) lvl(lvl2 lvl3) r(1) rm(10) cost(18.0))} ; m1 garand
+{"mp/usa/mid/82nd_glider_rifle_band2"	("inf_tier3" side(usa) lvl(lvl2 lvl3) r(1) rm(10) cost(18.0))} ; m1 garand
+{"mp/usa/mid/82nd_glider_rifle_gren"	("inf_tier3" side(usa) lvl(lvl2 lvl3) r(1) rm(10) cost(33.0))} ; m1903 + rifle grenade
+{"mp/usa/mid/82nd_glider_sl_asst"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(1) rm(10) cost(18.0))} ; m1 garand
+{"mp/usa/mid/82nd_glider_sl_rifle"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(1) rm(10) cost(18.0))} ; m1 garand
+{"mp/usa/mid/82nd_glider_sl_smg"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(1) rm(10) cost(15.0))} ; m1 thompson
+{"mp/usa/mid/82nd_glider_sniper"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(1) rm(10) cost(55.0))} ; m1903a4
+
+{"mp/usa/mid/82nd_glider_pio_carbine"	("inf_tier3" side(usa) lvl(lvl2 lvl3) r(1) rm(10) cost(15.0))} ; m1 carbine
+{"mp/usa/mid/82nd_glider_pio_flamer"	("inf_tier3" side(usa) lvl(lvl2 lvl3) r(1) rm(10) cost(40.0))} ; m1a1 flamer
+{"mp/usa/mid/82nd_glider_pio_rifle"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(1) rm(10) cost(18.0))} ; m1 garand
+{"mp/usa/mid/82nd_glider_pio_rifle_at"	("inf_tier3" side(usa) lvl(lvl2 lvl3) r(1) rm(10) cost(18.0))} ; m1 garand + m7 mines
+{"mp/usa/mid/82nd_glider_pio_sl"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(1) rm(10) cost(18.0))} ; m1 garand
+{"mp/usa/mid/82nd_glider_pio_sl_asst"	("inf_tier3" side(usa) lvl(lvl2 lvl3) r(1) rm(10) cost(33.0))} ; m1903 + rifle grenade
+
+{"mp/usa/mid/nco_sgt_rifle"				("inf_tier3" side(usa) lvl() r(1) rm(8) cost(18.0))} ; m1 garand
+{"mp/usa/mid/platoon_ssgt"				("inf_tier3" side(usa) lvl() r(1) rm(8) cost(18.0))} ; m1 garand
+
+{"mp/usa/late/mountain_at_asst"			("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(18.0))} ; m1 garand + bazooka ammo
+{"mp/usa/late/mountain_at_m1a1"			("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(48.0))} ; m1 garand + m1a1 bazooka
+{"mp/usa/late/mountain_at_m9a1"			("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(48.0))} ; m1 garand + m9a1 bazooka
+{"mp/usa/late/mountain_bar"				("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(25.0))} ; m1918a2 bar
+{"mp/usa/late/mountain_bar_ammo"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(18.0))} ; m1 garand + bar ammo
+{"mp/usa/late/mountain_bar_asst"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(18.0))} ; m1 garand + bar ammo
+{"mp/usa/late/mountain_rifle"			("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(18.0))} ; m1 garand
+{"mp/usa/late/mountain_rifle_at"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(18.0))} ; m1 garand + m7 mines
+{"mp/usa/late/mountain_rifle_gren"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(28.0))} ; m1 garand + rifle grenade
+{"mp/usa/late/mountain_sl_asst_gren"	("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(28.0))} ; m1 garand + rifle grenade
+{"mp/usa/late/mountain_sl_rifle"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(18.0))} ; m1 garand
+{"mp/usa/late/mountain_sl_smg"			("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(15.0))} ; m1a1 thompson
+{"mp/usa/late/mountain_sl_smg_m3"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(15.0))} ; m3 grease
+{"mp/usa/late/mountain_sniper"			("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(55.0))} ; m1903a4
+
+{"mp/usa/late/mountain_pio_at_asst"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(15.0))} ; m1 carbine + bazooka ammo
+{"mp/usa/late/mountain_pio_at_m9a1"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(45.0))} ; m1 carbine + m9a1 bazooka
+{"mp/usa/late/mountain_pio"				("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(15.0))} ; m1 carbine
+{"mp/usa/late/mountain_pio_sl"			("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(15.0))} ; m1 carbine
+{"mp/usa/late/mountain_pio_sl_asst"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(15.0))} ; m1 carbine
+
+{"mp/usa/late/101st_late_glider_at_asst"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(18.0))} ; m1 garand + bazooka ammo
+{"mp/usa/late/101st_late_glider_at_m1a1"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(48.0))} ; m1 garand + m1a1 bazooka
+{"mp/usa/late/101st_late_glider_at_m9a1"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(48.0))} ; m1 garand + m9a1 bazooka
+{"mp/usa/late/101st_late_glider_bar"			("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(25.0))} ; m1918a2 bar
+{"mp/usa/late/101st_late_glider_bar_ammo"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(18.0))} ; m1 garand + bar ammo
+{"mp/usa/late/101st_late_glider_bar_asst"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(18.0))} ; m1 garand + bar ammo
+{"mp/usa/late/101st_late_glider_rifle"			("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(18.0))} ; m1 garand
+{"mp/usa/late/101st_late_glider_rifle_band2"	("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(18.0))} ; m1 garand
+{"mp/usa/late/101st_late_glider_rifle_gren"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(28.0))} ; m1 garand + rifle grenade
+{"mp/usa/late/101st_late_glider_sl_asst"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(18.0))} ; m1 garand
+{"mp/usa/late/101st_late_glider_sl_rifle"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(18.0))} ; m1 garand
+{"mp/usa/late/101st_late_glider_sl_smg"			("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(15.0))} ; m1a1 thompson
+{"mp/usa/late/101st_late_glider_sniper"			("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(55.0))} ; m1903a4
+
+;// tier 3 vet
+
+{"mp/usa/late/1st_late_rifle"			("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(18.0))} ; m1 garand
+{"mp/usa/late/1st_late_rifle_at"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(18.0))} ; m1 garand + m7 mines
+{"mp/usa/late/1st_late_rifle_at_asst"	("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(18.0))} ; m1 garand + bazooka ammo
+{"mp/usa/late/1st_late_rifle_at_m1a1"	("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(48.0))} ; m1 garand + m1a1 bazooka
+{"mp/usa/late/1st_late_rifle_at_m9a1"	("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(48.0))} ; m1 garand + m9a1 bazooka
+{"mp/usa/late/1st_late_rifle_band"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(18.0))} ; m1 garand
+{"mp/usa/late/1st_late_rifle_bar"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(25.0))} ; m1918a2 bar
+{"mp/usa/late/1st_late_rifle_bar_ammo"	("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(18.0))} ; m1 garand + bar ammo
+{"mp/usa/late/1st_late_rifle_bar_asst"	("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(18.0))} ; m1 garand + bar ammo
+{"mp/usa/late/1st_late_rifle_gren"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(28.0))} ; m1 garand + rifle grenade
+{"mp/usa/late/1st_late_rifle_sniper"	("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(55.0))} ; m1903a4
+{"mp/usa/late/1st_late_sl_asst"			("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(18.0))} ; m1 garand
+{"mp/usa/late/1st_late_sl_asst_gren"	("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(28.0))} ; m1 garand + rifle grenade
+{"mp/usa/late/1st_late_sl_rifle"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(18.0))} ; m1 garand
+{"mp/usa/late/1st_late_sl_smg"			("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(15.0))} ; m1a1 thompson
+{"mp/usa/late/1st_late_sl_smg_m3"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(15.0))} ; m3 grease
+
+{"mp/usa/late/ar1_late_crew"			("inf_tier3" side(usa) lvl() r(10) rm(99) cost(15.0))} ; m1 carbine
+{"mp/usa/late/ar1_late_driver"			("inf_tier3" side(usa) lvl() r(10) rm(99) cost(10.0))} ; m3 grease
+{"mp/usa/late/ar1_late_rifle_at_asst"	("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(18.0))} ; m1 garand + bazooka ammo
+{"mp/usa/late/ar1_late_rifle_at_m1a1"	("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(48.0))} ; m1 garand + m1a1 bazooka
+{"mp/usa/late/ar1_late_rifle_at_m9a1"	("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(48.0))} ; m1 garand + m9a1 bazooka
+{"mp/usa/late/ar1_late_rifle_band"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(18.0))} ; m1 garand
+{"mp/usa/late/ar1_late_rifle_bar"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(25.0))} ; m1918a2 bar
+{"mp/usa/late/ar1_late_rifle_bar_ammo"	("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(18.0))} ; m1 garand + bar ammo
+{"mp/usa/late/ar1_late_rifle_bar_asst"	("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(18.0))} ; m1 garand + bar ammo
+{"mp/usa/late/ar1_late_rifle_gren"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(28.0))} ; m1 garand + rifle grenade
+{"mp/usa/late/ar1_late_rifle_sniper"	("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(55.0))} ; m1903a4
+{"mp/usa/late/ar1_late_sl_asst"			("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(18.0))} ; m1 garand
+{"mp/usa/late/ar1_late_sl_asst_carbine"	("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(15.0))} ; m1 carbine
+{"mp/usa/late/ar1_late_sl_carbine"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(15.0))} ; m1 carbine
+{"mp/usa/late/ar1_late_sl_rifle"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(10) rm(99) cost(18.0))} ; m1 garand
+
+{"mp/usa/late/82nd_late_glider_at_asst"			("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(18.0))} ; m1 garand + bazooka ammo
+{"mp/usa/late/82nd_late_glider_at_m1a1"			("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(48.0))} ; m1 garand + m1a1 bazooka
+{"mp/usa/late/82nd_late_glider_at_m9a1"			("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(48.0))} ; m1 garand + m9a1 bazooka
+{"mp/usa/late/82nd_late_glider_bar"				("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(25.0))} ; m1918a2 bar
+{"mp/usa/late/82nd_late_glider_bar_ammo"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(18.0))} ; m1 garand + bar ammo
+{"mp/usa/late/82nd_late_glider_bar_asst"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(18.0))} ; m1 garand + bar ammo
+{"mp/usa/late/82nd_late_glider_rifle"			("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(18.0))} ; m1 garand
+{"mp/usa/late/82nd_late_glider_rifle_band2"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(18.0))} ; m1 garand
+{"mp/usa/late/82nd_late_glider_rifle_gren"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(28.0))} ; m1 garand + rifle grenade
+{"mp/usa/late/82nd_late_glider_sl_asst"			("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(18.0))} ; m1 garand
+{"mp/usa/late/82nd_late_glider_sl_rifle"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(18.0))} ; m1 garand
+{"mp/usa/late/82nd_late_glider_sl_smg"			("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(15.0))} ; m1a1 thompson
+{"mp/usa/late/82nd_late_glider_sniper"			("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(55.0))} ; m1903a4
+
+{"mp/usa/late/82nd_late_glider_pio_carbine"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(15.0))} ; m1 carbine
+{"mp/usa/late/82nd_late_glider_pio_flamer"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(40.0))} ; m2 flamer
+{"mp/usa/late/82nd_late_glider_pio_rifle"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(18.0))} ; m1 garand
+{"mp/usa/late/82nd_late_glider_pio_rifle_at"	("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(18.0))} ; m1 garand + m7 mines
+{"mp/usa/late/82nd_late_glider_pio_sl"			("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(18.0))} ; m1 garand
+{"mp/usa/late/82nd_late_glider_pio_sl_asst"		("inf_tier3" side(usa) lvl(lvl2 lvl3) r(11) rm(99) cost(28.0))} ; m1 garand + rifle grenade
+
+
+;// tier 4
+
+{"mp/usa/mid/ranger_at_m1a1"		("inf_tier4" side(usa) lvl() r(9) rm(99) cost(73.0))} ; m1 garand + m1a1 bazooka
+{"mp/usa/mid/ranger_bar"			("inf_tier4" side(usa) lvl(lvl3 lvl4) r(1) rm(10) cost(30.0))} ; m1918a2 bar
+{"mp/usa/mid/ranger_bar_ammo"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(1) rm(10) cost(23.0))} ; m1 garand + bar ammo
+{"mp/usa/mid/ranger_bar_asst"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(1) rm(10) cost(23.0))} ; m1 garand + bar ammo
+{"mp/usa/mid/ranger_crew"			("inf_tier4" side(usa) lvl() r(1) rm(10) cost(10.0))} ; m1911
+{"mp/usa/mid/ranger_gren"			("inf_tier4" side(usa) lvl(lvl3 lvl4) r(1) rm(10) cost(38.0))} ; m1903 + rifle grenade
+{"mp/usa/mid/ranger_mg_ammo"		("inf_tier4" side(usa) lvl() r(1) rm(10) cost(23.0))} ; m1 garand + m1919 ammo
+{"mp/usa/mid/ranger_mg_crew"		("inf_tier4" side(usa) lvl() r(1) rm(10) cost(10.0))} ; m1911
+{"mp/usa/mid/ranger_mg_crew_asst"	("inf_tier4" side(usa) lvl() r(1) rm(10) cost(10.0))} ; m1911
+{"mp/usa/mid/ranger_rifle"			("inf_tier4" side(usa) lvl(lvl3 lvl4) r(1) rm(10) cost(23.0))} ; m1 garand
+{"mp/usa/mid/ranger_sec_lead"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(1) rm(10) cost(23.0))} ; m1 garand
+{"mp/usa/mid/ranger_sl_rifle_cpl"	("inf_tier4" side(usa) lvl(lvl3 lvl4) r(1) rm(10) cost(23.0))} ; m1 garand
+{"mp/usa/mid/ranger_sl_rifle_gren_cpl"("inf_tier4" side(usa) lvl(lvl3 lvl4) r(1) rm(10) cost(38.0))} ; m1903 + rifle grenade
+{"mp/usa/mid/ranger_sl_rifle_sgt"	("inf_tier4" side(usa) lvl() r(1) rm(10) cost(23.0))} ; m1 garand
+{"mp/usa/mid/ranger_sl_smg_cpl"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(1) rm(10) cost(20.0))} ; m1 thompson
+{"mp/usa/mid/ranger_sl_smg_sgt"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(1) rm(10) cost(20.0))} ; m1a1 thompson
+
+{"mp/usa/mid/82nd_at_asst"			("inf_tier4" side(usa) lvl(lvl3 lvl4) r(9) rm(99) cost(23.0))} ; m1 garand + bazooka ammo
+{"mp/usa/mid/82nd_at_m1a1"			("inf_tier4" side(usa) lvl(lvl3 lvl4) r(9) rm(99) cost(73.0))} ; m1 garand + m1a1 bazooka
+{"mp/usa/mid/82nd_carbine"			("inf_tier4" side(usa) lvl(lvl3 lvl4) r(1) rm(10) cost(20.0))} ; m1a1 carbine
+{"mp/usa/mid/82nd_crew"				("inf_tier4" side(usa) lvl() r(1) rm(10) cost(20.0))} ; m1a1 carbine
+{"mp/usa/mid/82nd_demo"				("inf_tier4" side(usa) lvl() r(1) rm(10) cost(20.0))} ; m1a1 carbine + m7 mines/satchels
+{"mp/usa/mid/82nd_mg_ammo"			("inf_tier4" side(usa) lvl() r(1) rm(10) cost(23.0))} ; m1 garand + m1919 ammo
+{"mp/usa/mid/82nd_mg_asst"			("inf_tier4" side(usa) lvl() r(1) rm(10) cost(20.0))} ; m1 garand + m1919 ammo
+{"mp/usa/mid/82nd_mg_crew"			("inf_tier4" side(usa) lvl() r(1) rm(10) cost(10.0))} ; m1911
+{"mp/usa/mid/82nd_recon_rifle"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(1) rm(10) cost(23.0))} ; m1 garand
+{"mp/usa/mid/82nd_recon_tl"			("inf_tier4" side(usa) lvl(lvl3 lvl4) r(1) rm(10) cost(19.0))} ; m1 thompson 20
+{"mp/usa/mid/82nd_rifle"			("inf_tier4" side(usa) lvl(lvl3 lvl4) r(1) rm(10) cost(23.0))} ; m1 garand
+{"mp/usa/mid/82nd_rifle_gren"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(1) rm(10) cost(38.0))} ; m1903 + rifle grenade
+{"mp/usa/mid/82nd_sl"				("inf_tier4" side(usa) lvl(lvl3 lvl4) r(1) rm(10) cost(23.0))} ; m1 garand
+{"mp/usa/mid/82nd_sl_asst"			("inf_tier4" side(usa) lvl(lvl3 lvl4) r(1) rm(10) cost(23.0))} ; m1 garand
+{"mp/usa/mid/82nd_sl_asst_gren"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(1) rm(10) cost(38.0))} ; m1903 + rifle grenade
+{"mp/usa/mid/82nd_sl_asst_smg"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(1) rm(10) cost(20.0))} ; m1 thompson
+{"mp/usa/mid/82nd_sl_smg"			("inf_tier4" side(usa) lvl(lvl3 lvl4) r(1) rm(10) cost(20.0))} ; m1a1 thompson
+{"mp/usa/mid/82nd_smg"				("inf_tier4" side(usa) lvl(lvl3 lvl4) r(1) rm(10) cost(20.0))} ; m1 thompson
+{"mp/usa/mid/82nd_sniper"			("inf_tier4" side(usa) lvl(lvl3 lvl4) r(1) rm(10) cost(59.0))} ; m1903a4
+
+{"mp/usa/mid/82nd_eng_at_asst"		("inf_tier4" side(usa) lvl() r(9) rm(99) cost(23.0))} ; m1 garand + bazooka ammo
+{"mp/usa/mid/82nd_eng_at_m1a1"		("inf_tier4" side(usa) lvl() r(9) rm(99) cost(73.0))} ; m1 garand + m1a1 bazooka
+{"mp/usa/mid/82nd_eng_carbine"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(1) rm(10) cost(20.0))} ; m1a1 carbine
+{"mp/usa/mid/82nd_eng_flamer"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(1) rm(10) cost(40.0))} ; m1a1 flamer
+{"mp/usa/mid/82nd_eng_rifle"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(1) rm(10) cost(23.0))} ; m1 garand
+{"mp/usa/mid/82nd_eng_sl"			("inf_tier4" side(usa) lvl(lvl3 lvl4) r(1) rm(10) cost(23.0))} ; m1 garand
+{"mp/usa/mid/82nd_eng_sl_asst_gren"	("inf_tier4" side(usa) lvl(lvl3 lvl4) r(1) rm(10) cost(38.0))} ; m1903 + rifle grenade
+{"mp/usa/mid/82nd_eng_sl_smg"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(1) rm(10) cost(20.0))} ; m1 thompson
+{"mp/usa/mid/82nd_eng_smg"			("inf_tier4" side(usa) lvl(lvl3 lvl4) r(1) rm(10) cost(20.0))} ; m1 thompson
+
+{"mp/usa/mid/1st_special_at"		("inf_tier4" side(usa) lvl() r(9) rm(99) cost(73.0))} ; m1 garand + m1a1 bazooka
+{"mp/usa/mid/1st_special_demo"		("inf_tier4" side(usa) lvl() r(1) rm(99) cost(23.0))} ; m1 garand
+{"mp/usa/mid/1st_special_gren"		("inf_tier4" side(usa) lvl() r(1) rm(99) cost(38.0))} ; m1903 + rifle grenade
+{"mp/usa/mid/1st_special_lmg"		("inf_tier4" side(usa) lvl() r(1) rm(99) cost(30.0))} ; m1918a2 bar
+{"mp/usa/mid/1st_special_mech"		("inf_tier4" side(usa) lvl() r(1) rm(99) cost(23.0))} ; m1 garand
+{"mp/usa/mid/1st_special_medic"		("inf_tier4" side(usa) lvl() r(1) rm(99) cost(23.0))} ; m1 garand
+{"mp/usa/mid/1st_special_radio"		("inf_tier4" side(usa) lvl() r(1) rm(99) cost(23.0))} ; m1 garand
+{"mp/usa/mid/1st_special_sec_lead"	("inf_tier4" side(usa) lvl() r(1) rm(99) cost(20.0))} ; m1 thompson
+
+{"mp/usa/late/ranger_late_at_m9a1"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(11) rm(99) cost(73.0))} ; m1 garand + m9a1 bazooka
+{"mp/usa/late/ranger_late_bar"			("inf_tier4" side(usa) lvl(lvl3 lvl4) r(11) rm(99) cost(30.0))} ; m1918a2 bar
+{"mp/usa/late/ranger_late_bar_ammo"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(11) rm(99) cost(23.0))} ; m1 garand + bar ammo
+{"mp/usa/late/ranger_late_bar_asst"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(11) rm(99) cost(23.0))} ; m1 garand + bar ammo
+{"mp/usa/late/ranger_late_crew"			("inf_tier4" side(usa) lvl() r(11) rm(99) cost(10.0))} ; m1911
+{"mp/usa/late/ranger_late_gren"			("inf_tier4" side(usa) lvl(lvl3 lvl4) r(11) rm(99) cost(33.0))} ; m1 garand + rifle grenade
+{"mp/usa/late/ranger_late_mg_ammo"		("inf_tier4" side(usa) lvl() r(11) rm(99) cost(23.0))} ; m1 garand + m1919 ammo
+{"mp/usa/late/ranger_late_mg_crew"		("inf_tier4" side(usa) lvl() r(11) rm(99) cost(10.0))} ; m1911
+{"mp/usa/late/ranger_late_mg_crew_asst"	("inf_tier4" side(usa) lvl() r(11) rm(99) cost(10.0))} ; m1911
+{"mp/usa/late/ranger_late_rifle"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(11) rm(99) cost(23.0))} ; m1 garand
+{"mp/usa/late/ranger_late_sec_lead"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(11) rm(99) cost(23.0))} ; m1 garand
+{"mp/usa/late/ranger_late_sl_asst_m9a1"	("inf_tier4" side(usa) lvl(lvl3 lvl4) r(11) rm(99) cost(73.0))} ; m1 garand + m9a1 bazooka
+{"mp/usa/late/ranger_late_sl_rifle_sgt"	("inf_tier4" side(usa) lvl(lvl3 lvl4) r(11) rm(99) cost(23.0))} ; m1 garand
+{"mp/usa/late/ranger_late_sl_rifle_ssgt"("inf_tier4" side(usa) lvl(lvl3 lvl4) r(11) rm(99) cost(23.0))} ; m1 garand
+{"mp/usa/late/ranger_late_sl_smg_sgt"	("inf_tier4" side(usa) lvl(lvl3 lvl4) r(11) rm(99) cost(20.0))} ; m1a1 thompson
+{"mp/usa/late/ranger_late_sl_smg_ssgt"	("inf_tier4" side(usa) lvl(lvl3 lvl4) r(11) rm(99) cost(20.0))} ; m1a1 thompson
+
+{"mp/usa/late/101st_at_asst"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(9) rm(99) cost(23.0))} ; m1 garand + bazooka ammo
+{"mp/usa/late/101st_at_m1a1"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(9) rm(99) cost(73.0))} ; m1 garand + m1a1 bazooka
+{"mp/usa/late/101st_at_m9"			("inf_tier4" side(usa) lvl(lvl3 lvl4) r(9) rm(99) cost(73.0))} ; m1 garand + m9a1 bazooka
+{"mp/usa/late/101st_at_m9a1"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(9) rm(99) cost(73.0))} ; m1 garand + m9a1 bazooka
+{"mp/usa/late/101st_bar"			("inf_tier4" side(usa) lvl(lvl3 lvl4) r(9) rm(99) cost(30.0))} ; m1918a2 bar
+{"mp/usa/late/101st_bar_asst"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(9) rm(99) cost(23.0))} ; m1 garand + bar ammo
+{"mp/usa/late/101st_carbine"		("inf_tier4" side(usa) lvl() r(9) rm(99) cost(20.0))} ; m1a1 carbine
+{"mp/usa/late/101st_crew"			("inf_tier4" side(usa) lvl() r(9) rm(99) cost(20.0))} ; m1a1 carbine
+{"mp/usa/late/101st_demo"			("inf_tier4" side(usa) lvl() r(9) rm(99) cost(20.0))} ; m1a1 carbine + m7 mines/satchels
+{"mp/usa/late/101st_demo_off"		("inf_tier4" side(usa) lvl() r(9) rm(99) cost(20.0))} ; m1a1 carbine
+{"mp/usa/late/101st_medic"			("inf_tier4" side(usa) lvl() r(9) rm(99) cost(50.0))} ; m1911
+{"mp/usa/late/101st_mg"				("inf_tier4" side(usa) lvl(lvl3 lvl4) r(9) rm(99) cost(40.0))} ; m1919a6 + m1a1 carbine
+{"mp/usa/late/101st_mg_ammo"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(9) rm(99) cost(23.0))} ; m1 garand + m1919 ammo
+{"mp/usa/late/101st_mg_asst"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; m1a1 carbine + m1919 ammo
+{"mp/usa/late/101st_rifle"			("inf_tier4" side(usa) lvl(lvl3 lvl4) r(9) rm(99) cost(23.0))} ; m1 garand
+{"mp/usa/late/101st_rifle_gren"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(9) rm(99) cost(33.0))} ; m1 garand + rifle grenade
+{"mp/usa/late/101st_sl"				("inf_tier4" side(usa) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; m1a1 thompson
+{"mp/usa/late/101st_sl_asst"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; m1a1 thompson
+{"mp/usa/late/101st_sl_asst_gren"	("inf_tier4" side(usa) lvl(lvl3 lvl4) r(9) rm(99) cost(33.0))} ; m1 garand + rifle grenade
+{"mp/usa/late/101st_smg"			("inf_tier4" side(usa) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; m1a1 thompson
+{"mp/usa/late/101st_smg_m3"			("inf_tier4" side(usa) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; m3 grease
+{"mp/usa/late/101st_sniper"			("inf_tier4" side(usa) lvl(lvl3 lvl4) r(9) rm(99) cost(59.0))} ; m1903a4
+
+{"mp/usa/late/101st_eng_at_asst"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(9) rm(99) cost(23.0))} ; m1 garand + bazooka ammo
+{"mp/usa/late/101st_eng_at_m9a1"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(9) rm(99) cost(73.0))} ; m1 garand + m9a1 bazooka
+{"mp/usa/late/101st_eng_carbine"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; m1a1 carbine
+{"mp/usa/late/101st_eng_flamer"			("inf_tier4" side(usa) lvl(lvl3 lvl4) r(9) rm(99) cost(40.0))} ; m2 flamer
+{"mp/usa/late/101st_eng_rifle"			("inf_tier4" side(usa) lvl(lvl3 lvl4) r(9) rm(99) cost(23.0))} ; m1 garand
+{"mp/usa/late/101st_eng_sl"				("inf_tier4" side(usa) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; m1a1 carbine
+{"mp/usa/late/101st_eng_sl_asst"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; m1a1 carbine
+{"mp/usa/late/101st_eng_sl_asst_gren"	("inf_tier4" side(usa) lvl(lvl3 lvl4) r(9) rm(99) cost(33.0))} ; m1 garand + rifle grenade
+{"mp/usa/late/101st_eng_sl_smg"			("inf_tier4" side(usa) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; m1a1 thompson
+{"mp/usa/late/101st_eng_smg"			("inf_tier4" side(usa) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; m1a1 thompson
+
+;// tier 4 vet
+
+{"mp/usa/late/82nd_late_at_asst"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(11) rm(99) cost(23.0))} ; m1 garand + bazooka ammo
+{"mp/usa/late/82nd_late_at_m1a1"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(11) rm(99) cost(73.0))} ; m1 garand + m1a1 bazooka
+{"mp/usa/late/82nd_late_at_m9"			("inf_tier4" side(usa) lvl(lvl3 lvl4) r(11) rm(99) cost(73.0))} ; m1 garand + m9 bazooka
+{"mp/usa/late/82nd_late_at_m9a1"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(11) rm(99) cost(73.0))} ; m1 garand + m9a1 bazooka
+{"mp/usa/late/82nd_late_bar"			("inf_tier4" side(usa) lvl(lvl3 lvl4) r(11) rm(99) cost(30.0))} ; m1918a2 bar
+{"mp/usa/late/82nd_late_bar_asst"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(11) rm(99) cost(23.0))} ; m1 garand + bar ammo
+{"mp/usa/late/82nd_late_carbine"		("inf_tier4" side(usa) lvl() r(11) rm(99) cost(20.0))} ; m1a1 carbine
+{"mp/usa/late/82nd_late_crew"			("inf_tier4" side(usa) lvl() r(11) rm(99) cost(20.0))} ; m1a1 carbine
+{"mp/usa/late/82nd_late_demo"			("inf_tier4" side(usa) lvl() r(11) rm(99) cost(20.0))} ; m1a1 carbine + m7 mines/satchels
+{"mp/usa/late/82nd_late_demo_off"		("inf_tier4" side(usa) lvl() r(11) rm(99) cost(20.0))} ; m1a1 carbine
+{"mp/usa/late/82nd_late_medic"			("inf_tier4" side(usa) lvl() r(11) rm(99) cost(50.0))} ; m1911
+{"mp/usa/late/82nd_late_mg"				("inf_tier4" side(usa) lvl(lvl3 lvl4) r(11) rm(99) cost(40.0))} ; m1919a6 + m1a1 carbine
+{"mp/usa/late/82nd_late_mg_ammo"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(11) rm(99) cost(23.0))} ; m1 garand + m1919 ammo
+{"mp/usa/late/82nd_late_mg_asst"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(11) rm(99) cost(20.0))} ; m1a1 carbine + m1919 ammo
+{"mp/usa/late/82nd_late_rifle"			("inf_tier4" side(usa) lvl(lvl3 lvl4) r(11) rm(99) cost(23.0))} ; m1 garand
+{"mp/usa/late/82nd_late_rifle_gren"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(11) rm(99) cost(33.0))} ; m1 garand + rifle grenade
+{"mp/usa/late/82nd_late_sl"				("inf_tier4" side(usa) lvl(lvl3 lvl4) r(11) rm(99) cost(20.0))} ; m1a1 thompson
+{"mp/usa/late/82nd_late_sl_asst"		("inf_tier4" side(usa) lvl(lvl3 lvl4) r(11) rm(99) cost(20.0))} ; m1a1 thompson
+{"mp/usa/late/82nd_late_sl_asst_gren"	("inf_tier4" side(usa) lvl(lvl3 lvl4) r(11) rm(99) cost(33.0))} ; m1 garand + rifle grenade
+{"mp/usa/late/82nd_late_smg"			("inf_tier4" side(usa) lvl(lvl3 lvl4) r(11) rm(99) cost(20.0))} ; m1a1 thompson
+{"mp/usa/late/82nd_late_sniper"			("inf_tier4" side(usa) lvl(lvl3 lvl4) r(11) rm(99) cost(59.0))} ; m1903a4
+
+{"mp/usa/late/82nd_late_eng_at_asst"		("inf_tier4" side(usa) lvl() r(11) rm(99) cost(23.0))} ; m1 garand + bazooka ammo
+{"mp/usa/late/82nd_late_eng_at_m9a1"		("inf_tier4" side(usa) lvl() r(11) rm(99) cost(73.0))} ; m1 garand + m9a1 bazooka
+{"mp/usa/late/82nd_late_eng_carbine"		("inf_tier4" side(usa) lvl() r(11) rm(99) cost(20.0))} ; m1a1 carbine
+{"mp/usa/late/82nd_late_eng_flamer"			("inf_tier4" side(usa) lvl() r(11) rm(99) cost(40.0))} ; m2 flamer
+{"mp/usa/late/82nd_late_eng_rifle"			("inf_tier4" side(usa) lvl() r(11) rm(99) cost(23.0))} ; m1 garand
+{"mp/usa/late/82nd_late_eng_sl"				("inf_tier4" side(usa) lvl() r(11) rm(99) cost(20.0))} ; m1a1 carbine
+{"mp/usa/late/82nd_late_eng_sl_asst_gren"	("inf_tier4" side(usa) lvl() r(11) rm(99) cost(33.0))} ; m1 garand + rifle grenade
+
+{"mp/usa/mid/platoon_radio"					("inf_signaller" 		side(usa) lvl(lvl3 lvl4) r(99) rm(99) cost(170.0))}
+{"mp/usa/late/82nd_platoon_radio"			("inf_signaller_late" 	side(usa) lvl(lvl3 lvl4) r(99) rm(99) cost(170.0))}
+{"mp/usa/late/101st_platoon_radio"			("inf_signaller_late" 	side(usa) lvl(lvl3 lvl4) r(99) rm(99) cost(170.0))}

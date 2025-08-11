@@ -1,0 +1,104 @@
+{game_entity
+	(include "/properties/airborne_drop_plane_ce.ext")
+	{props "wheeled" "player" "drop_plane" "c-47_skytrain_dakota" "vision_lev02_air"}
+	{PatherID "bf110"}
+	(include "/properties/shadow/airborn.inc" scale(2.2))
+	(include "/properties/selection/airborne.inc" scale(2.25))
+	(include "/properties/car_crew.ext")
+
+	{Sensor
+		{Visor "main"
+			{bone "Visor"}
+		}
+	}
+
+	{boarder
+
+		{anm "driver"
+			{forward	{begin	"board_big-highcar"} {end "seat_driver_car"} {base "open1"}}
+			{reverse	{end	"board_big-highcar" -1} {base "open1" -1}}
+		}
+		{anm "commander"
+			{forward	{begin	"board_big-midcar_driver"} {end "seat_driver_car"} {base "open2"}}
+			{reverse	{end	"board_big-midcar_driver" -1} {base "open2" -1}}
+		}
+
+		{anm "passenger1"
+			{forward	{begin	"board_HighArmor"} {end "seat_passenger"} {base "open"}}
+			{reverse	{end	"board_HighArmor" -1} {base "open" -1}}
+		}
+		{anm "passenger2"
+			{forward	{begin	"board_HighArmor"} {end "pose_pak40_charger"} {base "open"}}
+			{reverse	{end	"board_HighArmor" -1} {base "open" -1}}
+		}
+
+	}
+
+(define "seat_human"
+	{placer
+		{place "%place" {LinkBone "%bone"} {openForCrush}}
+	}
+	{boarder
+		{door "%door"}
+		{link "%door" "%place" {anm "%animation"} {forward putoff} {reverse puton}}
+	}
+)
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver))
+	("crew_human" place(driver1) bone(driver1) door(emit2) animation(commander))
+
+
+	("seat_human" place(seat01) bone(seat01) door(emit3)  animation(passenger1))
+	("seat_human" place(seat02) bone(seat02) door(emit4)  animation(passenger1))
+	("seat_human" place(seat03) bone(seat03) door(emit5)  animation(passenger1))
+	("seat_human" place(seat04) bone(seat04) door(emit6)  animation(passenger1))
+	("seat_human" place(seat05) bone(seat05) door(emit3)  animation(passenger1))
+	("seat_human" place(seat06) bone(seat06) door(emit4)  animation(passenger1))
+	("seat_human" place(seat07) bone(seat07) door(emit5)  animation(passenger1))
+	("seat_human" place(seat08) bone(seat08) door(emit6)  animation(passenger2))
+	("seat_human" place(seat09) bone(seat09) door(emit3)  animation(passenger2))
+	("seat_human" place(seat10) bone(seat10) door(emit4)  animation(passenger2))
+	("seat_human" place(seat11) bone(seat11) door(emit5)  animation(passenger2))
+	("seat_human" place(seat12) bone(seat12) door(emit6)  animation(passenger2))
+	("seat_human" place(seat13) bone(seat13) door(emit3)  animation(passenger2))
+	("seat_human" place(seat14) bone(seat14) door(emit4)  animation(passenger2))
+
+	{Placer
+		{place "driver" {visor "main"} {turnOff {targetable}}}
+		{place "driver1" {visor "main"} {turnOff {targetable}}}
+	}
+
+	("double_engine")
+	("wheel" args "wheelr")
+	("wheel" args "wheell")
+	("wheel" args "wheelback")
+
+	{Chassis "wheel"
+		("car_trace" fx("tracewheel05") step(0.07) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+	}
+
+	{Chassis "airborne"
+		("flight_model_ce"
+			speed(480)  ;//---------Max speed (at sea level), km/h.
+			climb_speed(0) ;//-----Climb rate at sea level, in m/s
+			turn(250) ;//-----------Turn-and-burn radius in meters, tightest sustained turn
+			aerodynamics(1.55) ;//--Aerodynamic efficiency rating (0-3)
+			weight(7600) ;//--------Weight in kg.
+			power(2200) ;//---------Horse Power.
+			fuel(1300) ;//----------Fuel capacity in Liters.
+			range(1500) ;//---------Distance can travel with full fuel tank, in km.
+			roll_rate(40) ;//-------Roll rate, in degrees per second.
+			roll_angle(65) ;//------Maximum roll angle, in degrees.
+		)
+    }
+	{mass 6150}
+
+	{extender "inventory"
+		{box
+		{Size 18 12}
+		{Weight 15000}
+		
+		}
+	}
+
+	{extension "c-47_skytrain_dakota.mdl"}
+}

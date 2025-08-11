@@ -1,0 +1,131 @@
+{game_entity
+	(include "/properties/cannon.ext")
+	{extension "105mm_m3.mdl"}
+	(include "/properties/selection/cannon.inc" scale(0.7))
+	{props "wheeled" "vision_lev05_can" "muzzle_100mm_105mm" "cannon_sandbag_small" "trailer" "trailer_medium" "detect_artillery" "artillery_minimap_medium" "c_how_lite" "105mm_m3"}
+	{collider "cannon_small"}
+	{targetclass "howitzer"}
+	{targetSelector "cannon_howitzer"}
+    
+    {sensor
+		{visor "main"
+			{vision "cannon_range_500"}
+			{bone "visor"}
+		}
+		{visor "artillery"
+	        {vision "cannon_range_500"}
+	        {bone "driver1"}
+	    }
+	}
+    
+	("wheel" args "wheelright")
+	("wheel" args "wheelleft")
+
+	("gun" repair(30) thickness(30))
+
+	("armor_medium_cannon")
+	("crew_wheeled_cannon_4")
+
+	{boarder
+		{anm "gunner"
+			{forward {end "cannon_small_gunner" 10}}
+		}
+		{anm "charger"
+			{forward {end "cannon_small_charger" 10}}
+		}
+		{anm "charger2"
+			{forward {end "cannon_small_charger2" 10}}
+		}
+		{anm "commander"
+			{forward {end "cannon_small_commander" 10}}
+		}
+		{anm "driver1"	;// gunner
+			{forward {end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "driver2"	;// charger
+			{forward {end "cannon_pak40_pusher_right" 10}}
+		}
+		{anm "driver3"	;// charger2
+			{forward {end "mortar_driver_l" 10}}
+		}
+		{anm "driver4"	;// commander
+			{forward {end "mgun_browning_driver_r" 10}}
+		}
+		{anm "seat1"	;// gunner
+			{forward {end "pose_seat_cannon_left" 10}}
+		}
+		{anm "seat2"	;// charger
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+		{anm "seat3"	;// charger2
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+		{anm "seat4"	;// commander
+			{forward {end "pose_seat_cannon_left" 10}}
+		}
+	}
+
+	{extender "cannon"
+		{animation
+			{switch "close"}
+			;// "gunner" "charger" "charger2" "commander"
+			{move "cannon_pak40_pusher_left" "cannon_pak40_pusher_right" "mortar_driver_l" "mgun_browning_driver_r" }
+			{aim "cannon_small_gunner_aim" "cannon_small_charger_aim" "cannon_small_charger2_aim" "cannon_small_commander_aim"}
+			{fire "cannon_small_gunner_fire" "cannon_small_charger_fire" "cannon_small_charger2_fire" "cannon_small_commander_fire"}
+			{reload "cannon_small_gunner_reload" "cannon_small_charger_reload" "cannon_small_charger2_reload" "cannon_small_commander_reload"}
+		}
+		{move {workers "driver1" "driver2" "driver3" "driver4" minWorkers 2} {obstacle "close"}}			;// move state: cannon being pushed and which positions play animations
+		{attack {workers "gunner" "charger" "charger2" "commander"} {obstacle "open"}}		;// fire/attack state: cannon aim, fire, and reload events
+		{trailing {workers "seat1" "seat2" "seat3" "seat4"}}								;// trailing state: cannon is being towed {obstacle} not needed. Uses "close"
+	}
+	
+	{extender "inventory"
+		{box
+			{item "bulletusa_105 he" 20}		; 30 rounds
+			{item "bulletusa_105 wp" 5}
+			{item "bulletusa_105 heat" 5}
+			{item "sandbag_vehicle" 1}
+		}
+	}
+
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{weapon "105mm_m3" filling "bulletusa_105 he" 1}
+			{charger "charger charger2" minWorkers 1}
+			{RestoreIKAfterAim}
+			("abm_dymamic_gun"
+				zeroing(5.0)	; // time it takes to aim until the reticle shrinks. Bigger values, more control.
+				dispersion(1)   ; // time it takes to distort the reticle when you move the gun (how abrupt it loses zeroing). Bigger values, more control.
+			)
+		}
+	}
+
+	{mass 1130}
+	{Chassis "track"
+		("car_trace" fx("tracewheel05a") step(0.14) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility_cannon"
+			speed(6.8) ;----------------------------------Max speed.
+			weight(1130) ;--------------------------------Weight in Kilograms.
+		)
+	}
+
+	{bone "basis"
+		{speed2 5.5}
+	}
+	{bone "gun_rot"
+		{limits -9 65}
+		{speed2 6}
+	}
+	{bone "turret"
+		{limits -22.5 22.5}
+		{speed2 5}
+	}
+    (mod "mp"
+		{brain
+			{properties
+				{fire_mode open}
+			}
+		}	
+	)
+}

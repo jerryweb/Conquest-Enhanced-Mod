@@ -1,0 +1,73 @@
+{game_entity
+	(include "/properties/car.ext")
+	(include "/properties/shadow/tank.inc" scale(1.0))
+	(include "/properties/selection/vehicle.inc" scale(1.1))
+	(include "/properties/resupply.inc")
+	{props "truck" "vision_lev02" "tractor" "tractor_heavy"}
+	{able "emit_on_attack"}
+	{extension "opel_maultier.mdl"}
+	{collider "truck"}
+	{patherId "maultier"}
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("tracks" repair(30) thickness(20))
+
+	("glass" args "glassr")
+	("glass" args "glassl")
+	("glass" args "glass")
+	("fuel" args "fuel")
+	("transmission" args "transmission")
+
+	("bodyback" repair(30))
+
+	{volume "body6" {able {holed}}}
+	{volume "fuel" {able {NoWoundDecal 0}}}
+	{volume "transmission" {able {NoWoundDecal 0}}}
+
+	("wood" args "bodyback1")
+	("wood" args "bodyback2")
+	("wood" args "bodyback3")
+	("wood" args "bodyback4")
+	("wood" args "bodyback5")
+	("wood" args "bodyback6")
+
+	("truck_ammo_heavy")
+
+	("crew_2_human")
+
+	("board_animation"
+		place(driver)
+		board_begin(board_opel_driver)
+		board_end(seat_opel_driver)
+		base(doorleft)
+	)
+	("board_animation"
+		place(commander)
+		board_begin(board_big-highcar)
+		board_end(seat_opel_commander)
+		base(doorright)
+	)
+
+	{extender "inventory"
+		{box
+			{item "repair_kit" 5}
+		}
+	}
+
+	{mass 3800}
+	{Chassis
+		("tank_trace_ex" fx("tracks_sm2") step(0.2) len(0.46) boneleft("FXtraceL3") boneright("FXtraceR3"))
+		("car_trace" fx("tracewheel02") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility_car"
+			speed(40) ;----------------------------------Max speed.
+			speedatmaxturn(12) ;-------------------------Max speed at max turn.
+			reverse(15) ;--------------------------------Max speed in Reverse.
+			weight(3.8) ;--------------------------------Weight in Tonnes.
+			power(68) ;----------------------------------Horse Power.
+			fuel(80) ;-----------------------------------Fuel capacity in Litres.
+			type(fuel) ;---------------------------------Fuel type.
+			range(80) ;----------------------------------Range in Kilometers.
+		)
+	}
+}

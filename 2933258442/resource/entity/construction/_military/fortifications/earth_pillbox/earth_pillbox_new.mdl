@@ -1,0 +1,90 @@
+;Exported by:	 guita
+;Date:			 01.04.2022 20:12:18
+;File:			 D:\Git\3D_Scenes\GoH_3D_environment_export\3d_environment\_military\fortifications\pillbox\earth_pillbox\earth_pillbox.max
+{skeleton
+	{bone "land"
+		{parameters "commonmesh;land;align;"}
+		{orientation
+			1 	 0 	 0
+			0 	 -1 	 0
+			0 	 0 	 1
+		}
+		{VolumeView "land.ply"
+			{Layer entity_opaque_biased}
+		}
+		{bone "outside"
+			{parameters "commonmesh;land;align;"}
+			{VolumeView "outside.ply"}
+		}
+		{bone "body"
+			{VolumeView "body.ply"}
+			{bone "attach1"
+				{matrix34
+					0 	 1 	 0
+					-1 	 0 	 0
+					0 	 0 	 1
+					-1.815 	 16.0322 	 0
+				}
+			}
+		}
+		{bone "exterior"
+			{parameters "commonmesh;align;"}
+			{VolumeView "exterior.ply"}
+		}
+		{bone "exterior2"
+			{VolumeView "exterior2.ply"}
+		}
+	}
+}
+{obstacle "body1"
+	{obb2
+		{center -17.9664 1.32105}
+		{extent 1.99007 38.5128}
+		{axis 1 0}
+	}
+	{rotate}
+	{Tags "body" "fire"}
+}
+{obstacle "body2"
+	{obb2
+		{center 17.483 1.32105}
+		{extent 2.12942 38.5128}
+		{axis 1 0}
+	}
+	{rotate}
+	{Tags "body" "fire"}
+}
+{obstacle "body4"
+	{obb2
+		{center -0.16468 -33.2556}
+		{extent 14.8257 2.14995}
+		{axis 1 0}
+	}
+	{rotate}
+	{Tags "body" "fire"}
+}
+{area "interior"
+	{obb2
+		{center 0 0}
+		{extent 56.5582 61.8371}
+		{axis -1 0}
+	}
+	{rotate}
+}
+{obstacle "nopass1"
+	{obb2
+		{center 25.4046 -8.09693}
+		{extent 6.90652 29.6457}
+		{axis -1 0}
+	}
+	{rotate}
+}
+{obstacle "nopass2"
+	{obb2
+		{center -27.817 -9.44835}
+		{extent 7.85712 31.9874}
+		{axis -1 0}
+	}
+	{rotate}
+}
+

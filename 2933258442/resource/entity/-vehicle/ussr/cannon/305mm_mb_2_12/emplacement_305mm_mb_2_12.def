@@ -1,0 +1,76 @@
+{game_entity
+	(include "/properties/cannon.ext")
+
+	(include "/properties/selection/cannon.inc" scale(1.2))
+	{extension "emplacement_305mm_mb_2_12.mdl"}
+
+	{props "vision_lev05_can" "no_sandbags" "detect_artillery"
+		   "artillery_minimap_heavy" "305mm_mb_2_12"
+		   "no_scavenge" "new_emplacement"}
+
+	("gun1" repair(60) thickness(120))
+	("gun2" repair(60) thickness(120))
+	("crew_wheeled_cannon_5")                ; five invisible seats
+
+	{obstacleId "unbreakable"}
+	{targetclass   "howitzer"}               ; boardable class
+	{targetSelector "cannon_howitzer"}
+
+	;––––– armour volumes –––––
+	{Volume "body1"   {thickness 406}               {component "body"}}
+	{Volume "body2"   {thickness 406} {able {holed}}{component "body"}}
+	{Volume "barrel11"{thickness 400}               {component "gun1"}}
+	{Volume "barrel12"{thickness 400}               {component "gun1"}}
+	{Volume "barrel21"{thickness 400}               {component "gun2"}}
+	{Volume "barrel22"{thickness 120}               {component "gun2"}}
+
+	;––––– ammo box –––––
+	{extender "inventory"
+		{box {item "bulletrus_305" 50}}
+	}
+
+	;––––– twin weapons –––––
+	{Weaponry
+		("restore_ik_time")
+
+		{place "gun1"
+			{weapon "305mm_m1907" filled}
+			{gunner  "gunner gunner2"  minWorkers 1}
+			{charger "charger charger2" minWorkers 1}
+			("abm_dymamic_gun" zeroing(10.0) dispersion(1))
+			{foresight "foresight1"} {basic}
+		}
+
+		{place "gun2"
+			{weapon "305mm_m1907" filled}
+			{gunner  "gunner gunner2"  minWorkers 1}
+			{charger "charger charger2" minWorkers 1}
+			("abm_dymamic_gun" zeroing(10.0) dispersion(1))
+			{foresight "foresight2"} {basic}
+		}
+	}
+
+	;––––– boarding paths –––––
+	{boarder
+		{anm "gunner"    {forward {end "visor"     10}}}
+		{anm "gunner2"   {forward {end "visor2"    10}}}
+		{anm "charger"   {forward {end "gun1_rot"  10}}}
+		{anm "charger2"  {forward {end "gun2_rot"  10}}}
+		{anm "commander" {forward {end "turret"    10}}}
+	}
+
+	{mass 150000}
+	(include "/properties/selection/cannon.inc" scale(3.0))
+
+	{bone "turret"  {speed2 2}}
+	{bone "gun_rot" {speed2 2}}
+
+	{extender "cannon"
+		{## animation
+			{switch "close"}
+			{move "" ""} {aim "" ""} {fire "" ""} {reload "" ""}
+		}
+		{move   {workers clear} {obstacle "close"}}
+		{attack {workers clear} {obstacle "open"}}
+	}
+}

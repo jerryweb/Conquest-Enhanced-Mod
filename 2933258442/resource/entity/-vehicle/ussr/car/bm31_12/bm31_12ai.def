@@ -1,0 +1,109 @@
+{game_entity
+	(include "/properties/car.ext")
+	(include "/properties/shadow/tank.inc" scale(1.0))
+	(include "/properties/selection/vehicle.inc" scale(1.1))
+	{props "with_gun" "katusha" "truck" "vision_lev06" "detect_spg" "artillery_minimap_medium" "bm31_12"}
+	{extension "bm31_12.mdl"}
+	{able "emit_on_attack" "-select"}
+	{targetSelector "rocket"}
+	{targetclass "howitzer"}
+	{collider "truck"}
+
+	("wheel" args "wheelright1")
+	("wheel" args "wheelleft1")
+	("wheel" args "wheelright2")
+	("wheel" args "wheelleft2")
+	("wheel" args "wheelright3")
+	("wheel" args "wheelleft3")
+
+	("glass" args "glassr")
+	("glass" args "glassl")
+	("glass" args "glass")
+	("fuel" args "fuel1")
+	("fuel" args "fuel2")
+
+	("gun" repair(30) thickness(2))
+	("shield_group" args "shield1" 6 "shield")
+	("shield_group" args "shield2" 6 "shield")
+
+	{volume "body6" {able {holed}}}
+	{volume "gun2" {able {holed}}}
+	{volume "fuel1" {able {NoWoundDecal 0}}}
+	{volume "fuel2" {able {NoWoundDecal 0}}}
+	{volume "spare_wheel" {thickness 0.5}}
+
+	{volume "turret" {thickness 2}}
+
+	{volume "gun1" {able {visible 0} {obstacle 0}}}
+	{volume "gun2" {able {visible 0} {obstacle 0}}}
+	{volume "gun3" {able {visible 0} {obstacle 0}}}
+
+	("crew_2_human")
+
+	{placer {place "commander" {group "crew"}}}
+
+	("board_animation"
+		place(driver)
+		board_begin(board_opel_driver)
+		board_end(seat_driver_car)
+		base(doorleft)
+	)
+	("board_animation"
+		place(commander)
+		board_begin(board_big-highcar)
+		board_end(seat_passenger)
+		base(doorright)
+	)
+
+	{extender "inventory"
+		{box
+			{item "ammo 300mm_bm30" 12}		;2 salvos (12 rockets each) (24 total)
+		}
+	}
+
+	{Weaponry
+		{place "gun"
+			{weapon "weapon 300mm_bm30" filled}
+			{Barrels 12}
+			{charger "driver"}
+			{gunner "driver"}
+			{StationaryFiring}
+			("abm_dymamic_gun"
+				zeroing(6.0)	; // time it takes to aim until the reticle shrinks. Bigger values, more control.
+				dispersion(1)   ; // time it takes to distort the reticle when you move the gun (how abrupt it loses zeroing). Bigger values, more control.
+			)
+		}
+	}
+
+	{mass 8000}
+	{Chassis
+		("car_trace" fx("tracewheel01") step(0.08) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("car_trace" fx("tracewheel01d") step(0.08) wheell("wlr") wheelr("wrr") bonel("FXtraceL2") boner("FXtraceR2"))
+		("mobility_car"
+			speed(60) ;----------------------------------Max speed.
+			speedatmaxturn(17) ;-------------------------Max speed at max turn.
+			reverse(24) ;--------------------------------Max speed in Reverse.
+			weight(8.0) ;--------------------------------Weight in Tonnes.
+			power(73) ;----------------------------------Horse Power.
+			fuel(80) ;-----------------------------------Fuel capacity in Litres.
+			type(fuel) ;---------------------------------Fuel type.
+			range(145) ;---------------------------------Range in Kilometers.
+		)
+		{DisableMoveWhileFiring}
+	}
+	{bone "gun_rot"
+		{limits -0 40}
+		{speed2 5}
+	}
+	{bone "turret"
+		{limits -10 10}
+		{speed2 5}
+	}
+	(mod "mp"
+		{brain
+			{properties
+				{fire_mode open}
+			}
+		}
+	)
+}

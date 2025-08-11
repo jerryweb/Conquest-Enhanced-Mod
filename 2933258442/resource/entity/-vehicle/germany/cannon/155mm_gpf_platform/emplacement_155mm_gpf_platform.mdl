@@ -1,0 +1,217 @@
+;Exported by:	 TigerF
+;Date:			 13.12.2023 14:05:15
+;File:			 D:\GOH\3dsmax9_saves\scenes\_GoH_3d_vehicle_ger\vehicles\cannon\155mm_gpf_platform\155mm_GPF_platform.max
+{skeleton
+	{animation
+		{sequence "recoil" {speed 0.65}}
+		{sequence "shell_eject" {speed 0.3}}
+		{sequence "aim_v" {speed 0.9}{resume}}
+		{sequence "aim_h" {speed 0.9}{resume}}
+	}
+	{bone "basis"
+		{orientation
+			1 	 0 	 0
+			0 	 -1 	 0
+			0 	 0 	 1
+		}
+		{bone "body"
+			{parameters "id=body;"}
+			{animation
+				{sequence "repair" {file "body_r.anm"}{speed 0.7}}
+			}
+			{Position 0 	 0 	 6.6668}
+			{VolumeView "body.ply"}
+			{bone revolute "turret"
+				{parameters "id=body;"}
+				{limits -60 60}
+				{speed 0.003}
+				{VolumeView "turret.ply"}
+				{bone revolute "gun_rot"
+					{parameters "id=gun;"}
+					{animation
+						{sequence "repair" {file "gun_r.anm"}{speed 0.7}}
+					}
+					{limits 0 35}
+					{speed 0.005}
+					{matrix34
+						1 	 0 	 0
+						0 	 0 	 1
+						0 	 -1 	 0
+						-0.1247 	 0 	 18.6478
+					}
+					{VolumeView "gun_rot.ply"}
+					{bone "gun"
+						{parameters "id=gun;"}
+						{matrix34
+							1 	 0 	 0
+							0 	 0 	 -1
+							0 	 1 	 0
+							-26.8022 	 1.1206 	 0
+						}
+						{VolumeView "gun.ply"}
+						{bone "telo"
+							{parameters "id=gun;"}
+							{Position 1.6907 	 -3.5661 	 5.3291}
+							{VolumeView "telo.ply"}
+						}
+						{bone "fx_invers"
+							{matrix34
+								-1 	 0 	 0
+								0 	 -1 	 0
+								0 	 0 	 1
+								-9.1462 	 0.0075 	 -0.0412
+							}
+						}
+						{bone "foresight1"
+							{Position 107.799 	 0 	 -0.008}
+						}
+						{bone "breech"
+							{parameters "id=gun;"}
+							{Position -6.4965 	 -5.3038 	 -0.1134}
+							{VolumeView "breech.ply"}
+						}
+						{bone "object001"
+							{parameters "id=gun;"}
+							{Position -6.8413 	 -3.9003 	 5.1774}
+							{VolumeView "object001.ply"}
+						}
+					}
+				}
+				{bone "aim_v"
+					{parameters "id=body;"}
+					{Position 1.0565 	 9.8495 	 15.186}
+					{VolumeView "aim_v.ply"}
+				}
+				{bone "aim_h"
+					{parameters "id=body;"}
+					{Position -4.4171 	 -14.3004 	 13.0688}
+					{VolumeView "aim_h.ply"}
+				}
+				{bone "gunner"
+					{matrix34
+						1 	 0.0034 	 0
+						-0.0034 	 1 	 0
+						0 	 0 	 1
+						-12.1095 	 -14.4081 	 6.0719
+					}
+				}
+				{bone "gunner2"
+					{matrix34
+						0.2075 	 -0.9782 	 0
+						0.9782 	 0.2075 	 0
+						0 	 0 	 1
+						-4.7648 	 17.4202 	 -0.8072
+					}
+				}
+				{bone "commander"
+					{matrix34
+						1 	 0 	 0
+						0 	 1 	 0
+						0 	 0 	 1
+						8.7872 	 15.3705 	 -0.2184
+					}
+				}
+				{bone "visor"
+					{Position 5.1646 	 7.2734 	 19.1658}
+				}
+			}
+		}
+		{bone "emit1"
+			{matrix34
+				0.9851 	 0.1719 	 0
+				-0.1719 	 0.9851 	 0
+				0 	 0 	 1
+				-38.1928 	 -17.6152 	 8.7755
+			}
+		}
+		{bone "emit2"
+			{matrix34
+				0.9719 	 0.2354 	 0
+				-0.2354 	 0.9719 	 0
+				0 	 0 	 1
+				-39.7143 	 16.3115 	 8.7755
+			}
+		}
+		{bone "emit3"
+			{Position -47.2359 	 6.2453 	 8.7755}
+		}
+		{bone "emit4"
+			{Position -47.0987 	 -5.8799 	 8.7755}
+		}
+		{bone "emit5"
+			{Position -32.4679 	 27.3921 	 8.7755}
+		}
+		{bone "charger2"
+			{Position -68.386 	 28.8363 	 8.7755}
+		}
+		{bone "charger"
+			{matrix34
+				1 	 0 	 0
+				0 	 1 	 0
+				0 	 0 	 1
+				-42.1602 	 -9.5399 	 8.7755
+			}
+		}
+	}
+}
+{obstacle "obstacle"
+	{polygon2
+		{radius 0}
+		{vertex -22.2111 -16.2971}
+		{vertex -8.4729 -26.2784}
+		{vertex 8.50845 -26.2785}
+		{vertex 22.2466 -16.2971}
+		{vertex 27.4942 -0.146846}
+		{vertex 22.2467 16.0034}
+		{vertex 8.50845 25.9848}
+		{vertex -8.4729 25.9848}
+		{vertex -22.2111 16.0034}
+		{vertex -27.4586 -0.146843}
+	}
+	{rotate}
+}
+{volume "barrel1"
+	{box 45.7725 5.26541 9.36018}
+	{bone "gun_rot"}
+	{Position -3.4843 	 -4.5018 	 -0.0026}
+}
+{volume "barrel2"
+	{polyhedron "barrel2.vol"}
+	{bone "gun"}
+	{matrix34
+		0 	 1 	 0
+		0 	 0 	 1
+		1 	 0 	 0
+		-8.1227 	 0.0044 	 -0.0521
+	}
+}
+{volume "body1"
+	{cylinder 27.4764 4.16908}
+	{bone "body"}
+	{Position 0.0178 	 0.1468 	 -4.5822}
+}
+{volume "body2"
+	{polyhedron "body2.vol"}
+	{bone "turret"}
+	{Position 1.0798 	 0 	 8.5216}
+}
+{volume "body3"
+	{box 33.0483 0.512945 45.5151}
+	{bone "turret"}
+	{matrix34
+		1 	 0 	 0
+		0 	 0 	 1
+		0 	 -1 	 0
+		-2.179 	 -0.0096 	 -0.6831
+	}
+}
+{volume "hole1"
+	{polyhedron "hole1.vol"}
+	{bone "turret"}
+	{Position 0.9665 	 0.0689 	 14.4083}
+}
+{volume "select"
+	{box 34.0352 36.5382 33.2263}
+	{bone "basis"}
+	{Position 0 	 0 	 16.4838}
+}

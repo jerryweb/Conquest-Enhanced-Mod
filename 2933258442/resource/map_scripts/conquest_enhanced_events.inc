@@ -1,0 +1,32 @@
+		{event "ai_air_on"}
+		{event "ai_air_possible"}
+		{event "ai_general_flank"}
+		{event "ai_recon_units_flank"}
+		{event "airplane_set"}
+		{event "attack_or_defend_mission_set"}
+		{event "dcg"}
+		{event "emplacement_stage_balancing"}
+		{event "flag1"}
+		{event "flag2"}
+		{event "flag3"}
+		{event "flag4"}
+		{event "flag5"}
+		{event "init"}
+		{event "init2"}
+		{event "cut_communications"}
+		{event "init_radio_mechanics"}
+		{event "music_detect"}
+		{event "music_intense"}
+		{event "music_regular"}
+		{event "music_reset"}
+		{event "music_rnd"}
+		{event "music_start"}
+		{event "talk_on"}
+		{event "sabotage_ai_veh"}
+		{event "air_raid_start"}
+		{event "air_raid_warning"}
+		{event "move_spawns"}
+		{event "enable_ai_attack_logic"}
+		{event "ai_defender_vehicles_tagged"}
+
+    

@@ -1,0 +1,83 @@
+{game_entity
+	(include "/properties/cannon_mgun.ext")
+	{extension "maxim_emplacement.mdl"}
+	{props "wheeled" "-carried" "vision_lev00_can" "maxim_" "detect_cannon_aa" "no_sandbags" "c_mg_med" "maxim_emplacement" "no_scavenge" "new_emplacement"}
+
+	("solid_wheel" args "wheelleft")
+	("solid_wheel" args "wheelright")
+	("shield" args "shield" 6)
+
+	{volume "ammo_box"
+		{thickness 2}
+	}
+
+	{boarder
+		{anm "gunner"
+			{forward {end "pose_maxim_gunner" 10}}
+		}
+		{anm "commander"
+			{forward {end "pose_maxim_commander" 10}}
+		}
+		{anm "driver1"
+			{forward {end "cannon_maxim_move" 10}}
+		}
+		{anm "driver2"
+			{forward {end "walk_1hand" 10}}
+		}
+	}
+
+	{extender "cannon"
+		{animation
+		;// "gunner" "commander"
+			{move "" ""}
+			{fire "maxim_gunner_stand_fire" "maxim_commander_stand_fire"}
+			{reload "maxim_gunner_stand_reload" "maxim_commander_stand_reload"}
+			{aim "maxim_gunner_stand_reload" "maxim_commander_stand_reload"}
+		}
+        {rotate_ik_Limit 35}
+        {move {workers clear} {obstacle "close"}}
+	}
+
+	{extender "shield" {on}}
+
+	{extender "inventory"
+		{box
+			{item "mgun_rus belt ap" 1000}
+		}
+	}
+
+	{Weaponry
+		{place "mgun1"
+			{type "main"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			{weapon "maxim_1910_30" filling "mgun_rus belt ap" 250}
+			("abm_mgun")
+			{Rotate}
+			{basic}
+		}
+	}
+   
+	{mass 64}
+	{Chassis "track"
+		("mobility_cannon"
+			speed(12) ;----------------------------------Max speed.
+			weight(64) ;---------------------------------Weight in Kilograms.
+		)
+	}
+
+	{bone "basis"
+		{speed2 20}
+	}
+	{bone "gun_rot"
+		{limits -15 20}
+		{speed2 40}
+	}
+	{bone "turret"
+		{limits -15 15}
+		{speed2 40}
+	}
+    {extender "structure"
+		{place "sandbag_cover" "watch_tower_new"}
+	}
+}

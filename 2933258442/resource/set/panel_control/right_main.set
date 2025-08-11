@@ -1,0 +1,146 @@
+;SDL
+
+; {position column row}
+
+;-----------------------------------------------------------------------------------------------------------------------;
+; conditions																											;
+;-----------------------------------------------------------------------------------------------------------------------;
+; "vehicle" "tank" "cannon" "tractor" "human"	:	show this control based on actors properties						;
+; "single"										:	show this control only if a single actor is selected				;
+; "multiple"									:	show this control only if multiple actors (squad) is selected		;
+; "commander"									:	show this control only if the selected actor is a squad commander	;
+; "disabled"									:	show this control even if it is disabled							;
+;-----------------------------------------------------------------------------------------------------------------------;
+
+{panel_control
+
+; // first row-------------------------
+
+;// first button
+	{gc_cp_state_fire
+		{position 0 0}
+		(mod "gametype:heroes"
+			{condition "disabled"}
+		)
+	}
+	
+;// second button
+	{gc_cp_state_move
+		{position 1 0}
+	}
+	
+;// third button
+	{gc_cp_state_pose
+		{position 2 0}
+		{condition "human"}
+	}
+	{gc_cp_state_cannon
+		{position 2 0}
+		{condition "cannon"}
+	}
+	{engine_toggle
+		{position 2 0}
+		{condition "engine"}
+	}
+	
+;// fourth button
+	{examine
+		{position 3 0}
+	;	{condition "human"}
+		{condition "disabled"}
+	}
+	;{reverse_toggle
+	;	{position 3 0}
+	;	{condition "vehicle" "tank"}
+	;}
+
+
+; // second row-------------------------
+
+;// first button
+	{gc_cp_browse_attack
+		{position 0 1}
+	}
+	
+;// second button
+	{gc_cp_lock_ammo
+		{position 1 1}
+		{condition "vehicle disabled"}
+	}
+	{gc_cp_browse_useitem
+		{position 1 1}
+		{condition "human"}
+	}
+	
+;// third button
+	{gc_cp_browse_special
+		{position 2 1}
+	}
+	
+;// fourth button
+	{modular_ce_trench2
+		{position 3 1}
+		{condition "human barricade"}
+	}
+	{gc_cp_squad_control
+		{position 3 1}
+		{condition "human multiple disabled"}
+	}
+	{repair
+		{position 3 1}
+		{condition "vehicle disabled"}
+	}
+
+; // third row-------------------------
+
+
+;// first button
+	{rotate
+		{position 0 2}
+		{condition "disabled"}
+	}
+	
+;// second button
+	{emit
+		{position 1 2}
+		{condition "vehicle"}
+	}
+	{gc_cp_browse_emplacement
+		{position 1 2}
+		{condition "human barricade disabled"}
+	}
+	
+;// third button
+	{gc_cp_state_reload
+		{position 2 2}
+		{condition "human"}
+	}
+	{gc_cp_state_hatch
+		{position 2 2}
+		{condition "hatch"}
+	}
+	{sandbag_vehicle
+		{position 2 2}
+		{condition "cannon"}
+	}
+
+	{hull_down
+		{position 2 2}
+		{condition "tank"}
+	}
+
+	{sandbag_ring
+		{position 2 2}
+		{condition "c_aa_hvy" "single"}
+	}
+
+	{sandbag_ring
+		{position 2 2}
+		{condition "c_searchlight" "single"}
+	}
+
+;// fourth button	
+	{gc_cp_command_cancel
+		{position 3 2}
+	}
+}

@@ -1,0 +1,54 @@
+;SDL
+
+{boarder
+	{anm "left"
+		{forward {begin "board_sd222_driver"} {end "seat_commander_hatch"} {base "doorleft"}}
+		{reverse {end "emit_sd222_driver"} {base "doorleft" -1}}
+	}
+	{anm "right"
+		{forward {begin "board_sd222_driver"} {end "seat_commander_hatch"} {base "doorright"}}
+		{reverse {end "emit_sd222_driver"} {base "doorright" -1}}
+	}
+}
+
+(define "crew_human"
+	{placer
+		{place "%place" {group "crew"} {visor "%visor"}}
+	}
+	{boarder
+		{door "emit1"}
+		{door "emit2"}
+		{link "emit1" "%place" {anm "left"} {forward putoff} {reverse puton}}
+		{link "emit2" "%place" {anm "right"} {forward putoff} {reverse puton}}
+	}
+)
+
+(define "crew_open"
+	{sensor
+		{visor "top"
+			{vision "recon_open"}
+			{bone "vision_rot"}
+		}
+	}
+	{placer
+		{place "%place"
+			{group "crew"}
+			{linkbone "gunner2"}
+			{visor "%visor"}
+			{turnoff {sensor}}
+			{openForCrush}
+			{sealable}
+		}
+	}
+	{boarder
+		{door "emit1"}
+		{door "emit2"}
+		{link "emit1" "%place" {anm "left"} {forward putoff} {reverse puton}}
+		{link "emit2" "%place" {anm "right"} {forward putoff} {reverse puton}}
+	}
+)
+
+("crew_human" place(driver)		visor(driver))
+("crew_human" place(gunner)		visor(main))
+("crew_open"  place(commander)	visor(top))
+

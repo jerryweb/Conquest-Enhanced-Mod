@@ -1,0 +1,148 @@
+{game_entity
+	(include "/properties/armoredcar.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.0))
+	{props "tank" "halftrack" "wheeled" "multi_board" "explosion_throw_crew" "vision_lev02" "tractor" "tractor_heavy" "detect_tank_mg" "open_death_fx_low"}
+	{able "-emit_passengers_on_enemy" "-emit_passangers_on_enemy" "emit_on_attack"}
+	{extension "sdkfz251c.mdl"}
+	(include "sdkfz251c.ext")
+	{patherId "sdkfz251"}
+	{targetclass "armoredcar"}
+	{targetSelector "tank_bullet"}
+
+	{boarder
+		{anm "passenger1"
+			{forward {begin "halftrack_pass_l_01_board"} {end "halftrack_pass_l_01_board_seat"} {base "board"}}
+			{reverse {end "emit_sd222_driver"} {base "board"}}
+		}
+		{anm "passenger2"
+			{forward {begin "halftrack_pass_r_01_board"} {end "halftrack_pass_r_01_board_seat"} {base "board"}}
+			{reverse {end "emit_sd222_driver"} {base "board"}}
+		}
+		{anm "passenger3"
+			{forward {begin "halftrack_pass_l_02_board"} {end "halftrack_pass_l_02_board_seat"} {base "board"}}
+			{reverse {end "emit_sd222_driver"} {base "board"}}
+		}
+		{anm "passenger4"
+			{forward {begin "halftrack_pass_r_02_board"} {end "halftrack_pass_r_02_board_seat"} {base "board"}}
+			{reverse {end "emit_sd222_driver"} {base "board"}}
+		}
+		{anm "passenger5"
+			{forward {begin "halftrack_pass_l_03_board"} {end "halftrack_pass_l_03_board_seat"} {base "board"}}
+			{reverse {end "emit_sd222_driver"} {base "board"}}
+		}
+		{anm "passenger6"
+			{forward {begin "halftrack_pass_r_03_board"} {end "halftrack_pass_r_03_board_seat"} {base "board"}}
+			{reverse {end "emit_sd222_driver"} {base "board"}}
+		}
+		{anm "passenger7"
+			{forward {begin "halftrack_pass_l_04_board"} {end "halftrack_pass_l_04_board_seat"} {base "board"}}
+			{reverse {end "emit_sd222_driver"} {base "board"}}
+		}
+		{anm "passenger8"
+			{forward {begin "halftrack_pass_r_04_board"} {end "halftrack_pass_r_04_board_seat"} {base "board"}}
+			{reverse {end "emit_sd222_driver"} {base "board"}}
+		}
+		{anm "driver"
+			{forward {begin "halftrack_driver_board"} {end "halftrack_driver_board_seat"} {base "board"}}
+			{reverse {end "emit_sd222_driver"} {base "board"}}
+		}
+		{anm "passenger9"
+			{forward {begin "halftrack_commander_board"} {end "halftrack_commander_board_seat"} {base "board"}}
+			{reverse {end "emit_sd222_driver"} {base "board"}}
+		}
+		{anm "gunner"
+			{forward {begin "board_sd232_driver"} {end "pose_mgun_251"} {base "board"}}
+			{reverse {end "emit_sd222_driver"} {base "board"}}
+		}
+		{anm "gunner2"
+			{forward {begin "halftrack_gunner_board"} {end "halftrack_gunner_board_seat"} {base "board"}}
+			{reverse {end "emit_sd222_driver"} {base "board"}}
+		}
+	}
+
+	("crew" place(driver)		bone(driver)	door(emit1)		animation(driver)		visor(driver)	off({sensor}))
+	("crew" place(gunner2)		bone(gunner2)	door(emit2)		animation(gunner)		visor(none)		off())
+	("crew" place(gunner4)		bone(gunner4)	door(emit2)		animation(gunner)		visor(none)		off())
+
+	("passenger" place(seat1) bone(seat1) door(emit1)  animation(passenger1)  off())
+	("passenger" place(seat2) bone(seat2) door(emit2)  animation(passenger2)  off())
+	("passenger" place(seat3) bone(seat3) door(emit1)  animation(passenger3)  off())
+	("passenger" place(seat4) bone(seat4) door(emit2)  animation(passenger4)  off())
+	("passenger" place(seat5) bone(seat5) door(emit1)  animation(passenger5)  off())
+	("passenger" place(seat6) bone(seat6) door(emit2)  animation(passenger6)  off())
+	("passenger" place(seat7) bone(seat7) door(emit1)  animation(passenger7)  off())
+	("passenger" place(seat8) bone(seat8) door(emit2)  animation(passenger8)  off())
+	("passenger" place(seat9) bone(seat9) door(emit1)  animation(passenger9)  off())
+
+	{sensor
+		{visor "human"
+			{vision "none"}
+		}
+		{visor "around"
+			{vision "none"}
+		}
+	}
+
+	{extender "shield" {off}}
+
+	{extender "inventory"
+		{weapon "mgun" {mask "mountable"}}
+		{weapon "mgun2" {mask "mountable"}}
+		{Box
+			{item "mg34_belt_long" filling "ammo mgun_ger belt ap" 300 {user "mgun"}}
+			{item "mg34_drum" filling "ammo mgun_ger belt ap" 50 {user "mgun2"}} ;// doesn't work if same mg34_belt weapon is in both MG places
+			{item "ammo mgun_ger belt ap" 2010}
+		}
+	}
+
+	{Weaponry
+		{place "mgun"
+			{type "main"}
+			{gunner "gunner2"}
+			{charger "gunner2"}
+			{LinkBone "mgun"}
+			{LinkAnimation "off"}
+			("abm_mgun")
+			{ai_in_manual}
+			{basic}
+		}
+		{place "mgun2"
+			{type "rear"}
+			{gunner "gunner4"}
+			{charger "gunner4"}
+			{LinkBone "mgun2"}
+			{LinkAnimation "off"}
+			("abm_mgun")
+			{ai_in_manual}
+			{basic}
+		}
+	}
+
+	{mass 8500}
+	{Chassis "wheel"
+		("tank_trace_ex" fx("tracks_sm2") step(0.2) len(0.46) boneleft("FXtraceL3") boneright("FXtraceR3"))
+		("car_trace" fx("tracewheel03a") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+		("mobility_car"
+			speed(53) ;----------------------------------Max speed.
+			speedatmaxturn(14) ;-------------------------Max speed at max turn.
+			reverse(9) ;---------------------------------Max speed in Reverse.
+			weight(8.5) ;--------------------------------Weight in Tonnes.
+			power(100) ;---------------------------------Horse Power.
+			fuel(160) ;----------------------------------Fuel capacity in Litres.
+			type(fuel) ;---------------------------------Fuel type.
+			range(150) ;---------------------------------Range in Kilometers.
+		)
+	}
+	{bone "mgun_a_rot1"
+		{speed2 60}
+	}
+	{bone "mgun_a_rot2"
+		{speed2 60}
+	}
+	{bone "mgun_a2_rot1"
+		{speed2 60}
+	}
+	{bone "mgun_a2_rot2"
+		{speed2 60}
+	}
+}

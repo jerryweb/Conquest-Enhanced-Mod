@@ -1,0 +1,202 @@
+{IconGap 28}
+	{positions
+		{"single_officer(fin)" 0 2}
+	}
+
+;//---TECH UPGRADES---
+	{ tech "defense_level_1"			requires "reinforcement_stage_2"							costs 1  position 2 0}
+	{ tech "defense_level_2"			requires "reinforcement_stage_3 defense_level_1"			costs 5  position 4 0}
+	{ tech "defense_level_3"			requires "reinforcement_stage_4 defense_level_2"			costs 4  position 6 0}
+
+	{ tech "reinforcement_stage_2"		requires "single_officer(fin)"								costs 0  position 1 1}
+	{ tech "reinforcement_stage_3"		requires "reinforcement_stage_2 team_officer_con(fin)"		costs 7  position 3 1}
+	{ tech "reinforcement_stage_4"		requires "reinforcement_stage_3 squad_officer_con(fin)"		costs 8  position 5 1}
+	{ tech "reinforcement_stage_5"		requires "reinforcement_stage_4"	costs 9  position 7 1}
+;TOTAL:
+
+
+;//---Off Map Support---
+	{"conquest_blenheim_recon"			requires	"single_officer(fin)"				costs 1  position 0 4}
+	{"conquest_blenheim_light"			requires	"team_officer_con(fin)"				costs 1  position 2 4}
+	{"conquest_blenheim"				requires	"squad_officer_con(fin)"			costs 1  position 4 4}
+
+	{"122mm_m1910_fin_smoke_barrage"	requires	"single_officer(fin)"				costs 0  position 0 3}
+
+	{"81mm_krh36_mortar_barrage"		requires	"team_officer_con(fin)"				costs 1  position 2 3}
+	{"122mm_m1910_fin_artillery_barrage"requires	"squad_officer_con(fin) 81mm_krh36_mortar_barrage"			costs 1  position 4 3}
+
+	{"120mm_krh40_mortar_barrage"		requires	"squad_officer_con(fin) 81mm_krh36_mortar_barrage"			costs 6  position 6 3}
+	{"155mm_h17_artillery_barrage"		requires	"120mm_krh40_mortar_barrage ba20_command_fin"		costs 1  position 7 3}
+;TOTAL:
+
+
+;//---SQUADS---
+;//	{"single_officer(fin)"				requires	""									costs 1  position 0 2}
+	{"team_officer_con(fin)"			requires	"single_officer(fin)"				costs 2  position 2 2}
+	{"squad_officer_con(fin)"			requires	"team_officer_con(fin)"				costs 5  position 4 2}
+
+	{"single_engineer(fin)"				requires	""									costs 2  position 0 11}
+	{"single_ap_miner(fin)"				requires	"single_engineer(fin)"				costs 0  position 1 10}
+	{"single_at_miner(fin)"				requires	"single_ap_miner(fin)"				costs 0  position 2 10}
+	{"single_flamer(fin)"				requires	"single_engineer(fin)"				costs 0  position 1 11}
+	{"squad_heavy_engineer_mid_con(fin)"requires	"single_flamer(fin)"				costs 2  position 2 12}
+	{"squad_engineer_mid_con(fin)"		requires	"single_at_miner(fin) single_flamer(fin)" costs 2  position 3 11}
+	{"squad_eng_flame_con(fin)"			requires	"squad_engineer_mid_con(fin)" 		costs 0  position 4 12}
+
+	{"single_at(fin)"					requires	"" 									costs 0  position 0 6}
+	{"20mm_l39"							requires	"single_at(fin)"					costs 1  position 2 6}
+	{"single_at_pzs_late_con(fin)"		requires	"20mm_l39 reinforcement_stage_4"	costs 5  position 5 6}
+	{"squad_at_late_con(fin)"			requires	"single_at_pzs_late_con(fin)"		costs 3  position 7 6}
+
+	{"squad_rifle_early_con(fin)"		requires	"squad_reserves_mid_con(fin)"		costs 2  position 1 18}
+	{"squad_rifle_lmg_early_con(fin)"	requires	"squad_rifle_early_con(fin)"		costs 1  position 2 18}
+	{"squad_rifle_mid_con(fin)"			requires	"squad_rifle_lmg_early_con(fin)"	costs 2  position 5 18}
+	{"squad_rifle_late_dp_con(fin)"		requires	"squad_rifle_mid_con(fin)"			costs 4  position 8 18}
+	{"squad_rifle_late_dt_con(fin)"		requires	"squad_rifle_late_dp_con(fin)"		costs 1  position 9 18}
+	{"squad_antitank_late_con(fin)"		requires	"squad_rifle_late_dt_con(fin)"		costs 1  position 10 18}
+	
+	{"squad_vet_rifle_mid_con(fin)"		requires	"squad_rifle_mid_con(fin)"			costs 2  position 6 17}
+	{"squad_vet_rifle_late_con(fin)"	requires	"squad_vet_rifle_mid_con(fin) squad_rifle_late_dp_con(fin)"	costs 2  position 9 17}
+
+	{"squad_elite_rifle_mid_con(fin)"	requires	"squad_vet_rifle_mid_con(fin)"		costs 2  position 7 16}
+	{"squad_elite_rifle_late_con(fin)"	requires	"squad_elite_rifle_mid_con(fin) squad_vet_rifle_late_con(fin)" costs 2  position 10 16}
+
+	{"squad_marksmen_mid_con(fin)"		requires	"squad_vet_rifle_mid_con(fin)"		costs 1  position 6 16}
+	{"squad_assault_mid_con(fin)"		requires	"squad_rifle_lmg_early_con(fin)"	costs 1  position 3 17}
+	{"squad_cav_mid_con(fin)"			requires	"squad_rifle_mid_con(fin)"			costs 3  position 5 15}
+	{"squad_cav_late_con(fin)"			requires	"squad_cav_mid_con(fin) squad_rifle_late_dp_con(fin)" costs 2  position 8 15}
+
+	{"squad_vet_cav_mid_con(fin)"		requires	"squad_cav_mid_con(fin)"			costs 3  position 6 14}
+	{"squad_vet_cav_late_con(fin)"		requires	"squad_cav_late_con(fin) squad_vet_cav_mid_con(fin)" costs 2  position 9 14}
+
+	{"squad_jag_mid_con(fin)"			requires	"squad_vet_cav_mid_con(fin)"		costs 3  position 7 13}
+	{"squad_jag_late_con(fin)"			requires	"squad_jag_mid_con(fin) squad_vet_cav_late_con(fin)" costs 2  position 10 13}
+	{"squad_jag_at_late_con(fin)"		requires	"squad_jag_late_con(fin)" 			costs 1  position 11 13}
+
+	{"squad_vet_jag_mid_con(fin)"		requires	"squad_jag_mid_con(fin)"			costs 3  position 8 12}
+	{"squad_vet_jag_late_con(fin)"		requires	"squad_vet_jag_mid_con(fin) squad_jag_late_con(fin)" costs 2  position 11 12}
+
+	{"squad_reserves_mid_con(fin)"		requires 	""									costs 0  position 0 18}
+	{"squad_civil_guard_early_con(fin)"	requires 	""									costs 0  position 0 19}
+	{"squad_border_guard_early_con(fin)" requires	"squad_rifle_lmg_early_con(fin) squad_civil_guard_early_con(fin)" costs 4  position 3 19}
+	{"squad_border_jag_mid_con(fin)" 	requires	"squad_border_guard_early_con(fin)" costs 4  position 6 19}
+	{"squad_border_jag_late_con(fin)" 	requires	"squad_border_jag_mid_con(fin) squad_rifle_late_dp_con(fin)" costs 4  position 9 19}
+	{"squad_border_jag_at_late_con(fin)" requires	"squad_border_jag_late_con(fin)" 	costs 1  position 10 19}
+
+	{"squad_scout_mid_con(fin)"			requires	"squad_rifle_early_con(fin)"		costs 1  position 1 15}
+	{"squad_vet_scout_mid_con(fin)"		requires	"squad_scout_mid_con(fin)"			costs 1  position 2 14}
+	{"squad_jag_scout_late_con(fin)"	requires	"squad_vet_scout_mid_con(fin)"		costs 3  position 2 13}
+	
+	{"single_sniper(fin)"				requires	"squad_scout_mid_con(fin)"			costs 1  position 3 15}
+	{"white_death_con(fin)"				requires	"single_sniper(fin) squad_vet_scout_mid_con(fin)" costs 4  position 4 14}
+	{"squad_sissi_mid_con(fin)"			requires	"squad_vet_scout_mid_con(fin)"		costs 4  position 3 14}
+;TOTAL:
+
+
+;//---Special---
+	;//{"150mm_sw34"		requires	"single_officer(fin)" costs 1  position 1 3}
+	{"panzernest_krab"	requires	"ford_v3000_eng"	costs 2  position 7 11}
+
+;//---MG---
+	{"maxim_m1910_30"	requires	""					costs 1  position 0 20}
+	{"ds39_stand_fin"	requires	"maxim_m1910_30"	costs 1  position 1 20}
+
+;//---Mortar---
+	{"50mm_krh38"		requires	""					costs 1  position 0 21}
+	{"81mm_krh36"		requires	"50mm_krh38"		costs 2  position 2 21}
+	{"120mm_krh40"		requires	"81mm_krh36"		costs 4  position 4 21}
+	{"170mm_minewerfer"	requires	"120mm_krh40"		costs 6  position 6 21}
+
+;//---AA---
+	{"20mm_itk35"		requires	""					costs 1  position 1 23}
+	{"20mm_itk40"		requires	"20mm_itk35"		costs 1  position 3 23}
+	{"40mm_itk38b"		requires	"20mm_itk40"		costs 2  position 5 23}
+	{"75mm_itk37"		requires	"40mm_itk38b"		costs 4  position 7 23}
+
+;//---AT Guns---
+	{"37mm_pstk36"		requires	""					costs 0  position 0 26}
+	{"45mm_pstk32"		requires	"37mm_pstk36"		costs 1  position 1 27}
+	{"76mm_k02"			requires	"45mm_pstk32"		costs 2  position 2 27}
+	{"76mm_k02_30_40"	requires	"76mm_k02"			costs 1  position 4 27}
+	{"76mm_k36"			requires	"76mm_k02_30_40"	costs 1  position 5 27}
+
+	{"47mm_pstk39"		requires	"37mm_pstk36"		costs 1  position 1 26}
+	{"50mm_pstk38"		requires	"47mm_pstk39"		costs 2  position 2 26}
+	{"75mm_pstk9738"	requires	"50mm_pstk38"		costs 2  position 4 26}
+	{"75mm_k40"			requires	"75mm_pstk9738"		costs 3  position 5 26}
+	{"75mm_k44"			requires	"75mm_k40"			costs 3  position 6 25}
+
+;//---Field Guns---
+	{"76mm_m1927_fin"	requires	"37mm_pstk36"		costs 2  position 0 28}
+	{"84mm_k18"			requires	"76mm_m1927_fin 76mm_k02" costs 2  position 2 28}
+	{"84mm_k18_late"	requires	"84mm_k18"			costs 1  position 2 29}
+
+;//---Artillery---
+	{"105mm_k13"		requires	"84mm_k18"			costs 2  position 3 28}
+	{"107mm_k10"		requires	"105mm_k13"			costs 1  position 3 29}
+	{"105mm_k34"		requires	"107mm_k10"			costs 1  position 4 29}
+	{"105mm_h33"		requires	"105mm_k34"			costs 1  position 5 29}
+	{"120mm_k78_31"		requires	"105mm_k13"			costs 1  position 5 28}
+	{"122mm_m1910_fin"	requires	"120mm_k78_31"		costs 1  position 6 28}
+	{"155mm_h17"		requires	"122mm_m1910_fin"	costs 4  position 7 28}
+	{"203mm_h17"		requires	"155mm_h17"			costs 6  position 8 28}
+
+	{"150mm_h40"		requires	"75mm_k40 155mm_h17" costs 3  position 7 26}
+	{"150mm_rkh41"		requires	"150mm_h40"			costs 3  position 8 26}
+;TOTAL:
+
+
+;//---Trucks---
+	{"ford_v3000"		requires	""					costs 1  position 0 24}
+	{"inf_crate_fin"	requires	""					costs 0  position 0 8}
+	{"ford_v3000_ammo"	requires	"inf_crate_fin"		costs 1  position 2 8}
+	{"ford_v3000_fuel"	requires	"ford_v3000_ammo"	costs 1  position 4 8}
+	{"ford_3ton_breda"	requires	"ford_v3000 20mm_itk35" costs 1  position 2 24}
+	{"ford_v3000_eng"	requires	"squad_engineer_mid_con(fin)" costs 1  position 5 11}
+;TOTAL:
+
+
+;//---Armored Cars---
+	{"l182"				requires	"t20_fin"		costs 1  position 3 32}
+	{"ba6_fin"			requires	"l182"			costs 1  position 4 32}
+	{"ba10_fin"			requires	"ba6_fin"		costs 1  position 5 32}
+;TOTAL:
+
+
+;//---Light Tanks---
+	{"ft17_mg_fin"		requires	""				costs 1  position 0 33}
+	{"ft17_fin"			requires	"ft17_mg_fin"	costs 2  position 1 33}
+	{"t20_fin"			requires	"ft17_mg_fin"	costs 1  position 1 32}
+	{"t37a_fin"			requires	"t20_fin"		costs 1  position 1 31}
+	{"vickers_6t_altb"	requires	"ft17_fin"		costs 2  position 2 33}
+	{"t26e"				requires	"vickers_6t_altb" costs 1  position 3 33}
+	{"t26_33_fin"		requires	"vickers_6t_altb" costs 2  position 2 34}
+	{"kht130_fin"		requires	"t26_33_fin"	costs 2  position 3 35}
+	{"bt5_fin"			requires	"t26_33_fin"	costs 2  position 4 34}
+	{"t50_fin"			requires	"bt5_fin" 		costs 5  position 5 34}
+	{"l62"				requires	"t50_fin"		costs 5  position 7 34}
+	{"bt42"				requires	"t50_fin" 		costs 5  position 6 35}
+;TOTAL:
+
+
+;//---Medium Tanks---
+	{"t28_38_fin"		requires	"bt5_fin"		costs 7  position 4 37}
+	{"t3476_41_fin"		requires	"t28_38_fin"	costs 8  position 5 37}
+	{"panzer4j_fin"		requires	"stug3g_fin"	costs 9  position 7 36}
+	{"t3485_44_fin"		requires	"t3476_41_fin panzer4j_fin" costs 10 position 7 37}
+	{"stug3g_fin"		requires	"bt42"			costs 8  position 6 36}
+;TOTAL:
+
+
+;//---Heavy Tanks---
+	{"kv1_40e_fin"		requires	"t28_38_fin"	costs 8  position 4 38}
+	{"kv1_42_fin"		requires	"kv1_40e_fin"	costs 6  position 6 38}
+	{"isu152_fin"		requires	"t3485_44_fin kv1_42_fin" costs 14 position 8 38}
+;TOTAL:
+
+	{"conquest_blank"	requires	""				costs 0  position 9 39}
+
+(include "unit_research_fin_ce_ext.set")
+(include "generic_tech_tree_stuff.set")
+
+(include "unit_research_emplacement_fin.set") ;emplacement compatibility file

@@ -1,0 +1,123 @@
+{game_entity
+	(include "/properties/cannon_mgun.ext")
+	
+	{extension "sandbag_bunker_m2_50cal_tripod.mdl"}
+	{props "vision_lev00_can" "cannon_sandbag_small" "no_sandbags" "muzzle_hmg_m2hb" "detect_cannon_aa" "c_mg_heavy" "no_scavenge" "new_emplacement"}
+
+	    {boarder
+        {anm "gunner"
+            {forward {end "maxim_gunner_stand_fire" 10}}
+        }
+        {anm "commander"
+            {forward {end "maxim_gunner_stand_fire" 10}}
+        }
+
+    }
+
+    {extender "cannon"
+        {animation
+        ;// "gunner" "commander"
+            {move "maxim_gunner_stand_fire" "maxim_commander_stand_fire"}
+            {fire "maxim_gunner_stand_fire" "maxim_commander_stand_fire"}
+            {reload "maxim_gunner_stand_reload" "maxim_commander_stand_reload"}
+            {aim "maxim_gunner_stand_fire" "maxim_commander_stand_fire"}
+            
+        }
+      {move {workers clear} {obstacle "close"}}
+        {attack {obstacle "open"}}
+        {rotate_ik_Limit 30}
+    }
+
+	{extender "inventory"
+		{box
+			{item "ammo hmgun_usa" 500}		;600 rounds
+		}
+	}
+	
+	{Weaponry
+		{place "mgun"
+			{type "main"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			{weapon "browning_m2" filled}
+			{LinkBone "mgun"}
+			{LinkAnimation "off"}
+			("abm_mgun")
+			{Rotate}
+		}
+	}
+
+	{mass 58}
+	{Chassis
+		("mobility_cannon"
+			speed(12) ;----------------------------------Max speed.
+			weight(58) ;---------------------------------Weight in Kilograms.
+		)
+	}
+
+	{bone "basis"
+		{speed2 20}
+	}
+	{bone "gun_rot"
+		{limits -30 40}
+		{speed2 60}
+	}
+	{bone "turret"
+		{limits -13 13}
+		{speed2 60}
+	}
+	{extender "structure"
+		{place "sandbag_cover_front1" "sandbag_heap_pile"}
+	}
+    {extender "structure"
+		{place "sandbag_cover_front2" "sandbag_heap_pile"}
+	}
+    {extender "structure"
+		{place "sandbag_cover_front3" "sandbag_heap_pile"}
+	}
+    {extender "structure"
+		{place "sandbag_cover_front4" "sandbag_heap_pile"}
+	}
+    {extender "structure"
+		{place "sandbag_cover_front1_top" "sandbag_heap_pile"}
+	}
+    {extender "structure"
+		{place "sandbag_cover_front2_top" "sandbag_heap_pile"}
+	}
+    {extender "structure"
+		{place "sandbag_cover_front3_top" "sandbag_heap_pile"}
+	}
+    {extender "structure"
+		{place "sandbag_cover_front4_top" "sandbag_heap_pile"}
+	}
+    {extender "structure"
+		{place "sandbag_cover_front1_leftmiddle" "sandbag_heap_pile"}
+	}
+    {extender "structure"
+		{place "sandbag_cover_front1_rightmiddle" "sandbag_heap_pile"}
+	}
+    {extender "structure"
+		{place "sandbag_cover_left1" "sandbag_heap_pile"}
+	}
+    {extender "structure"
+		{place "sandbag_cover_left2" "sandbag_heap_pile"}
+	}
+    {extender "structure"
+		{place "sandbag_cover_left1_top" "sandbag_heap_pile"}
+	}
+    {extender "structure"
+		{place "sandbag_cover_left2_top" "sandbag_heap_pile"}
+	}
+    {extender "structure"
+		{place "sandbag_cover_right1" "sandbag_heap_pile"}
+	}
+    {extender "structure"
+		{place "sandbag_cover_right2" "sandbag_heap_pile"}
+	}
+    {extender "structure"
+		{place "sandbag_cover_right1_top" "sandbag_heap_pile"}
+	}
+    {extender "structure"
+		{place "sandbag_cover_right2_top" "sandbag_heap_pile"}
+	}
+}

@@ -1,0 +1,147 @@
+;SDL
+
+; {position column row}
+
+;-----------------------------------------------------------------------------------------------------------------------;
+; conditions																											;
+;-----------------------------------------------------------------------------------------------------------------------;
+; "vehicle" "tank" "cannon" "tractor" "human"	:	show this control based on actors properties						;
+; "single"										:	show this control only if a single actor is selected				;
+; "multiple"									:	show this control only if multiple actors (squad) is selected		;
+; "commander"									:	show this control only if the selected actor is a squad commander	;
+; "disabled"									:	show this control even if it is disabled							;
+;-----------------------------------------------------------------------------------------------------------------------;
+
+{panel_control
+
+; // first row-------------------------
+
+;// first button
+	{gc_cp_state_hatch
+		{position 0 0}
+		{condition "hatch disabled"}
+	}
+	{gc_cp_state_auto_medic
+		{position 0 0}
+		{condition "medic"}
+	}
+	{go_resupply
+		{position 0 0}
+		{condition "human" "single"}
+	}
+
+;// second button
+	{examine
+		{position 1 0}
+		{condition "vehicle disabled"}
+	}
+	{auto_medic_place_flag
+		{position 1 0}
+		{condition "medic"}
+	}
+    {sandbag_straight_heap
+		{position 1 0}
+		{condition "human barricade"}
+	}
+    
+
+;// third button
+	{sand_shuttering_box1
+		{position 2 0}
+		{condition "human barricade"}
+	}
+
+;// fourth button
+	{sand_shuttering_box5
+		{position 3 0}
+		{condition "human barricade"}
+	}
+
+    {toggle_slow_move
+		{position 3 0}
+		{condition "vehicle" "single"}
+	}
+
+; // second row-------------------------
+
+;// first button
+	{gc_cp_state_weapon
+		{position 0 1}
+		{condition "human disabled"}
+	}
+	{gc_cp_state_attach
+		{position 0 1}
+		{condition "tractor"}
+	}
+
+;// second button
+	{gc_cp_leave_unit
+		{position 1 1}
+		{condition "vehicle single disabled"}
+	}
+	{take_pervitin
+    	{position 1 1}
+		{condition "human" "single"}
+	}
+
+;// third button
+	{gc_cp_state_speed
+		{position 2 1}
+		{condition "human"}
+	}
+	{gc_cp_state_supply
+		{position 2 1}
+	}
+
+;// fourth button
+	; // empty {position 3 1}	
+	
+	{fire_position
+			{position 3 1}
+			{condition "human barricade"}
+	}
+
+; // third row-------------------------
+
+;// first button
+	{gc_cp_state_smoke_decoy
+		{position 0 2}
+		{condition "vehicle tank disabled"}
+	}
+	{placement_nest
+		{position 0 2}
+		{condition "human barricade"}
+	}
+
+;// second button
+	{sandbag_vehicle
+		{position 1 2}
+		{condition "cannon"}		
+	}
+
+	{hull_down
+		{position 1 2}
+		{condition "tank"}
+	}
+
+	{sandbag_ring
+		{position 1 2}
+		{condition "c_aa_hvy" "single"}
+	}
+    {sandbag_framed_straight
+		{position 1 2}
+		{condition "human barricade"}
+	}
+
+;// third button
+	; // empty {position 2 2} 
+	{pillbox_earth
+		{position 2 2}
+		{condition "human barricade"}
+	}
+
+;// fourth button
+	{gc_cp_browse_back
+		{position 3 2}
+	}
+}

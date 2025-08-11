@@ -1,0 +1,59 @@
+;//---Off Map Support---
+
+	{tech "heavy_artillery_barrage"			requires "150mm_sfh18_artillery_barrage"			costs 3 position 12 3}
+	{tech "super_heavy_artillery_barrage"	requires "heavy_artillery_barrage"					costs 5 position 14 3}
+
+	{tech "rocket_artillery_barrage"		requires "150mm_sfh18_artillery_barrage"			costs 5 position 11 2}
+	{tech "heavy_rocket_artillery_barrage"	requires "rocket_artillery_barrage"					costs 5 position 13 2}
+
+	{"conquest_fi156"						requires	"squad_officer_kubel_con"				costs 1  position 4 4}
+	{"conquest_bf109"						requires	"squad_officer_250_3_con conquest_fi156" costs 1  position 6 4}
+	{"conquest_bf110"						requires	"conquest_bf109"						costs 1  position 8 4}
+	{tech "controllable_plane_ger"			requires "conquest_bf110"							costs 3 position 10 4}
+	
+	{tech "player_paradrop_ger"				requires "squad_officer_con(ger) squad_fallschirmjaeger_con(ger)"			costs 0 position 10 5}
+
+	{tech "supply_drop_75mm_legebig18"	requires "squad_fallschirmjaeger_con(ger) squad_officer_con(ger) 75mm_leig18"	costs 0 position 10 6}
+    {tech "supply_drop_75mm_lg40"		requires "squad_fallschirmjaeger_con(ger) squad_officer_con(ger) 75mm_lg40"		costs 0 position 10 7}
+    {tech "supply_drop_mg34_lafette"	requires "squad_fallschirmjaeger_con(ger) squad_officer_con(ger) mg34_lafette"	costs 0 position 10 8}
+	
+	{tech "supply_drop_axis"				requires "squad_officer_con(ger) blitz3_6_art_ammo"			costs 0 position 8 9}
+    
+    
+    ;{ tech "allied_infantry_callin"		requires "squad_officer_kubel_con"		costs 2  position 4 1}
+
+;//---SQUADS---	
+	;{"squad_pzgrenadiere_late(ger)"		requires	"squad_gebirgsjaeger_con(ger) reinforcement_stage_4" costs 1 position 1 14}
+	;{"squad_sturmgrenadiere"			requires	"squad_regular_armor_con reinforcement_stage_4"		costs 1  position 7 17}
+
+
+;//---Medium Tanks---
+	{"pz3m"					requires "single_engineer(ger) panzer3e"		costs 1 position 0 55}
+
+;//---Heavy Tanks---
+	{"pz756r"				requires	"panzerb2"							costs 6  position 11 38}
+
+;//---AI ONLY---
+	{"single_signaller(ger)"			requires	""						costs 999999  position 11 66}
+    
+    ;{tech "su85m"				requires ""			costs 0 position 13 12}
+    
+    {tech "bt42"				requires ""			costs 0 position 4 11}
+    {"mmpillbox_dummy"				requires "bt42 blitz3_6_engineering"			costs 0 position 5 11}
+    
+    {tech "cckw_fuel"				requires ""			costs 0 position 6 11}
+    {"aa_regelbau_dummy"				requires "cckw_fuel blitz3_6_engineering"			costs 0 position 7 11}
+    {"flak_ring_dummy"				requires "cckw_fuel blitz3_6_engineering"			costs 0 position 8 11}
+    {"pillbox_dummy"				requires "cckw_fuel blitz3_6_engineering"			costs 0 position 9 11}
+    {"flak_ring_88mm_flak36"				requires "cckw_fuel blitz3_6_engineering 88mm_flak36"			costs 0 position 9 27}
+    {"aa_regelbau_flak_ring_88mm_flak36"				requires "cckw_fuel blitz3_6_engineering 88mm_flak36"			costs 0 position 9 28}
+    {"regel_bau_pak_75mm_pak40"				requires "cckw_fuel blitz3_6_engineering 75mm_pak40"			costs 0 position 6 30}
+    {"emplacement_155mm_gpf_platform"				requires "blitz3_6_engineering 155mm_gpf_ger"			costs 0 position 7 32}
+    {"emplacement_50mm_kwk39_platform"				requires "cckw_fuel blitz3_6_engineering 50mm_flak41"			costs 0 position 5 26}
+    {"mgun_ring_emplacement"				requires " blitz3_6_engineering mg42_lafette"			costs 0 position 2 25}
+    {"supply_crate_build"				requires " blitz3_6_engineering"			costs 0 position 3 13}
+    {"emplacement_80mm_sgrw34_rapid"				requires " blitz3_6_engineering 80mm_sgrw34"			costs 0 position 4 25}
+    {"blitz3_6_radio"				requires " single_engineer(ger)"			costs 1 position 1 3}
+	{"sandbag_bunker_hmg42"				requires "single_engineer(ger) mg42_lafette"			costs 1 position 2 23} ;added june 21 2025
+    
+   

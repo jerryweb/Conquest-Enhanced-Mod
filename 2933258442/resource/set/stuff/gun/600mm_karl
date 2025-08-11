@@ -1,0 +1,33 @@
+;_________________________________________
+; ARTY - 60cm karl gërat German super-heavy siege mortar
+;=========================================
+
+
+{from "pattern gun"			; L/8.4
+	{filling "bulletger_600"}
+	{fireSound "cannon/s6/d1/Shared/Cannon_280mm+/"} ; Placeholder
+	{fireSoundClose "cannon/s6/3p/Shared/Cannon_280mm+/"}
+	{reloadSound "utility/"}
+	("super_heavy_artillery")
+	{calibre 600}
+	{range 475 475} ; // 4.32km Schwere betongranate 040
+	("velocity" mps(176))
+	{aimtype curved}
+	{minRange 150}
+
+	{parameters "he2"
+		{range 300 300} ; // 6.44km Leichte betongranate 040
+		("velocity" mps(183))
+	}
+
+	("reload time" seconds(300))
+
+	("accuracy_indirect"   ; // Applies logic for accuracy of indirect weapons over 200m
+		r1(1.50) 				; // Accuracy radius for direct-fire munitions
+		r2(15) 					; // Accuracy radius for indirect fire
+		rmax(35) 				; // Accuracy radius for indirect fire at maximum range
+		range_ap(210) 			; // Range after which accuracy drops to prevent farshooting.
+		range_heat(210) 		; // Range after which accuracy drops to prevent farshooting.
+		range_he(300)			; // Range after which accuracy drops to prevent farshooting.
+	)
+}

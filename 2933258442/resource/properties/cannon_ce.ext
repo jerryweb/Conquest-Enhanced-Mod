@@ -1,0 +1,18 @@
+;SDL
+
+
+(include "cannon_crew_ce.ext")
+(include "cannon.ext")
+{props "ai"}
+{able "-select" "-emit_passengers_on_enemy"}
+
+{sensor
+	{visor "main"
+		{vision "cannon_range_400"}
+		{bone "visor"}
+	}
+	{visor "artillery"
+        {vision "cannon_range_400"}
+        {bone "driver1"}
+    }
+}

@@ -1,0 +1,91 @@
+;SDL
+
+; {position column row}
+
+;-----------------------------------------------------------------------------------------------------------------------;
+; conditions																											;
+;-----------------------------------------------------------------------------------------------------------------------;
+; "vehicle" "tank" "cannon" "tractor" "human"	:	show this control based on actors properties						;
+; "single"										:	show this control only if a single actor is selected				;
+; "multiple"									:	show this control only if multiple actors (squad) is selected		;
+; "commander"									:	show this control only if the selected actor is a squad commander	;
+; "disabled"									:	show this control even if it is disabled							;
+;-----------------------------------------------------------------------------------------------------------------------;
+
+{panel_control
+
+; // first row-------------------------
+
+	{barricade_sq
+		{position 0 0}
+		{condition "human barricade disabled"}
+	}
+	
+	{barricade
+		{position 1 0}
+		{condition "human barricade disabled"}
+	}
+	
+	{barbwire
+		{position 2 0}
+		{condition "human barricade disabled"}
+	}
+	
+	{medic_rally
+		{position 3 0}
+		{condition "human"}
+	}
+
+	{mg_new_foxhole
+		{position 3 0}
+		{condition "human barricade"}
+	}
+
+; // second row-------------------------
+
+	{hedgehog
+		{position 0 1}
+		{condition "human barricade disabled"}
+	}
+	
+	{foxhole
+		{position 1 1}
+		{condition "human barricade disabled"}
+	}
+
+	{fin_coastal_gun
+		{position 2 1}
+		{condition "human barricade"}
+	}
+	
+	{watch_tower
+		{position 2 1}
+		{condition "human barricade disabled"}
+	}
+	
+	{foxhole_big
+		{position 3 1}
+		{condition "human barricade disabled"}
+	}
+	
+; // third row-------------------------
+
+	{mortar_pit
+		{position 0 2}
+		{condition "human barricade disabled"}
+	}
+	
+	{tank_cover
+		{position 1 2}
+		{condition "human barricade disabled"}
+	}
+	
+	{fin_bunker
+		{position 2 2}
+		{condition "human barricade disabled"}
+	}
+	
+	{gc_cp_browse_back
+		{position 3 2}
+	}
+}

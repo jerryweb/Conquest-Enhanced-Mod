@@ -1,0 +1,129 @@
+;(include "settings_inf.set")
+
+;////////////////// INSTRUCTIONS //////////////////
+; In this file one configures the humans which are spawned in vehicles or squads
+; The humans have a CP and cost associated with them which collectively add up for the final squad value
+; Check ../settings.set for syntax instructions!!
+;//////////////////////////////////////////////////
+;===================================
+;        UNDERLYING       
+;===================================
+(define "inf_settings_general"
+	{basic}
+	{breed}
+	{cost %cost}
+)
+
+;===================================
+;        CE CLASSES       
+;===================================
+
+(define "inf_signaller"
+	("inf_settings_general" cost(%cost))
+	{tags "mid %side infantry man ai_signaller"}
+	{cp 2}
+	{cw 4}
+	{score_factor 0.4}
+)
+
+(define "inf_signaller_late"
+	("inf_settings_general" cost(%cost))
+	{tags "late %side infantry man ai_signaller"}
+	{cp 2}
+	{cw 4}
+	{score_factor 0.4}
+)
+
+(define "inf_tankman"
+	("inf_settings_general" cost(%cost))
+	{tags "%period %side infantry man"}
+	{cp 0.2}
+	{cw 0.1}
+	{score_factor 0.05}
+)
+
+(define "inf_medic"
+	("inf_settings_general" cost(%cost))
+	{tags "%period %side infantry man"}
+	{cp 1}
+	{cw 0.5}
+	{score_factor 0}
+)
+
+(define "inf_officer"
+	("inf_settings_general" cost(%cost))
+	{tags "%period %side infantry man officer"}
+	{cp -2}
+	{cw 20}
+	{score_factor 0.4}
+)
+
+(define "inf_sniper"
+	("inf_settings_general" cost(%cost))
+	{tags "%period %side infantry man sniper lvl3 lvl4"}
+	{cp 1}
+	{cw 1}
+	{score_factor 0.05}
+	{research_stage %r}
+	{research_stage_max %rm}
+)
+
+(define "inf_tier0"
+	("inf_settings_general" cost(%cost))
+	{tags "%period %side infantry man %lvl"}
+	{cp 0.8}
+	{cw 0.5}
+	{score_factor 0.05}
+	{research_stage %r}
+	{research_stage_max %rm}
+)
+
+(define "inf_tier1"
+	("inf_settings_general" cost(%cost))
+	{tags "%period %side infantry man %lvl"}
+	{cp 1}
+	{cw 0.5}
+	{score_factor 0.05}
+	{research_stage %r}
+	{research_stage_max %rm}
+)
+
+(define "inf_tier2_lite"
+	("inf_settings_general" cost(%cost))
+	{tags "%period %side infantry man %lvl"}
+	{cp 1}
+	{cw 1}
+	{score_factor 0.05}
+	{research_stage %r}
+	{research_stage_max %rm}
+)
+
+(define "inf_tier2"
+	("inf_settings_general" cost(%cost))
+	{tags "%period %side infantry man %lvl"}
+	{cp 1}
+	{cw 1.5}
+	{score_factor 0.05}
+	{research_stage %r}
+	{research_stage_max %rm}
+)
+
+(define "inf_tier3"
+	("inf_settings_general" cost(%cost))
+	{tags "%period %side infantry man %lvl"}
+	{cp 1.2}
+	{cw 2.0}
+	{score_factor 0.09}
+	{research_stage %r}
+	{research_stage_max %rm}
+)
+
+(define "inf_tier4" ; tier 4
+	("inf_settings_general" cost(%cost))
+	{tags "%period %side infantry man %lvl"}
+	{cp 1.2}
+	{cw 4}
+	{score_factor 0.09}
+	{research_stage %r}
+	{research_stage_max %rm}
+)

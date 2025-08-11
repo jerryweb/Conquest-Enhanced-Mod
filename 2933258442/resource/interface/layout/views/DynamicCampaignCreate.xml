@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Layout xmlns="http://www.digitalmindsoft.eu/xmllayout"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.digitalmindsoft.eu/xmllayout ../LayoutSchema.xsd"
+		version="1" skin="main_menu_dark_skin">
+	<Content>
+		<StackPanel>
+			<Insets left="1" right="1" bottom="1"/>
+			<PreferredSize x="1180" y="540"/>
+			<Children>
+				<DockPanel>
+					<Children>
+						<PictureDialog id="selected_army" placement="left"/>
+						<PictureDialog id="selected_enemy_army" placement="right"/>
+					</Children>
+				</DockPanel>
+				<FlowPanel halign="center">
+					<Insets all="15"/>
+					<Children>
+						<FrameView resource="/interface/skin/game/frame/window_misc1">
+							<Content>
+								<DockPanel>
+									<Children>
+										<FlowPanel halign="stretch" gap="16" placement="center">
+											<Insets left="16" top="16" right="16"/>
+											<Children>
+												<DockPanel>
+													<Children>
+														<FlowPanel valign="center" placement="left">
+															<PreferredSize x="190"/>
+															<Children>
+																<StaticText>
+																	<Text key="main_menu2/dynamic_campaign/choose_name" textTransform="toUpper"/>
+																</StaticText>
+															</Children>
+														</FlowPanel>
+														<FlowPanel halign="stretch" placement="center">
+															<Children>
+																<MenuInputBox id="il_campaign_name">
+																	<MaxTextLength value="64"/>
+																</MenuInputBox>
+															</Children>
+														</FlowPanel>
+													</Children>
+												</DockPanel>
+												<DockPanel>
+													<Children>
+														<FlowPanel valign="center" placement="left">
+															<PreferredSize x="190"/>
+															<Children>
+																<StaticText>
+																	<Text key="main_menu2/dynamic_campaign/select_army" textTransform="toUpper"/>
+																</StaticText>
+															</Children>
+														</FlowPanel>
+														<FlowPanel id="army_area" direction="horizontal" halign="center" gap="0" placement="center">
+															<Insets left="-165"/>
+															<Children>
+																<PictureButton id="btn_army_prev" >
+																	<MinSize x="50"/>
+																	<Sound value="gui/ui_click" />
+																	<Resource value="/interface/skin/game/button/flag_left"/>
+<!--																	<Hint key="tips/menu/prev"/>-->
+																</PictureButton>
+																<StaticText id="txt_selected_army" placement="center">
+																	<Insets top="12"/>
+																	<MinSize x="500"/>
+																	<Text key="army" textTransform="toUpper" />
+																	<TextStyle value="s(44)x.e(shadow)f(pobeda)b+c(235 178 108 220)"  />
+																</StaticText>
+																<PictureButton id="btn_army_next">
+																	<MinSize x="50"/>
+																	<Sound value="gui/ui_click" />
+																	<Resource value="/interface/skin/game/button/flag_right"/>
+<!--																	<Hint key="tips/menu/next"/>-->
+																</PictureButton>
+															</Children>
+														</FlowPanel>
+													</Children>
+												</DockPanel>
+												<DockPanel>
+													<Children>
+														<FlowPanel valign="center" placement="left">
+															<PreferredSize x="190"/>
+															<Children>
+																<StaticText>
+																	<Text key="main_menu2/dynamic_campaign/select_region" textTransform="toUpper"/>
+																</StaticText>
+															</Children>
+														</FlowPanel>
+														<FlowPanel id="fp_regions" direction="horizontal" halign="center" gap="0" placement="center">
+															<Insets left="-175"/>
+															<!--<Insets left="-10"/>-->
+														</FlowPanel>
+													</Children>
+												</DockPanel>
+												<DockPanel>
+													<Children>
+														<FlowPanel valign="center" placement="left">
+															<PreferredSize x="190"/>
+															<Children>
+																<StaticText>
+																	<Text key="main_menu2/dynamic_campaign/select_enemy_army" textTransform="toUpper"/>
+																</StaticText>
+															</Children>
+														</FlowPanel>
+														<FlowPanel id="army_area" direction="horizontal" halign="center" gap="0" placement="center">
+															<Insets left="-165"/>
+															<Children>
+																<PictureButton id="btn_enemy_army_prev" >
+																	<MinSize x="50"/>
+																	<Sound value="gui/ui_click" />
+																	<Resource value="/interface/skin/game/button/flag_left"/>
+<!--																	<Hint key="tips/menu/prev"/>-->
+																</PictureButton>
+																<StaticText id="txt_selected_enemy_army" placement="center">
+																	<Insets top="12"/>
+																	<MinSize x="500"/>
+																	<Text key="army" textTransform="toUpper" />
+																	<TextStyle value="s(44)x.e(shadow)f(pobeda)b+c(235 178 108 220)"  />
+																</StaticText>
+																<PictureButton id="btn_enemy_army_next">
+																	<MinSize x="50"/>
+																	<Sound value="gui/ui_click" />
+																	<Resource value="/interface/skin/game/button/flag_right"/>
+<!--																	<Hint key="tips/menu/next"/>-->
+																</PictureButton>
+															</Children>
+														</FlowPanel>
+													</Children>
+												</DockPanel>
+												<DockPanel>
+													<Children>
+														<FlowPanel valign="center" placement="left">
+															<PreferredSize x="120"/>
+															<Children>
+																<StaticText>
+																	<Text key="main_menu2/dynamic_campaign/select_difficulty" textTransform="toUpper"/>
+																</StaticText>
+															</Children>
+														</FlowPanel>
+														<FlowPanel id="difficulty_area" direction="horizontal" halign="stretch" gap="5" skin="main_menu_dark_skin_small" placement="center">
+															<Insets left="70"/>
+															<Children>
+																<StackPanel>
+																	<Children>
+																		<PictureStateButton id="btn_difficulty_easy">
+																			<Hint key="main_menu2/dynamic_campaign/hint_difficulty_easy"/>
+																			<Sound value="gui/ui_click"/>
+																			<Resource value="/interface/skin/game/button/create_campaign"/>
+																		</PictureStateButton>
+																		<FlowPanel halign="center" valign="center">
+																			<Children>
+																				<StaticText>
+																					<MaxSize x="82"/>
+																					<Text key="difficulty/easy" textFormat="s(15)"/>
+																					<TextClip value="true" showHint="true"/>
+																				</StaticText>
+																			</Children>
+																		</FlowPanel>
+																	</Children>
+																</StackPanel>
+																
+																<StackPanel>
+																	<Children>
+																		<PictureStateButton id="btn_difficulty_normal">
+																			<Hint key="main_menu2/dynamic_campaign/hint_difficulty_normal"/>
+																			<Sound value="gui/ui_click"/>
+																			<Resource value="/interface/skin/game/button/create_campaign"/>
+																		</PictureStateButton>
+																		<FlowPanel halign="center" valign="center">
+																			<Children>
+																				<StaticText>
+																					<MaxSize x="82"/>
+																					<Text key="difficulty/normal" textFormat="s(15)"/>
+																					<TextClip value="true" showHint="true"/>
+																				</StaticText>
+																			</Children>
+																		</FlowPanel>
+																	</Children>
+																</StackPanel>
+																
+																<StackPanel>
+																	<Children>
+																		<PictureStateButton id="btn_difficulty_hard">
+																			<Hint key="main_menu2/dynamic_campaign/hint_difficulty_hard"/>
+																			<Sound value="gui/ui_click"/>
+																			<Resource value="/interface/skin/game/button/create_campaign"/>
+																		</PictureStateButton>
+																		<FlowPanel halign="center" valign="center">
+																			<Children>
+																				<StaticText>
+																					<MaxSize x="82"/>
+																					<Text key="difficulty/hard" textFormat="s(15)"/>
+																					<TextClip value="true" showHint="true"/>
+																				</StaticText>
+																			</Children>
+																		</FlowPanel>
+																	</Children>
+																</StackPanel>
+																
+																<StackPanel>
+																	<Children>
+																		<PictureStateButton id="btn_difficulty_heroic">
+																			<Hint key="main_menu2/dynamic_campaign/hint_difficulty_heroic"/>
+																			<Sound value="gui/ui_click"/>
+																			<Resource value="/interface/skin/game/button/create_campaign"/>
+																		</PictureStateButton>
+																		<FlowPanel halign="center" valign="center">
+																			<Children>
+																				<StaticText>
+																					<MaxSize x="82"/>
+																					<Text key="difficulty/heroic" textFormat="s(15)"/>
+																					<TextClip value="true" showHint="true"/>
+																				</StaticText>
+																			</Children>
+																		</FlowPanel>
+																	</Children>
+																</StackPanel>
+															</Children>
+														</FlowPanel>
+													</Children>
+												</DockPanel>
+												<DockPanel>
+													<Children>
+														<FlowPanel valign="center" placement="left">
+															<PreferredSize x="120"/>
+															<Children>
+																<StaticText>
+																	<Text key="main_menu2/dynamic_campaign/select_resources" textTransform="toUpper"/>
+																</StaticText>
+															</Children>
+														</FlowPanel>
+														<FlowPanel id="resources_area" direction="horizontal" halign="stretch" gap="5" skin="main_menu_dark_skin_small" placement="center">
+															<Insets left="70"/>
+															<Children>
+
+																<StackPanel>
+																	<Children>
+																		<PictureStateButton id="btn_resources_low">
+																			<Hint key="main_menu2/dynamic_campaign/hint_low_resources"/>
+																			<Sound value="gui/ui_click"/>
+																			<Resource value="/interface/skin/game/button/create_campaign"/>
+																		</PictureStateButton>
+																		<FlowPanel halign="center" valign="center">
+																			<Children>
+																				<StaticText>
+																					<MaxSize x="82"/>
+																					<Text key="resources/low" textFormat="s(15)"/>
+																					<TextClip value="true" showHint="true"/>
+																				</StaticText>
+																			</Children>
+																		</FlowPanel>
+																	</Children>
+																</StackPanel>
+
+																<StackPanel>
+																	<Children>
+																		<PictureStateButton id="btn_resources_standard">
+																			<Hint key="main_menu2/dynamic_campaign/hint_standard_resources"/>
+																			<Sound value="gui/ui_click"/>
+																			<Resource value="/interface/skin/game/button/create_campaign"/>
+																		</PictureStateButton>
+																		<FlowPanel halign="center" valign="center">
+																			<Children>
+																				<StaticText>
+																					<MaxSize x="82"/>
+																					<Text key="resources/standard" textFormat="s(15)"/>
+																					<TextClip value="true" showHint="true"/>
+																				</StaticText>
+																			</Children>
+																		</FlowPanel>
+																	</Children>
+																</StackPanel>
+
+																<StackPanel>
+																	<Children>
+																		<PictureStateButton id="btn_resources_high">
+																			<Hint key="main_menu2/dynamic_campaign/hint_high_resources"/>
+																			<Sound value="gui/ui_click"/>
+																			<Resource value="/interface/skin/game/button/create_campaign"/>
+																		</PictureStateButton>
+																		<FlowPanel halign="center" valign="center">
+																			<Children>
+																				<StaticText>
+																					<MaxSize x="82"/>
+																					<Text key="resources/high" textFormat="s(15)"/>
+																					<TextClip value="true" showHint="true"/>
+																				</StaticText>
+																			</Children>
+																		</FlowPanel>
+																	</Children>
+																</StackPanel>
+
+																<StackPanel>
+																	<Children>
+																		<PictureStateButton id="btn_resources_very_high">
+																			<Hint key="main_menu2/dynamic_campaign/hint_very_high_resources"/>
+																			<Sound value="gui/ui_click"/>
+																			<Resource value="/interface/skin/game/button/create_campaign"/>
+																		</PictureStateButton>
+																		<FlowPanel halign="center" valign="center">
+																			<Children>
+																				<StaticText>
+																					<MaxSize x="82"/>
+																					<Text key="resources/very_high" textFormat="s(15)"/>
+																					<TextClip value="true" showHint="true"/>
+																				</StaticText>
+																			</Children>
+																		</FlowPanel>
+																	</Children>
+																</StackPanel>
+									
+															</Children>
+														</FlowPanel>
+													</Children>
+												</DockPanel>
+												<DockPanel>
+													<Children>
+														<FlowPanel valign="center" placement="left">
+															<PreferredSize x="190"/>
+															<Children>
+																<StaticText>
+																	<Text key="main_menu2/dynamic_campaign/select_duration" textTransform="toUpper"/>
+																</StaticText>
+															</Children>
+														</FlowPanel>
+														<FlowPanel id="duration_area" direction="horizontal" halign="stretch" gap="5" skin="main_menu_dark_skin_small" placement="center">
+															<Children>
+																<StackPanel>
+																	<Children>
+																		<PictureStateButton id="btn_duration_short">
+																			<Hint key="main_menu2/dynamic_campaign/hint_duration"/>
+																			<Sound value="gui/ui_click" />
+																			<Resource value="/interface/skin/game/button/create_campaign"/>
+																		</PictureStateButton>
+																		<FlowPanel halign="center" valign="center">
+																			<Children>
+																				<StaticText>
+																					<MaxSize x="82"/>
+																					<Text key="duration/short" textFormat="s(15)"/>
+																					<TextClip value="true" showHint="true"/>
+																				</StaticText>
+																			</Children>
+																		</FlowPanel>
+																	</Children>
+																</StackPanel>
+																<StackPanel>
+																	<Children>
+																		<PictureStateButton id="btn_duration_normal">
+																			<Hint key="main_menu2/dynamic_campaign/hint_duration"/>
+																			<Sound value="gui/ui_click" />
+																			<Resource value="/interface/skin/game/button/create_campaign"/>
+																		</PictureStateButton>
+																		<FlowPanel halign="center" valign="center">
+																			<Children>
+																				<StaticText>
+																					<MaxSize x="82"/>
+																					<Text key="duration/normal" textFormat="s(15)"/>
+																					<TextClip value="true" showHint="true"/>
+																				</StaticText>
+																			</Children>
+																		</FlowPanel>
+																	</Children>
+																</StackPanel>
+																<StackPanel>
+																	<Children>
+																		<PictureStateButton id="btn_duration_long">
+																			<Hint key="main_menu2/dynamic_campaign/hint_duration"/>
+																			<Sound value="gui/ui_click" />
+																			<Resource value="/interface/skin/game/button/create_campaign"/>
+																		</PictureStateButton>
+																		<FlowPanel halign="center" valign="center">
+																			<Children>
+																				<StaticText>
+																					<MaxSize x="82"/>
+																					<Text key="duration/long" textFormat="s(15)"/>
+																					<TextClip value="true" showHint="true"/>
+																				</StaticText>
+																			</Children>
+																		</FlowPanel>
+																	</Children>
+																</StackPanel>
+																<StackPanel>
+																	<Children>
+																		<PictureStateButton id="btn_duration_very_long">
+																			<Hint key="main_menu2/dynamic_campaign/hint_duration"/>
+																			<Sound value="gui/ui_click" />
+																			<Resource value="/interface/skin/game/button/create_campaign"/>
+																		</PictureStateButton>
+																		<FlowPanel halign="center" valign="center">
+																			<Children>
+																				<StaticText>
+																					<MaxSize x="82"/>
+																					<Text key="duration/very_long" textFormat="s(15)"/>
+																					<TextClip value="true" showHint="true"/>
+																				</StaticText>
+																			</Children>
+																		</FlowPanel>
+																	</Children>
+																</StackPanel>
+																<StackPanel>
+																	<Children>
+																		<PictureStateButton id="btn_duration_unlimited">
+																			<Hint key="main_menu2/dynamic_campaign/hint_duration"/>
+																			<Sound value="gui/ui_click" />
+																			<Resource value="/interface/skin/game/button/create_campaign"/>
+																		</PictureStateButton>
+																		<FlowPanel halign="center" valign="center">
+																			<Children>
+																				<StaticText>
+																					<MaxSize x="82"/>
+																					<Text key="duration/unlimited" textFormat="s(15)"/>
+																					<TextClip value="true" showHint="true"/>
+																				</StaticText>
+																			</Children>
+																		</FlowPanel>
+																	</Children>
+																</StackPanel>
+															</Children>
+														</FlowPanel>
+													</Children>
+												</DockPanel>
+												<DockPanel>
+													<Children>
+<!-- 														<DialogRef refid="gui_spacer_horizontal2" placement="top">
+															<MinSize x="350"/>
+														</DialogRef> -->
+														<FlowPanel valign="center" placement="left">
+															<PreferredSize x="190"/>
+															<Children>
+																<StaticText>
+																	<Text key="main_menu2/dynamic_campaign/advanced" textTransform="toUpper"/>
+																</StaticText>
+															</Children>
+														</FlowPanel>
+														<FlowPanel id="advanced_area" halign="stretch" gap="16" placement="center">
+															<Children>
+																<FlowPanel direction="horizontal" halign="stretch" gap="20">
+																	<Children>
+																		<CheckBox id="cb_fog_of_war" centerY="true">
+																			<Hint key="mp/lobby/setup/settings.fogofwar#hint"/>
+																			<Text key="main_menu2/singleplayer/fog_of_war"/>
+																			<Sound value="gui/ui_click" />
+																		</CheckBox>
+<!--																		<CheckBox id="cb_hardcore" centerY="true">-->
+<!--																			<Hint key="mp/lobby/setup/game.hardcore#hint"/>-->
+<!--																			<Text key="main_menu2/singleplayer/hardcore"/>-->
+<!--																			<Sound value="gui/ui_click" />-->
+<!--																		</CheckBox>-->
+																	</Children>
+																</FlowPanel>
+																<!-- =<FlowPanel direction="horizontal" halign="stretch" gap="20">
+																	<Children>
+																		<CheckBox id="cb_lose_on_pending" centerY="true">
+																			<Hint key="mp/lobby/setup/settings.loseonpending#hint"/>
+																			<Text key="main_menu2/singleplayer/lose_on_pending"/>
+																			<Sound value="gui/ui_click" />
+																		</CheckBox>
+																	</Children>
+																</FlowPanel>-->
+																<!--FlowPanel halign="stretch">
+																	<Children>
+																		<ComboBox id="cb_strategy_mode">
+																			<MaxSize x="300"/>
+																		</ComboBox>
+																	</Children>
+																</FlowPanel-->
+<!--																<FlowPanel halign="stretch">-->
+<!--																	<Children>-->
+<!--																		<ComboBox id="cb_manual_mode">-->
+<!--																			<MaxSize x="300"/>-->
+<!--																		</ComboBox>-->
+<!--																	</Children>-->
+<!--																</FlowPanel>-->
+															</Children>
+														</FlowPanel>
+													</Children>
+												</DockPanel>
+											</Children>
+										</FlowPanel>
+										<FlowPanel direction="horizontal" halign="right" placement="bottom">
+											<Insets right="5" bottom="0"/>
+											<Children>
+												<TextButton id="btn_create_campaign">
+													<Text key="button/continue" textTransform="toUpper"/>
+													<Sound value="gui/misc_gui_select" />
+													<TextFrame value="false"/>
+												</TextButton>
+											</Children>
+										</FlowPanel>
+									</Children>
+								</DockPanel>
+							</Content>
+						</FrameView>
+					</Children>
+				</FlowPanel>
+			</Children>
+		</StackPanel>
+	</Content>
+</Layout>

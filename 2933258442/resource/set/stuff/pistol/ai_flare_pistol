@@ -1,0 +1,33 @@
+{from "pattern pistolflare"
+	{tag "flare_gun"}
+	{filling "flare" 1}
+	{entity "ai_flare_pistol"}
+	{fireSound "pistol/flare"}
+	{fireSoundclose "pistol/flare/3p/"}
+	{range 130 130}
+	{gravity 1}
+	{calibre 1}
+	{AimingTolerance 3}
+
+	{spreading 10.5
+		{SpreadXYRatio	2}
+		{radiusFunction
+			0.0		0
+			1.0		1.0
+			1.2		2.5
+			2.5		5.0
+		}
+	}
+
+	{reloadAnimBonus 180}
+	{reloadSound "flare"}
+	("reload time" seconds(180))
+
+	("human health" damage(60))
+
+	("penetration" args 0.5 0.5)
+	("armor health" damage(5))
+
+	{DisableRicochet}
+	{speed 40}
+}

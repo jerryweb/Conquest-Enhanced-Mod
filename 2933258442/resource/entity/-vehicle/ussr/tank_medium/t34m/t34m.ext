@@ -1,0 +1,62 @@
+;SDL
+
+	; armor notes
+	; tracks and wheels 20mm
+	; gun 25mm
+	; track guards 5mm
+
+	("shield" args "shieldl1" 5)
+	("shield" args "shieldl2" 5)
+	("shield" args "shieldr1" 5)
+	("shield" args "shieldr2" 5)
+
+	("tracks" repair(30) thickness(20))
+	("gun" repair(30) thickness(25))
+
+	("fuel" args "fuel1")
+	("fuel" args "fuel2")
+	("fuel" args "fuel3")
+	("fuel" args "fuel4")
+	("ammo" args "ammo1")
+	("ammo" args "ammo2")
+	("ammo" args "ammo3")
+	("ammo" args "ammo4")
+	("transmission" args "transmission")
+
+	{volume "body1"			; Hull
+		{thickness 25
+            {front 25}        ; Nose
+            {top 20}        ; Glacis
+            {rear 25}
+            {bottom 25}
+		}
+		{HighHardness}
+	}
+
+    {volume "body2"			; Hull
+		{thickness 25
+            {front 25}        ; Nose
+            {top 25}        ; Glacis
+            {rear 25}
+            {bottom 25}
+		}
+		{HighHardness}
+	}
+
+	{volume "engine"		; Hull
+		{thickness 20
+			{front 10}
+			{rear 20}
+			{bottom 13}
+		}
+		{HighHardness}
+	}
+
+    {volume "roller"
+		{thickness 100}
+	}
+
+	{component "shieldl1" {tags "cut_part"}}
+	{component "shieldl2" {tags "cut_part"}}
+	{component "shieldr1" {tags "cut_part"}}
+	{component "shieldr2" {tags "cut_part"}}

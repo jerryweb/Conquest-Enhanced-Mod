@@ -1,0 +1,361 @@
+;SDL
+
+;===================================
+;        INSTRUCTIONS    
+;===================================
+
+; In this file onee configures the humans which are spawned in vehicles or squads
+; The humans have a CP and cost associated with them which collectively add up for the final squad value
+; Check ../settings_inf.set for the global defines for CP, capture weight (CW), score, etc.
+
+;===================================
+;        PRICING CHART	       
+;===================================
+
+; // Standard prices below are for tier2 infantry
+
+;mosin			= 8
+;m27 			= 8
+;m39 			= 8
+;svt38/40 		= 13
+;avt40 			= 15
+;pps43 			= 10
+;m20 			= 10
+;m31 stick 		= 10
+;m31 drum 		= 14
+;ppsh41 drum	= 13
+;chauchat 		= 20
+;madsen 		= 25
+;m26 			= 25
+;dt27 			= 40
+;dp 			= 40
+;rifle grenade 	= +10
+;marksman 		= +2
+;any % pzfaust 	= +2
+;any pzfaust 	= +5
+;any flamer		= 60
+;engineer		= 50
+;miner 			= 40
+
+; // price modifiers (If not tier2)
+;tier 0 		= -3, MG -10
+;tier 1 		= -1, MG -10
+;tier 1 vet 	= 0, MG 0
+;tier 2 vet		= +2, MG +5
+;tier 3 		= +5, MG +10
+;tier 3 vet 	= +8, MG +15
+;tier 4 		= +10, MG +20
+;tier 4 vet 	= +13, MG +25
+
+
+;===================================
+;        BREED DECLARATIONS       
+;===================================
+
+; // specials
+
+{"mp/fin/mid/artilleryman"		("inf_tankman" side(fin) cost(1.0))}
+{"mp/fin/mid/tankman"			("inf_tankman" side(fin) cost(10.0))}
+{"mp/fin/mid/pilot"				("inf_tankman" side(fin) cost(0.0))}
+{"mp/fin/mid/tank_commander"	("inf_tankman" side(fin) cost(25.0))}
+
+{"mp/fin/mid/medic"				("inf_medic" side(fin) cost(40.0))}
+
+{"mp/fin/mid/officer"			("inf_officer" side(fin) cost(60.0))}
+
+{"mp/fin/mid/sniper"			("inf_sniper" side(fin) r(2) rm(99) cost(150.0))}
+{"mp/fin/early/white_death"		("inf_sniper" side(fin) r(1) rm(6) cost(200.0))}
+
+;// tier 1
+
+{"mp/fin/early/civil_guard_mg"			("inf_tier1" side(fin) lvl(lvl1) r(1) rm(5) cost(15.0))} ; madsen
+{"mp/fin/early/civil_guard_rifle"		("inf_tier1" side(fin) lvl(lvl1) r(1) rm(5) cost(7.0))} ; mosin
+{"mp/fin/early/civil_guard_rifle_helm"	("inf_tier1" side(fin) lvl(lvl1) r(1) rm(5) cost(7.0))} ; m27
+{"mp/fin/early/civil_guard_sl"			("inf_tier1" side(fin) lvl(lvl1) r(1) rm(5) cost(7.0))} ; m27
+
+{"mp/fin/mid/reservist_mg"			("inf_tier1" side(fin) lvl(lvl1) r(1) rm(8) cost(15.0))} ; m26
+{"mp/fin/mid/reservist_rifle"		("inf_tier1" side(fin) lvl(lvl1) r(1) rm(8) cost(7.0))} ; mosin
+{"mp/fin/mid/reservist_rifle_helm"	("inf_tier1" side(fin) lvl(lvl1) r(1) rm(8) cost(7.0))} ; m27
+{"mp/fin/mid/reservist_sl"			("inf_tier1" side(fin) lvl(lvl1) r(1) rm(8) cost(7.0))} ; m39
+
+;// tier 2
+
+{"mp/fin/early/mg"				("inf_tier2" side(fin) lvl() r(1) rm(4) cost(25.0))} ; m26
+{"mp/fin/early/mg_asst"			("inf_tier2_lite" side(fin) lvl(lvl1 lvl2) r(1) rm(4) cost(8.0))} ; m27
+{"mp/fin/early/squadleader"		("inf_tier2" side(fin) lvl(lvl1 lvl2) r(1) rm(4) cost(8.0))} ; m27
+{"mp/fin/early/scout_sl"		("inf_tier2" side(fin) lvl(lvl1 lvl2) r(1) rm(4) cost(8.0))} ; m27
+{"mp/fin/early/smg_drum"		("inf_tier2" side(fin) lvl(lvl1 lvl2) r(1) rm(4) cost(14.0))} ; m31 drum
+{"mp/fin/early/smg_stick"		("inf_tier2" side(fin) lvl(lvl1 lvl2) r(1) rm(4) cost(10.0))} ; m31 stick
+{"mp/fin/early/mg_crew"			("inf_tier2_lite" side(fin) lvl() r(1) rm(4) cost(7.0))} ; lahti pistol
+{"mp/fin/early/mg_crew_asst"	("inf_tier2_lite" side(fin) lvl() r(1) rm(4) cost(8.0))} ; m27
+{"mp/fin/early/rifleman_cap"	("inf_tier2_lite" side(fin) lvl(lvl1 lvl2) r(1) rm(4) cost(8.0))} ; m27
+{"mp/fin/early/rifleman"		("inf_tier2_lite" side(fin) lvl(lvl1 lvl2) r(1) rm(4) cost(8.0))} ; m27
+{"mp/fin/early/scout"			("inf_tier2_lite" side(fin) lvl(lvl1 lvl2) r(1) rm(4) cost(8.0))} ; m27
+
+{"mp/fin/mid/mg_crew"			("inf_tier2_lite" side(fin) lvl() r(1) rm(7) cost(7.0))} ; lahti pistol
+{"mp/fin/mid/mg_crew_asst"		("inf_tier2_lite" side(fin) lvl() r(1) rm(7) cost(8.0))} ; m39
+
+{"mp/fin/mid/rifleman_cap"		("inf_tier2_lite" side(fin) lvl(lvl1 lvl2) r(1) rm(7) cost(8.0))} ; m39
+{"mp/fin/mid/rifleman"			("inf_tier2_lite" side(fin) lvl(lvl1 lvl2) r(1) rm(7) cost(8.0))} ; m39
+{"mp/fin/mid/scout"				("inf_tier2_lite" side(fin) lvl(lvl1 lvl2) r(1) rm(7) cost(8.0))} ; m39
+
+{"mp/fin/mid/chauchat"				("inf_tier2" side(fin) lvl(lvl1 lvl2) r(1) rm(7) cost(20.0))} ; chauchat
+
+{"mp/fin/mid/mg"					("inf_tier2" side(fin) lvl(lvl1 lvl2) r(1) rm(7) cost(25.0))} ; m26
+{"mp/fin/mid/mg_asst"				("inf_tier2_lite" side(fin) lvl(lvl1 lvl2) r(1) rm(7) cost(8.0))} ; m39
+{"mp/fin/mid/mg_dp"					("inf_tier2" side(fin) lvl(lvl1 lvl2) r(1) rm(7) cost(40.0))} ; dp27
+{"mp/fin/mid/mg_dp_asst"			("inf_tier2_lite" side(fin) lvl(lvl1 lvl2) r(1) rm(7) cost(8.0))} ; m39
+{"mp/fin/mid/mg_dt"					("inf_tier2" side(fin) lvl(lvl1 lvl2) r(1) rm(7) cost(40.0))} ; dt
+{"mp/fin/mid/mg_dt_asst"			("inf_tier2_lite" side(fin) lvl(lvl1 lvl2) r(1) rm(7) cost(8.0))} ; m39
+
+{"mp/fin/mid/squadleader"			("inf_tier2" side(fin) lvl(lvl1 lvl2) r(1) rm(7) cost(8.0))} ; m39
+
+{"mp/fin/mid/rifleman_avs"			("inf_tier2" side(fin) lvl(lvl1 lvl2) r(1) rm(7) cost(15.0))} ; avt40
+{"mp/fin/mid/rifleman_sa"			("inf_tier2_lite" side(fin) lvl(lvl1 lvl2) r(1) rm(7) cost(13.0))} ; svt38
+
+{"mp/fin/mid/scout_sl"				("inf_tier2" side(fin) lvl(lvl1 lvl2) r(1) rm(7) cost(14.0))} ; m31 drum
+
+{"mp/fin/mid/smg_m20"				("inf_tier2" side(fin) lvl(lvl1 lvl2) r(1) rm(7) cost(13.0))} ; m20
+{"mp/fin/mid/smg_drum"				("inf_tier2" side(fin) lvl(lvl1 lvl2) r(1) rm(7) cost(14.0))} ; m31 drum
+{"mp/fin/mid/smg_stick"				("inf_tier2" side(fin) lvl(lvl1 lvl2) r(1) rm(7) cost(10.0))} ; m31 stick
+
+{"mp/fin/mid/antitank_rifle"		("inf_tier2" side(fin) lvl(lvl1 lvl2) r(1) rm(7) cost(20.0))} ; AT Rifle
+{"mp/fin/mid/antitank_asst"			("inf_tier2_lite" side(fin) lvl(lvl1 lvl2) r(1) rm(7) cost(9.0))} ; m27 + at rifle ammo
+
+{"mp/fin/mid/marksman"				("inf_tier2_lite" side(fin) lvl(lvl1 lvl2) r(1) rm(7) cost(12.0))} ; m27
+{"mp/fin/mid/marksman_sa"			("inf_tier2" side(fin) lvl(lvl1 lvl2) r(1) rm(7) cost(16.0))} ; svt38
+
+{"mp/fin/mid/engineer_1"			("inf_tier2" side(fin) lvl() r(1) rm(7) cost(50.0))}
+{"mp/fin/mid/engineer_2"			("inf_tier2" side(fin) lvl() r(1) rm(7) cost(50.0))}
+
+{"mp/fin/mid/engineer_builder"		("inf_tier2" side(fin) lvl() r(1) rm(7) cost(25.0))}
+{"mp/fin/mid/engineer_heavy"		("inf_tier2" side(fin) lvl() r(1) rm(7) cost(50.0))}
+{"mp/fin/mid/engineer_mine_ap"		("inf_tier2" side(fin) lvl() r(1) rm(7) cost(25.0))}
+{"mp/fin/mid/engineer_mine_at"		("inf_tier2" side(fin) lvl() r(1) rm(7) cost(25.0))}
+{"mp/fin/mid/engineer_mine_d"		("inf_tier2" side(fin) lvl() r(1) rm(7) cost(10.0))}
+
+{"mp/fin/mid/miner-ap"				("inf_tier2" side(fin) lvl() r(1) rm(7) cost(40.0))}
+{"mp/fin/mid/miner-at"				("inf_tier2" side(fin) lvl() r(1) rm(7) cost(40.0))}
+
+{"mp/fin/mid/engineer_flamer"		("inf_tier2" side(fin) lvl(lvl2 lvl3 lvl4) r(1) rm(7) cost(60.0))} ; flamethrower
+{"mp/fin/mid/engineer_rifle"		("inf_tier2_lite" side(fin) lvl(lvl1 lvl2) r(1) rm(7) cost(8.0))} ; m39
+{"mp/fin/mid/engineer_sl"			("inf_tier2" side(fin) lvl(lvl1 lvl2) r(1) rm(7) cost(8.0))} ; m39
+
+
+{"mp/fin/late/rifleman_cap"				("inf_tier2_lite" side(fin) lvl(lvl1 lvl2) r(8) rm(99) cost(8.0))} ; m39
+{"mp/fin/late/rifleman"					("inf_tier2_lite" side(fin) lvl(lvl1 lvl2) r(8) rm(99) cost(8.0))} ; m39
+
+{"mp/fin/late/scout"					("inf_tier2_lite" side(fin) lvl(lvl1 lvl2) r(8) rm(99) cost(8.0))} ; m39
+
+{"mp/fin/late/mg"						("inf_tier2" side(fin) lvl(lvl1 lvl2) r(8) rm(99) cost(25.0))} ; m26
+{"mp/fin/late/mg_asst"					("inf_tier2_lite" side(fin) lvl(lvl1 lvl2) r(8) rm(99) cost(8.0))} ; m39
+{"mp/fin/late/mg_dp"					("inf_tier2" side(fin) lvl(lvl1 lvl2) r(8) rm(99) cost(40.0))} ; dp27
+{"mp/fin/late/mg_dp_asst"				("inf_tier2_lite" side(fin) lvl(lvl1 lvl2) r(8) rm(99) cost(8.0))} ; m39
+{"mp/fin/late/mg_dt"					("inf_tier2" side(fin) lvl(lvl1 lvl2) r(8) rm(99) cost(40.0))} ; dt
+{"mp/fin/late/mg_dt_asst"				("inf_tier2_lite" side(fin) lvl(lvl1 lvl2) r(8) rm(99) cost(8.0))} ; m39
+
+{"mp/fin/late/squadleader"				("inf_tier2" side(fin) lvl(lvl1 lvl2) r(8) rm(99) cost(8.0))} ; m39
+
+{"mp/fin/late/rifleman_sa"				("inf_tier2_lite" side(fin) lvl(lvl1 lvl2) r(8) rm(99) cost(13.0))} ; svt38
+
+{"mp/fin/late/scout_sl"					("inf_tier2" side(fin) lvl(lvl1 lvl2) r(8) rm(99) cost(14.0))} ; m31 drum
+
+{"mp/fin/late/smg_drum"					("inf_tier2" side(fin) lvl(lvl1 lvl2) r(8) rm(99) cost(14.0))} ; m31 drum
+{"mp/fin/late/smg_stick"				("inf_tier2" side(fin) lvl(lvl1 lvl2) r(8) rm(99) cost(10.0))} ; m31 stick
+{"mp/fin/late/smg_pps"					("inf_tier2" side(fin) lvl(lvl1 lvl2) r(8) rm(99) cost(10.0))} ; pps43
+{"mp/fin/late/smg_ppsh"					("inf_tier2" side(fin) lvl(lvl1 lvl2) r(8) rm(99) cost(15.0))} ; ppsh41
+
+{"mp/fin/late/antitank_rifle"			("inf_tier2" side(fin) lvl(lvl1 lvl2 lvl3 lvl4) r(8) rm(99) cost(20.0))} ; Boys AT Rifle
+{"mp/fin/late/antitank_ptrd"			("inf_tier2" side(fin) lvl(lvl1 lvl2 lvl3 lvl4) r(8) rm(99) cost(40.0))} ; PTRD AT Rifle
+{"mp/fin/late/antitank_asst"			("inf_tier2_lite" side(fin) lvl(lvl1 lvl2 lvl3 lvl4) r(8) rm(99) cost(8.0))} ; m39 + at rifle ammo
+{"mp/fin/late/antitank_ptrd_asst"		("inf_tier2_lite" side(fin) lvl(lvl1 lvl2 lvl3 lvl4) r(8) rm(99) cost(8.0))} ; m39 + at rifle ammo
+{"mp/fin/late/antitank_faust"			("inf_tier2_lite" side(fin) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(14.0))} ; m39 + pzf30
+{"mp/fin/late/antitank_pzs"				("inf_tier2" side(fin) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(80.0))} ; Pzschreck
+{"mp/fin/late/antitank_pzs_ammo"		("inf_tier2_lite" side(fin) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(8.0))}	; m39 + Pzschreck ammo
+
+{"mp/fin/late/marksman"					("inf_tier2_lite" side(fin) lvl(lvl1 lvl2) r(8) rm(99) cost(12.0))} ; m39
+{"mp/fin/late/marksman_sa"				("inf_tier2_lite" side(fin) lvl(lvl1 lvl2) r(8) rm(99) cost(16.0))} ; svt40
+
+{"mp/fin/late/engineer_builder"			("inf_tier2" side(fin) lvl() r(8) rm(99) cost(25.0))}
+{"mp/fin/late/engineer_heavy"			("inf_tier2" side(fin) lvl() r(8) rm(99) cost(50.0))}
+{"mp/fin/late/engineer_mine_ap"			("inf_tier2" side(fin) lvl() r(8) rm(99) cost(25.0))}
+{"mp/fin/late/engineer_mine_at"			("inf_tier2" side(fin) lvl() r(8) rm(99) cost(25.0))}
+{"mp/fin/late/engineer_mine_d"			("inf_tier2" side(fin) lvl() r(8) rm(99) cost(10.0))}
+
+{"mp/fin/late/engineer_flamer"			("inf_tier2" side(fin) lvl(lvl2 lvl3 lvl4) r(8) rm(99) cost(60.0))} ; flamethrower
+{"mp/fin/late/engineer_rifle"			("inf_tier2_lite" side(fin) lvl(lvl1 lvl2) r(8) rm(99) cost(8.0))} ; m39
+{"mp/fin/late/engineer_sl"				("inf_tier2" side(fin) lvl(lvl1 lvl2) r(8) rm(99) cost(8.0))} ; m39
+
+;// tier 2 vet
+
+{"mp/fin/mid/vet_mg_dp"				("inf_tier2" side(fin) lvl(lvl2 lvl3) r(1) rm(7) cost(45.0))} ; dp27
+{"mp/fin/mid/vet_mg_dp_asst"		("inf_tier2" side(fin) lvl(lvl2 lvl3) r(1) rm(7) cost(10.0))} ; m39
+{"mp/fin/mid/vet_rifleman"			("inf_tier2_lite" side(fin) lvl(lvl2 lvl3) r(1) rm(7) cost(10.0))} ; m39
+{"mp/fin/mid/vet_rifleman_sa"		("inf_tier2_lite" side(fin) lvl(lvl2 lvl3) r(1) rm(7) cost(15.0))} ; svt38
+{"mp/fin/mid/vet_smg_drum"			("inf_tier2" side(fin) lvl(lvl2 lvl3) r(1) rm(7) cost(16.0))} ; m31 drum
+{"mp/fin/mid/vet_smg_stick"			("inf_tier2" side(fin) lvl(lvl2 lvl3) r(1) rm(7) cost(13.0))} ; m31 stick
+{"mp/fin/mid/vet_squadleader"		("inf_tier2" side(fin) lvl(lvl2 lvl3) r(1) rm(7) cost(16.0))} ; m31 drum
+
+{"mp/fin/mid/vet_scout"				("inf_tier2_lite" side(fin) lvl(lvl2 lvl3) r(1) rm(8) cost(10.0))} ; m39
+{"mp/fin/mid/vet_scout_sl"			("inf_tier2" side(fin) lvl(lvl2 lvl3) r(1) rm(8) cost(16.0))} ; m31 drum
+
+{"mp/fin/late/vet_mg"				("inf_tier2" side(fin) lvl(lvl2 lvl3) r(8) rm(99) cost(30.0))} ; m26
+{"mp/fin/late/vet_mg_asst"			("inf_tier2" side(fin) lvl(lvl2 lvl3) r(8) rm(99) cost(10.0))} ; m39
+{"mp/fin/late/vet_mg_dp"			("inf_tier2" side(fin) lvl(lvl2 lvl3) r(8) rm(99) cost(45.0))} ; dp27
+{"mp/fin/late/vet_mg_dp_asst"		("inf_tier2" side(fin) lvl(lvl2 lvl3) r(8) rm(99) cost(10.0))} ; m39
+{"mp/fin/late/vet_rifle"			("inf_tier2_lite" side(fin) lvl(lvl2 lvl3) r(8) rm(99) cost(10.0))} ; m39
+{"mp/fin/late/vet_rifle_sa"			("inf_tier2_lite" side(fin) lvl(lvl2 lvl3) r(8) rm(99) cost(15.0))} ; svt40
+{"mp/fin/late/vet_smg_drum"			("inf_tier2" side(fin) lvl(lvl2 lvl3) r(8) rm(99) cost(16.0))} ; m31 drum
+{"mp/fin/late/vet_smg_pps"			("inf_tier2" side(fin) lvl(lvl2 lvl3) r(8) rm(99) cost(12.0))} ; pps43
+{"mp/fin/late/vet_smg_ppsh"			("inf_tier2" side(fin) lvl(lvl2 lvl3) r(8) rm(99) cost(15.0))} ; ppsh41 drum
+{"mp/fin/late/vet_smg_stick"		("inf_tier2" side(fin) lvl(lvl2 lvl3) r(8) rm(99) cost(13.0))} ; m31 stick
+{"mp/fin/late/vet_squadleader"		("inf_tier2" side(fin) lvl(lvl2 lvl3) r(8) rm(99) cost(16.0))} ; m31 drum
+
+;// tier 3
+
+{"mp/fin/mid/cav_mg"				("inf_tier3" side(fin) lvl(lvl2 lvl3) r(1) rm(7) cost(50.0))} ; dp27
+{"mp/fin/mid/cav_mg_asst"			("inf_tier3" side(fin) lvl(lvl2 lvl3) r(1) rm(7) cost(13.0))} ; m39
+{"mp/fin/mid/cav_rifle"				("inf_tier3" side(fin) lvl(lvl2 lvl3) r(1) rm(7) cost(13.0))} ; m39
+{"mp/fin/mid/cav_sa"				("inf_tier3" side(fin) lvl(lvl2 lvl3) r(1) rm(7) cost(18.0))} ; svt40
+{"mp/fin/mid/cav_sl"				("inf_tier3" side(fin) lvl(lvl2 lvl3) r(1) rm(7) cost(16.0))} ; m31 stick
+{"mp/fin/mid/cav_smg"				("inf_tier3" side(fin) lvl(lvl2 lvl3) r(1) rm(7) cost(19.0))} ; m31 drum
+{"mp/fin/mid/cav_smg_stick"			("inf_tier3" side(fin) lvl(lvl2 lvl3) r(1) rm(7) cost(16.0))} ; m31 stick
+
+{"mp/fin/early/border_guard_mg"			("inf_tier3" side(fin) lvl(lvl2 lvl3) r(1) rm(3) cost(35.0))} ; m26
+{"mp/fin/early/border_guard_mg_asst"	("inf_tier3" side(fin) lvl(lvl2 lvl3) r(1) rm(3) cost(13.0))} ; m27
+{"mp/fin/early/border_guard_rifle"		("inf_tier3" side(fin) lvl(lvl2 lvl3) r(1) rm(3) cost(13.0))} ; m27
+{"mp/fin/early/border_guard_sa"			("inf_tier3" side(fin) lvl(lvl2 lvl3) r(1) rm(3) cost(18.0))} ; svt38
+{"mp/fin/early/border_guard_sl"			("inf_tier3" side(fin) lvl(lvl2 lvl3) r(1) rm(3) cost(13.0))} ; m27
+{"mp/fin/early/border_guard_smg"		("inf_tier3" side(fin) lvl(lvl2 lvl3) r(1) rm(3) cost(19.0))} ; m31 drum
+{"mp/fin/early/border_guard_smg_stick"	("inf_tier3" side(fin) lvl(lvl2 lvl3) r(1) rm(3) cost(16.0))} ; m31 stick
+
+{"mp/fin/late/cav_mg"					("inf_tier3" side(fin) lvl(lvl2 lvl3) r(8) rm(99) cost(50.0))} ; dp27
+{"mp/fin/late/cav_mg_asst"				("inf_tier3" side(fin) lvl(lvl2 lvl3) r(8) rm(99) cost(13.0))} ; m39
+{"mp/fin/late/cav_rifle"				("inf_tier3" side(fin) lvl(lvl2 lvl3) r(8) rm(99) cost(13.0))} ; m39
+{"mp/fin/late/cav_sa"					("inf_tier3" side(fin) lvl(lvl2 lvl3) r(8) rm(99) cost(18.0))} ; svt40
+{"mp/fin/late/cav_sl"					("inf_tier3" side(fin) lvl(lvl2 lvl3) r(8) rm(99) cost(16.0))} ; m31 stick
+{"mp/fin/late/cav_smg"					("inf_tier3" side(fin) lvl(lvl2 lvl3) r(8) rm(99) cost(19.0))} ; m31 drum
+{"mp/fin/late/cav_smg_stick"			("inf_tier3" side(fin) lvl(lvl2 lvl3) r(8) rm(99) cost(16.0))} ; m31 stick
+
+;// tier 3 vet 
+
+{"mp/fin/mid/vet_cav_mg"			("inf_tier3" side(fin) lvl(lvl3 lvl4) r(1) rm(7) cost(55.0))} ; dp27
+{"mp/fin/mid/vet_cav_mg_asst"		("inf_tier3" side(fin) lvl(lvl3 lvl4) r(1) rm(7) cost(16.0))} ; m39
+{"mp/fin/mid/vet_cav_rifle"			("inf_tier3" side(fin) lvl(lvl3 lvl4) r(1) rm(7) cost(16.0))} ; m39
+{"mp/fin/mid/vet_cav_sa"			("inf_tier3" side(fin) lvl(lvl3 lvl4) r(1) rm(7) cost(21.0))} ; svt40
+{"mp/fin/mid/vet_cav_sl"			("inf_tier3" side(fin) lvl(lvl3 lvl4) r(1) rm(7) cost(19.0))} ; m31 stick
+{"mp/fin/mid/vet_cav_smg"			("inf_tier3" side(fin) lvl(lvl3 lvl4) r(1) rm(7) cost(22.0))} ; m31 drum
+{"mp/fin/mid/vet_cav_smg_stick"		("inf_tier3" side(fin) lvl(lvl3 lvl4) r(1) rm(7) cost(19.0))} ; m31 stick
+
+{"mp/fin/mid/elite_mg_dp"			("inf_tier3" side(fin) lvl(lvl3 lvl4) r(1) rm(7) cost(55.0))} ; dp27
+{"mp/fin/mid/elite_mg_dp_asst"		("inf_tier3" side(fin) lvl(lvl3 lvl4) r(1) rm(7) cost(16.0))} ; m39
+{"mp/fin/mid/elite_rifleman"		("inf_tier3" side(fin) lvl(lvl3 lvl4) r(1) rm(7) cost(16.0))} ; m39
+{"mp/fin/mid/elite_rifleman_sa"		("inf_tier3" side(fin) lvl(lvl3 lvl4) r(1) rm(7) cost(21.0))} ; svt38
+{"mp/fin/mid/elite_smg_drum"		("inf_tier3" side(fin) lvl(lvl3 lvl4) r(1) rm(7) cost(22.0))} ; m31 drum
+{"mp/fin/mid/elite_smg_stick"		("inf_tier3" side(fin) lvl(lvl3 lvl4) r(1) rm(7) cost(19.0))} ; m31 stick
+{"mp/fin/mid/elite_squadleader"		("inf_tier3" side(fin) lvl(lvl3 lvl4) r(1) rm(7) cost(22.0))} ; m31 drum
+
+{"mp/fin/late/elite_mg"					("inf_tier3" side(fin) lvl(lvl3 lvl4) r(8) rm(99) cost(40.0))} ; m26
+{"mp/fin/late/elite_mg_asst"			("inf_tier3" side(fin) lvl(lvl3 lvl4) r(8) rm(99) cost(16.0))} ; m39
+{"mp/fin/late/elite_mg_dp"				("inf_tier3" side(fin) lvl(lvl3 lvl4) r(8) rm(99) cost(55.0))} ; dp27
+{"mp/fin/late/elite_mg_dp_asst"			("inf_tier3" side(fin) lvl(lvl3 lvl4) r(8) rm(99) cost(16.0))} ; m39
+{"mp/fin/late/elite_rifle"				("inf_tier3" side(fin) lvl(lvl3 lvl4) r(8) rm(99) cost(16.0))} ; m39
+{"mp/fin/late/elite_rifle_sa"			("inf_tier3" side(fin) lvl(lvl3 lvl4) r(8) rm(99) cost(21.0))} ; svt40
+{"mp/fin/late/elite_smg_pps"			("inf_tier3" side(fin) lvl(lvl3 lvl4) r(8) rm(99) cost(18.0))} ; pps43
+{"mp/fin/late/elite_smg_ppsh"			("inf_tier3" side(fin) lvl(lvl3 lvl4) r(8) rm(99) cost(21.0))} ; ppsh41 drum
+{"mp/fin/late/elite_smg_stick"			("inf_tier3" side(fin) lvl(lvl3 lvl4) r(8) rm(99) cost(19.0))} ; m31 stick
+{"mp/fin/late/elite_squadleader"		("inf_tier3" side(fin) lvl(lvl3 lvl4) r(8) rm(99) cost(22.0))} ; m31 drum
+
+{"mp/fin/late/vet_cav_mg"				("inf_tier3" side(fin) lvl(lvl3 lvl4) r(8) rm(99) cost(55.0))} ; dp27
+{"mp/fin/late/vet_cav_mg_asst"			("inf_tier3" side(fin) lvl(lvl3 lvl4) r(8) rm(99) cost(16.0))} ; m39
+{"mp/fin/late/vet_cav_rifle"			("inf_tier3" side(fin) lvl(lvl3 lvl4) r(8) rm(99) cost(16.0))} ; m39
+{"mp/fin/late/vet_cav_sa"				("inf_tier3" side(fin) lvl(lvl3 lvl4) r(8) rm(99) cost(21.0))} ; svt40
+{"mp/fin/late/vet_cav_sl"				("inf_tier3" side(fin) lvl(lvl3 lvl4) r(8) rm(99) cost(19.0))} ; m31 stick
+{"mp/fin/late/vet_cav_smg"				("inf_tier3" side(fin) lvl(lvl3 lvl4) r(8) rm(99) cost(22.0))} ; m31 drum
+{"mp/fin/late/vet_cav_smg_stick"		("inf_tier3" side(fin) lvl(lvl3 lvl4) r(8) rm(99) cost(19.0))} ; m31 stick
+
+;// tier 4
+
+{"mp/fin/mid/jag_mg"				("inf_tier4" side(fin) lvl(lvl3 lvl4) r(1) rm(8) cost(60.0))} ; dp27
+{"mp/fin/mid/jag_mg_asst"			("inf_tier4" side(fin) lvl(lvl3 lvl4) r(1) rm(8) cost(18.0))} ; m39
+{"mp/fin/mid/jag_rifle"				("inf_tier4" side(fin) lvl(lvl3 lvl4) r(1) rm(8) cost(18.0))} ; m39
+{"mp/fin/mid/jag_sa"				("inf_tier4" side(fin) lvl(lvl3 lvl4) r(1) rm(8) cost(23.0))} ; svt40
+{"mp/fin/mid/jag_sl"				("inf_tier4" side(fin) lvl(lvl3 lvl4) r(1) rm(8) cost(18.0))} ; m39
+{"mp/fin/mid/jag_smg"				("inf_tier4" side(fin) lvl(lvl3 lvl4) r(1) rm(8) cost(24.0))} ; m31 drum
+{"mp/fin/mid/jag_smg_stick"			("inf_tier4" side(fin) lvl(lvl3 lvl4) r(1) rm(8) cost(21.0))} ; m31 stick
+
+{"mp/fin/mid/border_jag_ap_mine"	("inf_tier4" side(fin) lvl(lvl3 lvl4) r(4) rm(8) cost(23.0))} ; m39
+{"mp/fin/mid/border_jag_at_mine"	("inf_tier4" side(fin) lvl(lvl3 lvl4) r(4) rm(8) cost(23.0))} ; m39
+{"mp/fin/mid/border_jag_builder"	("inf_tier4" side(fin) lvl(lvl3 lvl4) r(4) rm(8) cost(23.0))} ; m39
+{"mp/fin/mid/border_jag_mg"			("inf_tier4" side(fin) lvl(lvl3 lvl4) r(4) rm(8) cost(60.0))} ; dp27
+{"mp/fin/mid/border_jag_mg_asst"	("inf_tier4" side(fin) lvl(lvl3 lvl4) r(4) rm(8) cost(18.0))} ; m39
+{"mp/fin/mid/border_jag_rifle"		("inf_tier4" side(fin) lvl(lvl3 lvl4) r(4) rm(8) cost(18.0))} ; m39
+{"mp/fin/mid/border_jag_sa"			("inf_tier4" side(fin) lvl(lvl3 lvl4) r(4) rm(8) cost(23.0))} ; svt40
+{"mp/fin/mid/border_jag_sl"			("inf_tier4" side(fin) lvl(lvl3 lvl4) r(4) rm(8) cost(18.0))} ; m39
+{"mp/fin/mid/border_jag_smg"		("inf_tier4" side(fin) lvl(lvl3 lvl4) r(4) rm(8) cost(24.0))} ; m31 drum
+{"mp/fin/mid/border_jag_smg_stick"	("inf_tier4" side(fin) lvl(lvl3 lvl4) r(4) rm(8) cost(21.0))} ; m31 stick
+
+{"mp/fin/mid/jag_scout_rifle"		("inf_tier4" side(fin) lvl(lvl3 lvl4) r(1) rm(8) cost(18.0))} ; m27
+{"mp/fin/mid/jag_scout_sa"			("inf_tier4" side(fin) lvl(lvl3 lvl4) r(1) rm(8) cost(23.0))} ; svt38
+{"mp/fin/mid/jag_scout_sl"			("inf_tier4" side(fin) lvl(lvl3 lvl4) r(1) rm(8) cost(18.0))} ; m27
+
+{"mp/fin/mid/sissi_mg"				("inf_tier4" side(fin) lvl() r(1) rm(8) cost(45.0))} ; m26
+{"mp/fin/mid/sissi_mg_asst"			("inf_tier4" side(fin) lvl() r(1) rm(8) cost(18.0))} ; m27
+{"mp/fin/mid/sissi_rifle"	    	("inf_tier4" side(fin) lvl() r(1) rm(8) cost(18.0))} ; m27
+{"mp/fin/mid/sissi_sa"				("inf_tier4" side(fin) lvl() r(1) rm(8) cost(23.0))} ; svt38
+{"mp/fin/mid/sissi_sl"				("inf_tier4" side(fin) lvl() r(1) rm(8) cost(18.0))} ; m27
+{"mp/fin/mid/sissi_smg_stick" 		("inf_tier4" side(fin) lvl() r(1) rm(8) cost(21.0))} ; m31 stick
+
+{"mp/fin/late/jag_crew"					("inf_tier4" side(fin) lvl() r(9) rm(99) cost(5.0))} ; lahti pistol
+{"mp/fin/late/jag_crew_asst"			("inf_tier4" side(fin) lvl() r(9) rm(99) cost(15.0))} ; m39, less grenades
+
+{"mp/fin/late/jag_engineer_flamer"		("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(70.0))} ; roks-2 flamethrower
+{"mp/fin/late/jag_engineer_sl"			("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; m31 stick
+{"mp/fin/late/jag_mg"					("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(60.0))} ; dp27
+{"mp/fin/late/jag_mg_asst"				("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; m39
+{"mp/fin/late/jag_pzfaust"				("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(23.0))} ; m39 + pzf30
+{"mp/fin/late/jag_pzs"					("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(90.0))} ; pzschreck
+{"mp/fin/late/jag_pzs_asst"				("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; m39 + AT ammo
+{"mp/fin/late/jag_rifle"				("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; m39
+{"mp/fin/late/jag_sa"					("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(23.0))} ; svt40
+{"mp/fin/late/jag_sl"					("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; m39
+{"mp/fin/late/jag_sl_smg"				("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(24.0))} ; m31 drum
+{"mp/fin/late/jag_smg"					("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(26.0))} ; m31 drum + % faustpatrone
+{"mp/fin/late/jag_smg_pzfaust"			("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(30.0))} ; m31 + pzfaust 30
+{"mp/fin/late/jag_smg_stick"			("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(23.0))} ; m31 stick + % faustpatrone
+
+{"mp/fin/late/border_jag_ptrd"			("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(50.0))} ; PTRD AT Rifle
+{"mp/fin/late/border_jag_ptrd_asst"		("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; m39 + at rifle ammo
+{"mp/fin/late/border_jag_pzs"			("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(90.0))} ; pzschreck
+{"mp/fin/late/border_jag_pzs_ammo"		("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; m39 + AT ammo
+{"mp/fin/late/border_jag_mg"			("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(60.0))} ; dp27
+{"mp/fin/late/border_jag_mg_asst"		("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; m39
+{"mp/fin/late/border_jag_rifle"			("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; m39
+{"mp/fin/late/border_jag_rifle_pzfaust"	("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(23.0))} ; m39 + pzfaust 30
+{"mp/fin/late/border_jag_sa"			("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(23.0))} ; svt40
+{"mp/fin/late/border_jag_sl"			("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; m39
+{"mp/fin/late/border_jag_sl_smg"		("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(24.0))} ; m31 drum
+{"mp/fin/late/border_jag_smg"			("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(24.0))} ; m31 drum
+{"mp/fin/late/border_jag_smg_stick"		("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; m31 stick
+
+{"mp/fin/late/jag_scout_rifle"			("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; m27
+{"mp/fin/late/jag_scout_sa"				("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(23.0))} ; svt38
+{"mp/fin/late/jag_scout_sl"				("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; m27
+
+;// tier 4+
+
+{"mp/fin/mid/vet_jag_mg"			("inf_tier4" side(fin) lvl(lvl3 lvl4) r(1) rm(8) cost(50.0))} ; m26
+{"mp/fin/mid/vet_jag_mg_asst"		("inf_tier4" side(fin) lvl(lvl3 lvl4) r(1) rm(8) cost(21.0))} ; m39
+{"mp/fin/mid/vet_jag_rifle"			("inf_tier4" side(fin) lvl(lvl3 lvl4) r(1) rm(8) cost(21.0))} ; m39
+{"mp/fin/mid/vet_jag_sa"			("inf_tier4" side(fin) lvl(lvl3 lvl4) r(1) rm(8) cost(26.0))} ; svt40
+{"mp/fin/mid/vet_jag_sl"			("inf_tier4" side(fin) lvl(lvl3 lvl4) r(1) rm(8) cost(28.0))} ; avt40
+{"mp/fin/mid/vet_jag_smg"			("inf_tier4" side(fin) lvl(lvl3 lvl4) r(1) rm(8) cost(27.0))} ; m31 drum
+
+{"mp/fin/late/vet_jag_mg"				("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(50.0))} ; m26
+{"mp/fin/late/vet_jag_mg_asst"			("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; m39
+{"mp/fin/late/vet_jag_rifle"			("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(26.0))} ; m39 + pzfaust 30
+{"mp/fin/late/vet_jag_sa"				("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(26.0))} ; svt40
+{"mp/fin/late/vet_jag_sl"				("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(28.0))} ; avt40
+{"mp/fin/late/vet_jag_smg"				("inf_tier4" side(fin) lvl(lvl3 lvl4) r(9) rm(99) cost(27.0))} ; m31 drum
+
+{"mp/fin/mid/signaller"					("inf_signaller" 		side(fin) lvl(lvl3 lvl4) r(99) rm(99) cost(170.0))}

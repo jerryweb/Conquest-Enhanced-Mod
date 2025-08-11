@@ -1,0 +1,77 @@
+{game_entity
+	(include "/properties/tank.ext")
+	(include "/properties/shadow/tank.inc" scale(1.3))
+	(include "/properties/selection/vehicle.inc" scale(1.2))
+	(include "tank_crew.inc")
+	(include "/properties/selection/vehicle.inc"  scale(1.2))
+	(include "t34m.ext")
+	{props "medium" "mine_exploder" "vision_lev04"}
+	{targetclass "tank_medium"}
+	{targetSelector "tank_medium"}
+	{PatherId "t34"}
+	
+	{extender "enumerator"}
+
+	{boarder
+		{anm "left"
+			{forward	{begin	"board_SdKfz-232_left"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "right"
+			{forward	{begin	"board_SdKfz-232_right"}}
+			{reverse 	{end	"emit_tank_2_hold"}}
+		}
+		{anm "armor"
+			{forward	{begin	"board_HighArmor"} 	{end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_tank_2"}}
+		}
+		{anm "armor1"
+			{forward	{begin	"board_HighArmor"} {end "pose_seat_armor_1"}}
+			{reverse 	{end	"emit_body"}}
+		}
+	}
+	("crew_human" place(driver)	door1(emit1) door2(emit2) visor(driver))
+	("crew_human" place(commander) door1(emit1) door2(emit2) visor(driver))
+
+	("seat_human" place(seat1) bone(seat01) door(emit3)  animation(armor1))
+	("seat_human" place(seat2) bone(seat02) door(emit4)  animation(armor))
+	("seat_human" place(seat3) bone(seat03) door(emit5)  animation(armor))
+	("seat_human" place(seat4) bone(seat04) door(emit6)  animation(armor1))
+
+	{extender "inventory"
+		{box
+			{item "ammo mgun_rus dt" 1764}		;30 drums
+			{item "satchel_charge_rus" 1}
+			{item "mine_detector" 4}
+		}
+	}
+	{Weaponry
+		{place "mgun1"
+			{type "hull"}
+			{weapon "dt" filling "ammo mgun_rus dt" 63}
+			{foresight "foresight4"}
+			{gunner "commander"}
+			{charger "commander"}
+			("abm_mgun")
+			{basic}
+			{ai_in_manual}
+		}
+	}
+
+	{mass 25500}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.52) len(0.7))
+		("mobility_tank"
+			speed(40) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(8.9);---------Max speed in reverse on road, km/h. ;//6.9 historical + 2 due to terrain modifier
+			traverse(36) ;-------Track traverse, per second, in degrees.
+			weight(30.9) ;-------Weight in Tonnes.
+			power(500) ;---------Engine Power, in hp.
+			track(3.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(420) ;----------Fuel capacity in Litres.
+			type(diesel) ;-------Fuel type. (diesel OR fuel)
+			range(210) ;---------Range in km, off-road.
+		)
+	}
+	{Extension "t34m.mdl"}
+}

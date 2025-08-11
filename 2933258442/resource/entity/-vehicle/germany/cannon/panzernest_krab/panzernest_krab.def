@@ -1,0 +1,118 @@
+{game_entity
+	(include "/properties/cannon_mgun.ext")
+	
+	{extension "panzernest_krab.mdl"}
+	{props "-carried" "-cannon_small" "bunker" "vision_lev01_can" "invisible" "wheeled" "trailer" "trailer_light" "c_mg_med" "no_sandbags" }
+	(mod not "mp" {able "emit_on_attack"})
+	{PatherId "cannon.small"}
+	{collider "tank.heavy"}
+	{targetclass "tank_medium"}
+	{targetSelector "cannon_zenite"}
+
+	("armor_heavy_cannon")
+	("solid_wheel" args "wheelleft")
+	("solid_wheel" args "wheelright")
+
+	{volume "body4" {tags "invisible"} {thickness 5}} 
+	{volume "wheelleft" {tags "invisible"}}
+	{volume "wheelright" {tags "invisible"}}
+	{volume "body1"
+		{thickness 40
+			{front 45}
+			{top 30}
+			{rear 30}
+		}
+		{tags "anim_no_contact"}
+	}
+	{volume "body2"
+		{thickness 30}
+		{tags "anim_no_contact"}
+	}
+	{volume "body3"
+		{thickness 60
+			{front 70}
+			{top 45}
+		}
+		{tags "anim_no_contact"}
+	}
+
+	("crew_wheeled_cannon_closed")
+
+	{sensor
+		{visor "main"
+			{vision "tank_main_mg"}
+			{bone "visor"}
+		}
+		{visor "commander"
+			{vision "vehicle_main"}
+			{bone "visor2"}
+		}
+	}
+
+	{boarder
+		{anm "gunner"
+			{forward {end "pose_dshk_aa_gunner"}}
+		}
+		{anm "commander"
+			{forward {end "pose_dshk_aa_commander"}}
+		}
+		{anm "driver1"
+			{forward {end "cannon_pak40_pusher_left" 10}}
+		}
+		{anm "driver2"
+			{forward {end "mortar_driver_l" 10}}
+		}
+		{anm "seat1"
+			{forward {end "pose_seat_cannon_left" 10}}
+		}
+		{anm "seat2"
+			{forward {end "pose_seat_cannon_right" 10}}
+		}
+	}
+
+	{extender "cannon"
+		{animation
+		;// "gunner" "commander"
+			{switch "close"}
+			{move "cannon_pak40_pusher_left" "mortar_driver_l"}
+		}
+	}
+
+	{extender "inventory"
+		{weapon "mgun" {mask "mountable"}}
+		{box
+			{item "ammo mgun_ger belt" 5000}
+			{item "mg34_belt_long" filled {user "mgun"}}
+		}
+	}
+
+	{Weaponry
+		{place "mgun"
+			{type "main"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			{LinkBone "mgun"}
+			{LinkAnimation "off"}
+			("abm_mgun")
+			{basic}
+			{ai_in_manual}
+		}
+	}
+
+	{mass 1200}
+	{Chassis
+		("mobility_cannon"
+			speed(3) ;--------------------------------Max speed.
+			weight(1200) ;--------------------------------Weight in Kilograms.
+		)
+	}
+
+	{bone "mgun_h_rot1"
+		{limits -30 30}
+		{speed2 75}
+	}
+	{bone "mgun_h_rot2"
+		{limits -7 20}
+		{speed2 75}
+	}
+}

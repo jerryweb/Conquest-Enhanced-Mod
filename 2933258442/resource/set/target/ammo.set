@@ -1,0 +1,630 @@
+; Purpose of ammo.set
+; Select the best weapon or ammo to use against each target class. When units have multiple weapons/ammo that can 
+; be used against a specific target, the order of this list (from top to bottom) tells unit which item to use first. 
+; If the target is not in range of the first weapon/ammo type, the unit skips to the next listed item until it finds
+; a weapon/ammo type in its inventory that has enough range to attack the target. 
+
+
+; Defining Terms
+; {ready_for_shot} 			- ammo used only when charged (shell loaded, ready for shot or for humans, item is in hand) 
+; {charging} 				- when a gun is reloading, only then can it switch to / use this ammo type
+; {enable_for_human_user 0} - the 0 disables use of weapon/ammo for units while actively controlled/selected by player
+; {enable_for_ai 0} 		- the 0 disables use of weapon/ammo for units under AI control
+; {enable_for_user 0} 		- prohibit the usage for player controlled units, even when the player does not have them actively selected
+; {check_grenade} 			- prohibit self-damaging and only use ammo if target is protected by cover
+; {ground} 					- shot will be aimed at ground underneath the enemy instead of directly at the enemy. only computed on target re-assignment
+; {volume "engine"} 		- shot will be aimed at volume listed inside the "" until or unless that volume is broken
+; {disable}					- prohibit usage and reject ammo entirely for further checks
+
+
+{select_ammo
+	{human in_bush											; -TARGET CLASS-
+		{"flame" {ready_for_shot}}							; ammo for flamethrowers
+		{"small_arms" {ready_for_shot}}						; bullet ammo (pistols, rifles, smgs, mgs)
+		{"mortar ic" {ready_for_shot}}						; IC mortar ammo
+		{"shell wp_size3" }									; WP ammo 
+		{"shell wp_size2" }									; WP ammo 
+		{"mortar all_he"}									; HE mortar ammo
+		{"shell all_he" {ground}}							; cannon HE ammo
+		{"ammo rifle_grenade"}								; rifle grenade HE ammo
+		{"ammo shell wp" {ground}{ready_for_shot}}			; WP ammo (ONLY IF ALREADY LOADED)
+        {"all_he auto"}										; auto cannon HE ammo
+		{"hmgun"}											; heavy machine gun (.50 cal, etc)		
+		{"grenade fg"}										; standard anti-personel grenades
+		{"grenade ic"}										; flame grenades (molotov)
+		{"grenade smokecustom"{ground}{enable_for_user 0}}
+        {"ptr"}	
+        {"ammo rocketlauncher" {ground}{enable_for_user 0}}			; bazooka class ammo (AI ONLY)
+		{"grenade wpsmoke"{enable_for_ai 0}}										; standard smoke grenades
+        {"grenade smoke"{enable_for_ai 0}}										; standard smoke grenades	
+		{"small_arms"}										; bullet ammo (pistols, rifles, smgs, mgs)
+		{"all_he auto"}										; auto cannon HE ammo
+		{"grenade fg"}										; standard anti-personel grenades
+		{"grenade ic"}										; flame grenades (molotov)
+		{"glass ic"}										; flame shell (Ampulomet glass ball)
+		{"grenade at"}										; anti-tank grenades
+		{"ammo rifle_grenade_at"}							; rifle grenade HEAT ammo
+		{"shell heat_high" {ground} {enable_for_user 0}}	; cannon HEAT ammo (penetration > 150mm)
+		{"shell heat_medium" {ground} {enable_for_user 0}}	; cannon HEAT ammo (penetration 100-150mm)
+		{"shell heat_low" {ground} {enable_for_user 0}}		; cannon HEAT ammo (penetration < 100mm)
+		{"ptr"}												; anti-tank rifle ammo
+		{"sharp_edge"}										; thrown knives
+		{"rocketselector" {enable_for_user 0}}				; rocket artillery
+		{"zenite"}											; autocannon AP/APCR ammo
+		{"dynamite"}										; explosive charges
+;//		{"ammo rocketlauncher" {ground}}					; bazooka class ammo
+		{"light"}											; ammo for binoculars and other vision devices
+	}
+	{human in_cover											; -TARGET CLASS-
+		{"flare"}
+		{"flame" {ready_for_shot}}							; ammo for flamethrowers
+		{"small_arms" {ready_for_shot}}						; bullet ammo (pistols, rifles, smgs, mgs)
+		{"mortar all_he"}									; HE mortar ammo
+		{"shell all_he"}									; cannon HE ammo
+		{"grenade fg"}										; standard anti-personel grenades
+		{"ammo rifle_grenade"}								; rifle grenade HE ammo
+		{"ammo shell wp" {ready_for_shot}}					; WP ammo (ONLY IF ALREADY LOADED)
+       	{"all_he auto"}										; auto cannon HE ammo
+		{"hmgun"}											; heavy machine gun (.50 cal, etc)
+		{"grenade smokecustom"{ground}{enable_for_user 0}}	
+        {"ptr"}	
+        {"ammo rocketlauncher" {enable_for_user 0}}			; bazooka class ammo (AI ONLY)
+		;{"small_arms"}										; bullet ammo (pistols, rifles, smgs, mgs)
+		{"all_he auto"}										; auto cannon HE ammo
+		{"grenade ic"}										; flame grenades (molotov)
+		{"glass ic"}										; flame shell (Ampulomet glass ball)
+		{"small_arms"}										; bullet ammo (pistols, rifles, smgs, mgs)
+		{"grenade at"}										; anti-tank grenades
+		{"ammo rifle_grenade_at"}							; rifle grenade HEAT ammo
+		{"shell heat_high" {enable_for_user 0}}				; cannon HEAT ammo (penetration > 150mm)
+		{"shell heat_medium" {enable_for_user 0}}			; cannon HEAT ammo (penetration 100-150mm)
+		{"shell heat_low" {enable_for_user 0}}				; cannon HEAT ammo (penetration < 100mm)
+		{"ptr"}												; anti-tank rifle ammo
+		{"sharp_edge"}										; thrown knives
+		{"rocketselector" {enable_for_user 0}}				; rocket artillery
+		{"zenite"}											; autocannon AP/APCR ammo
+		{"dynamite"}										; explosive charges
+;//		{"ammo rocketlauncher"}								; bazooka class ammo
+		{"light"}											; ammo for binoculars and other vision devices
+		{"smoke"}											; cannon smoke ammo
+	}
+	{human 												; -TARGET CLASS-
+		{"flame" {ready_for_shot}}							; ammo for flamethrowers
+		{"small_arms" {ready_for_shot}}						; bullet ammo (pistols, rifles, smgs, mgs)
+		{"mortar all_he"}									; HE mortar ammo
+		{"shell all_he" {ground}}							; cannon HE ammo
+		{"ammo rifle_grenade"}								; rifle grenade HE ammo
+		{"ammo shell wp" {ground}{ready_for_shot}}			; WP ammo (ONLY IF ALREADY LOADED)
+		{"all_he auto"}										; auto cannon HE ammo
+        {"hmgun"}		
+        {"ptr"}        ; heavy machine gun (.50 cal, etc)
+		{"small_arms"}										; bullet ammo (pistols, rifles, smgs, mgs)
+		{"all_he auto"}										; auto cannon HE ammo
+		{"grenade fg"}										; standard anti-personel grenades
+		{"grenade ic"}										; flame grenades (molotov)
+		{"glass ic"}										; flame shell (Ampulomet glass ball)
+		{"grenade smokecustom"{ground}{enable_for_user 0}}	
+		{"grenade at"}										; anti-tank grenades
+		{"ammo rifle_grenade_at"}							; rifle grenade HEAT ammo
+		{"shell heat_high" {ground} {enable_for_user 0}}	; cannon HEAT ammo (penetration > 150mm)
+		{"shell heat_medium" {ground} {enable_for_user 0}}	; cannon HEAT ammo (penetration 100-150mm)
+		{"shell heat_low" {ground} {enable_for_user 0}}		; cannon HEAT ammo (penetration < 100mm)
+		{"ptr"}												; anti-tank rifle ammo
+		{"sharp_edge"}										; thrown knives
+		{"rocketselector" {enable_for_user 0}}				; rocket artillery
+		{"zenite"}											; autocannon AP/APCR ammo
+		{"dynamite"}										; explosive charges
+;//		{"ammo rocketlauncher" {ground}}					; bazooka class ammo
+		{"light"}											; ammo for binoculars and other vision devices
+		{"smoke" {ready_for_shot}}							; cannon smoke ammo
+	}
+	{car													; -TARGET CLASS-
+		{"flare"}
+		{"shell all_he" {ready_for_shot}}							        ; cannon HE ammo
+		{"ammo shell wp"{enable_for_ai 0}{ready_for_shot}}			        ; WP ammo (ONLY IF ALREADY LOADED)
+		{"shell hv_ap" {ready_for_shot}}					; cannon high velocity AP ammo types (APCR, HVAP, APDS) (ONLY IF ALREADY LOADED)
+		{"shell heat_medium" {ready_for_shot}}				; cannon HEAT ammo (penetration 100-150mm) (ONLY IF ALREADY LOADED)
+		{"shell apcbche"{ready_for_shot}}									; cannon apcbche ammo
+		{"shell apcbche2"{ready_for_shot}}									; cannon apcbche ammo (early ammo)
+		{"shell apcbc"{ready_for_shot}}										; cannon apcbc ammo
+		{"shell aphebc2"{ready_for_shot}}									; cannon aphebc ammo
+		{"shell aphebc"{ready_for_shot}}									; cannon aphebc ammo
+		{"shell aphe"{ready_for_shot}}										; cannon aphe ammo
+		{"shell apbc"{ready_for_shot}}
+		
+		{"mortar all_he" }							; HE mortar ammo
+		{"shell all_he arty" {volume "body"}}				; cannon HE ammo for indirect firing artillery
+		{"shell std_ap" {volume "body"} {ready_for_shot}}	; cannon standard AP ammo types (AP, APC, APBC, etc)
+		{"zenite" {volume "body"} {ready_for_shot}}			; autocannon AP/APCR ammo
+		{"shell all_he" {volume "body"}}					; cannon HE ammo
+		{"all_he auto" {volume "body"}}						; auto cannon HE ammo
+		{"shell std_ap" {volume "body"}}					; cannon standard AP ammo types (AP, APC, APBC, etc)
+		{"shell hv_ap" {volume "body"} {ready_for_shot}}	; cannon high velocity AP ammo types (APCR, HVAP, APDS)
+		{"shell heat_high" {volume "body"} {enable_for_user 0}}		; cannon HEAT ammo (penetration > 150mm) (AI ONLY)
+		{"shell heat_high" {volume "body"} {ready_for_shot}}		; cannon HEAT ammo (penetration > 150mm) (ONLY IF ALREADY LOADED)
+		{"shell heat_medium" {volume "body"} {enable_for_user 0}}	; cannon HEAT ammo (penetration 100-150mm) (AI ONLY)
+		{"shell heat_medium" {volume "body"} {ready_for_shot}}		; cannon HEAT ammo (penetration 100-150mm) (ONLY IF ALREADY LOADED)
+		{"shell heat_low" {volume "body"} {enable_for_user 0}}		; cannon HEAT ammo (penetration < 100mm) (AI ONLY)
+		{"shell heat_low" {volume "body"} {ready_for_shot}}			; cannon HEAT ammo (penetration < 100mm) (ONLY IF ALREADY LOADED)
+		{"grenade at" {volume "body"}}						; anti-tank grenades
+		{"grenade fg" {ground}}								; standard anti-personel grenades
+		{"grenade ic" {volume "body"}}						; flame grenades (molotov)
+		{"glass ic" {volume "body"}}						; flame shell (Ampulomet glass ball)
+		{"ammo rocketlauncher" {volume "body"}}				; bazooka class ammo
+		{"ptr" {volume "engine"}}							; anti-tank rifle ammo
+		{"ptr" {volume "body"}}								; anti-tank rifle ammo
+		{"flame"}											; ammo for flamethrowers
+		{"ammo rifle_grenade_at" {volume "body"}}			; rifle grenade HEAT ammo
+		{"ammo rifle_grenade" {volume "body"}}				; rifle grenade HE ammo
+		{"hmgun" {volume "body"}}							; heavy machine gun (.50 cal, etc)
+        {"grenade smokecustom"{ground}{enable_for_user 0}}
+		{"small_arms" {volume "engine"}}						; bullet ammo (pistols, rifles, smgs, mgs)
+		{"small_arms" {volume "body"}}							; bullet ammo (pistols, rifles, smgs, mgs)
+		{"zenite"}											; autocannon AP/APCR ammo
+		{"rocketselector" {volume "body"} {enable_for_user 0}}	; rocket artillery
+		{"dynamite"}										; explosive charges
+		{"light"}											; ammo for binoculars and other vision devices
+		{"smoke" {ready_for_shot}}							; cannon smoke ammo
+	}
+	{cannon_bullet											; -TARGET CLASS-
+		{"ammo shell wp"{enable_for_ai 0}{ready_for_shot}}			        ; WP ammo (ONLY IF ALREADY LOADED)
+		{"flare"}
+		{"flame"}											; ammo for flamethrowers
+		{"mortar all_he"}									; HE mortar ammo
+		{"shell all_he arty"}								; cannon HE ammo for indirect firing artillery
+		{"shell all_he"}									; cannon HE ammo
+		{"all_he auto"}										; auto cannon HE ammo
+		{"grenade fg"}										; standard anti-personel grenades
+		{"grenade at" {volume "body"}}						; anti-tank grenades
+		{"grenade ic"}										; flame grenades (molotov)
+		{"glass ic"}										; flame shell (Ampulomet glass ball)
+		{"ammo rifle_grenade"}								; rifle grenade HE ammo
+		{"ammo rifle_grenade_at"}							; rifle grenade HEAT ammo
+		{"zenite"}											; autocannon AP/APCR ammo
+		{"zenite apcr"}										; autocannon AP/APCR ammo
+		{"ammo rocketlauncher" {enable_for_user 0}}			; bazooka class ammo (AI ONLY)
+		{"shell heat_high" {enable_for_user 0}}				; cannon HEAT ammo (penetration > 150mm) (AI ONLY)
+		{"shell heat_high" {ready_for_shot}}				; cannon HEAT ammo (penetration > 150mm) (ONLY IF ALREADY LOADED)
+		{"shell heat_medium" {enable_for_user 0}}			; cannon HEAT ammo (penetration 100-150mm) (AI ONLY)
+		{"shell heat_medium" {ready_for_shot}}				; cannon HEAT ammo (penetration 100-150mm) (ONLY IF ALREADY LOADED)
+		{"shell heat_low" {enable_for_user 0}}				; cannon HEAT ammo (penetration < 100mm) (AI ONLY)
+		{"shell heat_low" {ready_for_shot}}					; cannon HEAT ammo (penetration < 100mm)(ONLY IF ALREADY LOADED)
+		{"rocketselector" {enable_for_user 0}}				; rocket artillery
+		{"hmgun"}											; heavy machine gun (.50 cal, etc)
+        {"grenade smokecustom"{ground}{enable_for_user 0}}
+		{"dynamite"}										; explosive charges
+		{"light"}											; ammo for binoculars and other vision devices
+		{"smoke" {ready_for_shot}}							; cannon smoke ammo
+	}
+	{cannon_zenite											; -TARGET CLASS-
+		{"flare"}
+		{"flame"}											; ammo for flamethrowers
+		{"mortar all_he"}							;		 HE mortar ammo
+		{"shell all_he arty"}								; cannon HE ammo for indirect firing artillery
+		{"shell std_ap" {ready_for_shot}}					; cannon standard AP ammo types (AP, APC, APBC, etc)
+		{"shell all_he"}									; cannon HE ammo
+		{"all_he auto"}										; auto cannon HE ammo
+		{"ammo rifle_grenade"}								; rifle grenade HE ammo
+		{"grenade fg"}										; standard anti-personel grenades
+		{"grenade at" {volume "body"}}						; anti-tank grenades
+		{"grenade ic"}										; flame grenades (molotov)
+		{"glass ic"}										; flame shell (Ampulomet glass ball)
+		{"ammo rifle_grenade_at"}							; rifle grenade HEAT ammo
+		{"zenite"}											; autocannon AP/APCR ammo
+		{"zenite apcr"}										; autocannon AP/APCR ammo
+		{"ammo rocketlauncher" {enable_for_user 0}}			; bazooka class ammo (AI ONLY)
+		{"shell heat_high" {enable_for_user 0}}				; cannon HEAT ammo (penetration > 150mm) (AI ONLY)
+		{"shell heat_high" {ready_for_shot}}				; cannon HEAT ammo (penetration > 150mm) (ONLY IF ALREADY LOADED)
+		{"shell heat_medium" {enable_for_user 0}}			; cannon HEAT ammo (penetration 100-150mm) (AI ONLY)
+		{"shell heat_medium" {ready_for_shot}}				; cannon HEAT ammo (penetration 100-150mm) (ONLY IF ALREADY LOADED)
+		{"shell heat_low" {enable_for_user 0}}				; cannon HEAT ammo (penetration < 100mm) (AI ONLY)
+		{"shell heat_low" {ready_for_shot}}					; cannon HEAT ammo (penetration < 100mm)(ONLY IF ALREADY LOADED)
+		{"shell std_ap" {enable_for_ai 0}}					; cannon standard AP ammo types (AP, APC, APBC, etc)
+		{"rocketselector" {enable_for_user 0}}				; rocket artillery
+		{"hmgun"}											; heavy machine gun (.50 cal, etc)
+		{"grenade smokecustom"{ground}{enable_for_user 0}}
+		{"dynamite"}										; explosive charges
+		{"light"}											; ammo for binoculars and other vision devices
+		{"smoke" {ready_for_shot}}							; cannon smoke ammo
+	}
+	{cannon_small											; -TARGET CLASS-
+		{"flare"}
+		{"flame"}											; ammo for flamethrowers
+		{"mortar all_he"}									; HE mortar ammo
+		{"shell all_he arty"}								; cannon HE ammo for indirect firing artillery
+		{"shell std_ap" {ready_for_shot}}					; cannon standard AP ammo types (AP, APC, APBC, etc)
+		{"shell all_he"}									; cannon HE ammo
+		{"all_he auto"}										; auto cannon HE ammo
+		{"ammo rifle_grenade"}								; rifle grenade HE ammo
+		{"grenade fg"}										; standard anti-personel grenades
+		{"grenade at" {volume "body"}}						; anti-tank grenades
+		{"grenade ic"}										; flame grenades (molotov)
+		{"glass ic"}										; flame shell (Ampulomet glass ball)
+		{"ammo rifle_grenade_at"}							; rifle grenade HEAT ammo
+		{"zenite"}											; autocannon AP/APCR ammo
+		{"zenite apcr"}										; autocannon AP/APCR ammo
+		{"ammo rocketlauncher" {enable_for_user 0}}			; bazooka class ammo (AI ONLY)
+		{"shell heat_high" {enable_for_user 0}}				; cannon HEAT ammo (penetration > 150mm) (AI ONLY)
+		{"shell heat_high" {ready_for_shot}}				; cannon HEAT ammo (penetration > 150mm) (ONLY IF ALREADY LOADED)
+		{"shell heat_medium" {enable_for_user 0}}			; cannon HEAT ammo (penetration 100-150mm) (AI ONLY)
+		{"shell heat_medium" {ready_for_shot}}				; cannon HEAT ammo (penetration 100-150mm) (ONLY IF ALREADY LOADED)
+		{"shell heat_low" {enable_for_user 0}}				; cannon HEAT ammo (penetration < 100mm) (AI ONLY)
+		{"shell heat_low" {ready_for_shot}}					; cannon HEAT ammo (penetration < 100mm)(ONLY IF ALREADY LOADED)
+		{"shell std_ap" {enable_for_ai 0}}					; cannon standard AP ammo types (AP, APC, APBC, etc)
+		{"rocketselector" {enable_for_user 0}}				; rocket artillery
+		{"hmgun"}											; heavy machine gun (.50 cal, etc)
+		{"grenade smokecustom"{ground}{enable_for_user 0}}
+		{"dynamite"}										; explosive charges
+		{"light"}											; ammo for binoculars and other vision devices
+		{"smoke" {ready_for_shot}}							; cannon smoke ammo
+	}
+	{cannon_big												; -TARGET CLASS-
+		{"flare"}
+		{"flame"}											; ammo for flamethrowers
+		{"mortar all_he"}									; HE mortar ammo
+		{"shell all_he arty"}								; cannon HE ammo for indirect firing artillery
+		{"shell std_ap" {ready_for_shot}}					; cannon standard AP ammo types (AP, APC, APBC, etc)
+		{"shell all_he"}									; cannon HE ammo
+		{"all_he auto"}										; auto cannon HE ammo
+		{"grenade fg"}										; standard anti-personel grenades
+		{"grenade at" {volume "body"}}						; anti-tank grenades
+		{"grenade ic"}										; flame grenades (molotov)
+		{"glass ic"}										; flame shell (Ampulomet glass ball)
+		{"ammo rifle_grenade"}								; rifle grenade HE ammo
+		{"ammo rifle_grenade_at"}							; rifle grenade HEAT ammo
+		{"zenite"}											; autocannon AP/APCR ammo
+		{"zenite apcr"}										; autocannon AP/APCR ammo
+		{"ammo rocketlauncher" {enable_for_user 0}}			; bazooka class ammo (AI ONLY)
+		{"shell heat_high" {enable_for_user 0}}				; cannon HEAT ammo (penetration > 150mm) (AI ONLY)
+		{"shell heat_high" {ready_for_shot}}				; cannon HEAT ammo (penetration > 150mm) (ONLY IF ALREADY LOADED)
+		{"shell heat_medium" {enable_for_user 0}}			; cannon HEAT ammo (penetration 100-150mm) (AI ONLY)
+		{"shell heat_medium" {ready_for_shot}}				; cannon HEAT ammo (penetration 100-150mm) (ONLY IF ALREADY LOADED)
+		{"shell heat_low" {enable_for_user 0}}				; cannon HEAT ammo (penetration < 100mm) (AI ONLY)
+		{"shell heat_low" {ready_for_shot}}					; cannon HEAT ammo (penetration < 100mm)(ONLY IF ALREADY LOADED)
+		{"shell std_ap" {enable_for_ai 0}}					; cannon standard AP ammo types (AP, APC, APBC, etc)
+;//		{"shell hv_ap" {ready_for_shot}}					; cannon high velocity AP ammo types (APCR, HVAP, APDS)
+		{"rocketselector" {enable_for_user 0}}				; rocket artillery
+		{"hmgun"}											; heavy machine gun (.50 cal, etc)
+		{"grenade smokecustom"{ground}{enable_for_user 0}}
+		{"dynamite"}										; explosive charges
+		{"light"}											; ammo for binoculars and other vision devices
+		{"smoke" {ready_for_shot}}							; cannon smoke ammo
+	}
+	{howitzer												; -TARGET CLASS-
+		{"flare"}
+		{"flame"}											; ammo for flamethrowers
+		{"mortar all_he"}									; HE mortar ammo
+		{"shell all_he arty"}								; cannon HE ammo for indirect firing artillery
+		{"shell std_ap" {ready_for_shot}}					; cannon standard AP ammo types (AP, APC, APBC, etc)
+		{"shell all_he"}									; cannon HE ammo
+		{"all_he auto"}										; auto cannon HE ammo
+		{"grenade fg"}										; standard anti-personel grenades
+		{"grenade at" {volume "body"}}						; anti-tank grenades
+		{"grenade ic"}										; flame grenades (molotov)
+		{"glass ic"}										; flame shell (Ampulomet glass ball)
+		{"ammo rifle_grenade"}								; rifle grenade HE ammo
+		{"ammo rifle_grenade_at"}							; rifle grenade HEAT ammo
+		{"zenite"}											; autocannon AP/APCR ammo
+		{"zenite apcr"}										; autocannon AP/APCR ammo
+		{"ammo rocketlauncher" {enable_for_user 0}}			; bazooka class ammo (AI ONLY)
+		{"shell heat_high" {enable_for_user 0}}				; cannon HEAT ammo (penetration > 150mm) (AI ONLY)
+		{"shell heat_high" {ready_for_shot}}				; cannon HEAT ammo (penetration > 150mm) (ONLY IF ALREADY LOADED)
+		{"shell heat_medium" {enable_for_user 0}}			; cannon HEAT ammo (penetration 100-150mm) (AI ONLY)
+		{"shell heat_medium" {ready_for_shot}}				; cannon HEAT ammo (penetration 100-150mm) (ONLY IF ALREADY LOADED)
+		{"shell heat_low" {enable_for_user 0}}				; cannon HEAT ammo (penetration < 100mm) (AI ONLY)
+		{"shell heat_low" {ready_for_shot}}					; cannon HEAT ammo (penetration < 100mm)(ONLY IF ALREADY LOADED)
+		{"shell std_ap" {enable_for_ai 0}}					; cannon standard AP ammo types (AP, APC, APBC, etc)
+;//		{"shell hv_ap" {ready_for_shot}}					; cannon high velocity AP ammo types (APCR, HVAP, APDS)
+		{"rocketselector" {enable_for_user 0}}				; rocket artillery
+		{"hmgun"}											; heavy machine gun (.50 cal, etc)
+		{"dynamite"}										; explosive charges
+		{"light"}											; ammo for binoculars and other vision devices
+	}
+	{airborne												; -TARGET CLASS-
+		{"shell aphe" {ready_for_shot}}						; cannon APHE ammo (and 85mm_52k)
+		{"shell apcbche" {ready_for_shot}}					; cannon APHE ammo (flak 18/36)
+		{"shell apcbche2" {ready_for_shot}}					; cannon apcbche ammo (flak 18/36 early ammo)
+		{"all_he auto"}										; auto cannon HE ammo
+		{"zenite" {ready_for_shot}}							; autocannon AP/APCR ammo
+		{"shell all_he"}									; cannon HE ammo
+		{"zenite"}											; autocannon AP/APCR ammo
+		{"ptr" {enable_for_user 0}}							; anti-tank rifle ammo (AI ONLY)
+		{"hmgun"}											; heavy machine gun (.50 cal, etc)
+		{"small_arms"}										; bullet ammo (pistols, rifles, smgs, mgs)
+		{"light"}											; ammo for binoculars and other vision devices
+	}
+	{armoredcar_l											; -TARGET CLASS-
+		{"flare"}
+		{"mortar all_he" {volume "engine"}}					; HE mortar ammo
+		{"mortar all_he"}									; HE mortar ammo
+		{"zenite"{ready_for_shot}}											; autocannon AP/APCR ammo
+		{"zenite apcr"{ready_for_shot}}										; autocannon AP/APCR ammo
+		{"shell all_he" {ready_for_shot}}							        ; cannon HE ammo
+		{"ammo shell wp"{ready_for_shot}}			        ; WP ammo (ONLY IF ALREADY LOADED)
+		{"shell hv_ap" {ready_for_shot}}					; cannon high velocity AP ammo types (APCR, HVAP, APDS) (ONLY IF ALREADY LOADED)
+
+		
+		{"shell aphe 150to152" {volume "body"} {ready_for_shot}}	; cannon aphe ammo for indirect firing artillery
+		{"shell aphebc 150to152" {volume "body"} {ready_for_shot}}	; cannon aphebc ammo for indirect firing artillery
+		{"shell all_he arty" {volume "body"}}						; cannon HE ammo for indirect firing artillery
+		{"shell all_he 122to128" {volume "body"} {ready_for_shot}}	; cannon HE 122-128mm ammo (ONLY IF ALREADY LOADED)
+		{"shell all_he 88to105" {volume "body"} {ready_for_shot}}	; cannon HE 88-105mm ammo (ONLY IF ALREADY LOADED)
+		{"shell all_he 75to76" {volume "body"} {ready_for_shot}}	; cannon HE 75-76mm ammo (ONLY IF ALREADY LOADED)
+		{"shell heat_medium" {ready_for_shot}}				; cannon HEAT ammo (penetration 100-150mm) (ONLY IF ALREADY LOADED)
+		{"shell heat_low" {ready_for_shot}}					; cannon HEAT ammo (penetration < 100mm) (ONLY IF ALREADY LOADED)
+		{"shell std_ap"}									; cannon standard AP ammo types (AP, APC, APBC, etc)
+		{"shell heat_medium"}								; cannon HEAT ammo (penetration 100-150mm) 
+		{"shell heat_low"}									; cannon HEAT ammo (penetration < 100mm)
+		{"shell hv_ap"}										; cannon high velocity AP ammo types (APCR, HVAP, APDS) (ONLY IF ALREADY LOADED)
+		{"shell heat_high"}									; cannon HEAT ammo (penetration > 150mm)
+		{"zenite"}											; autocannon AP/APCR ammo
+		{"zenite apcr"}										; autocannon AP/APCR ammo
+		{"ammo rocketlauncher" {volume "body"}}				; bazooka class ammo 
+		{"ammo rocketlauncher"}								; bazooka class ammo 
+		{"hmgun" {volume "body"}}							; heavy machine gun (.50 cal, etc)
+		{"ptr" {volume "body"}}								; anti-tank rifle ammo
+		{"ptr"}												; anti-tank rifle ammo
+		{"ammo rifle_grenade_at " {volume "body"}}			; rifle grenade HEAT ammo
+		{"flame" {volume "engine"}}							; ammo for flamethrowers
+		{"flame"}											; ammo for flamethrowers
+		{"grenade at" {volume "body"}}						; anti-tank grenades
+		{"grenade ic" {volume "engine"}}					; flame grenades (molotov)
+		{"grenade ic"}										; flame grenades (molotov)
+		{"glass ic"}										; flame shell (Ampulomet glass ball)
+		{"grenade fg" {volume "grenade_fg_target"}}			; standard anti-personel grenades
+		{"shell hv_ap" {ready_for_shot}}					; cannon high velocity AP ammo types (APCR, HVAP, APDS) (ONLY IF ALREADY LOADED)
+		{"all_he auto" {disable}}							; auto cannon HE ammo
+		{"shell all_he"}									; cannon HE ammo
+		{"rocketselector" {volume "body"} {enable_for_user 0}}	; rocket artillery
+		{"dynamite"}										; explosive charges
+        {"grenade smokecustom"{ground}{enable_for_user 0}}
+		{"small_arms" {volume "wheel"}}						; bullet ammo (pistols, rifles, smgs, mgs)
+		{"light"}											; ammo for binoculars and other vision devices
+	}
+	{armoredcar												; -TARGET CLASS- Armored cars with bullet resistant tires
+		{"flare"}
+		{"mortar all_he" {volume "engine"}}					; HE mortar ammo
+		{"mortar all_he"}									; HE mortar ammo
+		{"shell aphe 150to152" {volume "body"} {ready_for_shot}}	; cannon aphe ammo for indirect firing artillery
+		{"shell aphebc 150to152" {volume "body"} {ready_for_shot}}	; cannon aphebc ammo for indirect firing artillery
+		{"shell all_he arty" {volume "body"}}						; cannon HE ammo for indirect firing artillery
+		{"shell all_he 122to128" {volume "body"} {ready_for_shot}}	; cannon HE 122-128mm ammo (ONLY IF ALREADY LOADED)
+		{"shell all_he 88to105" {volume "body"} {ready_for_shot}}	; cannon HE 88-105mm ammo (ONLY IF ALREADY LOADED)
+		{"shell all_he 75to76" {volume "body"} {ready_for_shot}}	; cannon HE 75-76mm ammo (ONLY IF ALREADY LOADED)
+		{"shell heat_medium" {ready_for_shot}}				; cannon HEAT ammo (penetration 100-150mm) (ONLY IF ALREADY LOADED)
+		{"shell heat_low" {ready_for_shot}}					; cannon HEAT ammo (penetration < 100mm) (ONLY IF ALREADY LOADED)
+		{"shell std_ap"}									; cannon standard AP ammo types (AP, APC, APBC, etc)
+		{"shell heat_medium"}								; cannon HEAT ammo (penetration 100-150mm) 
+		{"shell heat_low"}									; cannon HEAT ammo (penetration < 100mm)
+		{"shell hv_ap"}										; cannon high velocity AP ammo types (APCR, HVAP, APDS) (ONLY IF ALREADY LOADED)
+		{"shell heat_high"}									; cannon HEAT ammo (penetration > 150mm)
+		{"zenite"}											; autocannon AP/APCR ammo
+		{"zenite apcr"}										; autocannon AP/APCR ammo
+		{"ammo rocketlauncher" {volume "body"}}				; bazooka class ammo 
+		{"ammo rocketlauncher"}								; bazooka class ammo 
+		{"hmgun" {volume "body"}}							; heavy machine gun (.50 cal, etc)
+		{"ptr" {volume "body"}}								; anti-tank rifle ammo
+		{"ptr"}												; anti-tank rifle ammo
+		{"ammo rifle_grenade_at" {volume "body"}}			; rifle grenade HEAT ammo
+		{"flame" {volume "engine"}}							; ammo for flamethrowers
+		{"flame"}											; ammo for flamethrowers
+		{"grenade at" {volume "body"}}						; anti-tank grenades
+		{"grenade ic" {volume "engine"}}					; flame grenades (molotov)
+		{"grenade ic"}										; flame grenades (molotov)
+		{"glass ic"}										; flame shell (Ampulomet glass ball)
+		{"grenade fg" {volume "grenade_fg_target"}}			; standard anti-personel grenades
+		{"shell hv_ap" {ready_for_shot}}					; cannon high velocity AP ammo types (APCR, HVAP, APDS) (ONLY IF ALREADY LOADED)
+		{"all_he auto" {disable}}							; auto cannon HE ammo
+		{"shell all_he"}									; cannon HE ammo
+		{"rocketselector" {volume "body"} {enable_for_user 0}}	; rocket artillery
+		{"dynamite"}										; explosive charges
+		{"light"}											; ammo for binoculars and other vision devices
+	}
+	{tank_light												;-TARGET CLASS-
+		{"flare"}
+		{"mortar all_he" {volume "engine"}}					; HE mortar ammo
+		{"mortar all_he"}									; HE mortar ammo
+		{"zenite"{ready_for_shot}}											; autocannon AP/APCR ammo
+		{"zenite apcr"{ready_for_shot}}										; autocannon AP/APCR ammo
+		{"shell all_he" {ready_for_shot}}							        ; cannon HE ammo
+		{"ammo shell wp"{ready_for_shot}}			        ; WP ammo (ONLY IF ALREADY LOADED)
+		{"shell hv_ap" {ready_for_shot}}					; cannon high velocity AP ammo types (APCR, HVAP, APDS) (ONLY IF ALREADY LOADED)
+
+		{"shell aphe 150to152" {volume "body"} {ready_for_shot}}	; cannon aphe ammo for indirect firing artillery (ONLY IF ALREADY LOADED)
+		{"shell aphebc 150to152" {volume "body"} {ready_for_shot}}	; cannon aphebc ammo for indirect firing artillery (ONLY IF ALREADY LOADED)
+		{"shell all_he arty"}										; cannon HE ammo for indirect firing artillery
+		{"shell all_he 122to128" {volume "body"} {ready_for_shot}}	; cannon HE 122-128mm ammo (ONLY IF ALREADY LOADED)
+		{"shell all_he 88to105" {volume "body"} {ready_for_shot}}	; cannon HE 88-105mm ammo (ONLY IF ALREADY LOADED)
+		{"shell heat_medium" {ready_for_shot}}				; cannon HEAT ammo (penetration 100-150mm) (ONLY IF ALREADY LOADED)
+		{"shell heat_low" {ready_for_shot}}					; cannon HEAT ammo (penetration < 100mm) (ONLY IF ALREADY LOADED)
+		
+		{"shell apcbche"{ready_for_shot}}									; cannon apcbche ammo
+		{"shell apcbche2"{ready_for_shot}}									; cannon apcbche ammo (early ammo)
+		{"shell apcbc"{ready_for_shot}}										; cannon apcbc ammo
+		{"shell aphebc2"{ready_for_shot}}									; cannon aphebc ammo
+		{"shell aphebc"{ready_for_shot}}									; cannon aphebc ammo
+		{"shell aphe"{ready_for_shot}}										; cannon aphe ammo
+		{"shell apbc"{ready_for_shot}}										; cannon apbc ammo
+		{"shell apche"{ready_for_shot}}										; cannon apche ammo
+		{"shell apc"{ready_for_shot}}										; cannon apc ammo
+		{"shell ap"{ready_for_shot}}
+		
+		{"shell apcbche"}									; cannon apcbche ammo
+		{"shell apcbche2"}									; cannon apcbche ammo (early ammo)
+		{"shell apcbc"}										; cannon apcbc ammo
+		{"shell aphebc2"}									; cannon aphebc ammo
+		{"shell aphebc"}									; cannon aphebc ammo
+		{"shell aphe"}										; cannon aphe ammo
+		{"shell apbc"}										; cannon apbc ammo
+		{"shell heat_low"}									; cannon HEAT ammo (penetration < 100mm)
+		{"shell apche"}										; cannon apche ammo
+		{"shell apc"}										; cannon apc ammo
+		{"shell ap"}
+		{"shell std_ap"}									; cannon standard AP ammo types (AP, APC, APBC, etc)
+		{"shell heat_medium"}								; cannon HEAT ammo (penetration 100-150mm) 
+		{"shell heat_low"}									; cannon HEAT ammo (penetration < 100mm)
+		{"shell hv_ap"}										; cannon high velocity AP ammo types (APCR, HVAP, APDS) (ONLY IF ALREADY LOADED)
+		{"shell heat_high"}									; cannon HEAT ammo (penetration > 150mm)
+		{"zenite"}											; autocannon AP/APCR ammo
+		{"zenite apcr"}										; autocannon AP/APCR ammo
+		{"ammo rocketlauncher" {volume "body"}}				; bazooka class ammo 
+		{"hmgun" {volume "mover"}}							; heavy machine gun (.50 cal, etc)
+		{"hmgun"}											; heavy machine gun (.50 cal, etc)
+		{"ptr" {volume "body"}}								; anti-tank rifle ammo
+		{"ptr"}												; anti-tank rifle ammo
+		{"ammo rifle_grenade_at" {volume "body"}}			; rifle grenade HEAT ammo
+		{"flame" {volume "engine"}}							; ammo for flamethrowers
+		{"flame"}											; ammo for flamethrowers
+		{"grenade at" {volume "body"}}						; anti-tank grenades
+		{"grenade ic" {volume "engine"}}					; flame grenades (molotov)
+		{"grenade ic"}										; flame grenades (molotov)
+        {"grenade smokecustom"{ground}{enable_for_user 0}}
+		{"glass ic"}										; flame shell (Ampulomet glass ball)
+		{"grenade fg" {volume "grenade_fg_target"}}			; standard anti-personel grenades
+		{"all_he auto" {disable}}							; auto cannon HE ammo
+		{"shell all_he"}									; cannon HE ammo
+		{"rocketselector" {volume "body"} {enable_for_user 0}}	; rocket artillery
+		{"dynamite"}										; explosive charges
+		{"light"}											; ammo for binoculars and other vision devices
+		{"smoke" {ready_for_shot}}							; cannon smoke ammo
+		{"grenade wpsmoke"{volume "engine"}}										; standard wpsmoke grenades
+	}
+	{tank_medium											;-TARGET CLASS-
+		{"flare"}
+		{"big mortar all_he"}								; 120mm HE mortar ammo
+		{"mortar all_he" {volume "engine"}}					; HE mortar ammo
+		{"mortar all_he"}									; HE mortar ammo
+		{"shell aphe 150to152" {volume "body"} {ready_for_shot}}	; cannon aphe ammo for indirect firing artillery (ONLY IF ALREADY LOADED)
+		{"shell aphebc 150to152" {volume "body"} {ready_for_shot}}	; cannon aphebc ammo for indirect firing artillery (ONLY IF ALREADY LOADED)
+		{"shell all_he 122to128" {volume "body"} {ready_for_shot}}	; cannon HE 122-128mm ammo (ONLY IF ALREADY LOADED)
+		{"shell heat_medium stuh"}									; cannon HEAT ammo (penetration 100-150mm)
+		{"shell all_he arty" {volume "turret"}}					; cannon HE ammo for indirect firing artillery
+		{"shell all_he arty"}									; cannon HE ammo for indirect firing artillery
+
+		{"zenite"{ready_for_shot}}											; autocannon AP/APCR ammo
+		{"zenite apcr"{ready_for_shot}}										; autocannon AP/APCR ammo
+		
+		{"ammo shell wp"{ready_for_shot}}			        ; WP ammo (ONLY IF ALREADY LOADED)
+		{"shell hv_ap" {ready_for_shot}}					; cannon high velocity AP ammo types (APCR, HVAP, APDS) (ONLY IF ALREADY LOADED)
+		{"shell heat_medium" {ready_for_shot}}				; cannon HEAT ammo (penetration 100-150mm) (ONLY IF ALREADY LOADED)
+
+		{"shell apcbche"{ready_for_shot}}									; cannon apcbche ammo
+		{"shell apcbche2"{ready_for_shot}}									; cannon apcbche ammo (early ammo)
+		{"shell apcbc"{ready_for_shot}}										; cannon apcbc ammo
+		{"shell aphebc2"{ready_for_shot}}									; cannon aphebc ammo
+		{"shell aphebc"{ready_for_shot}}									; cannon aphebc ammo
+		{"shell aphe"{ready_for_shot}}										; cannon aphe ammo
+		{"shell apbc"{ready_for_shot}}										; cannon apbc ammo
+		{"shell apche"{ready_for_shot}}										; cannon apche ammo
+		{"shell apc"{ready_for_shot}}										; cannon apc ammo
+		{"shell ap"{ready_for_shot}}										; cannon ap ammo
+
+		{"shell apcbche"}									; cannon apcbche ammo
+		{"shell apcbche2"}									; cannon apcbche ammo (early ammo)
+		{"shell apcbc"}										; cannon apcbc ammo
+		{"shell aphebc2"}									; cannon aphebc ammo
+		{"shell aphebc"}									; cannon aphebc ammo
+		{"shell aphe"}										; cannon aphe ammo
+		{"shell apbc"}										; cannon apbc ammo
+		{"shell heat_low"}									; cannon HEAT ammo (penetration < 100mm)
+		{"shell apche"}										; cannon apche ammo
+		{"shell apc"}										; cannon apc ammo
+		{"shell ap"}										; cannon ap ammo
+		{"shell heat_medium"}								; cannon HEAT ammo (penetration 100-150mm)
+		{"shell hv_ap"}										; cannon high velocity AP ammo types (APCR, HVAP, APDS) (ONLY IF ALREADY LOADED)
+		{"shell heat_high"}									; cannon HEAT ammo (penetration > 150mm)
+		{"zenite"}											; autocannon AP/APCR ammo
+		{"zenite apcr"}										; autocannon AP/APCR ammo
+		{"ammo rocketlauncher" {volume "body"}}				; bazooka class ammo 
+		{"ptr" {volume "mover"}}							; anti-tank rifle ammo
+		{"ptr" {volume "body"}}								; anti-tank rifle ammo
+		{"ammo rifle_grenade_at" {volume "body"}}			; rifle grenade HEAT ammo
+		{"flame" {volume "engine"}}							; ammo for flamethrowers
+		{"flame"}											; ammo for flamethrowers
+		{"grenade at" {volume "body"}}						; anti-tank grenades
+		{"grenade ic" {volume "engine"}}					; flame grenades (molotov)
+		{"grenade ic"}										; flame grenades (molotov)
+        {"grenade smokecustom"{ground}{enable_for_user 0}}
+		{"glass ic"}										; flame shell (Ampulomet glass ball)
+		{"grenade fg" {volume "grenade_fg_target"}}			; standard anti-personel grenades
+		{"all_he auto" {disable}}							; auto cannon HE ammo
+		{"shell all_he"}									; cannon HE ammo
+		{"rocketselector" {volume "body"} {enable_for_user 0}}	; rocket artillery
+		{"dynamite"}										; explosive charges
+		{"light"}											; ammo for binoculars and other vision devices
+		{"smoke" {ready_for_shot}}							; cannon smoke ammo
+		{"grenade wpsmoke"{volume "engine"}}										; standard wpsmoke grenades
+	}
+	{tank_heavy												;-TARGET CLASS-
+		{"flare"}
+		{"mortar ic" {volume "engine"} {ready_for_shot}}	; IC mortar ammo
+		{"big mortar all_he"}								; 120mm HE mortar ammo
+		{"mortar all_he" {volume "engine"}}					; HE mortar ammo
+		{"mortar all_he"}									; HE mortar ammo
+		{"shell aphe 150to152" {volume "body"} {ready_for_shot}}	; cannon aphe ammo for indirect firing artillery (ONLY IF ALREADY LOADED)
+		{"shell aphebc 150to152" {volume "body"} {ready_for_shot}}	; cannon aphebc ammo for indirect firing artillery (ONLY IF ALREADY LOADED)
+		{"shell all_he 122to128" {volume "body"} {ready_for_shot}}	; cannon HE 122-128mm ammo (ONLY IF ALREADY LOADED)
+		{"shell heat_medium stuh"}									; cannon HEAT ammo (penetration 100-150mm)
+		{"shell all_he arty" {volume "turret"}}				; cannon HE ammo for indirect firing artillery
+		{"shell all_he arty"}								; cannon HE ammo for indirect firing artillery
+		
+		{"zenite"{ready_for_shot}}											; autocannon AP/APCR ammo
+		{"zenite apcr"{ready_for_shot}}										; autocannon AP/APCR ammo
+		
+		{"zenite" {volume "mover"}}							; autocannon AP/APCR ammo
+		{"shell hv_ap" {ready_for_shot}}					; cannon high velocity AP ammo types (APCR, HVAP, APDS) (ONLY IF ALREADY LOADED)
+		{"shell heat_medium" {ready_for_shot}}				; cannon HEAT ammo (penetration 100-150mm) (ONLY IF ALREADY LOADED)
+
+		{"ammo shell wp"{ready_for_shot}}			        ; WP ammo (ONLY IF ALREADY LOADED)
+		{"shell hv_ap" {ready_for_shot}}					; cannon high velocity AP ammo types (APCR, HVAP, APDS) (ONLY IF ALREADY LOADED)
+		{"shell heat_medium" {ready_for_shot}}				; cannon HEAT ammo (penetration 100-150mm) (ONLY IF ALREADY LOADED)
+
+		{"shell apcbche"{ready_for_shot}}									; cannon apcbche ammo
+		{"shell apcbche2"{ready_for_shot}}									; cannon apcbche ammo (early ammo)
+		{"shell apcbc"{ready_for_shot}}										; cannon apcbc ammo
+		{"shell aphebc2"{ready_for_shot}}									; cannon aphebc ammo
+		{"shell aphebc"{ready_for_shot}}									; cannon aphebc ammo
+		{"shell aphe"{ready_for_shot}}										; cannon aphe ammo
+		{"shell apbc"{ready_for_shot}}										; cannon apbc ammo
+		{"shell apche"{ready_for_shot}}										; cannon apche ammo
+		{"shell apc"{ready_for_shot}}										; cannon apc ammo
+		{"shell ap"{ready_for_shot}}										; cannon ap ammo
+
+        {"ammo shell wp"{volume "engine"} {enable_for_ai 0}}			        ; WP ammo (ONLY IF ALREADY LOADED)
+
+		{"shell apcbche"}									; cannon apcbche ammo
+		{"shell apcbche2"}									; cannon apcbche ammo (early ammo)
+		{"shell apcbc"}										; cannon apcbc ammo
+		{"shell aphebc2"}									; cannon aphebc ammo
+		{"shell aphebc"}									; cannon aphebc ammo
+		{"shell aphe"}										; cannon aphe ammo
+		{"shell apbc"}										; cannon apbc ammo
+		{"shell heat_low"}									; cannon HEAT ammo (penetration < 100mm)
+		{"shell apche"}										; cannon apche ammo
+		{"shell apc"}										; cannon apc ammo
+		{"shell ap"}										; cannon ap ammo
+		{"shell heat_medium"}								; cannon HEAT ammo (penetration 100-150mm)
+		{"shell hv_ap"}										; cannon high velocity AP ammo types (APCR, HVAP, APDS) (ONLY IF ALREADY LOADED)
+		{"shell heat_high"}									; cannon HEAT ammo (penetration > 150mm)
+		{"shell heat_medium stuh"}									; cannon HEAT ammo (penetration 100-150mm)
+		{"ammo rocketlauncher" {volume "body"}}				; bazooka class ammo 
+		{"ptr" {volume "mover"}}							; anti-tank rifle ammo
+		{"ammo rifle_grenade_at" {volume "body"}}			; rifle grenade HEAT ammo
+		{"flame" {volume "engine"}}							; ammo for flamethrowers
+		{"flame"}											; ammo for flamethrowers
+		{"grenade at" {volume "body"}}						; anti-tank grenades
+		{"grenade ic" {volume "engine"}}					; flame grenades (molotov)
+		{"grenade ic"}										; flame grenades (molotov)
+        {"grenade smokecustom"{ground}{enable_for_user 0}}
+		{"glass ic"}										; flame shell (Ampulomet glass ball)
+		{"grenade fg" {volume "grenade_fg_target"}}			; standard anti-personel grenades
+		{"all_he auto" {disable}}							; auto cannon HE ammo
+		{"shell all_he"}									; cannon HE ammo
+		{"rocketselector" {volume "body"} {enable_for_user 0}}	; rocket artillery
+		{"dynamite"}										; explosive charges
+		{"grenade wpsmoke"{volume "engine"}}										; standard wpsmoke grenades
+		{"light"}											; ammo for binoculars and other vision devices
+		{"smoke" {ready_for_shot}}							; cannon smoke ammo
+	}
+	{unknown}
+}

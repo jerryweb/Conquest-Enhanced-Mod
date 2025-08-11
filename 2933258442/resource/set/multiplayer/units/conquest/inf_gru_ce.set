@@ -1,0 +1,796 @@
+;// CP + Scores + CW
+
+;////////////////// INSTRUCTIONS //////////////////
+; In this file onee configures the humans which are spawned in vehicles or squads
+; The humans have a CP and cost associated with them which collectively add up for the final squad value
+; Check ../settings.set for syntax instructions!!
+;//////////////////////////////////////////////////
+
+;SDL
+
+
+{"mp/gru/mid/artilleryman"			("inf_tankman" side(gru) cost(1.0))}
+{"mp/gru/mid/tankman"				("inf_tankman" side(gru) cost(12.0))}
+{"mp/gru/mid/tankman_stug"			("inf_tankman" side(gru) cost(20.0))}
+{"mp/gru/mid/tankman_pzjag"			("inf_tankman" side(gru) cost(4.0))}
+{"mp/gru/mid/tank_commander"		("inf_tankman" side(gru) cost(25.0))}
+{"mp/gru/mid/tank_commander_stug"	("inf_tankman" side(gru) cost(25.0))}
+{"mp/gru/mid/tank_commander_pzjag"	("inf_tankman" side(gru) cost(10.0))}
+{"mp/gru/mid/pilot"					("inf_tankman" side(gru) cost(0.0))}
+{"mp/gru/mid/tankman_ace"			("inf_tankman" side(gru) cost(25.0))}
+{"mp/gru/mid/tank_commander_ace"	("inf_tankman" side(gru) cost(30.0))}
+
+{"mp/gru/mid/medic"					("inf_medic" side(gru) cost(40.0))}
+
+{"mp/gru/mid/officer"				("inf_officer" side(gru) cost(300.0))}
+
+{"mp/gru/mid/sniper"				("inf_sniper" side(gru) r(2) rm(99) cost(150.0))}
+{"mp/gru/mid/sniper_elite"			("inf_sniper" side(gru) r(3) rm(99) cost(170.0))}
+
+;// tier 0
+
+{"mp/gru/late/volkssturm_pol"	("inf_tier1" side(gru) lvl(lvl1) r(12) rm(99) cost(7.0))} ; smg
+{"mp/gru/late/volkssturm_rifle"	("inf_tier1" side(gru) lvl(lvl1) r(12) rm(99) cost(5.0))} ; k98
+{"mp/gru/late/volkssturm_pzf"	("inf_tier1" side(gru) lvl(lvl1) r(12) rm(99) cost(10.0))} ; k98 + pzfaust 100
+{"mp/gru/late/volkssturm_smg"	("inf_tier1" side(gru) lvl(lvl1) r(12) rm(99) cost(12.0))} ; mp40 + pzfaust 60
+{"mp/gru/late/volkssturm_mg"	("inf_tier1" side(gru) lvl(lvl1) r(12) rm(99) cost(28.0))} ; MG42 drum (50 round)
+
+;// tier 1
+
+{"mp/gru/mid/convict_1"		("inf_tier1" side(gru) lvl(lvl1) r(1) rm(8) cost(6.0))} ; k98
+{"mp/gru/mid/convict_2"		("inf_tier1" side(gru) lvl(lvl1) r(1) rm(8) cost(6.0))} ; mp40
+{"mp/gru/mid/convict_3"		("inf_tier1" side(gru) lvl(lvl1) r(1) rm(8) cost(25.0))} ; mp40
+{"mp/gru/mid/osttrupp_1"	("inf_tier1" side(gru) lvl(lvl1) r(1) rm(8) cost(6.0))} ; k98
+{"mp/gru/mid/osttrupp_2"	("inf_tier1" side(gru) lvl(lvl1) r(1) rm(8) cost(6.0))} ; k98
+
+{"mp/gru/mid/luft_1"		("inf_tier1" side(gru) lvl(lvl1) r(1) rm(8) cost(10.0))} ; mp40
+{"mp/gru/mid/luft_2"		("inf_tier1" side(gru) lvl(lvl1) r(1) rm(8) cost(8.0))} ; k98
+{"mp/gru/mid/luft_3"		("inf_tier1" side(gru) lvl(lvl1) r(1) rm(8) cost(30.0))} ; mg13
+{"mp/gru/mid/luft_4"		("inf_tier1" side(gru) lvl(lvl1) r(1) rm(8) cost(8.0))} ; k98
+{"mp/gru/mid/luft_5"		("inf_tier1" side(gru) lvl(lvl1) r(1) rm(8) cost(8.0))} ; k98
+
+{"mp/gru/mid/ersatz_rifle"		("inf_tier1" side(gru) lvl(lvl1) r(1) rm(8) cost(7.0))} ; mp40
+{"mp/gru/mid/ersatz_sl"			("inf_tier1" side(gru) lvl(lvl1) r(1) rm(8) cost(7.0))} ; k98
+{"mp/gru/mid/ersatz_sl_asst"	("inf_tier1" side(gru) lvl(lvl1) r(1) rm(8) cost(9.0))} ; mp40
+;// tier 2
+
+{"mp/gru/mid/mg_crew"		("inf_tier2_lite" side(gru) lvl() r(1) rm(8) cost(7.0))} ;p38 pistol
+{"mp/gru/mid/mg_crew_asst"	("inf_tier2_lite" side(gru) lvl() r(1) rm(8) cost(8.0))} ;k98
+
+{"mp/gru/mid/mgun_1"		("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(40.0))} ; MG34 belt
+{"mp/gru/mid/mgun_2"		("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+{"mp/gru/mid/mgun_2_rifle"	("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+{"mp/gru/mid/mgun_3"		("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+
+{"mp/gru/mid/rifleman_1"	("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+{"mp/gru/mid/rifleman_2"	("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+{"mp/gru/mid/rifleman_3"	("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+
+{"mp/gru/mid/nco"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(20.0))} ; mp40
+{"mp/gru/mid/nco_asst"		("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(18.0))} ; k98
+{"mp/gru/mid/nco_asst_sa"	("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; g41
+
+{"mp/gru/mid/recon_mg"		("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(40.0))} ; mg34 drum
+{"mp/gru/mid/recon_mg_asst"	("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+{"mp/gru/mid/recon_rifle"	("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+{"mp/gru/mid/recon_sl"		("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; mp40
+{"mp/gru/mid/recon_sl_asst"	("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+
+{"mp/gru/mid/pz_recon_mg"		("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(40.0))} ; mg34 drum
+{"mp/gru/mid/pz_recon_mg_asst"	("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+{"mp/gru/mid/pz_recon_rifle"	("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+{"mp/gru/mid/pz_recon_sl"		("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; mp40
+{"mp/gru/mid/pz_recon_sl_asst"	("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+
+{"mp/gru/mid/smg_1"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; mp40
+{"mp/gru/mid/smg_2"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; mp40
+{"mp/gru/mid/smg_3"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; mp40
+{"mp/gru/mid/smg_mkb"		("inf_tier2" side(gru) lvl(lvl2 lvl3) r(1) rm(8) cost(15.0))} ; mkb42(h)
+
+{"mp/gru/mid/antitank_1"	("inf_tier2" side(gru) lvl(lvl1 lvl2 lvl3 lvl4) r(1) rm(8) cost(15.0))} ; AT Rifle
+{"mp/gru/mid/antitank_2"	("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98 + at rifle ammo
+{"mp/gru/mid/antitank_3"	("inf_tier2" side(gru) lvl(lvl1 lvl2 lvl3 lvl4) r(1) rm(8) cost(28.0))} ; Rifle Grenade HE and HEAT
+{"mp/gru/mid/antitank_4"	("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98 + grenade ammo
+
+{"mp/gru/mid/engineer_1"	("inf_tier2" side(gru) lvl() r(1) rm(8) cost(50.0))}
+{"mp/gru/mid/engineer_2"	("inf_tier2" side(gru) lvl() r(1) rm(8) cost(50.0))}
+{"mp/gru/mid/flamer"		("inf_tier2" side(gru) lvl(lvl2 lvl3 lvl4) r(1) rm(8) cost(90.0))}
+
+{"mp/gru/mid/miner-ap"		("inf_tier2" side(gru) lvl() r(1) rm(8) cost(50.0))}
+{"mp/gru/mid/miner-at"		("inf_tier2" side(gru) lvl() r(1) rm(8) cost(50.0))}
+
+{"mp/gru/mid/scout_1"		("inf_tier2" side(gru) lvl(lvl2 lvl3) r(1) rm(8) cost(35.0))} ; g43 marksman
+{"mp/gru/mid/scout_2"		("inf_tier2" side(gru) lvl(lvl2 lvl3) r(1) rm(8) cost(45.0))} ; mkb42h
+
+{"mp/gru/mid/pioneer_1"		("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(28.0))} ; k98
+{"mp/gru/mid/pioneer_2"		("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(20.0))} ; k98
+{"mp/gru/mid/pioneer_3"		("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(60.0))} ; flamethrower
+{"mp/gru/mid/pioneer_4"		("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(28.0))} ; k98
+{"mp/gru/mid/pioneer_at"	("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(28.0))} ; k98
+{"mp/gru/mid/pioneer_mgun"	("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(45.0))} ; mg34 belt
+{"mp/gru/mid/pioneer_mgun_ammo_carrier"	("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+{"mp/gru/mid/pioneer_mgun_asst"	("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+{"mp/gru/mid/pioneer_sl"		("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(30.0))} ; mp40
+{"mp/gru/mid/pioneer_sl_asst"	("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(32.0))} ; g41
+
+{"mp/gru/mid/pz_pio_flame"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(60.0))} ; flamethrower
+{"mp/gru/mid/pz_pio_mg"				("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(45.0))} ; mg34 belt
+{"mp/gru/mid/pz_pio_mg_ammo_carrier"("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+{"mp/gru/mid/pz_pio_mg_asst"		("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; pistol
+{"mp/gru/mid/pz_pio_rifle"			("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+{"mp/gru/mid/pz_pio_rifle_gren"		("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+{"mp/gru/mid/pz_pio_rifle_mine"		("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; k98
+{"mp/gru/mid/pz_pio_sl"				("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; mp40
+{"mp/gru/mid/pz_pio_sl_asst"		("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; g41
+
+{"mp/gru/late/nco"			("inf_tier2" side(gru) lvl() r(9) rm(99) cost(25.0))} ; stg44
+
+{"mp/gru/late/smg_1"		("inf_tier2" side(gru) lvl() r(9) rm(99) cost(10.0))} ; mp40
+
+{"mp/gru/late/antitank_1"	("inf_tier2" side(gru) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(80.0))} ; pistol + Pzshreck
+{"mp/gru/late/antitank_2"	("inf_tier2" side(gru) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(15.0))} ; mp40 + pzfaust60 + Pzschreck ammo
+{"mp/gru/late/antitank_3"	("inf_tier2" side(gru) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(18.0))} ; g43 + pzfaust60
+
+{"mp/gru/late/gren_rifle"			("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; k98
+{"mp/gru/late/gren_rifle_pzf"		("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; k98 + pzfaust 30
+{"mp/gru/late/gren_smg"				("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; mp40
+{"mp/gru/late/gren_sa"				("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; g43
+{"mp/gru/late/gren_rifle_grenadier"	("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(18.0))} ; rifle grenade
+{"mp/gru/late/gren_mg"				("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(45.0))} ; mg42 belt (100 round)
+{"mp/gru/late/gren_mg_asst"			("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; k98
+{"mp/gru/late/gren_sl"				("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; mp40
+{"mp/gru/late/gren_sl_asst"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; k98
+{"mp/gru/late/gren_sl_asst_sniper"	("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(120.0))} ; k98 scope + % pzfaust 30
+{"mp/gru/late/gren_sl_asst_smg"		("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(12.0))} ; mp40 + % pzfaust 30
+{"mp/gru/late/gren_sturm_mg"		("inf_tier2" side(gru) lvl(lvl1 lvl2) r(11) rm(99) cost(45.0))} ; mg42 belt (100 round)
+{"mp/gru/late/gren_sturm_mg_asst"	("inf_tier2" side(gru) lvl(lvl1 lvl2) r(11) rm(99) cost(20.0))} ; stg44
+{"mp/gru/late/gren_sturm_pzf"		("inf_tier2" side(gru) lvl(lvl1 lvl2) r(11) rm(99) cost(23.0))} ; stg44 + pzfaust 60
+{"mp/gru/late/gren_sturm_sa_scope"	("inf_tier2" side(gru) lvl(lvl1 lvl2) r(11) rm(99) cost(80.0))} ; g43 scope
+{"mp/gru/late/gren_sturm_sl"		("inf_tier2" side(gru) lvl(lvl1 lvl2) r(11) rm(99) cost(20.0))} ; stg44
+{"mp/gru/late/gren_sturm_sl_asst"	("inf_tier2" side(gru) lvl(lvl1 lvl2) r(11) rm(99) cost(20.0))} ; stg44 + % faustpatrone 30
+{"mp/gru/late/gren_sturm_stg"		("inf_tier2" side(gru) lvl(lvl1 lvl2) r(11) rm(99) cost(20.0))} ; stg44
+
+{"mp/gru/late/lw_jag_mg"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(45.0))} ; mg42 belt (100 round)
+{"mp/gru/late/lw_jag_mg_asst"		("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; k98
+{"mp/gru/late/lw_jag_mg34"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(45.0))} ; mg34 belt (100 round)
+{"mp/gru/late/lw_jag_rifle"			("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; k98
+{"mp/gru/late/lw_jag_rifle_pzf"		("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; k98 + pzfaust 30
+{"mp/gru/late/lw_jag_rifle_gren"	("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(18.0))} ; rifle grenade
+{"mp/gru/late/lw_jag_sa"			("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; g43
+{"mp/gru/late/lw_jag_sl"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; mp40
+{"mp/gru/late/lw_jag_sl_asst"		("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; k98 + % pzfaust 60
+{"mp/gru/late/lw_jag_sl_asst_scope"	("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(120.0))} ; k98 scope + % pzfaust 60
+{"mp/gru/late/lw_jag_smg"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; mp38
+
+{"mp/gru/late/pzgren_at"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(80.0))} ; pzschreck
+{"mp/gru/late/pzgren_rifle"			("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; k98
+{"mp/gru/late/pzgren_rifle_pzf"		("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; k98 + pzfaust 30
+{"mp/gru/late/pzgren_rifle_pzf2"	("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; k98 + % pzfaust 30
+{"mp/gru/late/pzgren_sa"			("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; g43
+{"mp/gru/late/pzgren_mg"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(45.0))} ; mg42 belt (100 round)
+{"mp/gru/late/pzgren_mg_asst"		("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; k98
+{"mp/gru/late/pzgren_sl"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; mp40
+{"mp/gru/late/pzgren_sl_asst"		("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(15.0))} ; g43 + % pzfaust 60
+{"mp/gru/late/pzgren_stg"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(20.0))} ; stg44
+{"mp/gru/late/pzgren_sturm_pzf"		("inf_tier2" side(gru) lvl(lvl1 lvl2) r(11) rm(99) cost(25.0))} ; stg44 + pzfaust 30
+{"mp/gru/late/pzgren_sturm_sa_scope"("inf_tier2" side(gru) lvl(lvl1 lvl2) r(11) rm(99) cost(80.0))} ; g43 scope
+{"mp/gru/late/pzgren_sturm_stg"		("inf_tier2" side(gru) lvl(lvl1 lvl2) r(11) rm(99) cost(20.0))} ; stg44
+{"mp/gru/late/pzgren_sturm_sl"		("inf_tier2" side(gru) lvl(lvl1 lvl2) r(11) rm(99) cost(20.0))} ; stg44
+{"mp/gru/late/pzgren_sturm_sl_asst"	("inf_tier2" side(gru) lvl(lvl1 lvl2) r(11) rm(99) cost(22.0))} ; stg44 + % pzfaust 30
+
+{"mp/gru/late/pz_recon_mg"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(40.0))} ; mg42 drum
+{"mp/gru/late/pz_recon_mg_asst"		("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; k98
+{"mp/gru/late/pz_recon_rifle"		("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; k98
+{"mp/gru/late/pz_recon_sl_asst_rifle"("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; k98
+{"mp/gru/late/pz_recon_sl_asst_sa"	("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; g43
+{"mp/gru/late/pz_recon_sl_asst_stg"	("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(20.0))} ; stg44
+{"mp/gru/late/pz_recon_sl_rifle"	("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; k98
+{"mp/gru/late/pz_recon_sl_smg"		("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; mp40
+
+{"mp/gru/late/volksg_at"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(11) rm(99) cost(80.0))} ; pistol + pzschreck
+{"mp/gru/late/volksg_at2"			("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(11) rm(99) cost(8.0))} ; k98
+{"mp/gru/late/volksg_mg"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(11) rm(99) cost(45.0))} ; mg42 belt (100 round)
+{"mp/gru/late/volksg_mg_asst"		("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(11) rm(99) cost(8.0))} ; k98
+{"mp/gru/late/volksg_mg_asst_sa"	("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(11) rm(99) cost(13.0))} ; g43
+{"mp/gru/late/volksg_rifle"			("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(11) rm(99) cost(8.0))} ; k98
+{"mp/gru/late/volksg_rifle_pzf"		("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(11) rm(99) cost(13.0))} ; k98 + pzfaust 60
+{"mp/gru/late/volksg_rifle_grenadier"("inf_tier2" side(gru) lvl(lvl1 lvl2) r(11) rm(99) cost(18.0))} ; rifle grenade
+{"mp/gru/late/volksg_rifle_grenadier2"("inf_tier2" side(gru) lvl(lvl1 lvl2) r(11) rm(99) cost(18.0))} ; rifle grenade, 20 ammo
+{"mp/gru/late/volksg_sa"			("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(11) rm(99) cost(13.0))} ; g43
+{"mp/gru/late/volksg_sa_pzf"		("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(11) rm(99) cost(18.0))} ; g43 + pzfaust 60
+{"mp/gru/late/volksg_sa_scope"		("inf_tier2" side(gru) lvl(lvl1 lvl2) r(11) rm(99) cost(80.0))} ; g43 scope
+{"mp/gru/late/volksg_sl"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(11) rm(99) cost(20.0))} ; stg44
+{"mp/gru/late/volksg_sl_asst"		("inf_tier2" side(gru) lvl(lvl1 lvl2) r(11) rm(99) cost(22.0))} ; stg44 + % pzfaust 60
+{"mp/gru/late/volksg_sl_asst_smg"	("inf_tier2" side(gru) lvl(lvl1 lvl2) r(11) rm(99) cost(15.0))} ; mp40 + % pzfaust 60
+{"mp/gru/late/volksg_sl_smg"		("inf_tier2" side(gru) lvl(lvl1 lvl2) r(11) rm(99) cost(10.0))} ; mp40
+{"mp/gru/late/volksg_smg"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(11) rm(99) cost(10.0))} ; mp40
+{"mp/gru/late/volksg_stg"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(11) rm(99) cost(20.0))} ; stg44
+{"mp/gru/late/volksg_smg_pzf"		("inf_tier2" side(gru) lvl(lvl1 lvl2) r(11) rm(99) cost(15.0))} ; mp40 + pzfaust 60
+{"mp/gru/late/volksg_stg_pzf"		("inf_tier2" side(gru) lvl(lvl1 lvl2) r(11) rm(99) cost(25.0))} ; stg44 + pzfaust 60
+
+{"mp/gru/late/pz_pio_at"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(80.0))} ; pistol + pzschreck
+{"mp/gru/late/pz_pio_flame"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(60.0))} ; flamethrower
+{"mp/gru/late/pz_pio_gren"			("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; k98
+{"mp/gru/late/pz_pio_mg"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(45.0))} ; mg42 belt (100 round)
+{"mp/gru/late/pz_pio_mg_asst"		("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; k98
+{"mp/gru/late/pz_pio_mine"			("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; k98 ;detector
+{"mp/gru/late/pz_pio_pzf"			("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; k98 + pzfaust 30
+{"mp/gru/late/pz_pio_rifle"			("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; k98
+{"mp/gru/late/pz_pio_rifle_gren"	("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(18.0))} ; rifle grenade
+{"mp/gru/late/pz_pio_sa"			("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; g43
+{"mp/gru/late/pz_pio_sl"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; mp40
+{"mp/gru/late/pz_pio_sl_asst"		("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; k98 + % pzfaust 60
+{"mp/gru/late/pz_pio_sl_stg"		("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(20.0))} ; stg44
+
+;// tier 2 vet
+
+{"mp/gru/mid/vet_mg"		("inf_tier2" side(gru) lvl(lvl2 lvl3) r(1) rm(8) cost(50.0))} ; mg34 belt
+{"mp/gru/mid/vet_mg_asst"	("inf_tier2" side(gru) lvl(lvl2 lvl3) r(1) rm(8) cost(10.0))} ; k98
+{"mp/gru/mid/vet_nco"		("inf_tier2" side(gru) lvl(lvl2 lvl3) r(1) rm(8) cost(12.0))} ; mp40
+{"mp/gru/mid/vet_nco_asst"	("inf_tier2" side(gru) lvl(lvl2 lvl3) r(1) rm(8) cost(15.0))} ; g41
+{"mp/gru/mid/vet_rifle"		("inf_tier2_lite" side(gru) lvl(lvl2 lvl3) r(1) rm(8) cost(10.0))} ; k98
+{"mp/gru/mid/vet_sa"		("inf_tier2" side(gru) lvl(lvl2 lvl3) r(1) rm(8) cost(15.0))} ; g41
+
+;// tier 3
+
+{"mp/gru/mid/jager_mg"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(1) rm(11) cost(55.0))} ; MG42 belt
+{"mp/gru/mid/jager_mg_asst"		("inf_tier3" side(gru) lvl(lvl2 lvl3) r(1) rm(11) cost(13.0))} ; k98
+{"mp/gru/mid/jager_rifle"		("inf_tier3" side(gru) lvl(lvl2 lvl3) r(1) rm(11) cost(13.0))} ; k98
+{"mp/gru/mid/jager_sl"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(1) rm(11) cost(15.0))} ; mp40
+{"mp/gru/mid/jager_sl_asst"		("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(17.0))} ; mp40 + % pzfaust 60
+{"mp/gru/mid/jager_smg"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(1) rm(11) cost(15.0))} ; mp40
+{"mp/gru/mid/jager_smg_pzf"		("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99)  cost(20.0))} ; mp40 + pzfaust
+
+{"mp/gru/late/fusilier_mg"					("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(55.0))} ; MG42 belt (100 round)
+{"mp/gru/late/fusilier_mg_asst"				("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(13.0))} ; k98
+{"mp/gru/late/fusilier_mg_asst_smg"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; mp40
+{"mp/gru/late/fusilier_rifle"				("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(13.0))} ; k98
+{"mp/gru/late/fusilier_rifle_pzf"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(18.0))} ; k98 + pzfaust 60
+{"mp/gru/late/fusilier_rifle_grenadier"		("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(23.0))} ; rifle grenade
+{"mp/gru/late/fusilier_sa"					("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(18.0))} ; g43
+{"mp/gru/late/fusilier_sl"					("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; mp40
+{"mp/gru/late/fusilier_sl_asst"				("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; k98 + % pzfaust
+{"mp/gru/late/fusilier_sl_asst_sa_scope"	("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(80.0))} ; g43 scope + % pzfaust
+{"mp/gru/late/fusilier_sl_asst_scope"		("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(120.0))} ; k98 scope + % pzfaust
+{"mp/gru/late/fusilier_sl_asst_smg"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(17.0))} ; mp40 + % pzfaust 60
+{"mp/gru/late/fusilier_smg"					("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; mp40
+{"mp/gru/late/fusilier_smg_pzf"				("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(20.0))} ; mp40 + pzfaust 60
+{"mp/gru/late/fusilier_smg_pzf2"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(17.0))} ; mp40 + % pzfaust 60
+{"mp/gru/late/fusilier_stg"					("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(25.0))} ; stg44
+
+{"mp/gru/late/jager_sturm_mg"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(12) rm(99) cost(55.0))} ; MG42 belt (100 round)
+{"mp/gru/late/jager_sturm_mg_asst"		("inf_tier3" side(gru) lvl(lvl2 lvl3) r(12) rm(99) cost(18.0))} ; g43
+{"mp/gru/late/jager_sturm_sa"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(12) rm(99) cost(18.0))} ; g43
+{"mp/gru/late/jager_sturm_sl"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(12) rm(99) cost(25.0))} ; stg44
+{"mp/gru/late/jager_sturm_sl_asst"		("inf_tier3" side(gru) lvl(lvl2 lvl3) r(12) rm(99) cost(27.0))} ; stg44 + % pzfaust 60
+{"mp/gru/late/jager_sturm_stg"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(12) rm(99) cost(25.0))} ; stg44
+{"mp/gru/late/jager_sturm_stg_pzf"		("inf_tier3" side(gru) lvl(lvl2 lvl3) r(12) rm(99) cost(27.0))} ; stg44 + pzfaust 60
+
+{"mp/gru/late/begleitgren_at"			("inf_tier3" side(gru) lvl() r(10) rm(99) cost(80.0))} ; pzschreck
+{"mp/gru/late/begleitgren_rifle"		("inf_tier3" side(gru) lvl() r(10) rm(99) cost(13.0))} ; k98
+{"mp/gru/late/begleitgren_rifle_pzf"	("inf_tier3" side(gru) lvl() r(10) rm(99) cost(18.0))} ; k98 + pzfaust 60
+{"mp/gru/late/begleitgren_mg"			("inf_tier3" side(gru) lvl() r(10) rm(99) cost(55.0))} ; MG42 belt (100 round)
+{"mp/gru/late/begleitgren_mg_asst"		("inf_tier3" side(gru) lvl() r(10) rm(99) cost(13.0))} ; k98
+{"mp/gru/late/begleitgren_sl"			("inf_tier3" side(gru) lvl() r(10) rm(99) cost(15.0))} ; mp40
+{"mp/gru/late/begleitgren_sl_asst"		("inf_tier3" side(gru) lvl() r(10) rm(99) cost(15.0))} ; k98 + % pzfaust 100
+{"mp/gru/late/begleitgren_sl_stg"		("inf_tier3" side(gru) lvl() r(10) rm(99) cost(25.0))} ; stg44
+{"mp/gru/late/begleitgren_sl_asst_stg"	("inf_tier3" side(gru) lvl() r(10) rm(99) cost(27.0))} ; stg44 + % pzfaust 100
+{"mp/gru/late/begleitgren_sa"			("inf_tier3" side(gru) lvl() r(10) rm(99) cost(18.0))} ; g43
+{"mp/gru/late/begleitgren_sa_pzf"		("inf_tier3" side(gru) lvl() r(10) rm(99) cost(23.0))} ; g43 + pzfaust 60
+{"mp/gru/late/begleitgren_stg"			("inf_tier3" side(gru) lvl() r(10) rm(99) cost(25.0))} ; stg44
+
+;// tier 3 vet
+
+{"mp/gru/mid/gd_rifle"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(1) rm(8) cost(16.0))} ; k98
+{"mp/gru/mid/gd_sa"				("inf_tier3" side(gru) lvl(lvl2 lvl3) r(1) rm(8) cost(21.0))} ; g41
+{"mp/gru/mid/gd_mg"				("inf_tier3" side(gru) lvl(lvl2 lvl3) r(1) rm(8) cost(60.0))} ; MG34 belt
+{"mp/gru/mid/gd_mg_asst"		("inf_tier3" side(gru) lvl(lvl2 lvl3) r(1) rm(8) cost(16.0))} ; k98
+{"mp/gru/mid/gd_sl"				("inf_tier3" side(gru) lvl(lvl2 lvl3) r(1) rm(8) cost(18.0))} ; mp40
+{"mp/gru/mid/gd_sl_asst"		("inf_tier3" side(gru) lvl(lvl2 lvl3) r(1) rm(8) cost(21.0))} ; g41
+
+{"mp/gru/late/lehr_pzgren_at"				("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(75.0))} ; pistol + pzschreck
+{"mp/gru/late/lehr_pzgren_mg"				("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(60.0))} ; mg42 belt (100 round)
+{"mp/gru/late/lehr_pzgren_mg_asst"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(16.0))} ; k98
+{"mp/gru/late/lehr_pzgren_rifle"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(16.0))} ; k98
+{"mp/gru/late/lehr_pzgren_rifle_pzf"		("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(21.0))} ; k98 + pzfaust 30
+{"mp/gru/late/lehr_pzgren_rifle_pzf2"		("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(18.0))} ; k98 + % pzfaust 30
+{"mp/gru/late/lehr_pzgren_sa"				("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(21.0))} ; g43
+{"mp/gru/late/lehr_pzgren_sa_pzf"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(26.0))} ; g43 + pzfaust 60
+{"mp/gru/late/lehr_pzgren_sl"				("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(18.0))} ; mp40
+{"mp/gru/late/lehr_pzgren_sl_asst"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(23.0))} ; g43 + % pzfaust 60
+{"mp/gru/late/lehr_pzgren_stg"				("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(28.0))} ; stg44
+{"mp/gru/late/lehr_pzgren_sturm_sl"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(28.0))} ; stg44
+{"mp/gru/late/lehr_pzgren_sturm_sl_asst"	("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(30.0))} ; stg44 + % pzfaust 100
+{"mp/gru/late/lehr_pzgren_sturm_stg"		("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(28.0))} ; stg44
+{"mp/gru/late/lehr_pzgren_sturm_stg_pzf"	("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(33.0))} ; stg44 + pzfaust 60
+{"mp/gru/late/lehr_pzgren_sturm_stg_pzf2"	("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(30.0))} ; stg44 + % pzfaust 60
+
+{"mp/gru/late/gd_pzgren_rifle"				("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(16.0))} ; k98
+{"mp/gru/late/gd_pzgren_sa"					("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(21.0))} ; g43
+{"mp/gru/late/gd_pzgren_rifle_pzf"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(21.0))} ; k98 + pzfaust 100
+{"mp/gru/late/gd_pzgren_sa_pzf"				("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(26.0))} ; g43 + pzfaust 100
+{"mp/gru/late/gd_pzgren_mg"					("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(60.0))} ; mg42 belt (100 round)
+{"mp/gru/late/gd_pzgren_mg_asst"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(16.0))} ; k98
+{"mp/gru/late/gd_pzgren_sl"					("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(28.0))} ; stg44
+{"mp/gru/late/gd_pzgren_sl_asst"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(23.0))} ; g43 + % pzfaust 100
+{"mp/gru/late/gd_pzgren_stg"				("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(30.0))} ; stg44 + % pzfaust 100 
+
+;// tier 4
+
+{"mp/gru/mid/blau_1"		("inf_tier4" side(gru) lvl(lvl3) r(1) rm(8) cost(20.0))} ; mp40
+{"mp/gru/mid/blau_2"		("inf_tier4" side(gru) lvl(lvl3) r(1) rm(8) cost(18.0))} ; k98
+{"mp/gru/mid/blau_3"		("inf_tier4" side(gru) lvl(lvl3) r(1) rm(8) cost(23.0))} ; g41
+{"mp/gru/mid/blau_4"		("inf_tier4" side(gru) lvl(lvl3) r(1) rm(8) cost(65.0))} ; mg34 belt
+{"mp/gru/mid/blau_5"		("inf_tier4" side(gru) lvl(lvl3) r(1) rm(8) cost(20.0))} ; mp41
+{"mp/gru/mid/blau_6"		("inf_tier4" side(gru) lvl(lvl3) r(1) rm(8) cost(18.0))} ; k98
+
+{"mp/gru/mid/gebirgs_mg"		("inf_tier4" side(gru) lvl(lvl3 lvl4) r(1) rm(8) cost(60.0))} ; mg34 doubledrum (75 round)
+{"mp/gru/mid/gebirgs_mg_asst"	("inf_tier4" side(gru) lvl(lvl3 lvl4) r(1) rm(8) cost(18.0))} ;k98
+{"mp/gru/mid/gebirgs_rifle"		("inf_tier4" side(gru) lvl(lvl3 lvl4) r(1) rm(8) cost(18.0))} ;k98
+{"mp/gru/mid/gebirgs_sl"		("inf_tier4" side(gru) lvl(lvl3 lvl4) r(1) rm(8) cost(20.0))} ;mp40
+{"mp/gru/mid/gebirgs_sl_asst"	("inf_tier4" side(gru) lvl(lvl3 lvl4) r(1) rm(8) cost(20.0))} ;mp40
+{"mp/gru/mid/gebirgs_smg"		("inf_tier4" side(gru) lvl(lvl3 lvl4) r(1) rm(8) cost(20.0))} ;mp40
+
+{"mp/gru/mid/fallsch_mg"			("inf_tier4" side(gru) lvl(lvl3 lvl4) r(1) rm(8) cost(65.0))} ; mg42 belt
+{"mp/gru/mid/fallsch_mg_asst"		("inf_tier4" side(gru) lvl(lvl3 lvl4) r(1) rm(8) cost(18.0))} ; k98
+{"mp/gru/mid/fallsch_crew"			("inf_tier4" side(gru) lvl(lvl3 lvl4) r(1) rm(8) cost(18.0))} ; k98
+{"mp/gru/mid/fallsch_rifle"			("inf_tier4" side(gru) lvl(lvl3 lvl4) r(1) rm(8) cost(18.0))} ; k98
+{"mp/gru/mid/fallsch_rifle_grenadier"("inf_tier4" side(gru) lvl(lvl3 lvl4) r(1) rm(8) cost(38.0))}; k98 rifle grenade
+{"mp/gru/mid/fallsch_sa"			("inf_tier4" side(gru) lvl(lvl3 lvl4) r(1) rm(8) cost(23.0))} ; g43
+{"mp/gru/mid/fallsch_rifle_scope"	("inf_tier4" side(gru) lvl(lvl3 lvl4) r(1) rm(8) cost(120.0))} ; k98 scope
+{"mp/gru/mid/fallsch_sl"			("inf_tier4" side(gru) lvl(lvl3 lvl4) r(1) rm(8) cost(20.0))} ; mp40
+{"mp/gru/mid/fallsch_sl_asst"		("inf_tier4" side(gru) lvl(lvl3 lvl4) r(1) rm(8) cost(20.0))} ; mp40
+{"mp/gru/mid/fallsch_sl_asst_fg"	("inf_tier4" side(gru) lvl(lvl3 lvl4) r(1) rm(8) cost(28.0))} ; fg42
+{"mp/gru/mid/fallsch_smg"			("inf_tier4" side(gru) lvl(lvl3 lvl4) r(1) rm(8) cost(20.0))} ; mp40
+
+{"mp/gru/mid/brand_1"		("inf_tier4" side(gru) lvl(lvl3 lvl4) r(1) rm(8) cost(20.0))} ; mp41
+{"mp/gru/mid/brand_2"		("inf_tier4" side(gru) lvl(lvl3 lvl4) r(1) rm(8) cost(60.0))} ; MG42 drum
+{"mp/gru/mid/brand_3"		("inf_tier4" side(gru) lvl(lvl3 lvl4) r(1) rm(8) cost(18.0))} ; k98
+{"mp/gru/mid/brand_4"		("inf_tier4" side(gru) lvl(lvl3 lvl4) r(1) rm(8) cost(18.0))} ; k98
+{"mp/gru/mid/brand_5"		("inf_tier4" side(gru) lvl(lvl3 lvl4) r(1) rm(8) cost(20.0))} ; mp41
+{"mp/gru/mid/brand_6"		("inf_tier4" side(gru) lvl(lvl3 lvl4) r(1) rm(8) cost(23.0))} ; g41
+
+{"mp/gru/late/gebirgs_mg"					("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(65.0))} ; MG42 belt (100 round)
+{"mp/gru/late/gebirgs_mg_asst"				("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; k98
+{"mp/gru/late/gebirgs_rifle"				("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; k98
+{"mp/gru/late/gebirgs_sl"					("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(30.0))} ; stg44
+{"mp/gru/late/gebirgs_sl_asst"				("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(22.0))} ; mp40 + % pzfaust 100
+{"mp/gru/late/gebirgs_smg"					("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; mp40
+{"mp/gru/late/gebirgs_smg_pzf"				("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(25.0))} ; mp40 + pzfaust 100
+{"mp/gru/late/gebirgs_stg"					("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(30.0))} ; stg44
+
+{"mp/gru/late/gebirgs_recon_mg"				("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(65.0))} ; MG42 belt (100 round)
+{"mp/gru/late/gebirgs_recon_mg_asst"		("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; k98
+{"mp/gru/late/gebirgs_recon_mg34"			("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(65.0))} ; MG34 belt (100 round)
+{"mp/gru/late/gebirgs_recon_rifle"			("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; k98
+{"mp/gru/late/gebirgs_recon_rifle_pzf"		("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(23.0))} ; k98 + pzfaust 60
+{"mp/gru/late/gebirgs_recon_rifle_pzf2"		("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; k98 + pzfaust 30
+{"mp/gru/late/gebirgs_recon_sl"				("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(30.0))} ; stg44
+{"mp/gru/late/gebirgs_recon_sl_asst"		("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; k98 + % pzfaust 100
+{"mp/gru/late/gebirgs_recon_sl_asst_smg"	("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(22.0))} ; mp40 + % pzfaust 100
+{"mp/gru/late/gebirgs_recon_smg"			("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; mp40
+{"mp/gru/late/gebirgs_recon_smg_pzf"		("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(25.0))} ; mp40 + pzfaust 60
+{"mp/gru/late/gebirgs_recon_smg_pzf2"		("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(22.0))} ; mp40 + % pzfaust 30
+
+{"mp/gru/late/fallsch_mg"					("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(65.0))} ; mg42 belt (100 round)
+{"mp/gru/late/fallsch_mg_asst"				("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; k98
+{"mp/gru/late/fallsch_rifle"				("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; k98
+{"mp/gru/late/fallsch_rifle_pzf"			("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(23.0))} ; k98 + pzfaust 30
+{"mp/gru/late/fallsch_rifle_grenadier"		("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(28.0))} ; k98 + rifle grenade
+{"mp/gru/late/fallsch_sa"					("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(23.0))} ; g43
+{"mp/gru/late/fallsch_sa_pzf"				("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(25.0))} ; g43 + % pzfaust 60
+{"mp/gru/late/fallsch_sa_scope"				("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(80.0))} ; g43 scope + % pzfaust 30
+{"mp/gru/late/fallsch_rifle_scope"			("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(120.0))} ; k98 scope + % pzfaust 60
+{"mp/gru/late/fallsch_sl"					("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; mp40
+{"mp/gru/late/fallsch_sl_asst"				("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(25.0))} ; mp40 + pzfaust 100
+{"mp/gru/late/fallsch_sl_asst_fg"			("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(37.0))} ; fg42 + pzfaust 100
+
+{"mp/gru/late/fallsch_recon_mg"				("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(65.0))} ; mg42 belt (100 round)
+{"mp/gru/late/fallsch_recon_mg_asst"		("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; k98
+{"mp/gru/late/fallsch_recon_mg_asst_gren"	("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(28.0))} ; k98 + rifle grenade
+{"mp/gru/late/fallsch_recon_mg34"			("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(65.0))} ; mg34 belt (100 round)
+{"mp/gru/late/fallsch_recon_sl"				("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; mp40
+{"mp/gru/late/fallsch_recon_sl_asst"		("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(25.0))} ; mp40 + pzfaust 100
+{"mp/gru/late/fallsch_recon_sl_asst_fg"		("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(37.0))} ; fg42 + pzfaust 100
+{"mp/gru/late/fallsch_recon_sl_asst_stg"	("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(34.0))} ; fg42 + pzfaust 100
+
+{"mp/gru/late/brand_1"						("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; mp41
+{"mp/gru/late/brand_2"						("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(60.0))} ; MG42 drum
+{"mp/gru/late/brand_3"						("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; k98 + % pzfaust 60
+{"mp/gru/late/brand_4"						("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; k98
+{"mp/gru/late/brand_5"						("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(35.0))} ; stg44 + pzfaust 60
+{"mp/gru/late/brand_6"						("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(28.0))} ; g43 + pzfaust 60
+
+{"mp/gru/mid/signaller"						("inf_signaller" 		side(gru) lvl(lvl3 lvl4) r(99) rm(99) cost(170.0))}
+{"mp/gru/late/signaller"					("inf_signaller_late" 	side(gru) lvl(lvl3 lvl4) r(99) rm(99) cost(170.0))}
+
+;// CP + Scores + CW
+
+;////////////////// INSTRUCTIONS //////////////////
+; In this file onee configures the humans which are spawned in vehicles or squads
+; The humans have a CP and cost associated with them which collectively add up for the final squad value
+; Check ../settings.set for syntax instructions!!
+;//////////////////////////////////////////////////
+
+;SDL
+;// CP + Scores + CW
+
+;////////////////// INSTRUCTIONS //////////////////
+; In this file onee configures the humans which are spawned in vehicles or squads
+; The humans have a CP and cost associated with them which collectively add up for the final squad value
+; Check ../settings.set for syntax instructions!!
+;//////////////////////////////////////////////////
+
+;SDL
+
+
+{"mp/gru/mid/artilleryman"		("inf_tankman" side(gru) cost(5.0))}
+{"mp/gru/mid/tankman"			("inf_tankman" side(gru) cost(4.0))}
+{"mp/gru/mid/tank_commander"	("inf_tankman" side(gru) cost(15.0))}
+{"mp/gru/mid/pilot"				("inf_tankman" side(gru) cost(0.0))}
+
+{"mp/gru/mid/medic"				("inf_medic" side(gru) cost(40.0))}
+
+{"mp/gru/mid/commisar"			("inf_officer" side(gru) cost(60.0))}
+
+{"mp/gru/mid/sniper"			("inf_sniper" side(gru) r(2) rm(8) cost(150.0))}
+{"mp/gru/late/sniper"			("inf_sniper" side(gru) r(9) rm(99) cost(150.0))}
+
+;// tier 1
+
+{"mp/gru/mid/penal_rifle"		("inf_tier1" side(gru) lvl(lvl1) r(1) rm(8) cost(7.0))} ; mosin
+{"mp/gru/mid/penal_smg"			("inf_tier1" side(gru) lvl(lvl1) r(1) rm(8) cost(12.0))} ; ppsh41 drum
+{"mp/gru/mid/nkvd_2"			("inf_tier1" side(gru) lvl(lvl1) r(1) rm(8) cost(7.0))} ; mosin
+{"mp/gru/mid/nkvd_3"			("inf_tier1" side(gru) lvl(lvl1) r(1) rm(8) cost(7.0))} ; mosin
+{"mp/gru/mid/nkvd_4"			("inf_tier1" side(gru) lvl(lvl1) r(1) rm(8) cost(7.0))} ; mosin
+
+{"mp/gru/mid/partisan_1"		("inf_tier1" side(gru) lvl(lvl1) r(1) rm(8) cost(7.0))} ; mosin
+{"mp/gru/mid/partisan_2"		("inf_tier1" side(gru) lvl(lvl1) r(1) rm(8) cost(7.0))} ; mosin
+{"mp/gru/mid/partisan_3"		("inf_tier1" side(gru) lvl(lvl1) r(1) rm(8) cost(9.0))} ; mp40
+{"mp/gru/mid/partisan_4"		("inf_tier1" side(gru) lvl(lvl1) r(1) rm(8) cost(4.0))} ; shotgun
+{"mp/gru/mid/partisan_5"		("inf_tier1" side(gru) lvl(lvl1) r(1) rm(8) cost(30.0))} ; mg34
+
+{"mp/gru/mid/conscript_rifle"	("inf_tier1" side(gru) lvl(lvl1) r(1) rm(8) cost(7.0))} ; mosin
+{"mp/gru/mid/conscript_nco"		("inf_tier1" side(gru) lvl(lvl1) r(1) rm(8) cost(12.0))} ; ppsh41 drum
+{"mp/gru/mid/conscript_smg"		("inf_tier1" side(gru) lvl(lvl1) r(1) rm(8) cost(12.0))} ; ppd40
+
+{"mp/gru/mid/militia_1"			("inf_tier1" side(gru) lvl(lvl1) r(1) rm(8) cost(12.0))} ; svt
+{"mp/gru/mid/militia_2"			("inf_tier1" side(gru) lvl(lvl1) r(1) rm(8) cost(7.0))} ; mosin
+{"mp/gru/mid/militia_3"			("inf_tier1" side(gru) lvl(lvl1) r(1) rm(8) cost(7.0))} ; mosin
+
+;// tier 1 vet
+
+{"mp/gru/late/vet_partisan_dp"			("inf_tier1" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(40.0))} ; dp27
+{"mp/gru/late/vet_partisan_drum"		("inf_tier1" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; ppsh41 drum
+{"mp/gru/late/vet_partisan_drum_pzf"	("inf_tier1" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(15.0))} ; ppsh41 drum + % pzfaust 60
+{"mp/gru/late/vet_partisan_k98"			("inf_tier1" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; k98
+{"mp/gru/late/vet_partisan_mg34"		("inf_tier1" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(45.0))} ; mg34 belt
+{"mp/gru/late/vet_partisan_mg42"		("inf_tier1" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(45.0))} ; mg42 belt
+{"mp/gru/late/vet_partisan_mosin"		("inf_tier1" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; mosin
+{"mp/gru/late/vet_partisan_mosin_pzf"	("inf_tier1" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; mosin + % pzfaust 30
+{"mp/gru/late/vet_partisan_mp40"		("inf_tier1" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; mp40
+{"mp/gru/late/vet_partisan_mp40_pzf"	("inf_tier1" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(12.0))} ; mp40 + % pzfaust 60
+{"mp/gru/late/vet_partisan_pps43"		("inf_tier1" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; mp40
+{"mp/gru/late/vet_partisan_stick"		("inf_tier1" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; ppsh41 stick
+{"mp/gru/late/vet_partisan_svt40"		("inf_tier1" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; svt40
+
+;// tier 2
+
+{"mp/gru/mid/mg_crew"			("inf_tier2_lite" side(gru) lvl() r(1) rm(8) cost(7.0))} ; tt pistol
+{"mp/gru/mid/mg_crew_asst"		("inf_tier2_lite" side(gru) lvl() r(1) rm(8) cost(8.0))} ; mosin
+
+{"mp/gru/mid/mgun_1"					("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(40.0))} ; dp27
+{"mp/gru/mid/mgun_2"					("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+
+{"mp/gru/mid/mg_dt"						("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(40.0))} ; dt
+{"mp/gru/mid/mg_asst_dt"				("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+
+{"mp/gru/mid/nkvd_mg"					("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(40.0))} ; dp27
+{"mp/gru/mid/nkvd_mg_asst"				("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+
+{"mp/gru/mid/recon_mg"					("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(40.0))} ; dp27
+{"mp/gru/mid/recon_mg_asst"				("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+
+{"mp/gru/mid/rifle"						("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+{"mp/gru/mid/rifleman_1"				("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+{"mp/gru/mid/rifleman_2"				("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; svt
+{"mp/gru/mid/rifleman_3"				("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+{"mp/gru/mid/rifle-svt"					("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(15.0))} ; avt
+{"mp/gru/mid/senior_sa"					("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; svt
+{"mp/gru/mid/senior_rifle"				("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+{"mp/gru/mid/senior_smg"				("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; ppsh41 drum
+
+{"mp/gru/mid/nco"						("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; ppd
+{"mp/gru/mid/nco_rifle"					("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; svt40
+{"mp/gru/mid/nco_42"					("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; ppsh41 stick
+
+{"mp/gru/mid/nkvd_1"					("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; ppsh41 drum
+
+{"mp/gru/mid/nkvd_nco_rifle"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+{"mp/gru/mid/nkvd_nco_smg"				("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; ppsh41 stick
+{"mp/gru/mid/nkvd_recon_nco"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; ppsh41 stick
+{"mp/gru/mid/nkvd_recon_rifle"			("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+{"mp/gru/mid/nkvd_recon_smg"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; ppsh41 stick
+{"mp/gru/mid/nkvd_sa"					("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; svt40
+{"mp/gru/mid/nkvd_rifle"				("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+
+{"mp/gru/mid/nkvd_sapper_builder"		("inf_tier2" side(gru) lvl() r(1) rm(8) cost(25.0))} ; mosin + engineer
+{"mp/gru/mid/nkvd_sapper_nco_rifle"		("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+{"mp/gru/mid/nkvd_sapper_rifle"			("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+
+{"mp/gru/mid/nkvd_senior_rifle"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+{"mp/gru/mid/nkvd_senior_sa"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; svt40
+{"mp/gru/mid/nkvd_senior_smg_stick"		("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; ppsh41 stick
+{"mp/gru/mid/nkvd_smg_drum"				("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; ppsh41 drum
+{"mp/gru/mid/nkvd_smg_stick"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; ppsh41 stick
+
+{"mp/gru/mid/recon_nco"					("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; ppsh41 stick
+{"mp/gru/mid/recon_rifle"				("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+{"mp/gru/mid/recon_smg"					("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; ppsh41 stick
+
+{"mp/gru/mid/sapper_builder"			("inf_tier2" side(gru) lvl() r(1) rm(8) cost(25.0))} ; mosin + engineer
+{"mp/gru/mid/sapper_mine_ap"			("inf_tier2" side(gru) lvl() r(1) rm(8) cost(20.0))} ; mosin + AP mine
+{"mp/gru/mid/sapper_mine_at"			("inf_tier2" side(gru) lvl() r(1) rm(8) cost(20.0))} ; mosin + AT mine
+{"mp/gru/mid/sapper_nco_rifle"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+{"mp/gru/mid/sapper_rifle"				("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+
+{"mp/gru/mid/smg_1"						("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; ppsh41 drum
+{"mp/gru/mid/smg_2"						("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(10.0))} ; ppsh41 stick
+{"mp/gru/mid/smg_3"						("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; ppd40
+{"mp/gru/mid/smg_drum"					("inf_tier2" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(13.0))} ; ppsh41 drum
+{"mp/gru/mid/smg_m1928"					("inf_tier2" side(gru) lvl() r(1) rm(8) cost(12.0))} ; m1928a1
+
+{"mp/gru/mid/antitank_1"				("inf_tier2" side(gru) lvl(lvl1 lvl2 lvl3 lvl4) r(1) rm(8) cost(40.0))} ; ptrd bolt
+{"mp/gru/mid/antitank_ptrs"				("inf_tier2" side(gru) lvl(lvl1 lvl2 lvl3 lvl4) r(1) rm(8) cost(45.0))} ; ptrs semi
+
+{"mp/gru/mid/nkvd_at_rifle"				("inf_tier2" side(gru) lvl(lvl1 lvl2 lvl3 lvl4) r(1) rm(8) cost(40.0))} ; ptrd bolt
+{"mp/gru/mid/nkvd_at_asst"				("inf_tier2_lite" side(gru) lvl(lvl1 lvl2 lvl3 lvl4) r(1) rm(8) cost(8.0))} ; mosin
+
+{"mp/gru/mid/antitank_2"				("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(1) rm(8) cost(8.0))} ; mosin
+{"mp/gru/mid/antitank_3"				("inf_tier2" side(gru) lvl(lvl1 lvl2 lvl3 lvl4) r(1) rm(8) cost(18.0))} ; Rifle Grenade HE
+{"mp/gru/mid/antitank_4"				("inf_tier2" side(gru) lvl(lvl1 lvl2 lvl3 lvl4) r(1) rm(8) cost(18.0))} ; Rifle Grenade AT (weak)
+
+{"mp/gru/mid/engineer_1"				("inf_tier2" side(gru) lvl() r(1) rm(8) cost(50.0))}
+{"mp/gru/mid/engineer_2"				("inf_tier2" side(gru) lvl() r(1) rm(8) cost(50.0))}
+{"mp/gru/mid/flamer"					("inf_tier2" side(gru) lvl(lvl2 lvl3 lvl4) r(1) rm(8) cost(60.0))}
+{"mp/gru/mid/miner-ap"					("inf_tier2" side(gru) lvl() r(1) rm(8) cost(40.0))}
+{"mp/gru/mid/miner-at"					("inf_tier2" side(gru) lvl() r(1) rm(8) cost(40.0))}
+
+
+{"mp/gru/late/mgun_1"					("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(40.0))} ; dp27
+{"mp/gru/late/mgun_2"					("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; mosin
+{"mp/gru/late/mgun_3"					("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; ppsh41 drum
+
+{"mp/gru/late/recon_nco"				("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; ppsh41 drum
+{"mp/gru/late/recon_sa"					("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; svt40
+{"mp/gru/late/recon_rifle"				("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; mosin
+{"mp/gru/late/recon_smg"				("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; ppsh41 drum
+{"mp/gru/late/recon_smg2"				("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; pps43
+
+{"mp/gru/late/smg_1"					("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; ppsh41 drum
+{"mp/gru/late/smg_2"					("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; pps43
+{"mp/gru/late/smg_3"					("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; ppsh41 drum
+{"mp/gru/late/smg_stick"				("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; ppsh41 stick
+
+{"mp/gru/late/rifleman_1"				("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; mosin
+{"mp/gru/late/rifleman_2"				("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; mosin
+{"mp/gru/late/rifleman_3"				("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; svt40
+{"mp/gru/late/senior_rifle"				("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; mosin
+{"mp/gru/late/senior_sa"				("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; svt40
+{"mp/gru/late/senior_smg"				("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; ppsh41 drum
+{"mp/gru/late/senior_smg_pps43"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; pps43
+{"mp/gru/late/senior_smg_stick"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; ppsh41 stick
+
+{"mp/gru/late/sapper_builder"			("inf_tier2" side(gru) lvl() r(9) rm(99) cost(25.0))} ; mosin + engineer
+{"mp/gru/late/sapper_miner_ap"			("inf_tier2" side(gru) lvl() r(9) rm(99) cost(20.0))} ; mosin
+{"mp/gru/late/sapper_miner_at"			("inf_tier2" side(gru) lvl() r(9) rm(99) cost(20.0))} ; mosin
+{"mp/gru/late/sapper_flamer"			("inf_tier2" side(gru) lvl() r(9) rm(99) cost(60.0))} ; flamer
+{"mp/gru/late/sapper_rifle"				("inf_tier2_lite" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; mosin
+{"mp/gru/late/sapper_senior"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; mosin
+{"mp/gru/late/sapper_smg_pps43"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; pps43
+{"mp/gru/late/sapper_smg_stick"			("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; ppsh41 stick
+
+{"mp/gru/late/antitank_1"				("inf_tier2" side(gru) lvl() r(9) rm(99) cost(50.0))} ; bazooka
+{"mp/gru/late/antitank_2"				("inf_tier2" side(gru) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(40.0))} ; ptrd bolt
+{"mp/gru/late/antitank_3"				("inf_tier2_lite" side(gru) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(18.0))} ; svt40 + pzfaust
+{"mp/gru/late/antitank_4"				("inf_tier2_lite" side(gru) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(15.0))} ; pps43 + pzfaust
+{"mp/gru/late/antitank_5"				("inf_tier2" side(gru) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(80.0))} ; Panzershreck
+{"mp/gru/late/antitank_ptrs"			("inf_tier2" side(gru) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(45.0))} ; ptrs semi
+{"mp/gru/late/antitank_asst"			("inf_tier2_lite" side(gru) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(10.0))} ; pps43 + AT rifle ammo
+{"mp/gru/late/antitank_asst2"			("inf_tier2_lite" side(gru) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(10.0))} ; pps43 + Pzschreck ammo
+
+{"mp/gru/late/flamer"					("inf_tier2" side(gru) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(60.0))}
+
+{"mp/gru/late/nco"						("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; ppsh41 drum
+{"mp/gru/late/nco_pps43"				("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; pps43
+{"mp/gru/late/nco_stick"				("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(10.0))} ; ppsh41 stick
+{"mp/gru/late/nkvd_1"					("inf_tier2" side(gru) lvl(lvl1 lvl2) r(9) rm(99) cost(13.0))} ; ppsh41 drum
+
+;// tier 2 vet
+
+{"mp/gru/mid/guard_1"					("inf_tier2_lite" side(gru) lvl(lvl2 lvl3) r(3) rm(8) cost(10.0))} ; mosin
+{"mp/gru/mid/guard_2"					("inf_tier2_lite" side(gru) lvl(lvl2 lvl3) r(3) rm(8) cost(15.0))} ; svt40
+{"mp/gru/mid/guard_3"					("inf_tier2" side(gru) lvl(lvl2 lvl3) r(3) rm(8) cost(15.0))} ; ppsh41 drum
+{"mp/gru/mid/guard_4"					("inf_tier2" side(gru) lvl(lvl2 lvl3) r(3) rm(8) cost(45.0))} ; dp27
+{"mp/gru/mid/guard_5"					("inf_tier2" side(gru) lvl(lvl2 lvl3) r(3) rm(8) cost(10.0))} ; mosin + dp ammo
+{"mp/gru/mid/guard_senior"				("inf_tier2" side(gru) lvl(lvl2 lvl3) r(3) rm(8) cost(15.0))} ; svt40
+{"mp/gru/mid/guard_nco"					("inf_tier2" side(gru) lvl(lvl2 lvl3) r(3) rm(8) cost(15.0))} ; ppsh41 drum
+
+{"mp/gru/late/vet_nco"					("inf_tier2" side(gru) lvl() r(9) rm(99) cost(15.0))} ; ppsh41 drum
+{"mp/gru/late/vet_nco_pps43"			("inf_tier2" side(gru) lvl() r(9) rm(99) cost(12.0))} ; pps43
+{"mp/gru/late/vet_nco_stick"			("inf_tier2" side(gru) lvl() r(9) rm(99) cost(12.0))} ; ppsh41 stick
+
+{"mp/gru/late/guards_mgun_1"			("inf_tier2" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(45.0))} ; dp27
+{"mp/gru/late/guards_mgun_2"			("inf_tier2" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(10.0))} ; mosin
+{"mp/gru/late/guards_mgun_3"			("inf_tier2" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; ppsh41 drum
+{"mp/gru/late/guards_nco"				("inf_tier2" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; ppsh41 drum
+{"mp/gru/late/guards_nco_pps43"			("inf_tier2" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(12.0))} ; pps43
+{"mp/gru/late/guards_nco_stick"			("inf_tier2" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(12.0))} ; ppsh41 stick
+{"mp/gru/late/guards_rifleman_1"		("inf_tier2_lite" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(10.0))} ; mosin
+{"mp/gru/late/guards_rifleman_2"		("inf_tier2_lite" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(10.0))} ; mosin
+{"mp/gru/late/guards_rifleman_3"		("inf_tier2_lite" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; svt40
+{"mp/gru/late/guards_smg_1"				("inf_tier2" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; ppsh41 drum
+{"mp/gru/late/guards_smg_2"				("inf_tier2" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(12.0))} ; pps43
+{"mp/gru/late/guards_smg_3"				("inf_tier2" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; ppsh41 drum
+{"mp/gru/late/guards_senior_rifle"		("inf_tier2" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(10.0))} ; mosin
+{"mp/gru/late/guards_senior_sa"			("inf_tier2" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; svt40
+{"mp/gru/late/guards_senior_smg"		("inf_tier2" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; ppsh41 drum
+{"mp/gru/late/guards_senior_smg_pps43"	("inf_tier2" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(12.0))} ; pps43
+{"mp/gru/late/guards_senior_smg_stick"	("inf_tier2" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(12.0))} ; ppsh41 stick
+{"mp/gru/late/guards_smg_stick"			("inf_tier2" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(12.0))} ; ppsh41 stick
+
+;// tier 3
+
+{"mp/gru/mid/mountain_nco"				("inf_tier3" side(gru) lvl(lvl2 lvl3) r(3) rm(8) cost(15.0))} ; ppsh41 stick
+{"mp/gru/mid/mountain_senior"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(3) rm(8) cost(15.0))} ; ppsh41 stick
+{"mp/gru/mid/mountain_1"				("inf_tier3" side(gru) lvl(lvl2 lvl3) r(3) rm(8) cost(18.0))} ; svt40
+{"mp/gru/mid/mountain_2"				("inf_tier3" side(gru) lvl(lvl2 lvl3) r(3) rm(8) cost(15.0))} ; ppsh41 stick
+{"mp/gru/mid/mountain_3"				("inf_tier3" side(gru) lvl(lvl2 lvl3) r(3) rm(8) cost(13.0))} ; mosin
+{"mp/gru/mid/mountain_mg"				("inf_tier3" side(gru) lvl(lvl2 lvl3) r(3) rm(8) cost(50.0))} ; dp27
+{"mp/gru/mid/mountain_mg_asst"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(3) rm(8) cost(13.0))} ; mosin
+
+{"mp/gru/mid/nkvd_mountain_nco"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(3) rm(8) cost(15.0))} ; ppsh41 stick
+{"mp/gru/mid/nkvd_mountain_senior"		("inf_tier3" side(gru) lvl(lvl2 lvl3) r(3) rm(8) cost(15.0))} ; ppsh41 stick
+{"mp/gru/mid/nkvd_mountain_sa"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(3) rm(8) cost(18.0))} ; svt40
+{"mp/gru/mid/nkvd_mountain_smg_stick"	("inf_tier3" side(gru) lvl(lvl2 lvl3) r(3) rm(8) cost(15.0))} ; ppsh41 stick
+{"mp/gru/mid/nkvd_mountain_rifle"		("inf_tier3" side(gru) lvl(lvl2 lvl3) r(3) rm(8) cost(13.0))} ; mosin
+{"mp/gru/mid/nkvd_mountain_mg"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(3) rm(8) cost(50.0))} ; dp27
+{"mp/gru/mid/nkvd_mountain_mg_asst"		("inf_tier3" side(gru) lvl(lvl2 lvl3) r(3) rm(8) cost(13.0))} ; mosin
+
+{"mp/gru/mid/marine_reg_mg"				("inf_tier3" side(gru) lvl(lvl2 lvl3) r(3) rm(8) cost(50.0))} ; dp27
+{"mp/gru/mid/marine_reg_mg_asst"		("inf_tier3" side(gru) lvl(lvl2 lvl3) r(3) rm(8) cost(13.0))} ; mosin
+{"mp/gru/mid/marine_reg_nco"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(3) rm(8) cost(15.0))} ; ppsh41 stick
+{"mp/gru/mid/marine_reg_rifle"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(3) rm(8) cost(13.0))} ; mosin
+{"mp/gru/mid/marine_reg_sa"				("inf_tier3" side(gru) lvl(lvl2 lvl3) r(3) rm(8) cost(18.0))} ; svt40
+{"mp/gru/mid/marine_reg_senior"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(3) rm(8) cost(18.0))} ; svt40
+{"mp/gru/mid/marine_reg_smg_m1928"		("inf_tier3" side(gru) lvl(lvl2 lvl3) r(3) rm(8) cost(17.0))} ; m1928a1
+
+{"mp/gru/late/cav_mg"					("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(50.0))} ; dp27
+{"mp/gru/late/cav_mg_asst"				("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(13.0))} ; mosin
+{"mp/gru/late/cav_mg_asst_smg"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(18.0))} ; ppsh41 drum
+{"mp/gru/late/cav_nco"					("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(18.0))} ; ppsh41 drum
+{"mp/gru/late/cav_nco_pps43"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; pps43
+{"mp/gru/late/cav_nco_stick"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; ppsh41 stick
+{"mp/gru/late/cav_rifle"				("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(13.0))} ; mosin
+{"mp/gru/late/cav_sa"					("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(18.0))} ; svt40
+{"mp/gru/late/cav_senior_rifle"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(13.0))} ; mosin
+{"mp/gru/late/cav_senior_sa"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(18.0))} ; svt40
+{"mp/gru/late/cav_senior_smg"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(18.0))} ; ppsh41 drum
+{"mp/gru/late/cav_senior_smg_pps43"		("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; pps43
+{"mp/gru/late/cav_senior_smg_stick"		("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; ppsh41 stick
+{"mp/gru/late/cav_smg_drum"				("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(18.0))} ; ppsh41 drum
+{"mp/gru/late/cav_smg_pps43"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; pps43
+{"mp/gru/late/cav_smg_stick"			("inf_tier3" side(gru) lvl(lvl2 lvl3) r(9) rm(99) cost(15.0))} ; ppsh41 stick
+
+
+; // tier 3 vet
+
+{"mp/gru/late/guards_cav_mg"				("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(55.0))} ; dp27
+{"mp/gru/late/guards_cav_mg_asst"			("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(16.0))} ; mosin
+{"mp/gru/late/guards_cav_mg_asst_smg"		("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; ppsh41 drum
+{"mp/gru/late/guards_cav_nco"				("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; ppsh41 drum
+{"mp/gru/late/guards_cav_nco_pps43"			("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; pps43
+{"mp/gru/late/guards_cav_nco_stick"			("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; ppsh41 stick
+{"mp/gru/late/guards_cav_rifle"				("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(16.0))} ; mosin
+{"mp/gru/late/guards_cav_sa"				("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; svt40
+{"mp/gru/late/guards_cav_senior_rifle"		("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(16.0))} ; mosin
+{"mp/gru/late/guards_cav_senior_sa"			("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; svt40
+{"mp/gru/late/guards_cav_senior_smg"		("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; ppsh41 drum
+{"mp/gru/late/guards_cav_senior_smg_pps43"	("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; pps43
+{"mp/gru/late/guards_cav_senior_smg_stick"	("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; ppsh41 stick
+{"mp/gru/late/guards_cav_smg_drum"			("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; ppsh41 drum
+{"mp/gru/late/guards_cav_smg_pps43"			("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; pps43
+{"mp/gru/late/guards_cav_smg_stick"			("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; ppsh41 stick
+
+{"mp/gru/late/guards_marine_mg"				("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(55.0))} ; dp27
+{"mp/gru/late/guards_marine_mg_asst"		("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(16.0))} ; mosin
+{"mp/gru/late/guards_marine_nco"			("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; pps43
+{"mp/gru/late/guards_marine_rifle"			("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(16.0))} ; mosin
+{"mp/gru/late/guards_marine_sa"				("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; svt40
+{"mp/gru/late/guards_marine_sa_pzf"			("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(26.0))} ; svt40 + pzfaust 60
+{"mp/gru/late/guards_marine_smg"			("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; ppsh41 drum
+{"mp/gru/late/guards_marine_senior"			("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; ppsh41 drum
+
+{"mp/gru/late/elite_guards_mg"				("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(55.0))} ; dp27
+{"mp/gru/late/elite_guards_mg_asst"			("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(16.0))} ; mosin
+{"mp/gru/late/elite_guards_mg_asst_smg"		("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; ppsh41 drum
+{"mp/gru/late/elite_guards_nco"				("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; ppsh41 drum
+{"mp/gru/late/elite_guards_nco_pps43"		("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; pps43
+{"mp/gru/late/elite_guards_nco_stick"		("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; ppsh41 stick
+{"mp/gru/late/elite_guards_rifle"			("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(16.0))} ; mosin
+{"mp/gru/late/elite_guards_sa"				("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; svt40
+{"mp/gru/late/elite_guards_senior_rifle"	("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(16.0))} ; mosin
+{"mp/gru/late/elite_guards_senior_sa"		("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; svt40
+{"mp/gru/late/elite_guards_senior_smg"		("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; ppsh41 drum
+{"mp/gru/late/elite_guards_senior_smg_pps43"("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; pps43
+{"mp/gru/late/elite_guards_senior_smg_stick"("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; ppsh41 stick
+{"mp/gru/late/elite_guards_smg_drum"		("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; ppsh41 drum
+{"mp/gru/late/elite_guards_smg_pps43"		("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; pps43
+{"mp/gru/late/elite_guards_smg_stick"		("inf_tier3" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; ppsh41 stick
+
+; // tier 4
+
+{"mp/gru/mid/para_1"					("inf_tier4" side(gru) lvl(lvl3 lvl4) r(4) rm(6) cost(18.0))} ; ppsh41 drum
+{"mp/gru/mid/para_2"					("inf_tier4" side(gru) lvl(lvl3 lvl4) r(4) rm(6) cost(18.0))} ; svt40
+{"mp/gru/mid/para_3"					("inf_tier4" side(gru) lvl(lvl3 lvl4) r(4) rm(6) cost(15.0))} ; ppsh41 stick
+{"mp/gru/mid/para_4"					("inf_tier4" side(gru) lvl(lvl3 lvl4) r(4) rm(6) cost(20.0))} ; avt40
+{"mp/gru/mid/para_5"					("inf_tier4" side(gru) lvl(lvl3 lvl4) r(4) rm(6) cost(13.0))} ; mosin
+{"mp/gru/mid/para_nco"					("inf_tier4" side(gru) lvl(lvl3 lvl4) r(4) rm(6) cost(15.0))} ; ppsh41 stick
+{"mp/gru/mid/para_mg"					("inf_tier4" side(gru) lvl(lvl3 lvl4) r(4) rm(6) cost(50.0))} ; dp27
+{"mp/gru/mid/para_mg_asst"				("inf_tier4" side(gru) lvl(lvl3 lvl4) r(4) rm(6) cost(18.0))} ; svt40
+
+{"mp/gru/mid/nkvd_mountain_cav_mg"		("inf_tier4" side(gru) lvl(lvl3 lvl4) r(5) rm(8) cost(60.0))} ; dp27
+{"mp/gru/mid/nkvd_mountain_cav_mg_asst"	("inf_tier4" side(gru) lvl(lvl3 lvl4) r(5) rm(8) cost(18.0))} ; mosin
+{"mp/gru/mid/nkvd_mountain_cav_nco"		("inf_tier4" side(gru) lvl(lvl3 lvl4) r(5) rm(8) cost(20.0))} ; ppsh41 stick
+{"mp/gru/mid/nkvd_mountain_cav_rifle"	("inf_tier4" side(gru) lvl(lvl3 lvl4) r(5) rm(8) cost(18.0))} ; mosin
+{"mp/gru/mid/nkvd_mountain_cav_sa"		("inf_tier4" side(gru) lvl(lvl3 lvl4) r(5) rm(8) cost(23.0))} ; svt40
+{"mp/gru/mid/nkvd_mountain_cav_senior"	("inf_tier4" side(gru) lvl(lvl3 lvl4) r(5) rm(8) cost(23.0))} ; ppsh41 drum
+{"mp/gru/mid/nkvd_mountain_cav_smg"		("inf_tier4" side(gru) lvl(lvl3 lvl4) r(5) rm(8) cost(20.0))} ; ppsh41 stick
+
+{"mp/gru/mid/marine_1"					("inf_tier4" side(gru) lvl(lvl3 lvl4) r(5) rm(8) cost(23.0))} ; svt40
+{"mp/gru/mid/marine_2"					("inf_tier4" side(gru) lvl(lvl3 lvl4) r(5) rm(8) cost(20.0))} ; ppsh41 stick
+{"mp/gru/mid/marine_3"					("inf_tier4" side(gru) lvl(lvl3 lvl4) r(5) rm(8) cost(60.0))} ; dp27
+{"mp/gru/mid/marine_4"					("inf_tier4" side(gru) lvl(lvl3 lvl4) r(5) rm(8) cost(23.0))} ; svt40
+{"mp/gru/mid/marine_mg_asst"			("inf_tier4" side(gru) lvl(lvl3 lvl4) r(5) rm(8) cost(18.0))} ; mosin
+{"mp/gru/mid/marine_5"					("inf_tier4" side(gru) lvl(lvl3 lvl4) r(5) rm(8) cost(18.0))} ; mosin
+{"mp/gru/mid/marine_senior"				("inf_tier4" side(gru) lvl(lvl3 lvl4) r(5) rm(8) cost(23.0))} ; svt40
+{"mp/gru/mid/marine_smg_m1928"			("inf_tier4" side(gru) lvl(lvl3 lvl4) r(5) rm(8) cost(22.0))} ; m1928a1
+
+{"mp/gru/mid/spetsnaz_1"				("inf_tier4" side(gru) lvl() r(1) rm(8) cost(30.0))} ; ppsh41 stick
+{"mp/gru/mid/spetsnaz_2"				("inf_tier4" side(gru) lvl() r(1) rm(8) cost(33.0))} ; ppsh41 drum
+{"mp/gru/mid/spetsnaz_3"				("inf_tier4" side(gru) lvl() r(1) rm(8) cost(30.0))} ; ppsh41 stick
+
+{"mp/gru/late/assault-sap_1"			("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(25.0))} ; ppsh41 drum
+{"mp/gru/late/assault-sap_2"			("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(22.0))} ; pps43 + % pzfaust 60
+{"mp/gru/late/assault-sap_3"			("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(25.0))} ; ppsh41 drum
+{"mp/gru/late/assault-sap_4"			("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(60.0))} ; flamer
+{"mp/gru/late/assault-sap_at"			("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(33.0))} ; ppsh41 drum + pzfaust 60 (2x)
+{"mp/gru/late/assault-sap_atr"			("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(50.0))} ; PTRS
+{"mp/gru/late/assault-sap_sl"			("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; pps43
+{"mp/gru/late/assault-sap_sl_asst"		("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(22.0))} ; pps43 + % pzfaust 60
+{"mp/gru/late/assault-sap_sl_asst_mg"	("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(55.0))} ; dp27
+
+{"mp/gru/late/mountain_cav_mg"			("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(60.0))} ; dp27
+{"mp/gru/late/mountain_cav_mg_asst"		("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; mosin
+{"mp/gru/late/mountain_cav_nco"			("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(23.0))} ; ppsh41 drum
+{"mp/gru/late/mountain_cav_rifle"		("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(18.0))} ; mosin
+{"mp/gru/late/mountain_cav_sa"			("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(23.0))} ; svt40
+{"mp/gru/late/mountain_cav_senior"		("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(23.0))} ; ppsh41 drum
+{"mp/gru/late/mountain_cav_smg"			("inf_tier4" side(gru) lvl(lvl3 lvl4) r(9) rm(99) cost(23.0))} ; ppsh41 drum
+
+
+; // tier 4 vet
+
+{"mp/gru/mid/guard_para_mg"				("inf_tier4" side(gru) lvl(lvl3 lvl4) r(7) rm(10) cost(65.0))} ; dp27
+{"mp/gru/mid/guard_para_mg_asst"		("inf_tier4" side(gru) lvl(lvl3 lvl4) r(7) rm(10) cost(21.0))} ; mosin
+{"mp/gru/mid/guard_para_mg_asst_dt"		("inf_tier4" side(gru) lvl(lvl3 lvl4) r(7) rm(10) cost(21.0))} ; mosin
+{"mp/gru/mid/guard_para_mg_dt"			("inf_tier4" side(gru) lvl(lvl3 lvl4) r(7) rm(10) cost(65.0))} ; dt
+{"mp/gru/mid/guard_para_nco"			("inf_tier4" side(gru) lvl(lvl3 lvl4) r(7) rm(10) cost(26.0))} ; ppsh41 drum
+{"mp/gru/mid/guard_para_nco_asst_sa"	("inf_tier4" side(gru) lvl(lvl3 lvl4) r(7) rm(10) cost(28.0))} ; avt40
+{"mp/gru/mid/guard_para_nco_asst_smg"	("inf_tier4" side(gru) lvl(lvl3 lvl4) r(7) rm(10) cost(23.0))} ; ppsh41 drum
+{"mp/gru/mid/guard_para_rifle"			("inf_tier4" side(gru) lvl(lvl3 lvl4) r(7) rm(10) cost(21.0))} ; mosin
+{"mp/gru/mid/guard_para_sa"				("inf_tier4" side(gru) lvl(lvl3 lvl4) r(7) rm(10) cost(26.0))} ; svt40
+{"mp/gru/mid/guard_para_smg"			("inf_tier4" side(gru) lvl(lvl3 lvl4) r(7) rm(10) cost(26.0))} ; ppsh41 drum
+
+{"mp/gru/mid/signaller"					("inf_signaller" side(gru) lvl(lvl3 lvl4) r(99) rm(99) cost(170.0))}
+{"mp/gru/late/signaller"				("inf_signaller_late" side(gru) lvl(lvl3 lvl4) r(99) rm(99) cost(170.0))}

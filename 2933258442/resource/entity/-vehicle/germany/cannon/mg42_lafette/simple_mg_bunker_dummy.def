@@ -1,0 +1,72 @@
+{
+	
+	(include "/properties/cannon_mgun.ext")
+	{extension "simple_mg_bunker_dummy.mdl"}
+	{props "vision_lev00_can" "cannon_sandbag_standard" "detect_cannon_aa" "c_mg_med" "dummy_emplacement" "new_fortification"}
+    {able "-select" "-minimap"}
+	{boarder
+		{anm "gunner"
+			{forward {end "pose_mg_lafette_gunner" 10}}
+		}
+		{anm "commander"
+			{forward {end "pose_mg_lafette_commander" 10}}
+		}
+		{anm "driver1"
+			{forward {end "mgun_browning_driver_r"}}
+		}
+		{anm "driver2"
+			{forward {end "mortar_driver_l"}}
+		}
+	}
+
+	{extender "cannon"
+				{move {workers clear} {obstacle "close"}}
+		{attack {obstacle "open"}}
+		{rotate_ik_Limit 35}
+	}
+
+	{extender "inventory"
+		{box
+			{item "mg42_belt_long" filling "ammo mgun_ger belt ap" 300 {user "mgun"}}
+		}
+	}
+	
+	{Weaponry
+		{place "mgun"
+			{type "main"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			{LinkBone "mgun"}
+			{LinkAnimation "off"}
+			("abm_mgun")
+			{Rotate}
+		}
+	}
+
+	{mass 32}
+	{Chassis
+		("mobility_cannon"
+			speed(12) ;----------------------------------Max speed.
+			weight(32) ;---------------------------------Weight in Kilograms.
+		)
+	}
+
+	{bone "basis"
+		{speed2 20}
+	}
+	{bone "gun_rot"
+		{limits -15 15}
+		{speed2 60}
+	}
+	{bone "turret"
+		{limits -13 13}
+		{speed2 60}
+	}
+
+
+	
+    {extender "structure"
+		{place "sandbag_cover" "simple_mg_bunker"}
+	}
+    
+}

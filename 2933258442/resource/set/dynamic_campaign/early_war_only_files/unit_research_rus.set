@@ -1,0 +1,256 @@
+{IconGap 28}
+	{positions
+		{"single_officer(rus)" 0 2}
+	}
+
+;//---TECH UPGRADES---
+	{ tech "defense_level_1"			requires "reinforcement_stage_2"						costs 1  position 2 0}
+	{ tech "defense_level_2"			requires "reinforcement_stage_3 defense_level_1"		costs 99  position 4 0}
+	{ tech "defense_level_3"			requires "reinforcement_stage_4 defense_level_2"		costs 99  position 6 0}
+
+	{ tech "reinforcement_stage_2"		requires "single_officer(rus)"							costs 0  position 1 1}
+	{ tech "reinforcement_stage_3"		requires "reinforcement_stage_2 squad_officer_con(rus)"	costs 7  position 3 1}
+	{ tech "reinforcement_stage_4"		requires "reinforcement_stage_3 squad_officer_gaz_con"	costs 8  position 5 1}
+	{ tech "reinforcement_stage_5"		requires "reinforcement_stage_4 ba20_command"			costs 9  position 7 1}
+;TOTAL:
+
+
+;//---Off Map Support---
+	{"conquest_po2"						requires	"single_officer(rus)"				costs 1  position 0 4}
+	{"conquest_yak1"					requires	"squad_officer_con(rus)"			costs 1  position 2 4}
+	{"conquest_il2"						requires	"squad_officer_gaz_con"				costs 1  position 4 4}
+
+
+	{"122mm_m1910_smoke_barrage"		requires	"single_officer(rus)"				costs 0  position 0 3}
+
+	{"82mm_bm37_mortar_barrage"			requires	"squad_officer_con(rus)"			costs 1  position 2 3}
+	{"122mm_m1910_artillery_barrage"	requires	"squad_officer_gaz_con 82mm_bm37_mortar_barrage"				costs 1  position 4 3}
+	
+	{"120mm_pm38_mortar_barrage"		requires	"ba20_command 82mm_bm37_mortar_barrage"	costs 1  position 6 3}
+	{"152mm_ml20_artillery_barrage"		requires	"ba20_command 120mm_pm38_mortar_barrage"	costs 1  position 7 3}
+
+
+;TOTAL:
+
+
+;//---SQUADS---
+;//	{"single_officer(rus)"				requires	""									costs 0  position 0 2}
+	{"squad_officer_con(rus)"			requires	"single_officer(rus)"				costs 2  position 2 2}
+	{"squad_officer_gaz_con"			requires	"squad_officer_con(rus)"			costs 5  position 4 2}
+	{"ba20_command"						requires	"squad_officer_gaz_con"				costs 2  position 6 2}
+
+	{"single_engineer(rus)"				requires	""									costs 2  position 0 12}
+	{"single_ap_miner(rus)"				requires	"single_engineer(rus)"				costs 0  position 1 11}
+	{"single_at_miner(rus)"				requires	"single_ap_miner(rus)"				costs 0  position 2 11}
+	{"single_flamer(rus)"				requires	"single_engineer(rus)"				costs 0  position 1 13}
+
+	{"single_sniper(rus)"				requires	"squad_recon_con(rus)"				costs 1  position 2 16}
+	{"single_at(rus)"					requires	""									costs 0  position 0 6}
+	{"single_riflegrenade(rus)"			requires	"single_at(rus)"					costs 1  position 1 7}
+	{"single_at2(rus)"					requires	"single_at(rus)"					costs 1  position 2 6}
+	{"single_at_pzs_late_con(rus)"		requires	"single_at2(rus) reinforcement_stage_4"	costs 3  position 5 6}
+	{"single_at_late_con(rus)"			requires	"single_at_pzs_late_con(rus)"		costs 0  position 7 6}
+
+	{"squad_recon_con(rus)"				requires	"squad_conscripts_con(rus)"			costs 1  position 1 16}
+	{"squad_rifleunit_alt_con(rus)"		requires	"squad_conscripts_con(rus)"			costs 1  position 1 17}
+	{"squad_rifleunit_con(rus)"			requires	"squad_rifleunit_alt_con(rus)"		costs 2  position 2 17}
+	{"squad_at_rifle_con(rus)"			requires	"squad_rifleunit_con(rus)"			costs 1  position 2 18}
+	{"squad_smg_con(rus)"				requires	"squad_guardsrifle_con(rus)"		costs 2  position 4 15}
+	{"squad_rifle_motorised_con"		requires	"squad_rifleunit_con(rus) zis5"		costs 1  position 5 17}
+	{"squad_mountainrifles_con(rus)"	requires	"squad_rifleunit_con(rus)"			costs 2  position 3 18}
+
+	{"squad_paras_con(rus)"				requires	"squad_mountainrifles_con(rus)"		costs 3  position 6 18}
+	{"squad_spetsnaz(rus)"				requires	"squad_guards_smg_con(rus)"			costs 2  position 8 14}
+	{"squad_marines_con(rus)"			requires	"squad_paras_con(rus)"				costs 2  position 8 18}
+
+	{"squad_guardsrifle_con(rus)"		requires	"squad_rifleunit_con(rus)"			costs 3  position 3 16}
+	{"squad_guards_smg_con(rus)"		requires	"squad_smg_con(rus)"				costs 3  position 5 14}
+	{"squad_guardsrifle_motorised_con"	requires	"squad_guardsrifle_con(rus) squad_rifle_motorised_con"	costs 1  position 6 16}
+
+	{"squad_assaultsappers_con(rus)"	requires	"squad_guardsrifle_motorised_con"	costs 3  position 6 15}
+	{"squad_assaultsappers_flame_con(rus)"	requires	"squad_assaultsappers_con(rus)"	costs 1  position 7 15}
+
+	{"squad_partisan_con(rus)"			requires	"squad_conscripts_con(rus)"			costs 1  position 0 15}
+	{"squad_penal_con(rus)"				requires	"squad_border(rus)"					costs 1  position 0 19}
+	{"squad_border(rus)"				requires	""									costs 0  position 0 18}
+	{"squad_conscripts_con(rus)"		requires	""									costs 0  position 0 17}
+;TOTAL:
+
+
+;//---MG---
+	{"maxim"			requires	""					costs 1  position 0 21}
+	{"ds39_stand"		requires	"maxim"				costs 1  position 1 21}
+	{"sg43_stand"		requires	"ds39_stand"		costs 1  position 2 21}
+	{"dshk_stan"		requires	"dshk_aa"			costs 0  position 1 26}
+
+
+;//---Mortar---
+	{"82mm_bm37"		requires	""					costs 2 position 4 21}
+	{"m41_ampulomet"	requires	"82mm_bm37"			costs 0  position 5 20}
+	{"120mm_pm38"		requires	"82mm_bm37"			costs 4  position 7 21}
+
+;//---AA---
+	{"dshk_aa"		requires	""						costs 2  position 0 25}
+	{"25mm_72k"		requires	"dshk_aa"				costs 2  position 2 25}
+	{"37mm_61k"		requires	"25mm_72k"				costs 2  position 4 25}
+	{"76mm_m1938"	requires	"37mm_61k"				costs 2  position 5 24} ;//LIB
+	{"85mm_52k"		requires	"37mm_61k"				costs 4  position 6 25}
+
+;//---AT Guns---
+	{"45mm_m37"		requires	""						costs 0  position 0 29}
+	{"45mm_m42"		requires	"45mm_m37"				costs 2  position 1 28}
+	{"76mm_m1902"	requires	"45mm_m37"				costs 1  position 2 29}
+	{"76mm_bpk76"	requires	"76mm_m1902"			costs 1  position 3 28}
+	{"76mm_m1933"	requires	"76mm_m1902"			costs 1  position 3 29}
+	{"76mm_f22"		requires	"76mm_m1933"			costs 1  position 4 29}
+	{"76mm_zis3"	requires	"76mm_f22"				costs 3  position 6 29}
+	{"57mm_zis2"	requires	"76mm_f22"				costs 3  position 5 28}
+	{"100mm_bs3"	requires	"76mm_zis3"				costs 5  position 8 29}
+
+;//---Field Guns---
+	{"76mm_m1927"	requires	"45mm_m37"				costs 2  position 1 30}
+	{"76mm_m43"		requires	"76mm_m1927"			costs 2  position 2 30}
+
+;//---Artillery---
+	{"107mm_m1910_30"	requires	"76mm_m1927"		costs 3  position 1 31}
+	{"122mm_m1910"		requires	"107mm_m1910_30"	costs 3  position 3 31}
+
+	{"152mm_br2"		requires	"122mm_m1910"		costs 2  position 5 31}
+	{"203mm_b4"			requires	"152mm_br2"			costs 6  position 7 31}
+	{"280mm_br5"		requires	"203mm_b4"			costs 6  position 8 31}
+
+	{"122mm_m30"		requires	"107mm_m1910_30"	costs 3  position 2 32}
+	{"122mm_a19"		requires	"122mm_m30"			costs 1  position 3 32}
+	{"152mm_ml20"		requires	"122mm_a19"			costs 3  position 5 32}
+
+	{"300mm_m30"		requires	"bm13_studebaker"	costs 2  position 10 33}
+	{"300mm_m31"		requires	"300mm_m30"			costs 2  position 11 33}
+;TOTAL:
+
+
+;//---Trucks---
+	{"inf_crate_rus"	requires	""					costs 0  position 0 9}
+	{"zis5"				requires	""					costs 1  position 4 17}
+	{"ap_2"				requires	"inf_crate_rus"		costs 1  position 1 9}
+	{"gaz_aaa_supply"	requires	"ap_2"				costs 1  position 3 9}
+	{"gaz_fuel"			requires	"gaz_aaa_supply"	costs 1  position 5 9}
+	{"gaz_aaa_maximx4"	requires	"maxim"				costs 2  position 1 22}
+	{"gaz_aaa_72k"		requires	"25mm_72k"			costs 1  position 3 24}
+	{"yag10_29k"		requires	"76mm_m1938"			costs 1  position 6 23}
+	{"zis5eng"			requires	"single_engineer(rus)"	costs 1  position 4 12}
+	{"zis5_dshk"		requires	"dshk_aa"			costs 1  position 1 24}
+
+	{"zis6_bm8_48"		requires	"152mm_ml20"		costs 4  position 6 32}
+	{"t60_bm8_24"		requires	"zis6_bm8_48"		costs 1  position 7 33}
+	{"zis6_bm13_16"		requires	"zis6_bm8_48"		costs 4  position 8 32}
+	{"bm13_studebaker"	requires	"zis6_bm13_16"		costs 1  position 9 32}
+	{"bm31_12"			requires	"bm13_studebaker 300mm_m31"	costs 3  position 12 32}
+;TOTAL:
+
+
+;//---Armored Cars---
+	{"fai_m"			requires	""				costs 1  position 0 34}
+	{"ba20"				requires	"fai_m"			costs 1  position 1 34}
+	{"ba6"				requires	"ba20"			costs 1  position 2 34}
+	{"ba10"				requires	"ba6"			costs 1  position 3 34}
+	{"ba64"				requires	"ba10"			costs 1  position 6 34}
+
+	{"universal_carrier_rus" requires	"ba10"		costs 1  position 4 35}
+	{"mmg_carrier_rus"		 requires	"universal_carrier_rus"	costs 1 position 5 35}
+	{"m3a1e1_scout_mgun"	 requires	"ba10"		costs 1  position 3 36}
+;TOTAL:
+
+
+;//---Light Tanks---
+	{"t27"				requires	""				costs 0  position 0 39}
+	{"t20"				requires	"t27"			costs 1  position 1 38}
+	{"t37a"				requires	"t27"			costs 1  position 1 39}
+	{"t40"				requires	"t37a"			costs 1  position 2 39}
+	{"t30"				requires	"t40"			costs 1  position 3 39}
+	{"t60"				requires	"t30"			costs 1  position 4 39}
+	{"t70"				requires	"t60"			costs 2  position 5 39}
+	{"t70m"				requires	"t70"			costs 1  position 6 39}
+	{"t50"				requires	"bt7"			costs 2  position 4 42}
+	{"zis30"			requires	"57mm_zis2"		costs 3  position 5 27}
+	{"su76"				requires	"76mm_zis3"		costs 3  position 7 28}
+
+	{"t26_31"			requires	""				costs 1  position 0 48}
+	{"kht26"			requires	"t26_31"		costs 1  position 0 47}
+	{"t26_33"			requires	"t26_31"		costs 2  position 1 48}
+	{"kht130"			requires	"t26_33"		costs 1  position 1 47}
+	{"t26_39"			requires	"t26_33"		costs 2  position 2 48}
+	{"su26"				requires	"t26_39"		costs 2  position 3 47} ;//SE
+
+	{"bt2"				requires	""				costs 2  position 0 42}
+	{"bt2_da2"			requires	"bt2"			costs 0  position 1 41}
+	{"bt5"				requires	"bt2"			costs 2  position 1 42}
+	{"bt7"				requires	"bt5"			costs 2  position 2 42}
+	{"bt7a"				requires	"bt7"			costs 1  position 3 41}
+	{"valentine2"		requires	"t70"			costs 2  position 5 37}
+	{"valentine7"		requires	"valentine2"	costs 3  position 6 37}
+	{"valentine9"		requires	"valentine7"	costs 4  position 7 37}
+
+	{"m3_stuart_late_rus" requires	"t70"			costs 3  position 5 38}
+	{"m3a1_stuart_rus"	requires	"m3_stuart_late_rus"	costs 1  position 6 38}
+;TOTAL:
+
+
+;//---Medium Tanks---
+	{"t28"				requires	"bt7"			costs 3  position 2 43}
+	{"t28_38"			requires	"t28"			costs 2  position 2 44}
+	{"t28e"				requires	"t28_38"		costs 1  position 2 45}
+	{"t3476_40"			requires	"t28_38"		costs 6  position 3 44}
+	{"t3476_41"			requires	"t3476_40"		costs 3  position 4 44}
+	{"t3476_41e"		requires	"t3476_41"		costs 1  position 4 45} ;//SE
+	{"t3457_41"			requires	"t3476_41"		costs 4  position 4 43}
+	{"t3476_42"			requires	"t3476_41"		costs 4  position 5 44}
+	{"t3476_43"			requires	"t3476_42"		costs 4  position 6 44}
+	{"t3457_43"			requires	"t3476_42"		costs 4  position 5 43}
+	{"t3476_43_flame"	requires	"t3476_43"		costs 1  position 6 43}
+
+	{"t3485_44"			requires	"t3476_43"		costs 6  position 8 44}
+	{"t3485_44_flame"	requires	"t3485_44"		costs 4  position 8 43}
+	{"t3485_44a"		requires	"t3485_44"		costs 1  position 9 44} ;//SE
+	{"t3485_44a_flame"	requires	"t3485_44_flame t3485_44a" costs 1  position 9 43} ;//SE
+	{"t3485_44b"		requires	"t3485_44"		costs 1  position 10 44} ;//SE
+
+	{"su122"			requires	"t3476_43"		costs 5  position 6 45}
+	{"su85"				requires	"su122"			costs 5  position 7 45}
+	{"su85m"			requires	"su85"			costs 1  position 8 46} ;//SE
+	{"su100"			requires	"su85"			costs 5  position 8 45}
+
+	{"m3_lee_rus"		  requires "m3a1_stuart_rus"	costs 4  position 8 38}
+	{"m4a2_75_early_rus"  requires "m3_lee_rus"			costs 10  position 9 38}
+	{"m4a2_75_late_rus"   requires "m4a2_75_early_rus"	costs 1  position 10 38}
+	{"m4a2_76w_early_rus" requires "m4a2_75_late_rus"	costs 10  position 12 38}
+	{"m4a2_76w_late_rus"  requires "m4a2_76w_early_rus"	costs 1  position 13 38}
+;TOTAL:
+
+
+;//---Heavy Tanks---
+	{"churchill3"		requires	"valentine9"	costs 15 position 8 36}
+	{"t35"				requires	"t26_33"		costs 7  position 1 50}
+	{"t35_late"			requires	"t35"			costs 2  position 2 51}
+	{"smk"				requires	"t35"			costs 2  position 1 51}
+	{"kv1_39"			requires	"t35"			costs 6  position 3 50}
+	{"kv1_40"			requires	"kv1_39"		costs 2  position 4 50}
+	{"kv1_40e"			requires	"kv1_40"		costs 1  position 4 49}
+	{"kv2_40"			requires	"kv1_40"		costs 6  position 4 51}
+	{"kv1_41"			requires	"kv1_40"		costs 2  position 5 50}
+	{"kv8"				requires	"kv1_41"		costs 1  position 5 49} ;//SE
+	{"kv1_42"			requires	"kv1_41"		costs 2  position 6 50}
+	{"kv1s"				requires	"kv1_42"		costs 2  position 7 50}
+	{"kv85"				requires	"kv1s"			costs 6  position 8 50}
+	{"su152"			requires	"kv1s"			costs 6  position 7 51}
+	{"is1_43"			requires	"kv85"			costs 9  position 9 50}
+	{"isu152"			requires	"is1_43"		costs 10 position 9 51}
+	{"isu122s"			requires	"isu152"		costs 5  position 11 51}
+	{"is2_43"			requires	"is1_43"		costs 11 position 10 50}
+	{"is2_44"			requires	"is2_43"		costs 12 position 11 50}
+	{"is2_45"			requires	"is2_44"		costs 2  position 12 50} ;//SE
+;TOTAL:
+
+	{"conquest_blank"	requires	""				costs 0  position 14 52}
+
+(include "generic_tech_tree_stuff.set")
+(include "unit_research_rus_ce_ext.set")

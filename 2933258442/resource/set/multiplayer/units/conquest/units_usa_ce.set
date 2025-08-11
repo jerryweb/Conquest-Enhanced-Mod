@@ -1,0 +1,1049 @@
+;SDL
+   (include "mechanized_usg_usa.set")
+	(include "mechanized_usr_usa.set")
+
+
+
+
+;////////////////// INSTRUCTIONS //////////////////
+;Buttons go as follows, displayed in-game in this order:
+
+; inf1       - infantry squads
+; inf2       - infantry single units
+; empl       - Emplacements, AA, AT, Mortars, Howitzers
+; vehicles   - vehicles, armoured cars, supplies
+; tanks      - main battle tanks, TDs, SPGs
+; doctrine   - specific doctrine setups
+
+; TEMP: Note all levels have been brought down to 1 to remove unit locks.
+; Squads currently have an MP cost of 0 - their cost is currently calculated as the sum of their soldiers cost, see inf_ger.set
+; Check ../settings.set for syntax instructions!!
+; unit limits per game are not defined here but in gamemode presets
+
+;user defined set tags that should be featured on units:
+;all artillery heavyart cannon mediumcan heavycan light medium heavy infantry supply
+;these tags allow player to disable certain sets for custom setups like "no heavy artillery" 
+;//////////////////////////////////////////////////
+
+
+
+;_________________________________________________
+;|             inf1                               |
+;|________________________________________________|
+("squad_with1types_conquest" side(usa) period(mid) min_stage(3) max_stage(99) name(single_officer)		c1(officer_2lt:1))
+
+("squad_with4types_conquest" side(usa) period(mid) min_stage(3) max_stage(99) name(squad_officer_con)	c1(platoon_com:1) c2(platoon_ssgt:1) c3(nco_sgt_rifle:1) c4(rifle:7))
+
+{"squad_officer_m3a1_commander_con"
+	("squad_vehicle5" side(usa) period(mid) min_stage(3) max_stage(99) vehicle(m3a1_commander) crew1(cav_driver:1) crew2(cav_gunner:1) crew3(platoon_com:1) crew4(cav_gunner:1) crew5(platoon_ssgt:1) cw(2) cp(5))
+}
+
+{"squad_officer_m3a1_halftrack_con"
+	("squad_vehicle8" side(usa) period(late) min_stage(9) max_stage(99) cw(3) cp(2) vehicle(m3a1_halftrack_radio) crew1(ar_driver:1) crew2(ar_rifle:1) crew3(ar_company_com:1) crew4(ar_company_1st_sgt:1) crew5(ar_carbine_gren:1) crew6(ar_rifle:1) crew7(ar_rifle_at_m9a1:1) crew8(ar_rifle_at_asst:1))
+}
+
+;//t1
+("squad_with3types_conquest" side(usa) period(mid) min_stage(1) max_stage(5) name(squad_mp_con) c1(mp_sl_rifle:1) c2(mp_sl_asst:1) c3(mp_rifle:9))
+("squad_with7types_conquest" side(usa) period(mid) min_stage(1) max_stage(5) name(squad_45th_rifle_con) c1(45th_sl_rifle:1) c2(45th_sl_asst:1) c3(45th_rifle_gren:1) c4(45th_rifle:6) c5(45th_rifle_bar:1) c6(45th_rifle_bar_asst:1) c7(45th_rifle_bar_ammo:1))
+
+
+
+;//recon
+("squad_vehicle_with3types_conquest" side(usa) period(mid) min_stage(1) max_stage(99) name(squad_1st_arm_recon_con)  vehicle(willys_mb) c1(ar1_recon_smg:1) c2(ar1_recon_tl:1) c3(ar1_recon_rifle:2))
+("squad_vehicle_with3types_conquest" side(usa) period(late) min_stage(3) max_stage(99) name(squad_cav_late_con1) vehicle(willys_mb_30cal) c1(cav_driver:1) c2(cav_gunner:1) c3(cav_tl:1))
+("squad_vehicle_with3types_conquest" side(usa) period(late) min_stage(4) max_stage(99) name(squad_cav_late_con2) vehicle(willys_mb_50cal) c1(cav_driver:1) c2(cav_gunner:1) c3(cav_tl:1))
+("squad_with2types_conquest" side(usa) period(mid) min_stage(5) max_stage(99) name(squad_82nd_recon_con) c1(82nd_recon_tl:1) c2(82nd_recon_rifle:3))
+
+
+;//t2
+("squad_with9types_conquest" side(usa) period(mid) min_stage(2) max_stage(8) name(squad_rifle_con) c1(sl_rifle:1) c2(sl_asst:1) c3(rifle_scout:2) c4(rifle_gren:1) c5(rifle:3) c6(rifle_at:1) c7(rifle_bar:1) c8(rifle_bar_asst:1) c9(rifle_bar_ammo:1))
+("squad_with6types_conquest" side(usa) period(mid) min_stage(4) max_stage(8) name(squad_1st_arm_rifle_con) c1(ar1_sl_rifle:1) c2(ar1_sl_asst:1) c3(ar1_rifle_gren:1) c4(ar1_rifle_at_m1:1) c5(ar1_rifle_at_asst_m1:1) c6(ar1_rifle:5))
+("squad_vehicle_with8types_conquest" side(usa) period(mid) min_stage(5) max_stage(8) name(squad_1st_arm_rifle_mech_con) vehicle(m3_halftrack) c1(ar1_driver:1) c2(ar1_rifle:1) c3(ar1_sl_rifle:1) c4(ar1_sl_asst:1) c5(ar1_rifle_gren:1) c6(ar1_rifle_at_m1:1) c7(ar1_rifle_at_asst_m1:1) c8(ar1_rifle:4))
+
+("squad_with10types_conquest" side(usa) period(late) min_stage(9) max_stage(99) name(squad_rifle_late_con) c1(sl_rifle:1) c2(sl_asst_gren:1) c3(rifle_scout:2) c4(rifle_gren:1) c5(rifle:2) c6(rifle_at_m1a1:1) c7(rifle_at_asst:1) c8(rifle_bar:1) c9(rifle_bar_asst:1) c10(rifle_bar_ammo:1))
+("squad_vehicle_with8types_conquest" side(usa) period(late) min_stage(9) max_stage(99) name(squad_arm_rifle_mech_late_con) vehicle(m3a1_halftrack) c1(ar_driver:1) c2(ar_rifle:1) c3(ar_sl_rifle:1) c4(ar_sl_asst:1) c5(ar_rifle_gren:2) c6(ar_rifle_at_m1a1:1) c7(ar_rifle_at_asst:1) c8(ar_rifle:4))
+
+("squad_with7types_conquest" side(usa) period(mid) min_stage(3) max_stage(8) name(squad_eng_con) c1(engineer_sl:1) c2(engineer_sl_asst_gren:1) c3(engineer_gren:1) c4(engineer_builder:1) c5(engineer_mine_ap:1) c6(engineer_mine_at:1) c7(engineer_rifle:5))
+("squad_vehicle_with8types_conquest" side(usa) period(mid) min_stage(5) max_stage(8) name(squad_eng_mech_con) vehicle(m3_halftrack) c1(driver_smg:1) c2(engineer_rifle:5) c3(engineer_sl:1) c4(engineer_sl_asst_gren:1) c5(engineer_gren:1) c6(engineer_builder:1) c7(engineer_mine_ap:1) c8(engineer_mine_at:1))
+("squad_vehicle_with10types_conquest" side(usa) period(late) min_stage(9) max_stage(99) name(squad_eng_mech_late_con) vehicle(m3a1_halftrack) c1(late_driver_m3:1) c2(late_engineer_rifle:3) c3(late_engineer_sl:1) c4(late_engineer_sl_asst:1) c5(late_engineer_gren:1) c6(late_engineer_builder:1) c7(late_engineer_mine_ap:1) c8(late_engineer_mine_at:1) c9(late_engineer_at_m9a1:1) c10(late_engineer_at_asst:1))
+
+;//t2+
+("squad_with8types_conquest" side(usa) period(mid) min_stage(4) max_stage(8) name(squad_vet_rifle_con) c1(vet_sl_smg:1) c2(vet_sl_asst_gren:1) c3(vet_rifle_gren:1) c4(vet_rifle_band:3) c5(vet_rifle_at:1) c6(vet_rifle_bar:2) c7(vet_rifle_bar_asst:2) c8(vet_rifle_bar_ammo:1))
+("squad_with9types_conquest" side(usa) period(late) min_stage(9) max_stage(99) name(squad_vet_rifle_late_con) c1(late_vet_sl_smg_m3:1) c2(late_vet_sl_asst_gren:1) c3(late_vet_rifle_gren:1) c4(late_vet_rifle_at:2) c5(late_vet_rifle_at_m9:1) c6(late_vet_rifle_at_asst:1) c7(late_vet_rifle_bar:2) c8(late_vet_rifle_bar_asst:2) c9(late_vet_rifle_bar_ammo:1))
+
+("squad_vehicle_with10types_conquest" side(usa) period(late) min_stage(9) max_stage(99) name(squad_2nd_arm_rifle_mech_late_con) vehicle(m3a1_halftrack) c1(ar2_driver:1) c2(ar2_camo_rifle:1) c3(ar2_camo_sl_rifle:1) c4(ar2_camo_sl_asst:1) c5(ar2_camo_rifle_gren:2) c6(ar2_camo_rifle_at_m1a1:1) c7(ar2_camo_rifle_at_asst:1) c8(ar2_camo_rifle:2) c9(ar2_camo_rifle_bar:1) c10(ar2_camo_rifle_bar_asst:1))
+
+;//t3
+("squad_with7types_conquest" side(usa) period(mid) min_stage(5) max_stage(10) name(squad_82nd_glider_con) c1(82nd_glider_sl_rifle:1) c2(82nd_glider_sl_asst:1) c3(82nd_glider_rifle_gren:1) c4(82nd_glider_rifle:6) c5(82nd_glider_bar:1) c6(82nd_glider_bar_asst:1) c7(82nd_glider_bar_ammo:1))
+("squad_with6types_conquest" side(usa) period(mid) min_stage(5) max_stage(10) name(squad_82nd_glider_pio_con) c1(82nd_glider_pio_sl:1) c2(82nd_glider_pio_sl_asst:1) c3(82nd_glider_pio_rifle_at:1) c4(82nd_glider_pio_rifle:3) c5(82nd_glider_pio_carbine:1) c6(82nd_glider_pio_flamer:1))
+
+("squad_with9types_conquest" side(usa) period(late) min_stage(11) max_stage(99) name(squad_mountain_late_con) c1(mountain_sl_smg_m3:1) c2(mountain_sl_asst_gren:1) c3(mountain_sniper:1) c4(mountain_rifle_gren:2) c5(mountain_at_m9a1:1) c6(mountain_at_asst:1) c7(mountain_bar:2) c8(mountain_bar_asst:2) c9(mountain_bar_ammo:1))
+("squad_with5types_conquest" side(usa) period(late) min_stage(11) max_stage(99) name(squad_mountain_pio_late_con) c1(mountain_pio_sl:1) c2(mountain_pio_sl_asst:1) c3(mountain_pio:3) c4(mountain_pio_at_m9a1:1) c5(mountain_pio_at_asst:1))
+
+("squad_with9types_conquest" side(usa) period(late) min_stage(10) max_stage(99) name(squad_101st_glider_late_con) c1(101st_late_glider_sl_smg:1) c2(101st_late_glider_sl_asst:1) c3(101st_late_glider_rifle_gren:2) c4(101st_late_glider_rifle:3) c5(101st_late_glider_at_m1a1:1) c6(101st_late_glider_at_asst:1) c7(101st_late_glider_bar:1) c8(101st_late_glider_bar_asst:1) c9(101st_late_glider_bar_ammo:1))
+
+;//t3+
+("squad_with9types_conquest" side(usa) period(late) min_stage(10) max_stage(99) name(squad_1st_rifle_late_con) c1(1st_late_sl_smg:1) c2(1st_late_sl_asst_gren:1) c3(1st_late_rifle_gren:1) c4(1st_late_rifle_band:2) c5(1st_late_rifle_at_m9a1:1) c6(1st_late_rifle_at_asst:1) c7(1st_late_rifle_bar:2) c8(1st_late_rifle_bar_asst:2) c9(1st_late_rifle_bar_ammo:1))
+
+("squad_vehicle_with10types_conquest" side(usa) period(late) min_stage(10) max_stage(99) name(squad_1st_arm_rifle_mech_late_con) vehicle(m3a1_halftrack) c1(ar1_late_driver:1) c2(ar1_late_rifle_band:1) c3(ar1_late_sl_rifle:1) c4(ar1_late_sl_asst:1) c5(ar1_late_rifle_gren:2) c6(ar1_late_rifle_at_m9a1:1) c7(ar1_late_rifle_at_asst:1) c8(ar1_late_rifle_band:2) c9(ar1_late_rifle_bar:1) c10(ar1_late_rifle_bar_asst:1))
+
+("squad_with9types_conquest" side(usa) period(late) min_stage(11) max_stage(99) name(squad_82nd_glider_late_con) c1(82nd_late_glider_sl_smg:1) c2(82nd_late_glider_sl_asst:1) c3(82nd_late_glider_rifle_gren:2) c4(82nd_late_glider_rifle:1) c5(82nd_late_glider_at_m9a1:1) c6(82nd_late_glider_at_asst:1) c7(82nd_late_glider_bar:2) c8(82nd_late_glider_bar_asst:2) c9(82nd_late_glider_bar_ammo:1))
+("squad_with6types_conquest" side(usa) period(late) min_stage(11) max_stage(99) name(squad_82nd_glider_pio_late_con) c1(82nd_late_glider_pio_sl:1) c2(82nd_late_glider_pio_sl_asst:1) c3(82nd_late_glider_pio_rifle_at:1) c4(82nd_late_glider_pio_rifle:3) c5(82nd_late_glider_pio_carbine:1) c6(82nd_late_glider_pio_flamer:1))
+
+;//t4
+("squad_with7types_conquest" side(usa) period(mid) min_stage(6) max_stage(10) name(squad_ranger_assault_con) c1(ranger_sec_lead:1) c2(ranger_sl_rifle_cpl:1) c3(ranger_gren:1) c4(ranger_rifle:4) c5(ranger_bar:1) c6(ranger_bar_asst:1) c7(ranger_bar_ammo:1))
+("squad_with5types_1vehicle_conquest" side(usa) period(mid) min_stage(7) max_stage(10) name(squad_ranger_assault_mg_con) vehicle(m2_30cal_tripod) c1(ranger_sec_lead:1) c2(ranger_sl_rifle_cpl:1) c3(ranger_gren:1) c4(ranger_rifle:4) c5(ranger_mg_ammo:1) crew1(ranger_mg_crew:1) crew2(ranger_mg_crew_asst:1))
+
+("squad_with7types_conquest" side(usa) period(late) min_stage(11) max_stage(99) name(squad_ranger_assault_late_con) c1(ranger_late_sec_lead:1) c2(ranger_late_sl_smg_sgt:1) c3(ranger_late_rifle:4) c4(ranger_late_sl_smg_ssgt:1) c5(ranger_late_rifle:2) c6(ranger_late_bar:1) c7(ranger_late_bar_asst:1))
+("squad_with5types_1vehicle_conquest" side(usa) period(late) min_stage(11) max_stage(99) name(squad_ranger_assault_mg_late_con) vehicle(m2_30cal_tripod) c1(ranger_late_sec_lead:1) c2(ranger_late_sl_smg_sgt:1) c3(ranger_late_rifle:4) c4(ranger_late_sl_smg_ssgt:1) c5(ranger_late_mg_ammo:2) crew1(ranger_late_mg_crew:1) crew2(ranger_late_mg_crew_asst:1))
+("squad_with5types_1vehicle_conquest" side(usa) period(late) min_stage(11) max_stage(99) name(squad_ranger_special_late_con) vehicle(60mm_m2_late) c1(ranger_late_sec_lead:1) c2(ranger_late_sl_asst_m9a1:1) c3(ranger_late_at_m9a1:1) c4(ranger_late_rifle:1) c5(ranger_late_rifle:0) crew1(ranger_late_crew:1) crew2(ranger_late_crew:1))
+
+("squad_with7types_conquest" side(usa) period(mid) min_stage(6) max_stage(10) name(squad_82nd_eng_con) c1(82nd_eng_sl:1) c2(82nd_eng_sl_asst_gren:1) c3(82nd_eng_carbine:2) c4(82nd_eng_rifle:3) c5(82nd_eng_flamer:1) c6(82nd_eng_at_m1a1:1) c7(82nd_eng_at_asst:1))
+("squad_with6types_1vehicle_conquest" side(usa) period(mid) min_stage(7) max_stage(10) name(squad_82nd_con) vehicle(m2_30cal_tripod) c1(82nd_sl:1) c2(82nd_sl_asst_smg:1) c3(82nd_sniper:1) c4(82nd_rifle_gren:1) c5(82nd_rifle:5) c6(82nd_mg_ammo:1) crew1(82nd_mg_crew:1) crew2(82nd_mg_asst:1))
+
+("squad_with8types_conquest" side(usa) period(mid) min_stage(5) max_stage(99) name(1st_special_con) c1(1st_special_sec_lead:1) c2(1st_special_demo:3) c3(1st_special_radio:1) c4(1st_special_medic:1) c5(1st_special_mech:2) c6(1st_special_gren:2) c7(1st_special_at:1) c8(1st_special_lmg:1))
+
+("squad_with7types_conquest" side(usa) period(late) min_stage(9) max_stage(99) name(squad_101st_eng_con) c1(101st_eng_sl:1) c2(101st_eng_sl_asst_gren:1) c3(101st_eng_carbine:2) c4(101st_eng_rifle:3) c5(101st_eng_flamer:1) c6(101st_eng_at_m1a1:1) c7(101st_eng_at_asst:1)) 
+("squad_with10types_conquest" side(usa) period(late) min_stage(9) max_stage(99) name(squad_101st_con) c1(101st_sl:1) c2(101st_sl_asst:1) c3(101st_rifle_gren:2) c4(101st_at_m9:1) c5(101st_at_asst:1) c6(101st_bar:2) c7(101st_bar_asst:1) c8(101st_mg:1) c9(101st_mg_asst:1) c10(101st_mg_ammo:1)) 
+
+;//t4+
+("squad_with7types_conquest" side(usa) period(late) min_stage(11) max_stage(99) name(squad_82nd_eng_late_con) c1(82nd_late_eng_sl:1) c2(82nd_late_eng_sl_asst_gren:1) c3(82nd_late_eng_carbine:2) c4(82nd_late_eng_rifle:3) c5(82nd_late_eng_flamer:1) c6(82nd_late_eng_at_m9a1:1) c7(82nd_late_eng_at_asst:1))
+("squad_with11types_conquest" side(usa) period(late) min_stage(11) max_stage(99) name(squad_82nd_late_con) c1(82nd_late_sl:1) c2(82nd_late_sl_asst:1) c3(82nd_late_sniper:1) c4(82nd_late_rifle_gren:2) c5(82nd_late_at_m9a1:1) c6(82nd_late_at_asst:1) c7(82nd_late_bar:1) c8(82nd_late_bar_asst:1) c9(82nd_late_mg:1) c10(82nd_late_mg_asst:1) c11(82nd_late_mg_ammo:1))
+("squad_with8types_conquest" side(usa) period(late) min_stage(11) max_stage(99) name(squad_82nd_demo_late_con) c1(82nd_late_demo_off:1) c2(82nd_late_sl_asst:1) c3(82nd_late_demo:3) c4(82nd_late_sl_asst_gren:1) c5(82nd_late_smg:1) c6(82nd_late_demo:4) c7(82nd_late_at_m9a1:1) c8(82nd_late_at_asst:1))
+("squad_with3types_conquest" side(usa) period(late) min_stage(9) max_stage(10) name(squad_82nd_pathfinder_con) c1(82nd_pathfinder_smg:4) c2(82nd_pathfinder_carbine:2) c3(82nd_pathfinder_rifle:2))		;//AIR
+
+;_______________________________________________
+;|					Player Paratroopers					|
+;|______________________________________________|
+{"player_82_glider_paradrop_usa"
+	("squad_vehicle10"	side(usa) period(mid) min_stage(10) max_stage(99) cw(3) cp(5) vehicle(c47_d_para_plane_player) crew1(pilot:1) crew2(82nd_glider_sl_smg:1) crew3(82nd_glider_pio_sl_asst:1) crew4(82nd_glider_pio_rifle:2) crew5(82nd_glider_pio_carbine:3) crew6(82nd_glider_pio_rifle_at:1) crew7(82nd_glider_pio_flamer:1) crew8(82nd_glider_pio_rifle:2) crew9(82nd_glider_at_m1a1:1) crew10(82nd_glider_sniper:1)) 
+    {cost 0}
+}
+
+{"player_82nd_paras_paradrop_usa"
+	("squad_vehicle10"		 side(usa) period(late) min_stage(11) max_stage(99) cw(3) cp(5) vehicle(c47_d_para_plane_player) crew1(pilot:1) crew2(82nd_late_sl:1) crew3(82nd_late_sl_asst:1) crew4(82nd_late_rifle_gren:1) crew5(82nd_late_at_m1a1:2) crew6(82nd_late_at_asst:1) crew7(82nd_late_medic:1) crew8(82nd_late_rifle:3) crew9(82nd_late_carbine:3) crew10(82nd_late_demo:2)) {cost 0}
+}
+
+{"player_101st_paras_paradrop_usa"
+	("squad_vehicle10"		 side(usa) period(late) min_stage(16) max_stage(99) cw(3) cp(5) vehicle(c47_d_para_plane_player) crew1(pilot:1) crew2(101st_sl:1) crew3(101st_sl_asst:1) crew4(101st_medic:1) crew5(101st_at_m9:2) crew6(101st_at_asst:2) crew7(101st_bar:1) crew8(101st_bar_asst:1) crew9(101st_mg_asst:2) crew10(101st_mg:2)) 
+	{cost 0}
+}
+;_________________________________________________
+;|             inf2                               |
+;|________________________________________________|
+
+
+("squad_with2types_conquest" side(usa) period(mid) min_stage(5) max_stage(99) name(single_at_con)			c1(antitank_m1:1) c2(antitank_asst_m1:1))
+("squad_with2types_conquest" side(usa) period(mid) min_stage(7) max_stage(99) name(single_at1_con)			c1(antitank_m1a1:1) c2(antitank_asst_m1a1:1))
+("squad_with2types_conquest" side(usa) period(late) min_stage(9) max_stage(99) name(single_at2_con)			c1(antitank_m9:1) c2(antitank_asst:1))
+("squad_with2types_conquest" side(usa) period(late) min_stage(11) max_stage(99) name(single_at3_con)		c1(antitank_m9a1:1) c2(antitank_asst:1))
+("squad_with4types_conquest" side(usa) period(late) min_stage(12) max_stage(99) name(single_at4_con)		c1(late_sl_rifle:1) c2(late_antitank_m18:1) c3(late_antitank_m18_asst:1) c4(late_antitank_m18_ammo:2))
+
+("squad_with1types_conquest" side(usa) period(mid) min_stage(1) max_stage(99) name(single_medic)			c1(medic:2))
+("squad_with1types_conquest" side(usa) period(mid) min_stage(2) max_stage(99) name(single_riflegrenade_con)	c1(antitank_gren:2))
+("squad_with1types_conquest" side(usa) period(late) min_stage(2) max_stage(99) name(single_riflegrenade2_con) c1(antitank_gren:2))
+("squad_with1types_conquest" side(usa) period(mid) min_stage(2) max_stage(99) name(single_ap_miner)			c1(engineer_mine_ap:2))
+("squad_with1types_conquest" side(usa) period(mid) min_stage(3) max_stage(99) name(single_at_miner)			c1(engineer_mine_at:2))
+("squad_with1types_conquest" side(usa) period(mid) min_stage(4) max_stage(99) name(single_engineer)			c1(engineer_builder:2))
+("squad_with1types_conquest" side(usa) period(mid) min_stage(3) max_stage(99) name(single_flamer)			c1(engineer_flamer:1))
+("squad_with2types_conquest" side(usa) period(late) min_stage(1) max_stage(99)  name(single_tankman)			c1(tank_commander:1) c2(tankman:4))
+("squad_with1types_conquest" side(usa) period(mid) min_stage(3) max_stage(99) name(single_sniper)			c1(rifle_sniper:1))
+
+
+
+ (include "vehicles_usg_usa.set")
+	(include "vehicles_usr_usa.set")
+
+
+
+;_________________________________________________
+;|                  Emplacements                  |
+;|________________________________________________|
+
+
+{"inf_crate_usa"
+	("vehicle"  side(usa) period(mid) min_stage(1) max_stage(99) cw(1) cp(0) crew(rifle:2))
+	{cost 50}
+}
+{"ammo_trailer_usa"
+	("vehicle"  side(usa) period(mid) min_stage(1) max_stage(99) cw(1) cp(0) crew(rifle:2))
+	{cost 100}
+}
+
+;AUTOMATIC WEAPONRY
+;{"heavy_mg_m1917_30cal"
+;	("emplacement2" side(usa) period(mid) min_stage(1) max_stage(99) cw(2) cp(0) crew(mg_crew:0) condition(barricade) action(heavy_mg_m1917_30cal))
+;	{cost 75}{not_for_player_sale 1}
+;}
+{"m1917_30cal"
+	("vehicle2" side(usa) period(mid) min_stage(1) max_stage(5) crew1(mg_crew:1) crew2(mg_crew_asst:1) cw(2) cp(0))
+	{cost 80}
+}
+{"m2_30cal_tripod"
+	("vehicle2" side(usa) period(mid) min_stage(2) max_stage(99) crew1(mg_crew:1) crew2(mg_crew_asst:1) cw(2) cp(0))
+	{cost 75}
+}
+{"m2_50cal_tripod"
+	("vehicle2" side(usa) period(mid) min_stage(2) max_stage(99) crew1(mg_crew:1) crew2(mg_crew_asst:1) cw(2) cp(2))
+	{cost 150}
+}
+{"50cal_quad_m45"
+	("vehicle2" side(usa) period(mid) min_stage(2) max_stage(99) crew1(mg_crew:1) crew2(mg_crew_asst:1) cw(1) cp(4))
+	{cost 200}
+}
+{"40mm_m1"
+	("vehicle"  side(usa) period(mid) min_stage(3) max_stage(99) crew(crew:3) cw(1) cp(10.4))
+	{cost 300}
+}
+{"90mm_m1a1"
+	("vehicle"  side(usa) period(mid) min_stage(9) max_stage(99) crew(crew:5) cw(1) cp(15))
+	{cost 800}
+}
+
+; AT WEAPONRY
+{"37mm_m3a1"
+	("vehicle"  side(usa) period(mid) min_stage(1) max_stage(6) crew(crew:4) cw(1) cp(6.2))
+	{cost 180}
+}
+{"57mm_m1"
+	("vehicle"  side(usa) period(mid) min_stage(6) max_stage(9) crew(crew:4) cw(1) cp(10.2))
+	{cost 300}
+}
+{"57mm_m1_late"
+	("vehicle"  side(usa) period(mid) min_stage(8) max_stage(99) crew(crew:4) cw(1) cp(12.2))
+	{cost 310}
+}
+{"75mm_m1897"
+	("vehicle"  side(usa) period(mid) min_stage(9) max_stage(99) crew(crew:4) cw(1) cp(12.2))
+	{cost 400}
+}
+{"76mm_m5_m1"
+	("vehicle"  side(usa) period(mid) min_stage(6) max_stage(10) crew(crew:4) cw(1) cp(13.2))
+	{cost 480}
+}
+{"76mm_m5_m6"
+	("vehicle"  side(usa) period(mid) min_stage(9) max_stage(99) crew(crew:4) cw(1) cp(13.2))
+	{cost 500}
+}
+
+;HOWITZERS
+{"60mm_m2"
+	("vehicle"  side(usa) period(mid) min_stage(1) max_stage(99) crew(crew:2) cw(1) cp(8.6))
+	{cost 180}
+}
+{"81mm_m1"
+	("vehicle"  side(usa) period(mid) min_stage(4) max_stage(99) crew(crew:2) cw(1) cp(10.6))
+	{cost 250}
+}
+{"107mm_m2"
+	("vehicle"  side(usa) period(mid) min_stage(6) max_stage(99) crew(crew:2) cw(1) cp(15.6))
+	{cost 420}
+}
+{"75mm_m1a1"
+	("vehicle"  side(usa) period(mid) min_stage(3) max_stage(9) crew(82nd_crew:4) cw(1) cp(11.2))
+	{cost 350}
+}
+{"75mm_m3a3"
+	("vehicle"  side(usa) period(mid) min_stage(6) max_stage(99) crew(crew:4) cw(1) cp(14.2))
+	{cost 350}
+}
+{"105mm_m2a1"
+	("vehicle"  side(usa) period(mid) min_stage(5) max_stage(99) crew(artilleryman:4) cw(1) cp(24.2))
+	{cost 750}
+}
+{"105mm_m3"
+	("vehicle"  side(usa) period(mid) min_stage(5) max_stage(99) crew(artilleryman:4) cw(1) cp(24.2))
+	{cost 700}
+}
+{"114mm_m1"
+	("vehicle"  side(usa) period(mid) min_stage(7) max_stage(99) crew(artilleryman:5) cw(1) cp(24))
+	{cost 850}
+}
+{"155mm_schneider_us"
+	("vehicle"  side(usa) period(mid) min_stage(2) max_stage(99) crew(artilleryman:4) cw(1) cp(24.2))
+	{cost 980}
+}
+{"155mm_m1"
+	("vehicle"  side(usa) period(mid) min_stage(5) max_stage(99) crew(artilleryman:5) cw(1) cp(24))
+	{cost 1000}
+}
+{"155mm_gpf_us"
+	("vehicle"  side(usa) period(mid) min_stage(3) max_stage(99) crew(artilleryman:5) cw(1) cp(24))
+	{cost 1100}
+}
+{"155mm_m1a1_longtom"
+	("vehicle"  side(usa) period(mid) min_stage(5) max_stage(99) crew(artilleryman:5) cw(1) cp(24))
+	{cost 1200}
+}
+{"203mm_m1"
+	("vehicle"  side(usa) period(mid) min_stage(5) max_stage(99) crew(artilleryman:5) cw(1) cp(24))
+	{cost 1500}
+}
+
+;_________________________________________________
+;|               Wheeled vehicles                 |
+;|________________________________________________|
+
+{"willys_mb"
+	("vehicle"  side(usa) period(mid) min_stage(1) max_stage(99) crew(driver:1) cw(1) cp(0.8))
+	{cost 15}
+}
+{"willys_mb_30cal"
+	("vehicle2" side(usa) period(mid) min_stage(2) max_stage(99) crew1(driver:1) crew2(mg_crew:1) cw(1) cp(1.8))
+	{cost 70}
+}
+{"willys_mb_50cal"
+	("vehicle2" side(usa) period(mid) min_stage(3) max_stage(99) crew1(driver:1) crew2(mg_crew:1) cw(1) cp(1.8))
+	{cost 150}
+}
+{"ford_gpa"
+	("vehicle2" side(usa) period(mid) min_stage(5) max_stage(99) crew1(driver:1) crew2(mg_crew:1) cw(1) cp(1.8))
+	{cost 75}
+}
+{"wc51"
+	("vehicle"  side(usa) period(mid) min_stage(1) max_stage(99) crew(driver:1) cw(1) cp(0.8))
+	{cost 15}
+}
+{"wc52_50cal"
+	("vehicle2" side(usa) period(mid) min_stage(3) max_stage(99) crew1(driver:1) crew2(mg_crew:1) cw(1) cp(1.8))
+	{cost 160}
+} 
+{"m6_gmc"
+	("vehicle2" side(usa) period(mid) min_stage(3) max_stage(99) crew1(driver:1) crew2(crew:3) cw(1) cp(8))
+	{cost 250}
+}
+{"cckw"
+	("vehicle"  side(usa) period(mid) min_stage(1) max_stage(99) crew(driver:1) cw(1) cp(1))
+	{cost 20}
+}
+{"m3a1_transport"
+	("vehicle"  side(usa) period(mid) min_stage(1) max_stage(99) crew(ar1_driver:1) cw(1) cp(2))
+	{cost 20}
+}
+{"m3a1_scout"
+	("vehicle2" side(usa) period(mid) min_stage(1) max_stage(99) crew1(cav_driver:1) crew2(cav_gunner:2) cw(2) cp(2))
+	{cost 135}
+}
+{"m3a1_commander"
+	("vehicle2" side(usa) period(mid) min_stage(3) max_stage(99) crew1(ar1_driver:1) crew2(mg_crew:2) cw(2) cp(2))
+	{cost 160} {not_for_player_sale 1}
+}
+{"m3a1_halftrack_radio"
+	("vehicle2" side(usa) period(mid) min_stage(3) max_stage(99) crew1(ar1_driver:1) crew2(mg_crew:2) cw(2) cp(-18))
+	{cost 0} {not_for_player_sale 1}
+}
+{"m5_hst"
+	("vehicle2" side(usa) period(mid) min_stage(1) max_stage(99) crew1(driver:1) crew2(mg_crew:1) cw(1) cp(4))
+	{cost 160}
+}
+{"m2_halftrack"
+	("vehicle2" side(usa) period(mid) min_stage(3) max_stage(8) crew1(ar1_driver:1) crew2(ar1_rifle:1) cw(2) cp(2))
+	{cost 170}
+}
+;{"m2a1_halftrack"
+;	("vehicle2" side(usa) period(mid) min_stage(1) max_stage(99) crew1(ar1_driver:1) crew2(ar1_rifle:1) cw(2) cp(6))
+;	{cost 90}
+;}
+{"m3_halftrack"
+	("vehicle2" side(usa) period(mid) min_stage(5) max_stage(10) crew1(ar1_driver:1) crew2(ar1_rifle:1) cw(2) cp(2))
+	{cost 90}
+}
+{"m3a1_halftrack"
+	("vehicle2" side(usa) period(mid) min_stage(7) max_stage(99) crew1(ar1_driver:1) crew2(ar1_rifle:1) cw(2) cp(2))
+	{cost 160}
+}
+{"m13_mgmc"
+	("vehicle2" side(usa) period(mid) min_stage(3) max_stage(99) crew1(vehicle_crew_m1:2) crew2(vehicle_com:1) cw(2) cp(9))
+	{cost 200}
+}
+{"m15a1_cgmc"
+	("vehicle2" side(usa) period(mid) min_stage(4) max_stage(99) crew1(vehicle_crew_m1:4) crew2(vehicle_com:1) cw(2) cp(11))
+	{cost 325}
+}
+{"m16_mgmc"
+	("vehicle2" side(usa) period(mid) min_stage(5) max_stage(99) crew1(vehicle_crew_m1:2) crew2(vehicle_com:1) cw(2) cp(11))
+	{cost 225}
+}
+{"m4_mortar_carrier"
+	("vehicle2" side(usa) period(mid) min_stage(3) max_stage(5) crew1(vehicle_crew:3) crew2(vehicle_com:1) cw(2) cp(12.2))
+	{cost 260}
+}
+{"m4a1_mortar_carrier"
+	("vehicle2" side(usa) period(mid) min_stage(5) max_stage(7) crew1(vehicle_crew:3) crew2(vehicle_com:1) cw(2) cp(12.2))
+	{cost 270}
+}
+{"m21_mortar_carrier"
+	("vehicle2" side(usa) period(mid) min_stage(7) max_stage(99) crew1(vehicle_crew:3) crew2(vehicle_com:1) cw(2) cp(12.2))
+	{cost 290}
+}
+
+{"m3_gmc"
+	("vehicle2" side(usa) period(mid) min_stage(3) max_stage(5) crew1(vehicle_crew_m1:3) crew2(vehicle_com:1) cw(2) cp(15.2))
+	{cost 420}
+}
+{"m3a1_gmc"
+	("vehicle2" side(usa) period(mid) min_stage(6) max_stage(99) crew1(vehicle_crew_m1:3) crew2(vehicle_com:1) cw(2) cp(15.2))
+	{cost 425}
+}
+{"t30_hmc"
+	("vehicle2" side(usa) period(mid) min_stage(5) max_stage(99) crew1(vehicle_crew_m1:4) crew2(vehicle_com:1) cw(2) cp(29))
+	{cost 375}
+}
+{"t19_hmc"
+	("vehicle2" side(usa) period(mid) min_stage(8) max_stage(99) crew1(vehicle_crew_m1:4) crew2(vehicle_com:1) cw(2) cp(29))
+	{cost 750}
+}
+
+{"m20"
+	("vehicle2" side(usa) period(mid) min_stage(3) max_stage(99) crew1(vehicle_crew:1) crew2(vehicle_com:1) cw(2) cp(4.6))
+	{cost 175}
+}
+{"m8_greyhound_early"
+	("vehicle2" side(usa) period(mid) min_stage(4) max_stage(5) crew1(vehicle_crew:3) crew2(vehicle_com:1) cw(2) cp(6.2))
+	{cost 330}
+}
+{"m8_greyhound"
+	("vehicle2" side(usa) period(mid) min_stage(5) max_stage(99) crew1(vehicle_crew:3) crew2(vehicle_com:1) cw(2) cp(9.2))
+	{cost 340}
+}
+
+{"cckw_art_ammo"
+	("vehicle"  side(usa) period(mid) min_stage(1) max_stage(99) crew(driver:1) cw(1) cp(5))
+	{cost 190}
+}
+{"cckw_redball"
+	("vehicle"  side(usa) period(mid) min_stage(1) max_stage(99) crew(driver:2) cw(1) cp(6))
+	{cost 400}
+}
+{"cckw_fuel"
+	("vehicle"  side(usa) period(mid) min_stage(1) max_stage(99) crew(driver:1) cw(1) cp(5))
+	{cost 90}
+}
+{"cckw_engineer"
+	("vehicle"  side(usa) period(mid) min_stage(1) max_stage(99) crew(engineer_builder:2) cw(1) cp(1.6))
+	{cost 180}
+}
+{"cckw_engineer_late"
+	("vehicle"  side(usa) period(mid) min_stage(1) max_stage(99) crew(engineer_builder:2) cw(1) cp(1.6))
+	{cost 250}
+}
+
+
+;_________________________________________________
+;|        Main Battle Tanks and SPGs              |
+;|________________________________________________|
+
+
+;LIGHT
+{"m3_stuart_early"
+	("vehicle2" side(usa) period(late) min_stage(2) max_stage(4) crew1(tankman:3) crew2(tank_commander:1) cw(0.5) cp(14.2))
+	{cost 300} ;// +25 for crew
+}
+{"m3_stuart_late"
+	("vehicle2" side(usa) period(late) min_stage(3) max_stage(5) crew1(tankman:3) crew2(tank_commander:1) cw(0.5) cp(14.2))
+	{cost 310} ;// +25 for crew
+}
+{"m3a1_stuart"
+	("vehicle2" side(usa) period(late) min_stage(4) max_stage(8) crew1(tankman:3) crew2(tank_commander:1) cw(0.5) cp(14.2))
+	{cost 330} ;// +25 for crew
+}
+{"m5a1_stuart"
+	("vehicle2" side(usa) period(late) min_stage(6) max_stage(99) crew1(tankman:3) crew2(tank_commander:1) cw(0.5) cp(14.2))
+	{cost 350} ;// +25 for crew
+}
+{"m5a1_stuart_late"
+	("vehicle2" side(usa) period(late) min_stage(9) max_stage(99) crew1(tankman_m3:3) crew2(tank_com_m3:1) cw(0.5) cp(14.2))
+	{cost 355} ;// +25 for crew
+}
+{"m8_hmc"
+	("vehicle2" side(usa) period(late) min_stage(6) max_stage(99) crew1(tankman_m1:3) crew2(tank_commander:1) cw(0.5) cp(19.2))
+	{cost 450} ;// +25 for crew
+}
+{"m24_chaffee"
+	("vehicle2" side(usa) period(late) min_stage(8) max_stage(99) crew1(tankman_m3:4) crew2(tank_com_m3:1) cw(0.5) cp(14))
+	{cost 400} ;// +25 for crew
+}
+{"lvt4"
+	("vehicle2" side(usa) period(late) min_stage(7) max_stage(99) crew1(tankman_m3:5) crew2(tank_com_m3:1) cw(0.5) cp(4.8))
+	{cost 240} ;// +25 for crew
+}
+
+;MEDIUM
+{"m3_lee"
+	("vehicle2" side(usa) period(late) min_stage(3) max_stage(9) crew1(tankman:6) crew2(tank_commander:1) cw(0.5) cp(23.6))
+	{cost 430} ;// +30 for crew
+}
+{"m4_75_early"
+	("vehicle2" side(usa) period(late) min_stage(4) max_stage(9) crew1(tankman:4) crew2(tank_commander:1) cw(0.5) cp(24))
+	{cost 500} ;// +30 for crew
+}
+{"m4_75_early_armor"
+	("vehicle2" side(usa) period(late) min_stage(5) max_stage(11) crew1(tankman:4) crew2(tank_commander:1) cw(0.5) cp(24))
+	{cost 510} ;// +30 for crew
+}
+{"m4_75_late"
+	("vehicle2" side(usa) period(late) min_stage(9) max_stage(14) crew1(tankman:4) crew2(tank_commander:1) cw(0.5) cp(24))
+	{cost 520} ;// +30 for crew
+}
+{"m4_105"
+	("vehicle2" side(usa) period(late) min_stage(8) max_stage(99) crew1(tankman_m3:4) crew2(tank_com_m3:1) cw(0.5) cp(24))
+	{cost 550} ;// +30 for crew
+}
+
+{"m4a1_75_early"
+	("vehicle2" side(usa) period(late) min_stage(9) max_stage(10) crew1(tankman:4) crew2(tank_commander:1) cw(0.5) cp(24))
+	{cost 500} ;// +30 for crew
+}
+{"m4a1_75_mid"
+	("vehicle2" side(usa) period(late) min_stage(9) max_stage(99) crew1(tankman:4) crew2(tank_commander:1) cw(0.5) cp(24))
+	{cost 520} ;// +30 for crew
+}
+{"m4a1_75_mid_armor"
+	("vehicle2" side(usa) period(late) min_stage(9) max_stage(99) crew1(tankman:4) crew2(tank_commander:1) cw(0.5) cp(24))
+	{cost 540} ;// +30 for crew
+}
+{"m4a1_75_late"
+	("vehicle2" side(usa) period(late) min_stage(11) max_stage(99) crew1(tankman:4) crew2(tank_commander:1) cw(0.5) cp(24))
+	{cost 550} ;// +30 for crew
+}
+{"m4a1_75_dd"
+	("vehicle2" side(usa) period(late) min_stage(11) max_stage(99) crew1(tankman:4) crew2(tank_commander:1) cw(6) cp(24))
+	{cost 550} ;// +30 for crew
+}
+{"t1e3_m4a1_75"
+	("vehicle2" side(usa) period(late) min_stage(9) max_stage(99) crew1(tankman:4) crew2(tank_commander:1) cw(6) cp(30))
+	{cost 470} ;// +30 for crew
+}
+{"m4a1_76w"
+	("vehicle2" side(usa) period(late) min_stage(9) max_stage(99) crew1(tankman_m3:4) crew2(tank_com_m3:1) cw(0.5) cp(24))
+	{cost 570} ;// +30 for crew
+}
+{"m4a1_76w_mid"
+	("vehicle2" side(usa) period(late) min_stage(11) max_stage(99) crew1(tankman_m3:4) crew2(tank_com_m3:1) cw(0.5) cp(24))
+	{cost 580} ;// +30 for crew
+}
+{"m4a3_75_late"
+	("vehicle2" side(usa) period(late) min_stage(11) max_stage(99) crew1(tankman:4) crew2(tank_commander:1) cw(0.5) cp(24))
+	{cost 500} ;// +30 for crew
+}
+{"m4a3_75w_early"
+	("vehicle2" side(usa) period(late) min_stage(8) max_stage(10) crew1(tankman_m3:4) crew2(tank_com_m3:1) cw(0.5) cp(24))
+	{cost 520} ;// +30 for crew
+}
+{"m4a3_75w"
+	("vehicle2" side(usa) period(late) min_stage(11) max_stage(99) crew1(tankman_m3:4) crew2(tank_com_m3:1) cw(0.5) cp(24))
+	{cost 540} ;// +30 for crew
+}
+{"m4a3_75w_e4_5"
+	("vehicle2" side(usa) period(late) min_stage(11) max_stage(99) crew1(tankman_m3:4) crew2(tank_com_m3:1) cw(0.5) cp(24))
+	{cost 550} ;// +30 for crew
+}
+{"m4a3_105"
+	("vehicle2" side(usa) period(late) min_stage(11) max_stage(15) crew1(tankman_m3:4) crew2(tank_com_m3:1) cw(0.5) cp(24))
+	{cost 550} ;// +30 for crew
+}
+{"m4a3_105_hvss"
+	("vehicle2" side(usa) period(late) min_stage(13) max_stage(99) crew1(tankman_m3:4) crew2(tank_com_m3:1) cw(0.5) cp(24))
+	{cost 550} ;// +30 for crew
+}
+{"m4a3_76w"
+	("vehicle2" side(usa) period(late) min_stage(8) max_stage(10) crew1(tankman_m3:4) crew2(tank_com_m3:1) cw(0.5) cp(24))
+	{cost 600} ;// +30 for crew
+}
+{"m4a3_76w_hvss"
+	("vehicle2" side(usa) period(late) min_stage(9) max_stage(99) crew1(tankman_m3:4) crew2(tank_com_m3:1) cw(0.5) cp(24))
+	{cost 650} ;// +30 for crew
+}
+{"m4a3_76w_field1"
+	("vehicle2" side(usa) period(late) min_stage(10) max_stage(99) crew1(tankman_m3:4) crew2(tank_com_m3:1) cw(0.5) cp(24))
+	{cost 950} ;// +30 for crew
+}
+{"m4a3e2_75"
+	("vehicle2" side(usa) period(late) min_stage(11) max_stage(99) crew1(tankman_m3:4) crew2(tank_com_m3:1) cw(0.5) cp(24))
+	{cost 750} ;// +30 for crew
+}
+{"m4a3e2_76"
+	("vehicle2" side(usa) period(late) min_stage(12) max_stage(99) crew1(tankman_m3:4) crew2(tank_com_m3:1) cw(0.5) cp(24))
+	{cost 1150} ;// +30 for crew
+}
+{"m4a3_calliope"
+	("vehicle2" side(usa) period(late) min_stage(10) max_stage(99) crew1(tankman_m3:4) crew2(tank_com_m3:1) cw(0.5) cp(29))
+	{cost 1950} ;// +30 for crew
+}
+
+
+;HEAVY
+{"m26_pershing"
+	("vehicle2" side(usa) period(late) min_stage(13) max_stage(99) crew1(tankman_m3:4) crew2(tank_com_m3:1) cw(0.5) cp(34))
+	{cost 1800} ;// +30 for crew
+}
+{"t26e4"
+	("vehicle2" side(usa) period(late) min_stage(14) max_stage(99) crew1(tankman_m3:4) crew2(tank_com_m3:1) cw(0.5) cp(34))
+	{cost 2200} ;// +30 for crew
+}
+
+;SPG
+{"m10_gmc"
+	("vehicle2" side(usa) period(late) min_stage(9) max_stage(11) crew1(tankman_m1:4) crew2(tank_com_m1:1) cw(0.5) cp(19))
+	{cost 500} ;// +30 for crew
+}
+{"m10_gmc_late"
+	("vehicle2" side(usa) period(late) min_stage(9) max_stage(99) crew1(tankman_m1:4) crew2(tank_com_m1:1) cw(0.5) cp(19))
+	{cost 520} ;// +30 for crew
+}
+{"m18_hellcat"
+	("vehicle2" side(usa) period(late) min_stage(9) max_stage(19) crew1(tankman_m1:4) crew2(tank_com_m1:1) cw(0.5) cp(19))
+	{cost 550} ;// +30 for crew
+}
+{"m18_hellcat_late"
+	("vehicle2" side(usa) period(late) min_stage(12) max_stage(99) crew1(tankman_m1:4) crew2(tank_com_m1:1) cw(0.5) cp(19))
+	{cost 560} ;// +30 for crew
+}
+{"m36_gmc"
+	("vehicle2" side(usa) period(late) min_stage(10) max_stage(99) crew1(tankman_m1:4) crew2(tank_com_m1:1) cw(0.5) cp(19))
+	{cost 950}
+}
+{"m36b1_gmc"
+	("vehicle2" side(usa) period(late) min_stage(11) max_stage(99) crew1(tankman_m1:4) crew2(tank_com_m1:1) cw(0.5) cp(19))
+	{cost 1050}
+}
+
+
+{"m7_hmc"
+	("vehicle2" side(usa) period(late) min_stage(8) max_stage(10) crew1(tankman:5) crew2(tank_commander:1) cw(0.5) cp(28.8))
+	{cost 1250}
+}
+{"m7b1_hmc"
+	("vehicle3" side(usa) period(late) min_stage(10) max_stage(99) crew1(tankman_m3:3) crew2(tankman:2) crew3(tank_com_m3:1) cw(0.5) cp(28.8))
+	{cost 1260}
+}
+{"m12_gmc"
+	("vehicle3" side(usa) period(late) min_stage(13) max_stage(99) crew1(tankman_m3:2) crew2(tankman_m1:3) crew3(tank_com_m1:1) cw(0.5) cp(28.8))
+	{cost 1400}
+}
+
+{"conquest_blank"
+	("vehicle"  side(usa) period(mid) min_stage(1) max_stage(99) crew(tankman:0) cw(0) cp(0))
+	{cost 0} {not_for_player_sale 1}
+}
+
+
+;_______________________________________________
+;|					Aircraft					|
+;|______________________________________________|
+
+
+{"conquest_p47_recon"
+	("squad_vehicle" side(usa) period(mid) min_stage(1) max_stage(99) cw(0) cp(0) crew(pilot:1) vehicle(p47_d22_recon))
+	{cost 5}
+	{round_multiple 1.0}
+	{action "airstrike:reconnaissance_50"}
+}
+{"conquest_p47_light"
+	("squad_vehicle" side(usa) period(mid) min_stage(1) max_stage(99) cw(0) cp(0) crew(pilot:1) vehicle(p47_d22))
+	{cost 7}
+	{round_multiple 1.0}
+	{action "airstrike:m30_100lb"}
+}
+{"conquest_p47"
+	("squad_vehicle" side(usa) period(mid) min_stage(1) max_stage(99) cw(0) cp(0) crew(pilot:1) vehicle(p47_d22))
+	{cost 10}
+	{round_multiple 1.0}
+	{action "airstrike:m64_500lb"}
+}
+
+
+
+{"81mm_m1_mortar_barrage"
+	("squad_vehicle" side(usa) period(mid)  min_stage(1) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(offmap_placeholder_3))
+	{cost 5} ;81mm_m1 cost 250 - 248 = 2
+	{round_multiple 1.0}
+	{action "airstrike:conquest_mortar_barrage_80"}
+}
+{"107mm_m2_mortar_barrage"
+	("squad_vehicle" side(usa) period(mid)  min_stage(5) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(offmap_placeholder_4))
+	{cost 12} ;107mm_m2 cost 420 - 417 = 3
+	{round_multiple 1.0}
+	{action "airstrike:conquest_mortar_barrage_120"}
+}
+{"105mm_m2a1_smoke_barrage"
+	("squad_vehicle" side(usa) period(mid)  min_stage(3) max_stage(99) cw(0) cp(5) crew(artilleryman:0) vehicle(offmap_placeholder_2))
+	{cost 2} ;105mm_m2a1 cost 750 - 748 = 2
+	{round_multiple 1.0}
+	{action "airstrike:conquest_smoke_barrage_122_rus"}
+}
+{"105mm_m2a1_artillery_barrage"
+	("squad_vehicle" side(usa) period(mid)  min_stage(3) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(offmap_placeholder_4))
+	{cost 12} ;105mm_m2a1 cost 750 - 747 = 3
+	{round_multiple 1.0}
+	{action "airstrike:conquest_artillery_barrage_122_rus"}
+}
+{"155mm_m1_artillery_barrage"
+	("squad_vehicle" side(usa) period(mid)  min_stage(4) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(offmap_placeholder_5))
+	{cost 18} ;155mm_m1 cost 1000 - 996 = 4
+	{round_multiple 1.0}
+	{action "airstrike:conquest_artillery_barrage_152_rus"}
+}
+
+;_______________________________________________
+;|				Extra CE Stuff					|
+;|______________________________________________|
+
+("squad_with9types_conquest" side(usa) period(late) min_stage(6) max_stage(99) name(squad_10th_mountain_late_off_1)  c1(mountain_sl_smg:1) c2(mountain_sl_asst_gren:1) c3(mountain_sl_rifle:1) c4(mountain_rifle_gren:2) c5(mountain_at_m9a1:1) c6(mountain_at_asst:1) c7(mountain_bar:2) c8(mountain_bar_asst:2) c9(mountain_bar_ammo:1))
+
+("squad_with1types_conquest" side(usa) period(mid) min_stage(9) max_stage(99) name(single_signaller)		c1(platoon_radio:1)){not_for_player_sale 1}
+
+{"squad_82nd_paras_glider_con"
+	("squad_vehicle10"		 side(usa) period(mid) min_stage(9) max_stage(99) cw(3) cp(5) vehicle(c47_d_para_plane) crew1(pilot:2) crew2(82nd_glider_sl_rifle:1) crew3(82nd_glider_sl_smg:1) crew4(82nd_glider_rifle_gren:2) crew5(82nd_glider_at_m1a1:3) crew6(82nd_glider_bar:3) crew7(82nd_glider_sniper:1) crew8(82nd_glider_bar_asst:2) crew9(82nd_glider_at_asst:3) crew10(82nd_glider_rifle_band2:2)) 
+	{cost 0} {not_for_player_sale 1}
+}
+
+{"squad_82nd_paras_eng_con"
+	("squad_vehicle10"		 side(usa) period(mid) min_stage(10) max_stage(99) cw(3) cp(5) vehicle(c47_d_para_plane) crew1(pilot:2) crew2(82nd_eng_sl_smg:1) crew3(82nd_eng_sl_asst_gren:2) crew4(82nd_eng_carbine:3) crew5(82nd_eng_sl_smg:2) crew6(82nd_eng_flamer:2) crew7(82nd_platoon_radio:1) crew8(82nd_eng_rifle:4) crew9(82nd_eng_flamer:2) crew10(82nd_eng_smg:2)) 
+	{cost 0} {not_for_player_sale 1}
+}
+
+{"squad_82nd_paras_con"
+	("squad_vehicle10"		 side(usa) period(mid) min_stage(11) max_stage(99) cw(3) cp(5) vehicle(c47_d_para_plane) crew1(pilot:2) crew2(82nd_sl:1) crew3(82nd_sl_asst:1) crew4(82nd_rifle_gren:2) crew5(82nd_at_m1a1:2) crew6(82nd_demo:3) crew7(82nd_platoon_radio:1) crew8(82nd_carbine:3) crew9(82nd_rifle:5) crew10(82nd_sniper:1)) 
+	{cost 0} {not_for_player_sale 1}
+}
+
+
+{"squad_101st_paras_glider_con"
+	("squad_vehicle10"		 side(usa) period(late) min_stage(14) max_stage(99) cw(3) cp(5) vehicle(c47_d_para_plane) crew1(pilot:2) crew2(101st_glider_sl_rifle:1) crew3(101st_glider_sl_smg:1) crew4(101st_glider_rifle_gren:2) crew5(101st_glider_at_m1a1:2) crew6(101st_glider_bar:3) crew7(101st_glider_sniper:1) crew8(101st_glider_bar_asst:3) crew9(101st_glider_at_asst:2) crew10(101st_glider_rifle_band2:4)) 
+	{cost 0} {not_for_player_sale 1}
+}
+
+{"squad_101st_paras_eng_con"
+	("squad_vehicle10"		 side(usa) period(late) min_stage(15) max_stage(99) cw(3) cp(5) vehicle(c47_d_para_plane) crew1(pilot:2) crew2(101st_eng_sl_smg:1) crew3(101st_eng_sl_asst_gren:2) crew4(101st_eng_carbine:2) crew5(101st_eng_sl_smg:2) crew6(101st_eng_flamer:2) crew7(101st_platoon_radio:1) crew8(101st_eng_rifle:4) crew9(101st_eng_flamer:2) crew10(101st_eng_smg:3)) 
+	{cost 0} {not_for_player_sale 1}
+}
+
+{"squad_101st_paras_con"
+	("squad_vehicle10"		 side(usa) period(late) min_stage(16) max_stage(99) cw(3) cp(5) vehicle(c47_d_para_plane) crew1(pilot:2) crew2(101st_sl:1) crew3(101st_sl_asst:1) crew4(101st_rifle_gren:2) crew5(101st_at_m9:2) crew6(101st_bar:2) crew7(101st_platoon_radio:1) crew8(101st_bar_asst:4) crew9(101st_mg_asst:4) crew10(101st_mg:2)) 
+	{cost 0} {not_for_player_sale 1}
+}
+
+
+;_________________________________________________	
+;|             inf2                               |	
+;|________________________________________________|	
+
+
+("squad_with1types_conquest" side(usa) period(mid) min_stage(1) max_stage(99) name(single_medic)		c1(medic:3))	
+
+;_________________________________________________
+;|      AI Defender Emplacements                  |
+;|________________________________________________|
+
+;AUTOMATIC WEAPONRY
+{"heavy_mg_m2_30cal_tripod"
+	("emplacement" side(usa) period(mid) min_stage(1) max_stage(99) cw(2) cp(0) crew(tankman:2) condition(barricade) action(m2_30cal_tripod))
+	{cost 75}{not_for_player_sale 1}
+}
+
+
+{"heavy_mg_m2_50cal_tripod"
+	("emplacement" side(usa) period(mid) min_stage(1) max_stage(99) cw(2) cp(0) crew(tankman:2) condition(barricade) action(m2_50cal_tripod))
+	{cost 150}{not_for_player_sale 1}
+}
+
+{"heavy_mg_50cal_quad_m45"
+	("emplacement" side(usa) period(mid) min_stage(1) max_stage(99) cw(2) cp(0) crew(tankman:2) condition(barricade) action(50cal_quad_m45))
+	{cost 200}{not_for_player_sale 1}
+}
+
+{"heavy_mg_40mm_m1"
+	("emplacement" side(usa) period(mid) min_stage(8) max_stage(99) cw(2) cp(0) crew(tankman:3) condition(barricade) action(40mm_m1))
+	{cost 300}{not_for_player_sale 1}
+}
+
+{"heavy_mg_90mm_m1a1"
+	("emplacement" side(usa) period(mid) min_stage(16) max_stage(99) cw(2) cp(0) crew(tankman:5) condition(barricade) action(90mm_m1a1))
+	{cost 800}{not_for_player_sale 1}
+}
+
+; AT WEAPONRY
+
+{"heavy_mg_37mm_m3a1"
+	("emplacement" side(usa) period(mid) min_stage(1) max_stage(8) cw(2) cp(0) crew(tankman:4) condition(barricade) action(37mm_m3a1))
+	{cost 180}{not_for_player_sale 1}
+}
+
+{"heavy_mg_57mm_m1"
+	("emplacement" side(usa) period(mid) min_stage(6) max_stage(12) cw(2) cp(0) crew(tankman:4) condition(barricade) action(57mm_m1))
+	{cost 310}{not_for_player_sale 1}
+}
+
+{"heavy_mg_57mm_m1_late"
+	("emplacement" side(usa) period(mid) min_stage(12) max_stage(99) cw(2) cp(0) crew(tankman:4) condition(barricade) action(57mm_m1_late))
+	{cost 310}{not_for_player_sale 1}
+}
+
+{"heavy_mg_76mm_m5_m1"
+	("emplacement" side(usa) period(mid) min_stage(12) max_stage(99) cw(2) cp(0) crew(tankman:4) condition(barricade) action(76mm_m5_m1))
+	{cost 480}{not_for_player_sale 1}
+}
+
+;HOWITZERS
+{"heavy_mg_60mm_m2"
+	("emplacement" side(usa) period(mid) min_stage(1) max_stage(6) cw(2) cp(0) crew(tankman:2) condition(barricade) action(60mm_m2))
+	{cost 180}{not_for_player_sale 1}
+}
+
+{"heavy_mg_81mm_m1"
+	("emplacement" side(usa) period(mid) min_stage(3) max_stage(99) cw(2) cp(0) crew(tankman:2) condition(barricade) action(81mm_m1))
+	{cost 250}{not_for_player_sale 1}
+}
+
+{"heavy_mg_107mm_m2"
+	("emplacement" side(usa) period(mid) min_stage(12) max_stage(99) cw(2) cp(0) crew(tankman:2) condition(barricade) action(107mm_m2))
+	{cost 420}{not_for_player_sale 1}
+}
+
+{"heavy_mg_75mm_m3a3"
+	("emplacement" side(usa) period(mid) min_stage(2) max_stage(99) cw(2) cp(0) crew(tankman:4) condition(barricade) action(75mm_m3a3))
+	{cost 350}{not_for_player_sale 1}
+}
+
+{"heavy_mg_105mm_m2a1"
+	("emplacement" side(usa) period(mid) min_stage(12) max_stage(99) cw(2) cp(0) crew(tankman:4) condition(barricade) action(105mm_m2a1))
+	{cost 750}{not_for_player_sale 1}
+}
+
+;TANKS
+{"heavy_mg_m16_mgmc"
+	("emplacement" side(usa) period(mid) min_stage(1) max_stage(99) cw(2) cp(0) crew(tankman:3) condition(barricade) action(m16_mgmc))
+	{cost 225}{not_for_player_sale 1}
+}
+
+{"heavy_mg_m8_hmc"
+	("emplacement" side(usa) period(mid) min_stage(1) max_stage(15) cw(2) cp(0) crew(tankman:4) condition(barricade) action(m8_hmc))
+	{cost 350}{not_for_player_sale 1}
+}
+
+{"heavy_mg_m4a1_75_mid_armor"
+	("emplacement" side(usa) period(mid) min_stage(8) max_stage(99) cw(2) cp(0) crew(tankman:5) condition(barricade) action(m4a1_75_mid_armor))
+	{cost 540}{not_for_player_sale 1}
+}
+
+{"heavy_mg_m4a3e2_76"
+	("emplacement" side(usa) period(mid) min_stage(16) max_stage(99) cw(2) cp(0) crew(tankman:5) condition(barricade) action(m4a3e2_76))
+	{cost 1150}{not_for_player_sale 1}
+}
+{"heavy_mg_m26_pershing"
+	("emplacement" side(usa) period(mid) min_stage(16) max_stage(99) cw(1) cp(0) crew(tankman:5) condition(barricade) action(m26_pershing))
+	{cost 1400}{not_for_player_sale 1}
+}
+
+
+;_______________________________________________
+;|					Aircraft					|
+;|______________________________________________|
+{"p47_d22_ai"
+	("vehicle"  side(usa) period(mid) min_stage(6) max_stage(99) cw(0) cp(5) crew(pilot:1))
+	{cost 400}{not_for_player_sale 1}
+}
+
+{"p47_d22_bomber_ai"
+	("vehicle"  side(usa) period(mid) min_stage(8) max_stage(99) cw(0) cp(20) crew(pilot:1))
+	{cost 1700}{not_for_player_sale 1}
+}
+{"ai_recon_p47_d22"
+	("vehicle"  side(usa) period(mid) min_stage(8) max_stage(99) cw(0) cp(5) crew(pilot:1))
+	{cost 500}{not_for_player_sale 1}
+}
+; cost = 10
+{"supply_drop_allies"
+	("squad_vehicle" side(usa) period(mid) min_stage(1) max_stage(99) cw(0) cp(-7) crew(pilot:2) vehicle(c47_d))
+	{cost 10}
+	{action "airstrike:rus_supply_drop_aim"}
+}
+;_______________________________________________
+;|					Support						|
+;|______________________________________________|
+; cost = 25
+{"heavy_artillery_barrage"
+    ("squad_vehicle" side(usa) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(pilot:0) vehicle(offmap_placeholder_6))
+    {cost 25}
+    {action "airstrike:conquest_artillery_barrage_heavy"}
+}
+
+; cost = 40
+{"super_heavy_artillery_barrage"
+    ("squad_vehicle" side(usa) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(pilot:0) vehicle(offmap_placeholder_8))
+    {cost 40}
+    {action "airstrike:conquest_artillery_barrage_super_heavy"}
+}
+
+; cost = 15
+{"rocket_artillery_barrage"
+    ("squad_vehicle" side(usa) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(pilot:0) vehicle(offmap_placeholder_5))
+    {cost 15} 
+    {action "airstrike:conquest_light_rocket_barrage"}
+}
+
+; cost = 35
+{"heavy_rocket_artillery_barrage"
+    ("squad_vehicle" side(usa) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(pilot:0) vehicle(offmap_placeholder_6))
+    {cost 25} 
+    {action "airstrike:conquest_heavy_rocket_barrage"}
+}
+
+{"controllable_plane_usa"
+	("squad_vehicle" side(usa) period(mid) min_stage(1) max_stage(99) cw(0) cp(12) crew(pilot:1) vehicle(p47_d22_player))
+	{cost 20}
+	{action "airstrike:pistol_ammo"}
+}
+
+{"105mm_m2a1ai"
+	("vehicle"  side(usa) period(mid) min_stage(8) max_stage(99) crew(artilleryman:4) cw(1) cp(5))
+	{cost 750}{not_for_player_sale 1}
+}
+{"105mm_m3ai"
+	("vehicle"  side(usa) period(mid) min_stage(8) max_stage(99) crew(artilleryman:4) cw(1) cp(5))
+	{cost 700}{not_for_player_sale 1}
+}
+{"114mm_m1ai"
+	("vehicle"  side(usa) period(mid) min_stage(8) max_stage(99) crew(artilleryman:5) cw(1) cp(5))
+	{cost 850}{not_for_player_sale 1}
+}
+{"155mm_schneider_usai"
+	("vehicle"  side(usa) period(mid) min_stage(10) max_stage(99) crew(artilleryman:4) cw(1) cp(5))
+	{cost 980}{not_for_player_sale 1}
+}
+{"155mm_m1ai"
+	("vehicle"  side(usa) period(mid) min_stage(10) max_stage(99) crew(artilleryman:5) cw(1) cp(5))
+	{cost 1000}{not_for_player_sale 1}
+}
+{"155mm_gpf_usai"
+	("vehicle"  side(usa) period(mid) min_stage(11) max_stage(99) crew(artilleryman:5) cw(1) cp(5))
+	{cost 1100}{not_for_player_sale 1}
+}
+{"155mm_m1a1_longtomai"
+	("vehicle"  side(usa) period(mid) min_stage(11) max_stage(99) crew(artilleryman:5) cw(1) cp(10))
+	{cost 1200}{not_for_player_sale 1}
+}
+{"203mm_m1ai"
+	("vehicle"  side(usa) period(mid) min_stage(11) max_stage(99) crew(artilleryman:5) cw(1) cp(10))
+	{cost 1500}{not_for_player_sale 1}
+}
+
+
+{"supply_drop_75mm_m1a1"
+	("squad_vehicle" side(usa) period(mid) min_stage(1) max_stage(99) cw(0) cp(12) crew(pilot:2) vehicle(c47_d))
+	{cost 6}{round_multiple 1.0}
+	{action "airstrike:paradrop_75mm_m1a1"}
+}
+
+{"supply_drop_81mm_m1"
+	("squad_vehicle" side(usa) period(mid) min_stage(1) max_stage(99) cw(0) cp(12) crew(pilot:2) vehicle(c47_d))
+	{cost 4}{round_multiple 1.0}
+	{action "airstrike:paradrop_81mm_m1"}
+}
+
+{"supply_drop_m2_50cal_tripod"
+	("squad_vehicle" side(usa) period(mid) min_stage(1) max_stage(99) cw(0) cp(3) crew(pilot:2) vehicle(c47_d))
+	{cost 3}{round_multiple 1.0}
+	{action "airstrike:paradrop_m2_50cal_tripod"}
+}
+
+
+
+{"allied_infantry_callin"
+    ("squad_vehicle" side(usa) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(pilot:0) vehicle(offmap_placeholder_4))
+    {cost 10}{not_for_player_sale 1}
+    {action "airstrike:ally_infantry_support"}
+}
+
+
+
+{"blitz3_6_radio"
+	("emplacement2_10cp" side(usa) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(blitz3_6_radio))
+	{cost 250}{not_for_ai_sale 1}
+}
+
+
+{"supply_crate_build"
+	("emplacement2_5cp" side(usa) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(supply_crate_build))
+	{cost 100}{not_for_ai_sale 1}
+}
+{"emplacement_81mm_m1"
+	("emplacement2_10cp" side(usa) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(emplacement_81mm_m1))
+	{cost 275}{not_for_ai_sale 1}
+}
+{"m1917_30cal_emplacement"
+	("emplacement2_5cp" side(usa) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(m1917_30cal_emplacement))
+	{cost 175}{not_for_ai_sale 1}
+}
+{"emplacement_155mm_gpf_us"
+	("emplacement2_20cp" side(usa) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(emplacement_155mm_gpf_us))
+	{cost 700}{not_for_ai_sale 1}
+}
+{"mmpillbox_dummy"
+	("emplacement2" side(usa) period(mid) min_stage(6) max_stage(99) cw(2) cp(0) crew(mg_crew:0) condition(barricade) action(mmpillbox_dummy))
+	{cost 0}{not_for_ai_sale 1}
+}
+{"pillbox_dummy"
+	("emplacement2" side(usa) period(mid) min_stage(6) max_stage(99) cw(2) cp(0) crew(mg_crew:0) condition(barricade) action(pillbox_dummy))
+	{cost 0}{not_for_ai_sale 1}
+}
+
+{"flak_ring_dummy"
+	("emplacement2" side(usa) period(mid) min_stage(6) max_stage(99) cw(2) cp(0) crew(mg_crew:0) condition(barricade) action(flak_ring_dummy))
+	{cost 0}{not_for_ai_sale 1}
+}
+{"aa_regelbau_dummy"
+	("emplacement2" side(usa) period(mid) min_stage(6) max_stage(99) cw(2) cp(0) crew(mg_crew:0) condition(barricade) action(aa_regelbau_dummy))
+	{cost 0}{not_for_ai_sale 1}
+}
+{"sandbag_bunker_m2_50cal_tripod"
+	("emplacement_5cp" side(usa) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(sandbag_bunker_m2_50cal_tripod))
+	{cost 250}{not_for_ai_sale 1}
+}
+{"regel_bau_76mm_m5_m1"
+	("emplacement_5cp" side(usa) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(regel_bau_76mm_m5_m1))
+	{cost 425}{not_for_ai_sale 1}
+}
+
+{"p47_d22_recon" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 9} {cost 0} {not_for_sale 1}}
+{"p47_d22" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 9} {cost 0} {not_for_sale 1}}
+{"c47_d" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 9} {cost 0} {not_for_sale 1}}
+{"p47_d22_player" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 9} {cost 0} {not_for_sale 1}}
+
+;{"ai_support_in_attack_high"
+ ;   ("squad_vehicle" side(usa) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(pilot:0) vehicle(offmap_100cp_placeholder))
+ ;   {cost 0} 
+;    {action "airstrike:ally_support_dummy_high"}
+;}
+
+;{"ai_support_in_attack_low"
+;    ("squad_vehicle" side(usa) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(pilot:0) vehicle(offmap_50cp_placeholder))
+;    {cost 60} 
+;    {action "airstrike:ally_support_dummy_low"}
+;}
+
+
+;---------
+;THINGS AND STUFF
+;---------
+
+{"sherman5c"
+	("vehicle2" side(usa) period(late) min_stage(12) max_stage(99) crew1(tankman_m3:4) crew2(tank_com_m3:1) cw(0.5) cp(24))
+	{cost 850} ;// PRICE AND STAGES NEED TO BE REVISITED
+}
+
+{"sherman3_late"
+	("vehicle2" side(usa) period(late) min_stage(9) max_stage(99) crew1(tankman_m3:4) crew2(tank_com_m3:1) cw(0.5) cp(24))
+	{cost 650} ;// PRICE AND STAGES NEED TO BE REVISITED
+}
+
+{"heavy_mg_sherman5c"
+	("emplacement" side(usa) period(mid) min_stage(13) max_stage(99) cw(2) cp(0) crew(tankman:5) condition(barricade) action(sherman5c))
+	{cost 1150}{not_for_player_sale 1}
+}
+{"37mm_m3"
+	("vehicle"  side(usa) period(mid) min_stage(1) max_stage(6) crew(crew:4) cw(1) cp(6.2))
+	{cost 180} ;// PRICE AND STAGES NEED TO BE REVISITED
+}
+

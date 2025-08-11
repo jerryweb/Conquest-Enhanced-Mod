@@ -1,0 +1,76 @@
+{game_entity
+	(include "/properties/cannon_mgun.ext")
+	
+	{extension "maxim_x4_emplacement.mdl"}
+	{props "vision_lev00_can" "-carried" "fixed" "detect_cannon_aa" "maxim_" "c_mg_med" "maxim_x4" "no_scavenge" "new_emplacement"}
+	{targetclass "cannon_bullet"}
+	{targetSelector "cannon_zenite"}
+
+
+;	{volume "magazine"
+;		{thickness 2}
+;	}
+
+	{placer
+		{place "driver1" remove}
+		{place "driver2" remove}
+	}
+
+	{boarder
+		{anm "gunner"
+			{forward {end "pose_dshk_aa_gunner"}}
+		}
+		{anm "commander"
+			{forward {end "pose_dshk_aa_commander"}}
+		}
+	}
+
+	{extender "cannon"
+		{animation
+		;// "gunner" "commander"
+			{move "" ""}
+			{fire "mg_maxim_gunner_fire" "mg_maxim_commander_fire"}
+			{aim "mg_dshk_aa_gunner_aim" "mg_dshk_aa_commander_aim"}
+			{reload "mg_dshk_aa_gunner_reload" "mg_dshk_aa_commander_reload"}
+		}
+		{move {workers clear} {obstacle "close"}}
+		{attack {obstacle "open"}}
+	}
+
+	{extender "inventory"
+		{box
+			{item "mgun_rus belt api" 1000}
+		}
+	}
+
+	{Weaponry
+		{place "mgun1"
+			{Barrels 4}
+			{type "main"}
+			{gunner "gunner"}
+			{charger "gunner"}
+			{weapon "maxim_1910_30_x4" filling "mgun_rus belt api" 1000}
+			("abm_mgun")
+			{Rotate}
+			{basic}
+		}
+	}
+
+	{mass 157}
+	{Chassis ;// cannot move. this Maxim version is for fixed position use only.
+		("mobility_cannon"
+			speed(12) ;----------------------------------Max speed.
+			weight(64) ;---------------------------------Weight in Kilograms.
+		)
+	}
+    {extender "structure"
+		{place "sandbag_cover" "sandbag_heap_straight"}
+	}
+	{bone "gun_rot"
+		{limits -8 70}
+		{speed2 80}
+	}
+	{bone "turret"
+		{speed2 80}
+	}
+}

@@ -1,0 +1,77 @@
+{game_entity
+	(include "/properties/airborne.ext")
+	(include "/properties/selection/airborne.inc" scale(1.5))
+	{props "wheeled" "fighter" "yak1_ser69" "ai" "vision_lev02_air"}
+	{extension "yak1_ser69.mdl"}
+	{PatherID "yak1"}
+	{boarder
+		{anm "driver"
+			{forward {begin "board_plane_left"} {end "seat_driver_car"} {base "open"}}
+			{reverse {end "board_plane_left" -1} {base "open" -1}}
+		}
+	}
+
+	("fighter_tier1")
+
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver) group(crew))
+
+	{Placer
+		{place "driver" {turnOff {targetable}}}
+	}
+
+	("single_engine")
+
+	("wheel" args "wheelr")
+	("wheel" args "wheell")
+	("wheel" args "wheelback")
+
+	{Chassis "wheel"
+		("car_trace" fx("tracewheel05") step(0.07) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+	}
+
+	{Chassis "airborne"
+		("flight_model"
+			speed(520)  ;//---------Max speed (at sea level), km/h.
+			climb_speed(17) ;//-----Climb rate at sea level, in m/s
+			turn(180) ;//-----------Turn-and-burn radius in meters, tightest sustained turn
+			turnMP(30) ;//----------Turn-and-burn radius in meters, tightest sustained turn in Multiplayer
+			aerodynamics(2.0) ;//---Aerodynamic efficiency rating (0-3)
+			weight(2700) ;//--------Weight in kg.
+			power(1100) ;//---------Horse Power.
+			fuel(400) ;//-----------Fuel capacity in Liters.
+			range(350) ;//----------Distance can travel with full fuel tank, in km.
+			roll_rate(60) ;//-------Roll rate, in degrees per second.
+			roll_angle(65) ;//------Maximum roll angle, in degrees.
+		)
+	}
+
+	{mass 3150}
+
+	{extender "inventory"
+		{box
+			{item "ammo mgun_ger doubledrum" 800}
+		}
+	}
+
+	{Weaponry
+		{place "gun"
+			{weapon "20mm_shvak" filled}
+			{foresight "foresight1"}
+			{charger "driver"}
+			{gunner "driver"}
+			{ai_in_manual}
+			{basic}
+		}
+		{place "mgun2"
+			{weapon "shkas_il2" filled}
+			{barrels 2}
+			{foresight "foresight4"}
+			{shooter "shooter_mg"}
+			{charger "driver"}
+			{gunner "driver"}
+			{ai_in_manual}
+			{basic}
+		}
+	}
+}
+

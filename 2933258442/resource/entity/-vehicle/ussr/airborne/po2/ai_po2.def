@@ -1,0 +1,91 @@
+{game_entity
+	(include "/properties/airborne_drop_plane_ce.ext")
+	(include "/properties/selection/airborne.inc" scale(1.5))
+	{props "wheeled" "wood" "-steel" "biplane" "vision_lev01_air" "ai_recon_plane" "po2"}
+	{extension "po2.mdl"}
+	{PatherID "po2"}
+
+	{sensor
+		{Visor "main"
+			{vision "cannon_range_600"}
+		}
+		{visor "around"
+			{vision "airborne_scout"}
+			{bone "basis"}
+		}
+	}
+
+	("recon_tier1")
+
+	{boarder
+		{anm "driver"
+			{forward {begin "board_plane_left"} {end "seat_fi156_driver"} {base "open"}}
+			{reverse {end "board_plane_left" -1} {base "open" -1}}
+		}
+		{anm "gunner"
+			{forward {begin "board_plane_left"} {end "seat_fi156_driver"} {base "open"}}
+			{reverse {end "board_plane_left" -1} {base "open" -1}}
+		}
+	}
+
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver) group(crew))
+	("crew_human" place(gunner) bone(gunner) door(emit1) animation(gunner) group(crew))
+
+	{Placer
+		{place "driver" {visor "main"} {turnOff {targetable}}}
+		{place "gunner" {turnOff {targetable}}}
+	}
+
+	("single_engine")
+
+	("wheel" args "wheelr")
+	("wheel" args "wheell")
+	("wheel" args "wheelback")
+
+	("wing" number(r2) component(right2) tag(wing))
+	("wing" number(l2) component(left2) tag(wing))
+
+	("wing" number(rt1) component(right_top) tag(wing))
+	("wing" number(rt2) component(right2_top) tag(wing))
+	("wing" number(lt1) component(left_top) tag(wing))
+	("wing" number(lt2) component(left2_top) tag(wing))
+
+	{volume "gear_l" {material "steel"}}
+	{volume "gear_r" {material "steel"}}
+	{volume "wheell" {material "steel"}}
+	{volume "wheelr" {material "steel"}}
+	{volume "engine1" {material "steel"}}
+	{volume "engine11" {material "steel"}}
+	{volume "engine12" {material "steel"}}
+	{volume "engine13" {material "steel"}}
+	{volume "engine14" {material "steel"}}
+	{volume "engine15" {material "steel"}}
+
+	{Chassis "wheel"
+		("car_trace" fx("tracewheel05") step(0.07) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+	}
+
+	{Chassis "airborne"
+		("flight_model"
+			speed(490)  ;//---------Max speed (at sea level), km/h.
+			climb_speed(0) ;//-----Climb rate at sea level, in m/s
+			turn(33) ;//-----------Turn-and-burn radius in meters, tightest sustained turn
+			turnMP(33) ;//----------Turn-and-burn radius in meters, tightest sustained turn in Multiplayer
+			aerodynamics(1.55) ;//--Aerodynamic efficiency rating (0-3)
+			weight(7600) ;//--------Weight in kg.
+			power(2200) ;//---------Horse Power.
+			fuel(1300) ;//----------Fuel capacity in Liters.
+			range(1500) ;//---------Distance can travel with full fuel tank, in km.
+			roll_rate(40) ;//-------Roll rate, in degrees per second.
+			roll_angle(65) ;//------Maximum roll angle, in degrees.
+		)
+	}
+
+	{mass 1030}
+
+	{extender "inventory"
+		{box}
+	}
+
+	{Weaponry}
+}

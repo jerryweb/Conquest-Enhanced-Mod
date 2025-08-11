@@ -1,0 +1,32 @@
+{game_entity
+	{Extension "parachute_attach.mdl"}
+	{props "paratrooper" "parachute_attach" "flesh"}
+	{lodclass "vehicle"}
+	{Placer
+		{place "attach"
+			{Linkbone "attach"}
+		}
+	}
+	{boarder
+		{anm "pose"
+			{forward	{end "pose_paratruper_flight"}}
+			{reverse	{begin "paratruper_landing"}}
+		}
+		{door "basis"}
+		{link "basis" "attach" {anm "pose"} {forward putoff} {reverse puton}}
+	}
+	{ForceQuantable}
+
+	{volume "body"
+		{able clear {contact_ground}}
+		{thickness 1}
+		{density 0.1}
+	}
+	{volume "chute"
+		{able clear}
+		{thickness 1}
+		{density 0.007}
+	}
+	{mass 99}
+	{texmod "3"}
+}
