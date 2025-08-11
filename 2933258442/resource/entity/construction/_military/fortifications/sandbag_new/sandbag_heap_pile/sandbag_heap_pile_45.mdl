@@ -1,0 +1,55 @@
+;Model created by: Carlos
+;Date: 04.08.2018 12:03:44
+;File: T:\GoH_3D_environment_export\3d_environment\_military\fortifications\sandbags_new\smart_set\sandbag_heap_pile.max
+;Model create/rebuild by: ce2
+;Last build date: Monday 6 July 2025 [21:30:45]
+{Skeleton
+    {Bone "basis"
+        {Orientation
+            1	0	0
+            0	-1	0
+            0	0	1
+        }
+        {Bone "body"
+            {Parameters "id=body;"}
+            {Matrix34
+                0.7071	-0.7071	0
+                0.7071	0.7071	0
+                0	0	1
+                -0.3742	-2.0314	13.1578
+            }
+            {LODView
+                {VolumeView "body.ply"}
+                {VolumeView "body_lod1.ply"}
+                {VolumeView "body_lod2.ply"}
+                {VolumeView "body_lod3.ply"}
+            }
+            {Bone "fx_sandbag1"
+                {Position -12.6569	-6.8281	-13.1578}
+            }
+            {Bone "fx_sandbag2"
+                {Position 10.9481	-9.0702	-13.1578}
+            }
+            {Bone "fx_sandbag3"
+                {Position 11.2765	9.7783	-13.1578}
+            }
+            {Bone "fx_sandbag4"
+                {Position -12.6569	8.8169	-13.1578}
+            }
+        }
+    }
+}
+{Obstacle "body"
+    {Obb2
+        {Center -3.40052 -0.05239}
+        {Extent 22.499 17.862}
+        {Axis 0.70711 0.70711}
+    }
+    {Tags "body"}
+    {Rotate}
+}
+{Volume "body"
+    {Polyhedron "body.vol"}
+    {Bone "body"}
+    {Position -0.7406	0.5235	-0.0954}
+}

@@ -77,7 +77,7 @@
 -- ================================= Advanced Settings =========================================
 	-- Percentage chance (between 0 and 1) to enable the Classic CE Radio Mechanics. Currently it is set as a random event with a 15% chance to occur per match.
 	-- and can be countered with a radio vehicle.
-	enableRadioMechanics = 0
+	enableRadioMechanics = 1
 	
 	enableCommunicationsCutMechanics = 0.16
 
@@ -133,7 +133,7 @@
 				x5_cloneClount = 8,
 				max = -1,
 				perFlag = 120,
-				max_ai_defender_at_flag = 20
+				max_ai_defender_at_flag = 42
 			},
 			challengeMaps = {
 				emplacement = {

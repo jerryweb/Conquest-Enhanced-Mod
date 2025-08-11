@@ -1,0 +1,92 @@
+{game_entity
+	(include "/properties/tank_assaultgun.ext")
+	(include "/properties/selection/vehicle_elongated.inc" scale(1.15))
+	{props "spg" "medium" "-turret" "multi_board" "vision_lev04" "muzzle_150mm_155mm" "shell_eject" "open_top" "detect_artillery" "artillery_minimap_heavy" "ammo_open_top"}
+	{extension "hummel.mdl"}
+	(include "hummel.ext")
+	{patherId "nashorn"}
+	{targetclass "tank_medium"}
+	{targetSelector "cannon_howitzer"}
+
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+
+	{sensor
+		{visor "around"
+			{vision "vehicle_around"}		;// better vision than a in-closed turret 
+		}
+	}
+
+	{boarder
+		{anm "driver"
+			{forward {begin "board_pz4_driver"} {end "pose_t26_driver"} {base "open_driver"}}
+			{reverse {end "board_pz4_driver" -1} {base "open_driver" -1}}
+		}
+		{anm "left"
+			{forward {begin "board_tank_left"} {end "seat_armor"} {base "board"}}	;placeholder pose
+			{reverse {end "emit_tank_1"} {base "board"}}
+		}
+		{anm "right"
+			{forward {begin "board_tank_right"} {end "seat_armor"} {base "board"}}	;placeholder pose
+			{reverse {end "emit_tank_2_hold"} {base "board"}}
+		}
+	}
+
+	("crew_driver" door(emit0) door2(emit1) door3(emit2))
+	("crew_human_visible_anm"	place(gunner)	 door(emit1) door2(emit2) visor(main)	anm_left(left)	anm_right(right))
+	("crew_human_visible_anm"	place(charger)	 door(emit1) door2(emit2) visor(none)	anm_left(left)	anm_right(right))
+	("crew_human_visible_anm"	place(gunner2)	 door(emit1) door2(emit2) visor(main)	anm_left(left)	anm_right(right))
+	("crew_human" 				place(gunner3)	 door(emit1) door2(emit2) visor(none))
+	("crew_human_visible_anm"	place(commander) door(emit1) door2(emit2) visor(around)	anm_left(left)	anm_right(right))
+
+	{extender "shield" {on}}
+
+	{extender "inventory"
+		{box
+			{item "bulletger_150_l30 he" 17}	;// 18 shells
+			{item "geballteladung_3kg" 1}
+		}
+	}
+
+	{Weaponry
+		("restore_ik_time")
+		{place "gun"
+			{RestoreIKAfterAim}
+			{weapon "150mm_sfh18_hummel" filling "bulletger_150_l30 he" 3}
+			{gunner "gunner gunner2"}
+			{charger "charger gunner3" minWorkers 1}
+			("abm_dymamic"
+				zeroing(8)
+				dispersion(1)
+			)
+			{StationaryFiring}
+		}
+	}
+
+	{mass 23000}
+	{Chassis
+		("tank_trace" fx("tracks_mid") step(0.2) len(-0.52))
+		("mobility_tank"
+			speed(42) ;----------Max speed when fully accelerated on road, km/h.
+			reverse(10) ;--------Max speed in reverse on road, km/h.
+			traverse(30) ;-------Track traverse, per second, in degrees.
+			weight(23) ;---------Weight in Tonnes.
+			power(265) ;---------Engine Power, in hp.
+			track(4.5) ;---------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
+			fuel(600) ;----------Fuel capacity in Litres.
+			type(fuel) ;---------Fuel type. (diesel OR fuel)
+			range(130) ;---------Range in km, off-road.
+		)
+		{DisableMoveWhileFiring}
+	}
+
+	{bone "gun_rot"
+		{limits -3 42}
+		{speed2 8}
+	}
+	{bone "turret"
+		{limits -15 15}
+		{speed2 8}
+	}
+}

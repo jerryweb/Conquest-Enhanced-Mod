@@ -1,0 +1,28 @@
+;_________________________________________
+; ARTY - 203mm H/17 Finnish heavy gun
+;=========================================
+
+
+{from "pattern gun"			; L/16 "203mm_h17"
+	{filling "bullet_203_l16" 2}
+	{fireSound "cannon/s5/d1/Shared/Cannon_150to210mm/"}
+	{fireSoundClose "cannon/s5/3p/Shared/Cannon_150to210mm/"}
+	{reloadSound "utility/"}
+	("super_heavy_artillery")
+	{calibre 203}
+	{range 360 360} ; // 11.2km
+
+	{recoveryTime 11.00}
+	{rechargeTime 95}
+
+	("velocity" mps(198))
+
+	("accuracy_indirect"   ; // Applies logic for accuracy of indirect weapons over 200m
+		r1(1.50) 				; // Accuracy radius for direct-fire munitions
+		r2(8) 					; // Accuracy radius for indirect fire
+		rmax(21) 				; // Accuracy radius for indirect fire at maximum range
+		range_ap(210) 			; // Range after which accuracy drops to prevent farshooting.
+		range_heat(210) 		; // Range after which accuracy drops to prevent farshooting.
+		range_he(360)			; // Range after which accuracy drops to prevent farshooting.
+	)
+}

@@ -1,0 +1,23 @@
+{game_entity
+	(include "/properties/construction.inc")
+	{props "sand" "sandbag" "heap" "construction" "parts" "no_destroyed_stamp"}
+	{extension "sandbag_curved_heap_45.mdl"}
+	{constrain surface}
+	{fogable always}
+
+	{volume "body1"
+		{Tags "body"}
+		{thickness 80}
+		{able {visible 1}}
+	}
+	{volume "body2"
+		{Tags "body" "climb"}
+		{thickness 80}
+		{able {visible 1}{touch 1}}
+	}
+	{volume "body3"
+		{Tags "body" "climb"}
+		{thickness 80}
+		{able {visible 1}{touch 1}}
+	}
+}

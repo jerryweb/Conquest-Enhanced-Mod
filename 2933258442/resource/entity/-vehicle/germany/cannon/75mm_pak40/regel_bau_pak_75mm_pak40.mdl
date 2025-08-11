@@ -57,7 +57,28 @@
 	{bone "sandbag_88"     {orientation 1 0 0  0 -1 0  0 0 1} {Position 49.4 -11.87 8.13}}
 	;// scattered
 	{bone "sandbag_4012"   {orientation 1 0 0  0 -1 0  0 0 1} {Position 63.04 29.99 4}}
-
+	{bone "camo_controller"
+		{orientation
+			0.95 	 0 	 0
+			0 	 -1 	 0
+			0 	 0 	 1
+		}
+		{Position 0   0   0}
+	{bone "netting_controller2"
+		{parameters "id=gun;"}
+		{Position -1.0 	 -0.2294 	 15.6944}
+		{bone "camo_net5"
+			{parameters "commonmesh;id=body;"}
+			{matrix34
+				-1 	 0 	 0.0051
+				0 	 1 	 0
+				-0.0051 	 0 	 1
+				9.5632 	 -3.0146 	 3.4572
+			}
+		{VolumeView "camo_net5.ply"}
+		}
+	}
+	}
 ;//at_bunker
 	{bone "sandbag_controller"
 		{orientation
@@ -121,6 +142,31 @@
 								64.5068 	 -0.1091 	 0.7616
 							}
 						}
+						{bone "netting_controller"
+							{orientation
+							1 	 0.04 	 0
+							0 	 0 	 -1
+							0 	 1 	 0
+							}
+							{parameters "id=gun;"}
+							{Position 25 	 0.5243 	 0}
+							{bone "camo_net1"
+								{parameters "id=gun;"}
+								{Position 3.3188 	 -0.1109 	 -2.0201}
+								{LODView
+									{VolumeView "camo_net1.ply"}
+									{VolumeView "camo_net1_lod1.ply"}
+								}
+							}
+							{bone "camo_net2"
+								{parameters "commonmesh;id=gun;"}
+								{Position 7.3445 	 0 	 -4.3006}
+								{LODView
+									{VolumeView "camo_net2.ply"}
+									{VolumeView "camo_net2_lod1.ply"}
+								}
+							}
+						}
 						{bone "visor"
 							{matrix34
 								1 	 0 	 0
@@ -168,6 +214,7 @@
 						}
 						{VolumeView "detail1.ply"}
 					}
+						
 				}
 				{bone "shield"
 					{parameters "id=shield;"}
@@ -250,6 +297,7 @@
 				{bone "fxtracel1"
 					{Position 5.871 	 16.3266 	 -9.3056}
 				}
+
 				{bone prizmatic "suspension_r1"
 					{limits -0.05 0.05}
 					{speed 0.09}

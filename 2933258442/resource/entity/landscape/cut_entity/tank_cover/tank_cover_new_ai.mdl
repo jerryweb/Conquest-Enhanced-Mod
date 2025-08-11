@@ -1,0 +1,255 @@
+;Exported by: caps
+;Date:        Fri Jul  5 09:46:56 2019
+;File:        F:\!_Work\tank_cover\3D\tank_cover_03.max
+{Skeleton
+	{bone "hello_there"
+	{parameters "CommonMesh;Ground;Land;Align;"}
+    {Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+        {Position 0 	 -126 	 0}
+    }
+	{bone "hello_there2"
+	{parameters "CommonMesh;Ground;Land;Align;"}
+    {Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+        {Position 50 	 -126 	 0}
+    }
+	{bone "hello_there3"
+	{parameters "CommonMesh;Ground;Land;Align;"}
+    {Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+        {Position -50 	 -126 	 0}
+    }
+											;//	Eside_start
+	{bone "hello_there_side"
+	{parameters "CommonMesh;Ground;Land;Align;"}
+    {Orientation
+		0 1 0
+		1 0 0
+		0 0 1
+		}
+        {Position 84 	 -90 	 0}
+    }
+	{bone "hello_there_side2"
+	{parameters "CommonMesh;Ground;Land;Align;"}
+    {Orientation
+		0 1 0
+		1 0 0
+		0 0 1
+		}
+        {Position 84 	 -40 	 0}
+    }
+	{bone "hello_there_side3"
+	{parameters "CommonMesh;Ground;Land;Align;"}
+    {Orientation
+		0 1 0
+		1 0 0
+		0 0 1
+		}
+        {Position 84 	 10 	 0}
+    }
+	{bone "hello_there_side4"
+	{parameters "CommonMesh;Ground;Land;Align;"}
+    {Orientation
+		0 1 0
+		1 0 0
+		0 0 1
+		}
+        {Position 84 	 60 	 0}
+    }
+											;//	Wside_start
+	{bone "hello_there_wside"
+	{parameters "CommonMesh;Ground;Land;Align;"}
+    {Orientation
+		0  -1  0
+		-1   0  0
+		0   0  1
+		}
+        {Position -84 	 -90 	 0}
+    }
+	{bone "hello_there_wside2"
+	{parameters "CommonMesh;Ground;Land;Align;"}
+    {Orientation
+		0  -1  0
+		-1   0  0
+		0   0  1
+		}
+        {Position -84 	 -40 	 0}
+    }
+	{bone "hello_there_wside3"
+	{parameters "CommonMesh;Ground;Land;Align;"}
+    {Orientation
+		0  -1  0
+		-1   0  0
+		0   0  1
+		}
+        {Position -84 	 10 	 0}
+    }
+	{bone "hello_there_wside4"
+	{parameters "CommonMesh;Ground;Land;Align;"}
+    {Orientation
+		0  -1  0
+		-1   0  0
+		0   0  1
+		}
+        {Position -84 	 60 	 0}
+    }
+
+	{bone "cover_wall"
+    {Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+        {Position 0 	 -70 	 -5}
+    }
+    {bone "cover_wall2"
+    {Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+        {Position 25 	 -70 	 -5}
+    }
+    {bone "cover_wall3"
+    {Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+        {Position -25 	 -70 	-5}
+    }
+    {bone "cover_wall4"
+    {Orientation
+-1 0 0
+0 1 0
+0 0 1
+		}
+        {Position 0 	 65 	 -5}
+    }
+    {bone "cover_wall5"
+    {Orientation
+-1 0 0
+0 1 0
+0 0 1
+		}
+        {Position 25 	 65 	 -5}
+    }
+    {bone "cover_wall6"
+    {Orientation
+-1 0 0
+0 1 0
+0 0 1
+		}
+        {Position -25 	 65 	 -5}
+    }
+    {bone "cover_wall7"
+    {Orientation
+0 1 0
+1 0 0
+0 0 1
+		}
+        {Position 70 	 60 	 -5}
+    }
+    {bone "cover_wall8"
+    {Orientation
+0 1 0
+1 0 0
+0 0 1
+		}
+        {Position 75 	 0 	 0}
+    }
+    {bone "cover_wall9"
+    {Orientation
+0 1 0
+1 0 0
+0 0 1
+		}
+        {Position 75 	 -60 	 0}
+    }
+    {bone "ground"
+    {Orientation
+0 1 0
+1 0 0
+0 0 1
+		}
+        {Position 0 	 -35 	 -39}
+    }	
+	    {bone "ground2"
+    {Orientation
+0 1 0
+1 0 0
+0 0 1
+		}
+        {Position 0 	 35 	 -39}
+    }	
+    {bone "tank_cover"
+		{parameters "CommonMesh;Ground;Land;Align;"}
+		{Orientation
+			1	0	0
+			0	-1	0
+			0	0	1
+		}
+		{Position 0 	 0 	 12}
+		{VolumeView "tank_cover.ply" {Ground}}
+	}
+}
+{volume "body" ;l/r , f/b, height
+	{box 200 260 30}
+	{bone "tank_cover"}
+	{matrix34
+		1 0 0
+		0 1 0
+		0 0 1
+		0 5 15
+	}
+}
+{##volume "body1" ;l/r , f/b, height
+	{box 10 220 27}
+	{bone "tank_cover"}
+	{matrix34
+		1 0 0
+		0 1 0
+		0 0 1
+		75 10 0
+	}
+}
+{##volume "body2" ;l/r , f/b, height
+	{box 10 220 27}
+	{bone "tank_cover"}
+	{matrix34
+		1 0 0
+		0 1 0
+		0 0 1
+		-75 10 0
+	}
+}
+{##volume "body3" ;l/r , f/b, height
+	{box 140 10 27}
+	{bone "tank_cover"}
+	{matrix34
+		1 0 0
+		0 1 0
+		0 0 1
+		0 115 0
+	}
+}
+{##volume "body4" ;l/r , f/b, height
+	{box 140 10 15}
+	{bone "tank_cover"}
+	{matrix34
+		1 0 0
+		0 1 0
+		0 0 1
+		0 -115 0
+	}
+}

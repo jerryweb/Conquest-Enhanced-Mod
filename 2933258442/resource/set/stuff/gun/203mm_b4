@@ -1,0 +1,28 @@
+;_________________________________________
+; ARTY - 203mm B4 Soviet heavy gun
+;=========================================
+
+
+{from "pattern gun"			; L/25 "203b4"
+	{filling "bulletrus_203" 2}
+	{fireSound "cannon/s5/d1/Shared/Cannon_150to210mm/"}
+	{fireSoundClose "cannon/s5/3p/Shared/Cannon_150to210mm/"}
+	{reloadSound "utility/"}
+	("super_heavy_artillery")
+	{calibre 203}
+	{range 440 440} ; // 18km
+	
+	{recoveryTime 11.00}
+	{rechargeTime 95}
+
+	("velocity" mps(218))
+	
+	("accuracy_indirect"   ; // Applies logic for accuracy of indirect weapons over 200m
+		r1(1.50) 				; // Accuracy radius for direct-fire munitions
+		r2(12) 					; // Accuracy radius for indirect fire
+		rmax(38) 				; // Accuracy radius for indirect fire at maximum range
+		range_ap(200) 			; // Range after which accuracy drops to prevent farshooting.
+		range_heat(200) 		; // Range after which accuracy drops to prevent farshooting.
+		range_he(440)			; // Range after which accuracy drops to prevent farshooting.
+	)
+}

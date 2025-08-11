@@ -1,0 +1,113 @@
+;Model created by: Carlos
+;Date: 16.09.2017 18:47:22
+;File: H:\GoH_3D_gem_export\3d_environment\_military\fortifications\sandbags_new\sandbag_turn_heap.max
+;Model create/rebuild by: ce2
+;Last build date: Monday 6 July 2025 [22:48:12]
+{Skeleton
+    {Bone "basis"
+        {Orientation
+            1	0	0
+            0	-1	0
+            0	0	1
+        }
+        {Bone "body"
+            {Parameters "id=body;"}
+            {Matrix34
+                0.7071	-0.7071	0
+                0.7071	0.7071	0
+                0	0	1
+                15.7588	-3.2781	0
+            }
+            {LODView
+                {VolumeView "body.ply"}
+                {VolumeView "body_lod1.ply"}
+                {VolumeView "body_lod2.ply"}
+                {VolumeView "body_lod3.ply"}
+            }
+            {Bone "climb22"
+                {Matrix34
+                    -0.9174	-0.398	0
+                    0.398	-0.9174	0
+                    0	0	1
+                    17.6691	29.6177	8.4924
+                }
+            }
+            {Bone "climb21"
+                {Matrix34
+                    0.9699	0.2435	0
+                    -0.2435	0.9699	0
+                    0	0	1
+                    -14.9452	16.4896	8.4924
+                }
+            }
+            {Bone "climb023"
+                {Matrix34
+                    0.9685	-0.2491	0
+                    0.2491	0.9685	0
+                    0	0	1
+                    -16.4622	-10.8726	8.4924
+                }
+            }
+            {Bone "climb024"
+                {Matrix34
+                    -0.9783	0.2074	0
+                    -0.2074	-0.9783	0
+                    0	0	1
+                    24.4795	-22.1342	8.4924
+                }
+            }
+        }
+    }
+}
+{Obstacle "body1"
+    {Obb2
+        {Center 15.5271 20.9306}
+        {Extent 6.82186 11.8779}
+        {Axis 0.707107 0.707107}
+    }
+    {Tags "body"}
+    {Rotate}
+}
+{Obstacle "body2"
+    {Obb2
+        {Center -6.3182 30.4543}
+        {Extent 7.24684 19.1467}
+        {Axis 0.30924 0.950983}
+    }
+    {Tags "body"}
+    {Rotate}
+}
+{Obstacle "body3"
+    {Obb2
+        {Center 30.3656 -2.43193}
+        {Extent 18.2623 6.84531}
+        {Axis 0.0785524 0.996909}
+    }
+    {Tags "body"}
+    {Rotate}
+}
+{Volume "body1"
+    {Polyhedron "body1.vol"}
+    {Bone "body"}
+    {Position 8.5213	0.8429	0}
+}
+{Volume "body2"
+    {Polyhedron "body2.vol"}
+    {Bone "body"}
+    {Matrix34
+        0.8937	-0.4486	0
+        0.4486	0.8937	0
+        0	0	1
+        1.3465	-23.0045	0
+    }
+}
+{Volume "body3"
+    {Polyhedron "body3.vol"}
+    {Bone "body"}
+    {Matrix34
+        0.883	0.4694	0
+        -0.4694	0.883	0
+        0	0	1
+        -0.4546	25.3135	0
+    }
+}

@@ -1,0 +1,157 @@
+;Model created by: guita
+;Date: 05.02.2025 12:40:06
+;File: G:\SVN\Working Resources\GatesOfHell\GoH_3d_environment_ostfront\3d_environment\_military\fortifications\sandbags_new\sandbag_framed_curved.max
+;Model create/rebuild by: ce2
+;Last build date: Monday 6 July 2025 [21:13:05]
+{Skeleton
+    {Bone "basis"
+        {Orientation
+            1	0	0
+            0	-1	0
+            0	0	1
+        }
+        {Bone "wooden_frame"
+            {Matrix34
+                0.7071	-0.7071	0
+                0.7071	0.7071	0
+                0	0	1
+                8.3066	-0.6855	2.6402
+            }
+            {LODView
+                {VolumeView "wooden_frame.ply"}
+                {VolumeView "wooden_frame_lod1.ply"}
+                {VolumeView "wooden_frame_lod2.ply"}
+            }
+            {Bone "body"
+                {Position 3.2942	-0.985	-2.6402}
+                {LODView
+                    {VolumeView "body.ply"}
+                    {VolumeView "body_lod1.ply"}
+                    {VolumeView "body_lod2.ply"}
+                    {VolumeView "body_lod3.ply"}
+                }
+                {Bone "fx_sandbag1"
+                    {Position 0.7312	-15.1791	0}
+                }
+                {Bone "fx_sandbag2"
+                    {Position 3.699	13.5584	0}
+                }
+                {Bone "fx_sandbag3"
+                    {Position -5.364	37.6997	0}
+                }
+                {Bone "fx_sandbag4"
+                    {Position -7.5492	-36.3405	0}
+                }
+            }
+        }
+    }
+}
+{Obstacle "body1"
+    {Obb2
+        {Center -16.66232 22.82002}
+        {Extent 10.5561 21.391}
+        {Axis 0.34223 0.93962}
+    }
+    {Tags "body"}
+    {Rotate}
+}
+{Obstacle "body2"
+    {Obb2
+        {Center 12.29504 4.69805}
+        {Extent 10.4725 15.9564}
+        {Axis 0.70711 0.70711}
+    }
+    {Tags "body"}
+    {Rotate}
+}
+{Obstacle "body3"
+    {Obb2
+        {Center 30.16444 -24.30735}
+        {Extent 21.4439 10.613}
+        {Axis -0.35782 0.93379}
+    }
+    {Tags "body"}
+    {Rotate}
+}
+{Obstacle "frame1"
+    {Obb2
+        {Center 17.63697 -24.20774}
+        {Extent 12.6514 0.702854}
+        {Axis -0.34148 0.93989}
+    }
+    {Tags "body"}
+    {Rotate}
+}
+{Obstacle "frame2"
+    {Obb2
+        {Center 4.18526 -3.27954}
+        {Extent 0.646883 12.6487}
+        {Axis 0.70711 0.70711}
+    }
+    {Tags "body"}
+    {Rotate}
+}
+{Obstacle "frame3"
+    {Obb2
+        {Center -14.2598 15.71983}
+        {Extent 0.694101 12.651}
+        {Axis 0.35868 0.93346}
+    }
+    {Tags "body"}
+    {Rotate}
+}
+{Volume "body1"
+    {Polyhedron "body1.vol"}
+    {Bone "body"}
+    {Matrix34
+        0.908	-0.4189	0
+        0.4189	0.908	0
+        0	0	1
+        -2.5461	-28.0556	0
+    }
+}
+{Volume "body2"
+    {Polyhedron "body2.vol"}
+    {Bone "body"}
+    {Position 3.3329	1.8609	0}
+}
+{Volume "body3"
+    {Polyhedron "body3.vol"}
+    {Bone "body"}
+    {Matrix34
+        0.9106	0.4133	0
+        -0.4133	0.9106	0
+        0	0	1
+        -2.7721	30.616	0
+    }
+}
+{Volume "frame1"
+    {Box 25.2973 25.8858 1.29376}
+    {Bone "wooden_frame"}
+    {Matrix34
+        -0.4191	0.9079	0
+        0	0	1
+        0.9079	0.4191	0
+        -10.0352	24.6012	10.8861
+    }
+}
+{Volume "frame2"
+    {Box 25.2973 25.8858 1.29376}
+    {Bone "wooden_frame"}
+    {Matrix34
+        0	1	0
+        0	0	1
+        1	0	0
+        -4.7485	0.291	10.8861
+    }
+}
+{Volume "frame3"
+    {Box 25.2973 25.8858 1.29376}
+    {Bone "wooden_frame"}
+    {Matrix34
+        0.41	0.9121	0
+        0	0	1
+        0.9121	-0.41	0
+        -9.6148	-24.175	10.8861
+    }
+}

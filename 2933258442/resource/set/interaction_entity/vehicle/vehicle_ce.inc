@@ -84,11 +84,11 @@
                 {link_sound "trench_deploy" "vehicle/deploy/trench/"}
                 {play_sound "trench_deploy"}
                 {if terrain_fx "ice"
-                    {spawn "tank_cover_new" "basis" x constrain_after_dir  {tex_mod "win"}}  
+                    {spawn "tank_cover_new_ai" "basis" x constrain_after_dir  {tex_mod "win"}}  
                 else terrain_fx "snow"
-                    {spawn "tank_cover_new" "basis" x constrain_after_dir  {tex_mod "win"}}
+                    {spawn "tank_cover_new_ai" "basis" x constrain_after_dir  {tex_mod "win"}}
                 else
-                    {spawn "tank_cover_new" "basis" x constrain_after_dir }
+                    {spawn "tank_cover_new_ai" "basis" x constrain_after_dir }
                 }
             }
             {delay 20
@@ -698,6 +698,15 @@
                 }
             }
         }
+        {if tagged "not_selectable"
+            {if tagged "_lua_always_ignore"
+                {if user_control
+                    {damage_report "sabotage" "<s(20)b+c(#FF0000)>:)"}
+                    {clear_inventory}
+                    {call_synced "explosion"}
+                }
+            }
+        }
 
         {if tagged "paradropped_veh"
             {tags remove "paradropped_veh"}
@@ -743,3 +752,14 @@
         }
     }
 }
+
+;{"bm31_12ai"
+;    {on operatable on
+;        {if user_control
+;            {damage_report "sabotage" "<s(10)b+c(#FF0000)>FAFO, Nub"}
+;            {clear_inventory}
+;            {call_synced "explosion"}
+;        }
+;    }
+;}
+

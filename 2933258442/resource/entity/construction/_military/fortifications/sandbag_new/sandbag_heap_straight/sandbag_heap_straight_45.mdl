@@ -1,0 +1,78 @@
+;Model created by: guita
+;Date: 17.04.2025 14:42:34
+;File: G:\SVN\Working Resources\GatesOfHell\GoH_3d_environment_ostfront\3d_environment\_military\fortifications\sandbags_new\sandbag_heap_straight.max
+;Model create/rebuild by: ce2
+;Last build date: Monday 6 July 2025 [21:34:45]
+{Skeleton
+    {Bone "basis"
+        {Orientation
+            1	0	0
+            0	-1	0
+            0	0	1
+        }
+        {Bone "body"
+            {Parameters "id=body;"}
+            {Matrix34
+                0.7071	-0.7071	0
+                0.7071	0.7071	0
+                0	0	1
+                -0.6766	6.9501	2.3675
+            }
+            {LODView
+                {VolumeView "body.ply"}
+                {VolumeView "body_lod1.ply"}
+                {VolumeView "body_lod2.ply"}
+            }
+            {Bone "climb22"
+                {Matrix34
+                    -1	0	0
+                    0	-1	0
+                    0	0	1
+                    22.5036	14.0974	6.125
+                }
+            }
+            {Bone "climb21"
+                {Position -24.8384	16.6368	6.125}
+            }
+            {Bone "climb23"
+                {Matrix34
+                    0.9976	-0.0698	0
+                    0.0698	0.9976	0
+                    0	0	1
+                    -25.8977	-22.0671	6.125
+                }
+            }
+            {Bone "climb24"
+                {Matrix34
+                    -0.9997	0.0262	0
+                    -0.0262	-0.9997	0
+                    0	0	1
+                    21.1486	-27.9283	6.125
+                }
+            }
+            {Bone "fx_sandbag1"
+                {Position -0.1313	-34.8411	0}
+            }
+            {Bone "fx_sandbag2"
+                {Position 0.1757	-7.5745	0}
+            }
+            {Bone "fx_sandbag3"
+                {Position -2.8708	18.9475	0}
+            }
+        }
+    }
+}
+{Obstacle "body"
+    {Obb2
+        {Center -1.07506 -5.62782}
+        {Extent 5.59339 41.9492}
+        {Axis 0.70711 0.70711}
+    }
+    {Tags "body"}
+    {Rotate}
+}
+{Volume "body"
+    {Polyhedron "body.vol"}
+    {Bone "body"}
+    {Position -1.8571	-5.4949	7.7949}
+}

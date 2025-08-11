@@ -1,0 +1,32 @@
+;_________________________________________
+; ARTY - German heavy howitzer
+;=========================================
+
+
+{from "pattern gun"			; L/30 "Hummel", "sfh18"
+	{filling "bulletger_150_l30" 3}
+	{fireSound "cannon/s5/d1/Shared/Cannon_150to210mm/"}
+	{fireSoundClose "cannon/s5/3p/Shared/Cannon_150to210mm/"}
+	{reloadSound "utility/"}
+	("heavy_artillery")
+	{calibre 150}
+	{range 385 385} ; // 13.3km
+
+	{recoveryTime 5.00}
+	{rechargeTime 60}
+	("velocity m/s" ap(1) apcr(1) he(204) heat(460))
+	("armor health" damage(450))
+	("85-155_slope_multipliers")
+
+	; Gr.39 Hl/A, not included
+	("penetration_medium" shell(heat) range(190) a(185) b(185) c(185) d(185) e(185))
+	
+	("accuracy_indirect"   ; // Applies logic for accuracy of indirect weapons over 200m
+		r1(0.95) 				; // Accuracy radius for direct-fire munitions
+		r2(8.25) 					; // Accuracy radius for indirect fire
+		rmax(27) 				; // Accuracy radius for indirect fire at maximum range
+		range_ap(190) 			; // Range after which accuracy drops to prevent farshooting.
+		range_heat(190) 		; // Range after which accuracy drops to prevent farshooting.
+		range_he(385)			; // Range after which accuracy drops to prevent farshooting.
+	)
+}

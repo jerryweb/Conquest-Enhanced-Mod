@@ -1,0 +1,44 @@
+;_________________________________________
+; ARTY - US heavy self-propelled howitzer
+;=========================================
+
+
+{from "pattern gun"			; L/38.2 "155mm_m12_gmc"
+	{filling "bullet_155" 3}
+	{fireSound "cannon/s5/d1/Shared/Cannon_150to210mm/"}
+	{fireSoundClose "cannon/s5/3p/Shared/Cannon_150to210mm/"}
+	{reloadSound "utility/"}
+	("heavy_artillery")
+	{calibre 155}
+	{range 445 445} ; // 18.4km
+
+	{recoveryTime 5.00}
+	{rechargeTime 60}
+
+
+	("velocity m/s" ap(719) apcr(1) he(235) heat(1))
+	("armor health" damage(450))
+	("armor health custom" shell(aphebc) damage(450) filler(620))
+	{parameters "aphebc"
+		{rechargeTime 25}
+		{recoveryTime 12.00}
+		("ap_155_slope_multiplier")
+	}
+	{parameters "wp"
+		{rechargeTime 16}
+	}
+	{parameters "he"
+		{rechargeTime 60}
+	}
+	; APBC-HE M112
+	("penetration_long" shell(aphebc) range(210) a(179) b(175) c(169) d(164) e(158))
+	
+	("accuracy_indirect"   ; // Applies logic for accuracy of indirect weapons over 200m
+		r1(0.70) 				; // Accuracy radius for direct-fire munitions
+		r2(8) 					; // Accuracy radius for indirect fire
+		rmax(32) 				; // Accuracy radius for indirect fire at maximum range
+		range_ap(210) 			; // Range after which accuracy drops to prevent farshooting.
+		range_heat(210) 		; // Range after which accuracy drops to prevent farshooting.
+		range_he(445)			; // Range after which accuracy drops to prevent farshooting.
+	)
+}

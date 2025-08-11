@@ -1,0 +1,28 @@
+;_________________________________________
+; ARTY - Finnish(french) heavy howitzer
+;=========================================
+
+
+{from "pattern gun"			; L/15 "155mm_h17"
+	{filling "bullet_155_l15"}
+	{fireSound "cannon/s5/d1/Shared/Cannon_150to210mm/"}
+	{fireSoundClose "cannon/s5/3p/Shared/Cannon_150to210mm/"}
+	{reloadSound "utility/"}
+	("heavy_artillery")
+	{calibre 155}
+	{range 360 360} ; // 11.3km
+
+	("reload time" seconds(30))
+
+	("velocity m/s" ap(1) apcr(1) he(198) heat(1)) 	; // Real HE 453m/s
+	("armor health" damage(450))
+
+	("accuracy_indirect"   ; // Applies logic for accuracy of indirect weapons over 200m
+		r1(1.1) 				; // Accuracy radius for direct-fire munitions
+		r2(7) 					; // Accuracy radius for indirect fire
+		rmax(22) 				; // Accuracy radius for indirect fire at maximum range
+		range_ap(190) 			; // Range after which accuracy drops to prevent farshooting.
+		range_heat(190) 		; // Range after which accuracy drops to prevent farshooting.
+		range_he(360)			; // Range after which accuracy drops to prevent farshooting.
+	)
+}

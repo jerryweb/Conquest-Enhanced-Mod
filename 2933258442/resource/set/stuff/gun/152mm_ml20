@@ -1,0 +1,43 @@
+;_________________________________________
+; ARTY - Russian heavy howitzer
+;=========================================
+
+
+{from "pattern gun"			; L/29 "152mm_ml20"
+	{filling "bulletrus_152" 3}
+	{fireSound "cannon/s5/d1/Shared/Cannon_150to210mm/"}
+	{fireSoundClose "cannon/s5/3p/Shared/Cannon_150to210mm/"}
+	{reloadSound "utility/"}
+	("heavy_artillery")
+	{calibre 152}
+	{range 430 430} ; // 17.2km
+	{recoveryTime 5.00}
+	{rechargeTime 60}
+
+	("velocity m/s" ap(600) apcr(1) he(215) heat(1)) 		; // historical velocity (600)(1)(600)(1)
+	("armor health" damage(450))
+	("armor health custom" shell(aphe) damage(450) filler(660))
+	("armor health custom" shell(aphebc) damage(450) filler(480))
+	("152_rus_slope_multipliers")
+	
+	{parameters "aphe"
+		{recoveryTime 8.00}
+
+	}
+	; BR-540
+	("penetration_medium" shell(aphe) range(200) a(165) b(152) c(137) d(124) e(111))  ;RHA
+ ;//("penetration_medium" shell(aphe) range(200) a(146) b(135) c(122) d(109) e(99))   ;FHA
+
+	; BR-540B ;issued July. 1944 or possible earlier
+	("penetration_medium" shell(aphebc) range(200) a(140) b(134) c(127) d(120) e(113))  ;RHA
+ ;//("penetration_medium" shell(aphebc) range(200) a(148) b(142) c(135) d(128) e(122))  ;FHA
+	
+	("accuracy_indirect"   ; // Applies logic for accuracy of indirect weapons over 200m
+		r1(0.95) 				; // Accuracy radius for direct-fire munitions
+		r2(8) 					; // Accuracy radius for indirect fire
+		rmax(32) 				; // Accuracy radius for indirect fire at maximum range
+		range_ap(200) 			; // Range after which accuracy drops to prevent farshooting.
+		range_heat(200) 		; // Range after which accuracy drops to prevent farshooting.
+		range_he(430)			; // Range after which accuracy drops to prevent farshooting.
+	)
+}

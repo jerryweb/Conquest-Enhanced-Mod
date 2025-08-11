@@ -1,0 +1,59 @@
+;Model created by: guita
+;Date: 17.04.2025 13:52:40
+;File: G:\SVN\Working Resources\GatesOfHell\GoH_3d_environment_ostfront\3d_environment\_military\fortifications\sandbags_new\sandbag_straight.max
+;Model create/rebuild by: ce2
+;Last build date: Monday 6 July 2025 [21:51:37]
+{Skeleton
+    {Bone "basis"
+        {Orientation
+            1	0	0
+            0	-1	0
+            0	0	1
+        }
+        {Bone "body"
+            {Parameters "id=body;"}
+            {Matrix34
+                0.7071	-0.7071	0
+                0.7071	0.7071	0
+                0	0	1
+                -1.3049	-1.1301	0
+            }
+            {LODView
+                {VolumeView "body.ply"}
+                {VolumeView "body_lod1.ply"}
+                {VolumeView "body_lod2.ply"}
+            }
+            {Bone "climb21"
+                {Position -19.8631	6.516	7.1611}
+            }
+            {Bone "climb22"
+                {Matrix34
+                    -1	0	0
+                    0	-1	0
+                    0	0	1
+                    27.4435	3.3865	7.1611
+                }
+            }
+            {Bone "fx_sandbag1"
+                {Position 3.6966	-14.889	-1.0815}
+            }
+            {Bone "fx_sandbag2"
+                {Position 2.9899	17.0838	0}
+            }
+        }
+    }
+}
+{Obstacle "body"
+    {Obb2
+        {Center -0.0500631 -1.24997}
+        {Extent 5.59216 35.3988}
+        {Axis 0.707107 0.707107}
+    }
+    {Tags "body"}
+    {Rotate}
+}
+{Volume "body"
+    {Polyhedron "body.vol"}
+    {Bone "body"}
+    {Position 4.2608	-1.4455	0.0243}
+}

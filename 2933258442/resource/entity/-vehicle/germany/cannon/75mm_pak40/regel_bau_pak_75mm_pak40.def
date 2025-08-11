@@ -4,10 +4,20 @@
 
 	{extension "regel_bau_pak_75mm_pak40.mdl"}
 	(include "/properties/selection/cannon.inc" scale(0.9))
-	{props "wheeled" "vision_lev03_can" "muzzle_75mm_76mm_sides" "cannon_sandbag_standard" "detect_atgun" "c_at_med" "player_emplacement" "no_scavenge" "new_emplacement"}
+	{props "wheeled" "invisible" "vision_lev03_can" "muzzle_75mm_76mm_sides" "cannon_sandbag_standard" "detect_atgun" "c_at_med" "no_scavenge" "new_emplacement"}
+	{PatherID "cannon.large"}
 	{targetclass "cannon_big"}
 	{targetSelector "cannon_big"}
 
+	{extender "enumerator"
+		{digit_folder "moe"}
+	}
+
+	{sensor
+		{visor "main"
+			{vision "cannon_range_210"}
+		}
+	}
 	("wheel" args "wheelright")
 	("wheel" args "wheelleft")
 
@@ -86,10 +96,10 @@
 
 	{extender "inventory"
 		{box
-			{item "bulletger_75_l43 apcbche" 17}		;50 rounds
-			{item "bulletger_75_l43 he" 25}
-			{item "bulletger_75_l43 apcr" 2}
-			{item "bulletger_75_l43 heatb" 5}
+			{item "bulletger_75_l43 apcbche" 9}		;50 rounds
+			{item "bulletger_75_l43 he" 12}
+			{item "bulletger_75_l43 apcr" 1}
+			{item "bulletger_75_l43 heatb" 3}
 			;{item "sandbag_vehicle" 1}
 		}
 	}
