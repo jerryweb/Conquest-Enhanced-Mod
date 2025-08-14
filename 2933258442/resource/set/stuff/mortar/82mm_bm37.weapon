@@ -1,0 +1,32 @@
+;_________________________________________
+; Soviet Medium Mortar - 82mm 
+;=========================================
+
+
+{from "pattern mortar"
+	{filling "mortarrus_82" 4}
+	{fireSound "cannon/s2/d1/Shared/Mortar/"}
+	{fireSoundClose "cannon/s2/d1/Shared/Mortar/"}
+	{calibre 82}
+	("medium_mortar_range")
+	{recoveryTime 4.75}
+	{rechargeTime 5.75}    ; 3*4.75 + 5.75 = 20.00s → 12.0 RPM
+	
+	{parameters "sm"
+		{recoveryTime 3.75}   ; cycle = 3*3.75 + 5.75 = 17.00 → ~14.12 RPM
+		{rechargeTime 5.75}
+		{cursorReloading "gun_wp"}
+	}
+
+	{parameters "wp"
+		{recoveryTime 4.25}   ; cycle = 3*4.25 + 5.75 = 18.50 → ~12.97 RPM
+		{rechargeTime 5.75}
+		{cursorReloading "gun_wp"}
+	}
+
+	{parameters "ic"
+		{recoveryTime 4.00}   ; cycle = 3*4.00 + 5.75 = 17.75 → ~13.52 RPM
+		{rechargeTime 5.75}
+		{cursorReloading "gun_ic"}
+	}
+}

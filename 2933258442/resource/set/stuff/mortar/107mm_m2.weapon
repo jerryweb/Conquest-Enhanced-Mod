@@ -1,0 +1,31 @@
+;_________________________________________
+; US Heavy Mortar - 107mm 
+;=========================================
+
+
+{from "pattern mortar"
+	{filling "mortarusa_107" 3}
+	{fireSound "cannon/s3/d1/Shared/Mortar/"}
+	{fireSoundClose "cannon/s3/d1/Shared/Mortar/"}
+	{calibre 107}
+	("medium_heavy_mortar_range")
+ 	
+	{recoveryTime 5.75}
+  	{rechargeTime 8.07}      ; ~9.20 "RPM", cycle ≈ 19.57s
+
+  {parameters "he"  {projectileDamageTable {0 20}}
+  }
+  
+  {parameters "he2" {projectileDamageTable {0 20}}
+  }
+
+  {parameters "sm"
+    {rechargeTime 4.52}    ; ≈56% of base downtime (fast smoke)
+    {cursorReloading "gun_wp"}
+	}
+
+  {parameters "wp"
+    {rechargeTime 5.65}    ; ≈70% of base downtime
+    {cursorReloading "gun_wp"}
+	}
+}
