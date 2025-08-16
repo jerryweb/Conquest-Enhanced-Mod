@@ -1,0 +1,31 @@
+;_________________________________________
+; German late-war long-barreled Heavy TD gun
+;=========================================
+
+
+{from "pattern gun"			; L/55 "jagdtiger"
+	{filling "bulletger_128"}
+	{fireSound "cannon/s4/d1/Shared/Cannon_105to130mm/"}
+	{fireSoundclose "cannon/s3/1p/Shared/"}
+	{reloadSound "tank/1p/large/"}
+	{range 230 230}
+	{calibre 128}
+	
+	("reload time" seconds(18))
+
+	("velocity m/s" ap(920) apcr(1) he(750) heat(1))
+	("armor health" damage(340))
+	("armor health custom" shell(apcbche) damage(340) filler(567))
+	("128_slope_multipliers")
+
+	; Pzgr.43
+	("penetration_long" shell(apcbche) range(230) a(267) b(253) c(237) d(222) e(208))
+	
+	{parameters "apcbche"
+		("reload time" seconds(20))
+	}
+	{parameters "he"
+		{range 230 230}
+	}
+	("accuracy_direct" r1(0.55) range_ap(230) range_he(230) range_heat(230))
+}
