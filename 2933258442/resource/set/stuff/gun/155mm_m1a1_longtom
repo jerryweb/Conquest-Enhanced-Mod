@@ -11,14 +11,16 @@
 	("heavy_artillery")
 	{calibre 155}
 	{range 505 505} ; // 23.51km
-	{recoveryTime 5.00}
-	{rechargeTime 60}
+	{recoveryTime 7.50}
+	{rechargeTime 78}
 
 	("velocity m/s" ap(837) apcr(1) he(234) heat(1))
 	("armor health" damage(450))
 	("armor health custom" shell(aphebc) damage(450) filler(620))
 	{parameters "aphebc"
 		("ap_155_slope_multiplier")
+		{rechargeTime 25}
+		{recoveryTime 12.00}
 		}
 	{parameters "wp"
 		{rechargeTime 16}
@@ -26,15 +28,10 @@
 	{parameters "sm"
 		{rechargeTime 16}
 	}
-	{parameters "he"
-	}	
 
 	; APBC-HE M112
 	("penetration_long" shell(aphebc) range(220) a(197) b(192) c(186) d(181) e(175))
-	{parameters "aphebc"
-		{rechargeTime 25}
-		{recoveryTime 12.00}
-	}
+
 	
 	("accuracy_indirect"   ; // Applies logic for accuracy of indirect weapons over 200m
 		r1(0.60) 				; // Accuracy radius for direct-fire munitions
