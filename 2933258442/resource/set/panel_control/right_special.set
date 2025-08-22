@@ -57,11 +57,6 @@
 		{condition "human barricade"}
 	}
 
-    {toggle_slow_move
-		{position 3 0}
-		{condition "vehicle" "single"}
-	}
-
 ; // second row-------------------------
 
 ;// first button
@@ -79,22 +74,16 @@
 		{position 1 1}
 		{condition "vehicle single disabled"}
 	}
-	{take_pervitin
-    	{position 1 1}
-		{condition "human" "single"}
-	}
 
 ;// third button
 	{gc_cp_state_speed
 		{position 2 1}
-		{condition "human"}
-	}
-	{gc_cp_state_supply
-		{position 2 1}
 	}
 
 ;// fourth button
-	; // empty {position 3 1}	
+	{gc_cp_state_supply
+		{position 3 1}
+	}
 	
 	{fire_position
 			{position 3 1}

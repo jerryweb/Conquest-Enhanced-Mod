@@ -1055,7 +1055,7 @@
 									}
 									{include
 										{prop
-											{prop tank}
+											{prop vehicle}
 										}
 										{state
 											{state "moveable inhabited"}
@@ -6155,6 +6155,13 @@
 						}
 						{tag_remove temp4}
 					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag repairing}
+						}
+						{tag_remove repairing}
+					}
 					{"delay"
 						{time 0.2}
 					}
@@ -6178,6 +6185,23 @@
 							{tag air_vehicle}
 						}
 						{tag_add _arrowed}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag _m}
+						}
+						{tag_remove _m}
+					}
+					{"delay"
+						{time 0.3}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag _lua_need_next_order}
+						}
+						{tag_remove _lua_need_next_order}
 					}
 					{"set_i"
 						{var "dcg_on$"}

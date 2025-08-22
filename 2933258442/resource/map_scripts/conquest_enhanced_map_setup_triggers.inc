@@ -3271,6 +3271,11 @@
 						{time 1}
 					}
 					{"set_i"
+						{var "music_rnd$"}
+						{op "="}
+						{value 0}
+					}
+					{"set_i"
 						{var "balance$"}
 						{op "="}
 						{value 1}
@@ -13578,7 +13583,29 @@
 				}
 				{actions
 					{"delay"
-						{time 0.5}
+						{time 0.4}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag cmp_def}
+									}
+								}
+								{include
+									{state
+										{state linked}
+									}
+								}
+							}
+						}
+						{tag_remove cmp_def}
+					}
+					{"delay"
+						{time 0.1}
 					}
 					{"set_i"
 						{var "dcg_on$"}
@@ -13608,7 +13635,17 @@
 						{tag_add air_vehicle}
 					}
 					{"delay"
-						{time 1}
+						{time 0.5}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag bot}
+						}
+						{tag_remove bot}
+					}
+					{"delay"
+						{time 0.5}
 					}
 					{"entity_state"
 						{selector
@@ -13777,8 +13814,43 @@
 						}
 						{tag_remove temp4}
 					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag repairing}
+						}
+						{tag_remove repairing}
+					}
 					{"delay"
-						{time 0.5}
+						{time 0.2}
+					}
+					{"actor_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag _user}
+							{type vehicle}
+						}
+						{movement
+							{forward on}
+							{backward on}
+						}
+					}
+					{"delay"
+						{time 0.3}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag air_vehicle}
+						}
+						{tag_add _arrowed}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag _m}
+						}
+						{tag_remove _m}
 					}
 					{"set_i"
 						{var "dcg_on$"}

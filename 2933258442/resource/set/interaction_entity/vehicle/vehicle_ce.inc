@@ -97,45 +97,6 @@
         }
     }
 
-    {on "toggle_slow_move"
-        {if tagged "slow_move_activated"
-            {if not "toggle_delay"
-                ;{view pause "test"}
-                {tags add "set_remove_slow_move_tag"}
-            }
-        else not "toggle_delay"
-            {tags add "set_slow_move"}
-            {delay 5
-                {if tagged "set_slow_move"
-                    {damage_report "toggle_slow_move_action" "<s(10)b+c(FF0000)>Driver Not Listening! Try slow move again!"}
-                    {tags remove "set_slow_move"}
-                }
-            }
-        }
-
-        {set "toggle_delay" 1}          ;// stops accidental double click of UI button
-        {delay 1 {set "toggle_delay" 0}}      
-    }
-
-    {on "process_slow_move_tags"
-        ;{view start ally neutral "test"}
-        {if tagged "set_slow_move"
-            {damage_report "toggle_slow_move_action" "<s(10)b+c(FFD700)>Slow move activated!"}
-            {tags remove "set_slow_move"}
-            {tags add "slow_move_activated"}
-            {if not user_control
-                {delay 30
-                    {tags remove "slow_move_activated"}
-                    {tags add "set_remove_slow_move_tag"}
-                }
-            }
-        else tagged "set_remove_slow_move_tag"
-            {damage_report "toggle_slow_move_action" "<s(10)b+c(FFD700)>Slow move deactivated!"}
-            {tags remove "set_remove_slow_move_tag"}
-            {tags remove "slow_move_activated"}
-        }
-    }
-
     {on "tag_squad_need_next_order"
         {if tagged "bot_recon"
             {delay 15
@@ -722,12 +683,6 @@
         {delay 1
             {if tagged "_abandoned"
                 {tags remove "_user_ally"}
-            }
-        }
-
-        {if tagged "slow_move_activated"
-            {if not user_control
-                {tags add "set_remove_slow_move_tag"}
             }
         }
     }
