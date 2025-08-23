@@ -376,7 +376,7 @@
 	{on "add_custom_smoke_grenade"
 		{if not user_control
 			{tags add "give_custom_smoke_grenade"}
-			{delay 240
+			{delay 240 ;// previously 240
 				{if not dead
 					{tags remove "ignore_give_smoke"}
 				}

@@ -874,6 +874,9 @@
 			{"ai_logic/ai_add_smoke_grenade"
 				{condition
 					{terms
+						{"1.event"
+							{id "enable_ai_attack_logic"}
+						}
 						{"2.entities"
 							{selector
 								{source advanced}
@@ -924,8 +927,12 @@
 					}
 				}
 				{actions
+					{"timer"
+						{time 10}
+						{title "giving AI smoke"}
+					}
 					{"delay"
-						{time 60}
+						{time 30}
 					}
 					{"effect"
 						{selector

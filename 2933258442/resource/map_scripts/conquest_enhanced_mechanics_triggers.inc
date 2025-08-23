@@ -657,23 +657,58 @@
 								}
 							}
 						}
-						{move_mode zone}
-						{move_radius 20}
+						{move_mode hold}
+						{move_radius 4}
 						{weapon_prepare on}
-						{ai
-							{advance_ratio 1}
-							{retreat_ratio 5}
-						}
 					}
 					{"delay"
 						{time 0.5}
 					}
 					{"actor_state"
 						{selector
+							{source advanced}
 							{ignore_captured_by_user 0}
-							{tag cmp_def}
-							{type human}
-							{state "not dead"}
+							{group
+								{select
+									{tag
+										{tag cmp_def}
+									}
+								}
+								{include
+									{state
+										{state operatable}
+									}
+									{prop
+										{prop human}
+									}
+								}
+								{exclude
+									{state
+										{state linked}
+									}
+									{state
+										{state user_control}
+									}
+									{zone
+										{zone "fpc1"}
+									}
+									{zone
+										{zone "fpc2"}
+									}
+									{zone
+										{zone "fpc3"}
+									}
+									{zone
+										{zone "fpc4"}
+									}
+									{zone
+										{zone "fpc5"}
+									}
+									{tag
+										{tag not_delete}
+									}
+								}
+							}
 						}
 						{move_mode zone}
 						{move_radius 20}
@@ -1887,7 +1922,7 @@
 					
 				}
 			}
-			{"conquest_enhanced_mechanics/delete_mines"
+			{## "conquest_enhanced_mechanics/delete_mines"
 				{condition
 					{terms
 						{"1.cmp_i"

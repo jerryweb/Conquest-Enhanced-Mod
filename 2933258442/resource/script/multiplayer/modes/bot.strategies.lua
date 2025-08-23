@@ -182,12 +182,12 @@ StrategyTemplates = {
 			max = 1,
 		},
 		BotAircraft = {
-			min = 3,
-			max = 8,
+			min = 4,
+			max = 30,
 		},
 		BotReconAircraft = {
 			min = 1,
-			max = 2,
+			max = 4,
 		},
 		BotArmored = {
 			min = 2,

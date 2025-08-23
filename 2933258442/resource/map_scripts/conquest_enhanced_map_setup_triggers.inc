@@ -13852,6 +13852,16 @@
 						}
 						{tag_remove _m}
 					}
+					{"delay"
+						{time 0.3}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag _lua_need_next_order}
+						}
+						{tag_remove _lua_need_next_order}
+					}
 					{"set_i"
 						{var "dcg_on$"}
 						{op "+"}

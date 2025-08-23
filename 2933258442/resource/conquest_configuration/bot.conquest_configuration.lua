@@ -10,7 +10,7 @@
 	printTempDebug = false
 
 	-- This enables testing mode for debugging, and is not advised for regular play. Make sure this is off unless you are specifically testing for something. 
-	testing = false
+	testing = true
 	
 	-- This is the strategy the ai will use to spawn units. If you want to randomly select one, just set it to nil
 	-- strategyIndexOverride = 3

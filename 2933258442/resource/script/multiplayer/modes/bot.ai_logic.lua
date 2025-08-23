@@ -73,8 +73,8 @@ strategyTable = {
     max = 4,
   },
   BotAircraft = {
-    min = 1,
-    max = 2,
+    min = 3,
+    max = 8,
   },
   BotReconAircraft = {
     min = 1,
@@ -457,7 +457,7 @@ function GetUnitPriority(t)
   end
 
   if UnitType("Aircraft") then
-    if unitCounts.BotAircraft >= strategyTable.BotAircraft.max then
+    if not UnitType("Paratrooper") and unitCounts.BotAircraft >= strategyTable.BotAircraft.max  then
         priorityMultiplier = priorityMultiplier * 0.1
     elseif sceneVariableSquad then 
       if BotApi.Scene:IsSquadTagged(sceneVariableSquad, "nub_no_aa") then 
