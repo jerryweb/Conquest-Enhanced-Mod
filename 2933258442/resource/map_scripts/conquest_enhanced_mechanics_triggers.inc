@@ -2039,10 +2039,6 @@
 								{value 1}
 							}
 						}
-						{## "timer"
-							{time 11}
-							{title ""}
-						}
 						{"entity_state"
 							{selector
 								{tag scene_variable}

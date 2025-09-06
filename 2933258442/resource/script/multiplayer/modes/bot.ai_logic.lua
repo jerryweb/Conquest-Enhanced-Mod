@@ -2,7 +2,7 @@
 require([[/script/multiplayer/modes/bot.strategies]])
 -- =================== CE AI Variables ==================
 generalSquadTagCheckDelay = 10 * 1000
-checkAiSpawnMoveDelay = 2.5 * 60 * 1000
+checkAiSpawnMoveDelay = 2.0 * 60 * 1000
 followWaypointGraphs = true
 botDefender = false
 sceneVariableSquad = nil 

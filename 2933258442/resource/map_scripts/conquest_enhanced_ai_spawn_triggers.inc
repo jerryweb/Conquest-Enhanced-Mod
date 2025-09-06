@@ -1169,8 +1169,8 @@
 								{op "=="}
 								{value %waypoint}
 							}
-							{"timer"
-								{time 8}
+							{## "timer"
+								{time 12}
 								{title "focus waypoint %waypoint"}
 							}
 							{"switch"
@@ -1591,9 +1591,9 @@
 							}
 						}
 						{"default"
-							{"timer"
+							{## "timer"
 								{time 8}
-								{title "default spawns active"}
+								{title "vanilla ai spawns and logic activated"}
 							}
 							{"call"
 								{function "reset_ai_spawn_new"}

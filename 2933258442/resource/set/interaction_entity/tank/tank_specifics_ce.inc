@@ -1,5 +1,5 @@
 ; ===== Radio Vehicle Tagging ========================================
-{"ho_ha_radio" 
+	{"ho_ha_radio" 
         {on spawn
             {delay 0.2
                 {if work "body"

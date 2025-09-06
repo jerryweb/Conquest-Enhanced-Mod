@@ -232,8 +232,8 @@ Purchases["conquest.usa"] = {
 				--]]
 			---]====]
 			--Aircraft
-				{priority = 1.0, type = {"Aircraft", "Fighter",}, unit = "p47_d22_ai"},
-				{priority = 1.0, type = {"Aircraft", "Bomber",}, unit = "p47_d22_bomber_ai"},
+				{priority = 1.0, type = {"Aircraft", "Fighter",}, unit = "p47_d22_ai", maxUnitCount = 10},
+				{priority = 1.0, type = {"Aircraft", "Bomber",}, unit = "p47_d22_bomber_ai", maxUnitCount = 5},
 				{priority = 0.5, type = {"Aircraft", "Paratrooper",}, unit = "squad_82nd_paras_glider_con"},
 				{priority = 0.5, type = {"Aircraft", "Paratrooper",}, unit = "squad_82nd_paras_eng_con"},
 				{priority = 0.5, type = {"Aircraft", "Paratrooper",}, unit = "squad_82nd_paras_con"},

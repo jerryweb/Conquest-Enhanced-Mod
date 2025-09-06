@@ -237,8 +237,8 @@ Purchases["conquest.ger"] = {
 			{priority = 1.0, type = {"Tank", "Heavy", "AT",}, unit = "jagdtiger"},
 			{priority = 1.0, type = {"Tank", "Heavy", "AT", "Big_gun",}, unit = "sturmtiger"},
 		--Aircraft
-			{priority = 1.0, type = {"Aircraft", "Fighter",}, unit = "bf109_f4_ai"},
-			{priority = 1.0, type = {"Aircraft", "Bomber",}, unit = "bf110_e2_ai", maxUnitCount = 15},
+			{priority = 1.0, type = {"Aircraft", "Fighter",}, unit = "bf109_f4_ai", maxUnitCount = 10},
+			{priority = 1.0, type = {"Aircraft", "Bomber",}, unit = "bf110_e2_ai", maxUnitCount = 5},
             {priority = 1.0, type = {"Aircraft", "ReconPlane",}, unit = "ai_fi156"},
 
             {priority = 0.5, type = {"Aircraft", "Paratrooper",}, unit = "squad_fallschirmjaeger_para_con_late"},

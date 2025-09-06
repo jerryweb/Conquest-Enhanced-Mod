@@ -927,12 +927,12 @@
 					}
 				}
 				{actions
-					{"timer"
+					{## "timer"
 						{time 10}
 						{title "giving AI smoke"}
 					}
 					{"delay"
-						{time 30}
+						{time 10}
 					}
 					{"effect"
 						{selector
@@ -979,7 +979,7 @@
 									}
 								}
 							}
-							{amount 30
+							{amount 15
 							}
 						}
 						{effect add_custom_smoke_grenade}
@@ -2842,9 +2842,6 @@
 										{state
 											{state linked}
 										}
-										{state
-											{state user_control}
-										}
 										{tag
 											{tag cmp_def}
 										}
@@ -2931,22 +2928,309 @@
 					}
 				}
 				{actions
+					{"delay"
+						{time 5}
+					}
 					{"switch"
 						{"case"
 							{condition
-								{type cmp_i}
-								{var "enable_ce_radio_mechanic$"}
-								{op "=="}
-								{value 1}
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag drop_plane}
+											}
+										}
+										{include
+											{prop
+												{prop airborne}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop drop_plane}
+											}
+										}
+										{exclude
+											{state
+												{state user_control}
+											}
+											{state
+												{state inactive}
+											}
+											{state
+												{state linked}
+											}
+										}
+									}
+								}
 							}
 							{"switch"
 								{"case"
 									{condition
 										{type cmp_i}
-										{var "radio_active$"}
+										{var "enable_ce_radio_mechanic$"}
 										{op "=="}
 										{value 1}
 									}
+									{"switch"
+										{"case"
+											{condition
+												{type cmp_i}
+												{var "radio_active$"}
+												{op "=="}
+												{value 1}
+											}
+											{"sound"
+												{name "world/alarm/sirene"}
+											}
+											{"delay"
+												{time 45}
+											}
+											{"if"
+												{condition
+													{type entities}
+													{selector
+														{source advanced}
+														{group
+															{select
+																{tag
+																	{tag user_plane}
+																}
+															}
+															{include
+																{prop
+																	{prop drop_plane}
+																}
+																{state
+																	{state inhabited}
+																}
+															}
+															{exclude
+																{state
+																	{state inactive}
+																}
+																{state
+																	{state linked}
+																}
+																{tag
+																	{tag ai}
+																}
+															}
+														}
+													}
+												}
+												{"sound"
+													{name "world/alarm/sirene"}
+												}
+											}
+										}
+										{"default"
+											{"if"
+												{condition
+													{type entities}
+													{selector
+														{source advanced}
+														{group
+															{select
+																{tag
+																	{tag user_plane}
+																}
+															}
+															{include
+																{prop
+																	{prop drop_plane}
+																}
+																{state
+																	{state inhabited}
+																}
+															}
+															{exclude
+																{state
+																	{state inactive}
+																}
+																{state
+																	{state linked}
+																}
+																{tag
+																	{tag ai}
+																}
+															}
+														}
+													}
+												}
+												{"sound"
+													{name "world/alarm/sirene"}
+												}
+												{"delay"
+													{time 45}
+												}
+												{"sound"
+													{name "world/alarm/sirene"}
+												}
+											}
+										}
+									}
+								}
+								{"default"
+									{"sound"
+										{name "world/alarm/sirene"}
+									}
+									{"delay"
+										{time 45}
+									}
+									{"if"
+										{condition
+											{type entities}
+											{selector
+												{source advanced}
+												{group
+													{select
+														{tag
+															{tag user_plane}
+														}
+													}
+													{include
+														{prop
+															{prop drop_plane}
+														}
+														{state
+															{state inhabited}
+														}
+													}
+													{exclude
+														{state
+															{state inactive}
+														}
+														{state
+															{state linked}
+														}
+														{tag
+															{tag ai}
+														}
+													}
+												}
+											}
+										}
+										{"sound"
+											{name "world/alarm/sirene"}
+										}
+									}
+								}
+							}
+						}
+						{"default"
+							{"switch"
+								{"case"
+									{condition
+										{type cmp_i}
+										{var "enable_ce_radio_mechanic$"}
+										{op "=="}
+										{value 1}
+									}
+									{"switch"
+										{"case"
+											{condition
+												{type cmp_i}
+												{var "radio_active$"}
+												{op "=="}
+												{value 1}
+											}
+											{"sound"
+												{name "world/alarm/sirenlong01"}
+											}
+											{"delay"
+												{time 45}
+											}
+											{"if"
+												{condition
+													{type entities}
+													{selector
+														{source advanced}
+														{group
+															{select
+																{tag
+																	{tag user_plane}
+																}
+															}
+															{include
+																{prop
+																	{prop drop_plane}
+																}
+																{state
+																	{state inhabited}
+																}
+															}
+															{exclude
+																{state
+																	{state inactive}
+																}
+																{state
+																	{state linked}
+																}
+																{tag
+																	{tag ai}
+																}
+															}
+														}
+													}
+												}
+												{"sound"
+													{name "world/alarm/sirenlong01"}
+												}
+											}
+										}
+										{"default"
+											{"if"
+												{condition
+													{type entities}
+													{selector
+														{source advanced}
+														{group
+															{select
+																{tag
+																	{tag user_plane}
+																}
+															}
+															{include
+																{prop
+																	{prop drop_plane}
+																}
+																{state
+																	{state inhabited}
+																}
+															}
+															{exclude
+																{state
+																	{state inactive}
+																}
+																{state
+																	{state linked}
+																}
+																{tag
+																	{tag ai}
+																}
+															}
+														}
+													}
+												}
+												{"sound"
+													{name "world/alarm/sirenlong01"}
+												}
+												{"delay"
+													{time 45}
+												}
+												{"sound"
+													{name "world/alarm/sirenlong01"}
+												}
+											}
+										}
+									}
+								}
+								{"default"
 									{"sound"
 										{name "world/alarm/sirenlong01"}
 									}
@@ -2990,96 +3274,6 @@
 											{name "world/alarm/sirenlong01"}
 										}
 									}
-								}
-								{"default"
-									{"if"
-										{condition
-											{type entities}
-											{selector
-												{source advanced}
-												{group
-													{select
-														{tag
-															{tag user_plane}
-														}
-													}
-													{include
-														{prop
-															{prop drop_plane}
-														}
-														{state
-															{state inhabited}
-														}
-													}
-													{exclude
-														{state
-															{state inactive}
-														}
-														{state
-															{state linked}
-														}
-														{tag
-															{tag ai}
-														}
-													}
-												}
-											}
-										}
-										{"sound"
-											{name "world/alarm/sirenlong01"}
-										}
-										{"delay"
-											{time 45}
-										}
-										{"sound"
-											{name "world/alarm/sirenlong01"}
-										}
-									}
-								}
-							}
-						}
-						{"default"
-							{"sound"
-								{name "world/alarm/sirenlong01"}
-							}
-							{"delay"
-								{time 45}
-							}
-							{"if"
-								{condition
-									{type entities}
-									{selector
-										{source advanced}
-										{group
-											{select
-												{tag
-													{tag user_plane}
-												}
-											}
-											{include
-												{prop
-													{prop drop_plane}
-												}
-												{state
-													{state inhabited}
-												}
-											}
-											{exclude
-												{state
-													{state inactive}
-												}
-												{state
-													{state linked}
-												}
-												{tag
-													{tag ai}
-												}
-											}
-										}
-									}
-								}
-								{"sound"
-									{name "world/alarm/sirenlong01"}
 								}
 							}
 						}

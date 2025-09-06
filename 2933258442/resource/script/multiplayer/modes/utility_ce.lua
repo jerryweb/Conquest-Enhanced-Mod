@@ -196,7 +196,7 @@ function SelectAiSpawnStrategy()
   Context.AiSpawnMoveTimer = BotApi.Events:SetQuantTimer(
     function()
       math.randomseed(os.time())
-      local changeSpawnStrategyChance = 0.4
+      local changeSpawnStrategyChance = 0.45
 
       if math.random() < changeSpawnStrategyChance then
         local aiSpawnStrategy = 0

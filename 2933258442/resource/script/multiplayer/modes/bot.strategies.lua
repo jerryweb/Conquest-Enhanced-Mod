@@ -136,6 +136,8 @@ StrategyTemplates = {
 		StrategyName = "Airborne Strategy",
 		StrategyUnitTypes = {
 			"Paratrooper",
+			"Bomber",
+			"Fighter",
 		},
 		forceUnitCount = {
 			min = 8,
@@ -183,7 +185,7 @@ StrategyTemplates = {
 		},
 		BotAircraft = {
 			min = 4,
-			max = 30,
+			max = 12,
 		},
 		BotReconAircraft = {
 			min = 1,

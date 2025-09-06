@@ -14,7 +14,8 @@ local OrderRotationPeriod = {
     	Min = 6 * 60000, -- 6:00 min (ms)
     	Max = 8 * 60000 -- 8:00 min (ms)
     },
-    InitialUnitSpawnTimeout = 0.5 * 60000
+    CannonTimeOut = 1.0 * 60000,
+    InitialUnitSpawnTimeout = 0.5 * 60000,
 }
 
 local waveUnitTotal = math.random(WaveUnit.Min, WaveUnit.Max)
@@ -417,32 +418,26 @@ function DefaultSquadSpawnOrders(args)
 	end
 	
 	if printDebug then print("Popping off next squad that spawed from the unitsToSpawnQueue. Queue size is now ", DoubleQueue.size(unitsToSpawnQueue)) end
-	-- if followWaypointGraphs then 
-	-- 	if UnitType("AT", squadTypes) then 
-	-- 		if UnitType("Tank", squadTypes) or UnitType("Vehicle", squadTypes) or UnitType("Armored", squadTypes) then
-	-- 			unitFollowWaypointGraph = false
-	-- 		end
 	if UnitType("Tank", squadTypes) then 
 		if UnitType("Support", squadTypes) then
 			unitFollowWaypointGraph = false
 		end
 	end
 
-
 	local waypoints = BotApi.Scene.Waypoints
 	if #waypoints == 0 then
 		if isAircaft then
-			if printDebug then print("SQUAD  ", args.squadId, " with unit type: airplane is following waypoint graph!") end
+			if printDebug then print("SQUAD  ", args.squadId, " with unit type: airplane is using vanilla logic!") end
 			SetSquadOrder(CaptureFlag, args.squadId, OrderRotationPeriod.DCG_FLANK.Max, false)
+		elseif isCannon then
+			if printDebug then print("SQUAD  ", args.squadId, " with unit type: cannon is using vanilla logic!") end
+			SetSquadOrder(CaptureFlag, args.squadId, OrderRotationPeriod.CannonTimeOut, true)
 		elseif followWaypointGraphs and unitFollowWaypointGraph then
 			if printDebug then print("SQUAD  ", args.squadId, " with unit type: ", type, " following waypoint graph!") end
 			SetSquadOrder(CaptureFlag, args.squadId, OrderRotationPeriod.InitialUnitSpawnTimeout, false)
 		else
 			if printDebug then print("SQUAD  ", args.squadId, " with unit type: ", type, " using vanilla logic!") end
-            local orderDelay = OrderRotationPeriod.DCG.Min - 1.5 * 60000
-			-- if botDefender then 
-				-- orderDelay = orderDelay + 2.5 * 60000
-			-- end		
+           	local orderDelay = OrderRotationPeriod.DCG.Min - 0.5 * 60000
             SetSquadOrder(CaptureFlag, args.squadId, orderDelay, true)
 		end
 	else

@@ -2,6 +2,7 @@
 	{on "spawn"
 		{delay 0.2
 			{tags add "ignore_spawn_logic"}
+			{tags add "_lua_always_ignore"}
 		}
 	}
 
@@ -349,7 +350,6 @@
 			{if work "body"
 				{tags add "drop_plane"}
 				{tags add "move_to_start_waypoint"}
-				{tags add "_lua_always_ignore"}
 			}
 		}
 		
