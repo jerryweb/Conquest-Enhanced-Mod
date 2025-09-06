@@ -2,7 +2,6 @@
 	{on "spawn"
 		{delay 0.2
 			{tags add "ignore_spawn_logic"}
-			{tags add "_lua_always_ignore"}
 		}
 	}
 
