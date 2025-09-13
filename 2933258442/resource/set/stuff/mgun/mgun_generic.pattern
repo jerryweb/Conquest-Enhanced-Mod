@@ -1,0 +1,51 @@
+{from "pattern bullet"
+	{tag "weapon mgun mgun_shell bullet to_hand mountable -shoot_walking shoot_walking_manual auto_eject"}
+	{inventory
+		{size 7 2}
+		{link_bone "gun_back"}
+		{weight 100}
+	}
+
+	{traceFreq 5}
+
+	{Automatic}
+
+	{foresight "foresight14"}
+	{cursor "ironsights/mg"}
+	{cursorReloading "carbine_reload"}
+
+	{range 140 140}
+
+	{curve "bullet_mg"}
+
+	("burst_medium")
+	("spreading_medium")
+
+	{Spreading
+		{SpreadXYRatio 1.2}
+	}
+
+	("reload time" seconds(5))
+
+	;//{aimingTolerance 2}
+
+	("human health" damage(80))
+
+	("accuracy_mg")
+
+	("penetration" args 7 5 3 1 0)
+	("armor health" damage(4))
+	{FiringTimeout 1.75 0.5}
+	{FiringTimeoutDistanceFactor
+		{0.25 0.6}	;30m, 1.05s
+		{0.8 0.85}	;96m, 1.5s
+		{1.0 1.0}	;120m, 1.75s
+	}
+
+	{SpreadTolerance 0.2}			;// AI needs to aim 20%
+	{thirdpersonparams inherit "human default"}
+
+	("recoil_mg_medium")
+	("sway_mg")
+	("ap_7_62_slope_multiplier")
+}
