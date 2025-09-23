@@ -929,11 +929,16 @@
     {cost 15} 
     {action "airstrike:conquest_light_rocket_barrage"}
 }
-
+; cost = 35
+{"heavy_rocket_artillery_barrage"
+    ("squad_vehicle" side(fin) period(mid)  min_stage(1) max_stage(99) cw(0) cp(33) crew(pilot:0) vehicle(offmap_placeholder_6))
+    {cost 25} 
+    {action "airstrike:conquest_heavy_rocket_barrage"}
+} 
 ; cost = 12
 {"122mm_m1910_fin_artillery_barrage"
 	("squad_vehicle" side(fin) period(mid)  min_stage(4) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(offmap_placeholder_4))
-	{cost 12}{not_for_player_sale 1} ;122mm_m1910_fin cost 750 - 747 = 3
+	{cost 12} ;122mm_m1910_fin cost 750 - 747 = 3
 	{round_multiple 1.0}
 	{action "airstrike:conquest_artillery_barrage_122_rus"}
 }
@@ -941,7 +946,7 @@
 ; cost = 18
 {"155mm_h17_artillery_barrage"
 	("squad_vehicle" side(fin) period(mid)  min_stage(3) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(offmap_placeholder_5))
-	{cost 18}{not_for_player_sale 1} ;155mm_h17 cost 980 - 976 = 4
+	{cost 18} ;155mm_h17 cost 980 - 976 = 4
 	{round_multiple 1.0}
 	{action "airstrike:conquest_artillery_barrage_155_fin"}
 }
