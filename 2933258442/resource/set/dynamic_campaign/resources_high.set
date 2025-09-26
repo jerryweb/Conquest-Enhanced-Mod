@@ -1,30 +1,30 @@
 {High
-	{GlobalMaxCP 1500}
-	{StageCP 70 70 30 50 40 }
-	{SpecialCP 500}					;// airstrikes special tab
+	{GlobalMaxCP 1000}
+	{StageCP 40 45 45 45 45}
+	{SpecialCP 100}					;// airstrikes special tab
 	{EmplacementCP 50}				;// buildable with engineer
 	{Bots
-		{StartMP	0.50 min 300 attackerMultiplier 2.00}
-		{FinishMP	0.75 attackerMultiplier 2.8}
+		{StartMP	0.50 min 900 attackerMultiplier 2.00}
+		{FinishMP	0.75 attackerMultiplier 3.0}
 		{CP
-			{Base "0:55"} ;// seconds : CP
+			{Base "0:27.5"} ;// seconds : CP
 			{RoundMultiplier "0:0.3 1:0.5 2:0.4 3:0.60 4:0.5 5:0.65 7:0.70 9:0.8 10:1.0 14:1.1"} ;// games played : multiplier for CP
-			{AttackMultiplier 2.3}
+			{AttackMultiplier 2.75}
 		}
 		{DefenseLevel
 			{level_1
-				{DefenseBudgetPlayer	20.0}	;// budget it multiplied by number of flags
-				{DefenseBudgetAI		45.0}	;// places defender units with bot StartMP * this factor (StartMP without attackermultiplier) for player side
+				{DefenseBudgetPlayer	50.0}	;// budget it multiplied by number of flags
+				{DefenseBudgetAI		60.0}	;// places defender units with bot StartMP * this factor (StartMP without attackermultiplier) for player side
 				{unlock games 0 progress 0.0}	;// number of games to unlock this level, or progress in percent (campaign progress bar)
 			}
 			{level_2							;// once level is reached previous level values are ignored only currently level is used
-				{DefenseBudgetPlayer	30.5}
-				{DefenseBudgetAI		55.0}
+				{DefenseBudgetPlayer	60.5}
+				{DefenseBudgetAI		70.0}
 				{unlock games 8 progress 0.7}
 			}
 			{level_3
-				{DefenseBudgetPlayer	40.5}
-				{DefenseBudgetAI		75.0}
+				{DefenseBudgetPlayer	70.5}
+				{DefenseBudgetAI		80.0}
 				{unlock games 16 progress 0.95}
 			}
 		}
@@ -40,12 +40,12 @@
 			{Rewards 1.35}
 		}
 		{Standard
-			{BotResources 2.0}
+			{BotResources 1.75}
 			{BotVeterancy 3}
 			{Rewards 1.55}
 		}
 		{High
-			{BotResources 3.0}
+			{BotResources 1.9}
 			{BotVeterancy 6}
 			{Rewards 1.95}
 		}
