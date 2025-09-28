@@ -41,19 +41,21 @@
 	{engine_toggle
 		{position 2 0}
 		{condition "engine"}
+		{condition "disabled"}
 	}
 	
 ;// fourth button
-	{examine
+
+	{gc_cp_state_reverse
 		{position 3 0}
-	;	{condition "human"}
+		{condition "vehicle"}
 		{condition "disabled"}
 	}
-	;{reverse_toggle
-	;	{position 3 0}
-	;	{condition "vehicle" "tank"}
-	;}
-
+	{examine
+		{position 3 0}
+		{condition "human"}
+		{condition "disabled"}
+	}
 
 ; // second row-------------------------
 
@@ -104,6 +106,7 @@
 	{emit
 		{position 1 2}
 		{condition "vehicle"}
+		{condition "disabled"}
 	}
 	{gc_cp_browse_emplacement
 		{position 1 2}

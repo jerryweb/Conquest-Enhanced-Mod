@@ -22,6 +22,47 @@
 										{prop
 											{prop vehicle}
 										}
+										{state
+											{state chassis_work}
+										}
+									}
+									{exclude
+										{broken_components
+											{masks
+												"body"
+											}
+										}
+										{destroyed_components
+											{masks
+												"body"
+											}
+										}
+										{destroyed_components
+											{masks
+												"hull"
+											}
+										}
+										{broken_components
+											{masks
+												"hull"
+											}
+										}
+										{destroyed_components
+											{masks
+												"chassis"
+											}
+										}
+										{broken_components
+											{masks
+												"chassis"
+											}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state dead}
+										}
 									}
 								}
 								{group
@@ -37,9 +78,53 @@
 										{state
 											{state user_control}
 										}
+										{state
+											{state chassis_work}
+										}
+									}
+									{exclude
+										{broken_components
+											{masks
+												"body"
+											}
+										}
+										{destroyed_components
+											{masks
+												"body"
+											}
+										}
+										{destroyed_components
+											{masks
+												"hull"
+											}
+										}
+										{broken_components
+											{masks
+												"hull"
+											}
+										}
+										{destroyed_components
+											{masks
+												"chassis"
+											}
+										}
+										{broken_components
+											{masks
+												"chassis"
+											}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state dead}
+										}
 									}
 								}
 							}
+						}
+						{"2.event"
+							{id "init_radio_mechanics"}
 						}
 					}
 				}
@@ -67,6 +152,47 @@
 									{prop
 										{prop vehicle}
 									}
+									{state
+										{state chassis_work}
+									}
+								}
+								{exclude
+									{broken_components
+										{masks
+											"body"
+										}
+									}
+									{destroyed_components
+										{masks
+											"body"
+										}
+									}
+									{destroyed_components
+										{masks
+											"hull"
+										}
+									}
+									{broken_components
+										{masks
+											"hull"
+										}
+									}
+									{destroyed_components
+										{masks
+											"chassis"
+										}
+									}
+									{broken_components
+										{masks
+											"chassis"
+										}
+									}
+									{state
+										{state inactive}
+									}
+									{state
+										{state dead}
+									}
 								}
 							}
 							{group
@@ -80,7 +206,45 @@
 										{prop vehicle}
 									}
 									{state
-										{state user_control}
+										{state chassis_work}
+									}
+								}
+								{exclude
+									{broken_components
+										{masks
+											"body"
+										}
+									}
+									{destroyed_components
+										{masks
+											"body"
+										}
+									}
+									{destroyed_components
+										{masks
+											"hull"
+										}
+									}
+									{broken_components
+										{masks
+											"hull"
+										}
+									}
+									{destroyed_components
+										{masks
+											"chassis"
+										}
+									}
+									{broken_components
+										{masks
+											"chassis"
+										}
+									}
+									{state
+										{state inactive}
+									}
+									{state
+										{state dead}
 									}
 								}
 							}
@@ -230,12 +394,11 @@
 											{state
 												{state "inhabited user_control"}
 											}
-                                            {state
-                                                {state inhabited}
-                                            }
+											{state
+												{state inhabited}
+											}
 										}
 										{exclude
-											
 											{state
 												{state inactive}
 											}

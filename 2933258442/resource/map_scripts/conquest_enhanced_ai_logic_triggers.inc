@@ -6201,9 +6201,6 @@
 						{discovered off}
 						{tag_add "_ce_map_scripts_running"}
 					}
-					;{"delay"
-					;	{time 0.2}
-					;}
 					{"actor_to_waypoint"
 						{selector
 							{source current}
