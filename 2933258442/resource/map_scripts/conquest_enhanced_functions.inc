@@ -54,14 +54,14 @@
 												{state
 													{state user_control}
 												}
-												{with_item
-													{type existance}
-													{item "at_rifle"}
-												}
-												{with_item
-													{type existance}
-													{item "rocketlauncher"}
-												}
+												;{with_item
+												;	{type existance}
+												;	{item "at_rifle"}
+												;}
+												;{with_item
+												;	{type existance}
+												;	{item "rocketlauncher"}
+												;}
 											}
 										}
 										{amount 5
@@ -99,14 +99,14 @@
 												{state
 													{state user_control}
 												}
-												{with_item
-													{type existance}
-													{item "at_rifle"}
-												}
-												{with_item
-													{type existance}
-													{item "rocketlauncher"}
-												}
+												;{with_item
+												;	{type existance}
+												;	{item "at_rifle"}
+												;}
+												;{with_item
+												;	{type existance}
+												;	{item "rocketlauncher"}
+												;}
 											}
 										}
 										{amount 2

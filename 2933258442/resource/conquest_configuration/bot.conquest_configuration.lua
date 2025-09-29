@@ -10,7 +10,7 @@
 	printTempDebug = false
 
 	-- This enables testing mode for debugging, and is not advised for regular play. Make sure this is off unless you are specifically testing for something. 
-	testing = false
+	testing = true
 	
 	-- This is the strategy the ai will use to spawn units. If you want to randomly select one, just set it to nil
 	-- strategyIndexOverride = 3
@@ -67,8 +67,8 @@
     -- Number of possible units than can be in a wave attack in conquest
 	WaveUnitOverride = {
 	    -- Bot is attacker
-	    AttackMin = 12,
-	    AttackMax = 35,
+	    AttackMin = 8,
+	    AttackMax = 15,
 	    -- Bot is defender
 	    DefendMin = 4,
 	    DefendMax = 8,
@@ -79,7 +79,7 @@
 	-- and can be countered with a radio vehicle.
 	enableRadioMechanics = 1
 	
-	enableCommunicationsCutMechanics = 0.16
+	enableCommunicationsCutMechanics = 0--0.16
 
 	-- Percentage chance (between 0 and 1) for the AI sabotage event. This event has a percentage based on difficulty within the scripts, so this value will override that value.
 	enableSabotageMechanics = 0.35
@@ -102,7 +102,7 @@
 				perFlag = 2
 			},
 			infantry = {
-				x2_cloneClount = 4,
+				x2_cloneClount = 7,
 				max = 60,
 				perFlag = 25,
 				max_ai_defender_at_flag = 12
@@ -133,7 +133,7 @@
 				x5_cloneClount = 8,
 				max = -1,
 				perFlag = 120,
-				max_ai_defender_at_flag = 42
+				max_ai_defender_at_flag = 25
 			},
 			challengeMaps = {
 				emplacement = {

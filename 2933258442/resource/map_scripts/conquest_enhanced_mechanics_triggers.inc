@@ -65,62 +65,65 @@
 										}
 									}
 								}
-								{group
-									{select
-										{zone
-											{zone "gamezone"}
-										}
-									}
-									{include
-										{prop
-											{prop vehicle}
-										}
-										{state
-											{state user_control}
-										}
-										{state
-											{state chassis_work}
-										}
-									}
-									{exclude
-										{broken_components
-											{masks
-												"body"
-											}
-										}
-										{destroyed_components
-											{masks
-												"body"
-											}
-										}
-										{destroyed_components
-											{masks
-												"hull"
-											}
-										}
-										{broken_components
-											{masks
-												"hull"
-											}
-										}
-										{destroyed_components
-											{masks
-												"chassis"
-											}
-										}
-										{broken_components
-											{masks
-												"chassis"
-											}
-										}
-										{state
-											{state inactive}
-										}
-										{state
-											{state dead}
-										}
-									}
-								}
+								;{group
+								;	{select
+								;		{zone
+								;			{zone "gamezone"}
+								;		}
+								;	}
+								;	{include
+								;		{prop
+								;			{prop vehicle}
+								;		}
+								;		{state
+								;			{state user_control}
+								;		}
+								;		{state
+								;			{state chassis_work}
+								;		}
+								;	}
+								;	{exclude
+								;		{broken_components
+								;			{masks
+								;				"body"
+								;			}
+								;		}
+								;		{destroyed_components
+								;			{masks
+								;				"body"
+								;			}
+								;		}
+								;		{destroyed_components
+								;			{masks
+								;				"hull"
+								;			}
+								;		}
+								;		{broken_components
+								;			{masks
+								;				"hull"
+								;			}
+								;		}
+								;		{destroyed_components
+								;			{masks
+								;				"chassis"
+								;			}
+								;		}
+								;		{broken_components
+								;			{masks
+								;				"chassis"
+								;			}
+								;		}
+								;		{state
+								;			{state inactive}
+								;		}
+								;		{state
+								;			{state dead}
+								;		}
+								;		{tag
+ 								;			{tag not_selectable}
+ 								;		}
+								;	}
+								;}
 							}
 						}
 						{"2.event"
@@ -193,61 +196,64 @@
 									{state
 										{state dead}
 									}
-								}
-							}
-							{group
-								{select
-									{zone
-										{zone "gamezone"}
-									}
-								}
-								{include
-									{prop
-										{prop vehicle}
-									}
-									{state
-										{state chassis_work}
-									}
-								}
-								{exclude
-									{broken_components
-										{masks
-											"body"
-										}
-									}
-									{destroyed_components
-										{masks
-											"body"
-										}
-									}
-									{destroyed_components
-										{masks
-											"hull"
-										}
-									}
-									{broken_components
-										{masks
-											"hull"
-										}
-									}
-									{destroyed_components
-										{masks
-											"chassis"
-										}
-									}
-									{broken_components
-										{masks
-											"chassis"
-										}
-									}
-									{state
-										{state inactive}
-									}
-									{state
-										{state dead}
+									{tag
+										{tag not_selectable}
 									}
 								}
 							}
+							;{group
+							;	{select
+							;		{zone
+							;			{zone "gamezone"}
+							;		}
+							;	}
+							;	{include
+							;		{prop
+							;			{prop vehicle}
+							;		}
+							;		{state
+							;			{state chassis_work}
+							;		}
+							;	}
+							;	{exclude
+							;		{broken_components
+							;			{masks
+							;				"body"
+							;			}
+							;		}
+							;		{destroyed_components
+							;			{masks
+							;				"body"
+							;			}
+							;		}
+							;		{destroyed_components
+							;			{masks
+							;				"hull"
+							;			}
+							;		}
+							;		{broken_components
+							;			{masks
+							;				"hull"
+							;			}
+							;		}
+							;		{destroyed_components
+							;			{masks
+							;				"chassis"
+							;			}
+							;		}
+							;		{broken_components
+							;			{masks
+							;				"chassis"
+							;			}
+							;		}
+							;		{state
+							;			{state inactive}
+							;		}
+							;		{state
+							;			{state dead}
+							;		}
+							;	}
+							;}
 						}
 						{add minimap}
 					}
@@ -392,15 +398,18 @@
 										}
 										{include
 											{state
-												{state "inhabited user_control"}
+												{state inhabited}
 											}
 											{state
-												{state inhabited}
+												{state user_control}
 											}
 										}
 										{exclude
 											{state
 												{state inactive}
+											}
+											{state
+												{state linked}
 											}
 										}
 									}
@@ -683,6 +692,10 @@
 						{"delay"
 							{time 0.5}
 						}
+						{"timer"
+							{time 5}
+							{title "Deleting extra AI defenders"}
+						}
 					}
 				}
 			)
@@ -958,21 +971,17 @@
 										{state linked}
 									}
 									{state
+										{state inactive}
+									}
+									{state
 										{state user_control}
 									}
 									{zone
 										{zone "gamezone"}
 									}
-									
-									{tag
-										{tag not_delete}
-									}
 								}
 							}
 						}
-					}
-                    {"delay"
-						{time 10.5}
 					}
 				}
 			}

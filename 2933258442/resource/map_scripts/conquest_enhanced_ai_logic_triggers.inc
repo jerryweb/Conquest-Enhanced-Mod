@@ -5936,7 +5936,7 @@
 					}
 				}
 			}
-			{## "ai_logic/force_move_ai_cannons"
+			{"ai_logic/force_move_ai_cannons"
 				{condition
 					{expression "1"}
 					{terms
@@ -5992,7 +5992,7 @@
 					{"delay"
 						{time 120}
 					}
-					{## "while"
+					{"while"
 						{condition
 							{type see_actors}
 							{selector

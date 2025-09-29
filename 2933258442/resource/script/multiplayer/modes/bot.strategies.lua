@@ -11,12 +11,12 @@ StrategyTemplates = {
 			"Command",
 		},
 		forceUnitCount = {
-			min = 45,
-			max = 60,
+			min = 15,
+			max = 30,
 		},
 		BotInfantry = {
-			min = 50,
-			max = 95,
+			min = 25,
+			max = 42,
 		},
 		BotATInfantry = {
 			min = 4,
@@ -79,8 +79,8 @@ StrategyTemplates = {
 			max = 5,
 		},
 		BotInfantry = {
-			min = 40,
-			max = 80,
+			min = 20,
+			max = 40,
 		},
 		BotATInfantry = {
 			min = 1,
@@ -144,8 +144,8 @@ StrategyTemplates = {
 			max = 16,
 		},
 		BotInfantry = {
-			min = 40,
-			max = 90,
+			min = 20,
+			max = 45,
 		},
 		BotATInfantry = {
 			min = 2,
@@ -211,12 +211,12 @@ StrategyTemplates = {
 			"Cannon",
 		},
 		forceUnitCount = {
-			min = 15,
-			max = 20,
+			min = 7,
+			max = 10,
 		},
 		BotInfantry = {
-			min = 40,
-			max = 60,
+			min = 20,
+			max = 30,
 		},
 		BotATInfantry = {
 			min = 1,
@@ -283,12 +283,12 @@ StrategyTemplates = {
 			"AT",
 		},
 		forceUnitCount = {
-			min = 15,
-			max = 20,
+			min = 7,
+			max = 10,
 		},
 		BotInfantry = {
-			min = 40,
-			max = 60,
+			min = 20,
+			max = 30,
 		},
 		BotATInfantry = {
 			min = 1,
@@ -352,8 +352,8 @@ StrategyTemplates = {
 			max = 10,
 		},
 		BotInfantry = {
-			min = 40,
-			max = 80,
+			min = 20,
+			max = 40,
 		},
 		BotATInfantry = {
 			min = 2,
@@ -414,12 +414,12 @@ StrategyTemplates = {
 			"AT"
 		},
 		forceUnitCount = {
-			min = 5,
-			max = 15,
+			min = 3,
+			max = 8,
 		},
 		BotInfantry = {
-			min = 50,
-			max = 100,
+			min = 25,
+			max = 50,
 		},
 		BotATInfantry = {
 			min = 3,
@@ -482,8 +482,8 @@ StrategyTemplates = {
 			max = 6,
 		},
 		BotInfantry = {
-			min = 50,
-			max = 80,
+			min = 25,
+			max = 40,
 		},
 		BotATInfantry = {
 			min = 3,
@@ -543,12 +543,12 @@ StrategyTemplates = {
 			"Mortar",
 		},
 		forceUnitCount = {
-			min = 6,
-			max = 10,
+			min = 3,
+			max = 8,
 		},
 		BotInfantry = {
-			min = 45,
-			max = 90,
+			min = 22,
+			max = 45,
 		},
 		BotATInfantry = {
 			min = 3,
@@ -611,8 +611,8 @@ StrategyTemplates = {
 			max = 12,
 		},
 		BotInfantry = {
-			min = 60,
-			max = 90,
+			min = 30,
+			max = 45,
 		},
 		BotATInfantry = {
 			min = 1,
@@ -670,12 +670,12 @@ StrategyTemplates = {
 			"Armored",
 		},
 		forceUnitCount = {
-			min = 6,
-			max = 15,
+			min = 3,
+			max = 8,
 		},
 		BotInfantry = {
-			min = 50,
-			max = 90,
+			min = 25,
+			max = 45,
 		},
 		BotATInfantry = {
 			min = 1,
