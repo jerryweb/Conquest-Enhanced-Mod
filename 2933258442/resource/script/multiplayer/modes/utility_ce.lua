@@ -124,7 +124,8 @@ function SetCEMissionVariables(botDefender)
       BotApi.Scene:SetVar("enable_ai_waypoint_graphs", 0)
   end
 
-  checkVarPercentage("enable_ce_radio_mechanic", enableRadioMechanics)
+  --checkVarPercentage("enable_ce_radio_mechanic", enableRadioMechanics)
+  checkVarPercentage("enable_ce_radio_mechanic", enableCommunicationsCutMechanics) -- use this to control both variables for now
   checkVarPercentage("enable_ce_cut_communications_mechanic", enableCommunicationsCutMechanics)
   checkVarPercentage("ai_sabotage", enableSabotageMechanics)
   checkVarPercentage("enable_ai_abandon_mechanics", enableAiAbandonMechanics)

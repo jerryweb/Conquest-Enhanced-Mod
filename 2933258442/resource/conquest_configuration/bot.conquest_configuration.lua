@@ -67,8 +67,8 @@
     -- Number of possible units than can be in a wave attack in conquest
 	WaveUnitOverride = {
 	    -- Bot is attacker
-	    AttackMin = 8,
-	    AttackMax = 15,
+	    AttackMin = 10,
+	    AttackMax = 16,
 	    -- Bot is defender
 	    DefendMin = 4,
 	    DefendMax = 8,
@@ -102,7 +102,7 @@
 				perFlag = 2
 			},
 			infantry = {
-				x2_cloneClount = 7,
+				x2_cloneClount = 5,
 				max = 60,
 				perFlag = 25,
 				max_ai_defender_at_flag = 12

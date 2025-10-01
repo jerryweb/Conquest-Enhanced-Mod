@@ -5831,7 +5831,20 @@
 						}
 					}
 					{"delay"
-						{time 0.5}
+						{time 0.25}
+					}
+					{"inventory"
+						{selector
+							{tag selected_paratrooper}
+							{type human}
+							{state operatable}
+						}
+						{action add}
+						{item "ai_nbk39" "grenade"}
+						{stack 0}
+					}
+					{"delay"
+						{time 0.25}
 					}
 					{"effect"
 						{selector
@@ -7139,7 +7152,7 @@
 					}
 				}
 			}
-			{"ai_logic/check_ai_abandon_mechanic_enabled"
+			{## "ai_logic/check_ai_abandon_mechanic_enabled"
 				{condition
 					{terms
 						{"1.cmp_i"
@@ -7678,7 +7691,7 @@
 				}
 			}
 
-			{"ai/strategy/human_wave_alert"
+			{## "ai/strategy/human_wave_alert"
 				{condition
 					{terms
 						{"1.cmp_i"

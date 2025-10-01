@@ -692,7 +692,7 @@
 						{"delay"
 							{time 0.5}
 						}
-						{"timer"
+						{## "timer"
 							{time 5}
 							{title "Deleting extra AI defenders"}
 						}
@@ -947,7 +947,7 @@
 					("delete_ai_defenders_thread" flag(5))
 
 					{"delay"
-						{time 10.5}
+						{time 5}
 					}                                      
 					{"delete"
 						{selector
@@ -955,27 +955,15 @@
 							{group
 								{select
 									{tag
-										{tag cmp_def}
+										{tag extra_inf_def}
 									}
 								}
 								{include
-									{state
-										{state operatable}
-									}
 									{prop
 										{prop human}
 									}
 								}
 								{exclude
-									{state
-										{state linked}
-									}
-									{state
-										{state inactive}
-									}
-									{state
-										{state user_control}
-									}
 									{zone
 										{zone "gamezone"}
 									}
@@ -1913,7 +1901,7 @@
 					}
 				}
 			}
-			{"conquest_enhanced_mechanics/ai_defenders/delete_bazookas_for_def_level_1"
+			{## "conquest_enhanced_mechanics/ai_defenders/delete_bazookas_for_def_level_1"
 				{condition
 					{terms
 						{"1.inventory"
@@ -2022,7 +2010,7 @@
 				}
 			}
 			
-            {"conquest_enhanced_mechanics/challenge_map_defend_info"
+            {## "conquest_enhanced_mechanics/challenge_map_defend_info"
 				{condition
 					{terms
 						{"1.cmp_i"
@@ -2055,7 +2043,7 @@
 					}
 				}
             }
-            {"conquest_enhanced_mechanics/challenge_map_attack_info"
+            {## "conquest_enhanced_mechanics/challenge_map_attack_info"
 				{condition
 					{terms
 						{"1.cmp_i"

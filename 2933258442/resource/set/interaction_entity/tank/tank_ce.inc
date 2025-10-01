@@ -86,16 +86,16 @@
         }
     }
 
-    {on "reload"
-       {if not user_control
-           {if not tagged "player_armor"
-               {tags add "tankaction"}
-               {delay 45
-                   {tags remove "tankaction"}
-               }
-           }
-       }
-    }
+    ;{on "reload"
+    ;   {if not user_control
+    ;       {if not tagged "player_armor"
+    ;           {tags add "tankaction"}
+    ;           {delay 45
+    ;               {tags remove "tankaction"}
+    ;           }
+    ;       }
+    ;   }
+    ;}
 
     {on break                       ;// {on break} is for when components break
         {if not tagged "exploded"

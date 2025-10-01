@@ -34,9 +34,9 @@
 	{on "call_flag_defense_crates"
 		(mod "mp"
 			{if tagged "defense_level_2"
-	    		{spawn "ammo2" random_position 20}
+	    		;{spawn "ammo2" random_position 20} //disabled to fix micro stutters
 	    	else tagged "defense_level_3"
-	    		{spawn "ammo2" random_position 20}
+	    		;{spawn "ammo2" random_position 20} //disabled to fix micro stutters
 	    		{call "drop_ammo_crates"}
 	    	}
     	)

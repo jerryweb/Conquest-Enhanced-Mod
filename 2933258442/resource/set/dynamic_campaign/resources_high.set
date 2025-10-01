@@ -4,28 +4,35 @@
 	{SpecialCP 100}					;// airstrikes special tab
 	{EmplacementCP 50}				;// buildable with engineer
 	{Bots
-		{StartMP	0.50 min 900 attackerMultiplier 2.00}
-		{FinishMP	0.75 attackerMultiplier 3.0}
+		;{StartMP	0.50 min 1000 attackerMultiplier 2.00}
+		;{FinishMP	0.75 min 1000 attackerMultiplier 3.5}
+		;{CP
+		;	{Base "0:27.75"} ;// seconds : CP
+		;	{RoundMultiplier "0:0.4 1:0.55 2:0.4 3:0.6 4:0.45 5:0.65 6:0.5 7:0.7 8:0.55 9:0.75 12:1 14:1 16:1 18:1.1 20:1.2"} ;// games played : multiplier for CP
+		;	{AttackMultiplier 4.0}
+		;}
+		{StartMP	1.75 min 1000 attackerMultiplier 1.55}
+		{FinishMP	1.75 min 1000 attackerMultiplier 1.55}
 		{CP
-			{Base "0:27.5"} ;// seconds : CP
-			{RoundMultiplier "0:0.3 1:0.5 2:0.4 3:0.60 4:0.5 5:0.65 7:0.70 9:0.8 10:1.0 14:1.1"} ;// games played : multiplier for CP
-			{AttackMultiplier 2.75}
+			{Base "0:60"} ;// seconds : CP
+			{RoundMultiplier "0:0.65 2:0.8 4:0.9 6:1.0 8:1.05 12:1.1 14:1.2 16:1.3"} ;// games played : multiplier for CP
+			{AttackMultiplier 4.0}
 		}
 		{DefenseLevel
 			{level_1
-				{DefenseBudgetPlayer	50.0}	;// budget it multiplied by number of flags
-				{DefenseBudgetAI		60.0}	;// places defender units with bot StartMP * this factor (StartMP without attackermultiplier) for player side
+				{DefenseBudgetPlayer	0.4}	;// budget it multiplied by number of flags
+				{DefenseBudgetAI		0.4}	;// places defender units with bot StartMP * this factor (StartMP without attackermultiplier) for player side
 				{unlock games 0 progress 0.0}	;// number of games to unlock this level, or progress in percent (campaign progress bar)
 			}
 			{level_2							;// once level is reached previous level values are ignored only currently level is used
-				{DefenseBudgetPlayer	60.5}
-				{DefenseBudgetAI		70.0}
-				{unlock games 8 progress 0.7}
+				{DefenseBudgetPlayer	0.55}
+				{DefenseBudgetAI		0.55}
+				{unlock games 8 progress 0.4}
 			}
 			{level_3
-				{DefenseBudgetPlayer	70.5}
-				{DefenseBudgetAI		80.0}
-				{unlock games 16 progress 0.95}
+				{DefenseBudgetPlayer	0.75}
+				{DefenseBudgetAI		0.75}
+				{unlock games 16 progress 0.6}
 			}
 		}
 	}
@@ -35,19 +42,19 @@
     ;// captured enemy vehicle 
     {RiskFactor
 		{Low
-			{BotResources 1.5}
-			{BotVeterancy 1}
-			{Rewards 1.35}
+			{BotResources 0.85}
+			{BotVeterancy 3}
+			{Rewards 1.25}
 		}
 		{Standard
-			{BotResources 1.75}
-			{BotVeterancy 3}
-			{Rewards 1.55}
+			{BotResources 1.0}
+			{BotVeterancy 4}
+			{Rewards 1.5}
 		}
 		{High
-			{BotResources 1.9}
+			{BotResources 1.25}
 			{BotVeterancy 6}
-			{Rewards 1.95}
+			{Rewards 1.75}
 		}
 	}
 	{Resources
