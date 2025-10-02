@@ -208,6 +208,22 @@
         {tags add "ignore_spawn_logic"}
     }
 
+    {on "tag_td_in_combat"
+        {if not user_control
+            {if tagged "_bot"
+                {if operatable
+                    {call "smoke_for_test"}
+                    {spawn "artillery_warning_light"}
+                    {tags add "td_attacking_targets"}
+                    {tags remove "td_in_combat"}
+                    {delay 45
+                        {tags remove "td_attacking_targets"}  
+                    }
+                }
+            }
+        }
+    }
+
 ; =========== Build Sandbag Ring Functions ===========
     {on "sandbag_ring_heap_curved"
         {delay 10
@@ -716,5 +732,51 @@
 ;            {call_synced "explosion"}
 ;        }
 ;    }
+;}
+
+;{"td"
+;    {on "smoke_for_test"
+;        {add_view "smoke_yellow_norm" "smoke" "root"}
+;        {view start "smoke"}
+;        {delay 10 "smoke"
+;            {view stop "smoke"}
+;        }
+;    }
+;
+;    {on "tag_td_in_combat"
+;        {if not tagged "_lua_need_next_order"
+;            {if not tagged "td_fired_gun"
+;                {if not user_control
+;                    {if tagged "_bot"
+;                        {if operatable
+;                            {drop_orders}
+;                            {call "smoke_for_test"}
+;                            {tags add "td_fired_gun"}
+;                            ;{tags remove "td_in_combat"}
+;                            {delay 60
+;                                {tags remove "td_fired_gun"}  
+;                            }
+;                        }
+;                    }
+;                }
+;            }
+;        }            
+;    }   
+;
+;    {on fire "gun"
+;        {call "tag_td_in_combat"}
+;    }
+;    {on fire "mgun"
+;        {call "tag_td_in_combat"}
+;    }
+;    {on fire "mgun1"
+;        {call "tag_td_in_combat"}
+;    }
+;    {on fire "mgun2"
+;        {call "tag_td_in_combat"}
+;    }
+;    {on fire "mgun3"
+;        {call "tag_td_in_combat"}
+;    }         
 ;}
 
