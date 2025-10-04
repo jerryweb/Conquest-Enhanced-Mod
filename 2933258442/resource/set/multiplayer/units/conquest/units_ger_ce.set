@@ -817,14 +817,14 @@
 
 ; cost = 5
 {"80mm_sgrw34_mortar_barrage"
-	("squad_vehicle" side(ger) period(mid)  min_stage(1) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(offmap_placeholder_3))
-	{cost 5} ;80mm_sgrw34 cost 250 - 248 = 2
+	("squad_vehicle" side(ger) period(mid)  min_stage(1) max_stage(99) cw(0) cp(3) crew(artilleryman:0) vehicle(offmap_placeholder_3))
+	{cost 8} ;80mm_sgrw34 cost 250 - 248 = 2
 	{round_multiple 1.0}
 	{action "airstrike:conquest_mortar_barrage_80"}
 }
 ; cost = 12
 {"120mm_sgrw42_mortar_barrage"
-	("squad_vehicle" side(ger) period(mid)  min_stage(5) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(offmap_placeholder_4))
+	("squad_vehicle" side(ger) period(mid)  min_stage(5) max_stage(99) cw(0) cp(3) crew(artilleryman:0) vehicle(offmap_placeholder_4))
 	{cost 12} ;120mm_sgrw42 cost 450 - 447 = 3
 	{round_multiple 1.0}
 	{action "airstrike:conquest_mortar_barrage_120"}
@@ -832,7 +832,7 @@
 
 ; cost = 2
 {"105mm_lefh18_smoke_barrage"
-    ("squad_vehicle" side(ger) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(artilleryman:0) vehicle(offmap_placeholder))
+    ("squad_vehicle" side(ger) period(mid)  min_stage(1) max_stage(99) cw(0) cp(15) crew(artilleryman:0) vehicle(offmap_placeholder))
     {cost 2} ;105mm_lefh18 cost 750 - 749 = 1
     {round_multiple 1.0}
     {action "airstrike:conquest_smoke_barrage_105_ger"}
@@ -840,7 +840,7 @@
 
 ; cost = 12
 {"105mm_lefh18_artillery_barrage"
-	("squad_vehicle" side(ger) period(mid)  min_stage(3) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(offmap_placeholder_4))
+	("squad_vehicle" side(ger) period(mid)  min_stage(3) max_stage(99) cw(0) cp(5) crew(artilleryman:0) vehicle(offmap_placeholder_4))
 	{cost 12};105mm_lefh18 cost 750 - 747 = 3
 	{round_multiple 1.0}
 	{action "airstrike:conquest_artillery_barrage_105_ger"}
@@ -848,7 +848,7 @@
 
 ; cost = 18
 {"150mm_sfh18_artillery_barrage"
-	("squad_vehicle" side(ger) period(mid)  min_stage(4) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(offmap_placeholder_5))
+	("squad_vehicle" side(ger) period(mid)  min_stage(4) max_stage(99) cw(0) cp(5) crew(artilleryman:0) vehicle(offmap_placeholder_5))
 	{cost 18} ;150mm_sfh18 cost 1000 - 996 = 4
 	{round_multiple 1.0}
 	{action "airstrike:conquest_artillery_barrage_150_ger"}
@@ -899,7 +899,7 @@
 
 {"sdkfz250a_3"
 	("vehicle"  side(ger) period(mid) min_stage(1) max_stage(99) cw(3) cp(-15) crew(rifleman_1:1))
-	{cost 1215}{not_for_player_sale 1}
+	{cost 1365}{not_for_player_sale 1}
 }
 		
 ;_________________________________________________	
@@ -1134,26 +1134,26 @@
 ; cost = 5
 {"conquest_fi156"
 	("squad_vehicle" side(ger) period(mid) min_stage(1) max_stage(99) cw(0) cp(3) crew(pilot:2) vehicle(fi156))
-	{cost 5}
+	{cost 4}
 	{round_multiple 1.0}
 	{action "airstrike:reconnaissance_50"}
 }
 {"conquest_bf109"
 	("squad_vehicle" side(ger) period(mid) min_stage(1) max_stage(99) cw(0) cp(8) crew(pilot:1) vehicle(bf109_f4))
-	{cost 7}
+	{cost 6}
 	{round_multiple 1.0}
 	{action "airstrike:sc_50"}
 }
 
 {"conquest_bf110"
-	("squad_vehicle2" side(ger) period(mid) min_stage(1) max_stage(99) cw(0) cp(10) crew1(pilot:1) crew2(pilot:1) vehicle(bf110_e2))
-	{cost 10}
+	("squad_vehicle2" side(ger) period(mid) min_stage(1) max_stage(99) cw(0) cp(12) crew1(pilot:1) crew2(pilot:1) vehicle(bf110_e2))
+	{cost 12}
     {round_multiple 1.0}
 	{action "airstrike:sc_250_mp"}
 }
 {"controllable_plane_ger"
-	("squad_vehicle" side(ger) period(mid) min_stage(1) max_stage(99) cw(0) cp(3) crew(pilot:2) vehicle(bf110_e2_player))
-	{cost 20}
+	("squad_vehicle" side(ger) period(mid) min_stage(1) max_stage(99) cw(0) cp(7) crew(pilot:2) vehicle(bf110_e2_player))
+	{cost 15}
 	{action "airstrike:pistol_ammo"}
 }
 
@@ -1162,7 +1162,7 @@
 
 ; cost = 10
 {"supply_drop_axis"
-	("squad_vehicle" side(ger) period(mid) min_stage(1) max_stage(99) cw(0) cp(10) crew(pilot:3) vehicle(ju-52))
+	("squad_vehicle" side(ger) period(mid) min_stage(1) max_stage(99) cw(0) cp(11) crew(pilot:3) vehicle(ju-52))
 	{cost 10}
 	{action "airstrike:ger_supply_drop_aim"}
 }
@@ -1206,7 +1206,7 @@
 
 ; cost = 15
 {"rocket_artillery_barrage"
-    ("squad_vehicle" side(ger) period(mid)  min_stage(1) max_stage(99) cw(0) cp(20) crew(pilot:0) vehicle(offmap_placeholder_5))
+    ("squad_vehicle" side(ger) period(mid)  min_stage(1) max_stage(99) cw(0) cp(22) crew(pilot:0) vehicle(offmap_placeholder_5))
     {cost 15} 
     {action "airstrike:conquest_light_rocket_barrage"}
 }
@@ -1256,7 +1256,7 @@
 }
 {"mmpillbox_dummy"
 	("emplacement2" side(ger) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(mmpillbox_dummy))
-	{cost 0}{not_for_ai_sale 1}
+	{cost 175}{not_for_ai_sale 1}
 }
 {"regel_bau_pak_75mm_pak40"
 	("emplacement2_20cp" side(ger) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(regel_bau_pak_75mm_pak40))
@@ -1272,27 +1272,27 @@
 }
 {"pillbox_dummy"
 	("emplacement2" side(ger) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(pillbox_dummy))
-	{cost 0}{not_for_ai_sale 1}
+	{cost 175}{not_for_ai_sale 1}
 }
 
 {"flak_ring_dummy"
 	("emplacement2" side(ger) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(flak_ring_dummy))
-	{cost 0}{not_for_ai_sale 1}
+	{cost 150}{not_for_ai_sale 1}
 }
 {"aa_regelbau_dummy"
 	("emplacement2" side(ger) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(aa_regelbau_dummy))
-	{cost 0}{not_for_ai_sale 1}
+	{cost 200}{not_for_ai_sale 1}
 }
 {"sandbag_bunker_hmg42"
 	("emplacement_5cp" side(ger) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(sandbag_bunker_hmg42))
 	{cost 275}{not_for_ai_sale 1}
 }
 
-{"fi156" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 8} {cost 0} {not_for_sale 1}}
-{"bf109_f4" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 8} {cost 0} {not_for_sale 1}}
-{"bf110_e2" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 8} {cost 0} {not_for_sale 1}}
+{"fi156" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 4} {cost 0} {not_for_sale 1}}
+{"bf109_f4" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 6} {cost 0} {not_for_sale 1}}
+{"bf110_e2" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
 {"ju-52" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 8} {cost 0} {not_for_sale 1}}
-{"bf110_e2_player" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 8} {cost 0} {not_for_sale 1}}
+{"bf110_e2_player" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
 
 
 ;{"ai_support_in_attack_high"

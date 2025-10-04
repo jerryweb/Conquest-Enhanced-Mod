@@ -64,7 +64,7 @@
 
 {"ba20_command"
 	("vehicle2" side(rus) period(mid) min_stage(2) max_stage(7) cw(2) cp(5) crew1(tankman:2) crew2(commisar:1))
-	{cost 250}
+	{cost 80}
 }
 
 ;// t1
@@ -184,7 +184,7 @@
 
 {"ba20_command"
 	("vehicle2" side(rus) period(mid) min_stage(2) max_stage(99) cw(2) cp(-10.4) crew1(tankman:2) crew2(commisar:1))
-	{cost 1570}
+	{cost 1400}
 }
 
 
@@ -803,7 +803,7 @@
 
 {"82mm_bm37_mortar_barrage"
 	("squad_vehicle" side(rus) period(mid)  min_stage(1) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(offmap_placeholder_3))
-	{cost 5} ;82mm_bm37 cost 250 - 248 = 2
+	{cost 8} ;82mm_bm37 cost 250 - 248 = 2
 	{round_multiple 1.0}
 	{action "airstrike:conquest_mortar_barrage_80"}
 }
@@ -1088,14 +1088,14 @@
 
 {"conquest_po2"
 	("squad_vehicle" side(rus) period(mid) min_stage(1) max_stage(99) cw(0) cp(3) crew(tankman:2) vehicle(po2))
-	{cost -45}
+	{cost -46}
 	{round_multiple 1.0}
 	{action "airstrike:reconnaissance_50"}
 }
 
 {"controllable_plane_sov"
 	("squad_vehicle" side(rus) period(mid) min_stage(1) max_stage(99) cw(0) cp(3) crew(tankman:1) vehicle(il2_mod42_player))
-	{cost -5}
+	{cost -10}
 	{action "airstrike:pistol_ammo"}
 }
 
@@ -1125,7 +1125,7 @@
 
 {"conquest_yak1"
 	("squad_vehicle" side(rus) period(mid) min_stage(1) max_stage(99) cw(0) cp(9) crew(tankman:1) vehicle(yak1_ser69))
-	{cost -18}
+	{cost -19}
 	{round_multiple 1.0}
 	{action "airstrike:sc_50"}
 }
@@ -1216,7 +1216,7 @@
 }
 {"mmpillbox_dummy"
 	("emplacement" side(rus) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(mmpillbox_dummy))
-	{cost 0}{not_for_ai_sale 1}
+	{cost 175}{not_for_ai_sale 1}
 }
 {"emplacement_305mm_mb_2_12"
 	("emplacement_50cp" side(rus) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(emplacement_305mm_mb_2_12))
@@ -1224,16 +1224,16 @@
 }
 {"pillbox_dummy"
 	("emplacement" side(rus) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(pillbox_dummy))
-	{cost 0}{not_for_ai_sale 1}
+	{cost 175}{not_for_ai_sale 1}
 }
 
 {"flak_ring_dummy"
 	("emplacement" side(rus) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(flak_ring_dummy))
-	{cost 0}{not_for_ai_sale 1}
+	{cost 150}{not_for_ai_sale 1}
 }
 {"aa_regelbau_dummy"
 	("emplacement" side(rus) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(aa_regelbau_dummy))
-	{cost 0}{not_for_ai_sale 1}
+	{cost 200}{not_for_ai_sale 1}
 }
 {"regel_bau_76mm_zis3"
 	("emplacement" side(rus) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(regel_bau_76mm_zis3))
@@ -1241,11 +1241,11 @@
 }
 
 
-{"po2" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 8} {cost 0} {not_for_sale 1}}
-{"yak1_ser69" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 9} {cost 0} {not_for_sale 1}}
-{"il2_mod42" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 9} {cost 0} {not_for_sale 1}}
+{"po2" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 4} {cost 0} {not_for_sale 1}}
+{"yak1_ser69" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 6} {cost 0} {not_for_sale 1}}
+{"il2_mod42" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
 {"c47_d" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 9} {cost 0} {not_for_sale 1}}
-{"il2_mod42_player" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 9} {cost 0} {not_for_sale 1}}
+{"il2_mod42_player" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
 
 
 
