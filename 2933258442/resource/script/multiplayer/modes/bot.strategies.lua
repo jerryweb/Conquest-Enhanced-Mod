@@ -409,9 +409,10 @@ StrategyTemplates = {
 		StrategyName = "Infantry Strategy",
 		StrategyUnitTypes = {
 			-- "Wave",
+			"Squad",
 			"Support",
 			"Big_gun",
-			"AT"
+			"AT",
 		},
 		forceUnitCount = {
 			min = 3,
@@ -419,7 +420,7 @@ StrategyTemplates = {
 		},
 		BotInfantry = {
 			min = 25,
-			max = 50,
+			max = 60,
 		},
 		BotATInfantry = {
 			min = 3,

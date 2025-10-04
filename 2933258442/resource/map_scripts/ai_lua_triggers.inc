@@ -2727,9 +2727,9 @@
 										{state
 											{state linked}
 										}
-										;{prop
-										;	{prop turret}
-										;}
+										{prop
+											{prop turret}
+										}
 										{tag
 											{tag td_attacking_targets}
 										}

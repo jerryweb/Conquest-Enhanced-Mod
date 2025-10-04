@@ -13,7 +13,7 @@
 	testing = true
 	
 	-- This is the strategy the ai will use to spawn units. If you want to randomly select one, just set it to nil
-	-- strategyIndexOverride = 3
+	-- strategyIndexOverride = 7
 
 	-- Time from start of match AI will wait before attempting to buy a unit in mins
 	oneFlagOffsetTime = {
