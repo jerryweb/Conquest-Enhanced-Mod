@@ -79,13 +79,13 @@
 	-- and can be countered with a radio vehicle.
 	enableRadioMechanics = 1
 	
-	enableCommunicationsCutMechanics = 0--0.16
+	enableCommunicationsCutMechanics = 0.18
 
 	-- Percentage chance (between 0 and 1) for the AI sabotage event. This event has a percentage based on difficulty within the scripts, so this value will override that value.
 	enableSabotageMechanics = 0.35
 	
 	-- Percentage chance (between 0 and 1) that the AI will spawn from the player's side randomly during battle
-	enableRearAttackMechanics = 0.15
+	enableRearAttackMechanics = 0.18
 
 	-- Enabled this setting to allow AI to scuttle disabled tanks (tanks that have turret and gun disabled or are immobile for at least 3 mins). MUST BE SET TO 1 0R 0
 	enableAiAbandonMechanics = 0

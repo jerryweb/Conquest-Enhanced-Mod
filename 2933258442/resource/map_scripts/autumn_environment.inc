@@ -6,7 +6,7 @@
 						{time 0.1}
 					}
 					{"switch"
-						(include "weather_cases.inc")
+						;(include "weather_cases.inc")
 						{"case"
 							{condition
 								{type rand}
@@ -115,6 +115,48 @@
 							}
 							{"environment"
 								{name "dynamic_campaign/autumn/cloudy/evening_1"}
+								{time -1}
+								{apply}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.13}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"environment"
+								{name "goh/west/wip/autumn/night_1"}
+								{time -1}
+								{apply}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.13}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"environment"
+								{name "goh/west/wip/autumn/night_2"}
+								{time -1}
+								{apply}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.13}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"environment"
+								{name "goh/west/wip/autumn/night_3"}
 								{time -1}
 								{apply}
 							}

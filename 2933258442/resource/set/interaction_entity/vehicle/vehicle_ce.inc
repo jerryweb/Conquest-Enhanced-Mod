@@ -212,8 +212,8 @@
         {if not user_control
             {if tagged "_bot"
                 {if operatable
-                    {call "smoke_for_test"}
-                    {spawn "artillery_warning_light"}
+                    ;{call "smoke_for_test"}
+                    ;{spawn "artillery_warning_light"}
                     {tags add "td_attacking_targets"}
                     {tags remove "td_in_combat"}
                     {delay 45

@@ -349,9 +349,9 @@ function GetUnitPriority(t)
     if UnitType("Infantry") then
       priorityMultiplier = priorityMultiplier
       if UnitType("Squad") then
-        priorityMultiplier = priorityMultiplier * 1.5 
+        priorityMultiplier = priorityMultiplier * 2.1 
       elseif UnitType("Team") then
-        priorityMultiplier = priorityMultiplier * 1.3 
+        priorityMultiplier = priorityMultiplier * 1.8 
       end
     else
       priorityMultiplier = priorityMultiplier * 0.1

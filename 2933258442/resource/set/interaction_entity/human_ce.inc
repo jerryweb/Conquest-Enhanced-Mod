@@ -250,56 +250,7 @@
 				{tags remove "run"}
 			}
 		}
-	}	
-
-;============= Auto Medic Functions =============
-
-	;{on "stop_healing"
-	;	{if tagged "ignore_auto_medic"
-	;		{tags remove "ignore_auto_medic"}
-	;	}
-	;}
-;
-	;{on "medic_move_to_auto_healing_zone"									;// Auto Medic edited by ;TJDagger
-	;	{tags add "move_to_auto_healing_zone"}
-	;	{call "set_auto_medic"}
-	;	{delay 25
-	;		{tags remove "move_to_auto_healing_zone"}
-	;	}
-	;}
-;
-	;{on "set_auto_medic"
-	;	{tags add "auto_medic"}
-	;	{view start ally neutral "auto_medic"}
-	;	{damage_report "medic_action" "<s(10)b+c(FF0000)>Going to Heal."}
-	;	;{delay 40
-	;		;{view pause "auto_medic"}
-	;	;}
-	;}
-;
-;
-	;{on "ignore_auto_medic_60"									;// Auto Medic edited by TJDagger
-	;	{tags add "ignore_auto_medic"}
-	;	{if tagged "medic"
-	;		{call "set_auto_medic"}
-	;	}
-	;	{tags remove "medic_action_revive"}
-	;	{tags remove "medic_patient"}
-	;	{delay 60
-	;		{tags remove "ignore_auto_medic"}
-	;	}
-	;}
-;
-	;{on "auto_medic_toggle"								;// Auto Medic edited by TJDagger
-	;	{if not tagged "auto_medic"
-	;		{call "set_auto_medic"}
-	;		{damage_report "medic_action" "<s(10)b+c(FF0000)>Auto medic is activated"}
-	;	else
-	;		{view pause "auto_medic"}
-	;		{tags remove "auto_medic"}
-	;		{damage_report "medic_action" "<s(10)b+c(000000)>Auto medic is NOT activated"}
-	;	}
-	;}
+	}
 
 ;============= Auto Resupply Functions =============
 
@@ -436,7 +387,6 @@
 		}
 	}
 
-
 	{on ground_hit 
 		;{tags remove "eject_null"}
 		{if tagged "paratrooper"
@@ -453,7 +403,6 @@
 	}
 
 	{on "die"
-		{view stop "auto_medic"}
 		{if tagged "ai_signaller"
 			{clear_inventory}
 			{tags remove "ai_signaller"}

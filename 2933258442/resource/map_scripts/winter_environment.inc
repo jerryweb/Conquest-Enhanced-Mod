@@ -9,13 +9,13 @@
 						{"case"
 							{condition
 								{type rand}
-								{value 0.02}
+								{value 0.1}
 							}
 							{"delay"
 								{time 0.1}
 							}
 							{"environment"
-								{name "dynamic_campaign/mod/midday2rain"}
+								{name "dynamic_campaign/winter/clear/evening_01"}
 								{time -1}
 								{apply}
 							}
@@ -23,13 +23,13 @@
 						{"case"
 							{condition
 								{type rand}
-								{value 0.02}
+								{value 0.1}
 							}
 							{"delay"
 								{time 0.1}
 							}
 							{"environment"
-								{name "dynamic_campaign/mod/midday4"}
+								{name "dynamic_campaign/winter/clear/midday_1"}
 								{time -1}
 								{apply}
 							}
@@ -37,13 +37,13 @@
 						{"case"
 							{condition
 								{type rand}
-								{value 0.02}
+								{value 0.1}
 							}
 							{"delay"
 								{time 0.1}
 							}
 							{"environment"
-								{name "dynamic_campaign/mod/midday6snow"}
+								{name "dynamic_campaign/winter/foggy/foggy_1"}
 								{time -1}
 								{apply}
 							}
@@ -51,13 +51,13 @@
 						{"case"
 							{condition
 								{type rand}
-								{value 0.02}
+								{value 0.1}
 							}
 							{"delay"
 								{time 0.1}
 							}
 							{"environment"
-								{name "dynamic_campaign/mod/midday7snow"}
+								{name "dynamic_campaign/winter/cloudy/morning_1"}
 								{time -1}
 								{apply}
 							}
@@ -65,13 +65,13 @@
 						{"case"
 							{condition
 								{type rand}
-								{value 0.02}
+								{value 0.1}
 							}
 							{"delay"
 								{time 0.1}
 							}
 							{"environment"
-								{name "dynamic_campaign/mod/midday8snow"}
+								{name "dynamic_campaign/winter/cloudy/evening_01"}
 								{time -1}
 								{apply}
 							}
@@ -79,13 +79,13 @@
 						{"case"
 							{condition
 								{type rand}
-								{value 0.02}
+								{value 0.1}
 							}
 							{"delay"
 								{time 0.1}
 							}
 							{"environment"
-								{name "dynamic_campaign/mod/midday9rain"}
+								{name "dynamic_campaign/winter/foggy/foggy_2"}
 								{time -1}
 								{apply}
 							}
@@ -93,13 +93,13 @@
 						{"case"
 							{condition
 								{type rand}
-								{value 0.02}
+								{value 0.1}
 							}
 							{"delay"
 								{time 0.1}
 							}
 							{"environment"
-								{name "dynamic_campaign/mod/midday10blizzard"}
+								{name "dynamic_campaign/winter/cloudy/midday_1"}
 								{time -1}
 								{apply}
 							}
@@ -107,13 +107,13 @@
 						{"case"
 							{condition
 								{type rand}
-								{value 0.02}
+								{value 0.1}
 							}
 							{"delay"
 								{time 0.1}
 							}
 							{"environment"
-								{name "dynamic_campaign/mod/midday11storm"}
+								{name "dynamic_campaign/winter/cloudy/midday_1a"}
 								{time -1}
 								{apply}
 							}
@@ -121,326 +121,116 @@
 						{"case"
 							{condition
 								{type rand}
-								{value 0.02}
+								{value 0.1}
 							}
 							{"delay"
 								{time 0.1}
 							}
 							{"environment"
-								{name "dynamic_campaign/mod/midday12fog"}
+								{name "dynamic_campaign/winter/cloudy/midday_1b"}
 								{time -1}
 								{apply}
 							}
 						}
-                        {"case"
+						{"case"
 							{condition
 								{type rand}
-								{value 0.02}
+								{value 0.1}
 							}
 							{"delay"
 								{time 0.1}
 							}
 							{"environment"
-								{name "dynamic_campaign/mod/morning1"}
+								{name "dynamic_campaign/winter/foggy/foggy_3"}
 								{time -1}
 								{apply}
 							}
 						}
-                        {"case"
+						{"case"
 							{condition
 								{type rand}
-								{value 0.02}
+								{value 0.1}
 							}
 							{"delay"
 								{time 0.1}
 							}
 							{"environment"
-								{name "dynamic_campaign/mod/morning2rain"}
+								{name "dynamic_campaign/winter/clear/midday_2"}
 								{time -1}
 								{apply}
 							}
 						}
-                        {"case"
+						{"case"
 							{condition
 								{type rand}
-								{value 0.02}
+								{value 0.1}
 							}
 							{"delay"
 								{time 0.1}
 							}
 							{"environment"
-								{name "dynamic_campaign/mod/morning3"}
+								{name "dynamic_campaign/winter/clear/midday_2b"}
 								{time -1}
 								{apply}
 							}
 						}
-                        {"case"
+						{"case"
 							{condition
 								{type rand}
-								{value 0.02}
+								{value 0.1}
 							}
 							{"delay"
 								{time 0.1}
 							}
 							{"environment"
-								{name "dynamic_campaign/mod/morning4"}
-								{time -1}
+								{name "goh/west/wip/winter/night_1"}
+								{time 8}
 								{apply}
 							}
 						}
-                        {"case"
+						{"case"
 							{condition
 								{type rand}
-								{value 0.02}
+								{value 0.1}
 							}
 							{"delay"
 								{time 0.1}
 							}
 							{"environment"
-								{name "dynamic_campaign/mod/morning5snow"}
-								{time -1}
+								{name "goh/west/wip/winter/night_2"}
+								{time 8}
 								{apply}
 							}
 						}
-                        {"case"
+						{"case"
 							{condition
 								{type rand}
-								{value 0.02}
+								{value 0.1}
 							}
 							{"delay"
 								{time 0.1}
 							}
 							{"environment"
-								{name "dynamic_campaign/mod/morning7"}
-								{time -1}
+								{name "goh/west/wip/winter/day_blizzard_1"}
+								{time 8}
 								{apply}
 							}
 						}
-                        {"case"
+						{"case"
 							{condition
 								{type rand}
-								{value 0.02}
+								{value 0.1}
 							}
 							{"delay"
 								{time 0.1}
 							}
 							{"environment"
-								{name "dynamic_campaign/mod/morning8fog"}
-								{time -1}
+								{name "goh/west/wip/winter/day_blizzard_2"}
+								{time 8}
 								{apply}
 							}
 						}
-                        {"case"
-							{condition
-								{type rand}
-								{value 0.02}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"environment"
-								{name "dynamic_campaign/mod/evening1"}
-								{time -1}
-								{apply}
-							}
-						}
-                        {"case"
-							{condition
-								{type rand}
-								{value 0.02}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"environment"
-								{name "dynamic_campaign/mod/evening2rain"}
-								{time -1}
-								{apply}
-							}
-						}
-                        {"case"
-							{condition
-								{type rand}
-								{value 0.02}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"environment"
-								{name "dynamic_campaign/mod/evening3"}
-								{time -1}
-								{apply}
-							}
-						}
-                        {"case"
-							{condition
-								{type rand}
-								{value 0.02}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"environment"
-								{name "dynamic_campaign/mod/evening4"}
-								{time -1}
-								{apply}
-							}
-						}
-                        {"case"
-							{condition
-								{type rand}
-								{value 0.02}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"environment"
-								{name "dynamic_campaign/mod/evening5"}
-								{time -1}
-								{apply}
-							}
-						}
-                        {"case"
-							{condition
-								{type rand}
-								{value 0.02}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"environment"
-								{name "dynamic_campaign/mod/evening6snow"}
-								{time -1}
-								{apply}
-							}
-						}
-                        {"case"
-							{condition
-								{type rand}
-								{value 0.02}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"environment"
-								{name "dynamic_campaign/mod/night1"}
-								{time -1}
-								{apply}
-							}
-						}
-                        {"case"
-							{condition
-								{type rand}
-								{value 0.02}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"environment"
-								{name "dynamic_campaign/mod/night2"}
-								{time -1}
-								{apply}
-							}
-						}
-                        {"case"
-							{condition
-								{type rand}
-								{value 0.02}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"environment"
-								{name "dynamic_campaign/mod/night3"}
-								{time -1}
-								{apply}
-							}
-						}
-                        {"case"
-							{condition
-								{type rand}
-								{value 0.02}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"environment"
-								{name "dynamic_campaign/mod/night4"}
-								{time -1}
-								{apply}
-							}
-						}
-                        {"case"
-							{condition
-								{type rand}
-								{value 0.02}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"environment"
-								{name "dynamic_campaign/mod/night5"}
-								{time -1}
-								{apply}
-							}
-						}
-                        {"case"
-							{condition
-								{type rand}
-								{value 0.02}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"environment"
-								{name "dynamic_campaign/mod/night6snow"}
-								{time -1}
-								{apply}
-							}
-						}
-                        {"case"
-							{condition
-								{type rand}
-								{value 0.02}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"environment"
-								{name "dynamic_campaign/mod/night7"}
-								{time -1}
-								{apply}
-							}
-						}
-                        {"case"
-							{condition
-								{type rand}
-								{value 0.02}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"environment"
-								{name "dynamic_campaign/mod/sunrise"}
-								{time -1}
-								{apply}
-							}
-						}
-                        {"case"
-							{condition
-								{type rand}
-								{value 0.3}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"environment"
-								{name "dynamic_campaign/mod/midday4"}
-								{time -1}
-								{apply}
-							}
-						}
-                        {"default"
+						{"default"
 							{"delay"
 								{time 0.1}
 							}

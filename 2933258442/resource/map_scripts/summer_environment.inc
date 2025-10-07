@@ -6,7 +6,7 @@
 						{time 0.1}
 					}
 					{"switch"
-						(include "weather_cases.inc")
+						;(include "weather_cases.inc")
 						{"case"
 							{condition
 								{type rand}
@@ -76,7 +76,35 @@
 								{time -1}
 								{apply}
 							}
-						}						
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.15}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"environment"
+								{name "goh/west/wip/summer/night_1"}
+								{time -1}
+								{apply}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.15}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"environment"
+								{name "goh/west/wip/summer/night_2"}
+								{time -1}
+								{apply}
+							}
+						}							
 						{"default"
 							{"delay"
 								{time 0.1}

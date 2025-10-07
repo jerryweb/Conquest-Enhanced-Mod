@@ -6,7 +6,7 @@
 						{time 0.1}
 					}
 					{"switch"
-						(include "weather_cases.inc")
+						;(include "weather_cases.inc")
 						{"case"
 							{condition
 								{type rand}

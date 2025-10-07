@@ -2782,7 +2782,7 @@
 					{"delay"
 						{time 1}
 					}
-					{"timer"
+					{## "timer"
 						{time 7}
 						{title "AI Tank Destroyer Scripts Engaged"}
 					}
