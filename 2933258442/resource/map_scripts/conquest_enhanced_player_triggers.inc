@@ -1780,7 +1780,7 @@
 						{name "player_scripts/change_weather"}
 					}
 				}
-			}
+			}			
             {"player_scripts/allied_infantry"
 				{condition
 					{terms
@@ -2536,7 +2536,7 @@
 						{name "player_scripts/allied_infantry"}
 					}
 				}
-			}
+			}			
             {## "player_scripts/allied_tanks"
 				{condition
 					{terms

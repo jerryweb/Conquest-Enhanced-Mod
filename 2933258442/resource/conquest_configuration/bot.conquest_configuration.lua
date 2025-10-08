@@ -15,6 +15,8 @@
 	-- This is the strategy the ai will use to spawn units. If you want to randomly select one, just set it to nil
 	-- strategyIndexOverride = 7
 
+	-- weather_selection_override = 0
+
 	-- Time from start of match AI will wait before attempting to buy a unit in mins
 	oneFlagOffsetTime = {
 	    -- Bot is defender
@@ -52,7 +54,7 @@
 	}
 
 	-- Time when the AI reinforcements are called in when testing is set to true
-	firstWaveOffsetTimeForTesting = 2.2
+	firstWaveOffsetTimeForTesting = 1.5
 
 	-- Time from last purchase AI will wait before attempting to buy a new unit.
 	DCGWaveOffOverwrite = {
@@ -75,6 +77,24 @@
 	}
 
 -- ================================= Advanced Settings =========================================
+	-- Percentage chance (between 0 and 1) for weather to change dynamically during the game
+	enableDynamicWeather = 1
+
+	-- Delay until environment starts to change
+	applyDelay = {
+		min = 6 * 60 * 1000, -- min delay in mins to apply environement
+		max = 18 * 60 * 1000, -- max delay in mins to apply environement 
+	}
+
+	-- Max weather presets for each season. You will also have to change the environment scripts if you change these scripts
+	maxWeatherOptions = {
+		autumn = 12,
+		spring = 6,
+		summer = 12,
+		winter = 20,
+	}
+
+
 	-- Percentage chance (between 0 and 1) to enable the Classic CE Radio Mechanics. Currently it is set as a random event with a 15% chance to occur per match.
 	-- and can be countered with a radio vehicle.
 	enableRadioMechanics = 1
@@ -99,10 +119,10 @@
 		Attacking = {
 			emplacement = {
 				max = -1,
-				perFlag = 2
+				perFlag = 1
 			},
 			infantry = {
-				x2_cloneClount = 5,
+				x2_cloneClount = 4,
 				max = 60,
 				perFlag = 25,
 				max_ai_defender_at_flag = 12
@@ -153,8 +173,6 @@
 
 	-- Set to true when noresus mod is enabled with CE
 	enabledNoresus = 0
-	
-	
 -- =============================== Logging DO NOT MODIFY =======================================
 	require([[/conquest_configuration/bot.mod_configuration]])
 

@@ -2,6 +2,9 @@
 require([[/script/multiplayer/modes/utility_ce]])
 
 local defenseStarted = false
+local intialSceneEnvironmentCheck = false
+local environment = nil
+
 spawnPoint = BotApi.Instance.spawnPointName
 spawnSide = string.sub(spawnPoint,1,1)
 gameMode = BotApi.Instance.gameMode
@@ -11,6 +14,7 @@ teamSize = BotApi.Instance.teamSize
 
 MaxSquadSize = 0
 gameModeSpawnTimer = 0
+dynamicWeatherTimer = 0
 Purchases = {}
 PIter = {}
 PIter.__index = PIter
@@ -450,6 +454,7 @@ function OnGameStop()
 	KillSpawnWaitTimer()
 	KillInitialSceneCheckTimer()
 	KillAiSpawnMoveTimer()
+	KillDynamicWeatherTimer()
 	for squad, timer in pairs(Context.SquadTimers) do
 		if timer then
 			BotApi.Events:KillQuantTimer(timer)
@@ -513,10 +518,65 @@ function CheckSceneVariable(squad)
     		forceUnitCountMax = 1   
     	end
     end
+
+   	if not environment then
+   		if BotApi.Scene:IsSquadTagged(squad, "_autumn") then
+	   		environment = "autumn"
+		elseif BotApi.Scene:IsSquadTagged(squad, "_spring") then
+	   		environment = "spring"
+		elseif BotApi.Scene:IsSquadTagged(squad, "_summer") then
+	   		environment = "summer"
+		elseif BotApi.Scene:IsSquadTagged(squad, "_winter") then
+	   		environment = "winter"
+		end
+	elseif environment and not intialSceneEnvironmentCheck then 
+		print("Print: Scene evironment = ", environment)
+		print("Print: Getting maxWeatherOptions with max size of ", maxWeatherOptions[environment])
+	 	intialSceneEnvironmentCheck = true
+	  	SetDynamicWeatherTimer()
+	end
+
+	
   	-- elseif BotApi.Scene:IsSquadTagged(squad, "_prioritize_aa") and not forceUnitPriority then
   	  -- forceUnitPriority = true 
   	  -- forcedUnitTypes = {"AA"}
   	  -- forceUnitCountMax = 2    
   	  -- print("Player has planes. Prioritze buying AA!")
   	-- end
+end
+
+function SetDynamicWeatherVariables()
+	print("Print: setting dynamic weather delay")
+	local weatherDelay = 9999 * 60 * 1000
+
+	math.randomseed(os.time())
+	if environment and enableDynamicWeather >=  math.random()  then
+		weatherDelay = math.random(applyDelay.min, applyDelay.max)
+	end 
+	
+ 	return weatherDelay
+end
+
+function SetDynamicWeatherTimer()
+	dynamicWeatherTimer = SetDynamicWeatherVariables()
+	print("Print: dynamic weather apply delay = ", dynamicWeatherTimer)
+	Context.SpawnWait.CooldownTimer = BotApi.Events:SetQuantTimer(
+		function() 
+			local weather_selection = math.random(1, maxWeatherOptions[environment])
+			if weather_selection_override then 
+	   			weather_selection = weather_selection_override
+	   		end
+			print("Setting dynamic weather selection =  ", weather_selection)
+			BotApi.Scene:SetVar("weather_selection", weather_selection)
+			Context.DynamicWeatherTimer = nil
+			KillDynamicWeatherTimer()
+		end, 
+		dynamicWeatherTimer)
+end
+
+function KillDynamicWeatherTimer()
+	if Context.DynamicWeatherTimer then
+		BotApi.Events:KillQuantTimer(Context.DynamicWeatherTimer)
+		Context.DynamicWeatherTimer = nil
+	end
 end
