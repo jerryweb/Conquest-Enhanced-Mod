@@ -38,9 +38,9 @@ Context = {
   SquadTimers = {},
   GeneralSquadTagCheckTimer = nil,
   InitialSceneTimerCheck = nil,
-  AiSpawnMoveTimer = nil
+  AiSpawnMoveTimer = nil,
+  DynamicWeatherTimer = nil,
 }
-
 
 -- =================== CE Mechanics Variable Set Functions ==================
 challenge_map = false
@@ -123,6 +123,8 @@ function SetCEMissionVariables(botDefender)
   else
       BotApi.Scene:SetVar("enable_ai_waypoint_graphs", 0)
   end
+
+  -- checkVarPercentage("weather_selection", weather_selection_override)
 
   --checkVarPercentage("enable_ce_radio_mechanic", enableRadioMechanics)
   checkVarPercentage("enable_ce_radio_mechanic", enableCommunicationsCutMechanics) -- use this to control both variables for now

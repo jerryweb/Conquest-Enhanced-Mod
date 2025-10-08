@@ -30,6 +30,8 @@
 			{"human_wave_strategy_active"}
 			{"punish_no_aa"}
 			{"noresusenabled"}
+			{"weather_selection"}
+			{"prev_weather_selection"}
 
 ;============ CE VARIABLES ========================================
 			{"defense_level"}
