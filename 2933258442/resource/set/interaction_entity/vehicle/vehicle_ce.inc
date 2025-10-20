@@ -224,6 +224,92 @@
         }
     }
 
+    {on "_explosion" overload sync
+        {tags add "exploded"}
+        {call "break_all"}
+        {stop_sound "move"}
+        {stop_sound "move_end"}
+        {stop_sound "engine_full"}
+        {stop_sound "engine_stop"}
+        {stop_sound "exhaust"}
+        {call "engine fullstop"}
+        {view stop "fire1"}
+        {view stop "fire2"}
+        {tags add "destroyed"}
+        {kick_entity_manager}
+        {volumes disable blast}
+        {call "explosion_sound"}
+        {if not terrain_fx "bridge"
+            {if not terrain_fx "bridge_wood"
+                {if not under_water
+                    {call "spawn_shellhole"}
+                }
+            }
+        }
+
+        {delay_ex 0
+            {set "no_burn_volumes" 1}
+            {set_skeleton "_xx" sync}
+            {call "impulse"}
+            {ani_play "death"}
+            {call "cut_parts"}
+            {if not tagged "_ai_defender"
+                {mark_for_persistence}          ;// Conquest map persistence
+            }
+        }
+        {delay 0.2
+            {restore_volume_states} ; restore volume ables from .def file
+        }
+    }
+
+    {on "_burn" overload
+        {if not tagged "burned"
+            {if not able "exploded"
+                {talk "burning"}
+                {damage_report "engine" "component/engine_burn"}
+                {add_view "smoke_fire_engine" "burn_fire" "FXfire1"}
+                {add_view "smoke_engine" "burn_fire_smoke" "FXfire1"}
+                ;{add_view "smoke_black" "burn_fire" "FXfire1"}
+                {view start "burn_fire"}
+                {burn time 12}
+                {tags add "burned"}
+                {play_sound "flame" 1}
+                {set "burn_fire" 1}
+                {call "stat_break"}
+                {tags add "no_scavenge"}        ;// tag for conquest so that vehicle cannot be repaired/recovered
+                {if not tagged "_ai_defender"
+                    {mark_for_persistence}          ;// Conquest map persistence
+                }
+                {delay 4 2
+                    {unlink_trailer}
+                    {call_synced "check_burn_emit"}
+                }
+                {delay 10 2
+                    {if not tagged "engine_brake"
+                        {components "engine" break}
+                    }
+                    {delay 5 4
+                        {call_synced "hull_destroyed"}
+                        {call_synced "car_destroyed"}
+                        {call_synced "railway_destroyed"}
+                    }
+                }
+                {delay 180
+                    {view start "burn_fire_smoke"}
+                    {delay 900
+                        {view stop "burn_fire_smoke"}
+                    }
+                    {delay 2
+                        {view stop "burn_fire"}
+                    }
+                    {stop_sound "flame"}
+                    {set "burn_fire" 0}
+                    {able "burning" 0}
+                }
+            }
+        }
+    }
+
 ; =========== Build Sandbag Ring Functions ===========
     {on "sandbag_ring_heap_curved"
         {delay 10
