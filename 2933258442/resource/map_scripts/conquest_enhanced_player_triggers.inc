@@ -1748,7 +1748,7 @@
 			}
             
 ;============ CHANGE WEATHER SCRIPTS ==========            
-            {"player_scripts/change_weather"
+            {## "player_scripts/change_weather"
 				{condition
 					{terms
 						{"1.entities"
