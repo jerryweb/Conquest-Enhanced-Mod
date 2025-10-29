@@ -67,56 +67,56 @@
 	{uncover 1}
 	{h_fov 50}
 	{v_fov 170}
-	("spotting2" r(2.8) r_human(0.1) veh_vis(110) can_vis(110) can_fire(110))
+	("spotting2" r(2.8) r_human(0.1) veh_vis(110) can_vis(110) can_fire(107))
 }
 
 {"cannon_range_300"						; // Gunner Vision - Gun range 300m
 	{uncover 1}
 	{h_fov 50}
 	{v_fov 170}
-	("spotting2" r(3.0) r_human(0.1) veh_vis(110) can_vis(110) can_fire(110))
+	("spotting2" r(3.0) r_human(0.1) veh_vis(110) can_vis(110) can_fire(107))
 }
 
 {"cannon_range_350"						; // Gunner Vision - Gun range 350m
 	{uncover 1}
 	{h_fov 50}
 	{v_fov 170}
-	("spotting2" r(3.5) r_human(0.1) veh_vis(120) can_vis(120) can_fire(120))
+	("spotting2" r(3.5) r_human(0.1) veh_vis(120) can_vis(120) can_fire(100))
 }
 
 {"cannon_range_400"						; // Gunner Vision - Gun range 400m 
 	{uncover 1}
 	{h_fov 50}
 	{v_fov 170}
-	("spotting2" r(4.0) r_human(0.1) veh_vis(130) can_vis(130) can_fire(130))
+	("spotting2" r(4.0) r_human(0.1) veh_vis(130) can_vis(130) can_fire(100))
 }
 
 {"cannon_range_450"						; // Gunner Vision - Gun range 450m 
 	{uncover 1}
 	{h_fov 50}
 	{v_fov 170}
-	("spotting2" r(4.5) r_human(0.1) veh_vis(140) can_vis(140) can_fire(140))
+	("spotting2" r(4.5) r_human(0.1) veh_vis(140) can_vis(140) can_fire(100))
 }
 
 {"cannon_range_500"						; // Gunner Vision - Gun range 500m 
 	{uncover 1}
 	{h_fov 50}
 	{v_fov 170}
-	("spotting2" r(5.0) r_human(0.1) veh_vis(150) can_vis(150) can_fire(150))
+	("spotting2" r(5.0) r_human(0.1) veh_vis(150) can_vis(150) can_fire(100))
 }
 
 {"cannon_range_550"						; // Gunner Vision - Gun range 550m 
 	{uncover 1}
 	{h_fov 50}
 	{v_fov 170}
-	("spotting2" r(5.5) r_human(0.1) veh_vis(160) can_vis(160) can_fire(160))
+	("spotting2" r(5.5) r_human(0.1) veh_vis(160) can_vis(160) can_fire(105))
 }
 
 {"cannon_range_600"						; // Gunner Vision - Gun range 600m 
 	{uncover 1}
 	{h_fov 50}
 	{v_fov 170}
-	("spotting2" r(6.0) r_human(0.1) veh_vis(170) can_vis(170) can_fire(170))
+	("spotting2" r(6.0) r_human(0.1) veh_vis(170) can_vis(170) can_fire(100))
 }
 
 ;/*=============== Long Range Cannon End ===============*/
@@ -127,4 +127,38 @@
 	{h_fov 360}
 	{v_fov 360}
 	("spotting" r(2.7))
+}
+
+;/*=============== Vehicle Begin ===============*/
+
+
+{"vehicle_top_mgun"						; // Top mounted Machine gunners vision (jeeps, halftracks, etc)
+	{uncover 15}
+	{h_fov 90}
+	{v_fov 170}
+	("spotting" r(0.8))
+}
+
+{"vehicle_around"						; // Vehicle peripheral / commander vision
+	{uncover 25}
+	{h_fov 360}
+	{v_fov 150}
+	("spotting" r(1.0))
+}
+
+;/*=============== Tank Begin ===============*/
+
+
+{"recon_main"							; // Recon gunner vision
+	{uncover 50}
+	{h_fov 60}
+	{v_fov 90}
+	("spotting2" r(1.5) r_human(0.9) veh_vis(95) can_vis(90) can_fire(120))
+}
+
+{"recon_open"							; // Open Top Recon gunner vision
+	{uncover 50}
+	{h_fov 90}
+	{v_fov 170}
+	("spotting2" r(1.5) r_human(1.0) veh_vis(110) can_vis(90) can_fire(120))
 }
