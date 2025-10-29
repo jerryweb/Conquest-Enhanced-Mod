@@ -1,0 +1,113 @@
+;Exported by:	 Carlos
+;Date:			 26.12.2021 15:02:55
+;File:			 T:\goh_3d_human_fin\Weapons\Mosin M27\Mosin_M39_scopedexport.max
+{skeleton
+	{animation
+		{sequence "open_bolt" {speed 1}}
+		{sequence "close_bolt" {speed 1}}
+		{sequence "bolt_action" {speed 1}}
+		{sequence "reload" {speed 1}}
+	}
+	{bone "mosin_m27"
+		{orientation
+			1 	 0 	 0
+			0 	 -1 	 0
+			0 	 0 	 1
+		}
+		{LODView
+			{VolumeView "mosin_m27.ply"}
+			{VolumeView "mosin_m27_lod1.ply"}
+			{VolumeView "mosin_m27_lod2.ply"}
+			{VolumeView "mosin_m27_lod3.ply"}
+		}
+		{bone "m27_bolt_rear"
+			{Position -0.0335 	 1.3504 	 0}
+			{LODView
+				{VolumeView "m27_bolt_rear.ply"}
+				{VolumeView "m27_bolt_rear_lod1.ply"}
+				{VolumeView "m27_bolt_rear_lod2.ply"}
+				{VolumeView "m27_bolt_rear_lod3.ply"}
+			}
+		}
+		{bone "mosin_m27_pe"
+			{Position 5.6995 	 1.3244 	 0}
+			{LODView
+				{VolumeView "mosin_m27_pe.ply"}
+				{VolumeView "mosin_m27_pe_lod1.ply"}
+				{VolumeView "mosin_m27_pe_lod2.ply"}
+				{VolumeView "mosin_m27_pe_lod3.ply"}
+			}
+		}
+		{bone "foresight12"
+			{matrix34
+				1 	 0 	 0
+				0 	 1 	 0
+				0 	 0 	 1
+				17.1763 	 1.336 	 -0.0347
+			}
+		}
+		{bone "fxshell"
+			{matrix34
+				0 	 0.5736 	 0.8191
+				0 	 0.8191 	 -0.5736
+				-1 	 0 	 0
+				2.0327 	 1.4987 	 0.3721
+			}
+		}
+		{bone "handle"
+			{matrix34
+				1 	 0 	 0
+				0 	 0 	 -1
+				0 	 1 	 0
+				4.494 	 1.792 	 -0.0664
+			}
+		}
+		{bone "m27_boltbent"
+			{Position -0.0335 	 1.3504 	 0}
+			{LODView
+				{VolumeView "m27_boltbent.ply"}
+				{VolumeView "m27_boltbent_lod1.ply"}
+				{VolumeView "m27_boltbent_lod2.ply"}
+			}
+		}
+	}
+}
+{volume "body"
+	{box 21.433 2.17382 0.984371}
+	{bone "mosin_m27"}
+	{matrix34
+		0.9969 	 0.0791 	 0
+		-0.0791 	 0.9969 	 0
+		0 	 0 	 1
+		5.007 	 0.3481 	 -0.1036
+	}
+}
+{volume "select"
+	{box 23.0094 3.86723 1.27148}
+	{bone "mosin_m27"}
+	{Position 5.3186 	 -0.0058 	 -0.0011}
+}
+{extender "preview"
+	{"stuff"
+		{camera
+			{origin 5.4961 	 -0.4783 	 -28.6806}
+			{lookat 5.3477 	 -0.4703 	 -8.6683}
+			{fov 45}
+			{horizon 86.8001}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 7.6034 	 -12.4559 	 -0.601}
+			}
+			{"1"
+				{type directional}
+				{direction -0.0294 	 0.2276 	 0.4442}
+			}
+			{"2"
+				{type point}
+				{position 15.212 	 5.3261 	 -5.2231}
+			}
+		}
+	}
+}
