@@ -1,50 +1,57 @@
-{Low
+{Standard
 	{GlobalMaxCP 1000}
-	{StageCP 40 45 45 45 45}
+	{StageCP 45 45 45 45 45}
 	{SpecialCP 50}					;// airstrikes special tab
 	{EmplacementCP 50}				;// buildable with engineer
 	{Bots
-		{StartMP	0.50 min 1000 attackerMultiplier 2.00}
-		{FinishMP	0.75 attackerMultiplier 3.5}
+		;{StartMP	0.50 min 1000 attackerMultiplier 2.00}
+		;{FinishMP	0.75 min 1000 attackerMultiplier 3.5}
+		;{CP
+		;	{Base "0:27.75"} ;// seconds : CP
+		;	{RoundMultiplier "0:0.4 1:0.55 2:0.4 3:0.6 4:0.45 5:0.65 6:0.5 7:0.7 8:0.55 9:0.75 12:1 14:1 16:1 18:1.1 20:1.2"} ;// games played : multiplier for CP
+		;	{AttackMultiplier 4.0}
+		;}
+		{StartMP	1.75 min 2000 attackerMultiplier 3.25}
+		{FinishMP	1.75 min 2000 attackerMultiplier 3.25}
 		{CP
-			{Base "0:25"} ;// seconds : CP
-			{RoundMultiplier "0:0.4 1:0.55 2:0.4 3:0.6 4:0.45 5:0.65 6:0.5 7:0.7 8:0.55 9:0.75 12:1 14:1 16:1 18:1.1 20:1.2"} ;// games played : multiplier for CP
-			{AttackMultiplier 4.0}
+			{Base "0:60"} ;// seconds : CP
+			{RoundMultiplier "0:0.5 2:0.6 4:0.7 6:0.8 8:0.9 10:1.0 12:1.1 14:1.2 16:1.3 18:1.4 20:1.5"} ;// games played : multiplier for CP
+			{AttackMultiplier 3.8}
 		}
 		{DefenseLevel
 			{level_1
-				{DefenseBudgetPlayer	50.0}	;// budget it multiplied by number of flags
-				{DefenseBudgetAI		60.0}	;// places defender units with bot StartMP * this factor (StartMP without attackermultiplier) for player side
+				{DefenseBudgetPlayer	0.4}	;// budget it multiplied by number of flags
+				{DefenseBudgetAI		0.4}	;// places defender units with bot StartMP * this factor (StartMP without attackermultiplier) for player side
 				{unlock games 0 progress 0.0}	;// number of games to unlock this level, or progress in percent (campaign progress bar)
 			}
 			{level_2							;// once level is reached previous level values are ignored only currently level is used
-				{DefenseBudgetPlayer	60.5}
-				{DefenseBudgetAI		70.0}
+				{DefenseBudgetPlayer	0.45}
+				{DefenseBudgetAI		0.55}
 				{unlock games 8 progress 0.4}
 			}
 			{level_3
-				{DefenseBudgetPlayer	70.0}
-				{DefenseBudgetAI		80.5}
+				{DefenseBudgetPlayer	0.50}
+				{DefenseBudgetAI		0.75}
 				{unlock games 16 progress 0.6}
 			}
 		}
 	}
-	{PaybackFactor 0.2}		;// MP paid back when loosing solider, squad or vehicle
-	{SellFactor 0.3}
-	{ScavengedVehicleSellFactor 0.2}		;// captured enemy vehicle 
+	{PaybackFactor 0.3}		;// MP paid back when loosing solider, squad or vehicle
+	{SellFactor 0.4}
+	{ScavengedVehicleSellFactor 0.1}		;// captured enemy vehicle 
 	{RiskFactor
 		{Low
-			{BotResources 1.7}
+			{BotResources 0.85}
 			{BotVeterancy 3}
 			{Rewards 1.25}
 		}
 		{Standard
-			{BotResources 1.8}
+			{BotResources 1.0}
 			{BotVeterancy 4}
 			{Rewards 1.5}
 		}
 		{High
-			{BotResources 1.9}
+			{BotResources 1.25}
 			{BotVeterancy 6}
 			{Rewards 1.75}
 		}
@@ -52,8 +59,8 @@
 	{Resources
 		
 			{MP ;// Manpower (generic money)
-				{StartVal 2000}
-				{WinGain "1:300 4:350 6:400 8:1200 9:700 10:500 12:700 14:800 16:1200 17:900"} ;// games played : MP gain 
+				{StartVal 2800}
+				{WinGain "1:300 4:350 6:400 8:1200 9:700 10:500 12:700 14:800"} ;// games played : MP gain 
 				{LoseGain "1:200 4:250 6:300 8:350 10:400 12:450 14:500"}
 				{MapRewards	;//Bonus resources on various game types (a game can only be one randomly chosen type). Types: Airfield, Ammodepot, Bonus, Factory, Research.
 					{Airfield	850}
@@ -64,15 +71,15 @@
 				}
 			}
 			{SP ;// Special Points (airstrikes)
-				{StartVal 5}
+				{StartVal 7}
 				{WinGain  "1:1 4:5 5:1 8:10 9:2 12:15 13:3 16:4"}
 				{LoseGain "1:1 8:2 16:3 24:4"}
 				{MapRewards
-					{Airfield	35}
+					{Airfield	15}
 				}
 			}
 			{AP ;// Ammo points
-				{StartVal 1000}
+				{StartVal 1500}
 				{WinGain "5:500"}
 				{LoseGain "5:500"}
 				{MapRewards
@@ -81,7 +88,7 @@
 				}
 			}
 			{RP ;// Research points
-				{StartVal 8}
+				{StartVal 10}
 				{WinGain "1:1 5:2 10:3 15:4"}
 				{LoseGain "1:1 15:2"}
 				{MapRewards
