@@ -95,6 +95,7 @@ Purchases["conquest.rus"] = {
 				{priority = 1.0, type = {"Infantry", "Team", "Flamer"}, unit = "single_flamer(rus)"},
 				--{priority = 1.0, type = {"Infantry", "Team",}, unit = "single_tankman(rus)"},
 				{priority = 1.0, type = {"Infantry", "Team",}, unit = "single_sniper(rus)"},
+				{priority = 1.0, type = {"Infantry", "Team",}, unit = "elite_guards_sniper(rus)"},				
 				{priority = 1.0, type = {"Infantry", "Team", "Signaller"}, unit = "single_signaller(rus)"},
 				--]]
 

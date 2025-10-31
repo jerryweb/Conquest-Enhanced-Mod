@@ -84,6 +84,7 @@ Purchases["conquest.ger"] = {
 				{priority = 1.0, type = {"Infantry", "Team", "Flamer",}, unit = "single_flamer(ger)"},
 				--{priority = 1.0, type = {"Infantry", "Team",}, unit = "single_tankman(ger)"},
 				{priority = 1.0, type = {"Infantry", "Team",}, unit = "single_sniper(ger)"},
+				{priority = 1.0, type = {"Infantry", "Team",}, unit = "single_sniper_elite1(ger)"},				
 				{priority = 1.0, type = {"Infantry", "Team","Signaller"}, unit = "single_signaller(ger)"},
 				{priority = 1.0, type = {"Infantry", "Team", "Engineer"}, unit = "single_engineer(ger)"},
 			--]]

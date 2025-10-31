@@ -87,6 +87,7 @@ Purchases["conquest.usa"] = {
 				{priority = 1.0, type = {"Infantry", "Team", "Flamer",}, unit = "single_flamer(usa)"},
 				--{priority = 1.0, type = {"Infantry", "Team",}, unit = "single_tankman(usa)"},
 				{priority = 1.0, type = {"Infantry", "Team",}, unit = "single_sniper(usa)"},
+				{priority = 1.0, type = {"Infantry", "Team",}, unit = "single_101st_late_pathfinder_sniper(usa)"},				
 				{priority = 1.0, type = {"Infantry", "Team", "Signaller",}, unit = "single_signaller(usa)"},
 
 				--]]
