@@ -371,6 +371,40 @@
     }
 }
 
+{"8_wheels"
+    {on "hull_down"
+        {delay 8
+            {spawn "sandbag_framed_straight" offset 110 0 0}
+            {spawn "sandbag_framed_straight" offset 110 50 0}
+            {spawn "sandbag_framed_straight" offset 110 -50 0}
+            {delay 2
+                {spawn "sandbag_heap_pile" offset 100 -100 0}   
+                {delay 2
+                    {spawn "sandbag_framed_straight_90" offset 0 110 0}
+                    {spawn "sandbag_framed_straight_90" offset -50 110 0}
+                    {spawn "sandbag_framed_straight_90" offset 50 110 0}
+                    {delay 2
+                        {spawn "sandbag_heap_pile" offset -100 -100 0}
+                        {delay 2
+                            {spawn "sandbag_framed_straight_180" offset -110 0 0}
+                            {spawn "sandbag_framed_straight_180" offset -110 50 0}
+                            {spawn "sandbag_framed_straight_180" offset -110 -50 0}
+                            {delay 2
+                                {spawn "sandbag_framed_straight_270" offset 0 -110 0}
+                                {spawn "sandbag_framed_straight_270" offset -50 -110 0}
+                                {spawn "sandbag_framed_straight_270" offset 50 -110 0}
+                                {delay 2
+                                    {spawn "sandbag_heap_pile" offset 100 100 0}
+                                }
+                            }                           
+                        }
+                    }
+                }                       
+            }
+        }
+    }
+}
+
 ; ===== Artillery ===== 
     {"tank artillery_minimap_medium_2" 
         {on spawn

@@ -103,6 +103,66 @@
 	    }
 	}
 
+	{"sdkfz221" 
+		{on "hull_down"
+			{delay 8
+		   	    {spawn "sandbag_heap_straight" offset 110 40 0}
+		   	    {spawn "sandbag_heap_straight" offset 110 -40 0}
+		   	    {delay 2
+					{spawn "sandbag_heap_pile" offset 100 -100 0}
+					{delay 2
+				   	    {spawn "sandbag_heap_straight_90" offset 40 -110 0}
+				   	    {spawn "sandbag_heap_straight_90" offset -40 -110 0}
+				   	    {delay 2
+							{spawn "sandbag_heap_pile" offset -100 -100 0}
+							{delay 2
+								{spawn "sandbag_heap_straight" offset -110 40 0}
+		   	    				{spawn "sandbag_heap_straight" offset -110 -40 0}
+		   	    				{delay 2
+				   	    			{spawn "sandbag_heap_straight_90" offset 40 110 0}
+				   	    			{spawn "sandbag_heap_straight_90" offset -40 110 0}
+				   	    			{delay 2
+										{spawn "sandbag_heap_pile" offset 100 100 0}
+									}
+				   	    		}
+							}
+						}
+				   	}
+				}
+		   	}
+		}
+	}
+
+	{"sdkfz222a" 
+		{on "hull_down"
+			{delay 8
+		   	    {spawn "sandbag_heap_straight" offset 110 40 0}
+		   	    {spawn "sandbag_heap_straight" offset 110 -40 0}
+		   	    {delay 2
+					{spawn "sandbag_heap_pile" offset 100 -100 0}
+					{delay 2
+				   	    {spawn "sandbag_heap_straight_90" offset 40 -110 0}
+				   	    {spawn "sandbag_heap_straight_90" offset -40 -110 0}
+				   	    {delay 2
+							{spawn "sandbag_heap_pile" offset -100 -100 0}
+							{delay 2
+								{spawn "sandbag_heap_straight" offset -110 40 0}
+		   	    				{spawn "sandbag_heap_straight" offset -110 -40 0}
+		   	    				{delay 2
+				   	    			{spawn "sandbag_heap_straight_90" offset 40 110 0}
+				   	    			{spawn "sandbag_heap_straight_90" offset -40 110 0}
+				   	    			{delay 2
+										{spawn "sandbag_heap_pile" offset 100 100 0}
+									}
+				   	    		}
+							}
+						}
+				   	}
+				}
+		   	}
+		}
+	}
+
 	{"t27" 
 		{on "hull_down"
 			{delay 8
