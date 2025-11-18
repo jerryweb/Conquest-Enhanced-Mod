@@ -194,7 +194,6 @@ Purchases["conquest.usa"] = {
 				{priority = 1.0, type = {"Tank", "Medium",}, unit = "m4a1_75_mid"},
 				{priority = 1.0, type = {"Tank", "Medium",}, unit = "m4a1_75_mid_armor"},
 				{priority = 1.0, type = {"Tank", "Medium",}, unit = "m4a1_75_late"},
-				{priority = 1.0, type = {"Tank", "Medium",}, unit = "t1e3_m4a1_75"},
 				{priority = 1.0, type = {"Tank", "Medium",}, unit = "m4a1_76w"},
 				{priority = 1.0, type = {"Tank", "Medium",}, unit = "m4a1_76w_mid"},
 		

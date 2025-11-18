@@ -45,7 +45,6 @@ Purchases["conquest.fin"] = {
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_swe_rifle_early_con(fin)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_swe_jag_early_con(fin)"},
 				
-				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_assault_mid_con(fin)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_light_scout_mid_con(fin)"},
 
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_hq_lr_pio_mid_con(fin)"},
