@@ -1,3 +1,26 @@
+(define "kill_plane_sounds_hard"
+    {stop_sound "engine1_start"}
+    {stop_sound "engine1_idle"}
+    {stop_sound "engine1_full"}
+
+    {stop_sound "engine2_start"}
+    {stop_sound "engine2_idle"}
+    {stop_sound "engine2_full"}
+
+    {stop_sound "engine3_start"}
+    {stop_sound "engine3_idle"}
+    {stop_sound "engine3_full"}
+
+    {stop_sound "engine_accelerate"}
+    {stop_sound "engine_decelerate"}
+    {stop_sound "engine_stop"}
+
+    {stop_sound "bkg_plane"}
+    {stop_sound "fall"}
+    {stop_sound "bounds"}
+)
+
+
 {"airborne"
 	{on "spawn"
 		{delay 0.2
@@ -422,6 +445,14 @@
 	}
 }
 
+{"airborne"
+    {on "engine_not_run" overload
+        ("kill_plane_sounds_hard")
+        {inherited}
+    }
+}
+
+
 {"airborne ai_recon_plane"
 	{on spawn
 		{delay 0.2
@@ -458,7 +489,7 @@
 	}
 }
 
-{"ju-52_para_plane"
+{"c47_d_para_plane_ger"
 	{on spawn
 		{delay 0.2
 			{tags add "ger"}
@@ -466,7 +497,7 @@
 	}
 }
 
-{"ju-52_para_plane_player"
+{"c47_d_para_plane_player_ger"
 	{on spawn
 		{delay 0.2
 			{tags add "ger"}
