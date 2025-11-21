@@ -446,8 +446,31 @@
 }
 
 {"airborne"
-    {on "engine_not_run" overload
-        ("kill_plane_sounds_hard")
+    {on ground_hit sync overload
+        {if not tagged "ce_plane_grounded"
+            {tags add "ce_plane_grounded"}
+
+            ; Kill engine sounds completely.
+            ("kill_plane_sounds_hard")
+			; Like... really really hard.
+
+            ; Make sure the plane is actually "dead"
+            {components destroy}
+			; Especially fuck the crew.
+            {kill_crew}
+            {if not under_water
+                {add_view "aero_die_fire" "ce_fire"  "body"}
+                {add_view "aero_fire"     "ce_fire2" "body"}
+                {view start "ce_fire"}
+                {view start "ce_fire2"}
+
+                {spawn "aero_die_particle"}
+                {spawn "aero_die_particle"}
+                {spawn "aero_die_particle"}
+
+                {call "spawn_shellhole"}
+            }
+        }
         {inherited}
     }
 }
