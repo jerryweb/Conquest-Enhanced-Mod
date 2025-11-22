@@ -51,7 +51,7 @@
 					}
 				}
 				{actions
-					{"timer"
+					{## "timer"
 						{time 150}
 						{title "dynamic weather system activated"}
 					}
