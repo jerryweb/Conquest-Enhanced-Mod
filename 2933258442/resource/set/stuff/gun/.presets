@@ -106,7 +106,7 @@
 ; // Damage logic for AP-type shells with HE filler. Implemented a cubic equation to interpolate. Avoid touching the numbers (very sensitive!).
 (define "armor health custom" ;
 	{parameters "%shell"
-		{minimumDamageModifier (- (+ 29 (+ %damage (+ (* 0.35 %filler ) (* 0.0000000075 (* %filler (* %filler %filler))))))  (* 0.00009 (* %filler %filler)))} ; //Filler defined in grams of TNT
+		{minimumDamageModifier (+ (* %damage (/ %velocity 2100)) (* 0.72 (- (+ 29 (+ %damage (+ (* 0.35 %filler ) (* 0.0000000075 (* %filler (* %filler %filler))))))  (* 0.00009 (* %filler %filler)))))} ; //Filler defined in grams of TNT
 	}
 )
 (define "human health"		;// Damage to human health
@@ -306,7 +306,8 @@
 		heat50(1.50) heat100(3.00) heat140(4.25) heat200(8.00)
 		apcr50(1.50) apcr100(2.25) apcr140(3.25) apcr200(5.50)
 		hvap50(1.50) hvap100(2.00) hvap140(3.00) hvap200(5.00)
-		apds50(2.00) apds100(4.00) apds140(7.00) apds200(10.00)
+		;apds50(2.00) apds100(4.00) apds140(7.00) apds200(10.00)
+		apds50(1.80) apds100(3.50) apds140(6.00) apds200(8.25)
 	)
 )
 (define "accuracy_direct_arrowhead" ;// Accuracy for direct-fire weaponry, using arrowhead APCR design (early german APCR, all soviet APCR)
@@ -719,14 +720,14 @@
 	{spreading {SpreadXYRatio 0.4}}
 	{parameters "he"
 		{spreading 1 
-			{SpreadPower 1.00}    ;// Shot has en equal chance of landing anywhere on the aiming circle, no centre-bias
-			{SpreadXYRatio 0.75}  ;// Shots land more longitudinally than traversely.
+			{SpreadPower 1.00}    ;// Shot has en equal chance of landing anywhere on the aiming circle, no center-bias
+			{SpreadXYRatio 0.75}  ;// Shots land more longitudinally than transversely.
 		} 
 	}
 	{parameters "he2"
 		{spreading 1 
-			{SpreadPower 1.00}    ;// Shot has en equal chance of landing anywhere on the aiming circle, no centre-bias
-			{SpreadXYRatio 0.75}  ;// Shots land more longitudinally than traversely.
+			{SpreadPower 1.00}    ;// Shot has en equal chance of landing anywhere on the aiming circle, no center-bias
+			{SpreadXYRatio 0.75}  ;// Shots land more longitudinally than transversely.
 		} 
 	}
 	{ZeroingAccuracy 0.80 0.65 0.55 0.45 0.40}
@@ -741,14 +742,14 @@
 	{spreading {SpreadXYRatio 0.4}}
 	{parameters "he"
 		{spreading 1 
-			{SpreadPower 1.00}    ;// Shot has en equal chance of landing anywhere on the aiming circle, no centre-bias
-			{SpreadXYRatio 0.75}  ;// Shots land more longitudinally than traversely.
+			{SpreadPower 1.00}    ;// Shot has en equal chance of landing anywhere on the aiming circle, no center-bias
+			{SpreadXYRatio 0.75}  ;// Shots land more longitudinally than transversely.
 		} 
 	}
 	{parameters "he2"
 		{spreading 1 
-			{SpreadPower 1.00}    ;// Shot has en equal chance of landing anywhere on the aiming circle, no centre-bias
-			{SpreadXYRatio 0.75}  ;// Shots land more longitudinally than traversely.
+			{SpreadPower 1.00}    ;// Shot has en equal chance of landing anywhere on the aiming circle, no center-bias
+			{SpreadXYRatio 0.75}  ;// Shots land more longitudinally than transversely.
 		} 
 	}
 	{ZeroingAccuracy 0.80 0.65 0.55 0.45 0.40}
@@ -763,14 +764,14 @@
 	{spreading {SpreadXYRatio 0.4}}
 	{parameters "he"
 		{spreading 1 
-			{SpreadPower 1.00}    ;// Shot has en equal chance of landing anywhere on the aiming circle, no centre-bias
-			{SpreadXYRatio 0.75}  ;// Shots land more longitudinally than traversely.
+			{SpreadPower 1.00}    ;// Shot has en equal chance of landing anywhere on the aiming circle, no center-bias
+			{SpreadXYRatio 0.75}  ;// Shots land more longitudinally than transversely.
 		} 
 	}
 	{parameters "he2"
 		{spreading 1 
-			{SpreadPower 1.00}    ;// Shot has en equal chance of landing anywhere on the aiming circle, no centre-bias
-			{SpreadXYRatio 0.75}  ;// Shots land more longitudinally than traversely.
+			{SpreadPower 1.00}    ;// Shot has en equal chance of landing anywhere on the aiming circle, no center-bias
+			{SpreadXYRatio 0.75}  ;// Shots land more longitudinally than transversely.
 		} 
 	}
 	{ZeroingAccuracy 0.80 0.65 0.55 0.45 0.40}
@@ -1290,6 +1291,23 @@
 		{75		8.115		0.766	};
 		{80		16.61		0.766	};
 		{85		56.45		0.766	};
+		{90		99.0000		0.00000	}
+	}
+)
+(define "ap_94_eng_slope_multiplier" ;use for 94mm AP British
+	{overmatchCalibre
+		{0		1.0			0.00	}
+		{10		1.013		0.025	}
+		{20		1.072		0.186	}
+		{30		1.15		0.346	}
+		{40		1.331		0.163	}
+		{50		1.688		-0.236	}
+		{60		2.021		-0.232	}
+		{65		2.355		-0.149	};
+		{70		3.049		-0.011	};
+		{75		4.324		0.154	};
+		{80		6.903		0.155	};
+		{85		15.381		0.155	};
 		{90		99.0000		0.00000	}
 	}
 )
@@ -2243,6 +2261,14 @@
 		("heat_slope_multiplier")
 	}
 )
+(define "94_eng_slope_multipliers"
+	{parameters "ap"
+		("ap_94_eng_slope_multiplier")
+	}
+	{parameters "aphe"
+		("ap_90_slope_multiplier")
+	}
+)
 (define "105_slope_multipliers"
 	{parameters "ap"
 		("ap_105_slope_multiplier")
@@ -2303,8 +2329,11 @@
 	{parameters "aphe"
 		("ap_40_slope_multiplier")
 	}
-	{parameters "aphebc"
-		("apbc_45_slope_multiplier")
+	{parameters "apbc"
+		("ap_40_slope_multiplier")
+	}
+	{parameters "apcbc"
+		("apc_57_slope_multiplier")
 	}
 	{parameters "apcr"
 		("apcr_50_slope_multiplier")
@@ -2337,6 +2366,9 @@
 	{parameters "apbc"
 		("apbc_76_slope_multiplier")
 	}
+	{parameters "apcbc"
+		("apc_75_ger_slope_multiplier")
+	}
 	{parameters "aphebc"
 		("apbc_76_slope_multiplier")
 	}
@@ -2347,6 +2379,15 @@
 		("apcr_75_slope_multiplier")
 	}
 	{parameters "heat"
+		("heat_slope_multiplier")
+	}
+	{parameters "heata"
+		("heat_slope_multiplier")
+	}
+	{parameters "heatb"
+		("heat_slope_multiplier")
+	}
+	{parameters "heatc"
 		("heat_slope_multiplier")
 	}
 )
