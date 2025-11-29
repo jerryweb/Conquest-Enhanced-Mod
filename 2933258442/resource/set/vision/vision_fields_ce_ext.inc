@@ -63,62 +63,6 @@
 
 ;/*=============== Long Range Cannon Begin ===============*/
 
-{"cannon_range_280"						; // Gunner Vision - Gun range 300m
-	{uncover 1}
-	{h_fov 50}
-	{v_fov 170}
-	("spotting2" r(2.8) r_human(0.1) veh_vis(110) can_vis(110) can_fire(107))
-}
-
-{"cannon_range_300"						; // Gunner Vision - Gun range 300m
-	{uncover 1}
-	{h_fov 50}
-	{v_fov 170}
-	("spotting2" r(3.0) r_human(0.1) veh_vis(110) can_vis(110) can_fire(107))
-}
-
-{"cannon_range_350"						; // Gunner Vision - Gun range 350m
-	{uncover 1}
-	{h_fov 50}
-	{v_fov 170}
-	("spotting2" r(3.5) r_human(0.1) veh_vis(120) can_vis(120) can_fire(100))
-}
-
-{"cannon_range_400"						; // Gunner Vision - Gun range 400m 
-	{uncover 1}
-	{h_fov 50}
-	{v_fov 170}
-	("spotting2" r(4.0) r_human(0.1) veh_vis(130) can_vis(130) can_fire(100))
-}
-
-{"cannon_range_450"						; // Gunner Vision - Gun range 450m 
-	{uncover 1}
-	{h_fov 50}
-	{v_fov 170}
-	("spotting2" r(4.5) r_human(0.1) veh_vis(140) can_vis(140) can_fire(100))
-}
-
-{"cannon_range_500"						; // Gunner Vision - Gun range 500m 
-	{uncover 1}
-	{h_fov 50}
-	{v_fov 170}
-	("spotting2" r(5.0) r_human(0.1) veh_vis(150) can_vis(150) can_fire(100))
-}
-
-{"cannon_range_550"						; // Gunner Vision - Gun range 550m 
-	{uncover 1}
-	{h_fov 50}
-	{v_fov 170}
-	("spotting2" r(5.5) r_human(0.1) veh_vis(160) can_vis(160) can_fire(105))
-}
-
-{"cannon_range_600"						; // Gunner Vision - Gun range 600m 
-	{uncover 1}
-	{h_fov 50}
-	{v_fov 170}
-	("spotting2" r(6.0) r_human(0.1) veh_vis(170) can_vis(170) can_fire(100))
-}
-
 ;/*=============== Long Range Cannon End ===============*/
 
 
