@@ -12,24 +12,17 @@
 
 ; These are overwrites of the vanilla spotting values
 {"human"								; // Standard human vision
-	{uncover 25}
+	{uncover 20}
 	{h_fov 150}
 	{v_fov 180}
 	("spotting" r(1.0))
 }
 
-{"human_peripheral"						; // Additional all-round (weaker) situational awareness vision for humans
-	{uncover 10}
-	{h_fov 240}
-	{v_fov 120}
-	("spotting" r(0.22))
-}
-
 {"human_elite"							; // Soldiers with better vision (elites, officers, snipers)
-	{uncover 30}
+	{uncover 35}
 	{h_fov 150}
 	{v_fov 180}
-	("spotting" r(1.1))
+	("spotting" r(1.15))
 }
 
 {"human_recon"							; // Soldiers with dedicated best vision (recon soldiers)	
@@ -40,21 +33,21 @@
 }	
 
 {"rifle_telescope"						; // Primary vision for sniper scopes	
-	{uncover 15}	
+	{uncover 20}	
 	{h_fov 360}	
 	{v_fov 120}	
 	("glass" r(15))	
 }	
 
 {"field_glass"							; // Primary vision for binoculars	
-	{uncover 25}	
+	{uncover 50}	
 	{h_fov 360}	
 	{v_fov 120}	
 	("glass" r(60))	
 }	
 
 {"soldier_focused"						; // Secondary vision when soldier is looking through scope or binoculars	
-	{uncover 10}	
+	{uncover 25}	
 	{h_fov 70}	
 	{v_fov 150}	
 	("spotting" r(1))			; // Disabled secondary vision when looking through scopes or binoculars	
@@ -76,18 +69,32 @@
 ;/*=============== Vehicle Begin ===============*/
 
 
+{"vehicle_main"							; // Standard vehicle / driver vision
+	{uncover 18}
+	{h_fov 50}
+	{v_fov 100}
+	("spotting" r(1))
+}
+
 {"vehicle_top_mgun"						; // Top mounted Machine gunners vision (jeeps, halftracks, etc)
-	{uncover 15}
+	{uncover 25}
 	{h_fov 90}
 	{v_fov 170}
-	("spotting" r(0.8))
+	("spotting" r(1.2))
+}
+
+{"vehicle_top_turret"					; // Vision for cars with closed top / turret gunner
+	{uncover 30}
+	{h_fov 30}
+	{v_fov 30}
+	("spotting" r(1))
 }
 
 {"vehicle_around"						; // Vehicle peripheral / commander vision
-	{uncover 25}
+	{uncover 15}
 	{h_fov 360}
-	{v_fov 150}
-	("spotting" r(1.0))
+	{v_fov 170}
+	("spotting" r(0.6))
 }
 
 ;/*=============== Tank Begin ===============*/
@@ -105,4 +112,67 @@
 	{h_fov 90}
 	{v_fov 170}
 	("spotting2" r(1.5) r_human(1.0) veh_vis(110) can_vis(90) can_fire(120))
+}
+
+{"tank_main_mg"							; // Gunner vision when main gun is MG
+	{uncover 25}
+	{h_fov 15}
+	{v_fov 30}
+	("spotting" r(1.0))
+}
+
+{"tank_main-l"							; // Light tank gunner vision
+	{uncover 25}
+	{h_fov 15}
+	{v_fov 30}
+	("spotting2" r(1.5) r_human(0.66) veh_vis(60) can_vis(50) can_fire(70))
+}
+
+{"tank_main-m"							; // Medium tank gunner vision
+	{uncover 15}
+	{h_fov 15}
+	{v_fov 30}
+	("spotting2" r(1.5) r_human(0.66) veh_vis(65) can_vis(50) can_fire(70))
+}
+
+{"tank_main-h"							; // Heavy tank gunner vision
+	{uncover 15}
+	{h_fov 15}
+	{v_fov 30}
+	("spotting2" r(1.5) r_human(0.66) veh_vis(65) can_vis(50) can_fire(70))
+}
+
+{"tank_main-aa"							; // Tank's that have a AA gun from main weapon
+	{uncover 20}
+	{h_fov 30}
+	{v_fov 170}
+	("spotting2" r(1.5) r_human(1) veh_vis(50) can_vis(50) can_fire(70))
+}
+
+{"tank_driver"							; //Tank Driver vision
+	{uncover 15}
+	{h_fov 45}
+	{v_fov 30}
+	("spotting" r(0.85))
+}
+
+{"tank_hull-mg"							; // Tank Hull Machine gunner
+	{uncover 20}
+	{h_fov 30}
+	{v_fov 30}
+	("spotting" r(0.9))
+}
+
+{"tank_rear-mg"							; // Tank with rear turret machine gun
+	{uncover 15}
+	{h_fov 40}
+	{v_fov 50}
+	("spotting" r(0.85))
+}
+
+{"tank_around"							; // Tank peripheral / Commander vision
+	{uncover 25}
+	{h_fov 360}
+	{v_fov 170}
+	("spotting" r(0.5))
 }
