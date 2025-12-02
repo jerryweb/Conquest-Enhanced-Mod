@@ -1,0 +1,207 @@
+{fx
+	{lightview
+		{type point}
+		{animator
+			{timer
+				{duration 0.2}
+			}
+			{visibility 1
+				{linear
+					{min 1}
+					{max 0.5}
+				}
+			}
+			{highlight 0xfffeca80}
+			{scale 1
+				{linear
+					{min 1}
+					{max 0.5}
+				}
+			}
+		}
+		{radius 1250}
+		{effectonground}
+		{offset 0 0 0}
+		{intensity 10}
+		{radiusfalloff 150}
+	}
+
+	{particleview shock
+		{generator
+			{totalparticles 1}
+			{emissionarea
+				{radius 0}
+			}
+			{particleinit
+				{speed 0}
+				{lifetime 0.15}
+			}
+			{particlesinblock 1}
+			{timetolive 0.01}
+		}
+		{offset 0 0 10}
+		{visualizer
+			{stage
+				{sprite "$/flash/flash_shockwave"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{scale 1
+						{linear
+							{min 0}
+							{max 2.5}
+						}
+					}
+					{visibility 1
+						{peak
+							{min 0.2}
+							{max 0.7}
+						}
+					}
+					{preturn 90 90}
+				}
+			}
+		}
+		{notifyowner}
+	}
+
+	{particleview "explosion_fire"
+		{generator
+			{emissionarea
+				{radius 0}
+				{alpha0 0}
+				{alpha1 0}
+				{distributionlaw sphere}
+			}
+			{particleinit
+				{speed 0}
+				{lifetime 0.15}
+			}
+			{timetolive 0.1}
+			{totalparticles 1}
+			{particlesinblock 1}
+		}
+		{mover
+			{damping 0.97}
+			{gravity
+				{value 0}
+			}
+			{collisions
+				{terrain}
+			}
+		}
+		{visualizer
+			{stage
+				{sprite "$/explosion/fire_blast"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 0 180}
+					{scale 1
+						{linear
+							{min 0.5}
+							{max 2}
+						}
+					}
+					{light 1
+						{linear
+							{min 1}
+							{max 0}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	{particleview "sparks --"
+		{generator
+			{emissionarea
+				{radius 1 1}
+				{alpha0 0 180}
+				{alpha1 0 180}
+				{theta 89}
+			}
+			{particleinit
+				{speed 17.5 12.5}
+				{lifetime 1.75 1.25}
+			}
+			{timetolive 0.01}
+			{totalparticles 150}
+			{particlesinblock 150}
+		}
+		{mover
+			{damping 0.97}
+			{gravity
+				{value 0.15}
+			}
+			{collisions
+				{terrain}
+				{restitution 0.5}
+			}
+		}
+		{visualizer
+			{stage
+				{sprite "$/particle/spark_c"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{preturn 180}
+					{scale 0.075 0.025}
+					{light 1
+						{linear
+							{min 1}
+							{max 0}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	{particleview "sparks_thin"
+		{generator
+			{emissionarea
+				{radius 1 1}
+				{alpha0 60 60}
+				{alpha1 60 60}
+				{theta 89}
+			}
+			{particleinit
+				{speed 30 5}
+				{lifetime 0.5 0.25}
+			}
+			{timetolive 0.01}
+			{totalparticles 100}
+			{particlesinblock 100}
+		}
+		{mover
+			{damping 0.97}
+			{gravity
+				{value 0.15}
+			}
+		}
+		{visualizer
+			{stage
+				{flags trace }
+				{sprite "$/particle/oskolki"
+					{timer
+						{mode play }
+						{duration -1}
+					}
+					{scalex 6 2}
+					{scaley 0.06 0.03}
+					{light 1
+						{linear
+							{min 1}
+							{max 0}
+						}
+					}
+				}
+			}
+		}
+	}
+}
