@@ -28,19 +28,7 @@ WaveUnit = {
  Max = 10,
 }
 
-Context = {
-  Purchase = nil,
-  SpawnInfo = nil,
-  SpawnWait = {
-    CooldownTimer = nil,
-    WaitTimer = nil
-  },
-  SquadTimers = {},
-  GeneralSquadTagCheckTimer = nil,
-  InitialSceneTimerCheck = nil,
-  AiSpawnMoveTimer = nil,
-  DynamicWeatherTimer = nil,
-}
+
 
 -- =================== CE Mechanics Variable Set Functions ==================
 challenge_map = false

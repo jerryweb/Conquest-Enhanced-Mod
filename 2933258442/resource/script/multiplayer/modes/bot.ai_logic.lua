@@ -25,7 +25,8 @@ Context = {
   SquadTimers = {},
   GeneralSquadTagCheckTimer = nil,
   InitialSceneTimerCheck = nil,
-  AiSpawnMoveTimer = nil
+  AiSpawnMoveTimer = nil,
+  DynamicWeatherTimer = nil,
 }
 
 -- Default min max values for unit type priorities. These values should be overwritted by division roster specific values.
@@ -33,7 +34,7 @@ strategyTable = {
   StrategyUnitTypes = {
   },
   BotInfantry = {
-    min = 15,
+    min = 25,
     max = 50,
   },
   BotATInfantry = {
@@ -349,7 +350,7 @@ function GetUnitPriority(t)
     if UnitType("Infantry") then
       priorityMultiplier = priorityMultiplier
       if UnitType("Squad") then
-        priorityMultiplier = priorityMultiplier * 2.1 
+        priorityMultiplier = priorityMultiplier * 2.5 
       elseif UnitType("Team") then
         priorityMultiplier = priorityMultiplier * 1.8 
       end

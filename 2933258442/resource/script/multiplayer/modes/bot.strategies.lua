@@ -15,8 +15,8 @@ StrategyTemplates = {
 			max = 30,
 		},
 		BotInfantry = {
-			min = 25,
-			max = 42,
+			min = 40,
+			max = 80,
 		},
 		BotATInfantry = {
 			min = 4,
@@ -75,12 +75,12 @@ StrategyTemplates = {
             "Artillery",
 		},
 		forceUnitCount = {
-			min = 2,
+			min = 3,
 			max = 5,
 		},
 		BotInfantry = {
-			min = 20,
-			max = 40,
+			min = 40,
+			max = 60,
 		},
 		BotATInfantry = {
 			min = 1,
@@ -136,15 +136,18 @@ StrategyTemplates = {
 		StrategyName = "Airborne Strategy",
 		StrategyUnitTypes = {
 			"Paratrooper",
-			"Bomber",
 			"Fighter",
+			"Group_Air"
+		},
+		StrategyExcludeUnitTypes = {
+			"ReconPlane"
 		},
 		forceUnitCount = {
-			min = 8,
-			max = 16,
+			min = 3,
+			max = 6,
 		},
 		BotInfantry = {
-			min = 20,
+			min = 30,
 			max = 45,
 		},
 		BotATInfantry = {
@@ -339,73 +342,7 @@ StrategyTemplates = {
 			max = 3,
 		},
 	},
-	{
-		-- enableEliteTactic = 1,
-		StrategyName = "Elite Strategy",
-		StrategyUnitTypes = {
-			"Elite",
-			"Flamer",
-			"Paratrooper",
-		},
-		forceUnitCount = {
-			min = 5,
-			max = 10,
-		},
-		BotInfantry = {
-			min = 20,
-			max = 40,
-		},
-		BotATInfantry = {
-			min = 2,
-			max = 4,
-		},
-		BotInfantrySignaller = {
-			min = 1,
-			max = 3,
-		},
-		BotArtillery = {
-			min = 1,
-			max = 1,
-		},
-		BotMortars = {
-			min = 1,
-			max = 1,
-		},
-		BotEmplacements = {
-			min = 1,
-			max = 1,
-		},
-		BotTanks = {
-			min = 3,
-			max = 6,
-		},
-		BotHeavyTanks = {
-			min = 3,
-			max = 5,
-		},
-		BotSPGs = {
-			min = 1,
-			max = 5,
-		},
-		BotTankDestroyers = {
-			min = 1,
-			max = 1,
-		},
-		BotAircraft = {
-			min = 1,
-			max = 1,
-		},
-		BotReconAircraft = {
-			min = 1,
-			max = 2,
-		},
-		BotArmored = {
-			min = 2,
-			max = 5,
-		},
-	},
-	{
-		-- enableInfantryTactic = 1,
+	{-- Index 6
 		StrategyName = "Infantry Strategy",
 		StrategyUnitTypes = {
 			-- "Wave",
@@ -415,12 +352,12 @@ StrategyTemplates = {
 			"AT",
 		},
 		forceUnitCount = {
-			min = 3,
-			max = 8,
+			min = 8,
+			max = 16,
 		},
 		BotInfantry = {
-			min = 25,
-			max = 60,
+			min = 40,
+			max = 65,
 		},
 		BotATInfantry = {
 			min = 3,
@@ -457,262 +394,6 @@ StrategyTemplates = {
 		BotTankDestroyers = {
 			min = 2,
 			max = 5,
-		},
-		BotAircraft = {
-			min = 1,
-			max = 1,
-		},
-		BotReconAircraft = {
-			min = 1,
-			max = 2,
-		},
-		BotArmored = {
-			min = 2,
-			max = 5,
-		},
-	},
-	{
-		-- enableBigGunTactic = 1,
-		StrategyName = "BigGun Strategy",
-		StrategyUnitTypes = {
-			"Artillery",
-			"Big_gun",
-		},
-		forceUnitCount = {
-			min = 3,
-			max = 6,
-		},
-		BotInfantry = {
-			min = 25,
-			max = 40,
-		},
-		BotATInfantry = {
-			min = 3,
-			max = 6,
-		},
-		BotInfantrySignaller = {
-			min = 1,
-			max = 3,
-		},
-		BotArtillery = {
-			min = 1,
-			max = 4,
-		},
-		BotMortars = {
-			min = 3,
-			max = 4,
-		},
-		BotEmplacements = {
-			min = 3,
-			max = 4,
-		},
-		BotTanks = {
-			min = 1,
-			max = 3,
-		},
-		BotHeavyTanks = {
-			min = 1,
-			max = 1,
-		},
-		BotSPGs = {
-			min = 1,
-			max = 2,
-		},
-		BotTankDestroyers = {
-			min = 2,
-			max = 5,
-		},
-		BotAircraft = {
-			min = 1,
-			max = 1,
-		},
-		BotReconAircraft = {
-			min = 1,
-			max = 2,
-		},
-		BotArmored = {
-			min = 2,
-			max = 5,
-		},
-	},
-	{
-		-- enableAASpamTactic = 1,
-		StrategyName = "AAspam Strategy",
-		StrategyUnitTypes = {
-			"AA",
-			"Fighter",
-			"Mortar",
-		},
-		forceUnitCount = {
-			min = 3,
-			max = 8,
-		},
-		BotInfantry = {
-			min = 22,
-			max = 45,
-		},
-		BotATInfantry = {
-			min = 3,
-			max = 9,
-		},
-		BotInfantrySignaller = {
-			min = 1,
-			max = 1,
-		},
-		BotArtillery = {
-			min = 1,
-			max = 1,
-		},
-		BotMortars = {
-			min = 1,
-			max = 1,
-		},
-		BotEmplacements = {
-			min = 3,
-			max = 4,
-		},
-		BotTanks = {
-			min = 1,
-			max = 3,
-		},
-		BotHeavyTanks = {
-			min = 1,
-			max = 1,
-		},
-		BotSPGs = {
-			min = 1,
-			max = 1,
-		},
-		BotTankDestroyers = {
-			min = 1,
-			max = 3,
-		},
-		BotAircraft = {
-			min = 1,
-			max = 3,
-		},
-		BotReconAircraft = {
-			min = 1,
-			max = 2,
-		},
-		BotArmored = {
-			min = 2,
-			max = 5,
-		},
-	},
-	{
-		-- enableLightSpamTactic = 1,
-		StrategyName = "Light Tank Rush Strategy",
-		StrategyUnitTypes = {
-			"Light",
-			"Fighter",
-		},
-		forceUnitCount = {
-			min = 6,
-			max = 12,
-		},
-		BotInfantry = {
-			min = 30,
-			max = 45,
-		},
-		BotATInfantry = {
-			min = 1,
-			max = 1,
-		},
-		BotInfantrySignaller = {
-			min = 1,
-			max = 1,
-		},
-		BotArtillery = {
-			min = 1,
-			max = 1,
-		},
-		BotMortars = {
-			min = 1,
-			max = 1,
-		},
-		BotEmplacements = {
-			min = 3,
-			max = 4,
-		},
-		BotTanks = {
-			min = 1,
-			max = 3,
-		},
-		BotHeavyTanks = {
-			min = 1,
-			max = 1,
-		},
-		BotSPGs = {
-			min = 1,
-			max = 1,
-		},
-		BotTankDestroyers = {
-			min = 3,
-			max = 6,
-		},
-		BotAircraft = {
-			min = 1,
-			max = 3,
-		},
-		BotReconAircraft = {
-			min = 1,
-			max = 2,
-		},
-		BotArmored = {
-			min = 2,
-			max = 5,
-		},
-	},
-	{
-		-- enableArmoredCarSpamTactic = 1,
-		StrategyName = "Armored Car Rush Strategy",
-		StrategyUnitTypes = {
-			"Armored",
-		},
-		forceUnitCount = {
-			min = 3,
-			max = 8,
-		},
-		BotInfantry = {
-			min = 25,
-			max = 45,
-		},
-		BotATInfantry = {
-			min = 1,
-			max = 3,
-		},
-		BotInfantrySignaller = {
-			min = 1,
-			max = 2,
-		},
-		BotArtillery = {
-			min = 1,
-			max = 3,
-		},
-		BotMortars = {
-			min = 1,
-			max = 2,
-		},
-		BotEmplacements = {
-			min = 1,
-			max = 4,
-		},
-		BotTanks = {
-			min = 1,
-			max = 1,
-		},
-		BotHeavyTanks = {
-			min = 1,
-			max = 1,
-		},
-		BotSPGs = {
-			min = 1,
-			max = 2,
-		},
-		BotTankDestroyers = {
-			min = 3,
-			max = 6,
 		},
 		BotAircraft = {
 			min = 1,
@@ -777,5 +458,6 @@ function SelectAiStrategyTemplate(botDefender)
 		print("AI strategy has no name!")
 	end
 	print("Strategy index = ", index)
+	BotApi.Scene:SetVar("ai_strategy_selection", index)
 	return strategy
 end

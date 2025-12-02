@@ -46,6 +46,7 @@
 			{"max_ai_defender_emplacement_count_level_3"}
 			{"ai_attack_started"}
 			{"max_ai_defender_at_flag"}
+			{"ai_strategy_selection"}
 
 ;============ CE SPAWN VARIABLES			
 			{"change_ai_spawns"}

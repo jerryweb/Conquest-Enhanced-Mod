@@ -99,12 +99,6 @@
 ;=====================================================================
 
 {"mortar cannon" 
-	;{on spawn
-	;	{delay 0.2
-	;		{call "tag_mortar"}	
-	;	}
-	;}
-
 	{on "construction_sandbag_cannon_standard" overload
 		{call "random_small_sandbag_ring"}
 	}
