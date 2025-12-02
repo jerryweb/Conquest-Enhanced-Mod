@@ -1021,3 +1021,112 @@
         
 	}
 }
+
+; ================= Flamethrowers =================
+
+{"fx_piece_flame 40"			;// causes flamer thrower fuel to burn up after delay (disables far shooting)
+	{on "delete_time" overload
+		{delay 2.4 ;// Delay until the engine calls for the fire entities to evaporate.
+			{call "end"}
+		}
+	}
+	{on "fire_radius" overload
+		{fire radius 1 time 1.4 heating 0.65 follow}
+	}
+}
+
+;// Vehicle Flamethrowers
+{"fx_piece_flame 45"			;// causes flamer thrower fuel to burn up after delay (disables far shooting)
+	{on "delete_time" overload
+		{delay 2.2
+			{call "end"}
+		}
+	}
+	{on "fire_radius" overload
+		{fire radius 1.2 time 1.2 heating 0.75 follow}
+	}
+}
+
+{"fx_piece_flame 55"			;// causes flamer thrower fuel to burn up after delay (disables far shooting)
+	{on "delete_time" overload
+		{delay 2.425
+			{call "end"}
+		}
+	}
+	{on "fire_radius" overload
+		{fire radius 1.2 time 1.425 heating 0.75 follow}
+	}
+}
+
+{"fx_piece_flame 60"
+	{on "delete_time" overload
+		{delay 2.9
+			{call "end"}
+		}
+	}
+	{on "fire_radius" overload
+		{fire radius 1.2 time 1.5 heating 0.75 follow}
+	}
+
+	; optional: also override how the views are spawned for this variant
+	{on spawn overload
+		{volumes "body" disable contact}
+		{gravity 1}
+		{call "delete_time"}
+
+		{delay 0
+			;{add_view "fire_flame_thrower_fly" "fire1" "root"}
+			{view start "fire1"}
+		}
+		{delay 0.1
+			{volumes "body" enable contact}
+			{call "fire_radius"}
+		}
+		{delay 0.20 0.05 ;// delay until the particle animation kicks in, offset by a variable frame of time. 
+			{add_view "fire_flame_thrower_fly4" "fire2" "root"}
+			{view start "fire2"}
+		}
+		{delay 0.7 0.05 ;// along with the obove, used to fix the "vanishing flames
+			{add_view "fire_flame_thrower_fly4_1" "fire3" "root"}
+			{view start "fire3"}
+			{view stop "fire2"}
+		}
+	}
+}
+
+{"fx_piece_flame 80"			;// causes flamer thrower fuel to burn up after delay (disables far shooting)
+	{on "delete_time" overload
+		{delay 3.2
+			{call "end"}
+		}
+	}
+	{on "fire_radius" overload
+		{fire radius 1.2 time 1.8 heating 0.75 follow}
+	}
+
+		; optional: also override how the views are spawned for this variant
+	{on spawn overload
+		{volumes "body" disable contact}
+		{gravity 1}
+		{call "delete_time"}
+
+		{delay 0
+			;{add_view "fire_flame_thrower_fly" "fire1" "root"}
+			{view start "fire1"}
+		}
+		{delay 0.1
+			{volumes "body" enable contact}
+			{call "fire_radius"}
+		}
+		{delay 0.20 0.05
+			{add_view "fire_flame_thrower_fly4" "fire2" "root"}
+			{view start "fire2"}
+		}
+		{delay 0.7 0.05
+			{add_view "fire_flame_thrower_fly4_1" "fire3" "root"}
+			{view start "fire3"}
+			{view stop "fire2"}
+		}
+	}
+}
+
