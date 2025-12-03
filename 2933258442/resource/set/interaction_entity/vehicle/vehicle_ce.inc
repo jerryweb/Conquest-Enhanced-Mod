@@ -11,6 +11,12 @@
                 (mod "mp"
                     {able "select" 1}
                 )
+            }
+
+            {delay 0.2
+                {if tagged "rocket_artillery"
+                    {tags add "short_range"}
+                }
             }   
         }
     )
@@ -49,12 +55,59 @@
         }
     )
 
+    (define "cannon_sandbag_fast"
+        ;{call "deactivate_vehicle"}
+        {start_sound "vehicle/deploy/foxhole"}
+        {delay 5
+            {start_sound "vehicle/construction/entrench"}
+            {if terrain_fx "ice"
+                {spawn %0 %1 x constrain_after_dir {tex_mod "win"}}
+            else terrain_fx "snow"
+                {spawn %0 %1 x constrain_after_dir {tex_mod "win"}}
+            else
+                {spawn %0 %1 x constrain_after_dir}
+            }
+            ;{call "activate_vehicle"}
+        }
+    )
+
+
     {on "smoke_for_test"
         {add_view "smoke_yellow_norm" "smoke" "root"}
         {view start "smoke"}
         {delay 10 "smoke"
             {view stop "smoke"}
         }
+    }
+    
+    {on "smoke_for_test_red"
+        {add_view "smoke_flare_red" "smoke" "root"}
+        {view start "smoke"}
+        {delay 10 {view stop "smoke"}}
+    }
+
+    {on "smoke_for_test_dark_red"
+        {add_view "smoke_flare_dark_red" "smoke" "root"}
+        {view start "smoke"}
+        {delay 10 {view stop "smoke"}}
+    }
+
+    {on "smoke_for_test_blue"
+        {add_view "smoke_flare_blue" "smoke" "root"}
+        {view start "smoke"}
+        {delay 10 {view stop "smoke"}}
+    }
+
+    {on "smoke_for_test_light_red"
+        {add_view "smoke_flare_light_red" "smoke" "root"}
+        {view start "smoke"}
+        {delay 10 {view stop "smoke"}}
+    }
+
+    {on "smoke_for_test_light_purple"
+        {add_view "smoke_flare_light_purple" "smoke" "root"}
+        {view start "smoke"}
+        {delay 10 {view stop "smoke"}}
     }
 
     {on "hull_down"
@@ -119,6 +172,21 @@
             {tags remove "ai_emplacement_defenses"}
             {tags remove "_user"}
             {tags remove "_user_ally"}
+            {tags remove "attacking_flag_1"}
+            {tags remove "attacking_flag_2"}
+            {tags remove "attacking_flag_3"}
+            {tags remove "attacking_flag_4"}
+            {tags remove "attacking_flag_5"}
+            {tags remove "artillery_in_combat"}
+            {tags remove "artillery_selected"}
+            {tags remove "artillery_ordered"}
+
+            {if tagged "artillery"
+                {tags remove "_lua_always_ignore"}
+            }
+
+            ;{call "smoke_for_test_light_purple"}
+
             {tags add "_lua_need_next_order"}
             {delay 10.1 
                 {tags remove "_lua_need_next_order"}
@@ -170,16 +238,28 @@
         }
     }
     
-    {on "set_artillery_given_orders"
+    {on "select_artillery"
+        {tags add "artillery_selected"}
+        {tags add "artillery_ordered"}
+        ;{call "smoke_for_test_blue"}
         {tags add "_lua_always_ignore"}
-        {tags remove "arty_selected"}       
-        {tags remove "rocket_arty_selected"}
-        {tags remove "spg_arty_selected"}
-        {tags remove "spg_rocket_arty_selected"}
-        {tags remove "_lua_need_next_order"}
-        {delay 15
-            {tags remove "ai_arty_in_script"}
+    }
+
+    {on "select_spg_artillery"
+        {tags add "spg_artillery_selected"}
+        {tags add "spg_artillery_ordered"}
+        {delay 240
+            {tags remove "attacking_flag_1"}
+            {tags remove "attacking_flag_2"}
+            {tags remove "attacking_flag_3"}
+            {tags remove "attacking_flag_4"}
+            {tags remove "attacking_flag_5"}
+            {tags remove "artillery_in_combat"}
+            {tags remove "artillery_selected"}
+            {tags remove "artillery_ordered"}
         }
+        ;{call "smoke_for_test_blue"}
+        ;{tags add "_lua_always_ignore"}
     }
 
     {on "set_ignore_spawn_logic"
@@ -595,39 +675,31 @@
     ;    ("tag_veh" args "aa_flak_heavy")
     ;}   
 
-    ;{on "tag_mortar"
-    ;    {delay 0.3
-    ;        {if not tagged "hmg"
-    ;            ("tag_veh" args "mortar")   
-    ;        }
-    ;    }
-    ;}
-
     {on "tag_artillery"
         ("tag_veh" args "artillery")
-        {delay 0.2
-            {if not user_control
-                {tags add "_lua_always_ignore"}
-            }
-        }
+        ;{delay 0.2
+        ;    {if not user_control
+        ;        {tags add "_lua_always_ignore"}
+        ;    }
+        ;}
     }
 
     {on "tag_heavy_artillery"
         ("tag_veh" args "heavy_artillery")
-        {delay 0.2
-            {if not user_control
-                {tags add "_lua_always_ignore"}
-            }
-        }       
+        ;{delay 0.2
+        ;    {if not user_control
+        ;        {tags add "_lua_always_ignore"}
+        ;    }
+        ;}       
     }
 
     {on "tag_rocket_artillery"
         ("tag_veh" args "rocket_artillery")   
-        {delay 0.2
-            {if not user_control
-                {tags add "_lua_always_ignore"}
-            }
-        }
+        ;{delay 0.2
+        ;    {if not user_control
+        ;        {tags add "_lua_always_ignore"}
+        ;    }
+        ;}
     }  
 ;================ Vanilla Hardcoded LOGIC ========================
     {on "leave_unit"
@@ -704,43 +776,12 @@
         }
     }
 
-;================ ARTY LOGIC ========================
-    {on fire "gun"
-        {if not user_control
-            {if tagged "_bot"
-                {if tagged "artillery"
-                    {tags add "artillery_in_combat"}
-                    {delay 70
-                        {tags remove "artillery_in_combat"}
-                    }
-                else tagged "heavy_artillery"
-                    {tags add "artillery_in_combat"}
-                    {delay 70
-                        {tags remove "artillery_in_combat"}
-                    }
-                else tagged "rocket_artillery"  
-                    {tags add "artillery_in_combat"}
-                    {delay 70
-                        {tags remove "artillery_in_combat"}
-                    }
-                }
-            }
-        }
-    }
 
-    {on move on
-        {if tagged "artillery"
-            {tags remove "_lua_need_next_order"}
-        else tagged "heavy_artillery"
-            {tags remove "_lua_need_next_order"}
-        else tagged "rocket_artillery"  
-            {tags remove "_lua_need_next_order"}
-        }
-    }
 ;================ ARTY LOGIC END ========================
     {on operatable on
         {if user_control
-            {call "clear_bad_player_tags"}
+            ;{call "clear_bad_player_tags"}
+            {tags remove "artillery_moving_slow"}            
         }
         {if tagged "supplies"
             {delay 1
@@ -762,13 +803,13 @@
             }
         }
         {if tagged "not_selectable"
-            {if tagged "_lua_always_ignore"
+            ;{if tagged "_lua_always_ignore"
                 {if user_control
                     {damage_report "sabotage" "<s(20)b+c(#FF0000)>:)"}
                     {clear_inventory}
                     {call_synced "explosion"}
                 }
-            }
+           ;}
         }
 
         {if tagged "paradropped_veh"
@@ -806,6 +847,7 @@
             {tags add "scene_variable"}
             {crew_enable group "crew" 0}
             {crew_enable group "passenger" 0}
+            {able "select" 0}
         }
     }
 }

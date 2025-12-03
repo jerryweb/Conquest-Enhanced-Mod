@@ -337,6 +337,15 @@
     }
 }
 
+{"tank detect_artillery rocket"
+    {on spawn
+        {delay 1
+            {tags add "short_range"}
+        }
+    }
+}
+
+
 {"halftrack"
     {on "hull_down"
         {delay 8
