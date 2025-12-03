@@ -1,4 +1,3 @@
-
 ;SDL
 ;//////////////////////// INSTRUCTIONS ///////////////////////////////
 ; In this file are templates for the composition of squads, soldiers
@@ -132,7 +131,7 @@
 
 ; vehicle with 3 types of crew
 (define "vehicle3"
-	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp))
+	("generic_v_conquest" t(%side %period %tag) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp))
 	{content "* ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3 )"}
 	{button "vehicles"}
 )
@@ -282,7 +281,7 @@
 	{"%name(%side)"
 		{charge {delay 0}{interval 0}}
 		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 %vehicle () "}
-		{tags "conquest conquestonly %side %period"}
+		{tags "conquest conquestonly %side %period %tag"}
 		{level 1}
 		{cost 0}
 		{research_stage %min_stage}
@@ -296,7 +295,7 @@
 	{"%name(%side)"
 		{charge {delay 0}{interval 0}}
 		{content "mp/%side/%period/%c1"}
-		{tags "conquest conquestonly %side %period"}
+		{tags "conquest conquestonly %side %period %tag"}
 		{level 1}
 		{cost 0}
 		{research_stage %min_stage}
@@ -310,7 +309,7 @@
 	{"%name(%side)"
 		{charge {delay 0}{interval 0}}
 		{content "mp/%side/%period/%c1"}
-		{tags "conquest conquestonly %side %period"}
+		{tags "conquest conquestonly %side %period %tag"}
 		{level 1}
 		{cost 0}
 		{research_stage %min_stage}
@@ -325,7 +324,7 @@
 	{"%name(%side)"
 		{charge {delay 0}{interval 0}}
 		{content "mp/%side/%period/%c1 mp/%side/%period/%c2"}
-		{tags "conquest conquestonly %side %period"}
+		{tags "conquest conquestonly %side %period %tag"}
 		{level 1}
 		{cost 0}
 		{research_stage %min_stage}
@@ -339,7 +338,7 @@
 	{"%name(%side)"
 		{charge {delay 0}{interval 0}}
 		{content "mp/%side/%period/%c1 mp/%side/%period/%c2"}
-		{tags "conquest conquestonly %side %period"}
+		{tags "conquest conquestonly %side %period %tag"}
 		{level 1}
 		{cost 0}
 		{research_stage %min_stage}
@@ -354,7 +353,7 @@
 	{"%name(%side)"
 		{charge {delay 0}{interval 0}}
 		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3"}
-		{tags "conquest conquestonly %side %period"}
+		{tags "conquest conquestonly %side %period %tag"}
 		{level 1}
 		{cost 0}
 		{research_stage %min_stage}
@@ -368,7 +367,7 @@
 	{"%name(%side)"
 		{charge {delay 0}{interval 0}}
 		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4"}
-		{tags "conquest conquestonly %side %period"}
+		{tags "conquest conquestonly %side %period %tag"}
 		{level 1}
 		{cost 0}
 		{research_stage %min_stage}
@@ -382,7 +381,7 @@
 	{"%name(%side)"
 		{charge {delay 0}{interval 0}}
 		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5"}
-		{tags "conquest conquestonly %side %period"}
+		{tags "conquest conquestonly %side %period %tag"}
 		{level 1}
 		{cost 0}
 		{research_stage %min_stage}
@@ -396,7 +395,7 @@
 	{"%name(%side)"
 		{charge {delay 0}{interval 0}}
 		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5 mp/%side/%period/%c6"}
-		{tags "conquest conquestonly %side %period"}
+		{tags "conquest conquestonly %side %period %tag"}
 		{level 1}
 		{cost 0}
 		{research_stage %min_stage}
@@ -410,7 +409,7 @@
 	{"%name(%side)"
 		{charge {delay 0}{interval 0}}
 		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5 mp/%side/%period/%c6 mp/%side/%period/%c7"}
-		{tags "conquest conquestonly %side %period"}
+		{tags "conquest conquestonly %side %period %tag"}
 		{level 1}
 		{cost 0}
 		{research_stage %min_stage}
@@ -424,7 +423,7 @@
 	{"%name(%side)"
 		{charge {delay 0}{interval 0}}
 		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5 mp/%side/%period/%c6 mp/%side/%period/%c7 mp/%side/%period/%c8"}
-		{tags "conquest conquestonly %side %period"}
+		{tags "conquest conquestonly %side %period %tag"}
 		{level 1}
 		{cost 0}
 		{research_stage %min_stage}
@@ -438,7 +437,7 @@
 	{"%name(%side)"
 		{charge {delay 0}{interval 0}}
 		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5 mp/%side/%period/%c6 mp/%side/%period/%c7 mp/%side/%period/%c8 mp/%side/%period/%c9"}
-		{tags "conquest conquestonly %side %period"}
+		{tags "conquest conquestonly %side %period %tag"}
 		{level 1}
 		{cost 0}
 		{research_stage %min_stage}
@@ -452,7 +451,7 @@
 	{"%name(%side)"
 		{charge {delay 0}{interval 0}}
 		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5 mp/%side/%period/%c6 mp/%side/%period/%c7 mp/%side/%period/%c8 mp/%side/%period/%c9 mp/%side/%period/%c10"}
-		{tags "conquest conquestonly %side %period"}
+		{tags "conquest conquestonly %side %period %tag"}
 		{level 1}
 		{cost 0}
 		{research_stage %min_stage}
@@ -466,7 +465,7 @@
 	{"%name(%side)"
 		{charge {delay 0}{interval 0}}
 		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5 mp/%side/%period/%c6 mp/%side/%period/%c7 mp/%side/%period/%c8 mp/%side/%period/%c9 mp/%side/%period/%c10 mp/%side/%period/%c11"}
-		{tags "conquest conquestonly %side %period"}
+		{tags "conquest conquestonly %side %period %tag"}
 		{level 1}
 		{cost 0}
 		{research_stage %min_stage}
@@ -480,7 +479,7 @@
 	{"%name(%side)"
 		{charge {delay 0}{interval 0}}
 		{content "%vehicle ( mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 )"}
-		{tags "conquest conquestonly %side %period"}
+		{tags "conquest conquestonly %side %period %tag"}
 		{level 1}
 		{cost 0}
 		{research_stage %min_stage}
@@ -494,7 +493,7 @@
 	{"%name(%side)"
 		{charge {delay 0}{interval 0}}
 		{content "%vehicle ( mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5 mp/%side/%period/%c6 )"}
-		{tags "conquest conquestonly %side %period"}
+		{tags "conquest conquestonly %side %period %tag"}
 		{level 1}
 		{cost 0}
 		{research_stage %min_stage}
@@ -508,7 +507,7 @@
 	{"%name(%side)"
 		{charge {delay 0}{interval 0}}
 		{content "%vehicle ( mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5 mp/%side/%period/%c6 mp/%side/%period/%c7 )"}
-		{tags "conquest conquestonly %side %period"}
+		{tags "conquest conquestonly %side %period %tag"}
 		{level 1}
 		{cost 0}
 		{research_stage %min_stage}
@@ -522,7 +521,7 @@
 	{"%name(%side)"
 		{charge {delay 0}{interval 0}}
 		{content "%vehicle ( mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5 mp/%side/%period/%c6 mp/%side/%period/%c7 mp/%side/%period/%c8 )"}
-		{tags "conquest conquestonly %side %period"}
+		{tags "conquest conquestonly %side %period %tag"}
 		{level 1}
 		{cost 0}
 		{research_stage %min_stage}
@@ -536,7 +535,7 @@
 	{"%name(%side)"
 		{charge {delay 0}{interval 0}}
 		{content "%vehicle ( mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5 mp/%side/%period/%c6 mp/%side/%period/%c7 mp/%side/%period/%c8 mp/%side/%period/%c9 mp/%side/%period/%c10 )"}
-		{tags "conquest conquestonly %side %period"}
+		{tags "conquest conquestonly %side %period %tag"}
 		{level 1}
 		{cost 0}
 		{research_stage %min_stage}
@@ -550,7 +549,7 @@
 	{"%name(%side)"
 		{charge {delay 0}{interval 0}}
 		{content "%vehicle ( mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5 mp/%side/%period/%c6 mp/%side/%period/%c7 mp/%side/%period/%c8 mp/%side/%period/%c9 mp/%side/%period/%c10 mp/%side/%period/%c11 )"}
-		{tags "conquest conquestonly %side %period"}
+		{tags "conquest conquestonly %side %period %tag"}
 		{level 1}
 		{cost 0}
 		{research_stage %min_stage}
@@ -564,7 +563,7 @@
 	{"%name(%side)"
 		{charge {delay 0}{interval 0}}
 		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5 %vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 ) "}
-		{tags "conquest conquestonly %side %period"}
+		{tags "conquest conquestonly %side %period %tag"}
 		{level 1}
 		{cost 0}
 		{research_stage %min_stage}
@@ -578,7 +577,7 @@
 	{"%name(%side)"
 		{charge {delay 0}{interval 0}}
 		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5 mp/%side/%period/%c6 %vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 ) "}
-		{tags "conquest conquestonly %side %period"}
+		{tags "conquest conquestonly %side %period %tag"}
 		{level 1}
 		{cost 0}
 		{research_stage %min_stage}
@@ -588,6 +587,64 @@
 	}
 )
 
+; 2 identical vehicles with 1 types of crew
+(define "squad_with6types_2vehicle1_conquest"
+	{"%name(%side)"
+		{charge {delay 0}{interval 0}}
+		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5 mp/%side/%period/%c6 %vehicle ( mp/%side/%period/%crew1) %vehicle ( mp/%side/%period/%crew1)"}
+		{tags "conquest conquestonly %side %period %tag"}
+		{level 1}
+		{cost 0}
+		{research_stage %min_stage}
+		{research_stage_max %max_stage}
+		{squad_cost_factor 1}
+		{button "inf1"}
+	}
+)
+
+; 2 identical vehicles with 1 types of crew and rest passengers
+(define "squad_with6passtypes_2vehicle1_conquest"
+	{"%name(%side)"
+		{charge {delay 0}{interval 0}}
+		{content "%vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3) %vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%c4 mp/%side/%period/%c5 mp/%side/%period/%c6)"}
+		{tags "conquest conquestonly %side %period %tag"}
+		{level 1}
+		{cost 0}
+		{research_stage %min_stage}
+		{research_stage_max %max_stage}
+		{squad_cost_factor 1}
+		{button "inf1"}
+	}
+)
+; 3 different vehicles with 2 types of crew varying amount of extra
+(define "squad_eng_rec_scout_conquest"
+	{"%name(%side)"
+		{charge {delay 0}{interval 0}}
+		{content "%vehicle1 ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%c1 ) %vehicle2 ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%c2 mp/%side/%period/%c3 ) %vehicle3 ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%c4 mp/%side/%period/%c5 )"}
+		{tags "conquest conquestonly %side %period %tag"}
+		{level 1}
+		{cost 0}
+		{research_stage %min_stage}
+		{research_stage_max %max_stage}
+		{squad_cost_factor 1}
+		{button "inf1"}
+	}
+)
+
+; 3 different vehicles with 2 types of crew varying amount of extra
+(define "squad_eng_carrier_conquest"
+	{"%name(%side)"
+		{charge {delay 0}{interval 0}}
+		{content "%vehicle1 ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%c1 ) %vehicle2 ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%c2 ) %vehicle3 ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%c3 )"}
+		{tags "conquest conquestonly %side %period %tag"}
+		{level 1}
+		{cost 0}
+		{research_stage %min_stage}
+		{research_stage_max %max_stage}
+		{squad_cost_factor 1}
+		{button "inf1"}
+	}
+)
 
 ; 2 vehicles with 2 types of crew
 (define "squad_2_veh_2_crew_type"

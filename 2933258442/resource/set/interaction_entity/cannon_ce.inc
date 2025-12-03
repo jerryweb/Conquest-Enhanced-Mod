@@ -6,6 +6,28 @@
         	}
         }
     }
+
+    ;================ ARTY LOGIC ========================
+    {on move on
+        {if tagged "artillery"
+            {tags remove "_lua_need_next_order"}
+            {tags remove "attacking_flag_1"}
+            {tags remove "attacking_flag_2"}
+            {tags remove "attacking_flag_3"}
+            {tags remove "attacking_flag_4"}
+            {tags remove "attacking_flag_5"}
+            {tags remove "artillery_in_combat"}
+        }
+    }
+
+    {on "dig_in_artillery"
+        {if rand 0.4
+            ("cannon_sandbag_fast" args "sandbag_cannon_standard_ai" "basis")      
+        }
+        {if rand 0.4
+            ("cannon_sandbag_fast" args "netting_square" "basis") 
+        }        
+    }
 }
 
 {"cannon ai"
@@ -99,12 +121,6 @@
 ;=====================================================================
 
 {"mortar cannon" 
-	;{on spawn
-	;	{delay 0.2
-	;		{call "tag_mortar"}	
-	;	}
-	;}
-
 	{on "construction_sandbag_cannon_standard" overload
 		{call "random_small_sandbag_ring"}
 	}
@@ -138,6 +154,15 @@
             {delay 0.1
                 {spawn "flak_ring" offset 0 0 -10} 
             }
+        }
+    }
+}
+
+{"300mm_krh42" 
+	{on spawn
+        {delay 1
+            {tags remove "artillery"}
+            {tags remove "heavy_artillery"}
         }
     }
 }
@@ -178,6 +203,172 @@
 		{call "random_heavy_sandbag_ring"}		
 	}
 }
+
+;============================Short Range Artillery=========================================
+
+{"105mm_m3" 
+	{on spawn
+        {delay 1
+            {tags add "short_range"}
+        }
+    }
+}
+
+{"122mm_m1910_fin" 
+	{on spawn
+        {delay 1
+            {tags add "short_range"}
+        }
+    }
+ }
+
+ {"114mm_h18_how_mid" 
+	{on spawn
+        {delay 1
+            {tags add "short_range"}
+        }
+    }
+ }
+
+ {"114mm_h18_how_late" 
+	{on spawn
+        {delay 1
+            {tags add "short_range"}
+        }
+    }
+ }
+
+{"210mm_h17" 
+	{on spawn
+        {delay 1
+            {tags add "short_range"}
+        }
+    }
+ }
+
+{"280mm_br5" 
+	{on spawn
+        {delay 1
+            {tags add "short_range"}
+        }
+    }
+ }
+
+
+;============================Long Range Artillery=========================================
+
+{"105mm_sk18"
+    {on spawn
+        {delay 0.2
+            {tags add "long_range"}
+        }
+    }
+}
+
+{"105mm_k34"
+    {on spawn
+        {delay 0.2
+            {tags add "long_range"}
+        }
+    }
+}
+
+{"107mm_m1910_30"
+    {on spawn
+        {delay 0.2
+            {tags add "long_range"}
+        }
+    }
+}
+
+{"122mm_a19"
+    {on spawn
+        {delay 0.2
+            {tags add "long_range"}
+        }
+    }
+}
+
+{"152mm_br2"
+    {on spawn
+        {delay 0.2
+            {tags add "long_range"}
+        }
+    }
+}
+
+{"155mm_gpf_ger"
+    {on spawn
+        {delay 0.2
+            {tags add "long_range"}
+        }
+    }
+}
+
+{"155mm_gpf_us"
+    {on spawn
+        {delay 0.2
+            {tags add "long_range"}
+        }
+    }
+}
+
+{"155mm_k17"
+    {on spawn
+        {delay 0.2
+            {tags add "long_range"}
+        }
+    }
+}
+
+{"170mm_k18"
+    {on spawn
+        {delay 0.2
+            {tags add "long_range"}
+        }
+    }
+}
+
+{"203mm_b4"
+    {on spawn
+        {delay 0.2
+            {tags add "long_range"}
+        }
+    }
+}
+
+{"203mm_m1"
+    {on spawn
+        {delay 0.2
+            {tags add "long_range"}
+        }
+    }
+}
+
+{"210mm_k39"
+    {on spawn
+        {delay 0.2
+            {tags add "long_range"}
+        }
+    }
+}
+
+{"210mm_morser"
+    {on spawn
+        {delay 0.2
+            {tags add "long_range"}
+        }
+    }
+}
+
+{"600mm_thorai"
+    {on spawn
+        {delay 0.2
+            {tags add "long_range"}
+        }
+    }
+}
+
 
 ; ============ CE CANNONS DETONATIONS DEFINES ============ 
 

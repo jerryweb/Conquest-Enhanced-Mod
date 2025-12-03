@@ -466,7 +466,6 @@
 		}
 	}
 
-
 	{"m4a3_calliope" 
 		{on spawn
 			{delay 1
@@ -475,6 +474,15 @@
 		}
 	}
 
+	{"panzerwerfer42" 
+		{on spawn
+			{delay 1
+				{call "tag_rocket_artillery"}
+				{tags add "long_range_rocket"}
+			}
+		}
+	}
+	
 	{"m7b1_hmc" 
 		{on spawn
 			{delay 1
@@ -490,6 +498,24 @@
 			}
 		}
 	}
+
+	{"m12_gmc" 
+		{on spawn
+			{delay 1
+				{tags add "long_range"}
+			}
+		}
+	}
+
+	{"grille_k" 
+		{on spawn
+			{delay 1
+				{tags add "short_range"}
+			}
+		}
+	}
+
+
 ;=====================================================================
 ; ===== Supply Vehicles ===== 
 	{"ammo_crate"
