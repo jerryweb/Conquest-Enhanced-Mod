@@ -616,6 +616,20 @@
 		{button "inf1"}
 	}
 )
+; 3 different vehicles with 2 types of crew varying amount of extra
+(define "squad_eng_rec_scout_conquest"
+	{"%name(%side)"
+		{charge {delay 0}{interval 0}}
+		{content "%vehicle1 ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%c1 ) %vehicle2 ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%c2 mp/%side/%period/%c3 ) %vehicle3 ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%c4 mp/%side/%period/%c5 )"}
+		{tags "conquest conquestonly %side %period %tag"}
+		{level 1}
+		{cost 0}
+		{research_stage %min_stage}
+		{research_stage_max %max_stage}
+		{squad_cost_factor 1}
+		{button "inf1"}
+	}
+)
 
 ; 3 different vehicles with 2 types of crew varying amount of extra
 (define "squad_eng_carrier_conquest"
