@@ -51,6 +51,7 @@ Purchases["conquest.ger"] = {
 				{priority = 1.0, type = {"Infantry", "Squad", "Elite",}, unit = "squad_jaeger_con(ger)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_sturmjager_con(ger)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Elite",}, unit = "squad_sturm_begleitgren_motor_con"},
+				{priority = 1.0, type = {"Infantry", "Squad", "Elite",}, unit = "squad_sturmaufklarer_con"},
 
 				--T3+
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_gd_motor_con"},
