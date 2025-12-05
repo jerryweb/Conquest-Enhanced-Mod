@@ -14,7 +14,7 @@
 	}
 }
 
-{on "pre_cookoff"						;// Main cookoff decider script (decides which cookoff path is taken)
+{on "pre_cookoff" overload						;// Main cookoff decider script (decides which cookoff path is taken)
 	{if not tagged "ammo_cooked"
 		{call "stat_break"}
 		{able minimap 0}
@@ -180,7 +180,7 @@
 	{tags add "ammo_cooked2"}
 }
 
-{on "pre_smoke_cookoff"		;// pre-smoke delayed normal cookoff path
+{on "pre_smoke_cookoff"	;// pre-smoke delayed normal cookoff path
 	{if not tagged "pre_smoke_cookoff"
 		{tags add "pre_smoke_cookoff"}
 		{view start "cooking_presmoke_1"}
@@ -389,7 +389,7 @@
 	{if rand 0.75	{call_synced "kill_driver"}}
 }
 
-{on "pre_cookoff_open_top"						;// Open top vehicle cookoffs
+{on "pre_cookoff_open_top" overload						;// Open top vehicle cookoffs
 	{if not tagged "ammo_cooked"
 		{call "stat_break"}
 		{able minimap 0}
