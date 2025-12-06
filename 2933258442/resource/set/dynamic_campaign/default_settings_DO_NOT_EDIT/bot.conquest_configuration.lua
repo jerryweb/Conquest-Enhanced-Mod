@@ -73,7 +73,7 @@
 	    AttackMax = 16,
 	    -- Bot is defender
 	    DefendMin = 4,
-	    DefendMax = 8,
+	    DefendMax = 12,
 	}
 
 -- ================================= Advanced Settings =========================================
