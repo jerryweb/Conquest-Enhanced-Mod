@@ -1,0 +1,109 @@
+;Exported by:	 guita
+;Date:			 15.11.2023 07:43:46
+;File:			 D:\Git\3D_Scenes\GoH_3D_human_usa\radio\us_field_radio.max
+{skeleton
+	{bone "headphones"
+		{orientation
+			1 	 0 	 0
+			0 	 -1 	 0
+			0 	 0 	 1
+		}
+		{VolumeView "headphones.ply"}
+		{bone "handle"
+			{matrix34
+				-1 	 0 	 0
+				0 	 1 	 0
+				0 	 0 	 -1
+				9.0442 	 2.6779 	 -0.0719
+			}
+		}
+		{bone "radio"
+			{matrix34
+				0 	 0 	 -1
+				0 	 1 	 0
+				1 	 0 	 0
+				6.3732 	 2.6053 	 -0.1037
+			}
+			{LODView
+				{VolumeView "radio.ply"}
+				{VolumeView "radio_lod1.ply"}
+				{VolumeView "radio_lod2.ply"}
+			}
+		}
+		{bone "strap"
+			{matrix34
+				0 	 0 	 -1
+				0 	 1 	 0
+				1 	 0 	 0
+				6.5257 	 2.605 	 -4.3674
+			}
+			{VolumeView "strap.ply"}
+		}
+	}
+}
+{volume "body"
+	{box 2.59516 6.63206 7.15254}
+	{bone "headphones"}
+	{matrix34
+		0 	 0 	 -1
+		1 	 0 	 0
+		0 	 -1 	 0
+		5.5529 	 2.534 	 0.0002
+	}
+}
+{volume "select"
+	{box 4.15657 9.41263 8.30428}
+	{bone "headphones"}
+	{matrix34
+		0 	 0 	 -1
+		1 	 0 	 0
+		0 	 -1 	 0
+		5.3367 	 2.5159 	 -0.216
+	}
+}
+{extender "preview"
+	{"stuff"
+		{camera
+			{origin 19.6057 	 -13.1915 	 23.2874}
+			{lookat 7.06 	 -2.9753 	 -1.3123}
+			{fov 21.6939}
+			{horizon -134.937}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 34.6859 	 -2.5862 	 -1.666}
+			}
+			{"1"
+				{type directional}
+				{direction -0.2472 	 0.0383 	 -0.4329}
+			}
+			{"2"
+				{type point}
+				{position 3.5302 	 -8.525 	 -17.739}
+			}
+		}
+	}
+	{"stuff_secondary"
+		{camera
+			{origin 19.6057 	 -13.1916 	 23.2874}
+			{lookat 7.06 	 -2.9753 	 -1.3123}
+			{fov 21.6939}
+			{horizon -134.936}
+		}
+		{lights
+			{"0"
+				{type point}
+				{position 34.6859 	 -2.5862 	 -1.666}
+			}
+			{"1"
+				{type directional}
+				{direction -0.2472 	 0.0383 	 -0.4329}
+			}
+			{"2"
+				{type point}
+				{position 3.5302 	 -8.525 	 -17.739}
+			}
+		}
+	}
+}
