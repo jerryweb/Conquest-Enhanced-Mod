@@ -382,6 +382,13 @@
 ;	}					
 ;}	
 
+{"cannon"		
+	{on spawn
+		{link_sound "big_ass_fire" "fire\loops\big"}
+		{link_sound "cook_off_transition" "detonation/cook_off/transition"}
+		{link_sound "wecookingmethupinherejessie" "detonation\cook_off\cook"}
+	}
+}
 ; 		============ MEDIUM_LIGHT ============ 
 
 (define "Medium_light_Cannon_Detonation"
@@ -399,11 +406,11 @@
 			{if rand 0.25
 				{spawn "cooking_high_ce"}
 			else rand 0.333333
-				{spawn "cooking_high_ce"}
+				{spawn "cooking_high_ce_light"}
 			else rand 0.5
-				{spawn "cooking_high_ce"}
+				{spawn "cooking_high_ce_heavy"}
 			else
-				{spawn "cooking_high_ce"}
+				{spawn "cooking_high_ce_chaotic"}
 			}
 
 			{if rand 0.33
@@ -499,11 +506,11 @@
 			{if rand 0.25
 				{spawn "cooking_high_ce"}
 			else rand 0.333333
-				{spawn "cooking_high_ce"}
+				{spawn "cooking_high_ce_light"}
 			else rand 0.5
-				{spawn "cooking_high_ce"}
+				{spawn "cooking_high_ce_heavy"}
 			else
-				{spawn "cooking_high_ce"}
+				{spawn "cooking_high_ce_chaotic"}
 			}
 
 			{if rand 0.33
@@ -531,8 +538,11 @@
 			{spawn "smoke_white_Medium_2"}
 
 			; --- delayed cook-off sounds ---
-			{delay 1		
-				{start_Sound "detonation\cook_off\cracks"}								
+			{delay 1
+				{play_sound "big_ass_fire" 1}
+				;{start_sound "fire/loops/big"}		
+				{start_Sound "detonation\cook_off\cracks"}	
+				{start_Sound "detonation\s3\shockwave\Dirt\Trickle"}							
 			}		
 			{delay 1.5					
 				{start_Sound "detonation\cook_off\cracks"}	
@@ -544,38 +554,56 @@
 				;{play_sound "cracks04" 1}	
 				{start_Sound "detonation\s3\shockwave\Dirt\Trickle"}																					
 			}
+			{delay 3
+				{spawn "fire_cooking_explosion"}	
+			}
 			{delay 4
 				{start_Sound "detonation\cook_off\snaps"}
 				{play_sound "snaps05" 1}																	
 			}
-			{delay 8.5					
+			{delay 8.5	
+				{spawn "fire_cooking_explosion"}				
 				{start_Sound "detonation\cook_off\cracks"}	
-			}						
-			{delay 14
-				{start_sound "detonation/cook_off/transition"}						
+			}
+			{delay 13.600001 0.0
+				{spawn "fuel_die"}	
+			}
+			{delay 14.000001 0.0
+				;{stop_sound "fire/loops/big"}				
+			}					
+			{delay 14 0.0
+				{stop_sound "big_ass_fire"}
+				{play_sound "cook_off_transition" 1}
+				{stop_sound "cook_off_transition"}						
 			}
 		else
 			; ==== Otherwise (no cook-off) choose simpler explosion type ====
 			{if rand 0.33
+				{delay 0.1
 				; --- Simple dirt burst ---
 				{call "explosion"}
-				{spawn "_shock"}
+				{spawn "_shock_thicc"}
 				{spawn "tank_die_light"}	
 				{spawn "tank_die_dust_light"}
 				{spawn "metal_hit_br_max"}	
-				{start_Sound "detonation\cook_off\snaps"}				
+				{start_Sound "detonation\cook_off\ext_explosion"}	
+				}			
 			else rand 0.5
 				; --- Air HE type blast ---
-				{call "explosion"}	
+				{call "explosion"}
+				{spawn "_shock"}
 				{spawn "ex_air_he_size3"}
 				{spawn "tank_die_dust_light"}
+				{spawn "tank_die_peaceful_light"}
+				{start_Sound "detonation\s3\shockwave\Dirt\Trickle"}
 			else
 				; --- Failsafe / vanilla-style detonation ---
 				{call "explosion"}	
 				{spawn "_shock"}
 				;{spawn "medium_flash"}				
 				{spawn "tank_die_dust_light"}
-				{spawn "det_flash_medium"}					
+				{spawn "det_flash_medium"}
+				{start_Sound "detonation\s2\shockwave\Generic\Impact"}					
 			}
 		}
 	}
