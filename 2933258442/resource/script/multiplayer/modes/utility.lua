@@ -49,6 +49,8 @@ FlagCaptureArea = {
 
 unitsToSpawnQueue = DoubleQueue.new()
 currentUnitCountTable = {}
+local spawnMuliplierActivated = false
+local spawnMuliplier = 0
 -- Utility functions and shared logic for various game modes
 
 
@@ -319,7 +321,10 @@ function OnGameStartUtility(purchasesModuleSuffix, waveUnitTotal)
 
     -- Load purchases module
     local purchasesModule = [[/script/multiplayer/units/]] .. BotApi.Instance.army .. "/" .. purchasesModuleSuffix .. "." .. BotApi.Instance.army
-    
+    -- for i = 1, 3 do 
+	-- 	print("Unit ", unit, " is has multiplier = ", 3, " and will spawn ", 3, " times!!!")
+	-- 	BotApi.Commands:Spawn("nashorn", MaxSquadSize)
+	-- end
     BotApi.Commands:Spawn("scene_variable", MaxSquadSize)
 	print("Spawned Scene variable successfully!")
 
@@ -345,6 +350,7 @@ function OnGameStartUtility(purchasesModuleSuffix, waveUnitTotal)
         print("Print: Module does not exist: " .. purchasesModule)
     end
 
+	
     -- Get purchases
     local purchases = Purchases[purchasesModuleSuffix .. "." .. BotApi.Instance.army]
     if not purchases then
@@ -390,23 +396,35 @@ function TrySpawnUnit()
 	--]]
 
 	if spawningUnit then
-        if enableWaveCounter then 
+		if spawnMuliplierActivated then 
+			spawnMuliplier = spawnMuliplier - 1
+			print("Print: Will spawn unit ".. unit.. " more ".. spawnMuliplier.. " times!")			
+		end
+        if enableWaveCounter and not spawnMuliplierActivated then 
             WaveUnitCounter()
         end
 		KillSpawnWaitTimer()
 		SetSpawnCooldownTimer()
-		UpdateUnitToSpawn(Context.Purchase)
+		if not spawnMuliplierActivated then 
+			UpdateUnitToSpawn(Context.Purchase)
+		end
 		spawningUnit = nil
 		return
 	end
 
+	if not spawnMuliplierActivated and Context.SpawnInfo.multiplier then 
+		print("Print: unit spawn multipler actived.")
+		spawnMuliplierActivated = true
+		spawnMuliplier = Context.SpawnInfo.multiplier - 1 -- // adding -1 to prevent spawning an extra unit
+		print("Print: Will spawn unit ".. unit .. " ".. spawnMuliplier .. " times!")
+	elseif spawnMuliplier == 0 and spawnMuliplierActivated then 
+		spawnMuliplierActivated = false 
+		print("Print: unit spawn multipler DEACTIVATED!")
+	end
+
 	if BotApi.Commands:Spawn(unit, MaxSquadSize) then
 		spawningUnit = true
-		-- if Context.SpawnInfo.type == "Paratrooper" then
-		-- 	print("duplicating paratroopers!!!")
-		-- 	BotApi.Commands:Spawn(unit, MaxSquadSize)
-		-- 	DoubleQueue.pushRight(unitsToSpawnQueue, Context.SpawnInfo.type)
-		-- end
+
 		if Context.SpawnInfo.maxUnitCount then
 			if currentUnitCountTable[unit] then
 				currentUnitCountTable[unit] = currentUnitCountTable[unit] + 1
@@ -535,14 +553,6 @@ function CheckSceneVariable(squad)
 	 	intialSceneEnvironmentCheck = true
 	  	SetDynamicWeatherTimer()
 	end
-
-	
-  	-- elseif BotApi.Scene:IsSquadTagged(squad, "_prioritize_aa") and not forceUnitPriority then
-  	  -- forceUnitPriority = true 
-  	  -- forcedUnitTypes = {"AA"}
-  	  -- forceUnitCountMax = 2    
-  	  -- print("Player has planes. Prioritze buying AA!")
-  	-- end
 end
 
 function SetDynamicWeatherVariables()
@@ -559,7 +569,7 @@ end
 
 function SetDynamicWeatherTimer()
 	dynamicWeatherTimer = SetDynamicWeatherVariables()
-	print("Print: dynamic weather apply delay = ", dynamicWeatherTimer)
+	print("Print: dynamic weather apply delay = ", dynamicWeatherTimer / 1000, "seconds")
 	Context.SpawnWait.CooldownTimer = BotApi.Events:SetQuantTimer(
 		function() 
 			local weather_selection = math.random(1, maxWeatherOptions[environment])

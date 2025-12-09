@@ -475,6 +475,9 @@
 											{prop
 												{prop airborne}
 											}
+											{prop
+												{prop drop_plane}
+											}
 											{tag
 												{tag ignore_spawn_logic}
 											}
@@ -551,6 +554,9 @@
 									}
 									{prop
 										{prop airborne}
+									}
+									{prop
+										{prop drop_plane}
 									}
 									{tag
 										{tag ignore_spawn_logic}

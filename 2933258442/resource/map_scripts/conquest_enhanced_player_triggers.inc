@@ -1258,6 +1258,308 @@
 					}
 				}
 			}
+			{"player_scripts/check_officer_cheese"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag officer}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state "operatable user_control"}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+							{count
+								{op ">"}
+								{value 5}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 1}
+					}
+					{"sound"
+						{name "world/alarm/alarm"}
+						{waypoint "1"}
+					}
+					{"while"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag officer}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state "operatable user_control"}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+							{count
+								{op ">"}
+								{value 5}
+							}
+						}
+						{"switch"
+							{"case"
+								{condition
+									{type rand}
+									{value 0.5}
+								}
+								{## "actor_state"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag officer}
+												}
+											}
+											{include
+												{prop
+													{prop human}
+												}
+												{state
+													{state "operatable user_control"}
+												}
+											}
+											{exclude
+												{state
+													{state dead}
+												}
+												{state
+													{state inactive}
+												}
+												{state
+													{state linked}
+												}
+											}
+										}
+									}
+									{control user}
+									{human
+										{health 100}
+									}
+								}
+								{## "delay"
+									{time 0.5}
+								}
+								{"effect"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag officer}
+												}
+											}
+											{include
+												{prop
+													{prop human}
+												}
+												{state
+													{state "operatable user_control"}
+												}
+											}
+											{exclude
+												{state
+													{state dead}
+												}
+												{state
+													{state inactive}
+												}
+												{state
+													{state linked}
+												}
+											}
+										}
+										{amount 1
+										}
+									}
+									{effect _burn}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.5}
+								}
+								{"effect"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag officer}
+												}
+											}
+											{include
+												{prop
+													{prop human}
+												}
+												{state
+													{state "operatable user_control"}
+												}
+											}
+											{exclude
+												{state
+													{state dead}
+												}
+												{state
+													{state inactive}
+												}
+												{state
+													{state linked}
+												}
+											}
+										}
+										{amount 1
+										}
+									}
+									{effect explode_human}
+								}
+							}
+							{"default"
+								{"entity_state"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag officer}
+												}
+											}
+											{include
+												{prop
+													{prop human}
+												}
+												{state
+													{state "operatable user_control"}
+												}
+											}
+											{exclude
+												{state
+													{state dead}
+												}
+												{state
+													{state inactive}
+												}
+												{state
+													{state linked}
+												}
+											}
+										}
+										{amount 1
+										}
+									}
+									{tag_add traitor}
+									{tag_remove officer}
+								}
+								{"delay"
+									{time 0.5}
+								}
+								{"ables"
+									{selector
+										{amount 1
+										}
+										{tag traitor}
+										{type human}
+										{state operatable}
+									}
+									{remove select}
+								}
+								{"delay"
+									{time 0.5}
+								}
+								{"actor_state"
+									{selector
+										{amount 1
+										}
+										{tag traitor}
+										{type human}
+										{state operatable}
+									}
+									{control AI}
+									{fire_mode open}
+									{move_mode free}
+									{ai_move
+										{mode disable}
+									}
+									{human
+										{health 1000}
+									}
+								}
+								{"delay"
+									{time 0.5}
+								}
+								{"player"
+									{selector
+										{amount 1
+										}
+										{tag traitor}
+										{type human}
+										{state operatable}
+									}
+									{operation set}
+									{player "17"}
+								}
+							}
+						}
+						{"delay"
+							{time 1}
+						}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"trigger"
+						{name "player_scripts/check_officer_cheese"}
+					}
+				}
+			}
 
 ;============ Teleport ==========
             {"player_scripts/move_player_spawn"

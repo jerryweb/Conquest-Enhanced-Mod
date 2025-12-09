@@ -83,6 +83,13 @@
 }
 
 {"map_point"
+	{on spawn
+		{delay 1
+			{if not tagged "flag"
+				{tags add "map_point"}
+			}
+		}
+	}
 	{on "spawn_drop_zone_targets"
 		{spawn "ai_waypoint_pole" random_position 50 scale 4.0
 			{tags add "drop_zone_selected"}
@@ -238,15 +245,14 @@
 
 {"pointer_mines"				;// mission objective icon/helper
 	{on spawn
-		{tags add "pointer_mines"}
-		{add_view "mines" "mines" "upper"}
-		{view start "mines"}
+		;{tags add "pointer_mines"}
+		;{add_view "mines" "mines" "upper"}
+		;{view start "mines"}
 		{delay 300
 			{delete}
 		}
 	}
 }
-
 
 
 ;=================== Effects ====================

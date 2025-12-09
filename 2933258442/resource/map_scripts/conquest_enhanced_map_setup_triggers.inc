@@ -282,24 +282,64 @@
 				{condition
 					{terms
 						{"1.entities"
-							{selector
-								{ignore_captured_by_user 0}
-								{tag _bot}
-								{zone "gamezone"}
-								{state operatable}
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag rocket_artillery}
+									}
+								}
+								{include
+									{state
+										{state "operatable inhabited"}
+									}
+									{prop
+										{prop cannon}
+									}
+									{tag
+										{tag _bot}
+									}
+								}
+								{exclude
+									{tag
+										{tag artillery_in_combat}
+									}
+									{state
+										{state inactive}
+									}
+									{state
+										{state linked}
+									}
+									{state
+										{state user_control}
+									}
+									{tag
+										{tag _user}
+									}
+									{tag
+										{tag _user_ally}
+									}
+									{tag
+										{tag player_veh}
+									}
+									{tag
+										{tag rocket_arty_selected}
+									}
+								}
 							}
 						}
 					}
 				}
 				{actions
-					{"delay"
+					{##"delay"
 						{time 15}
 					}
 					{"timer"
-						{time 5}
-						{title "creating new squad"}
+						{time 300}
+						{title "rocket artillery exists"}
 					}
-					{"squad_create"
+					{## "squad_create"
 						{selector
 							{ignore_captured_by_user 0}
 							{tag _bot}
@@ -308,15 +348,88 @@
 						}
 						{name test_squad}
 					}
-					{"delay"
+					{## "delay"
 						{time 5}
 					}
-					{"squad_dismiss"
+					{## "squad_dismiss"
 						{squad test_squad}
 					}
 				}
 			}
-
+			{## "debug/test_flag"
+				{condition
+					{expression "(1 | 2) & 3"}
+					{terms
+						{"1.entities"
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag flag_point}
+									}
+								}
+								{include
+									{zone
+										{zone "fpc1"}
+									}
+								}
+								{exclude
+									{state
+										{state inactive}
+									}
+								}
+							}
+						}
+						{"2.entities"
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag flag_point}
+									}
+								}
+								{include
+									{zone
+										{zone "fpc2"}
+									}
+								}
+								{exclude
+									{state
+										{state inactive}
+									}
+								}
+							}
+						}
+						{"3.event"
+							{id "enable_ai_attack_logic"}
+						}
+					}
+				}
+				{actions
+					{##"delay"
+						{time 15}
+					}
+					{"timer"
+						{time 300}
+						{title "flag exists"}
+					}
+					{## "squad_create"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag _bot}
+							{zone "gamezone"}
+							{state operatable}
+						}
+						{name test_squad}
+					}
+					{## "delay"
+						{time 5}
+					}
+					{## "squad_dismiss"
+						{squad test_squad}
+					}
+				}
+			}
 
 			{"parachute"
 				{condition
@@ -14089,7 +14202,7 @@
 					}
 					{"delay"
 						{time 10}
-					}
+					}				
 					{"event"
 						{event "talk_on"}
 						{mode reset}
@@ -14099,6 +14212,42 @@
 						{var "display$"}
 						{op "="}
 						{value 0}
+					}
+					{"delay"
+						{time 30}
+					}	
+					{## "timer"
+						{time 8}
+						{title "show ai army strat"}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "enable_ce_radio_mechanic$"}
+								{op "=="}
+								{value 1}
+							}
+							
+							{"switch"
+								{"case"
+									{condition
+										{type cmp_i}
+										{var "radio_active$"}
+										{op "=="}
+										{value 1}
+									}
+									{"call"
+										{function "alert_ai_strategy"}
+									}
+								}
+							}
+						}
+						{"default"
+							{"call"
+								{function "alert_ai_strategy"}
+							}
+						}
 					}
 				}
 			}

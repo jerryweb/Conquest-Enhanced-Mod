@@ -432,7 +432,6 @@
 				}
 			}
 			
-
 ;============ AI ATTACK ========================================
 			{"ai_fire_enemy_commands"
 				{##"switch"
@@ -558,537 +557,7 @@
 				}
 			}
 
-			{"attack_player_air_defense_fighter"
-				{"switch"
-					{"case"
-						{condition
-							{type cmp_i}
-							{var "user_is_defender$"}
-							{op "=="}
-							{value 0}
-						}
-						{"if"
-							{condition
-								{type entities}
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag aa_flak_heavy}
-											}
-											{tag
-												{tag aa_gun}
-											}
-										}
-										{include
-											{state
-												{state operatable}
-											}
-											{state
-												{state user_control}
-											}
-										}
-										{exclude
-											{state
-												{state linked}
-											}
-											{tag
-												{tag hidden}
-											}
-										}
-									}
-								}
-							}
-							{"air_attack"
-								{enemies
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag aa_flak_heavy}
-											}
-											{tag
-												{tag aa_gun}
-											}
-											{zone
-												{zone "gamezone"}
-											}
-										}
-										{include
-											{state
-												{state operatable}
-											}
-											{state
-												{state user_control}
-											}
-										}
-										{exclude
-											{state
-												{state linked}
-											}
-											{tag
-												{tag hidden}
-											}
-										}
-									}
-									{sort
-										{type shuffle}
-									}
-									{amount 1
-									}
-								}
-								{count 2}
-								{move_from_back}
-								{force_placement}
-								{random_weapon 0}
-								{attack_altitude 30}
-							}
-						}
-					}
-					{"default"
-						{"if"
-							{condition
-								{type entities}
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag aa_flak_heavy}
-											}
-											{tag
-												{tag aa_gun}
-											}
-										}
-										{include
-											{state
-												{state operatable}
-											}
-										}
-										{exclude
-											{state
-												{state linked}
-											}
-											{tag
-												{tag hidden}
-											}
-											{tag
-												{tag bot}
-											}
-											{tag
-												{tag _bot}
-											}
-										}
-									}
-								}
-							}
-							{"air_attack"
-								{enemies
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag aa_flak_heavy}
-											}
-											{tag
-												{tag aa_gun}
-											}
-											{zone
-												{zone "gamezone"}
-											}
-										}
-										{include
-											{state
-												{state operatable}
-											}
-										}
-										{exclude
-											{state
-												{state linked}
-											}
-											{tag
-												{tag hidden}
-											}
-											{tag
-												{tag _bot}
-											}
-											{tag
-												{tag bot}
-											}
-										}
-									}
-									{sort
-										{type shuffle}
-									}
-									{amount 1
-									}
-								}
-								{count 2}
-								{move_from_back}
-								{force_placement}
-								{random_weapon 0}
-								{attack_altitude 30}
-							}
-						}
-					}
-				}
-				{"delay"
-					{time 0.5}
-				}
-				{"switch"
-					{"case"
-						{condition
-							{type cmp_i}
-							{var "user_is_defender$"}
-							{op "=="}
-							{value 0}
-						}
-						{"air_attack"
-							{enemies
-								{source advanced}
-								{group
-									{select
-										{zone
-											{zone "gamezone"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-									}
-									{exclude
-										{state
-											{state linked}
-										}
-										{tag
-											{tag hidden}
-										}
-										{state
-											{state dead}
-										}
-									}
-								}
-								{sort
-									{type shuffle}
-								}
-								{amount 1
-								}
-							}
-							{move_from_back}
-							{force_placement}
-							{random_weapon 0}
-							{attack_altitude 30}
-						}
-						{"delay"
-							{time 0.5}
-						}
-						{"air_attack"
-							{enemies
-								{source advanced}
-								{group
-									{select
-										{zone
-											{zone "gamezone"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-									}
-									{exclude
-										{state
-											{state linked}
-										}
-										{tag
-											{tag hidden}
-										}
-										{state
-											{state dead}
-										}
-									}
-								}
-								{sort
-									{type shuffle}
-								}
-								{amount 1
-								}
-							}
-							{move_from_back}
-							{force_placement}
-							{random_weapon 0}
-							{attack_altitude 30}
-						}
-						{"delay"
-							{time 0.5}
-						}
-						{"air_attack"
-							{enemies
-								{source advanced}
-								{group
-									{select
-										{zone
-											{zone "gamezone"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-									}
-									{exclude
-										{state
-											{state linked}
-										}
-										{tag
-											{tag hidden}
-										}
-										{state
-											{state dead}
-										}
-									}
-								}
-								{sort
-									{type shuffle}
-								}
-								{amount 1
-								}
-							}
-							{move_from_back}
-							{force_placement}
-							{random_weapon 0}
-							{attack_altitude 30}
-						}
-						{"delay"
-							{time 0.5}
-						}
-						{"air_attack"
-							{enemies
-								{source advanced}
-								{group
-									{select
-										{zone
-											{zone "gamezone"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-									}
-									{exclude
-										{state
-											{state linked}
-										}
-										{tag
-											{tag hidden}
-										}
-										{state
-											{state dead}
-										}
-									}
-								}
-								{sort
-									{type shuffle}
-								}
-								{amount 1
-								}
-							}
-							{move_from_back}
-							{force_placement}
-							{random_weapon 0}
-							{attack_altitude 30}
-						}
-					}
-					{"default"
-						{"air_attack"
-							{enemies
-								{source advanced}
-								{group
-									{select
-										{zone
-											{zone "gamezone"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-									}
-									{exclude
-										{state
-											{state linked}
-										}
-										{tag
-											{tag hidden}
-										}
-										{state
-											{state dead}
-										}
-										{tag
-											{tag bot}
-										}
-										{tag
-											{tag _bot}
-										}
-									}
-								}
-								{sort
-									{type shuffle}
-								}
-								{amount 1
-								}
-							}
-							{move_from_back}
-							{force_placement}
-							{random_weapon 0}
-							{attack_altitude 30}
-						}
-						{"delay"
-							{time 0.5}
-						}
-						{"air_attack"
-							{enemies
-								{source advanced}
-								{group
-									{select
-										{zone
-											{zone "gamezone"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-									}
-									{exclude
-										{state
-											{state linked}
-										}
-										{tag
-											{tag hidden}
-										}
-										{state
-											{state dead}
-										}
-										{tag
-											{tag bot}
-										}
-										{tag
-											{tag _bot}
-										}
-									}
-								}
-								{sort
-									{type shuffle}
-								}
-								{amount 1
-								}
-							}
-							{move_from_back}
-							{force_placement}
-							{random_weapon 0}
-							{attack_altitude 30}
-						}
-						{"delay"
-							{time 0.5}
-						}
-						{"air_attack"
-							{enemies
-								{source advanced}
-								{group
-									{select
-										{zone
-											{zone "gamezone"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{order}
-									}
-									{exclude
-										{state
-											{state linked}
-										}
-										{tag
-											{tag hidden}
-										}
-										{state
-											{state dead}
-										}
-										{tag
-											{tag bot}
-										}
-										{tag
-											{tag _bot}
-										}
-									}
-								}
-								{sort
-									{type shuffle}
-								}
-								{amount 1
-								}
-							}
-							{move_from_back}
-							{force_placement}
-							{random_weapon 0}
-							{attack_altitude 30}
-						}
-						{"delay"
-							{time 0.5}
-						}
-						{"air_attack"
-							{enemies
-								{source advanced}
-								{group
-									{select
-										{zone
-											{zone "gamezone"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-									}
-									{exclude
-										{state
-											{state linked}
-										}
-										{tag
-											{tag hidden}
-										}
-										{state
-											{state dead}
-										}
-										{tag
-											{tag bot}
-										}
-										{tag
-											{tag _bot}
-										}
-									}
-								}
-								{sort
-									{type shuffle}
-								}
-								{amount 1
-								}
-							}
-							{move_from_back}
-							{force_placement}
-							{random_weapon 0}
-							{attack_altitude 30}
-						}
-					}
-				}
-			}
-			{"attack_player_air_defense_bomber_ce"
+			{"attack_player_ai_bomber"
 				{"switch"
 					{"case"
 						{condition
@@ -1098,140 +567,69 @@
 								{group
 									{select
 										{tag
-											{tag aa_flak_heavy}
-										}
-										{tag
-											{tag aa_gun}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{state
-											{state user_control}
-										}
-										{zone
-											{zone "gamezone"}
-										}
-									}
-									{exclude
-										{state
-											{state linked}
-										}
-										{state
-											{state inactive}
-										}
-										{tag
-											{tag hidden}
-										}
-									}
-								}
-								{group
-									{select
-										{tag
-											{tag aa_flak_heavy}
-										}
-										{tag
-											{tag aa_gun}
-										}
-									}
-									{include
-										{state
-											{state operatable}
+											{tag _user}
 										}
 										{tag
 											{tag _user_ally}
 										}
-										{zone
-											{zone "gamezone"}
+									}
+									{include
+										{prop
+											{prop heavy}
+										}
+										{prop
+											{prop tank}
+										}
+										{state
+											{state "operatable inhabited"}
 										}
 									}
 									{exclude
-										{state
-											{state linked}
+										{tag
+											{tag _bot}
 										}
 										{state
 											{state inactive}
 										}
-										{tag
-											{tag hidden}
-										}
-										{tag
-											{tag _bot}
+										{state
+											{state linked}
 										}
 									}
 								}
 							}
 						}
-						{"air_attack"
-							{drop orders}
-							{enemies
+						{"entity_state"
+							{selector
 								{source advanced}
 								{group
 									{select
 										{tag
-											{tag aa_flak_heavy}
-										}
-										{tag
-											{tag aa_gun}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{state
-											{state user_control}
-										}
-										{zone
-											{zone "gamezone"}
-										}
-									}
-									{exclude
-										{state
-											{state linked}
-										}
-										{state
-											{state inactive}
-										}
-										{tag
-											{tag hidden}
-										}
-									}
-								}
-								{group
-									{select
-										{tag
-											{tag aa_flak_heavy}
-										}
-										{tag
-											{tag aa_gun}
-										}
-									}
-									{include
-										{state
-											{state operatable}
+											{tag _user}
 										}
 										{tag
 											{tag _user_ally}
 										}
-										{zone
-											{zone "gamezone"}
+									}
+									{include
+										{prop
+											{prop heavy}
+										}
+										{prop
+											{prop tank}
+										}
+										{state
+											{state "operatable inhabited"}
 										}
 									}
 									{exclude
-										{state
-											{state linked}
+										{tag
+											{tag _bot}
 										}
 										{state
 											{state inactive}
 										}
-										{tag
-											{tag hidden}
-										}
-										{tag
-											{tag _bot}
+										{state
+											{state linked}
 										}
 									}
 								}
@@ -1241,66 +639,282 @@
 								{amount 1
 								}
 							}
-							{move_from_back}
-							{force_placement}
-							{random_weapon 0}
-							{attack_altitude 40}
+							{tag_add bomber_priority_target}
+						}
+					}
+					{"case"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+										{tag
+											{tag _user_ally}
+										}
+									}
+									{include
+										{state
+											{state "operatable inhabited"}
+										}
+										{tag
+											{tag radio_car}
+										}
+										{prop
+											{prop vehicle}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+										{tag
+											{tag _user_ally}
+										}
+									}
+									{include
+										{state
+											{state "operatable inhabited"}
+										}
+										{tag
+											{tag radio_car}
+										}
+										{prop
+											{prop vehicle}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+								{sort
+									{type shuffle}
+								}
+								{amount 1
+								}
+							}
+							{tag_add bomber_priority_target}
+						}
+					}
+					{"case"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+										{tag
+											{tag _user_ally}
+										}
+									}
+									{include
+										{state
+											{state "operatable inhabited"}
+										}
+										{tag
+											{tag artillery}
+										}
+										{prop
+											{prop vehicle}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+										{tag
+											{tag _user_ally}
+										}
+									}
+									{include
+										{state
+											{state "operatable inhabited"}
+										}
+										{tag
+											{tag artillery}
+										}
+										{prop
+											{prop vehicle}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+								{sort
+									{type shuffle}
+								}
+								{amount 1
+								}
+							}
+							{tag_add bomber_priority_target}
+						}
+					}
+					{"case"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+										{tag
+											{tag _user_ally}
+										}
+									}
+									{include
+										{prop
+											{prop tank}
+										}
+										{state
+											{state "operatable inhabited"}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+										{tag
+											{tag _user_ally}
+										}
+									}
+									{include
+										{prop
+											{prop tank}
+										}
+										{state
+											{state "operatable inhabited"}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+								{sort
+									{type shuffle}
+								}
+								{amount 1
+								}
+							}
+							{tag_add bomber_priority_target}
 						}
 					}
 					{"default"
-						{"air_attack"
-							{drop orders}
-							{enemies
+						{"entity_state"
+							{selector
 								{source advanced}
 								{group
 									{select
-										{zone
-											{zone "gamezone"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{state
-											{state user_control}
-										}
-									}
-									{exclude
-										{state
-											{state linked}
-										}
-										{state
-											{state inactive}
-										}
 										{tag
-											{tag hidden}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "gamezone"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
+											{tag _user}
 										}
 										{tag
 											{tag _user_ally}
 										}
 									}
-									{exclude
+									{include
 										{state
-											{state linked}
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
 										}
 										{state
 											{state inactive}
 										}
-										{tag
-											{tag hidden}
+										{state
+											{state linked}
+										}
+										{state
+											{state dead}
 										}
 									}
 								}
@@ -1310,199 +924,438 @@
 								{amount 1
 								}
 							}
-							{move_from_back}
-							{force_placement}
-							{random_weapon 0}
-							{attack_altitude 40}
+							{tag_add bomber_priority_target}
 						}
 					}
 				}
-			}
-			{"attack_player_ai_bomber"
+				{"delay"
+					{time 0.25}
+				}
 				{"air_attack"
 					{drop orders}
 					{enemies
-						{source advanced}
-						{group
-							{select
-								{tag
-									{tag _user}
-								}
-								{tag
-									{tag _user_ally}
-								}
-							}
-							{include
-								{state
-									{state operatable}
-								}
-							}
-							{exclude
-								{state
-									{state inactive}
-								}
-								{state
-									{state linked}
-								}
-								{state
-									{state dead}
-								}
-								{tag
-									{tag _bot}
-								}
-							}
-						}
-						{sort
-							{type shuffle}
-						}
 						{amount 1
 						}
+						{tag bomber_priority_target}
+						{zone "gamezone"}
+						{state operatable}
 					}
-					{move_from_back}
-					{force_placement}
 					{random_weapon 0}
-					{attack_altitude 40}
+					{attack_altitude 55}
 				}
-				{## "delay"
-					{time 1}
+				{"delay"
+					{time 0.25}
 				}
-				{## "air_attack"
-					{enemies
-						{source advanced}
-						{group
-							{select
-								{tag
-									{tag _user}
-								}
-								{tag
-									{tag _user_ally}
-								}
-							}
-							{include
-								{state
-									{state operatable}
-								}
-							}
-							{exclude
-								{state
-									{state inactive}
-								}
-								{state
-									{state linked}
-								}
-								{state
-									{state dead}
-								}
-								{tag
-									{tag _bot}
-								}
-							}
-						}
-						{sort
-							{type shuffle}
-						}
-						{amount 1
-						}
+				{"entity_state"
+					{selector
+						{source standart}
+						{tag bomber_priority_target}
 					}
-					{count 3}
-					{move_from_back}
-					{force_placement}
-					{random_weapon 0}
-					{attack_altitude 30}
+					{tag_remove bomber_priority_target}
 				}
 			}
 			{"attack_player_ai_fighter"
+				{"switch"
+					{"case"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag officer}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state "user_control"}
+										}
+
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state dead}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag officer}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state "user_control"}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state dead}
+										}
+									}
+								}
+								{sort
+									{type shuffle}
+								}
+								{amount 1
+								}
+							}
+							{tag_add fighter_priority_target}
+						}
+					}
+					{"case"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+										{tag
+											{tag _user_ally}
+										}
+									}
+									{include
+										{state
+											{state "operatable inhabited"}
+										}
+										{prop
+											{prop cannon}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+										{tag
+											{tag _user_ally}
+										}
+									}
+									{include
+										{state
+											{state "operatable inhabited"}
+										}
+										{prop
+											{prop cannon}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+								{sort
+									{type shuffle}
+								}
+								{amount 1
+								}
+							}
+							{tag_add fighter_priority_target}
+						}
+					}
+					{"case"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+										{tag
+											{tag _user_ally}
+										}
+									}
+									{include
+										{state
+											{state "operatable"}
+										}
+										{prop
+											{prop human}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state dead}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+										{tag
+											{tag _user_ally}
+										}
+									}
+									{include
+										{state
+											{state "operatable"}
+										}
+										{prop
+											{prop human}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state dead}
+										}
+									}
+								}
+								{sort
+									{type shuffle}
+								}
+								{amount 1
+								}
+							}
+							{tag_add fighter_priority_target}
+						}
+					}
+					{"case"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+										{tag
+											{tag _user_ally}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}										{state
+											{state "operatable"}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state dead}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+										{tag
+											{tag _user_ally}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}										{state
+											{state "operatable"}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state dead}
+										}
+									}
+								}
+								{sort
+									{type shuffle}
+								}
+								{amount 1
+								}
+							}
+							{tag_add fighter_priority_target}
+						}
+					}
+					{"default"
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+										{tag
+											{tag _user_ally}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state dead}
+										}
+									}
+								}
+								{sort
+									{type shuffle}
+								}
+								{amount 1
+								}
+							}
+							{tag_add fighter_priority_target}
+						}
+					}
+				}
+				{"delay"
+					{time 0.25}
+				}
 				{"air_attack"
 					{drop orders}
 					{enemies
-						{source advanced}
-						{group
-							{select
-								{tag
-									{tag _user}
-								}
-								{tag
-									{tag _user_ally}
-								}
-							}
-							{include
-								{state
-									{state operatable}
-								}
-							}
-							{exclude
-								{state
-									{state inactive}
-								}
-								{state
-									{state linked}
-								}
-								{state
-									{state dead}
-								}
-								{tag
-									{tag _bot}
-								}
-							}
-						}
-						{sort
-							{type shuffle}
-						}
 						{amount 1
 						}
+						{tag fighter_priority_target}
+						{zone "gamezone"}
+						{state operatable}
 					}
-					{count 5}
-					{move_from_back}
-					{force_placement}
 					{random_weapon 0}
-					{attack_altitude 30}
+					{attack_altitude 40}
 				}
-				{## "delay"
-					{time 1}
+				{"delay"
+					{time 0.25}
 				}
-				{## "air_attack"
+				{"entity_state"
+					{selector
+						{source standart}
+						{tag fighter_priority_target}
+					}
+					{tag_remove fighter_priority_target}
+				}
+			}
+			{"fly_by_player_ai_plane"
+				{"air_attack"
 					{enemies
-						{source advanced}
-						{group
-							{select
-								{tag
-									{tag _user}
-								}
-								{tag
-									{tag _user_ally}
-								}
-							}
-							{include
-								{state
-									{state operatable}
-								}
-							}
-							{exclude
-								{state
-									{state inactive}
-								}
-								{state
-									{state linked}
-								}
-								{state
-									{state dead}
-								}
-								{tag
-									{tag _bot}
-								}
-							}
-						}
-						{sort
-							{type shuffle}
-						}
 						{amount 1
 						}
+						{tag flag_point}
 					}
-					{count 3}
+					{drop orders}
 					{move_from_back}
 					{force_placement}
 					{random_weapon 0}
-					{attack_altitude 30}
+					{attack_altitude 65}
 				}
 			}
 
@@ -3088,6 +2941,1004 @@
 					}
 				}
 			}
+			{"check_if_player_in_flag_zones"
+				{"if"
+					{condition
+						{type entities}
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag _user}
+									}
+									{tag
+										{tag _user_ally}
+									}
+								}
+								{include
+									{zone
+										{zone "fpc1"}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{state
+										{state dead}
+									}
+									{state
+										{state inactive}
+									}
+									{tag
+										{tag _bot}
+									}
+								}
+							}
+						}
+					}
+					{"entity_state"
+						{selector
+							{source standart}
+							{amount 1
+							}
+							{tag fpc1}
+							{zone "fpc1"}
+						}
+						{tag_add possible_flag_for_cannon_artillery_attack}
+					}
+				}
+				{"if"
+					{condition
+						{type entities}
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag _user}
+									}
+									{tag
+										{tag _user_ally}
+									}
+								}
+								{include
+									{zone
+										{zone "fpc2"}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{state
+										{state dead}
+									}
+									{state
+										{state inactive}
+									}
+									{tag
+										{tag _bot}
+									}
+								}
+							}
+						}
+					}
+					{"entity_state"
+						{selector
+							{source standart}
+							{amount 1
+							}
+							{tag fpc2}
+							{zone "fpc2"}
+						}
+						{tag_add possible_flag_for_cannon_artillery_attack}
+					}
+				}
+				{"if"
+					{condition
+						{type entities}
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag _user}
+									}
+									{tag
+										{tag _user_ally}
+									}
+								}
+								{include
+									{zone
+										{zone "fpc3"}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{state
+										{state dead}
+									}
+									{state
+										{state inactive}
+									}
+									{tag
+										{tag _bot}
+									}
+								}
+							}
+						}
+					}
+					{"entity_state"
+						{selector
+							{source standart}
+							{amount 1
+							}
+							{tag fpc3}
+							{zone "fpc3"}
+						}
+						{tag_add possible_flag_for_cannon_artillery_attack}
+					}
+				}
+				{"if"
+					{condition
+						{type entities}
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag _user}
+									}
+									{tag
+										{tag _user_ally}
+									}
+								}
+								{include
+									{zone
+										{zone "fpc4"}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{state
+										{state dead}
+									}
+									{state
+										{state inactive}
+									}
+									{tag
+										{tag _bot}
+									}
+								}
+							}
+						}
+					}
+					{"entity_state"
+						{selector
+							{source standart}
+							{amount 1
+							}
+							{tag fpc4}
+							{zone "fpc4"}
+						}
+						{tag_add possible_flag_for_cannon_artillery_attack}
+					}
+				}
+				{"if"
+					{condition
+						{type entities}
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag _user}
+									}
+									{tag
+										{tag _user_ally}
+									}
+								}
+								{include
+									{zone
+										{zone "fpc5"}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{state
+										{state dead}
+									}
+									{state
+										{state inactive}
+									}
+									{tag
+										{tag _bot}
+									}
+								}
+							}
+						}
+					}
+					{"entity_state"
+						{selector
+							{source standart}
+							{amount 1
+							}
+							{tag fpc5}
+							{zone "fpc5"}
+						}
+						{tag_add possible_flag_for_cannon_artillery_attack}
+					}
+				}
+			}
+			{"check_if_player_in_flag_zones_for_spg_artillery"
+				{"if"
+					{condition
+						{type entities}
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag _user}
+									}
+									{tag
+										{tag _user_ally}
+									}
+								}
+								{include
+									{zone
+										{zone "fpc1"}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{state
+										{state dead}
+									}
+									{state
+										{state inactive}
+									}
+									{tag
+										{tag _bot}
+									}
+								}
+							}
+						}
+					}
+					{"entity_state"
+						{selector
+							{source standart}
+							{amount 1
+							}
+							{tag fpc1}
+							{zone "fpc1"}
+						}
+						{tag_add possible_flag_for_spg_cannon_artillery_attack}
+					}
+				}
+				{"if"
+					{condition
+						{type entities}
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag _user}
+									}
+									{tag
+										{tag _user_ally}
+									}
+								}
+								{include
+									{zone
+										{zone "fpc2"}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{state
+										{state dead}
+									}
+									{state
+										{state inactive}
+									}
+									{tag
+										{tag _bot}
+									}
+								}
+							}
+						}
+					}
+					{"entity_state"
+						{selector
+							{source standart}
+							{amount 1
+							}
+							{tag fpc2}
+							{zone "fpc2"}
+						}
+						{tag_add possible_flag_for_spg_cannon_artillery_attack}
+					}
+				}
+				{"if"
+					{condition
+						{type entities}
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag _user}
+									}
+									{tag
+										{tag _user_ally}
+									}
+								}
+								{include
+									{zone
+										{zone "fpc3"}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{state
+										{state dead}
+									}
+									{state
+										{state inactive}
+									}
+									{tag
+										{tag _bot}
+									}
+								}
+							}
+						}
+					}
+					{"entity_state"
+						{selector
+							{source standart}
+							{amount 1
+							}
+							{tag fpc3}
+							{zone "fpc3"}
+						}
+						{tag_add possible_flag_for_spg_cannon_artillery_attack}
+					}
+				}
+				{"if"
+					{condition
+						{type entities}
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag _user}
+									}
+									{tag
+										{tag _user_ally}
+									}
+								}
+								{include
+									{zone
+										{zone "fpc4"}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{state
+										{state dead}
+									}
+									{state
+										{state inactive}
+									}
+									{tag
+										{tag _bot}
+									}
+								}
+							}
+						}
+					}
+					{"entity_state"
+						{selector
+							{source standart}
+							{amount 1
+							}
+							{tag fpc4}
+							{zone "fpc4"}
+						}
+						{tag_add possible_flag_for_spg_cannon_artillery_attack}
+					}
+				}
+				{"if"
+					{condition
+						{type entities}
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag _user}
+									}
+									{tag
+										{tag _user_ally}
+									}
+								}
+								{include
+									{zone
+										{zone "fpc5"}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{state
+										{state dead}
+									}
+									{state
+										{state inactive}
+									}
+									{tag
+										{tag _bot}
+									}
+								}
+							}
+						}
+					}
+					{"entity_state"
+						{selector
+							{source standart}
+							{amount 1
+							}
+							{tag fpc5}
+							{zone "fpc5"}
+						}
+						{tag_add possible_flag_for_spg_cannon_artillery_attack}
+					}
+				}
+			}
+			{"artillery_fire_on_flag"
+				{"switch"
+					{"case"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag artillery_selected}
+										}
+									}
+									{include
+										{tag
+											{tag attacking_flag_1}
+										}
+										{prop
+											{prop cannon}
+										}
+										{state
+											{state "operatable inhabited"}
+										}
+									}
+									{exclude
+										{tag
+											{tag artillery_in_combat}
+										}
+										{state
+											{state user_control}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state inactive}
+										}
+										{tag
+											{tag _user}
+										}
+										{tag
+											{tag _user_ally}
+										}
+									}
+								}
+							}
+						}
+						{"loop" 18
+							{"actor_fire"
+								{attack position}
+								{waypoint "1"}
+								{deviate}
+							}
+							{## "switch"
+								{"case"
+									{condition
+										{type rand}
+										{value 0.0}
+									}
+									{"actor_fire"
+										{attack enemies}
+										{enemies
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag _user}
+													}
+													{tag
+														{tag _user_ally}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+													{zone
+														{zone "fpc1"}
+													}
+												}
+												{exclude
+													{state
+														{state dead}
+													}
+													{state
+														{state inactive}
+													}
+												}
+											}
+											{amount 1
+											}
+										}
+										{interval 8}
+										{time 0}
+									}
+								}
+								{"default"
+									{"actor_fire"
+										{attack position}
+										{waypoint "1"}
+										{deviate}
+									}
+								}
+							}
+						}
+					}
+					{"case"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag artillery_selected}
+										}
+									}
+									{include
+										{tag
+											{tag attacking_flag_2}
+										}
+										{prop
+											{prop cannon}
+										}
+										{state
+											{state "operatable inhabited"}
+										}
+									}
+									{exclude
+										{tag
+											{tag artillery_in_combat}
+										}
+										{state
+											{state user_control}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state inactive}
+										}
+										{tag
+											{tag _user}
+										}
+										{tag
+											{tag _user_ally}
+										}
+									}
+								}
+							}
+						}
+						{"loop" 18
+							{"actor_fire"
+								{attack position}
+								{waypoint "2"}
+								{deviate}
+							}
+							{## "switch"
+								{"case"
+									{condition
+										{type rand}
+										{value 0.0}
+									}
+									{"actor_fire"
+										{attack enemies}
+										{enemies
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag _user}
+													}
+													{tag
+														{tag _user_ally}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+													{zone
+														{zone "fpc2"}
+													}
+												}
+												{exclude
+													{state
+														{state dead}
+													}
+													{state
+														{state inactive}
+													}
+												}
+											}
+											{amount 1
+											}
+										}
+										{interval 8}
+										{time 0}
+									}
+								}
+								{"default"
+									{"actor_fire"
+										{attack position}
+										{waypoint "2"}
+										{deviate}
+									}
+								}
+							}
+						}
+					}
+					{"case"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag artillery_selected}
+										}
+									}
+									{include
+										{tag
+											{tag attacking_flag_3}
+										}
+										{prop
+											{prop cannon}
+										}
+										{state
+											{state "operatable inhabited"}
+										}
+									}
+									{exclude
+										{tag
+											{tag artillery_in_combat}
+										}
+										{state
+											{state user_control}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state inactive}
+										}
+										{tag
+											{tag _user}
+										}
+										{tag
+											{tag _user_ally}
+										}
+									}
+								}
+							}
+						}
+						{"loop" 18
+							{"actor_fire"
+								{attack position}
+								{waypoint "3"}
+								{deviate}
+							}
+							{## "switch"
+								{"case"
+									{condition
+										{type rand}
+										{value 0.0}
+									}
+									{"actor_fire"
+										{attack enemies}
+										{enemies
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag _user}
+													}
+													{tag
+														{tag _user_ally}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+													{zone
+														{zone "fpc3"}
+													}
+												}
+												{exclude
+													{state
+														{state dead}
+													}
+													{state
+														{state inactive}
+													}
+												}
+											}
+											{amount 1
+											}
+										}
+										{interval 8}
+										{time 0}
+									}
+								}
+								{"default"
+									{"actor_fire"
+										{attack position}
+										{waypoint "3"}
+										{deviate}
+									}
+								}
+							}
+						}
+					}
+					{"case"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag artillery_selected}
+										}
+									}
+									{include
+										{tag
+											{tag attacking_flag_4}
+										}
+										{prop
+											{prop cannon}
+										}
+										{state
+											{state "operatable inhabited"}
+										}
+									}
+									{exclude
+										{tag
+											{tag artillery_in_combat}
+										}
+										{state
+											{state user_control}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state inactive}
+										}
+										{tag
+											{tag _user}
+										}
+										{tag
+											{tag _user_ally}
+										}
+									}
+								}
+							}
+						}
+						{"loop" 18
+							{"actor_fire"
+								{attack position}
+								{waypoint "4"}
+								{deviate}
+							}
+							{## "switch"
+								{"case"
+									{condition
+										{type rand}
+										{value 0.0}
+									}
+									{"actor_fire"
+										{attack enemies}
+										{enemies
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag _user}
+													}
+													{tag
+														{tag _user_ally}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+													{zone
+														{zone "fpc4"}
+													}
+												}
+												{exclude
+													{state
+														{state dead}
+													}
+													{state
+														{state inactive}
+													}
+												}
+											}
+											{amount 1
+											}
+										}
+										{interval 8}
+										{time 0}
+									}
+								}
+								{"default"
+									{"actor_fire"
+										{attack position}
+										{waypoint "4"}
+										{deviate}
+									}
+								}
+							}
+						}
+					}
+					{"case"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag artillery_selected}
+										}
+									}
+									{include
+										{tag
+											{tag attacking_flag_5}
+										}
+										{prop
+											{prop cannon}
+										}
+										{state
+											{state "operatable inhabited"}
+										}
+									}
+									{exclude
+										{tag
+											{tag artillery_in_combat}
+										}
+										{state
+											{state user_control}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state inactive}
+										}
+										{tag
+											{tag _user}
+										}
+										{tag
+											{tag _user_ally}
+										}
+									}
+								}
+							}
+						}
+						{"loop" 18
+							{"actor_fire"
+								{attack position}
+								{waypoint "5"}
+								{deviate}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type rand}
+										{value 0.0}
+									}
+									{"actor_fire"
+										{attack enemies}
+										{enemies
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag _user}
+													}
+													{tag
+														{tag _user_ally}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+													{zone
+														{zone "fpc5"}
+													}
+												}
+												{exclude
+													{state
+														{state dead}
+													}
+													{state
+														{state inactive}
+													}
+												}
+											}
+											{amount 1
+											}
+										}
+										{interval 8}
+										{time 0}
+									}
+								}
+								{"default"
+									{"actor_fire"
+										{attack position}
+										{waypoint "5"}
+										{deviate}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
 
 ;============ AI REPAIR ========================================
 			{"ai_repair_vehicle"
@@ -4372,7 +5223,7 @@
 			{"ai_spawn_inf_settings"
 				{"actor_state"
 					{fire_mode open}
-					;{move_mode free}
+					{move_mode free}
 					{weapon_prepare on}
 					{ai_move
 						{mode enable}
@@ -4380,11 +5231,9 @@
 					{movement
 						{speed assault}
 					}
-					;{ai
-					;	;{no_retreat on}
-					;	{advance_ratio "0.01"}
-					;	{retreat_ratio 200}
-					;}
+					{ai
+						{advance_ratio "3"}
+					}
 				}
 				{"delay"
 					{time 0.5}
@@ -5196,6 +6045,488 @@
 					{value 0}
 				}
 			}
+			{"alert_ai_strategy"
+				{"switch"
+					{"case"
+						{condition
+							{type cmp_i}
+							{var "ai_strategy_selection$"}
+							{op "=="}
+							{value 1}
+						}
+						{"switch"
+							{"case"
+								{condition
+									{type rand}
+									{value 0.25}
+								}
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_massinf_01"}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.25}
+								}
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_massinf_02"}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.25}
+								}
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_massinf_03"}
+								}
+							}
+							{"default"
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_massinf_04"}
+								}
+							}
+						}
+					}
+					{"case"
+						{condition
+							{type cmp_i}
+							{var "ai_strategy_selection$"}
+							{op "=="}
+							{value 2}
+						}
+						{"switch"
+							{"case"
+								{condition
+									{type rand}
+									{value 0.33}
+								}
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_artillery_01"}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.33}
+								}
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_artillery_02"}
+								}
+							}
+							{"default"
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_massinf_03"}
+								}
+							}
+						}
+					}
+					{"case"
+						{condition
+							{type cmp_i}
+							{var "ai_strategy_selection$"}
+							{op "=="}
+							{value 3}
+						}
+						{"switch"
+							{"case"
+								{condition
+									{type rand}
+									{value 0.17}
+								}
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_airborne_01"}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.17}
+								}
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_airborne_02"}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.17}
+								}
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_airborne_03"}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.17}
+								}
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_airborne_04"}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.17}
+								}
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_airborne_05"}
+								}
+							}
+							{"default"
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_airborne_06"}
+								}
+							}
+						}
+					}
+					{"case"
+						{condition
+							{type cmp_i}
+							{var "ai_strategy_selection$"}
+							{op "=="}
+							{value 4}
+						}
+						{"switch"
+							{"case"
+								{condition
+									{type rand}
+									{value 0.33}
+								}
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_heavy_01"}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.33}
+								}
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_heavy_02"}
+								}
+							}
+							{"default"
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_heavy_03"}
+								}
+							}
+						}
+					}
+					{"case"
+						{condition
+							{type cmp_i}
+							{var "ai_strategy_selection$"}
+							{op "=="}
+							{value 5}
+						}
+						{"switch"
+							{"case"
+								{condition
+									{type rand}
+									{value 0.33}
+								}
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_armored_01"}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.33}
+								}
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_armored_02"}
+								}
+							}
+							{"default"
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_armored_03"}
+								}
+							}
+						}
+					}
+					{"case"
+						{condition
+							{type cmp_i}
+							{var "ai_strategy_selection$"}
+							{op "=="}
+							{value 6}
+						}
+						{"switch"
+							{"case"
+								{condition
+									{type rand}
+									{value 0.5}
+								}
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_elite_01"}
+								}
+							}
+							{"default"
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_elite_02"}
+								}
+							}
+						}
+					}
+				}
+			}
+									
 
 ;============ MISC ========================================
 			{"move_extra_ai_defenders_to_point"

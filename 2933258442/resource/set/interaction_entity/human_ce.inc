@@ -2,6 +2,12 @@
 	{on spawn	
 		{delay 0.5
 			;{add_view	"auto_medic"				"auto_medic"				"head" not_manual not_scenario} ;// Auto Medic edited by TJDagger
+			{add_view "beacon_fx" "beacon_fx" "head"}
+			{delay 3
+				{if tagged "radio_man"
+					{call "show_radio_icon"}
+				}
+			}
 			{call "tag_ai_tank_crew"}	
 			{call "clear_bad_player_tags"}
 
@@ -12,6 +18,11 @@
 			;}
 		}
 	}
+
+	{on "show_radio_icon"
+       	{view start "beacon_fx"}
+    }
+
 	{on "set_ignore_spawn_logic"
 	
 		{tags remove "in_spawn_zone_a_1_inf"}
@@ -41,6 +52,10 @@
 				{tags remove "paratrooper_need_orders"}
 			}		
 		}
+	}
+
+	{on "explode_human"
+		{spawn "explosion_small"}
 	}
 
 ;============= Tagging Functions =============
@@ -349,6 +364,7 @@
 		{tags remove "_lua_mi"}
 		{tags remove "_mi_temp4"}
 		{tags remove "_mi_temp6"}
+		{view stop "beacon_fx"}
 	}	
 
 	{on board out							;// exiting a vehicle
@@ -364,7 +380,10 @@
 		;			}
 		;		}
 		;	}
-		;}		
+		;}
+		{if tagged "radio_man"
+			{view start "beacon_fx"}
+		}
 	}
 
 	{on "linker_simulation"
@@ -406,12 +425,17 @@
 		{if tagged "ai_signaller"
 			{clear_inventory}
 			{tags remove "ai_signaller"}
+		else tagged "radio_man"
+       	 	{clear_inventory} 
+       	 	{tags remove "radio_man"}
 		}
+
 		{tags remove "paratrooper_need_orders"}
 		{tags remove "ai_engineer"}
 		{tags remove "ai_tank_crew"}
 		{tags remove "inf_need_to_attack"}
 		{tags remove "tank_crew_idle"}
-		{tags remove "ignore_recrew"}
+		{tags remove "ignore_recrew"}	
+		{view stop "beacon_fx"}
 	}
 }

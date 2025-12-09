@@ -28,6 +28,43 @@
 		}
 	}
 
+	{on ground_hit sync overload
+        {if not tagged "ce_plane_grounded"
+            {tags add "ce_plane_grounded"}
+
+            ; Kill engine sounds completely.
+            ("kill_plane_sounds_hard")
+			; Like... really really hard.
+
+            ; Make sure the plane is actually "dead"
+            {components destroy}
+			; Especially fuck the crew.
+            {kill_crew}
+            {if not under_water
+                {add_view "aero_die_fire" "ce_fire"  "body"}
+                {add_view "aero_fire"     "ce_fire2" "body"}
+                {view start "ce_fire"}
+                {view start "ce_fire2"}
+
+                {spawn "aero_die_particle"}
+                {spawn "aero_die_particle"}
+                {spawn "aero_die_particle"}
+
+                {call "spawn_shellhole"}
+            }
+        }
+        {inherited}
+    }
+
+	{on "smoke_for_test"
+        {add_view "smoke_yellow_norm" "smoke" "root"}
+        {view start "smoke"}
+        {delay 10 "smoke"
+            {view stop "smoke"}
+        }
+    }
+
+
 	{on "engine_full_para_fix"
 		{delay 2.5 "engine_full"			;// delay for accelerate sound
 			{if not destroyed "engine1"
@@ -47,17 +84,15 @@
 		{if operatable
 			{if tagged "fighter"
 				{tags add "fighter_select_sorty"}
-				{tags remove "fighter_ready"}
+				;{tags remove "fighter_ready"}
 			else tagged "bomber_ce"
 				{tags add "bomber_ce_select_sorty"}
-				{tags remove "bomber_ce_ready"}
+				;{tags remove "bomber_ce_ready"}
 			else tagged "bot_recon"
 				{tags add "recon_select_sorty"}
-				{tags remove "ai_recon_ready"}
+				;{tags remove "ai_recon_ready"}
 			}
-			
-			;{call "engine_full_para_fix"}
-			;{call "takeoff"}
+
 			{delay 5
 				{tags remove "fighter_select_sorty"}
 				{tags remove "bomber_ce_select_sorty"}
@@ -66,76 +101,78 @@
 		}
 	}
 
-	(define "move_plane_to_start_waypoint"
+	{on "select_plane_for_fly_by"
+		{tags add "plane_select_fly_by"}
+		{if tagged "fighter"
+			{delay 40
+				{tags add "plane_ready_for_sorty"}
+			}
+		else tagged "bomber_ce"
+			{delay 50
+				{tags add "plane_ready_for_sorty"}
+			}
+		}
+		{tags remove "plane_ready"}
+	}
+
+	{on "move_plane_to_initial_waypoint" 
 		{tags remove "move_to_start_waypoint"} 
-		{tags remove "player_drop_plane_moving_to_start"}
-		{tags remove "move_p_drop_plane"} 
-		{tags add %0}
+		{tags remove "plane_selected_to_move_to_start"}
+		{tags add "plane_ready"}
 		{set "landing" 1}
-		{call "takeoff"}
-	)
+		{call "takeoff_load"}
+		{call "takeoff"}	
+	}	
+
+	{on "tag_squad_need_next_order"
+        {tags add "_lua_need_next_order"}
+        {tags remove "plane_select_fly_by"}
+        {delay 10.1 
+            {tags remove "_lua_need_next_order"}
+        }
+    }
 }
 
 {"airborne drop_plane"
-    {on "move_plane_to_initial_waypoint" 
-		("move_plane_to_start_waypoint" args "ready_to_move")
-	}
-
     {on "prep_drop_plane_to_move"
-    	;{if rand 0.1
-    	;	{call "prep_drop_plane_to_move_fast_drop"}
-    	;else
-    		{tags remove "ready_to_move"}
-			{tags add "moving_to_drop_zone"}
-			{tags add "on_mission"}
-			{delay 5
-				{tags remove "moving_to_drop_zone"}
-			}
-			{delay 5
-				{if rand 0.15
-					{delay 18
-						{call "drop_paratroopers"}
-					}
-				else rand 0.15
-					{delay 15
-						{call "drop_paratroopers"}
-					}
-				else rand 0.15
-					{delay 5
-						{call "drop_paratroopers"}
-					}
-				else rand 0.15
-					{delay 4
-						{call "drop_paratroopers"}
-					}	
-				else rand 0.15
-					{delay 20
-						{call "drop_paratroopers"}
-					}
-				else rand 0.15
-					{delay 8
-						{call "drop_paratroopers"}
-					}
-				else rand 0.15
-					{delay 11
-						{call "drop_paratroopers"}
-					}	
-				else 
-					{delay 10
-						{call "drop_paratroopers"}
-					}
+		{delay 5
+			{if rand 0.15
+				{delay 18
+					{call "drop_paratroopers"}
+				}
+			else rand 0.15
+				{delay 15
+					{call "drop_paratroopers"}
+				}
+			else rand 0.15
+				{delay 5
+					{call "drop_paratroopers"}
+				}
+			else rand 0.15
+				{delay 4
+					{call "drop_paratroopers"}
+				}	
+			else rand 0.15
+				{delay 20
+					{call "drop_paratroopers"}
+				}
+			else rand 0.15
+				{delay 8
+					{call "drop_paratroopers"}
+				}
+			else rand 0.15
+				{delay 11
+					{call "drop_paratroopers"}
+				}	
+			else 
+				{delay 10
+					{call "drop_paratroopers"}
 				}
 			}
-    	;}
+		}
 	}
 
 	{on "prep_drop_plane_to_move_fast_drop"
-		{tags remove "ready_to_move"}
-		{tags add "moving_to_drop_zone"}
-		{tags add "on_mission"}
-		{delay 5
-			{tags remove "moving_to_drop_zone"}
-		}
 		{delay 5
 			{if rand 0.15
 				{delay 1
@@ -296,8 +333,8 @@
 		{delay 0.2
 			{tags add "move_to_start_waypoint"}
 			{tags add "user_plane"}	
-			{tags remove "moving_to_drop_zone"}	
-			{tags remove "ready_to_move"}	
+			;{tags remove "moving_to_drop_zone"}	
+			;{tags remove "ready_to_move"}	
 			{tags remove "on_mission"}	
 			{tags remove "nocrew"}
 			{tags remove "out"}
@@ -307,18 +344,6 @@
 			{call "takeoff"}
 		}			
 	}
-
-	;(define "eject_troopers" overload
-	;	{delay %delay
-	;		{with_linked_entity %seat
-	;			{unlink}
-	;			{delay 0
-	;				{drop_orders}
-	;			}
-	;			{tags add "player_paratrooper"}				
-	;		}
-	;	}	
-	;)
 
 	{on crew out
         {if not tagged "nocrew"
@@ -376,19 +401,6 @@
 		}
 		
 	}
-
-	;(define "eject_troopers"
-	;	{delay %delay
-	;		{with_linked_entity %seat
-	;			{unlink}
-	;			{delay 0
-	;				{drop_orders}
-	;			}
-	;			{tags add "paratrooper"}	
-	;			{tags add "ignore_spawn_logic"}			
-	;		}
-	;	}	
-	;)
 }
 
 {"airborne 3_engine"
@@ -424,10 +436,6 @@
 			}
 		}
 	}
-
-	{on "move_plane_to_initial_waypoint" 
-		("move_plane_to_start_waypoint" args "fighter_ready")
-	}
 }
 
 {"airborne bomber_ce ai"
@@ -439,42 +447,7 @@
 			}
 		}
 	}
-
-	{on "move_plane_to_initial_waypoint" 
-		("move_plane_to_start_waypoint" args "bomber_ce_ready")
-	}
 }
-
-{"airborne"
-    {on ground_hit sync overload
-        {if not tagged "ce_plane_grounded"
-            {tags add "ce_plane_grounded"}
-
-            ; Kill engine sounds completely.
-            ("kill_plane_sounds_hard")
-			; Like... really really hard.
-
-            ; Make sure the plane is actually "dead"
-            {components destroy}
-			; Especially fuck the crew.
-            {kill_crew}
-            {if not under_water
-                {add_view "aero_die_fire" "ce_fire"  "body"}
-                {add_view "aero_fire"     "ce_fire2" "body"}
-                {view start "ce_fire"}
-                {view start "ce_fire2"}
-
-                {spawn "aero_die_particle"}
-                {spawn "aero_die_particle"}
-                {spawn "aero_die_particle"}
-
-                {call "spawn_shellhole"}
-            }
-        }
-        {inherited}
-    }
-}
-
 
 {"airborne ai_recon_plane"
 	{on spawn
@@ -486,9 +459,9 @@
 		}
 	}
 
-	{on "move_plane_to_initial_waypoint" 
-		("move_plane_to_start_waypoint" args "ai_recon_ready")
-	}
+	;{on "move_plane_to_initial_waypoint" 
+	;	("move_plane_to_start_waypoint")
+	;}
 }
 
 {"player_plane"

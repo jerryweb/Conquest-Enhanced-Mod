@@ -427,14 +427,28 @@ function DefaultSquadSpawnOrders(args)
 	local waypoints = BotApi.Scene.Waypoints
 	if #waypoints == 0 then
 		if isAircaft then
-			if printDebug then print("SQUAD  ", args.squadId, " with unit type: airplane is using vanilla logic!") end
-			SetSquadOrder(CaptureFlag, args.squadId, OrderRotationPeriod.DCG_FLANK.Max, false)
+			if UnitType("ReconPlane", squadTypes) then
+				--if printDebug then print("SQUAD  ", args.squadId, " with unit type RECON PLANE using custom scripts followed by vanilla logic!") end
+				SetSquadOrder(CaptureFlag, args.squadId, math.random(OrderRotationPeriod.DCG.Min, OrderRotationPeriod.DCG.Max), false)
+			else
+				--if printDebug then print("SQUAD  ", args.squadId, " with unit type: airplane is using vanilla logic!") end
+				print("SQUAD  ", args.squadId, " with unit type airplane is not using bot logic! This unit will rely on scripting!")
+				SetSquadOrder(CaptureFlag, args.squadId, OrderRotationPeriod.DCG_FLANK.Max, false)
+			end
 		elseif isCannon then
-			if printDebug then print("SQUAD  ", args.squadId, " with unit type: cannon is using vanilla logic!") end
-			SetSquadOrder(CaptureFlag, args.squadId, OrderRotationPeriod.CannonTimeOut, true)
+			if not UnitType("Artillery", squadTypes) then
+				if printDebug then print("SQUAD  ", args.squadId, " with unit type: cannon is using vanilla logic!") end
+				SetSquadOrder(CaptureFlag, args.squadId, OrderRotationPeriod.CannonTimeOut , true)
+			else 
+				if printDebug then print("SQUAD  ", args.squadId, " with unit type: Artillery is using vanilla logic!") end
+				SetSquadOrder(CaptureFlag, args.squadId, OrderRotationPeriod.CannonTimeOut * 5, true)
+			end	
+		elseif UnitType("Artillery", squadTypes) then
+			if printDebug then print("SQUAD  ", args.squadId, " with unit type: Artillery is using vanilla logic!") end
+			SetSquadOrder(CaptureFlag, args.squadId, OrderRotationPeriod.DCG_FLANK.Min, true)
 		elseif followWaypointGraphs and unitFollowWaypointGraph then
 			if printDebug then print("SQUAD  ", args.squadId, " with unit type: ", type, " following waypoint graph!") end
-			SetSquadOrder(CaptureFlag, args.squadId, OrderRotationPeriod.InitialUnitSpawnTimeout, false)
+			SetSquadOrder(CaptureFlag, args.squadId, math.random(OrderRotationPeriod.DCG.Min, OrderRotationPeriod.DCG.Max), false)
 		else
 			if printDebug then print("SQUAD  ", args.squadId, " with unit type: ", type, " using vanilla logic!") end
            	local orderDelay = OrderRotationPeriod.DCG.Min - 0.5 * 60000

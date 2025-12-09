@@ -8,11 +8,11 @@ StrategyTemplates = {
 		StrategyUnitTypes = {
 			"Wave",
 			"Flamer",
-			"Command",
+			"Super_Wave",
 		},
 		forceUnitCount = {
-			min = 15,
-			max = 30,
+			min = 8,
+			max = 15,
 		},
 		BotInfantry = {
 			min = 40,
@@ -349,15 +349,20 @@ StrategyTemplates = {
 			"Squad",
 			"Support",
 			"Big_gun",
+			"Elite",
 			"AT",
+		},
+		StrategyExcludeUnitTypes = {
+			"Tank",
+			"Vehicle",
 		},
 		forceUnitCount = {
 			min = 8,
 			max = 16,
 		},
 		BotInfantry = {
-			min = 40,
-			max = 65,
+			min = 60,
+			max = 100,
 		},
 		BotATInfantry = {
 			min = 3,

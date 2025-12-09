@@ -26,7 +26,11 @@
         }
         {if rand 0.4
             ("cannon_sandbag_fast" args "netting_square" "basis") 
-        }        
+        }
+        {tags add "cannon_dig_in_cooldown"} 
+        {delay 120
+			{tags remove "cannon_dig_in_cooldown"}
+        }       
     }
 }
 
@@ -205,6 +209,14 @@
 }
 
 ;============================Short Range Artillery=========================================
+
+{"76mm_land_mattress_animation"
+	{on spawn
+        {delay 1
+            {tags add "short_range"}
+        }
+    }
+}
 
 {"105mm_m3" 
 	{on spawn

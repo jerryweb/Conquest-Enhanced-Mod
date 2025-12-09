@@ -1,4 +1,4 @@
-		{event "ai_air_on"}
+{event "cancel_artillery_attack"}		{event "ai_air_on"}
 		{event "ai_air_possible"}
 		{event "ai_general_flank"}
 		{event "ai_recon_units_flank"}
@@ -28,5 +28,4 @@
 		{event "move_spawns"}
 		{event "enable_ai_attack_logic"}
 		{event "ai_defender_vehicles_tagged"}
-
-    
+		{event "cannon_artillery_script_thread_active"}
