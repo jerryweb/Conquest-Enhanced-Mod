@@ -137,11 +137,11 @@
                 {link_sound "trench_deploy" "vehicle/deploy/trench/"}
                 {play_sound "trench_deploy"}
                 {if terrain_fx "ice"
-                    {spawn "tank_cover_new_ai" "basis" x constrain_after_dir  {tex_mod "win"}}  
+                    {spawn "tank_cover_new" "basis" x constrain_after_dir  {tex_mod "win"}}  
                 else terrain_fx "snow"
-                    {spawn "tank_cover_new_ai" "basis" x constrain_after_dir  {tex_mod "win"}}
+                    {spawn "tank_cover_new" "basis" x constrain_after_dir  {tex_mod "win"}}
                 else
-                    {spawn "tank_cover_new_ai" "basis" x constrain_after_dir }
+                    {spawn "tank_cover_new" "basis" x constrain_after_dir }
                 }
             }
             {delay 20
