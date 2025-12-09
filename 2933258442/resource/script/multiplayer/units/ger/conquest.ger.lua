@@ -241,7 +241,7 @@ Purchases["conquest.ger"] = {
 		--Aircraft
 			-- {priority = 1.0, type = {"Aircraft", "Fighter",}, unit = "bf109_f4_ai", maxUnitCount = 2},
 			{priority = 1.0, type = {"Aircraft", "Fighter", "Group_Air"}, unit = "bf109_f4_ai_x3", maxUnitCount = 6, multiplier = 3},
-			{priority = 0.5, type = {"Aircraft", "Bomber", "Group_Air"}, unit = "bf110_e2_ai_x2", maxUnitCount = 4, multiplier = 2},
+			{priority = 0.25, type = {"Aircraft", "Bomber", "Group_Air"}, unit = "bf110_e2_ai_x2", maxUnitCount = 4, multiplier = 2},
 			-- {priority = 0.5, type = {"Aircraft", "Fighter", "Bomber", "Group_Air"}, unit = "fighter_bomber_squad", maxUnitCount = 1},
 			{priority = 1.0, type = {"Aircraft", "Bomber",}, unit = "bf110_e2_ai", maxUnitCount = 2, multiplier = 2},
             {priority = 1.0, type = {"Aircraft", "ReconPlane",}, unit = "ai_fi156"},
