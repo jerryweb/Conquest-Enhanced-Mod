@@ -1,0 +1,590 @@
+;SDL
+
+;===================================
+;        INSTRUCTIONS    
+;===================================
+
+; In this file onee configures the humans which are spawned in vehicles or squads
+; The humans have a CP and cost associated with them which collectively add up for the final squad value
+; Check ../settings_inf.set for the global defines for CP, capture weight (CW), score, etc.
+
+;===================================
+;        PRICING CHART	       
+;===================================
+
+
+; // Standard prices below are for tier2 infantry
+;pistol 		= 5
+;p14 			= 8
+;enfield no1 	= 9
+;enfield no4 	= 9
+;sten	 		= 10
+;patchett	 	= 10
+;thompson 20	= 9
+;thompson 30	= 10
+;bren			= 25
+;lewis			= 35
+;vgo			= 40
+;rifle grenade 	= +10 or 5 if squad
+;piat 			= +40
+;mortar 		= +50
+;any % pzfaust 	= +0
+;any pzfaust 	= +0
+;any flamer		= 55
+;engineer		= 50 or 25 if squad
+;miner 			= 40 or 25 if squad
+
+; // price modifiers (If not tier2)
+;tier 0 		= -3, MG -10
+;tier 1 		= -1, MG -10
+;tier 1 vet 	= 0, MG 0
+;tier 2 vet		= +2, MG +5
+;tier 3 		= +5, MG +10
+;tier 3 vet 	= +8, MG +15
+;tier 4 		= +10, MG +20
+;tier 4 vet 	= +12, MG +25
+
+
+;===================================
+;        BREED DECLARATIONS       
+;===================================
+
+; // Specials
+{"mp/eng/early/artilleryman"		("inf_tankman" side(eng) cost(5.0))}
+{"mp/eng/mid/artilleryman"			("inf_tankman" side(eng) cost(5.0))}
+{"mp/eng/late/artilleryman"			("inf_tankman" side(eng) cost(5.0))}
+
+{"mp/eng/early/tankman"				("inf_tankman" side(eng) cost(4.0))}
+{"mp/eng/mid/tankman"				("inf_tankman" side(eng) cost(4.0))}
+{"mp/eng/late/tankman"				("inf_tankman" side(eng) cost(4.0))}
+
+{"mp/eng/early/tank_commander"		("inf_tankman" side(eng) cost(10.0))}
+{"mp/eng/mid/tank_commander"		("inf_tankman" side(eng) cost(10.0))}
+{"mp/eng/mid/tank_commander_m1928"	("inf_tankman" side(eng) cost(10.0))}
+{"mp/eng/late/tank_commander"		("inf_tankman" side(eng) cost(10.0))}
+{"mp/eng/late/tank_commander_m1928"	("inf_tankman" side(eng) cost(10.0))}
+
+{"mp/eng/early/vehicle_com_cpl"		("inf_tankman" side(eng) cost(5.0))}
+{"mp/eng/mid/vehicle_com_cpl"		("inf_tankman" side(eng) cost(5.0))}
+{"mp/eng/late/vehicle_com_cpl"		("inf_tankman" side(eng) cost(5.0))}
+{"mp/eng/early/vehicle_com_sgt"		("inf_tankman" side(eng) cost(5.0))}
+{"mp/eng/mid/vehicle_com_sgt"		("inf_tankman" side(eng) cost(5.0))}
+{"mp/eng/late/vehicle_com_sgt"		("inf_tankman" side(eng) cost(5.0))}
+{"mp/eng/early/vehicle_crew"		("inf_tankman" side(eng) cost(5.0))}
+{"mp/eng/mid/vehicle_crew"			("inf_tankman" side(eng) cost(5.0))}
+{"mp/eng/late/vehicle_crew"			("inf_tankman" side(eng) cost(5.0))}
+
+{"mp/eng/early/driver"				("inf_tankman" side(eng) cost(5.0))} ; enfield no1
+{"mp/eng/mid/driver"				("inf_tankman" side(eng) cost(5.0))} ; enfield no1
+{"mp/eng/late/driver"				("inf_tankman" side(eng) cost(5.0))} ; enfield no4
+{"mp/eng/late/driver_smg"			("inf_tankman" side(eng) cost(5.0))} ; sten mk2
+{"mp/eng/early/crew"				("inf_tankman" side(eng) cost(5.0))} ; enfield no1
+{"mp/eng/mid/crew"					("inf_tankman" side(eng) cost(5.0))} ; enfield no1
+{"mp/eng/late/crew"					("inf_tankman" side(eng) cost(5.0))} ; enfield no4
+
+{"mp/can/late/driver"				("inf_tankman" side(can) cost(5.0))} ; enfield no4
+{"mp/can/late/driver_smg"			("inf_tankman" side(can) cost(5.0))} ; sten mk2
+
+{"mp/eng/early/rec_carrier_driver"	("inf_tankman" side(eng) cost(5.0))} ; enfield no1
+{"mp/eng/mid/rec_carrier_driver"	("inf_tankman" side(eng) cost(5.0))} ; enfield no1
+{"mp/eng/late/rec_carrier_driver"	("inf_tankman" side(eng) cost(5.0))} ; enfield no4
+{"mp/eng/early/rec_carrier_gunner"	("inf_tankman" side(eng) cost(5.0))} ; enfield no1
+{"mp/eng/mid/rec_carrier_gunner"	("inf_tankman" side(eng) cost(5.0))} ; enfield no1
+
+{"mp/can/late/driver_smg"			("inf_tankman" side(can) cost(5.0))} ; sten mk2
+
+{"mp/pol/late/1st_ad_driver_smg"	("inf_tankman" side(eng) cost(5.0))} ; sten mk2
+{"mp/pol/late/1st_ad_driver"		("inf_tankman" side(eng) cost(5.0))} ; enfield no4
+
+{"mp/eng/mid/rec_driver"			("inf_tankman" side(eng) cost(5.0))} ; enfield no1
+{"mp/eng/late/rec_driver"			("inf_tankman" side(eng) cost(5.0))} ; enfield no4
+
+{"mp/eng/mid/plt_com"				("inf_officer" side(eng) cost(125.0))} ; pistol + binocs
+{"mp/eng/late/coy_com"				("inf_officer" side(eng) cost(125.0))} ; pistol + binocs
+
+{"mp/eng/early/pilot"				("inf_tankman" side(eng) cost(0.0))}
+{"mp/eng/mid/pilot"					("inf_tankman" side(eng) cost(0.0))}
+{"mp/eng/late/pilot"				("inf_tankman" side(eng) cost(0.0))}
+
+{"mp/eng/mid/medic"					("inf_medic" side(eng) cost(40.0))}
+
+{"mp/eng/early/sniper"				("inf_sniper" side(eng) r(2) rm(99) cost(150.0))}
+
+; // Tier 1
+{"mp/eng/early/rear_echelon_rifle"	("inf_tier1" side(eng) lvl(lvl1 lvl2) r(1) rm(4) cost(8.0))} ; enfield no1
+{"mp/eng/mid/rear_echelon_rifle"	("inf_tier1" side(eng) lvl(lvl1 lvl2) r(5) rm(8) cost(8.0))} ; enfield no1
+
+{"mp/eng/mid/def_sec_com"			("inf_tier1" side(eng) lvl(lvl1 lvl2) r(5) rm(8) cost(8.0))} ; enfield no1
+{"mp/eng/mid/def_sec_2ic"			("inf_tier1" side(eng) lvl(lvl1 lvl2) r(5) rm(8) cost(8.0))} ; enfield no1
+{"mp/eng/mid/def_rifle"				("inf_tier1" side(eng) lvl(lvl1 lvl2) r(5) rm(8) cost(8.0))} ; enfield no1
+{"mp/eng/mid/def_rifle_band"		("inf_tier1" side(eng) lvl(lvl1 lvl2) r(5) rm(8) cost(8.0))} ; enfield no1
+{"mp/eng/mid/def_mg"				("inf_tier1" side(eng) lvl(lvl1 lvl2) r(5) rm(8) cost(15.0))} ; bren mk1
+{"mp/eng/mid/def_mg_asst"			("inf_tier1" side(eng) lvl(lvl1 lvl2) r(5) rm(8) cost(8.0))} ; enfield no1
+{"mp/eng/mid/def_at_boys"			("inf_tier1" side(eng) lvl() r(5) rm(8) cost(19.0))} ; AT rifle
+{"mp/eng/mid/def_at_boys_asst"		("inf_tier1" side(eng) lvl(lvl1 lvl2) r(5) rm(8) cost(8.0))} ; enfield no1
+
+{"mp/eng/late/def_sec_com"			("inf_tier1" side(eng) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; enfield no4
+{"mp/eng/late/def_sec_2ic"			("inf_tier1" side(eng) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; enfield no4
+{"mp/eng/late/def_rifle"			("inf_tier1" side(eng) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; enfield no4
+{"mp/eng/late/def_rifle_band"		("inf_tier1" side(eng) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; enfield no4
+{"mp/eng/late/def_mg"				("inf_tier1" side(eng) lvl(lvl1 lvl2) r(9) rm(99) cost(15.0))} ; bren mk2
+{"mp/eng/late/def_mg_asst"			("inf_tier1" side(eng) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; enfield no4
+{"mp/eng/late/def_at_piat"			("inf_tier1" side(eng) lvl() r(9) rm(99) cost(39.0))} ; piat
+{"mp/eng/late/def_at_piat_asst"		("inf_tier1" side(eng) lvl(lvl1 lvl2) r(9) rm(99) cost(8.0))} ; enfield no4
+
+;// tier 2
+{"mp/eng/early/mg_crew"				("inf_tier2_lite" side(eng) lvl() r(1) rm(4) cost(9.0))} ; enfield no1
+{"mp/eng/mid/mg_crew"				("inf_tier2_lite" side(eng) lvl() r(5) rm(8) cost(9.0))} ; enfield no1
+{"mp/eng/late/mg_crew"				("inf_tier2_lite" side(eng) lvl() r(9) rm(99) cost(9.0))} ; enfield no4
+{"mp/eng/early/mg_crew_asst"		("inf_tier2_lite" side(eng) lvl() r(1) rm(4) cost(9.0))} ; enfield no1
+{"mp/eng/mid/mg_crew_asst"			("inf_tier2_lite" side(eng) lvl() r(5) rm(99) cost(9.0))} ; enfield no1
+
+{"mp/eng/early/sec_com"				("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(1) rm(4) cost(9.0))} ; enfield no1
+{"mp/eng/mid/sec_com"				("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(5) rm(8) cost(9.0))} ; thompson 20
+{"mp/eng/late/sec_com"				("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(10.0))} ; sten mk2
+{"mp/eng/early/sec_com_sgt"			("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(1) rm(4) cost(9.0))} ; enfield no1
+{"mp/eng/mid/sec_com_sgt"			("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(5) rm(99) cost(9.0))} ; enfield no1
+{"mp/eng/late/sec_com_sgt"			("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(5) rm(99) cost(9.0))} ; enfield no4
+{"mp/eng/early/sec_2ic"				("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(1) rm(4) cost(9.0))} ; enfield no1
+{"mp/eng/mid/sec_2ic"				("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(5) rm(8) cost(9.0))} ; enfield no1
+{"mp/eng/late/sec_2ic"				("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; enfield no4
+{"mp/eng/early/detach_com_cpl"		("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(1) rm(4) cost(9.0))} ; enfield no1
+{"mp/eng/mid/detach_com"			("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(5) rm(8) cost(9.0))} ; enfield no1
+{"mp/eng/mid/rifle_gren"			("inf_tier2" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(9.0))} ; enfield no1 + grenade
+
+{"mp/can/late/sec_com_sgt"			("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(5) rm(99) cost(9.0))} ; enfield no4
+{"mp/can/late/sec_com"				("inf_tier2" side(can) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(10.0))} ; sten mk2
+{"mp/can/late/sec_2ic"				("inf_tier2" side(can) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; enfield no4
+{"mp/can/late/detach_com"			("inf_tier2" side(can) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; enfield no4
+
+{"mp/pol/late/1st_ad_sec_com"		("inf_tier2" side(pol) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(10.0))} ; sten mk2
+{"mp/pol/late/1st_ad_sec_com_sgt"	("inf_tier2" side(pol) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; enfield no4
+{"mp/pol/late/1st_ad_detach_com"	("inf_tier2" side(pol) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; enfield no4
+{"mp/pol/late/1st_ad_sec_2ic"		("inf_tier2" side(pol) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; enfield no4
+{"mp/pol/late/1st_ad_rifle_band"	("inf_tier2_lite" side(pol) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; enfield no4
+{"mp/pol/late/1st_ad_rifle"			("inf_tier2_lite" side(pol) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; enfield no4
+{"mp/pol/late/1st_ad_mg"			("inf_tier2" side(pol) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(25.0))} ; bren mk2
+{"mp/pol/late/1st_ad_mg_asst"		("inf_tier2" side(pol) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; enfield no4
+{"mp/pol/late/1st_ad_at_piat"		("inf_tier2" side(pol) lvl(lvl3 lvl4) r(9) rm(99) cost(49.0))} ; enfield no4 + piat
+{"mp/pol/late/1st_ad_at_piat_asst"	("inf_tier2" side(pol) lvl() r(9) rm(99) cost(9.0))} ; enfield no4
+
+{"mp/pol/late/1st_ad_mot_sec_com"	("inf_tier2" side(pol) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(10.0))} ; sten mk2
+{"mp/pol/late/1st_ad_mot_sec_2ic"	("inf_tier2" side(pol) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; enfield no4
+{"mp/pol/late/1st_ad_mot_mg"		("inf_tier2" side(pol) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(25.0))} ; bren mk2
+{"mp/pol/late/1st_ad_mot_mg_asst"	("inf_tier2" side(pol) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; enfield no4
+{"mp/pol/late/1st_ad_mot_piat"		("inf_tier2" side(pol) lvl(lvl3 lvl4) r(9) rm(99) cost(49.0))} ; enfield no4 + piat
+{"mp/pol/late/1st_ad_mot_piat_asst"	("inf_tier2" side(pol) lvl() r(9) rm(99) cost(9.0))} ; enfield no4
+{"mp/pol/late/1st_ad_mot_rifle_band"("inf_tier2_lite" side(pol) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; enfield no4
+
+{"mp/eng/early/rifle"				("inf_tier2_lite" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(1) rm(4) cost(9.0))} ; enfield no1
+{"mp/eng/mid/rifle"					("inf_tier2_lite" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(5) rm(8) cost(9.0))} ; enfield no1
+{"mp/eng/late/rifle"				("inf_tier2_lite" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; enfield no4
+{"mp/eng/early/rifle_band"			("inf_tier2_lite" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(1) rm(4) cost(9.0))} ; enfield no1
+{"mp/eng/mid/rifle_band"			("inf_tier2_lite" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(5) rm(8) cost(9.0))} ; enfield no1
+{"mp/eng/late/rifle_band"			("inf_tier2_lite" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; enfield no4
+
+{"mp/can/late/rifle"				("inf_tier2_lite" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; enfield no4
+{"mp/can/late/rifle_band"			("inf_tier2_lite" side(can) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; enfield no4
+{"mp/can/late/rifle_piat"			("inf_tier2" side(can) lvl(lvl3 lvl4) r(9) rm(99) cost(49.0))} ; enfield no4 + piat
+{"mp/can/late/rifle_piat_asst"		("inf_tier2" side(can) lvl() r(9) rm(99) cost(9.0))} ; enfield no4
+
+{"mp/eng/mid/batman"				("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(5) rm(8) cost(9.0))} ; enfield no1
+{"mp/eng/late/batman_smg"			("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; sten mk2
+
+{"mp/eng/early/antitank_boys"		("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(1) rm(4) cost(20.0))} ; AT rifle
+{"mp/eng/early/antitank_boys_asst"	("inf_tier2_lite" side(eng) lvl() r(1) rm(4) cost(9.0))} ; enfield no1
+{"mp/eng/mid/antitank_boys"			("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(5) rm(7) cost(20.0))} ; AT rifle
+{"mp/eng/mid/antitank_boys_asst"	("inf_tier2_lite" side(eng) lvl() r(5) rm(7) cost(9.0))} ; enfield no1
+{"mp/eng/mid/antitank_piat"			("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(6) rm(8) cost(49.0))}  ; enfield no1 + piat
+{"mp/eng/mid/antitank_piat_asst"	("inf_tier2_lite" side(eng) lvl() r(6) rm(8) cost(9.0))}  ; enfield no1
+{"mp/eng/late/antitank_piat"		("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(8) rm(99) cost(49.0))} ; enfield no4 + piat
+{"mp/eng/late/antitank_piat_asst"	("inf_tier2_lite" side(eng) lvl() r(8) rm(99) cost(9.0))} ; enfield no4
+
+{"mp/eng/early/antitank_gren"		("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(1) rm(4) cost(14.0))} ; enfield no1 + grenade
+{"mp/eng/mid/antitank_gren"			("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(5) rm(8) cost(14.0))} ; enfield no1 + grenade
+{"mp/eng/late/antitank_gren"		("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(14.0))} ; enfield no4 + grenade
+
+{"mp/eng/early/mg"					("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(1) rm(4) cost(25.0))} ; bren mk1
+{"mp/eng/early/mg_asst"				("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(1) rm(4) cost(9.0))} ; enfield no1
+{"mp/eng/mid/mg"					("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(5) rm(8) cost(25.0))} ; bren mk1
+{"mp/eng/mid/mg_asst"				("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(5) rm(8) cost(9.0))} ; enfield no1
+{"mp/eng/late/mg"					("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(25.0))} ; bren mk2
+{"mp/eng/late/mg_asst"				("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; enfield no4
+
+{"mp/can/late/mg"					("inf_tier2" side(can) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(25.0))} ; bren mk2
+{"mp/can/late/mg_asst"				("inf_tier2" side(can) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; enfield no4
+
+{"mp/eng/mid/mot_scout_driver"		("inf_tier2" side(eng) lvl() r(5) rm(8) cost(9.0))} ; enfield no1
+{"mp/eng/mid/mot_scout_gunner"		("inf_tier2" side(eng) lvl() r(5) rm(8) cost(14.0))} ; enfield no1 + grenade
+
+{"mp/eng/late/mot_sec_com"			("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(10.0))} ; sten mk2
+{"mp/eng/late/mot_sec_2ic"			("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; enfield no4
+{"mp/eng/late/mot_rifle_band"		("inf_tier2_lite" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; enfield no4
+{"mp/eng/late/mot_mg"				("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(25.0))} ; bren mk2
+{"mp/eng/late/mot_mg_asst"			("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; enfield no4
+{"mp/eng/late/mot_piat"				("inf_tier2" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(49.0))} ; enfield no4 + piat
+{"mp/eng/late/mot_piat_asst"		("inf_tier2" side(eng) lvl() r(9) rm(99) cost(9.0))} ; enfield no4
+
+{"mp/can/late/mot_sec_com"			("inf_tier2" side(can) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(10.0))} ; sten mk2
+{"mp/can/late/mot_sec_2ic"			("inf_tier2" side(can) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; enfield no4
+{"mp/can/late/mot_rifle_band"		("inf_tier2_lite" side(can) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; enfield no4
+{"mp/can/late/mot_mg"				("inf_tier2" side(can) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(25.0))} ; bren mk2
+{"mp/can/late/mot_mg_asst"			("inf_tier2" side(can) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; enfield no4
+{"mp/can/late/mot_piat"				("inf_tier2" side(can) lvl(lvl3 lvl4) r(9) rm(99) cost(49.0))} ; enfield no4 + piat
+{"mp/can/late/mot_piat_asst"		("inf_tier2" side(can) lvl() r(9) rm(99) cost(9.0))} ; enfield no4
+
+{"mp/eng/late/pio_sec_com_cpl"		("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; enfield no4
+{"mp/eng/late/pio"					("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; enfield no4
+
+{"mp/eng/early/pio_sec_com"			("inf_tier2" side(eng) lvl(lvl1 lvl2) r(1) rm(4) cost(9.0))} ; enfield no1
+{"mp/eng/early/pio_builder"			("inf_tier2" side(eng) lvl() r(1) rm(4) cost(25.0))} ; enfield no1
+{"mp/eng/early/pio_gren"			("inf_tier2" side(eng) lvl(lvl1) r(1) rm(4) cost(14.0))} ; enfield no1 + grenade
+{"mp/eng/early/pio_band"			("inf_tier2" side(eng) lvl(lvl1 lvl2) r(1) rm(4) cost(9.0))} ; enfield no1
+{"mp/eng/early/pio_mg"				("inf_tier2" side(eng) lvl(lvl1 lvl2) r(1) rm(4) cost(25.0))} ; bren mk1
+{"mp/eng/early/pio_mg_asst"			("inf_tier2" side(eng) lvl(lvl1 lvl2) r(1) rm(4) cost(9.0))} ; enfield no1
+
+{"mp/eng/mid/r_eng_mine_ap"			("inf_tier2" side(eng) lvl() r(1) rm(8) cost(40.0))} ; enfield no1
+{"mp/eng/late/r_eng_mine_ap"		("inf_tier2" side(eng) lvl() r(9) rm(99) cost(40.0))} ; enfield no4
+{"mp/eng/mid/r_eng_mine_at"			("inf_tier2" side(eng) lvl() r(1) rm(8) cost(40.0))} ; enfield no1
+{"mp/eng/late/r_eng_mine_at"		("inf_tier2" side(eng) lvl() r(9) rm(99) cost(40.0))} ; enfield no4
+{"mp/eng/mid/r_eng_builder"			("inf_tier2" side(eng) lvl() r(1) rm(8) cost(50.0))} ; enfield no1
+{"mp/eng/late/r_eng_builder"		("inf_tier2" side(eng) lvl() r(9) rm(99) cost(50.0))} ; enfield no4
+{"mp/eng/late/r_eng_flamer"			("inf_tier2" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(55.0))} ; flamer
+
+{"mp/eng/mid/r_eng_sec_com"			("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(5) rm(8) cost(9.0))} ; enfield no1
+{"mp/eng/late/r_eng_sec_com"		("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(10.0))} ; sten mk2
+{"mp/eng/mid/r_eng_sec_2ic"			("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(5) rm(8) cost(9.0))} ; enfield no1
+{"mp/eng/late/r_eng_sec_2ic"		("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; enfield no4
+{"mp/eng/mid/r_eng_sapper"			("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(5) rm(8) cost(9.0))} ; enfield no1
+{"mp/eng/late/r_eng_sapper"			("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; enfield no4
+{"mp/eng/mid/r_eng_boys"			("inf_tier2" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(20.0))} ; AT rifle
+{"mp/eng/mid/r_eng_boys_asst"		("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(5) rm(8) cost(9.0))} ; enfield no1
+{"mp/eng/mid/r_eng_mg"				("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(5) rm(8) cost(25.0))} ; bren mk1
+{"mp/eng/late/r_eng_mg"				("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(25.0))} ; bren mk2
+{"mp/eng/mid/r_eng_mg_asst"			("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(5) rm(8) cost(9.0))} ; enfield no1
+{"mp/eng/late/r_eng_mg_asst"		("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; enfield no4
+{"mp/eng/late/r_eng_piat"			("inf_tier2" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(49.0))} ; enfield no4 + piat
+{"mp/eng/late/r_eng_piat_asst"		("inf_tier2" side(eng) lvl() r(9) rm(99) cost(9.0))} ; enfield no4
+
+{"mp/eng/early/rec_sec_com"			("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(1) rm(4) cost(9.0))} ; enfield no1
+{"mp/eng/mid/rec_sec_com"			("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(5) rm(8) cost(9.0))} ; thompson 20
+{"mp/eng/late/rec_sec_com"			("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(10.0))} ; sten mk2
+{"mp/eng/mid/rec_sec_2ic"			("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(5) rm(8) cost(9.0))} ; enfield no1
+{"mp/eng/late/rec_sec_2ic"			("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; enfield no4
+
+{"mp/eng/early/rec_carrier_detach_com_sgt" ("inf_tier2" side(eng) lvl(lvl1 lvl2) r(1) rm(4) cost(9.0))} ; enfield no1
+{"mp/eng/early/rec_carrier_detach_com_cpl" ("inf_tier2" side(eng) lvl(lvl1 lvl2) r(1) rm(4) cost(9.0))} ; enfield no1
+{"mp/eng/early/rec_carrier_rifle"	("inf_tier2_lite" side(eng) lvl(lvl1 lvl2) r(1) rm(4) cost(9.0))} ; enfield no1
+{"mp/eng/late/rec_carrier_rifle"	("inf_tier2_lite" side(eng) lvl(lvl1 lvl2) r(9) rm(99) cost(9.0))} ; enfield no4
+
+{"mp/eng/mid/rec_carrier_sec_com"	("inf_tier2" side(eng) lvl(lvl1 lvl2) r(5) rm(8) cost(9.0))} ; thompson 20
+{"mp/eng/late/rec_carrier_sec_com"	("inf_tier2" side(eng) lvl(lvl1 lvl2) r(9) rm(99) cost(9.0))} ; enfield no4
+{"mp/eng/mid/rec_carrier_detach_com"("inf_tier2" side(eng) lvl(lvl1 lvl2) r(5) rm(8) cost(9.0))} ; enfield no1
+{"mp/eng/late/rec_carrier_detach_com"("inf_tier2" side(eng) lvl(lvl1 lvl2) r(9) rm(99) cost(9.0))} ; enfield no4
+
+{"mp/eng/early/rec_rifle"			("inf_tier2_lite" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(1) rm(4) cost(9.0))} ; enfield no1
+{"mp/eng/mid/rec_rifle_band"		("inf_tier2_lite" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(5) rm(8) cost(9.0))} ; enfield no1
+{"mp/eng/late/rec_rifle_band"		("inf_tier2_lite" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; enfield no4
+{"mp/eng/mid/rec_mg"				("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(5) rm(8) cost(25.0))} ; bren mk1
+{"mp/eng/late/rec_mg"				("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(25.0))} ; bren mk2
+{"mp/eng/mid/rec_mg_asst"			("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(5) rm(8) cost(9.0))} ; enfield no1
+{"mp/eng/late/rec_mg_asst"			("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(9.0))} ; enfield no4
+
+
+;// tier 2+
+
+{"mp/eng/mid/vet_sec_com"			("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(5) rm(8) cost(11.0))} ; thompson 20
+{"mp/eng/mid/vet_sec_2ic"			("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(5) rm(8) cost(11.0))} ; enfield no1
+{"mp/eng/mid/vet_rifle_gren"		("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(5) rm(8) cost(16.0))} ; enfield no1 + grenade
+{"mp/eng/mid/vet_rifle_band"		("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(5) rm(8) cost(11.0))} ; enfield no1
+{"mp/eng/mid/vet_mg"				("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(5) rm(8) cost(30.0))} ; bren mk1
+{"mp/eng/mid/vet_mg_asst"			("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(5) rm(8) cost(11.0))} ; enfield no1
+
+{"mp/eng/late/vet_sec_com"			("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(12.0))} ; sten mk2
+{"mp/eng/late/vet_sec_2ic"			("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(11.0))} ; enfield no4
+{"mp/eng/late/vet_rifle_band"		("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(11.0))} ; enfield no4
+{"mp/eng/late/vet_mg"				("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(30.0))} ; bren mk2
+{"mp/eng/late/vet_mg_asst"			("inf_tier2" side(eng) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(11.0))} ; enfield no4
+{"mp/eng/late/vet_at_piat"			("inf_tier2" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(51.0))} ; enfield no4 + piat
+{"mp/eng/late/vet_at_piat_asst"		("inf_tier2" side(eng) lvl() r(9) rm(99) cost(11.0))} ; enfield no4
+
+;// tier 3
+{"mp/eng/early/rec_troop_com"		("inf_tier3" side(eng) lvl() r(1) rm(4) cost(10.0))} ; pistol
+
+{"mp/eng/mid/plt_sgt"				("inf_tier3" side(eng) lvl() r(5) rm(8) cost(14.0))} ; enfield no1
+{"mp/eng/late/coy_sgt_maj"			("inf_tier3" side(eng) lvl() r(9) rm(99) cost(14.0))} ; enfield no1
+
+{"mp/eng/early/51hl_sec_com"		("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(14.0))} ; enfield no1
+{"mp/eng/early/51hl_sec_2ic"		("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(14.0))} ; enfield no1
+{"mp/eng/early/51hl_rifle_band"		("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(14.0))} ; enfield no1
+{"mp/eng/early/51hl_mg"				("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(35.0))} ; bren mk1
+{"mp/eng/early/51hl_mg_asst"		("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(14.0))} ; enfield no1
+
+{"mp/eng/mid/7th_ad_sec_com"			("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(14.0))} ; thompson 20
+{"mp/eng/mid/7th_ad_sec_2ic"			("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(14.0))} ; enfield no1
+{"mp/eng/mid/7th_ad_rifle_gren"			("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(19.0))} ; enfield no1 + grenade
+{"mp/eng/mid/7th_ad_rifle_band"			("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(14.0))} ; enfield no1
+{"mp/eng/mid/7th_ad_mg"					("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(35.0))} ; bren mk1
+{"mp/eng/mid/7th_ad_mg_asst"			("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(14.0))} ; enfield no1
+
+{"mp/eng/early/com_subsec_com"				("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(1) rm(4) cost(14.0))} ; thompson 20
+{"mp/eng/early/com_subsec_2ic"				("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(1) rm(4) cost(14.0))} ; enfield no1
+{"mp/eng/early/com_rifle_band"				("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(1) rm(4) cost(14.0))} ; enfield no1
+{"mp/eng/early/com_rifle_gren"				("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(1) rm(4) cost(19.0))} ; enfield no1 + grenade
+{"mp/eng/early/com_mg"						("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(1) rm(4) cost(35.0))} ; bren mk1
+{"mp/eng/early/com_mg_asst"					("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(1) rm(4) cost(14.0))} ; enfield no1
+
+{"mp/eng/mid/rm_com_subsec_com"				("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(15.0))} ; thompson 30
+{"mp/eng/mid/rm_com_subsec_detach_com"		("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(14.0))} ; thompson 20
+{"mp/eng/mid/rm_com_subsec_detach_com_mg"	("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(14.0))} ; thompson 20
+{"mp/eng/mid/rm_com_rifle_band"				("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(14.0))} ; enfield no1
+{"mp/eng/mid/rm_com_mg"						("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(35.0))} ; bren mk1
+{"mp/eng/mid/rm_com_mg_asst"				("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(14.0))} ; enfield no1
+
+{"mp/eng/late/rm_com_subsec_com"				("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(15.0))} ; thompson 30
+{"mp/eng/late/rm_com_subsec_detach_com"			("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(15.0))} ; thompson 30
+{"mp/eng/late/rm_com_subsec_detach_com_mg_vgo"	("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(15.0))} ; thompson 30
+{"mp/eng/late/rm_com_rifle_band"				("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(14.0))} ; enfield no4
+{"mp/eng/late/rm_com_rifle_piat"				("inf_tier3" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(54.0))} ; enfield no4 + piat
+{"mp/eng/late/rm_com_rifle_piat_asst"			("inf_tier3" side(eng) lvl() r(9) rm(99) cost(14.0))} ; enfield no4
+{"mp/eng/late/rm_com_mg_vgo"					("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(50.0))} ; vgo
+{"mp/eng/late/rm_com_mg_vgo_asst"				("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(14.0))} ; enfield no4
+
+{"mp/eng/mid/rn_com_bm"							("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(10.0))} ; pistol
+{"mp/eng/mid/rn_com_leading"					("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(15.0))} ; lanchester
+{"mp/eng/mid/rn_com_able"						("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(14.0))} ; enfield no1
+{"mp/eng/mid/rn_com_smg"						("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(15.0))} ; lanchester
+{"mp/eng/mid/rn_com_rifle"						("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(14.0))} ; enfield no1
+{"mp/eng/mid/rn_com_mg"							("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(45.0))} ; lewis
+{"mp/eng/mid/rn_com_mg_asst"					("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(14.0))} ; enfield no1
+
+{"mp/eng/mid/1st_air_land_pio_sec_com"			("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(15.0))} ; sten mk2
+{"mp/eng/mid/1st_air_land_pio_sec_com_cpl"		("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(14.0))} ; enfield no4
+{"mp/eng/mid/1st_air_land_pio"					("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(14.0))} ; enfield no4
+
+{"mp/eng/mid/1st_air_land_sec_com_cpl"			("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(15.0))} ; sten mk2
+{"mp/eng/mid/1st_air_land_sec_2ic"				("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(14.0))} ; enfield no4
+{"mp/eng/mid/1st_air_land_rifle_band"			("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(14.0))} ; enfield no4
+{"mp/eng/mid/1st_air_land_mg"					("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(35.0))} ; bren mk2
+{"mp/eng/mid/1st_air_land_mg_asst"				("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(14.0))} ; enfield no4
+
+{"mp/eng/late/6th_air_land_rec_sec_com"			("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(15.0))} ; sten mk5
+{"mp/eng/late/6th_air_land_rec_sec_2ic"			("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(15.0))} ; sten mk5
+{"mp/eng/late/6th_air_land_rec_smg"				("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(15.0))} ; sten mk5
+{"mp/eng/late/6th_air_land_rec_rifle"			("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(14.0))} ; enfield no4
+{"mp/eng/late/6th_air_land_rec_mg"				("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(35.0))} ; bren mk2
+{"mp/eng/late/6th_air_land_rec_mg_asst"			("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(14.0))} ; enfield no4
+
+{"mp/eng/late/6th_air_land_sec_com_cpl"			("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(15.0))} ; sten mk5
+{"mp/eng/late/6th_air_land_sec_2ic"				("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(15.0))} ; sten mk5
+{"mp/eng/late/6th_air_land_rifle_band"			("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(14.0))} ; enfield no4
+{"mp/eng/late/6th_air_land_mg"					("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(35.0))} ; bren mk2
+{"mp/eng/late/6th_air_land_mg_asst"				("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(14.0))} ; enfield no4
+{"mp/eng/late/6th_air_land_piat"				("inf_tier3" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(54.0))} ; enfield no4 + piat
+{"mp/eng/late/6th_air_land_piat_asst"			("inf_tier3" side(eng) lvl() r(9) rm(99) cost(14.0))} ; enfield no4
+
+{"mp/eng/late/gds_ad_sec_com"					("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(15.0))} ; sten mk2
+{"mp/eng/late/gds_ad_sec_2ic"					("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(14.0))} ; enfield no4
+{"mp/eng/late/gds_ad_rifle_band"				("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(14.0))} ; enfield no4
+{"mp/eng/late/gds_ad_piat"						("inf_tier3" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(54.0))} ; enfield no4 + piat
+{"mp/eng/late/gds_ad_piat_asst"					("inf_tier3" side(eng) lvl() r(9) rm(99) cost(14.0))} ; enfield no4
+{"mp/eng/late/gds_ad_mg"						("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(35.0))} ; bren mk2
+{"mp/eng/late/gds_ad_mg_asst"					("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(14.0))} ; enfield no4
+
+{"mp/eng/late/com_subsec_com"					("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(15.0))} ; sten mk3
+{"mp/eng/late/com_subsec_2ic"					("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(15.0))} ; sten mk2
+{"mp/eng/late/com_subsec_2ic_sten_s"			("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(15.0))} ; sten mk2 silenced
+{"mp/eng/late/com_smg"							("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(15.0))} ; sten mk2
+{"mp/eng/late/com_smg_s"						("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(15.0))} ; sten mk2 silenced
+{"mp/eng/late/com_rifle_gren"					("inf_tier3" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(19.0))} ; enfield no4 + grenade
+{"mp/eng/late/com_rifle_band"					("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(14.0))} ; enfield no4
+{"mp/eng/late/com_mg"							("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(35.0))} ; bren mk2
+{"mp/eng/late/com_mg_asst"						("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(14.0))} ; enfield no4
+{"mp/eng/late/com_rifle_piat"					("inf_tier3" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(54.0))} ; enfield no4 + piat
+{"mp/eng/late/com_rifle_piat_asst"				("inf_tier3" side(eng) lvl() r(9) rm(99) cost(14.0))} ; enfield no4
+
+;// tier 3+
+{"mp/eng/mid/51hl_sec_com"						("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(17.0))} ; thompson 20
+{"mp/eng/mid/51hl_sec_2ic"						("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(17.0))} ; enfield no1
+{"mp/eng/mid/51hl_rifle_gren"					("inf_tier3" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(22.0))} ; enfield no1 + grenade
+{"mp/eng/mid/51hl_rifle_band"					("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(17.0))} ; enfield no1
+{"mp/eng/mid/51hl_mg"							("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(40.0))} ; bren mk1
+{"mp/eng/mid/51hl_mg_asst"						("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(5) rm(8) cost(17.0))} ; enfield no1
+
+{"mp/eng/late/7th_ad_sec_com"					("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(18.0))} ; sten mk2
+{"mp/eng/late/7th_ad_sec_2ic"					("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(17.0))} ; enfield no4
+{"mp/eng/late/7th_ad_rifle_band"				("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(17.0))} ; enfield no4
+{"mp/eng/late/7th_ad_mg"						("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(40.0))} ; bren mk2
+{"mp/eng/late/7th_ad_mg_asst"					("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(17.0))} ; enfield no4
+{"mp/eng/late/7th_ad_piat"						("inf_tier3" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(57.0))} ; enfield no4 + piat
+{"mp/eng/late/7th_ad_piat_asst"					("inf_tier3" side(eng) lvl() r(9) rm(99) cost(17.0))} ; enfield no4
+
+{"mp/eng/late/7th_ad_pio_sec_com_sgt"			("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(17.0))} ; enfield no4
+{"mp/eng/late/7th_ad_pio"						("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(17.0))} ; enfield no4
+{"mp/eng/late/7th_ad_pio_builder"				("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(33.0))} ; enfield no4
+
+{"mp/eng/late/7th_ad_eng_sec_com"				("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(18.0))} ; sten mk2
+{"mp/eng/late/7th_ad_eng_sec_2ic"				("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(17.0))} ; enfield no4
+{"mp/eng/late/7th_ad_eng_builder"				("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(33.0))} ; enfield no4
+{"mp/eng/late/7th_ad_eng_mine_ap"				("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(33.0))} ; enfield no4
+{"mp/eng/late/7th_ad_eng_mine_at"				("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(33.0))} ; enfield no4
+{"mp/eng/late/7th_ad_eng_sapper"				("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(17.0))} ; enfield no4
+
+{"mp/eng/late/1st_air_land_rec_sec_com"			("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(18.0))} ; sten mk5
+{"mp/eng/late/1st_air_land_rec_sec_2ic"			("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(18.0))} ; sten mk5
+{"mp/eng/late/1st_air_land_rec_smg"				("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(18.0))} ; sten mk5
+{"mp/eng/late/1st_air_land_rec_sniper"			("inf_tier3" side(eng) lvl() r(9) rm(99) cost(100.0))} ; enfield no4 mk1t
+{"mp/eng/late/1st_air_land_rec_rifle"			("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(17.0))} ; enfield no4
+{"mp/eng/late/1st_air_land_rec_mg"				("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(40.0))} ; bren mk2
+{"mp/eng/late/1st_air_land_rec_mg_asst"			("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(18.0))} ; sten mk2
+
+{"mp/eng/late/1st_air_land_sec_com"				("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(18.0))} ; sten mk5
+{"mp/eng/late/1st_air_land_sec_com_cpl"			("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(18.0))} ; sten mk5
+{"mp/eng/late/1st_air_land_sec_2ic"				("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(18.0))} ; sten mk5
+{"mp/eng/late/1st_air_land_rifle_band"			("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(17.0))} ; enfield no4
+{"mp/eng/late/1st_air_land_mg"					("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(40.0))} ; bren mk2
+{"mp/eng/late/1st_air_land_mg_asst"				("inf_tier3" side(eng) lvl(lvl2 lvl3 lvl4) r(9) rm(99) cost(17.0))} ; enfield no4
+{"mp/eng/late/1st_air_land_piat"				("inf_tier3" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(57.0))} ; enfield no4 + piat
+{"mp/eng/late/1st_air_land_piat_asst"			("inf_tier3" side(eng) lvl() r(9) rm(99) cost(17.0))} ; enfield no4
+{"mp/eng/late/1st_air_land_sniper"				("inf_tier3" side(eng) lvl() r(9) rm(99) cost(100.0))} ; enfield no4 mk1t
+
+;// tier 4
+{"mp/eng/early/hl_bw_sec_com"					("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(19.0))} ; enfield no1
+{"mp/eng/early/hl_bw_sec_2ic"					("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(19.0))} ; enfield no1
+{"mp/eng/early/hl_bw_rifle_band"				("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(19.0))} ; enfield no1
+{"mp/eng/early/hl_bw_at_boys"					("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(30.0))} ; AT rifle
+{"mp/eng/early/hl_bw_at_boys_asst"				("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(19.0))} ; enfield no1
+{"mp/eng/early/hl_bw_mg"						("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(45.0))} ; bren mk1
+{"mp/eng/early/hl_bw_mg_asst"					("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(19.0))} ; enfield no1
+
+{"mp/eng/early/hl_bw_pio_sec_com"				("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(19.0))} ; enfield no1
+{"mp/eng/early/hl_bw_pio_builder"				("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(30.0))} ; enfield no1
+{"mp/eng/early/hl_bw_pio"						("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(19.0))} ; enfield no1
+
+{"mp/eng/mid/1st_air_para_rec_sec_com"			("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(20.0))} ; sten mk2
+{"mp/eng/mid/1st_air_para_rec_sec_2ic"			("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(20.0))} ; sten mk2
+{"mp/eng/mid/1st_air_para_rec_sec_mortar"		("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(20.0))} ; sten mk2 + mortar
+{"mp/eng/mid/1st_air_para_rec_smg"				("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(20.0))} ; sten mk2
+{"mp/eng/mid/1st_air_para_rec_rifle"			("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(19.0))} ; enfield no4
+{"mp/eng/mid/1st_air_para_rec_mg"				("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(45.0))} ; bren mk2
+{"mp/eng/mid/1st_air_para_rec_mg_asst"			("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(19.0))} ; enfield no4
+
+{"mp/eng/late/1st_air_para_rec_sec_com"			("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(22.0))} ; sten mk5
+{"mp/eng/late/1st_air_para_rec_sec_2ic"			("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(22.0))} ; sten mk5
+{"mp/eng/late/1st_air_para_rec_smg_band"		("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(22.0))} ; sten mk5
+{"mp/eng/late/1st_air_para_rec_rifle"			("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; enfield no4
+{"mp/eng/late/1st_air_para_rec_mg"				("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(50.0))} ; bren mk3
+{"mp/eng/late/1st_air_para_rec_mg_asst"			("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(22.0))} ; sten mk5
+{"mp/eng/late/1st_air_para_rec_sec_mortar"		("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(22.0))} ; sten mk5 + mortar
+
+{"mp/eng/mid/1st_air_para_sec_com"				("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(20.0))} ; sten mk2
+{"mp/eng/mid/1st_air_para_sec_2ic"				("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(20.0))} ; sten mk2
+{"mp/eng/mid/1st_air_para_rifle_gren"			("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(24.0))} ; enfield no4 + grenade
+{"mp/eng/mid/1st_air_para_rifle_band"			("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(19.0))} ; enfield no4
+{"mp/eng/mid/1st_air_para_sniper"				("inf_tier4" side(eng) lvl() r(5) rm(8) cost(125.0))} ; enfield no4 mk1t
+{"mp/eng/mid/1st_air_para_mg"					("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(45.0))} ; bren mk2
+{"mp/eng/mid/1st_air_para_mg_asst"				("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(19.0))} ; enfield no4
+
+{"mp/eng/late/6th_air_para_eng_sec_com"			("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; sten mk5
+{"mp/eng/late/6th_air_para_eng_sec_com_sgt"		("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; sten mk5
+{"mp/eng/late/6th_air_para_eng_sec_2ic"			("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(19.0))} ; enfield no4
+{"mp/eng/late/6th_air_para_eng"					("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(19.0))} ; enfield no4
+{"mp/eng/late/6th_air_para_eng_at_mine"			("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(35.0))} ; enfield no4
+{"mp/eng/late/6th_air_para_eng_sapper"			("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(19.0))} ; enfield no4
+{"mp/eng/late/6th_air_para_eng_piat"			("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(60.0))} ; sten mk5 + piat
+{"mp/eng/late/6th_air_para_eng_piat_asst"		("inf_tier4" side(eng) lvl() r(9) rm(99) cost(19.0))} ; enfield no4
+{"mp/eng/late/6th_air_para_eng_mg"				("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(45.0))} ; bren mk3
+{"mp/eng/late/6th_air_para_eng_mg_asst"			("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(19.0))} ; enfield no4
+
+{"mp/eng/late/6th_air_para_sec_com"				("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; sten mk5
+{"mp/eng/late/6th_air_para_sec_2ic"				("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; sten mk5
+{"mp/eng/late/6th_air_para_smg_band"			("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; sten mk5
+{"mp/eng/late/6th_air_para_rifle_band"			("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(19.0))} ; enfield no4
+{"mp/eng/late/6th_air_para_sniper"				("inf_tier4" side(eng) lvl() r(9) rm(99) cost(125.0))} ; enfield no4 mk1t
+{"mp/eng/late/6th_air_para_piat"				("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(60.0))} ; sten mk5 + piat
+{"mp/eng/late/6th_air_para_piat_asst"			("inf_tier4" side(eng) lvl() r(9) rm(99) cost(19.0))} ; enfield no4
+{"mp/eng/late/6th_air_para_mg"					("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(45.0))} ; bren mk3
+{"mp/eng/late/6th_air_para_mg_asst"				("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(19.0))} ; enfield no4
+{"mp/eng/late/6th_air_para_mg_asst_smg"			("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; sten mk5
+
+{"mp/can/late/para_sec_com"						("inf_tier4" side(can) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; sten mk5
+{"mp/can/late/para_sec_com_cpl"					("inf_tier4" side(can) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; sten mk5
+{"mp/can/late/para_sec_2ic"						("inf_tier4" side(can) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; sten mk5
+{"mp/can/late/para_smg_band"					("inf_tier4" side(can) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; sten mk5
+{"mp/can/late/para_sniper"						("inf_tier4" side(can) lvl() r(9) rm(99) cost(125.0))} ; enfield no4 mk1t
+{"mp/can/late/para_piat"						("inf_tier4" side(can) lvl(lvl3 lvl4) r(9) rm(99) cost(60.0))} ; sten mk2 + piat
+{"mp/can/late/para_piat_asst"					("inf_tier4" side(can) lvl() r(9) rm(99) cost(19.0))} ; enfield no4
+{"mp/can/late/para_mg"							("inf_tier4" side(can) lvl(lvl3 lvl4) r(9) rm(99) cost(45.0))} ; bren mk3
+{"mp/can/late/para_mg_asst"						("inf_tier4" side(can) lvl(lvl3 lvl4) r(9) rm(99) cost(19.0))} ; enfield no4
+
+{"mp/pol/late/1st_para_eng_sec_com_sgt"			("inf_tier4" side(pol) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; sten mk5
+{"mp/pol/late/1st_para_eng_sec_com"				("inf_tier4" side(pol) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; sten mk5
+{"mp/pol/late/1st_para_eng_sec_2ic"				("inf_tier4" side(pol) lvl(lvl3 lvl4) r(9) rm(99) cost(19.0))} ; enfield no4
+{"mp/pol/late/1st_para_eng"						("inf_tier4" side(pol) lvl(lvl3 lvl4) r(9) rm(99) cost(19.0))} ; enfield no4
+{"mp/pol/late/1st_para_eng_at_mine"				("inf_tier4" side(pol) lvl(lvl3 lvl4) r(9) rm(99) cost(35.0))} ; enfield no4
+{"mp/pol/late/1st_para_eng_sapper"				("inf_tier4" side(pol) lvl(lvl3 lvl4) r(9) rm(99) cost(19.0))} ; enfield no4
+{"mp/pol/late/1st_para_eng_mg"					("inf_tier4" side(pol) lvl(lvl3 lvl4) r(9) rm(99) cost(45.0))} ; bren mk3
+{"mp/pol/late/1st_para_eng_mg_asst"				("inf_tier4" side(pol) lvl(lvl3 lvl4) r(9) rm(99) cost(19.0))} ; enfield no4
+{"mp/pol/late/1st_para_eng_piat"				("inf_tier4" side(pol) lvl(lvl3 lvl4) r(9) rm(99) cost(60.0))} ; sten mk5 + piat
+{"mp/pol/late/1st_para_eng_piat_asst"			("inf_tier4" side(pol) lvl() r(9) rm(99) cost(19.0))} ; enfield no4
+{"mp/pol/late/1st_para_eng_flamer"				("inf_tier4" side(pol) lvl(lvl3 lvl4) r(9) rm(99) cost(55.0))} ; flamer
+
+{"mp/pol/late/1st_para_sec_com"					("inf_tier4" side(pol) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; sten mk5
+{"mp/pol/late/1st_para_sec_2ic"					("inf_tier4" side(pol) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; sten mk5
+{"mp/pol/late/1st_para_smg_band"				("inf_tier4" side(pol) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; sten mk5
+{"mp/pol/late/1st_para_rifle_band"				("inf_tier4" side(pol) lvl(lvl3 lvl4) r(9) rm(99) cost(19.0))} ; enfield no4
+{"mp/pol/late/1st_para_sniper"					("inf_tier4" side(pol) lvl() r(9) rm(99) cost(125.0))} ; enfield no4 mk1t
+{"mp/pol/late/1st_para_piat"					("inf_tier4" side(pol) lvl(lvl3 lvl4) r(9) rm(99) cost(60.0))} ; sten mk5 + piat
+{"mp/pol/late/1st_para_piat_asst"				("inf_tier4" side(pol) lvl() r(9) rm(99) cost(19.0))} ; enfield no4
+{"mp/pol/late/1st_para_mg"						("inf_tier4" side(pol) lvl(lvl3 lvl4) r(9) rm(99) cost(45.0))} ; bren mk3
+{"mp/pol/late/1st_para_mg_asst_smg"				("inf_tier4" side(pol) lvl(lvl3 lvl4) r(9) rm(99) cost(20.0))} ; sten mk2
+
+{"mp/eng/mid/com_subsec_com"					("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(20.0))} ; thompson 30
+{"mp/eng/mid/com_subsec_2ic"					("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(19.0))} ; enfield no1
+{"mp/eng/mid/com_smg"							("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(20.0))} ; thompson 30
+{"mp/eng/mid/com_rifle_gren"					("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(24.0))} ; enfield no1 + grenade
+{"mp/eng/mid/com_rifle_band"					("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(19.0))} ; enfield no1
+{"mp/eng/mid/com_mg"							("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(45.0))} ; bren mk1
+{"mp/eng/mid/com_mg_asst"						("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(19.0))} ; enfield no4
+
+{"mp/eng/mid/sas_sec_com"						("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(19.0))} ; thompson 20
+{"mp/eng/mid/sas_subsec_com"					("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(20.0))} ; thompson 30
+{"mp/eng/mid/sas_tsmg"							("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(20.0))} ; thompson 30
+{"mp/eng/mid/sas_rifle"							("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(19.0))} ; enfield no1
+{"mp/eng/mid/sas_mg"							("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(45.0))} ; bren mk1
+{"mp/eng/mid/sas_mg_asst"						("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(19.0))} ; enfield no1
+{"mp/eng/mid/sas_boys"							("inf_tier4" side(eng) lvl(lvl3 lvl4) r(5) rm(8) cost(30.0))} ; AT rifle
+{"mp/eng/mid/sas_boys_asst"						("inf_tier4" side(eng) lvl() r(5) rm(8) cost(19.0))} ; enfield no1
+
+
+;// tier 4+
+{"mp/eng/late/1st_air_para_eng_sec_com"			("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(22.0))} ; sten mk5
+{"mp/eng/late/1st_air_para_eng_sec_2ic"			("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; enfield no4
+{"mp/eng/late/1st_air_para_eng"					("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; enfield no4
+{"mp/eng/late/1st_air_para_eng_at_mine"			("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(37.0))} ; enfield no4
+{"mp/eng/late/1st_air_para_eng_sapper"			("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; enfield no4
+{"mp/eng/late/1st_air_para_eng_mg"				("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(50.0))} ; bren mk3
+{"mp/eng/late/1st_air_para_eng_mg_asst"			("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; enfield no4
+{"mp/eng/late/1st_air_para_eng_piat"			("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(60.0))} ; sten mk5 + piat
+{"mp/eng/late/1st_air_para_eng_piat_asst"		("inf_tier4" side(eng) lvl() r(9) rm(99) cost(21.0))} ; enfield no4
+
+{"mp/eng/late/1st_air_para_sec_com"				("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(22.0))} ; sten mk5
+{"mp/eng/late/1st_air_para_sec_2ic"				("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(22.0))} ; sten mk5
+{"mp/eng/late/1st_air_para_smg_band_patchett"	("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(22.0))} ; patchett
+{"mp/eng/late/1st_air_para_rifle_band"			("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; enfield no4
+{"mp/eng/late/1st_air_para_sniper"				("inf_tier4" side(eng) lvl() r(9) rm(99) cost(140.0))} ; enfield no4 mk1t
+{"mp/eng/late/1st_air_para_mg"					("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(50.0))} ; bren mk3
+{"mp/eng/late/1st_air_para_mg_asst_smg"			("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(22.0))} ; sten mk5
+{"mp/eng/late/1st_air_para_piat"				("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(62.0))} ; sten mk5 + piat
+{"mp/eng/late/1st_air_para_piat_asst"			("inf_tier4" side(eng) lvl() r(9) rm(99) cost(21.0))} ; enfield no4
+
+{"mp/eng/late/sas_sec_com"						("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(22.0))} ; thompson 30
+{"mp/eng/late/sas_subsec_com"					("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(22.0))} ; thompson 30
+{"mp/eng/late/sas_tsmg"							("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(22.0))} ; thompson 30
+{"mp/eng/late/sas_rifle"						("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; enfield no4
+{"mp/eng/late/sas_mg"							("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(50.0))} ; bren mk3
+{"mp/eng/late/sas_mg_asst"						("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(21.0))} ; enfield no4
+{"mp/eng/late/sas_piat"							("inf_tier4" side(eng) lvl(lvl3 lvl4) r(9) rm(99) cost(62.0))} ; sten mk2 + piat
+{"mp/eng/late/sas_piat_asst"					("inf_tier4" side(eng) lvl() r(9) rm(99) cost(21.0))} ; enfield no4
+
+{"mp/eng/mid/bat_signalman"						("inf_signaller" side(eng) lvl(lvl3 lvl4) r(99) rm(99) cost(170.0))}

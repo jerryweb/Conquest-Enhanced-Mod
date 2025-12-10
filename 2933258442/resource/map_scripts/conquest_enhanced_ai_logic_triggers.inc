@@ -198,66 +198,6 @@
 					}
 				}
 			}
-			{## "ai/purchase_priority/set_aa_priority"
-				{condition
-					{terms
-						{"1.entities"
-							{selector
-								{source advanced}
-								{group
-									{select
-										{zone
-											{zone "gamezone"}
-										}
-									}
-									{include
-										{prop
-											{prop player_plane}
-										}
-										{state
-											{state "operatable inhabited"}
-										}
-									}
-									{exclude
-										{state
-											{state linked}
-										}
-										{tag
-											{tag _bot}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-				{actions
-					{"delay"
-						{time 1}
-					}
-					{"entity_state"
-						{selector
-							{tag scene_variable}
-						}
-						{tag_add _prioritize_aa}
-					}
-					{"delay"
-						{time 180}
-					}
-					{"entity_state"
-						{selector
-							{tag scene_variable}
-						}
-						{tag_remove _prioritize_aa}
-					}
-					{"delay"
-						{time 1}
-					}
-					{"trigger"
-						{name "ai/purchase_priority/reduce_deminer_priortity"}
-					}
-				}
-			}
 
 ;============== AI ARTILLERY ==============						
 			(define "cannon_artillery_flag_attack_case" ; flag
@@ -5219,7 +5159,7 @@
                     }
 				}
 			}
-			{## "ai_logic/air/big_air_raid_alarm"
+			{"ai_logic/air/big_air_raid_alarm"
 				{condition
 					{terms
 						{"1.event"

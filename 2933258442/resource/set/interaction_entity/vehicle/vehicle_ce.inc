@@ -71,7 +71,6 @@
         }
     )
 
-
     {on "smoke_for_test"
         {add_view "smoke_yellow_norm" "smoke" "root"}
         {view start "smoke"}
@@ -657,23 +656,6 @@
             {tags add "supplies"}
         }
     }
-
-    ;{on "tag_aa_gun"
-    ;    {delay 0.3
-    ;        {if not tagged "hmg"
-    ;            ("tag_veh" args "aa_flak")
-    ;        }
-    ;    }
-    ;}
-
-    ;{on "tag_spaa"
-    ;    ("tag_veh" args "spaa")
-    ;}
-
-    ;{on "tag_heavy_aa_gun"
-    ;    {tags remove "heavy_at_gun"}
-    ;    ("tag_veh" args "aa_flak_heavy")
-    ;}   
 
     {on "tag_artillery"
         ("tag_veh" args "artillery")

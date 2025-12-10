@@ -21,10 +21,10 @@
     }
 
     {on "dig_in_artillery"
-        {if rand 0.4
+        {if rand 0.2
             ("cannon_sandbag_fast" args "sandbag_cannon_standard_ai" "basis")      
         }
-        {if rand 0.4
+        {if rand 0.3
             ("cannon_sandbag_fast" args "netting_square" "basis") 
         }
         {tags add "cannon_dig_in_cooldown"} 

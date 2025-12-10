@@ -84,13 +84,10 @@
 		{if operatable
 			{if tagged "fighter"
 				{tags add "fighter_select_sorty"}
-				;{tags remove "fighter_ready"}
 			else tagged "bomber_ce"
 				{tags add "bomber_ce_select_sorty"}
-				;{tags remove "bomber_ce_ready"}
 			else tagged "bot_recon"
 				{tags add "recon_select_sorty"}
-				;{tags remove "ai_recon_ready"}
 			}
 
 			{delay 5

@@ -386,28 +386,27 @@
 		}
 	}
 
-	{on "linker_simulation"
-		{if effector "airborne"
-			;// do nothing
-		else effector "cannon"
-			;// do nothing
-		else effector "paratrooper"
-			{tags remove "eject"}
-			{call "para_idle_animation"}
-		else altitude 3
-			{throw_off up 1 forward 2 die force}
-		}
-		{if effector "parachute_attach"
-			{physics_work 0}
-			{delay 6
-				{physics_work 1}
-				{drop_orders}
-			}
-		}
-	}
+	;{on "linker_simulation"
+	;	{if effector "airborne"
+	;		;// do nothing
+	;	else effector "cannon"
+	;		;// do nothing
+	;	else effector "paratrooper"
+	;		{tags remove "eject"}
+	;		{call "para_idle_animation"}
+	;	else altitude 3
+	;		{throw_off up 1 forward 2 die force}
+	;	}
+	;	{if effector "parachute_attach"
+	;		{physics_work 0}
+	;		{delay 6
+	;			{physics_work 1}
+	;			{drop_orders}
+	;		}
+	;	}
+	;}
 
 	{on ground_hit 
-		;{tags remove "eject_null"}
 		{if tagged "paratrooper"
 			{if not user_control
 				{if not dead
