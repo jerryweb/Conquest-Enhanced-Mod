@@ -226,6 +226,22 @@
     }
 }
 
+{"114mm_qf_how" 
+	{on spawn
+        {delay 1
+            {tags add "short_range"}
+        }
+    }
+}
+
+{"114mm_qf_how_wooden" 
+	{on spawn
+        {delay 1
+            {tags add "short_range"}
+        }
+    }
+}
+
 {"122mm_m1910_fin" 
 	{on spawn
         {delay 1
@@ -242,13 +258,21 @@
     }
  }
 
- {"114mm_h18_how_late" 
+{"114mm_h18_how_late" 
 	{on spawn
         {delay 1
             {tags add "short_range"}
         }
     }
- }
+}
+
+{"152mm_bl_6" 
+	{on spawn
+        {delay 1
+            {tags add "short_range"}
+        }
+    }
+}
 
 {"210mm_h17" 
 	{on spawn
@@ -293,6 +317,24 @@
     }
 }
 
+{"114mm_bl_4_5"
+    {on spawn
+        {delay 0.2
+            {tags add "long_range"}
+        }
+    }
+}
+
+{"114mm_bl_4_5_mk1"
+    {on spawn
+        {delay 0.2
+            {tags add "long_range"}
+        }
+    }
+}
+
+
+
 {"122mm_a19"
     {on spawn
         {delay 0.2
@@ -302,6 +344,14 @@
 }
 
 {"152mm_br2"
+    {on spawn
+        {delay 0.2
+            {tags add "long_range"}
+        }
+    }
+}
+
+{"152mm_bl_6_mk19"
     {on spawn
         {delay 0.2
             {tags add "long_range"}
@@ -333,7 +383,32 @@
     }
 }
 
+{"155mm_m1a1_longtom_eng"
+    {on spawn
+        {delay 0.2
+            {tags add "long_range"}
+        }
+    }
+}
+
 {"170mm_k18"
+    {on spawn
+        {delay 0.2
+            {tags add "long_range"}
+        }
+    }
+}
+
+
+{"183mm_bl_7_2"
+    {on spawn
+        {delay 0.2
+            {tags add "long_range"}
+        }
+    }
+}
+
+{"183mm_bl_7_2_mk6"
     {on spawn
         {delay 0.2
             {tags add "long_range"}

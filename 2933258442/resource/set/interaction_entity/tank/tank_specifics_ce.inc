@@ -474,30 +474,6 @@
 		}
 	}
 
-	{"sherman1c_tulip_hybrid" 
-		{on spawn
-			{delay 1
-				{call "tag_rocket_artillery"}
-			}
-		}
-	}
-
-	{"cromwell4_tulip" 
-		{on spawn
-			{delay 1
-				{call "tag_rocket_artillery"}
-			}
-		}
-	}
-
-	{"sherman5_late_tulip" 
-		{on spawn
-			{delay 1
-				{call "tag_rocket_artillery"}
-			}
-		}
-	}
-
 	{"panzerwerfer42" 
 		{on spawn
 			{delay 1
