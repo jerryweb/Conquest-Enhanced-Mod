@@ -1000,7 +1000,7 @@
 {"hurribomber_mk2c" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 9} {cost 0} {not_for_sale 1}}
 ;{"typhoon_mk1b_recon" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 9} {cost 0} {not_for_sale 1}}
 {"typhoon_mk1b" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 9} {cost 0} {not_for_sale 1}}
-
+{"c47_d" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
 
 {"81mm_ml3_mortar_barrage"
 	("squad_vehicle" side(eng) period(mid)  min_stage(1) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(81mm_ml3))
@@ -1039,6 +1039,71 @@
 ;|______________________________________________|
 
 (include "eng_ai_emplacements.set")
+
+
+;//CE_extras
+
+
+{"player_paradrop_eng_1strecon"
+	("squad_vehicle6"		 side(eng) period(late) min_stage(9) max_stage(99) cw(3) cp(0) vehicle(c47_d_para_plane_player) crew1(pilot:1) crew2(1st_air_para_rec_sec_com:1) crew3(1st_air_para_rec_sec_2ic:1) crew4(1st_air_para_rec_smg_band:4) crew5(1st_air_para_rec_mg:1) crew6(1st_air_para_rec_mg_asst:1))   
+	{cost 0}
+}
+
+{"player_paradrop_eng_1statcan"
+	("squad_vehicle4"		 side(can) period(late) min_stage(10) max_stage(99) cw(3) cp(0) vehicle(c47_d_para_plane_player) crew1(crew:1) crew2(para_sec_com_cpl:1) crew3(para_piat:3) crew4(para_piat_asst:6) tag(eng))   
+	{cost 0}
+}
+
+{"player_paradrop_eng_1stpol"
+	("squad_vehicle10"		 side(pol) period(late) min_stage(12) max_stage(99) cw(3) cp(0) vehicle(c47_d_para_plane_player) crew1(1st_para_crew:1) crew2(1st_para_sec_com:1) crew3(1st_para_sec_2ic:1) crew4(1st_para_smg_band:3) crew5(1st_para_rifle_band:2) crew6(1st_para_sniper:1) crew7(1st_para_piat:1) crew8(1st_para_piat_asst:1) crew9(1st_para_mg:1) crew10(1st_para_mg_asst_smg:1) tag(eng))   
+	{cost 0}
+}
+
+{"player_paradrop_eng_1stpoleng"
+	("squad_vehicle10"		 side(pol) period(late) min_stage(12) max_stage(99) cw(3) cp(0) vehicle(c47_d_para_plane_player) crew1(1st_para_crew:1) crew2(1st_para_eng_sec_com:1) crew3(1st_para_eng_sec_2ic:1) crew4(1st_para_eng:2) crew5(1st_para_eng_at_mine:2) crew6(1st_para_eng_sapper:1) crew7(1st_para_eng_piat:2) crew8(1st_para_eng_piat_asst:1) crew9(1st_para_eng_mg:1) crew10(1st_para_eng_mg_asst:1) tag(eng))   
+	{cost 0}
+}
+
+{"player_paradrop_eng_6th"
+	("squad_vehicle10"		 side(eng) period(late) min_stage(12) max_stage(99) cw(3) cp(0) vehicle(c47_d_para_plane_player) crew1(pilot:1) crew2(6th_air_para_sec_com:1) crew3(6th_air_para_sec_2ic:1) crew4(6th_air_para_smg_band:3) crew5(6th_air_para_rifle_band:2) crew6(6th_air_para_sniper:1) crew7(6th_air_para_piat:1) crew8(6th_air_para_piat_asst:1) crew9(6th_air_para_mg:1) crew10(6th_air_para_mg_asst_smg:1))   
+	{cost 0}
+}
+
+{"player_paradrop_eng_SAS"
+	("squad_vehicle10"		 side(eng) period(late) min_stage(12) max_stage(99) cw(3) cp(0) vehicle(c47_d_para_plane_player) crew1(pilot:1) crew2(sas_sec_com:1) crew3(sas_subsec_com:2) crew4(sas_tsmg:3) crew5(sas_rifle:2) crew6(sas_rifle:1) crew7(sas_piat:1) crew8(sas_piat_asst:1) crew9(sas_mg:1) crew10(sas_mg_asst:1))   
+	{cost 0} 
+}
+
+
+{"ai_paradrop_eng_1strecon"
+	("squad_vehicle6"		 side(eng) period(late) min_stage(9) max_stage(99) cw(3) cp(0) vehicle(c47_d_para_plane) crew1(pilot:1) crew2(1st_air_para_rec_sec_com:1) crew3(1st_air_para_rec_sec_2ic:1) crew4(1st_air_para_rec_smg_band:4) crew5(1st_air_para_rec_mg:1) crew6(1st_air_para_rec_mg_asst:1))   
+	{cost 0} {not_for_player_sale 1}
+}
+
+{"ai_paradrop_eng_1statcan"
+	("squad_vehicle4"		 side(can) period(late) min_stage(10) max_stage(99) cw(3) cp(0) vehicle(c47_d_para_plane) crew1(crew:1) crew2(para_sec_com_cpl:1) crew3(para_piat:3) crew4(para_piat_asst:6) tag(eng))   
+	{cost 0} {not_for_player_sale 1}
+}
+
+{"ai_paradrop_eng_1stpol"
+	("squad_vehicle10"		 side(pol) period(late) min_stage(12) max_stage(99) cw(3) cp(0) vehicle(c47_d_para_plane) crew1(1st_para_crew:1) crew2(1st_para_sec_com:1) crew3(1st_para_sec_2ic:1) crew4(1st_para_smg_band:3) crew5(1st_para_rifle_band:2) crew6(1st_para_sniper:1) crew7(1st_para_piat:1) crew8(1st_para_piat_asst:1) crew9(1st_para_mg:1) crew10(1st_para_mg_asst_smg:1) tag(eng))   
+	{cost 0} {not_for_player_sale 1}
+}
+
+{"ai_paradrop_eng_1stpoleng"
+	("squad_vehicle10"		 side(pol) period(late) min_stage(12) max_stage(99) cw(3) cp(0) vehicle(c47_d_para_plane) crew1(1st_para_crew:1) crew2(1st_para_eng_sec_com:1) crew3(1st_para_eng_sec_2ic:1) crew4(1st_para_eng:2) crew5(1st_para_eng_at_mine:2) crew6(1st_para_eng_sapper:1) crew7(1st_para_eng_piat:2) crew8(1st_para_eng_piat_asst:1) crew9(1st_para_eng_mg:1) crew10(1st_para_eng_mg_asst:1) tag(eng))   
+	{cost 0} {not_for_player_sale 1}
+}
+
+{"ai_paradrop_eng_6th"
+	("squad_vehicle10"		 side(eng) period(late) min_stage(12) max_stage(99) cw(3) cp(0) vehicle(c47_d_para_plane) crew1(pilot:1) crew2(6th_air_para_sec_com:1) crew3(6th_air_para_sec_2ic:1) crew4(6th_air_para_smg_band:3) crew5(6th_air_para_rifle_band:2) crew6(6th_air_para_sniper:1) crew7(6th_air_para_piat:1) crew8(6th_air_para_piat_asst:1) crew9(6th_air_para_mg:1) crew10(6th_air_para_mg_asst_smg:1))   
+	{cost 0} {not_for_player_sale 1}
+}
+
+{"ai_paradrop_eng_SAS"
+	("squad_vehicle10"		 side(eng) period(late) min_stage(12) max_stage(99) cw(3) cp(0) vehicle(c47_d_para_plane) crew1(pilot:1) crew2(sas_sec_com:1) crew3(sas_subsec_com:2) crew4(sas_tsmg:3) crew5(sas_rifle:2) crew6(sas_rifle:1) crew7(sas_piat:1) crew8(sas_piat_asst:1) crew9(sas_mg:1) crew10(sas_mg_asst:1))   
+	{cost 0} {not_for_player_sale 1}
+}
 
 
 ("squad_with1types_conquest" side(eng) period(mid) min_stage(9) max_stage(99) name(single_signaller)		c1(bat_signalman:1)){not_for_player_sale 1}
