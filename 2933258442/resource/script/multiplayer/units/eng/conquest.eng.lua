@@ -17,36 +17,36 @@ Purchases["conquest.eng"] = {
 
 				--Recon
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_rec_mc_early_con(eng)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Mechanized_Infantry",}, unit = "squad_rec_scout_early_con(eng)"}, --vehicle
+				{priority = 0.8, type = {"Infantry", "Squad", "Mechanized_Infantry",}, unit = "squad_rec_scout_early_con(eng)"}, --vehicle
 
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_recce_assault_mid_con(eng)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Mechanized_Infantry",}, unit = "squad_recce_carrier_mid_con(eng)"}, --vehicle
+				{priority = 0.8, type = {"Infantry", "Squad", "Mechanized_Infantry",}, unit = "squad_recce_carrier_mid_con(eng)"}, --vehicle
 
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_recce_assault_late_con(eng)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Mechanized_Infantry",}, unit = "squad_recce_assault_mot_late_con(eng)"}, --vehicle
-				{priority = 1.0, type = {"Infantry", "Squad", "Mechanized_Infantry",}, unit = "squad_recce_carrier_late_con(eng)"}, --vehicle
+				{priority = 0.8, type = {"Infantry", "Squad", "Mechanized_Infantry",}, unit = "squad_recce_assault_mot_late_con(eng)"}, --vehicle
+				{priority = 0.8, type = {"Infantry", "Squad", "Mechanized_Infantry",}, unit = "squad_recce_carrier_late_con(eng)"}, --vehicle
 
 				--T2
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_rifle_early_con(eng)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_pio_early_con(eng)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Mechanized_Infantry",}, unit = "squad_carrier_early_con(eng)"}, --vehicle
+				{priority = 0.8, type = {"Infantry", "Squad", "Mechanized_Infantry",}, unit = "squad_carrier_early_con(eng)"}, --vehicle
 
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_rifle_mid_con(eng)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_r_eng_mid_con(eng)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Mechanized_Infantry",}, unit = "squad_carrier_mid_con(eng)"}, --vehicle
+				{priority = 0.8, type = {"Infantry", "Squad", "Mechanized_Infantry",}, unit = "squad_carrier_mid_con(eng)"}, --vehicle
 
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_rifle_late_con(eng)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Mechanized_Infantry",}, unit = "squad_rifle_mot_late_con(eng)"}, --vehicle
+				{priority = 0.8, type = {"Infantry", "Squad", "Mechanized_Infantry",}, unit = "squad_rifle_mot_late_con(eng)"}, --vehicle
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_r_eng_late_con(eng)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_assault_pio_late_con(eng)"},
 
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_rifle_late_con(can)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Mechanized_Infantry",}, unit = "squad_rifle_mech_late_con(can)"}, --vehicle
-				{priority = 1.0, type = {"Infantry", "Squad", "Mechanized_Infantry",}, unit = "squad_carrier_late_con(can)"}, --vehicle
+				{priority = 0.8, type = {"Infantry", "Squad", "Mechanized_Infantry",}, unit = "squad_rifle_mech_late_con(can)"}, --vehicle
+				{priority = 0.8, type = {"Infantry", "Squad", "Mechanized_Infantry",}, unit = "squad_carrier_late_con(can)"}, --vehicle
 
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_rifle_late_con(pol)"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Mechanized_Infantry",}, unit = "squad_rifle_mech_late_con(pol)"}, --vehicle
-				{priority = 1.0, type = {"Infantry", "Squad", "Mechanized_Infantry",}, unit = "squad_carrier_late_con(pol)"}, --vehicle
+				{priority = 0.8, type = {"Infantry", "Squad", "Mechanized_Infantry",}, unit = "squad_rifle_mech_late_con(pol)"}, --vehicle
+				{priority = 0.8, type = {"Infantry", "Squad", "Mechanized_Infantry",}, unit = "squad_carrier_late_con(pol)"}, --vehicle
 
 				--T2+
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_vet_rifle_mid_con(eng)"},
@@ -275,11 +275,12 @@ Purchases["conquest.eng"] = {
 				{priority = 1.0, type = {"Tank", "Medium",}, unit = "valentine_mk2"},
 				{priority = 1.0, type = {"Tank", "Medium",}, unit = "valentine_mk3"},
 				{priority = 1.0, type = {"Tank", "Medium",}, unit = "valentine_mk9"},
-				{priority = 1.05, type = {"Tank", "Medium",}, unit = "valentine_mk10"},
-				{priority = 1.05, type = {"Tank", "Medium",}, unit = "valentine_mk11"},
+				{priority = 1.0, type = {"Tank", "Medium",}, unit = "valentine_mk10"},
+				{priority = 1.0, type = {"Tank", "Medium",}, unit = "valentine_mk11"},
 
 				{priority = 1.0, type = {"Tank", "Medium",}, unit = "cromwell4"},
 				{priority = 1.0, type = {"Tank", "Medium",}, unit = "cromwell5"},
+				{priority = 1.0, type = {"Tank", "Medium",}, unit = "cromwell4_tulip"},
 				{priority = 1.0, type = {"Tank", "Medium", "Support",}, unit = "cromwell6"},
 				{priority = 1.0, type = {"Tank", "Medium",}, unit = "cromwell7"},
 				{priority = 1.0, type = {"Tank", "Medium", "Support",}, unit = "cromwell8"},
@@ -290,7 +291,7 @@ Purchases["conquest.eng"] = {
 				{priority = 1.0, type = {"Tank", "Medium",}, unit = "sherman1_armor"},
 				{priority = 1.0, type = {"Tank", "Medium", "Elite",}, unit = "sherman1c_armor"},
 				{priority = 1.0, type = {"Tank", "Medium",}, unit = "sherman1c_hybrid"},
-				{priority = 1.0, type = {"Tank", "Medium", "Artillery", "Rocket_Arty",}, unit = "sherman1c_tulip_hybrid"},
+				{priority = 1.0, type = {"Tank", "Medium",}, unit = "sherman1c_tulip_hybrid"},
 				{priority = 1.0, type = {"Tank", "Medium", "Support",}, unit = "sherman1b"},
 
 				{priority = 1.0, type = {"Tank", "Medium",}, unit = "sherman2_dv"},
@@ -300,7 +301,7 @@ Purchases["conquest.eng"] = {
 				{priority = 1.0, type = {"Tank", "Medium",}, unit = "sherman5_mid"},
 				{priority = 1.0, type = {"Tank", "Medium",}, unit = "sherman5_late"},
 				{priority = 1.0, type = {"Tank", "Medium", "Flamer",}, unit = "sherman5_croc"},
-				{priority = 1.0, type = {"Tank", "Medium", "Artillery", "Rocket_Arty",}, unit = "sherman5_late_tulip"},
+				{priority = 1.0, type = {"Tank", "Medium",}, unit = "sherman5_late_tulip"},
 				{priority = 1.0, type = {"Tank", "Medium", "Deminer",}, unit = "sherman5_crab"},
 				{priority = 1.0, type = {"Tank", "Medium",}, unit = "sherman5c"},
 
@@ -334,10 +335,19 @@ Purchases["conquest.eng"] = {
 			--Aircraft
 				{priority = 1.0, type = {"Aircraft", "Fighter",}, unit = "typhoon_mk1b_ai", maxUnitCount = 3},
 				{priority = 1.0, type = {"Aircraft", "Fighter",}, unit = "hurricane_mk1a_ai", maxUnitCount = 3},
-				-- {priority = 1.0, type = {"Aircraft", "Fighter", "Group_Air"}, unit = "typhoon_mk1b_ai_x3", maxUnitCount = 6, multiplier = 3},
-				-- {priority = 0.25, type = {"Aircraft", "Bomber", "Group_Air"}, unit = "hurribomber_mk2c_ai_x2", maxUnitCount = 4, multiplier = 2},
+				{priority = 1.0, type = {"Aircraft", "Fighter", "Group_Air"}, unit = "typhoon_mk1b_ai_x3", maxUnitCount = 6, multiplier = 3},
+				{priority = 1.0, type = {"Aircraft", "Fighter", "Group_Air"}, unit = "hurricane_mk1a_ai_x3", maxUnitCount = 6, multiplier = 3},
+				{priority = 0.25, type = {"Aircraft", "Bomber", "Group_Air"}, unit = "hurribomber_mk2c_ai_x2", maxUnitCount = 4, multiplier = 2},
 				{priority = 1.0, type = {"Aircraft", "Bomber",}, unit = "hurribomber_mk2c_ai", maxUnitCount = 2},
 	            {priority = 1.0, type = {"Aircraft", "ReconPlane",}, unit = "blenheim_mk1_eng_recon_ai"},
+	            {priority = 0.5, type = {"Aircraft", "Paratrooper", "Group_Air",}, unit = "ai_paradrop_eng_1strecon_x2", multiplier = 2},
+				{priority = 0.5, type = {"Aircraft", "Paratrooper", "Group_Air",}, unit = "ai_paradrop_eng_1statcan_x2", multiplier = 2},
+				{priority = 0.5, type = {"Aircraft", "Paratrooper", "Group_Air",}, unit = "ai_paradrop_eng_1stpol_x2", multiplier = 2},
+				{priority = 0.5, type = {"Aircraft", "Paratrooper", "Group_Air",}, unit = "ai_paradrop_eng_1stpoleng_x2", multiplier = 2},
+				{priority = 0.5, type = {"Aircraft", "Paratrooper", "Group_Air",}, unit = "ai_paradrop_eng_6th_x2", multiplier = 2},
+				{priority = 0.5, type = {"Aircraft", "Paratrooper", "Group_Air",}, unit = "ai_paradrop_eng_SAS_x2", multiplier = 2},
+
+
 		}
 	}
 }

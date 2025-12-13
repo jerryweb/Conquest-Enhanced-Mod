@@ -5527,6 +5527,47 @@
 									}
 								}
 								{"default"
+									{## "air_attack"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag plane_select_fly_by}
+													}
+												}
+												{include
+													{state
+														{state "operatable inhabited"}
+													}
+													{prop
+														{prop drop_plane}
+													}
+												}
+												{exclude
+													{state
+														{state user_control}
+													}
+													{state
+														{state inactive}
+													}
+													{state
+														{state linked}
+													}
+												}
+											}
+										}
+										{drop orders}
+										{enemies
+											{amount 1
+											}
+											{tag drop_zone_selected}
+											{zone "gamezone"}
+										}
+										{force_placement}
+										{random_weapon 0}
+										{attack_altitude 45}
+									}
 									{"air_attack"
 										{selector
 											{source advanced}
@@ -5719,7 +5760,7 @@
 							{"delay"
 								{time 1}
 							}
-							{"air_attack"
+							{## "air_attack"
 								{selector
 									{source current}
 								}
@@ -5750,6 +5791,59 @@
 								{random_weapon 0}
 								{attack_altitude 70}
 							}
+							{"air_attack"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag plane_select_fly_by}
+													}
+												}
+												{include
+													{state
+														{state "operatable inhabited"}
+													}
+													{prop
+														{prop drop_plane}
+													}
+												}
+												{exclude
+													{state
+														{state user_control}
+													}
+													{state
+														{state inactive}
+													}
+													{state
+														{state linked}
+													}
+												}
+											}
+										}
+										{drop orders}
+										{enemies
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag drop_zone}
+													}
+												}
+												{include
+													{zone
+														{zone "gamezone"}
+													}
+												}
+											}
+											{amount 1
+											}
+										}
+										{move_from_back}
+										{force_placement}
+										{random_weapon 0}
+										{attack_altitude 75}
+									}
 							{"delay"
 								{time 1}
 							}
