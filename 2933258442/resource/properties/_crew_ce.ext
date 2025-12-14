@@ -1,0 +1,89 @@
+;SDL
+	{boarder
+				; variant pose (Sherman late)
+		{anm "armor2"
+			{forward {begin "board_HighArmor"} {end "pose_seat_sherman2_late_03"}}
+			{reverse {end "emit_body"}}
+		}
+
+		; variant pose (Sherman mid)
+		{anm "armor3"
+			{forward {begin "board_HighArmor"} {end "pose_seat_sherman5_mid_01"}}
+			{reverse {end "emit_body"}}
+		}
+		; Low armor variants (new)
+		{anm "armor4"
+			{forward {begin "board_lowarmor"} {end "pose_seat_passenger_unic304f_02"}}
+			{reverse {end "emit_tank_2"}}
+		}
+		{anm "armor5"
+			{forward {begin "board_lowarmor"} {end "pose_seat_armor_1"}}
+			{reverse {end "emit_tank_2"}}
+		}
+		{anm "armor6"
+			{forward {begin "board_lowarmor"} {end "pose_seat_mimosa10"}}
+			{reverse {end "emit_tank_2"}}
+		}
+		{anm "armor7"
+			{forward {begin "board_lowarmor"} {end "pose_seat_cannon_left"}}
+			{reverse {end "emit_tank_2"}}
+		}
+		;========================
+		; Cinematic idles (mapped to armor8+)
+		;========================
+		;
+
+		{anm "armor8"
+			{forward {begin "board_lowarmor"} {end "cinematics\cin_idle_01"}}
+			{reverse {end "emit_tank_2"}}
+		}
+		{anm "armor9"
+			{forward {begin "board_lowarmor"} {end "cinematics\cin_idle_02"}}
+			{reverse {end "emit_tank_2"}}
+		}
+		{anm "armor10"
+			{forward {begin "board_lowarmor"} {end "cinematics\cin_idle_02_lean"}}
+			{reverse {end "emit_tank_2"}}
+		}
+
+		{anm "armor11"
+			{forward {begin "board_lowarmor"} {end "cinematics\cin_idle_sit_01"}}
+			{reverse {end "emit_tank_2"}}
+		}
+		{anm "armor12"
+			{forward {begin "board_lowarmor"} {end "cinematics\cin_idle_sit_02"}}
+			{reverse {end "emit_tank_2"}}
+		}
+		{anm "armor13"
+			{forward {begin "board_lowarmor"} {end "cinematics\cin_idle_sit_03"}}
+			{reverse {end "emit_tank_2"}}
+		}
+		{anm "armor14"
+			{forward {begin "board_lowarmor"} {end "cinematics\cin_idle_sit_crate_01"}}
+			{reverse {end "emit_tank_2"}}
+		}
+
+		{anm "armor15"
+			{forward {begin "board_lowarmor"} {end "idle_attention"}}
+			{reverse {end "emit_tank_2"}}
+		}
+		{anm "armor16"
+			{forward {begin "board_lowarmor"} {end "idle_attention_eyes_left"}}
+			{reverse {end "emit_tank_2"}}
+		}
+		{anm "armor17"
+			{forward {begin "board_lowarmor"} {end "idle_attention_eyes_right"}}
+			{reverse {end "emit_tank_2"}}
+		}
+		{anm "armor18"
+			{forward {begin "board_lowarmor"} {end "idle_attention_salute"}}
+			{reverse {end "emit_tank_2"}}
+		}
+	}
+	("seat_human" place(seat5) bone(seat05) door(emit3)  animation(armor))
+	("seat_human" place(seat6) bone(seat06) door(emit4)  animation(armor1))
+	("seat_human" place(seat7) bone(seat07) door(emit5)  animation(armor))
+	("seat_human" place(seat8) bone(seat08) door(emit6)  animation(armor14))
+	("seat_human" place(seat9)  bone(seat09) door(emit5) animation(armor2))
+	("seat_human" place(seat10) bone(seat10) door(emit5) animation(armor3))
+	("seat_human" place(seat11) bone(seat11) door(emit6) animation(armor2))
