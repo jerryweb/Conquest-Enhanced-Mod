@@ -940,6 +940,7 @@
 						{zone "gamezone"}
 						{state operatable}
 					}
+					{count 1}
 					{random_weapon 0}
 					{attack_altitude 55}
 				}
@@ -972,9 +973,8 @@
 											{prop human}
 										}
 										{state
-											{state "user_control"}
+											{state user_control}
 										}
-
 									}
 									{exclude
 										{tag
@@ -1007,7 +1007,7 @@
 											{prop human}
 										}
 										{state
-											{state "user_control"}
+											{state user_control}
 										}
 									}
 									{exclude
@@ -1127,7 +1127,7 @@
 									}
 									{include
 										{state
-											{state "operatable"}
+											{state operatable}
 										}
 										{prop
 											{prop human}
@@ -1164,7 +1164,7 @@
 									}
 									{include
 										{state
-											{state "operatable"}
+											{state operatable}
 										}
 										{prop
 											{prop human}
@@ -1211,8 +1211,9 @@
 									{include
 										{prop
 											{prop human}
-										}										{state
-											{state "operatable"}
+										}
+										{state
+											{state operatable}
 										}
 									}
 									{exclude
@@ -1247,8 +1248,9 @@
 									{include
 										{prop
 											{prop human}
-										}										{state
-											{state "operatable"}
+										}
+										{state
+											{state operatable}
 										}
 									}
 									{exclude
@@ -1328,8 +1330,8 @@
 						}
 						{tag fighter_priority_target}
 						{zone "gamezone"}
-						{state operatable}
 					}
+					{count 5}
 					{random_weapon 0}
 					{attack_altitude 40}
 				}

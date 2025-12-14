@@ -653,10 +653,35 @@
 	{button "vehicles"}
 )
 
+
+
+; squad setup for 2 vehicles, 4 crew
+(define "squad_2_veh_4_crew_type"
+	("generic_v_conquest" t(%side %period %tag) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp)) ;//h
+	{content "%vehicle1 %vehicle2 ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3 mp/%side/%period/%crew4 )"}
+	{button "vehicles"}
+)
+
+; squad setup for 6 vehicles, 4 crew
+(define "squad_2_veh_6_crew_type"
+	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp)) ;//h
+	{content "%vehicle1 %vehicle2 ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3 mp/%side/%period/%crew4 mp/%side/%period/%crew5 mp/%side/%period/%crew6)"}
+	{button "vehicles"}
+)
+
+
+
 ; 2 vehicles with 11 types of crew
 (define "squad_2_veh_11_crew_type"
 	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp)) ;//h
 	{content "%vehicle1 ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3 mp/%side/%period/%crew4 mp/%side/%period/%crew5 mp/%side/%period/%crew6 mp/%side/%period/%crew7 mp/%side/%period/%crew8 mp/%side/%period/%crew9 mp/%side/%period/%crew10 mp/%side/%period/%crew11 ) %vehicle2 ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3 mp/%side/%period/%crew4 mp/%side/%period/%crew5 mp/%side/%period/%crew6 mp/%side/%period/%crew7 mp/%side/%period/%crew8 mp/%side/%period/%crew9 mp/%side/%period/%crew10 mp/%side/%period/%crew11)"}
+	{button "vehicles"}
+)
+
+; 2 vehicles with 10 types of crew
+(define "squad_2_veh_10_crew_type"
+	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp)) ;//h
+	{content "%vehicle1 %vehicle2  ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3 mp/%side/%period/%crew4 mp/%side/%period/%crew5 mp/%side/%period/%crew6 mp/%side/%period/%crew7 mp/%side/%period/%crew8 mp/%side/%period/%crew9 mp/%side/%period/%crew10 mp/%side/%period/%crew11 ) ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3 mp/%side/%period/%crew4 mp/%side/%period/%crew5 mp/%side/%period/%crew6 mp/%side/%period/%crew7 mp/%side/%period/%crew8 mp/%side/%period/%crew9 mp/%side/%period/%crew10)"}
 	{button "vehicles"}
 )
 
