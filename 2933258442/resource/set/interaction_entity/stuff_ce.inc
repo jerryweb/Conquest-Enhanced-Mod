@@ -101,3 +101,13 @@
 	}
 	("magazine" cut(1.20) show(1.95) override(overload) impulse({impulse up -0.01}))
 }
+
+(define "shell_fx"
+	{"stuff weapon %tag"
+		{on spawn
+			{add_view "%shell" "shell" "fxshell"}
+		}
+	}
+)
+
+("shell_fx" tag(shell_cannon)			shell(shell_cannon))

@@ -404,6 +404,9 @@
 					{time 5}
 					{title "mission/multi/disable_radio"}
 				}
+				{"sound"
+					{name "interface/task_fail"}
+				}
 				{"delay"
 					{time 3}
 				}
@@ -1333,7 +1336,7 @@
 					}
 					{count 5}
 					{random_weapon 0}
-					{attack_altitude 40}
+					{attack_altitude 35}
 				}
 				{"delay"
 					{time 0.25}

@@ -164,7 +164,7 @@
 					}
 				}
 				{actions
-					{## "delay"
+					{"delay"
 						{time 30}
 					}
 					{"if"
@@ -372,6 +372,9 @@
 									{var "radio_active$"}
 									{op "="}
 									{value 1}
+								}
+								{"sound"
+									{name "interface/task_new"}
 								}
 								{"timer"
 									{time 5}

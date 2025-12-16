@@ -2473,11 +2473,20 @@
 					{"delay"
 						{time 1}
 					}
-					{"actor_state"
+					{"action"
 						{selector
 							{source current}
 						}
 						{drop orders}
+						{action cancel}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"actor_state"
+						{selector
+							{source current}
+						}
 						{cannon move}
 					}
 					{"delay"
@@ -6006,7 +6015,7 @@
 						{selector
 							{source current}
 						}
-						{altitude 40}
+						{altitude 35}
 					}
 					{"delay"
 						{time 0.2}
