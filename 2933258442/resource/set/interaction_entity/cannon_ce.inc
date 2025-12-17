@@ -1,5 +1,8 @@
 {"cannon"
 	{on spawn
+		{link_sound "big_ass_fire" "fire\loops\big"}
+		{link_sound "cook_off_transition" "detonation/cook_off/transition"}
+		{link_sound "wecookingmethupinherejessie" "detonation\cook_off\cook"}
 		{delay 0.5
         	{if linked "ce_drop"
         	    {tags add "no_scavenge"}
@@ -469,13 +472,13 @@
 ;	}					
 ;}	
 
-{"cannon"		
-	{on spawn
-		{link_sound "big_ass_fire" "fire\loops\big"}
-		{link_sound "cook_off_transition" "detonation/cook_off/transition"}
-		{link_sound "wecookingmethupinherejessie" "detonation\cook_off\cook"}
-	}
-}
+;{"cannon"		
+;	{on spawn
+;		{link_sound "big_ass_fire" "fire\loops\big"}
+;		{link_sound "cook_off_transition" "detonation/cook_off/transition"}
+;		{link_sound "wecookingmethupinherejessie" "detonation\cook_off\cook"}
+;	}
+;}
 ; 		============ MEDIUM_LIGHT ============ 
 
 (define "Medium_light_Cannon_Detonation"
@@ -800,14 +803,14 @@
 ; ============ CE CANNONS DETONATIONS  ============ 
 ; 		============ MEDIUM ============ 
 {"muzzle_75mm_76mm"
-("Medium_Cannon_Detonation")
+	("Medium_Cannon_Detonation")
 }
 {"muzzle_75mm_76mm_sides"
-("Medium_Cannon_Detonation")
+	("Medium_Cannon_Detonation")
 }
 
 ; ============ CE CANNONS DETONATIONS ============ 
 ; 		============ MEDIUM_LIGHT ============ 
 {"muzzle_50mm_57mm"
-("Medium_light_Cannon_Detonation")
+	("Medium_light_Cannon_Detonation")
 }

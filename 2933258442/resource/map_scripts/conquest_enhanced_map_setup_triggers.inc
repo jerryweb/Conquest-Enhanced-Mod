@@ -604,7 +604,7 @@
 								{"case"
 									{condition
 										{type cmp_i}
-										{var "user_team$"}
+										{var "user_nation$"}
 										{op "=="}
 										{value 4}
 									}
@@ -664,6 +664,87 @@
 											}
 											{"delay"
 												{time 130}
+											}
+										}
+										{"default"
+											{"delay"
+												{time 0.1}
+											}
+											{"music"
+												{start "/music/ger_battle_west_lvl1.wav"}
+												{stop_all}
+												{volume game}
+												{fade 5}
+											}
+											{"delay"
+												{time 69}
+											}
+										}
+									}
+								}
+								{"case"
+									{condition
+										{type cmp_i}
+										{var "user_nation$"}
+										{op "=="}
+										{value 5}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"switch"
+										{"case"
+											{condition
+												{type rand}
+												{value 0.35}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"music"
+												{start "/music/ger_ambient_west_lvl2.wav"}
+												{stop_all}
+												{volume game}
+												{fade 5}
+											}
+											{"delay"
+												{time 63}
+											}
+										}
+										{"case"
+											{condition
+												{type rand}
+												{value 0.35}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"music"
+												{start "/music/ger_theme_west.wav"}
+												{stop_all}
+												{volume game}
+												{fade 5}
+											}
+											{"delay"
+												{time 129}
+											}
+										}
+										{"case"
+											{condition
+												{type rand}
+												{value 0.35}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"music"
+												{start "/music/cmw_ambient_lvl3.wav"}
+												{stop_all}
+												{volume game}
+												{fade 5}
+											}
+											{"delay"
+												{time 91}
 											}
 										}
 										{"default"
@@ -921,7 +1002,7 @@
 								}
 							}
 						}
-						{## "case"
+						{"case"
 							{condition
 								{type cmp_i}
 								{var "bot_army$"}
@@ -941,12 +1022,13 @@
 										{time 0.1}
 									}
 									{"music"
+										{start "/music/cmw_ambient_lvl1.wav"}
 										{stop_all}
 										{volume game}
 										{fade 5}
 									}
 									{"delay"
-										{time 135}
+										{time 154}
 									}
 								}
 								{"default"
@@ -954,12 +1036,13 @@
 										{time 0.1}
 									}
 									{"music"
+										{start "/music/cmw_ambient_lvl2.wav"}
 										{stop_all}
 										{volume game}
 										{fade 5}
 									}
 									{"delay"
-										{time 90}
+										{time 176}
 									}
 								}
 							}
@@ -1164,6 +1247,69 @@
 										}
 									}
 								}
+								{"case"
+									{condition
+										{type cmp_i}
+										{var "bot_army$"}
+										{op "=="}
+										{value 5}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"switch"
+										{"case"
+											{condition
+												{type rand}
+												{value 0.4}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"music"
+												{start "/music/ger_ambient_west_lvl2.wav"}
+												{stop_all}
+												{volume game}
+												{fade 5}
+											}
+											{"delay"
+												{time 63}
+											}
+										}
+										{"case"
+											{condition
+												{type rand}
+												{value 0.4}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"music"
+												{start "/music/cmw_ambient_lvl3.wav"}
+												{stop_all}
+												{volume game}
+												{fade 5}
+											}
+											{"delay"
+												{time 91}
+											}
+										}
+										{"default"
+											{"delay"
+												{time 0.1}
+											}
+											{"music"
+												{start "/music/ger_battle_west_lvl1.wav"}
+												{stop_all}
+												{volume game}
+												{fade 5}
+											}
+											{"delay"
+												{time 69}
+											}
+										}
+									}
+								}
 								{"default"
 									{"delay"
 										{time 0.1}
@@ -1349,7 +1495,7 @@
 								}
 							}
 						}
-						{## "case"
+						{"case"
 							{condition
 								{type cmp_i}
 								{var "user_nation$"}
@@ -1369,12 +1515,13 @@
 										{time 0.1}
 									}
 									{"music"
+										{start "/music/cmw_ambient_lvl1.wav"}
 										{stop_all}
 										{volume game}
 										{fade 5}
 									}
 									{"delay"
-										{time 135}
+										{time 154}
 									}
 								}
 								{"default"
@@ -1382,12 +1529,13 @@
 										{time 0.1}
 									}
 									{"music"
+										{start "/music/cmw_ambient_lvl2.wav"}
 										{stop_all}
 										{volume game}
 										{fade 5}
 									}
 									{"delay"
-										{time 90}
+										{time 176}
 									}
 								}
 							}
@@ -1592,6 +1740,87 @@
 										}
 									}
 								}
+								{"case"
+									{condition
+										{type cmp_i}
+										{var "user_nation$"}
+										{op "=="}
+										{value 5}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"switch"
+										{"case"
+											{condition
+												{type rand}
+												{value 0.1}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"music"
+												{start "/music/ger_valkyrie.wav"}
+												{stop_all}
+												{volume game}
+												{fade 5}
+											}
+											{"delay"
+												{time 67}
+											}
+										}
+										{"case"
+											{condition
+												{type rand}
+												{value 0.4}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"music"
+												{start "/music/ger_battle_west_lvl2.wav"}
+												{stop_all}
+												{volume game}
+												{fade 5}
+											}
+											{"delay"
+												{time 47}
+											}
+										}
+										{"case"
+											{condition
+												{type rand}
+												{value 0.4}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"music"
+												{start "/music/cmw_action_lvl5.wav"}
+												{stop_all}
+												{volume game}
+												{fade 5}
+											}
+											{"delay"
+												{time 76}
+											}
+										}
+										{"default"
+											{"delay"
+												{time 0.1}
+											}
+											{"music"
+												{start "/music/cmw_action_lvl2.wav"}
+												{stop_all}
+												{volume game}
+												{fade 5}
+											}
+											{"delay"
+												{time 62}
+											}
+										}
+									}
+								}
 								{"default"
 									{"delay"
 										{time 0.1}
@@ -1778,7 +2007,7 @@
 								}
 							}
 						}
-						{## "case"
+						{"case"
 							{condition
 								{type cmp_i}
 								{var "bot_army$"}
@@ -1792,19 +2021,39 @@
 								{"case"
 									{condition
 										{type rand}
-										{value 0.5}
+										{value 0.4}
 									}
 									{"delay"
 										{time 0.1}
 									}
 									{"music"
+										{start "/music/cmw_action_lvl1.wav"}
 										{stop_all}
 										{volume game}
 										{fade 5}
 										{loop}
 									}
 									{"delay"
-										{time 170}
+										{time 76}
+									}
+								}
+								{"case"
+									{condition
+										{type rand}
+										{value 0.4}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"music"
+										{start "/music/cmw_action_lvl3.wav"}
+										{stop_all}
+										{volume game}
+										{fade 5}
+										{loop}
+									}
+									{"delay"
+										{time 106}
 									}
 								}
 								{"default"
@@ -1812,20 +2061,13 @@
 										{time 0.1}
 									}
 									{"music"
+										{start "/music/cmw_action_lvl4.wav"}
 										{stop_all}
 										{volume game}
 										{fade 5}
 									}
 									{"delay"
-										{time 85}
-									}
-									{"music"
-										{stop_all}
-										{volume game}
-										{fade 5}
-									}
-									{"delay"
-										{time 35}
+										{time 123}
 									}
 								}
 							}
@@ -2013,6 +2255,87 @@
 										}
 									}
 								}
+								{"case"
+									{condition
+										{type cmp_i}
+										{var "bot_army$"}
+										{op "=="}
+										{value 5}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"switch"
+										{"case"
+											{condition
+												{type rand}
+												{value 0.1}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"music"
+												{start "/music/ger_valkyrie.wav"}
+												{stop_all}
+												{volume game}
+												{fade 5}
+											}
+											{"delay"
+												{time 67}
+											}
+										}
+										{"case"
+											{condition
+												{type rand}
+												{value 0.4}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"music"
+												{start "/music/ger_battle_west_lvl2.wav"}
+												{stop_all}
+												{volume game}
+												{fade 5}
+											}
+											{"delay"
+												{time 47}
+											}
+										}
+										{"case"
+											{condition
+												{type rand}
+												{value 0.4}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"music"
+												{start "/music/cmw_action_lvl5.wav"}
+												{stop_all}
+												{volume game}
+												{fade 5}
+											}
+											{"delay"
+												{time 76}
+											}
+										}
+										{"default"
+											{"delay"
+												{time 0.1}
+											}
+											{"music"
+												{start "/music/cmw_action_lvl2.wav"}
+												{stop_all}
+												{volume game}
+												{fade 5}
+											}
+											{"delay"
+												{time 62}
+											}
+										}
+									}
+								}
 								{"default"
 									{"delay"
 										{time 0.1}
@@ -2199,7 +2522,7 @@
 								}
 							}
 						}
-						{## "case"
+						{"case"
 							{condition
 								{type cmp_i}
 								{var "user_nation$"}
@@ -2213,19 +2536,39 @@
 								{"case"
 									{condition
 										{type rand}
-										{value 0.5}
+										{value 0.4}
 									}
 									{"delay"
 										{time 0.1}
 									}
 									{"music"
+										{start "/music/cmw_action_lvl1.wav"}
 										{stop_all}
 										{volume game}
 										{fade 5}
 										{loop}
 									}
 									{"delay"
-										{time 170}
+										{time 76}
+									}
+								}
+								{"case"
+									{condition
+										{type rand}
+										{value 0.4}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"music"
+										{start "/music/cmw_action_lvl3.wav"}
+										{stop_all}
+										{volume game}
+										{fade 5}
+										{loop}
+									}
+									{"delay"
+										{time 106}
 									}
 								}
 								{"default"
@@ -2233,20 +2576,13 @@
 										{time 0.1}
 									}
 									{"music"
+										{start "/music/cmw_action_lvl4.wav"}
 										{stop_all}
 										{volume game}
 										{fade 5}
 									}
 									{"delay"
-										{time 85}
-									}
-									{"music"
-										{stop_all}
-										{volume game}
-										{fade 5}
-									}
-									{"delay"
-										{time 35}
+										{time 123}
 									}
 								}
 							}
@@ -2520,6 +2856,31 @@
 										}
 									}
 								}
+								{"case"
+									{condition
+										{type cmp_i}
+										{var "bot_army$"}
+										{op "=="}
+										{value 5}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"music"
+										{start "/music/cmw_ambient_lvl3.wav"}
+										{stop_all}
+										{volume game}
+										{fade 3}
+									}
+									{"delay"
+										{time 91}
+									}
+									{"music"
+										{stop "/music/cmw_ambient_lvl3.wav"}
+										{volume game}
+										{fade 4}
+									}
+								}
 								{"default"
 									{"delay"
 										{time 0.1}
@@ -2681,7 +3042,7 @@
 								}
 							}
 						}
-						{## "case"
+						{"case"
 							{condition
 								{type cmp_i}
 								{var "user_nation$"}
@@ -2701,14 +3062,16 @@
 										{time 0.1}
 									}
 									{"music"
+										{start "/music/cmw_ambient_lvl1.wav"}
 										{stop_all}
 										{volume game}
 										{fade 3}
 									}
 									{"delay"
-										{time 55}
+										{time 154}
 									}
 									{"music"
+										{stop "/music/cmw_ambient_lvl1.wav"}
 										{volume game}
 										{fade 5}
 									}
@@ -2718,14 +3081,16 @@
 										{time 0.1}
 									}
 									{"music"
+										{start "/music/cmw_ambient_lvl2.wav"}
 										{stop_all}
 										{volume game}
 										{fade 3}
 									}
 									{"delay"
-										{time 60}
+										{time 175}
 									}
 									{"music"
+										{stop "/music/cmw_ambient_lvl2.wav"}
 										{volume game}
 										{fade 5}
 									}
@@ -3245,7 +3610,7 @@
 										{time 93}
 									}
 								}
-								{## "case"
+								{"case"
 									{condition
 										{type cmp_i}
 										{var "user_nation$"}
@@ -3256,12 +3621,13 @@
 										{time 0.1}
 									}
 									{"music"
+										{start "/music/cmw_theme_02.wav"}
 										{stop_all}
 										{volume game}
 										{fade 5}
 									}
 									{"delay"
-										{time 95}
+										{time 169}
 									}
 								}
 								{"default"
