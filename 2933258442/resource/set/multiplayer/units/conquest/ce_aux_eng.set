@@ -1,0 +1,85 @@
+;_______________________________________________
+;|					Support						|
+;|______________________________________________|
+; cost = 25
+{"heavy_artillery_barrage"
+    ("squad_vehicle" side(eng) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(pilot:0) vehicle(offmap_placeholder_6))
+    {cost 25}
+    {action "airstrike:conquest_artillery_barrage_heavy"}
+}
+
+; cost = 40
+{"super_heavy_artillery_barrage"
+    ("squad_vehicle" side(eng) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(pilot:0) vehicle(offmap_placeholder_8))
+    {cost 40}
+    {action "airstrike:conquest_artillery_barrage_super_heavy"}
+}
+
+; cost = 15
+{"rocket_artillery_barrage"
+    ("squad_vehicle" side(eng) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(pilot:0) vehicle(offmap_placeholder_5))
+    {cost 15} 
+    {action "airstrike:conquest_light_rocket_barrage"}
+}
+
+; cost = 35
+{"heavy_rocket_artillery_barrage"
+    ("squad_vehicle" side(eng) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(pilot:0) vehicle(offmap_placeholder_6))
+    {cost 25} 
+    {action "airstrike:conquest_heavy_rocket_barrage"}
+}
+{"supply_drop_75mm_m1a1"
+	("squad_vehicle" side(eng) period(mid) min_stage(1) max_stage(99) cw(0) cp(12) crew(pilot:2) vehicle(c47_d))
+	{cost 6}{round_multiple 1.0}
+	{action "airstrike:paradrop_75mm_m1a1"}
+}
+
+{"supply_drop_81mm_m1"
+	("squad_vehicle" side(eng) period(mid) min_stage(1) max_stage(99) cw(0) cp(12) crew(pilot:2) vehicle(c47_d))
+	{cost 5}{round_multiple 1.0}
+	{action "airstrike:paradrop_81mm_m1"}
+}
+
+{"supply_drop_m2_50cal_tripod"
+	("squad_vehicle" side(eng) period(mid) min_stage(1) max_stage(99) cw(0) cp(3) crew(pilot:2) vehicle(c47_d))
+	{cost 5}{round_multiple 1.0}
+	{action "airstrike:paradrop_m2_50cal_tripod"}
+}
+{"supply_crate_build"
+	("emplacement2_5cp" side(eng) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(supply_crate_build))
+	{cost 100}{not_for_ai_sale 1}
+}
+{"emplacement_81mm_m1"
+	("emplacement2_10cp" side(eng) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(emplacement_81mm_m1))
+	{cost 275}{not_for_ai_sale 1}
+}
+{"m1917_30cal_emplacement"
+	("emplacement2_5cp" side(eng) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(m1917_30cal_emplacement))
+	{cost 175}{not_for_ai_sale 1}
+}
+{"mmpillbox_dummy"
+	("emplacement2" side(eng) period(mid) min_stage(6) max_stage(99) cw(2) cp(0) crew(mg_crew:0) condition(barricade) action(mmpillbox_dummy))
+	{cost 175}{not_for_ai_sale 1}
+}
+{"pillbox_dummy"
+	("emplacement2" side(eng) period(mid) min_stage(6) max_stage(99) cw(2) cp(0) crew(mg_crew:0) condition(barricade) action(pillbox_dummy))
+	{cost 175}{not_for_ai_sale 1}
+}
+
+{"flak_ring_dummy"
+	("emplacement2" side(eng) period(mid) min_stage(6) max_stage(99) cw(2) cp(0) crew(mg_crew:0) condition(barricade) action(flak_ring_dummy))
+	{cost 150}{not_for_ai_sale 1}
+}
+{"aa_regelbau_dummy"
+	("emplacement2" side(eng) period(mid) min_stage(6) max_stage(99) cw(2) cp(0) crew(mg_crew:0) condition(barricade) action(aa_regelbau_dummy))
+	{cost 200}{not_for_ai_sale 1}
+}
+{"sandbag_bunker_m2_50cal_tripod"
+	("emplacement_5cp" side(eng) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(sandbag_bunker_m2_50cal_tripod))
+	{cost 250}{not_for_ai_sale 1}
+}
+{"regel_bau_76mm_m5_m1"
+	("emplacement_5cp" side(eng) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(regel_bau_76mm_m5_m1))
+	{cost 425}{not_for_ai_sale 1}
+}
+
