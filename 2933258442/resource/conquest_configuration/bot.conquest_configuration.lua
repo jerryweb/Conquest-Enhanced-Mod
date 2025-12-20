@@ -95,7 +95,7 @@
 	}
 
 
-	-- Percentage chance (between 0 and 1) to enable the Classic CE Radio Mechanics. Currently it is set as a random event with a 15% chance to occur per match.
+	-- Percentage chance (between 0 and 1) to enable the Classic CE Radio Mechanics. Currently it is set as a random event with a 18% chance to occur per match.
 	-- and can be countered with a radio vehicle.
 	enableRadioMechanics = 1
 	
