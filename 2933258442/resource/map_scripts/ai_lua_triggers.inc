@@ -2758,6 +2758,9 @@
 										{prop
 											{prop turret}
 										}
+										{prop
+											{prop archer}
+										}
 										{tag
 											{tag td_attacking_targets}
 										}

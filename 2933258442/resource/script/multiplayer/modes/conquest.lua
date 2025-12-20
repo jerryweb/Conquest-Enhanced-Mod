@@ -7,7 +7,7 @@ local UnitSpawnWaitTime = 1.5 * 60000 -- 1:30min (ms)
 -- local OrderRotationPeriod = 2.5 * 60000 -- 2:30 min (ms)
 local OrderRotationPeriod = {
     DCG = { 
-    	Min = 3 * 60000, -- 2:30 min (ms)
+    	Min = 2 * 60000, -- 2:30 min (ms)
     	Max = 4 * 60000, -- 4:00 min (ms)
     }, -- 4:30 min (ms)
     DCG_FLANK = {
@@ -451,7 +451,7 @@ function DefaultSquadSpawnOrders(args)
 			SetSquadOrder(CaptureFlag, args.squadId, math.random(OrderRotationPeriod.DCG.Min, OrderRotationPeriod.DCG.Max), false)
 		else
 			if printDebug then print("SQUAD  ", args.squadId, " with unit type: ", type, " using vanilla logic!") end
-           	local orderDelay = OrderRotationPeriod.DCG.Min - 0.5 * 60000
+           	local orderDelay = OrderRotationPeriod.DCG.Min
             SetSquadOrder(CaptureFlag, args.squadId, orderDelay, true)
 		end
 	else

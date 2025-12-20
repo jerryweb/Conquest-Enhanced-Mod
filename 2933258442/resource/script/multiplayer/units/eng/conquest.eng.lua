@@ -337,7 +337,7 @@ Purchases["conquest.eng"] = {
 				{priority = 1.0, type = {"Aircraft", "Fighter",}, unit = "hurricane_mk1a_ai", maxUnitCount = 3},
 				{priority = 1.0, type = {"Aircraft", "Fighter", "Group_Air"}, unit = "typhoon_mk1b_ai_x3", maxUnitCount = 6, multiplier = 3},
 				{priority = 1.0, type = {"Aircraft", "Fighter", "Group_Air"}, unit = "hurricane_mk1a_ai_x3", maxUnitCount = 6, multiplier = 3},
-				{priority = 0.25, type = {"Aircraft", "Bomber", "Group_Air"}, unit = "hurribomber_mk2c_ai_x2", maxUnitCount = 4, multiplier = 2},
+				{priority = 0.5, type = {"Aircraft", "Bomber", "Group_Air"}, unit = "hurribomber_mk2c_ai_x2", maxUnitCount = 4, multiplier = 2},
 				{priority = 1.0, type = {"Aircraft", "Bomber",}, unit = "hurribomber_mk2c_ai", maxUnitCount = 2},
 	            {priority = 1.0, type = {"Aircraft", "ReconPlane",}, unit = "blenheim_mk1_eng_recon_ai"},
 	            {priority = 0.5, type = {"Aircraft", "Paratrooper", "Group_Air",}, unit = "ai_paradrop_eng_1strecon_x2", multiplier = 2},

@@ -15,8 +15,8 @@ StrategyTemplates = {
 			max = 15,
 		},
 		BotInfantry = {
-			min = 40,
-			max = 80,
+			min = 70,
+			max = 140,
 		},
 		BotATInfantry = {
 			min = 4,
@@ -147,8 +147,8 @@ StrategyTemplates = {
 			max = 6,
 		},
 		BotInfantry = {
-			min = 30,
-			max = 45,
+			min = 50,
+			max = 75,
 		},
 		BotATInfantry = {
 			min = 2,
@@ -218,8 +218,8 @@ StrategyTemplates = {
 			max = 10,
 		},
 		BotInfantry = {
-			min = 20,
-			max = 30,
+			min = 30,
+			max = 60,
 		},
 		BotATInfantry = {
 			min = 1,
@@ -290,8 +290,8 @@ StrategyTemplates = {
 			max = 10,
 		},
 		BotInfantry = {
-			min = 20,
-			max = 30,
+			min = 30,
+			max = 60,
 		},
 		BotATInfantry = {
 			min = 1,
@@ -345,7 +345,6 @@ StrategyTemplates = {
 	{-- Index 6
 		StrategyName = "Infantry Strategy",
 		StrategyUnitTypes = {
-			-- "Wave",
 			"Squad",
 			"Support",
 			"Big_gun",
@@ -362,15 +361,15 @@ StrategyTemplates = {
 		},
 		BotInfantry = {
 			min = 60,
-			max = 100,
+			max = 120,
 		},
 		BotATInfantry = {
-			min = 3,
-			max = 6,
+			min = 5,
+			max = 10,
 		},
 		BotInfantrySignaller = {
 			min = 2,
-			max = 3,
+			max = 4,
 		},
 		BotArtillery = {
 			min = 2,
