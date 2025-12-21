@@ -943,7 +943,7 @@
 						{zone "gamezone"}
 						{state operatable}
 					}
-					{count 1}
+					{count 2}
 					{random_weapon 0}
 					{attack_altitude 55}
 				}
@@ -1334,7 +1334,7 @@
 						{tag fighter_priority_target}
 						{zone "gamezone"}
 					}
-					{count 5}
+					{count 2}
 					{random_weapon 0}
 					{attack_altitude 35}
 				}

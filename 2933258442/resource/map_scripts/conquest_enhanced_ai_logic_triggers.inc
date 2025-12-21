@@ -2506,6 +2506,133 @@
 					}
 				}
 			}
+			{"ai/artillery/activate_artillery_in_rear_line"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "grid_a1"}
+										}
+										{zone
+											{zone "grid_a2"}
+										}
+										{zone
+											{zone "grid_a3"}
+										}
+										{zone
+											{zone "grid_c1"}
+										}
+										{zone
+											{zone "grid_c2"}
+										}
+										{zone
+											{zone "grid_c3"}
+										}
+									}
+									{include
+										{state
+											{state "operatable inhabited"}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag _bot}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 180}
+					}
+					{"timer"
+						{time 8}
+						{title "Artillery in rear grids getting new orders"}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{zone
+										{zone "grid_a1"}
+									}
+									{zone
+										{zone "grid_a2"}
+									}
+									{zone
+										{zone "grid_a3"}
+									}
+									{zone
+										{zone "grid_c1"}
+									}
+									{zone
+										{zone "grid_c2"}
+									}
+									{zone
+										{zone "grid_c3"}
+									}
+								}
+								{include
+									{state
+										{state "operatable inhabited"}
+									}
+									{tag
+										{tag artillery}
+									}
+									{tag
+										{tag _bot}
+									}
+								}
+								{exclude
+									{state
+										{state user_control}
+									}
+									{state
+										{state inactive}
+									}
+									{state
+										{state linked}
+									}
+								}
+							}
+						}
+						{tag_add artillery_in_combat}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"trigger"
+						{name "ai/artillery/force_artillery_cancel"}
+						{on}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"trigger"
+						{name "ai/artillery/activate_artillery_in_rear_line"}
+					}
+				}
+			}
 			
 ;============== AI GRENADES	==============		
 			{"ai_logic/ai_add_smoke_grenade"

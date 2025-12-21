@@ -150,46 +150,33 @@
     }
 
     {on "tag_squad_need_next_order"
-        {if tagged "bot_recon"
-            {delay 15
-                {tags remove "cmp_mg"}
-                {tags remove "ai_emplacement_defenses"}
-                {tags remove "_user"}
-                {tags remove "_user_ally"}
-                {tags add "_lua_need_next_order"}
-                {delay 10.1  
-                    {tags remove "_lua_need_next_order"}
-                }
+        {if tagged "engine_turned_off"
+            {if operatable
+                {call "engine_on"}
             }
-        else
-            {if tagged "engine_turned_off"
-                {if operatable
-                    {call "engine_on"}
-                }
-            }
-            {tags remove "cmp_mg"}
-            {tags remove "ai_emplacement_defenses"}
-            {tags remove "_user"}
-            {tags remove "_user_ally"}
-            {tags remove "attacking_flag_1"}
-            {tags remove "attacking_flag_2"}
-            {tags remove "attacking_flag_3"}
-            {tags remove "attacking_flag_4"}
-            {tags remove "attacking_flag_5"}
-            {tags remove "artillery_in_combat"}
-            {tags remove "artillery_selected"}
-            {tags remove "artillery_ordered"}
+        }
+        {tags remove "cmp_mg"}
+        {tags remove "ai_emplacement_defenses"}
+        {tags remove "_user"}
+        {tags remove "_user_ally"}
+        {tags remove "attacking_flag_1"}
+        {tags remove "attacking_flag_2"}
+        {tags remove "attacking_flag_3"}
+        {tags remove "attacking_flag_4"}
+        {tags remove "attacking_flag_5"}
+        {tags remove "artillery_in_combat"}
+        {tags remove "artillery_selected"}
+        {tags remove "artillery_ordered"}
 
-            {if tagged "artillery"
-                {tags remove "_lua_always_ignore"}
-            }
+        {if tagged "artillery"
+            {tags remove "_lua_always_ignore"}
+        }
 
-            ;{call "smoke_for_test_light_purple"}
+        ;{call "smoke_for_test_light_purple"}
 
-            {tags add "_lua_need_next_order"}
-            {delay 10.1 
-                {tags remove "_lua_need_next_order"}
-            }
+        {tags add "_lua_need_next_order"}
+        {delay 10.1 
+            {tags remove "_lua_need_next_order"}
         }
     }
 

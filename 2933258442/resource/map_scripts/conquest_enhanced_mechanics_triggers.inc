@@ -703,12 +703,12 @@
 									{exclude
 										{state
 											{state dead}
-										}
-										{state
-											{state linked}
-										}
-										{state
-											{state inactive}
+										}	
+										;{state
+										;	{state inactive}
+										;}
+										{tag
+											{tag "hidden"}
 										}
 										{state
 											{state user_control}
@@ -752,9 +752,6 @@
 											{state dead}
 										}
 										{state
-											{state linked}
-										}
-										{state
 											{state inactive}
 										}
 										{state
@@ -774,7 +771,6 @@
 						{"delete"
 							{selector
 								{source advanced}
-								{ignore_captured_by_user 0}
 								{group
 									{select
 										{tag
@@ -811,11 +807,11 @@
 										{state
 											{state dead}
 										}
-										{state
-											{state linked}
-										}
-										{state
-											{state inactive}
+										;{state
+										;	{state inactive}
+										;}
+										{tag
+											{tag "hidden"}
 										}
 										{state
 											{state user_control}
@@ -859,9 +855,6 @@
 											{state dead}
 										}
 										{state
-											{state linked}
-										}
-										{state
 											{state inactive}
 										}
 										{state
@@ -877,7 +870,7 @@
 							{time 0.5}
 						}
 						{## "timer"
-							{time 5}
+							{time 15}
 							{title "Deleting extra AI defenders"}
 						}
 					}
@@ -1954,7 +1947,7 @@
                                 {"set_i"
 									{var "max_ai_defender_emplacement_total_count$"}
 									{op "+"}
-									{value "6"}
+									{value "4"}
 								}
 								{"set_i"
 									{var "max_ai_defender_emplacement_total_count$"}
@@ -1973,7 +1966,7 @@
                                 {"set_i"
 									{var "max_ai_defender_emplacement_total_count$"}
 									{op "+"}
-									{value "3"}
+									{value "2"}
 								}
 								{"set_i"
 									{var "max_ai_defender_emplacement_total_count$"}
