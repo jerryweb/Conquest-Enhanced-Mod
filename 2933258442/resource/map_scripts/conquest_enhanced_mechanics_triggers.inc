@@ -867,7 +867,7 @@
 							}
 						}
 						{"delay"
-							{time 0.5}
+							{time 0.2}
 						}
 						{## "timer"
 							{time 15}
@@ -2078,114 +2078,6 @@
 					}
 				}
 			}
-			{## "conquest_enhanced_mechanics/ai_defenders/delete_bazookas_for_def_level_1"
-				{condition
-					{terms
-						{"1.inventory"
-							{selector
-								{source advanced}
-								{group
-									{select
-										{tag
-											{tag cmp_def}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-										{prop
-											{prop human}
-										}
-									}
-									{exclude
-										{tag
-											{tag bot}
-										}
-										{state
-											{state user_control}
-										}
-										{state
-											{state dead}
-										}
-										{state
-											{state inactive}
-										}
-									}
-								}
-							}
-							{where "all holders"}
-							{item "rocketlauncher"}
-							{compare equal}
-							{amount 1}
-						}
-						{"10.cmp_i"
-							{var "defense_level$"}
-							{op "=="}
-							{value 1}
-						}
-					}
-				}
-				{actions
-					{"delay"
-						{time 5}
-					}
-					{"select"
-						{source advanced}
-						{group
-							{select
-								{tag
-									{tag cmp_def}
-								}
-							}
-							{include
-								{with_item
-									{type amount}
-									{item "rocketlauncher"}
-									{min 1}
-								}
-                                {state
-									{state operatable}
-								}
-								{prop
-									{prop human}
-								}
-							}
-                            {exclude
-								{tag
-									{tag bot}
-								}
-								{state
-									{state user_control}
-								}
-                                {state
-									{state linked}
-								}
-                            }
-						}
-					}
-					{"delay"
-						{time 1}
-					}
-					{"actor_state"
-						{selector
-							{source current}
-						}
-						{weapon_prepare off}
-					}
-					{"delay"
-						{time 3}
-					}
-					{"inventory"
-						{selector
-							{source current}
-						}
-						{action remove}
-						{item "rocketlauncher"}
-						{amount 7}
-					}
-				}
-			}
 			
             {## "conquest_enhanced_mechanics/challenge_map_defend_info"
 				{condition
@@ -2483,34 +2375,54 @@
 											{tag defense_level_2}
 										}
 									}
-									{include
-										{tag
-											{tag player_defending}
-										}
-									}
 								}
 							}
 						}
 					}
 				}
 				{actions
-					{"effect"
-						{selector
-							{source advanced}
-								{group
-									{select
-										{tag
-											{tag flag_point}
-										}
-									}
-									{exclude
-										{state
-											{state inactive}
-										}
-									}
-								}
+					{"if"
+						{condition
+							{type cmp_i}
+							{var "user_is_defender$"}
+							{op "=="}
+							{value 1}
 						}
-						{effect call_flag_defense_crates}
+						{"effect"
+							{selector
+								{source advanced}
+									{group
+										{select						
+											{zone
+												{zone "fpc1"}
+											}
+											{zone
+												{zone "fpc2"}
+											}
+											{zone
+												{zone "fpc3"}
+											}
+											{zone
+												{zone "fpc4"}
+											}
+											{zone
+												{zone "fpc5"}
+											}
+										}
+										{include
+											{tag
+												{tag flag_point}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+							}
+							{effect call_flag_defense_crates}
+						}
 					}
 				}
 			}

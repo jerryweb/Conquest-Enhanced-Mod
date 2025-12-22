@@ -444,7 +444,7 @@
 								{ignore_captured_by_user 0}
 								{tag base}
 							}
-							{distance 25}
+							{distance 100}
 						}
 					}
 				}
@@ -3927,67 +3927,6 @@
 						{var "dcg_error$"}
 						{op "="}
 						{value 5}
-					}
-					{"delay"
-						{time 0.5}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type cmp_i}
-								{var "user_is_defender$"}
-								{op ">"}
-								{value 0}
-							}
-							{"entity_state"
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag flag_point}
-											}
-										}
-										{include
-											{zone
-												{zone "gamezone"}
-											}
-										}
-										{exclude
-											{state
-												{state inactive}
-											}
-										}
-									}
-								}
-								{tag_add player_defending}
-							}
-						}
-						{"default"
-							{"entity_state"
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag flag_point}
-											}
-										}
-										{include
-											{zone
-												{zone "gamezone"}
-											}
-										}
-										{exclude
-											{state
-												{state inactive}
-											}
-										}
-									}
-								}
-								{tag_add player_attacking}
-							}
-						}
 					}
 					{"delay"
 						{time 0.5}
@@ -10434,7 +10373,19 @@
 									{group
 										{select
 											{tag
-												{tag air_vehicle}
+												{tag airstrike_ger}
+											}
+											{tag
+												{tag airstrike_rus}
+											}
+											{tag
+												{tag airstrike_fin}
+											}
+											{tag
+												{tag airstrike_usa}
+											}
+											{tag
+												{tag airstrike_eng}
 											}
 										}
 										{include
@@ -10462,7 +10413,19 @@
 									{group
 										{select
 											{tag
-												{tag air_vehicle}
+												{tag airstrike_ger}
+											}
+											{tag
+												{tag airstrike_rus}
+											}
+											{tag
+												{tag airstrike_fin}
+											}
+											{tag
+												{tag airstrike_usa}
+											}
+											{tag
+												{tag airstrike_eng}
 											}
 										}
 										{include
@@ -10489,35 +10452,71 @@
 						{"1.event"
 							{id "ai_air_on"}
 						}
-						{"2.near"
-							{units
+						{"2.entities"
+							{selector
+								{source advanced}
 								{ignore_captured_by_user 0}
-								{tag enemy_air}
-								{type vehicle}
-								{state inhabited}
-							}
-							{near_to
-								{ignore_captured_by_user 0}
-								{amount 1
+								{group
+									{select
+										{zone
+											{zone "a_1"}
+										}
+										{zone
+											{zone "a_2"}
+										}
+										{zone
+											{zone "a_3"}
+										}
+										{zone
+											{zone "a_4"}
+										}
+									}
+									{include
+										{tag
+											{tag enemy_air}
+										}
+										{prop
+											{prop vehicle}
+										}
+										{state
+											{state operatable}
+										}
+									}
 								}
-								{tag spawn_a}
 							}
-							{distance 76}
 						}
-						{"3.near"
-							{units
+						{"3.entities"
+							{selector
+								{source advanced}
 								{ignore_captured_by_user 0}
-								{tag enemy_air}
-								{type vehicle}
-								{state inhabited}
-							}
-							{near_to
-								{ignore_captured_by_user 0}
-								{amount 1
+								{group
+									{select
+										{zone
+											{zone "b_1"}
+										}
+										{zone
+											{zone "b_2"}
+										}
+										{zone
+											{zone "b_3"}
+										}
+										{zone
+											{zone "b_4"}
+										}
+									}
+									{include
+										{tag
+											{tag enemy_air}
+										}
+										{prop
+											{prop vehicle}
+										}
+										{state
+											{state operatable}
+										}
+									}
 								}
-								{tag spawn_b}
 							}
-							{distance 76}
 						}
 						{"4.cmp_i"
 							{var "user_team$"}
@@ -10554,22 +10553,26 @@
 									{ignore_captured_by_user 0}
 									{group
 										{select
-											{zone
-												{zone "gamezone"}
+											{tag
+												{tag _user}
 											}
 										}
 										{include
+											{zone
+												{zone "gamezone"}
+											}
 											{state
 												{state "operatable user_control"}
 											}
 										}
 										{exclude
 											{state
-												{state "inactive linked"}
+												{state inactive}
+											}
+											{state
+												{state linked}
 											}
 										}
-									}
-									{amount 1
 									}
 								}
 								{tag_add ai_air_target}
@@ -10580,6 +10583,87 @@
 						{time 1.1}
 					}
 					{"switch"
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag enemy_air}
+											}
+										}
+										{include
+											{tag
+												{tag altitude_high}
+											}
+										}
+									}
+								}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"air_attack"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag enemy_air}
+									{type vehicle}
+									{state inhabited}
+								}
+								{drop "orders sensor senseless"}
+								{enemies
+									{ignore_captured_by_user 0}
+									{tag ai_air_target}
+								}
+								{attack_altitude 64}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag enemy_air}
+											}
+										}
+										{include
+											{tag
+												{tag altitude_low}
+											}
+										}
+										{exclude
+											{tag
+												{tag altitude_high}
+											}
+										}
+									}
+								}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"air_attack"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag enemy_air}
+									{type vehicle}
+									{state inhabited}
+								}
+								{drop "orders sensor senseless"}
+								{enemies
+									{ignore_captured_by_user 0}
+									{tag ai_air_target}
+								}
+								{attack_altitude 30}
+							}
+						}
 						{"default"
 							{"delay"
 								{time 0.1}
@@ -10596,7 +10680,7 @@
 									{ignore_captured_by_user 0}
 									{tag ai_air_target}
 								}
-								{attack_altitude 46}
+								{attack_altitude 47}
 							}
 						}
 					}
@@ -10614,9 +10698,9 @@
 							{value 0}
 						}
 						{"3.cmp_i"
-							{var "user_team$"}
+							{var "user_is_defender$"}
 							{op "=="}
-							{value "def_team$"}
+							{value 1}
 						}
 						{"4.cmp_i"
 							{var "tier2$"}
@@ -10715,10 +10799,9 @@
 						{"3.entities"
 							{selector
 								{ignore_captured_by_user 0}
-								{tag player}
+								{tag _user}
 								{zone "gamezone"}
-								{type human}
-								{state "not dead"}
+								{state operatable}
 							}
 						}
 						{"4.cmp_i"
@@ -10765,13 +10848,7 @@
 									{group
 										{select
 											{tag
-												{tag player_armor}
-											}
-											{tag
-												{tag player_car}
-											}
-											{tag
-												{tag player_veh}
+												{tag _user}
 											}
 										}
 										{include
@@ -10783,6 +10860,9 @@
 											}
 											{state
 												{state operatable}
+											}
+											{state
+												{state user_control}
 											}
 										}
 										{exclude
@@ -10802,7 +10882,7 @@
 										{type cmp_i}
 										{var "ai_air_on$"}
 										{op "=="}
-										{value 1}
+										{value 5}
 									}
 									{"delay"
 										{time 0.1}
@@ -10814,24 +10894,21 @@
 											{group
 												{select
 													{tag
-														{tag player_armor}
-													}
-													{tag
-														{tag player_car}
-													}
-													{tag
-														{tag player_veh}
+														{tag _user}
 													}
 												}
 												{include
 													{zone
-														{zone "combat"}
+														{zone "gamezone"}
 													}
 													{prop
 														{prop vehicle}
 													}
 													{state
 														{state operatable}
+													}
+													{state
+														{state user_control}
 													}
 												}
 												{exclude
@@ -10842,7 +10919,7 @@
 											}
 											{sort
 												{type waypoint}
-												{wpid "1"}
+												{wpid "5"}
 											}
 											{amount 1
 											}
@@ -10867,24 +10944,21 @@
 											{group
 												{select
 													{tag
-														{tag player_armor}
-													}
-													{tag
-														{tag player_car}
-													}
-													{tag
-														{tag player_veh}
+														{tag _user}
 													}
 												}
 												{include
 													{zone
-														{zone "combat"}
+														{zone "gamezone"}
 													}
 													{prop
 														{prop vehicle}
 													}
 													{state
 														{state operatable}
+													}
+													{state
+														{state user_control}
 													}
 												}
 												{exclude
@@ -10920,24 +10994,21 @@
 											{group
 												{select
 													{tag
-														{tag player_armor}
-													}
-													{tag
-														{tag player_car}
-													}
-													{tag
-														{tag player_veh}
+														{tag _user}
 													}
 												}
 												{include
 													{zone
-														{zone "combat"}
+														{zone "gamezone"}
 													}
 													{prop
 														{prop vehicle}
 													}
 													{state
 														{state operatable}
+													}
+													{state
+														{state user_control}
 													}
 												}
 												{exclude
@@ -10973,24 +11044,21 @@
 											{group
 												{select
 													{tag
-														{tag player_armor}
-													}
-													{tag
-														{tag player_car}
-													}
-													{tag
-														{tag player_veh}
+														{tag _user}
 													}
 												}
 												{include
 													{zone
-														{zone "combat"}
+														{zone "gamezone"}
 													}
 													{prop
 														{prop vehicle}
 													}
 													{state
 														{state operatable}
+													}
+													{state
+														{state user_control}
 													}
 												}
 												{exclude
@@ -11020,24 +11088,21 @@
 											{group
 												{select
 													{tag
-														{tag player_armor}
-													}
-													{tag
-														{tag player_car}
-													}
-													{tag
-														{tag player_veh}
+														{tag _user}
 													}
 												}
 												{include
 													{zone
-														{zone "combat"}
+														{zone "gamezone"}
 													}
 													{prop
 														{prop vehicle}
 													}
 													{state
 														{state operatable}
+													}
+													{state
+														{state user_control}
 													}
 												}
 												{exclude
@@ -11048,7 +11113,7 @@
 											}
 											{sort
 												{type waypoint}
-												{wpid "5"}
+												{wpid "1"}
 											}
 											{amount 1
 											}
@@ -11068,7 +11133,7 @@
 										{type cmp_i}
 										{var "ai_air_on$"}
 										{op "=="}
-										{value 1}
+										{value 5}
 									}
 									{"delay"
 										{time 0.1}
@@ -11080,26 +11145,26 @@
 											{group
 												{select
 													{tag
-														{tag player}
+														{tag _user}
 													}
 												}
 												{include
 													{zone
 														{zone "gamezone"}
 													}
-													{prop
-														{prop human}
+													{state
+														{state "operatable user_control"}
 													}
 												}
 												{exclude
 													{state
-														{state dead}
+														{state inactive}
 													}
 												}
 											}
 											{sort
 												{type waypoint}
-												{wpid "1"}
+												{wpid "5"}
 											}
 											{amount 1
 											}
@@ -11124,20 +11189,20 @@
 											{group
 												{select
 													{tag
-														{tag player}
+														{tag _user}
 													}
 												}
 												{include
 													{zone
 														{zone "gamezone"}
 													}
-													{prop
-														{prop human}
+													{state
+														{state "operatable user_control"}
 													}
 												}
 												{exclude
 													{state
-														{state dead}
+														{state inactive}
 													}
 												}
 											}
@@ -11168,20 +11233,20 @@
 											{group
 												{select
 													{tag
-														{tag player}
+														{tag _user}
 													}
 												}
 												{include
 													{zone
 														{zone "gamezone"}
 													}
-													{prop
-														{prop human}
+													{state
+														{state "operatable user_control"}
 													}
 												}
 												{exclude
 													{state
-														{state dead}
+														{state inactive}
 													}
 												}
 											}
@@ -11212,20 +11277,20 @@
 											{group
 												{select
 													{tag
-														{tag player}
+														{tag _user}
 													}
 												}
 												{include
 													{zone
 														{zone "gamezone"}
 													}
-													{prop
-														{prop human}
+													{state
+														{state "operatable user_control"}
 													}
 												}
 												{exclude
 													{state
-														{state dead}
+														{state inactive}
 													}
 												}
 											}
@@ -11250,26 +11315,26 @@
 											{group
 												{select
 													{tag
-														{tag player}
+														{tag _user}
 													}
 												}
 												{include
 													{zone
 														{zone "gamezone"}
 													}
-													{prop
-														{prop human}
+													{state
+														{state "operatable user_control"}
 													}
 												}
 												{exclude
 													{state
-														{state dead}
+														{state inactive}
 													}
 												}
 											}
 											{sort
 												{type waypoint}
-												{wpid "5"}
+												{wpid "1"}
 											}
 											{amount 1
 											}
@@ -11310,11 +11375,6 @@
 						{op "="}
 						{value 0}
 					}
-					{"set_i"
-						{var "user_nation$"}
-						{op "="}
-						{value 0}
-					}
 					{"delay"
 						{time 0.4}
 					}
@@ -11324,15 +11384,7 @@
 						{delay 0}
 					}
 					{"delay"
-						{time 1}
-					}
-					{"set_i"
-						{var "dcg_on$"}
-						{op "+"}
-						{value 1}
-					}
-					{"delay"
-						{time 1.2}
+						{time 0.5}
 					}
 					{"entity_state"
 						{selector
@@ -11340,113 +11392,43 @@
 							{ignore_captured_by_user 0}
 							{group
 								{select
-									{tag
-										{tag spawn_a}
-									}
-									{tag
-										{tag spawn_b}
+									{zone
+										{zone "gamezone"}
 									}
 								}
-							}
-							{sort
-								{type entity}
-								{entity
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{zone
-												{zone "gamezone"}
-											}
-										}
-										{include
-											{state
-												{state "operatable user_control"}
-											}
-										}
-										{exclude
-											{state
-												{state "inactive linked"}
-											}
-										}
+								{include
+									{prop
+										{prop creature}
+									}
+									{state
+										{state operatable}
 									}
 								}
-							}
-							{amount 1
+								{exclude
+									{tag
+										{tag hidden}
+									}
+									{prop
+										{prop human}
+									}
+									{prop
+										{prop vehicle}
+									}
+									{state
+										{state user_control}
+									}
+								}
 							}
 						}
-						{tag_add user_team}
+						{tag_add _animal}
 					}
 					{"delay"
-						{time 1}
+						{time 0.5}
 					}
-					{## "switch"
-						{"case"
-							{condition
-								{type entities}
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag spawn_b}
-											}
-										}
-										{include
-											{tag
-												{tag user_team}
-											}
-										}
-										{exclude
-											{tag
-												{tag spawn_a}
-											}
-										}
-									}
-								}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"set_i"
-								{var "user_team$"}
-								{op "="}
-								{value 2}
-							}
-							{"set_i"
-								{var "arrows$"}
-								{op "="}
-								{value 1}
-							}
-							{## "delete"
-								{selector
-									{ignore_captured_by_user 0}
-									{tag arrow_enemy_b}
-								}
-							}
-						}
-						{## "default"
-							{"delay"
-								{time 0.1}
-							}
-							{"set_i"
-								{var "user_team$"}
-								{op "="}
-								{value 1}
-							}
-							{"set_i"
-								{var "arrows$"}
-								{op "="}
-								{value 2}
-							}
-							{## "delete"
-								{selector
-									{ignore_captured_by_user 0}
-									{tag arrow_enemy_a}
-								}
-							}
-						}
+					{"set_i"
+						{var "dcg_on$"}
+						{op "+"}
+						{value 1}
 					}
 				}
 			}
@@ -11490,6 +11472,12 @@
 											{tag
 												{tag airstrike_fin}
 											}
+											{tag
+												{tag airstrike_usa}
+											}
+											{tag
+												{tag airstrike_eng}
+											}
 										}
 									}
 								}
@@ -11532,6 +11520,12 @@
 											}
 											{tag
 												{tag airstrike_fin}
+											}
+											{tag
+												{tag airstrike_usa}
+											}
+											{tag
+												{tag airstrike_eng}
 											}
 										}
 									}
@@ -11576,6 +11570,110 @@
 											{tag
 												{tag airstrike_ger}
 											}
+											{tag
+												{tag airstrike_usa}
+											}
+											{tag
+												{tag airstrike_eng}
+											}
+										}
+									}
+								}
+							}
+							{"delay"
+								{time 1}
+							}
+							{"set_i"
+								{var "dcg_on$"}
+								{op "+"}
+								{value 1}
+							}
+							{"delay"
+								{time 1}
+							}
+							{"event"
+								{event "airplane_set"}
+								{mode set}
+								{delay 0}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "bot_army$"}
+								{op "=="}
+								{value 4}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"delete"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag airstrike_ger}
+											}
+											{tag
+												{tag airstrike_fin}
+											}
+											{tag
+												{tag airstrike_rus}
+											}
+											{tag
+												{tag airstrike_eng}
+											}
+										}
+									}
+								}
+							}
+							{"delay"
+								{time 1}
+							}
+							{"set_i"
+								{var "dcg_on$"}
+								{op "+"}
+								{value 1}
+							}
+							{"delay"
+								{time 1}
+							}
+							{"event"
+								{event "airplane_set"}
+								{mode set}
+								{delay 0}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "bot_army$"}
+								{op "=="}
+								{value 5}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"delete"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag airstrike_ger}
+											}
+											{tag
+												{tag airstrike_fin}
+											}
+											{tag
+												{tag airstrike_rus}
+											}
+											{tag
+												{tag airstrike_usa}
+											}
 										}
 									}
 								}
@@ -11598,6 +11696,34 @@
 							}
 						}
 						{"default"
+							{"delay"
+								{time 0.1}
+							}
+							{"delete"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag airstrike_rus}
+											}
+											{tag
+												{tag airstrike_ger}
+											}
+											{tag
+												{tag airstrike_fin}
+											}
+											{tag
+												{tag airstrike_usa}
+											}
+											{tag
+												{tag airstrike_eng}
+											}
+										}
+									}
+								}
+							}
 							{"delay"
 								{time 1}
 							}
@@ -11636,118 +11762,6 @@
 						{"case"
 							{condition
 								{type cmp_i}
-								{var "user_is_defender$"}
-								{op "=="}
-								{value 1}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"entity_state"
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag flag_point}
-											}
-										}
-										{include
-											{zone
-												{zone "gamezone"}
-											}
-										}
-										{exclude
-											{state
-												{state inactive}
-											}
-										}
-									}
-								}
-								{tag_add player_defending}
-							}
-						}
-						{"case"
-							{condition
-								{type cmp_i}
-								{var "user_is_defender$"}
-								{op "=="}
-								{value 0}
-							}
-							{"delay"
-								{time 0.2}
-							}
-							{"entity_state"
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag flag_point}
-											}
-										}
-										{include
-											{zone
-												{zone "gamezone"}
-											}
-										}
-										{exclude
-											{state
-												{state inactive}
-											}
-										}
-									}
-								}
-								{tag_add player_attacking}
-							}
-						}
-						{"default"
-							{"delay"
-								{time 0.2}
-							}
-							{## "objective_progress"
-								{set 0}
-								{add 0}
-								{title "dcg eid error 01 - report if you see this"}
-							}
-							{"delay"
-								{time 5}
-							}
-							{## "objective_progress"
-								{hide}
-								{set 0}
-								{add 0}
-								{title "dcg eid error 01 - report if you see this"}
-							}
-							{"entity_state"
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag flag_point}
-											}
-										}
-										{include
-											{zone
-												{zone "gamezone"}
-											}
-										}
-										{exclude
-											{state
-												{state inactive}
-											}
-										}
-									}
-								}
-								{tag_add player_attacking}
-							}
-						}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type cmp_i}
 								{var "enemyid$"}
 								{op "=="}
 								{value 1}
@@ -11769,6 +11783,12 @@
 											}
 											{tag
 												{tag airstrike_fin}
+											}
+											{tag
+												{tag airstrike_usa}
+											}
+											{tag
+												{tag airstrike_eng}
 											}
 										}
 										{include
@@ -11816,6 +11836,12 @@
 											{tag
 												{tag airstrike_fin}
 											}
+											{tag
+												{tag airstrike_usa}
+											}
+											{tag
+												{tag airstrike_eng}
+											}
 										}
 										{include
 											{prop
@@ -11861,6 +11887,12 @@
 											}
 											{tag
 												{tag airstrike_fin}
+											}
+											{tag
+												{tag airstrike_usa}
+											}
+											{tag
+												{tag airstrike_eng}
 											}
 										}
 										{include
@@ -11908,6 +11940,12 @@
 											{tag
 												{tag airstrike_fin}
 											}
+											{tag
+												{tag airstrike_usa}
+											}
+											{tag
+												{tag airstrike_eng}
+											}
 										}
 										{include
 											{prop
@@ -11953,6 +11991,12 @@
 											{tag
 												{tag airstrike_fin}
 											}
+											{tag
+												{tag airstrike_usa}
+											}
+											{tag
+												{tag airstrike_eng}
+											}
 										}
 										{include
 											{prop
@@ -11976,7 +12020,7 @@
 							{"objective_progress"
 								{set 0}
 								{add 0}
-								{title "dcg eid error 01 - enemyid above 4!"}
+								{title "mission/multi/dcg_error01"}
 							}
 							{"delay"
 								{time 5}
@@ -11985,7 +12029,7 @@
 								{hide}
 								{set 0}
 								{add 0}
-								{title "dcg eid error 01 - enemyid above 4!"}
+								{title "mission/multi/dcg_error01"}
 							}
 						}
 					}
@@ -11993,26 +12037,6 @@
 			}
 			{"dcg/player_nation"
 				{condition
-					{expression "1 & !2 & 3"}
-					{terms
-						{"1.entities"
-							{selector
-								{ignore_captured_by_user 0}
-								{tag player}
-								{zone "gamezone"}
-								{type human}
-								{state "not dead"}
-							}
-						}
-						{"2.cmp_i"
-							{var "user_nation$"}
-							{op ">"}
-							{value 0}
-						}
-						{"3.event"
-							{id "dcg"}
-						}
-					}
 				}
 				{actions
 					{"delay"
@@ -12436,7 +12460,7 @@
 					}
 				}
 			}
-			{"dcg/warning_air"
+			{## "dcg/warning_air"
 				{condition
 					{expression "!1 & 2"}
 					{terms
@@ -12525,8 +12549,8 @@
 								{ignore_captured_by_user 0}
 								{group
 									{select
-										{zone
-											{zone "gamezone"}
+										{tag
+											{tag _user}
 										}
 									}
 									{include
@@ -12539,7 +12563,7 @@
 											{tag hidden}
 										}
 										{state
-											{state dead}
+											{state inactive}
 										}
 									}
 								}
@@ -12562,36 +12586,19 @@
 				}
 				{actions
 					{"delay"
-						{time 0.1}
+						{time 1}
 					}
-					{"event"
-						{event "talk_on"}
-						{mode set}
-						{delay 0}
-					}
-					{"delay"
-						{time 0.1}
-					}
-					{"entity_state"
-						{selector
-							{source advanced}
-							{ignore_captured_by_user 0}
-							{group
-								{select
-									{tag
-										{tag dcg_mine_sign}
-									}
-								}
-							}
-							{sort
-								{type entity}
-								{entity
+					{"switch"
+						{"case"
+							{condition
+								{type near}
+								{units
 									{source advanced}
 									{ignore_captured_by_user 0}
 									{group
 										{select
-											{zone
-												{zone "gamezone"}
+											{tag
+												{tag _user}
 											}
 										}
 										{include
@@ -12604,237 +12611,226 @@
 												{tag hidden}
 											}
 											{state
-												{state dead}
+												{state inactive}
 											}
 										}
 									}
 								}
-							}
-							{amount 2
-							}
-						}
-						{tag_add warning_talk}
-						{tag_remove dcg_mine_sign}
-					}
-					{"delay"
-						{time 0.5}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type rand}
-								{value 0.4}
+								{near_to
+									{ignore_captured_by_user 0}
+									{tag dcg_mine_sign}
+								}
+								{distance 46}
 							}
 							{"delay"
 								{time 0.1}
 							}
-							{"talk"
+							{"event"
+								{event "talk_on"}
+								{mode set}
+								{delay 0}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"entity_state"
 								{selector
 									{source advanced}
 									{ignore_captured_by_user 0}
 									{group
 										{select
 											{tag
-												{tag player}
-											}
-										}
-										{include
-											{prop
-												{prop human}
-											}
-											{state
-												{state linked}
-											}
-										}
-										{exclude
-											{state
-												{state dead}
-											}
-										}
-									}
-									{group
-										{select
-											{tag
-												{tag player}
-											}
-										}
-										{include
-											{prop
-												{prop human}
-											}
-										}
-										{exclude
-											{state
-												{state dead}
-											}
-											{state
-												{state linked}
+												{tag dcg_mine_sign}
 											}
 										}
 									}
 									{sort
 										{type entity}
 										{entity
+											{source advanced}
 											{ignore_captured_by_user 0}
-											{tag warning_talk}
+											{group
+												{select
+													{tag
+														{tag _user}
+													}
+												}
+												{include
+													{state
+														{state "operatable user_control"}
+													}
+												}
+												{exclude
+													{tag
+														{tag hidden}
+													}
+													{state
+														{state inactive}
+													}
+												}
+											}
 										}
 									}
-									{amount 1
+									{amount 2
 									}
 								}
-								{text "mission/multi/minefield_alert3"}
-							}
-						}
-						{"case"
-							{condition
-								{type rand}
-								{value 0.4}
+								{tag_add warning_talk}
+								{tag_remove dcg_mine_sign}
 							}
 							{"delay"
-								{time 0.1}
+								{time 0.5}
 							}
-							{"talk"
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag player}
-											}
-										}
-										{include
-											{prop
-												{prop human}
-											}
-											{state
-												{state linked}
-											}
-										}
-										{exclude
-											{state
-												{state dead}
-											}
-										}
+							{"switch"
+								{"case"
+									{condition
+										{type rand}
+										{value 0.4}
 									}
-									{group
-										{select
-											{tag
-												{tag player}
-											}
-										}
-										{include
-											{prop
-												{prop human}
-											}
-										}
-										{exclude
-											{state
-												{state dead}
-											}
-											{state
-												{state linked}
-											}
-										}
+									{"delay"
+										{time 0.1}
 									}
-									{sort
-										{type entity}
-										{entity
+									{"talk"
+										{selector
+											{source advanced}
 											{ignore_captured_by_user 0}
-											{tag warning_talk}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{prop
+														{prop human}
+													}
+													{state
+														{state operatable}
+													}
+												}
+											}
+											{sort
+												{type entity}
+												{entity
+													{ignore_captured_by_user 0}
+													{tag warning_talk}
+												}
+											}
+											{amount 1
+											}
 										}
-									}
-									{amount 1
+										{text "mission/multi/minefield_alert3"}
 									}
 								}
-								{text "mission/multi/minefield_alert2"}
+								{"case"
+									{condition
+										{type rand}
+										{value 0.4}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"talk"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{prop
+														{prop human}
+													}
+													{state
+														{state operatable}
+													}
+												}
+											}
+											{sort
+												{type entity}
+												{entity
+													{ignore_captured_by_user 0}
+													{tag warning_talk}
+												}
+											}
+											{amount 1
+											}
+										}
+										{text "mission/multi/minefield_alert2"}
+									}
+								}
+								{"default"
+									{"delay"
+										{time 0.1}
+									}
+									{"talk"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag player}
+													}
+												}
+												{include
+													{prop
+														{prop human}
+													}
+													{state
+														{state operatable}
+													}
+												}
+											}
+											{sort
+												{type entity}
+												{entity
+													{ignore_captured_by_user 0}
+													{tag warning_talk}
+												}
+											}
+											{amount 1
+											}
+										}
+										{text "mission/multi/minefield_alert1"}
+									}
+								}
+							}
+							{"delay"
+								{time 8}
+							}
+							{"event"
+								{event "talk_on"}
+								{mode reset}
+								{delay 0}
+							}
+							{"delay"
+								{time 1}
+							}
+							{"entity_state"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag warning_talk}
+								}
+								{tag_remove warning_talk}
+							}
+							{"delay"
+								{time 300}
+							}
+							{"trigger"
+								{name "dcg/warning_mines"}
 							}
 						}
 						{"default"
 							{"delay"
-								{time 0.1}
+								{time 5}
 							}
-							{"talk"
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag player}
-											}
-										}
-										{include
-											{prop
-												{prop human}
-											}
-											{state
-												{state linked}
-											}
-										}
-										{exclude
-											{state
-												{state dead}
-											}
-										}
-									}
-									{group
-										{select
-											{tag
-												{tag player}
-											}
-										}
-										{include
-											{prop
-												{prop human}
-											}
-										}
-										{exclude
-											{state
-												{state dead}
-											}
-											{state
-												{state linked}
-											}
-										}
-									}
-									{sort
-										{type entity}
-										{entity
-											{ignore_captured_by_user 0}
-											{tag warning_talk}
-										}
-									}
-									{amount 1
-									}
-								}
-								{text "mission/multi/minefield_alert1"}
+							{"trigger"
+								{name "dcg/warning_mines"}
 							}
 						}
-					}
-					{"delay"
-						{time 8}
-					}
-					{"event"
-						{event "talk_on"}
-						{mode reset}
-						{delay 0}
-					}
-					{"delay"
-						{time 1}
-					}
-					{"entity_state"
-						{selector
-							{ignore_captured_by_user 0}
-							{tag warning_talk}
-						}
-						{tag_remove warning_talk}
-					}
-					{"delay"
-						{time 300}
-					}
-					{"trigger"
-						{name "dcg/warning_mines"}
 					}
 				}
 			}
@@ -14548,6 +14544,29 @@
 								{text "mission/multi/display_defense_usa"}
 							}
 						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "bot_army$"}
+								{op "=="}
+								{value 5}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"talk"
+								{selector
+									{ignore_captured_by_user 0}
+									{amount 1
+									}
+									{tag player}
+									{zone "gamezone"}
+									{type human}
+									{state operatable}
+								}
+								{text "mission/multi/display_defense_eng"}
+							}
+						}
 						{"default"
 							{"delay"
 								{time 0.1}
@@ -14965,4 +14984,5 @@
 					}
 				}
 			}
+
 

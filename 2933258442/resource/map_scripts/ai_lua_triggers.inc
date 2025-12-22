@@ -1374,7 +1374,6 @@
 									{ignore_captured_by_user 0}
 									{tag e_tank_alt}
 									{type vehicle}
-									{state operatable}
 								}
 								{drop orders}
 								{fire_mode open}
@@ -7711,10 +7710,10 @@
 									}
 									{exclude
 										{tag
-											{tag _ai}
+											{tag _bot}
 										}
 										{tag
-											{tag _bot}
+											{tag _animal}
 										}
 										{tag
 											{tag cmp_def}
@@ -7784,6 +7783,9 @@
 									}
 									{tag
 										{tag _bot}
+									}
+									{tag
+										{tag _animal}
 									}
 									{tag
 										{tag cmp_def}
@@ -7858,7 +7860,9 @@
 									{tag
 										{tag bot}
 									}
-									
+									{tag
+										{tag _user}
+									}
 									{state
 										{state user_control}
 									}
@@ -7932,42 +7936,6 @@
 							}
 						}
 						{tag_add bot_car}
-					}
-					{"delay"
-						{time 0.2}
-					}
-					{"entity_state"
-						{selector
-							{source advanced}
-							{ignore_captured_by_user 0}
-							{group
-								{select
-									{tag
-										{tag _ai}
-									}
-								}
-								{include
-									{prop
-										{prop airborne}
-									}
-									{state
-										{state operatable}
-									}
-								}
-								{exclude
-									{tag
-										{tag bot_veh}
-									}
-									{tag
-										{tag bot_plane}
-									}
-									{state
-										{state user_control}
-									}
-								}
-							}
-						}
-						{tag_add bot_plane}
 					}
 					{"delay"
 						{time 0.2}
@@ -8096,7 +8064,97 @@
 					{"delay"
 						{time 1}
 					}
-					{## "switch"
+					{"entity_state"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag hedgehog}
+									}
+								}
+								{include
+									{zone
+										{zone "_bridge1"}
+									}
+								}
+								{exclude
+									{tag
+										{tag crushed}
+									}
+									{tag
+										{tag "+chokehog"}
+									}
+								}
+							}
+						}
+						{tag_add "+chokehog"}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag hedgehog}
+									}
+								}
+								{include
+									{zone
+										{zone "_bridge2"}
+									}
+								}
+								{exclude
+									{tag
+										{tag crushed}
+									}
+									{tag
+										{tag "+chokehog"}
+									}
+								}
+							}
+						}
+						{tag_add "+chokehog"}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag hedgehog}
+									}
+								}
+								{include
+									{zone
+										{zone "_bridge3"}
+									}
+								}
+								{exclude
+									{tag
+										{tag crushed}
+									}
+									{tag
+										{tag "+chokehog"}
+									}
+								}
+							}
+						}
+						{tag_add "+chokehog"}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"switch"
 						{"case"
 							{condition
 								{type entities}
@@ -8436,6 +8494,281 @@
 								{name "lua/alert_clear"}
 							}
 						}
+					}
+				}
+			}
+			{"lua/at_flag_ignore"
+				{condition
+					{terms
+						{"1.cmp_i"
+							{var "dcg_on$"}
+							{op ">"}
+							{value 3}
+						}
+						{"2.near"
+							{units
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag _bot}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag _lua_mi}
+										}
+										{tag
+											{tag _lua_ignore}
+										}
+										{tag
+											{tag _lua_alert}
+										}
+										{tag
+											{tag _def}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+							{near_to
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag flag}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+									}
+								}
+							}
+							{distance 61}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag _bot}
+									}
+								}
+								{include
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag _lua_mi}
+									}
+									{tag
+										{tag _lua_ignore}
+									}
+									{tag
+										{tag _lua_alert}
+									}
+									{tag
+										{tag _def}
+									}
+									{state
+										{state inactive}
+									}
+									{state
+										{state user_control}
+									}
+								}
+							}
+							{amount 1
+							}
+							{sort
+								{type entity}
+								{entity
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag flag}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+								}
+							}
+						}
+						{tag_add _local1}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type near}
+								{units
+									{ignore_captured_by_user 0}
+									{tag _local1}
+									{state operatable}
+								}
+								{near_to
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag flag}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+								}
+								{distance 62}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"entity_state"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag _local1}
+									{state operatable}
+								}
+								{tag_add _lua_ignore}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"actor_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag _local1}
+											}
+										}
+										{include
+											{prop
+												{prop human}
+											}
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{tag
+												{tag _lua_mi}
+											}
+										}
+									}
+								}
+								{drop orders}
+								{fire_mode open}
+								{move_mode zone}
+								{ai_move
+									{mode enable}
+								}
+								{movement
+									{speed assault}
+								}
+								{ai
+									{advance_ratio 2}
+									{retreat_ratio 5}
+								}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"actor_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag _local1}
+											}
+										}
+										{include
+											{prop
+												{prop vehicle}
+											}
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{tag
+												{tag _lua_mi}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{drop orders}
+								{fire_mode open}
+								{move_mode zone}
+								{move_radius 30}
+								{ai_move
+									{mode enable}
+								}
+								{movement
+									{speed normal}
+									{forward on}
+									{backward on}
+								}
+							}
+						}
+						{"default"}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag _local1}
+						}
+						{tag_remove _local1}
+					}
+					{"delay"
+						{time 15}
+					}
+					{"trigger"
+						{name "lua/at_flag_ignore"}
 					}
 				}
 			}
