@@ -14425,7 +14425,7 @@
 			}
 			{"dcg/def/show"
 				{condition
-					{expression "!1 & 2 & 3 & 4"}
+					{expression "!1 & 2 & 4"}
 					{terms
 						{"1.event"
 							{id "talk_on"}
@@ -14435,11 +14435,11 @@
 							{op "=="}
 							{value 1}
 						}
-						{"3.cmp_i"
-							{var "arrows$"}
-							{op ">"}
-							{value 0}
-						}
+						;{"3.cmp_i"
+						;	{var "arrows$"}
+						;	{op ">"}
+						;	{value 0}
+						;}
 						{"4.entities"
 							{selector
 								{ignore_captured_by_user 0}

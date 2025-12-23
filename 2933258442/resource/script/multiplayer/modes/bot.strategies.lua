@@ -137,6 +137,7 @@ StrategyTemplates = {
 		StrategyUnitTypes = {
 			"Paratrooper",
 			"Fighter",
+			"Bomber",
 			"Group_Air"
 		},
 		StrategyExcludeUnitTypes = {
@@ -206,12 +207,14 @@ StrategyTemplates = {
             "Heavy",
 			"ReconPlane",
 			"Engineer",
+			"Tank",
             "Mechanized_Infantry",
 		},
 		StrategyExcludeUnitTypes = {
 			"Armored",
 			"Vehicle",
 			"Cannon",
+			"Aircraft",
 		},
 		forceUnitCount = {
 			min = 7,
@@ -219,7 +222,7 @@ StrategyTemplates = {
 		},
 		BotInfantry = {
 			min = 30,
-			max = 60,
+			max = 75,
 		},
 		BotATInfantry = {
 			min = 1,
@@ -275,7 +278,6 @@ StrategyTemplates = {
 		StrategyName = "Armor Strategy",
 		StrategyUnitTypes = {
             "Tank",
-			"ReconPlane",
 			"Engineer",
 			"AA",
 		},
@@ -284,6 +286,7 @@ StrategyTemplates = {
 			"Vehicle",
 			"Cannon",
 			"AT",
+			"Aircraft",
 		},
 		forceUnitCount = {
 			min = 7,

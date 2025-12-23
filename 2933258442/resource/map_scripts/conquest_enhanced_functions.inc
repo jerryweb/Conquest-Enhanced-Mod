@@ -943,7 +943,7 @@
 						{zone "gamezone"}
 						{state operatable}
 					}
-					{count 2}
+					{count 1}
 					{random_weapon 0}
 					{attack_altitude 55}
 				}
