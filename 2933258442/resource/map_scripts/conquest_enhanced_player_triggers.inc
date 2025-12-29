@@ -1298,7 +1298,7 @@
 								}
 							}
 							{count
-								{op ">="}
+								{op ">"}
 								{value 5}
 							}
 						}
@@ -1308,49 +1308,29 @@
 					{"delay"
 						{time 1}
 					}
+					{"talk"
+						{selector
+							{amount 1
+							}
+							{tag officer}
+							{zone "gamezone"}
+							{type human}
+							{state "not dead"}
+						}
+						{text "mission/multi/player_ac_000warning"}
+					}
+					{"sound"
+						{name "world/alarm/alarm"}
+						{waypoint "1"}
+					}
+					{"delay"
+						{time 5}
+					}
 					{"switch"
 						{"case"
 							{condition
-								{type entities}
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag officer}
-											}
-										}
-										{include
-											{prop
-												{prop human}
-											}
-											{state
-												{state "operatable user_control"}
-											}
-										}
-										{exclude
-											{state
-												{state dead}
-											}
-											{state
-												{state inactive}
-											}
-											{state
-												{state linked}
-											}
-											{tag
-												{tag traitor}
-											}
-											{tag
-												{tag _bleedout_}
-											}
-										}
-									}
-								}
-								{count
-									{op "=="}
-									{value 5}
-								}
+								{type rand}
+								{value 0.714}
 							}
 							{"talk"
 								{selector
@@ -1361,7 +1341,211 @@
 									{type human}
 									{state "not dead"}
 								}
-								{text "mission/multi/player_ac_000warning"}
+								{text "mission/multi/player_ac_001"}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.714}
+							}
+							{"talk"
+								{selector
+									{amount 1
+									}
+									{tag officer}
+									{zone "gamezone"}
+									{type human}
+									{state "not dead"}
+								}
+								{text "mission/multi/player_ac_002"}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.714}
+							}
+							{"talk"
+								{selector
+									{amount 1
+									}
+									{tag officer}
+									{zone "gamezone"}
+									{type human}
+									{state "not dead"}
+								}
+								{text "mission/multi/player_ac_003"}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.714}
+							}
+							{"talk"
+								{selector
+									{amount 1
+									}
+									{tag officer}
+									{zone "gamezone"}
+									{type human}
+									{state "not dead"}
+								}
+								{text "mission/multi/player_ac_004"}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.714}
+							}
+							{"talk"
+								{selector
+									{amount 1
+									}
+									{tag officer}
+									{zone "gamezone"}
+									{type human}
+									{state "not dead"}
+								}
+								{text "mission/multi/player_ac_005"}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.714}
+							}
+							{"talk"
+								{selector
+									{amount 1
+									}
+									{tag officer}
+									{zone "gamezone"}
+									{type human}
+									{state "not dead"}
+								}
+								{text "mission/multi/player_ac_006"}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.714}
+							}
+							{"talk"
+								{selector
+									{amount 1
+									}
+									{tag officer}
+									{zone "gamezone"}
+									{type human}
+									{state "not dead"}
+								}
+								{text "mission/multi/player_ac_007"}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.714}
+							}
+							{"talk"
+								{selector
+									{amount 1
+									}
+									{tag officer}
+									{zone "gamezone"}
+									{type human}
+									{state "not dead"}
+								}
+								{text "mission/multi/player_ac_008"}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.714}
+							}
+							{"talk"
+								{selector
+									{amount 1
+									}
+									{tag officer}
+									{zone "gamezone"}
+									{type human}
+									{state "not dead"}
+								}
+								{text "mission/multi/player_ac_009"}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.714}
+							}
+							{"talk"
+								{selector
+									{amount 1
+									}
+									{tag officer}
+									{zone "gamezone"}
+									{type human}
+									{state "not dead"}
+								}
+								{text "mission/multi/player_ac_010"}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.714}
+							}
+							{"talk"
+								{selector
+									{amount 1
+									}
+									{tag officer}
+									{zone "gamezone"}
+									{type human}
+									{state "not dead"}
+								}
+								{text "mission/multi/player_ac_011"}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.714}
+							}
+							{"talk"
+								{selector
+									{amount 1
+									}
+									{tag officer}
+									{zone "gamezone"}
+									{type human}
+									{state "not dead"}
+								}
+								{text "mission/multi/player_ac_012"}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.714}
+							}
+							{"talk"
+								{selector
+									{amount 1
+									}
+									{tag officer}
+									{zone "gamezone"}
+									{type human}
+									{state "not dead"}
+								}
+								{text "mission/multi/player_ac_013"}
 							}
 						}
 						{"default"
@@ -1374,257 +1558,57 @@
 									{type human}
 									{state "not dead"}
 								}
-								{text "mission/multi/player_ac_000warning"}
+								{text "mission/multi/player_ac_014"}
 							}
-							{"sound"
-								{name "world/alarm/alarm"}
-								{waypoint "1"}
-							}
-							{"delay"
-								{time 5}
-							}
-							{"switch"
-								{"case"
-									{condition
-										{type rand}
-										{value 0.714}
-									}
-									{"talk"
-										{selector
-											{amount 1
-											}
+						}
+					}
+					{"delay"
+						{time 5}
+					}
+					{"while"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
 											{tag officer}
-											{zone "gamezone"}
-											{type human}
-											{state "not dead"}
 										}
-										{text "mission/multi/player_ac_001"}
 									}
-								}
-								{"case"
-									{condition
-										{type rand}
-										{value 0.714}
-									}
-									{"talk"
-										{selector
-											{amount 1
-											}
-											{tag officer}
-											{zone "gamezone"}
-											{type human}
-											{state "not dead"}
+									{include
+										{prop
+											{prop human}
 										}
-										{text "mission/multi/player_ac_002"}
-									}
-								}
-								{"case"
-									{condition
-										{type rand}
-										{value 0.714}
-									}
-									{"talk"
-										{selector
-											{amount 1
-											}
-											{tag officer}
-											{zone "gamezone"}
-											{type human}
-											{state "not dead"}
+										{state
+											{state "operatable user_control"}
 										}
-										{text "mission/multi/player_ac_003"}
 									}
-								}
-								{"case"
-									{condition
-										{type rand}
-										{value 0.714}
-									}
-									{"talk"
-										{selector
-											{amount 1
-											}
-											{tag officer}
-											{zone "gamezone"}
-											{type human}
-											{state "not dead"}
+									{exclude
+										{state
+											{state dead}
 										}
-										{text "mission/multi/player_ac_004"}
-									}
-								}
-								{"case"
-									{condition
-										{type rand}
-										{value 0.714}
-									}
-									{"talk"
-										{selector
-											{amount 1
-											}
-											{tag officer}
-											{zone "gamezone"}
-											{type human}
-											{state "not dead"}
+										{state
+											{state inactive}
 										}
-										{text "mission/multi/player_ac_005"}
-									}
-								}
-								{"case"
-									{condition
-										{type rand}
-										{value 0.714}
-									}
-									{"talk"
-										{selector
-											{amount 1
-											}
-											{tag officer}
-											{zone "gamezone"}
-											{type human}
-											{state "not dead"}
+										{state
+											{state linked}
 										}
-										{text "mission/multi/player_ac_006"}
-									}
-								}
-								{"case"
-									{condition
-										{type rand}
-										{value 0.714}
-									}
-									{"talk"
-										{selector
-											{amount 1
-											}
-											{tag officer}
-											{zone "gamezone"}
-											{type human}
-											{state "not dead"}
-										}
-										{text "mission/multi/player_ac_007"}
-									}
-								}
-								{"case"
-									{condition
-										{type rand}
-										{value 0.714}
-									}
-									{"talk"
-										{selector
-											{amount 1
-											}
-											{tag officer}
-											{zone "gamezone"}
-											{type human}
-											{state "not dead"}
-										}
-										{text "mission/multi/player_ac_008"}
-									}
-								}
-								{"case"
-									{condition
-										{type rand}
-										{value 0.714}
-									}
-									{"talk"
-										{selector
-											{amount 1
-											}
-											{tag officer}
-											{zone "gamezone"}
-											{type human}
-											{state "not dead"}
-										}
-										{text "mission/multi/player_ac_009"}
-									}
-								}
-								{"case"
-									{condition
-										{type rand}
-										{value 0.714}
-									}
-									{"talk"
-										{selector
-											{amount 1
-											}
-											{tag officer}
-											{zone "gamezone"}
-											{type human}
-											{state "not dead"}
-										}
-										{text "mission/multi/player_ac_010"}
-									}
-								}
-								{"case"
-									{condition
-										{type rand}
-										{value 0.714}
-									}
-									{"talk"
-										{selector
-											{amount 1
-											}
-											{tag officer}
-											{zone "gamezone"}
-											{type human}
-											{state "not dead"}
-										}
-										{text "mission/multi/player_ac_011"}
-									}
-								}
-								{"case"
-									{condition
-										{type rand}
-										{value 0.714}
-									}
-									{"talk"
-										{selector
-											{amount 1
-											}
-											{tag officer}
-											{zone "gamezone"}
-											{type human}
-											{state "not dead"}
-										}
-										{text "mission/multi/player_ac_012"}
-									}
-								}
-								{"case"
-									{condition
-										{type rand}
-										{value 0.714}
-									}
-									{"talk"
-										{selector
-											{amount 1
-											}
-											{tag officer}
-											{zone "gamezone"}
-											{type human}
-											{state "not dead"}
-										}
-										{text "mission/multi/player_ac_013"}
-									}
-								}
-								{"default"
-									{"talk"
-										{selector
-											{amount 1
-											}
-											{tag officer}
-											{zone "gamezone"}
-											{type human}
-											{state "not dead"}
-										}
-										{text "mission/multi/player_ac_014"}
 									}
 								}
 							}
-							{"delay"
-								{time 5}
+							{count
+								{op ">"}
+								{value 5}
 							}
-							{"while"
+						}
+						{"switch"
+							{"case"
 								{condition
-									{type entities}
+									{type rand}
+									{value 0.5}
+								}
+								{"effect"
 									{selector
 										{source advanced}
 										{group
@@ -1653,183 +1637,140 @@
 												}
 											}
 										}
+										{amount 1
+										}
 									}
-									{count
-										{op ">"}
-										{value 5}
-									}
+									{effect _burn}
 								}
-								{"switch"
-									{"case"
-										{condition
-											{type rand}
-											{value 0.5}
-										}
-										{"effect"
-											{selector
-												{source advanced}
-												{group
-													{select
-														{tag
-															{tag officer}
-														}
-													}
-													{include
-														{prop
-															{prop human}
-														}
-														{state
-															{state "operatable user_control"}
-														}
-													}
-													{exclude
-														{state
-															{state dead}
-														}
-														{state
-															{state inactive}
-														}
-														{state
-															{state linked}
-														}
-													}
-												}
-												{amount 1
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.5}
+								}
+								{"effect"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag officer}
 												}
 											}
-											{effect _burn}
+											{include
+												{prop
+													{prop human}
+												}
+												{state
+													{state "operatable user_control"}
+												}
+											}
+											{exclude
+												{state
+													{state dead}
+												}
+												{state
+													{state inactive}
+												}
+												{state
+													{state linked}
+												}
+											}
+										}
+										{amount 1
 										}
 									}
-									{"case"
-										{condition
-											{type rand}
-											{value 0.5}
-										}
-										{"effect"
-											{selector
-												{source advanced}
-												{group
-													{select
-														{tag
-															{tag officer}
-														}
-													}
-													{include
-														{prop
-															{prop human}
-														}
-														{state
-															{state "operatable user_control"}
-														}
-													}
-													{exclude
-														{state
-															{state dead}
-														}
-														{state
-															{state inactive}
-														}
-														{state
-															{state linked}
-														}
-													}
-												}
-												{amount 1
+									{effect explode_human}
+								}
+							}
+							{"default"
+								{"entity_state"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag officer}
 												}
 											}
-											{effect explode_human}
+											{include
+												{prop
+													{prop human}
+												}
+												{state
+													{state "operatable user_control"}
+												}
+											}
+											{exclude
+												{state
+													{state dead}
+												}
+												{state
+													{state inactive}
+												}
+												{state
+													{state linked}
+												}
+											}
+										}
+										{amount 1
 										}
 									}
-									{"default"
-										{"entity_state"
-											{selector
-												{source advanced}
-												{group
-													{select
-														{tag
-															{tag officer}
-														}
-													}
-													{include
-														{prop
-															{prop human}
-														}
-														{state
-															{state "operatable user_control"}
-														}
-													}
-													{exclude
-														{state
-															{state dead}
-														}
-														{state
-															{state inactive}
-														}
-														{state
-															{state linked}
-														}
-													}
-												}
-												{amount 1
-												}
-											}
-											{tag_add traitor}
-											{tag_remove officer}
+									{tag_add traitor}
+									{tag_remove officer}
+								}
+								{"delay"
+									{time 0.5}
+								}
+								{"ables"
+									{selector
+										{amount 1
 										}
-										{"delay"
-											{time 0.5}
+										{tag traitor}
+										{type human}
+										{state operatable}
+									}
+									{remove select}
+								}
+								{"delay"
+									{time 0.5}
+								}
+								{"actor_state"
+									{selector
+										{amount 1
 										}
-										{"ables"
-											{selector
-												{amount 1
-												}
-												{tag traitor}
-												{type human}
-												{state operatable}
-											}
-											{remove select}
-										}
-										{"delay"
-											{time 0.5}
-										}
-										{"actor_state"
-											{selector
-												{amount 1
-												}
-												{tag traitor}
-												{type human}
-												{state operatable}
-											}
-											{control AI}
-											{fire_mode open}
-											{move_mode free}
-											{ai_move
-												{mode disable}
-											}
-											{human
-												{health 1000}
-											}
-										}
-										{"delay"
-											{time 0.5}
-										}
-										{"player"
-											{selector
-												{amount 1
-												}
-												{tag traitor}
-												{type human}
-												{state operatable}
-											}
-											{operation set}
-											{player "17"}
-										}
+										{tag traitor}
+										{type human}
+										{state operatable}
+									}
+									{control AI}
+									{fire_mode open}
+									{move_mode free}
+									{ai_move
+										{mode disable}
+									}
+									{human
+										{health 1000}
 									}
 								}
 								{"delay"
-									{time 1}
+									{time 0.5}
+								}
+								{"player"
+									{selector
+										{amount 1
+										}
+										{tag traitor}
+										{type human}
+										{state operatable}
+									}
+									{operation set}
+									{player "17"}
 								}
 							}
+						}
+						{"delay"
+							{time 1}
 						}
 					}
 					{"delay"
@@ -1837,6 +1778,66 @@
 					}
 					{"trigger"
 						{name "player_scripts/check_officer_cheese"}
+					}
+				}
+			}
+			{"player_scripts/warn_officer_cheese"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag officer}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state "operatable user_control"}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{tag
+											{tag traitor}
+										}
+										{tag
+											{tag _bleedout_}
+										}
+									}
+								}
+							}
+							{count
+								{op "=="}
+								{value 5}
+							}
+						}
+					}
+				}
+				{actions
+					{"talk"
+						{selector
+							{amount 1
+							}
+							{tag officer}
+							{zone "gamezone"}
+							{type human}
+							{state "not dead"}
+						}
+						{text "mission/multi/player_ac_000warning"}
 					}
 				}
 			}
@@ -2330,39 +2331,6 @@
 			}
             
 ;============ CHANGE WEATHER SCRIPTS ==========            
-            {## "player_scripts/change_weather"
-				{condition
-					{terms
-						{"1.entities"
-							{selector
-								{source advanced}
-								{group
-									{select
-										{tag
-											{tag pointer_going}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-				{actions
-					{"timer"
-						{time 10}
-						{title "Change weather cooldown"}
-					}
-					{"switch"
-						(include "weather_cases.inc")
-					}
-					{"delay"
-						{time 10}
-					}
-					{"trigger"
-						{name "player_scripts/change_weather"}
-					}
-				}
-			}			
             {"player_scripts/allied_infantry"
 				{condition
 					{terms
