@@ -1,0 +1,6 @@
+			(include "conquest_enhanced_map_setup_triggers.inc")
+			(include "conquest_enhanced_player_triggers.inc")
+			(include "conquest_enhanced_mechanics_triggers.inc")
+			(include "conquest_enhanced_ai_logic_triggers.inc")
+			(include "conquest_enhanced_ai_spawn_triggers.inc")
+			(include "conquest_enhanced_off_map_triggers.inc")

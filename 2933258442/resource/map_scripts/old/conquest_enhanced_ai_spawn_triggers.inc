@@ -993,6 +993,11 @@
 			("ai_vehicle_spawn" side(a) zone(a_3) waypoint(1013))
 			("ai_vehicle_spawn" side(a) zone(a_4) waypoint(1014))
 
+			;("ai_cannon_spawn" side(a) zone(a_1) waypoint(1011))
+			;("ai_cannon_spawn" side(a) zone(a_2) waypoint(1012))
+			;("ai_cannon_spawn" side(a) zone(a_3) waypoint(1013))
+			;("ai_cannon_spawn" side(a) zone(a_4) waypoint(1014))
+
 ; ============= SIDE B ===================================
 			("ai_inf_spawn" side(b) zone(b_1) waypoint(2011))
 			("ai_inf_spawn" side(b) zone(b_2) waypoint(2012))
@@ -1003,6 +1008,11 @@
 			("ai_vehicle_spawn" side(b) zone(b_2) waypoint(2012))
 			("ai_vehicle_spawn" side(b) zone(b_3) waypoint(2013))
 			("ai_vehicle_spawn" side(b) zone(b_4) waypoint(2014))
+
+			;("ai_cannon_spawn" side(b) zone(b_1) waypoint(2011))
+			;("ai_cannon_spawn" side(b) zone(b_2) waypoint(2012))
+			;("ai_cannon_spawn" side(b) zone(b_3) waypoint(2013))
+			;("ai_cannon_spawn" side(b) zone(b_4) waypoint(2014))
 
 ; ============= GENERAL TRIGGERS ===================================
 			{"ai_spawn_logic/tag_ai_spawns"
