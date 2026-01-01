@@ -1,7 +1,7 @@
 {game_entity
 	(include "/properties/tank.ext")
 	(include "/properties/selection/vehicle.inc" scale(1.1))
-	{props "medium" "vision_lev04" "muzzle_75mm_76mm" "muzzle_hmg_m2hb" "mine_exploder" "roller"}
+	{props  "medium" "vision_lev04" "muzzle_75mm_76mm" "smoke" "2in_wp" "mine_exploder" "flail"}
 	{extension "pz3m.mdl"}
 	(include  "pz3m.ext")
 	{PatherId "roller.medium"}
@@ -9,11 +9,10 @@
 	{targetSelector "tank_medium"}
 
 	{extender "enumerator"
-		{digit_folder "us1"}
+		{digit_folder "us2"}
 	}
 
 	("crew_5_human_extended2")
-	("gunner_visible2")
 
 	{boarder
 		{anm "driver"
@@ -46,14 +45,21 @@
 	("seat_human" place(seat2) bone(seat02) door(emit5) animation(armor1))
 	("seat_human" place(seat3) bone(seat03) door(emit6) animation(armor1))
 	("seat_human" place(seat4) bone(seat04) door(emit7) animation(armor2))
+	
+	
+	{extender "smokescreen"
+		{cooldown 5}
+		{itemTags "mortareng_50 wp"}
+	}
+
 
 	{extender "inventory"
 		{box
-			{item "bulletusa_75x350 apcbche" 17}		;90 rounds ;20,70,10% AP,HE,WP
-			{item "bulletusa_75x350 he" 63}
-			{item "bulletusa_75x350 wp" 9}
-			{item "ammo hmgun_usa" 200}					;300 rounds
-			{item "ammo mgun_usa belt" 4250}			;4750 rounds
+			{item "ammo bulletusa_75x350 apcbc" 23}	; 97 rounds
+			{item "ammo bulletusa_75x350 he" 63}
+			{item "ammo bulletusa_75x350 wp" 10}
+			{item "ammo mgun_usa belt" 4250}			; 19 belts (250 rounds each)
+			{item "mortareng_50 wp" 27}
 			{item "satchel_charge_usa" 1}
 		}
 	}
@@ -62,7 +68,7 @@
 		("restore_ik_time")
 		{place "gun"
 			{RestoreIKAfterAim}
-			{weapon "75mm_m3" filling "ammo bulletusa_75x350 apcbche" 1}
+			{weapon "75mm_m3" filling "ammo bulletusa_75x350 apcbc" 1}
 			{gunner "gunner"}
 			{charger "charger"}
 			("abm_dymamic_stabilised"
@@ -72,7 +78,7 @@
 		}
 		{place "mgun2"
 			{type "coaxial"}
-			{weapon "browning_m19a4" filled}
+			{weapon "browning_m19a4_tank" filled}
 			{foresight "foresight5"}
 			{gunner "gunner"}
 			{charger "charger"}
@@ -81,59 +87,42 @@
 		}
 		{place "mgun1"
 			{type "hull"}
-			{weapon "browning_m19a4" filled}
-			{foresight "foresight4"}
+			;{weapon "browning_m19a4_tank" filled}
+			;{foresight "foresight5"}
 			{gunner "gunner3"}
 			{charger "gunner3"}
-			("abm_mgun")
-			{basic}
-			{ai_in_manual}
-		}
-		{place "mgun"
-			{type "aa"}
-			{weapon "browning_m2" filled}
-			{gunner "commander"}
-			{charger "commander"}
-			{LinkBone "mgun"}
-			{LinkAnimation "off"}
-			("abm_mgun")
-			{basic}
-			{ai_in_manual}
+			;("abm_mgun")
+			;{basic}
 		}
 	}
 
-	{mass 57260} ;// 30500 + 26760
+	{mass 33000}
 	{Chassis
 		("tank_trace" fx("tracks_mid") step(0.3) len(0.7))
 		("mobility_tank_slow"
+		;	slow(2)
+		;	normal(4)
+		;	fast(10)
 			speed(10) ;----------Max speed when fully accelerated on road, km/h.
-			reverse(5) ;---------Max speed in reverse on road, km/h.
-			traverse(10) ;-------Track traverse, per second, in degrees.
-			weight(57.26) ;------Weight in Tonnes.
-			power(350) ;---------Engine Power, in hp.
+			reverse(6) ;---------Max speed in reverse on road, km/h.
+			traverse(20) ;-------Track traverse, per second, in degrees.
+			weight(33.0) ;-------Weight in Tonnes.
+			power(425) ;---------Engine Power, in hp.
 			track(4) ;-----------Track performance: (0,10], 10=ideal. Sluggish tanks and vehicles with narrow and non-gripping tracks have a lower performance.
-			fuel(660) ;----------Fuel capacity in Litres.
+			fuel(606) ;----------Fuel capacity in Litres.
 			type(fuel) ;---------Fuel type. (diesel OR fuel)
-			range(100) ;---------Range in km, off-road.
+			range(160) ;---------Range in km, off-road.
 		)
 	}
 
 	{bone "gun_rot"
 		{limits -10 25}
-		{speed2 6}
+		{speed2 5}
 	}
 	{bone "turret"
 		("turret_medium" power_traverse(24))
 	}
-	{bone "cupola_ring"
+	{bone "commander_cupola"
 		{speed2 50}
-	}
-	{bone "mgun_a_rot1"
-		{limits -10 10}
-		{speed2 60}
-	}
-	{bone "mgun_a_rot2"
-		{limits -10 65}
-		{speed2 60}
 	}
 }

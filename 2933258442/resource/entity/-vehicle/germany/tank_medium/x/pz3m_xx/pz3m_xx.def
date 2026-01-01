@@ -1,26 +1,176 @@
 {game_entity
-	{obstacleId "tank"}
-	{Extension "pz3m_xx.mdl"}
-	{Volume "roller"
+	(include "/properties/vehicle_xx.ext")
+	{extension "pz3m_xx.mdl"}
+	
+	{volume "body1"			; transmission housing, cast
+		{thickness 38.1
+			{front 50.8}
+			{bottom 12.5}
+		}
+		{CastSteel 0.8063}
 	}
-	{Volume "part2"
+	{volume "body2"			;right side mid body, cast
+		{thickness 38.1
+			{front 50.8}
+			{rear 10}
+		}
+		{CastSteel 0.8063}
 	}
-	{Volume "part6"
+	{volume "body3"			;right transmission, cast
+		{thickness 38.1
+			{front 50.8}
+		}
+		{CastSteel 0.8063}
 	}
-	{Volume "part5"
+	{volume "body4"			;left transmission, cast
+		{thickness 38.1
+			{front 50.8}
+		}
+		{CastSteel 0.8063}
 	}
-	{Volume "part4"
+	{volume "body5"			;right hull hatch, cast
+		{thickness 50.8}
+		{CastSteel 0.8063}
 	}
-	{Volume "part3"
+	{volume "body6"			;left hull hatch, cast
+		{thickness 50.8}
+		{CastSteel 0.8063}
 	}
-	{Volume "part1"
+	{volume "body7"			;Hull lower middle
+		{thickness 38.1
+			{rear 10}
+			{bottom 12.5}
+		}
 	}
-	{Volume "body1"
+	{volume "body11"		;left superstructure
+		{thickness 38.1
+			{front 50.8}
+			{top 19.5}
+			{bottom 25.4}
+			{rear 10}
+		}
 	}
-	{Volume "body"
+	{volume "body12"		;right superstructure
+		{thickness 38.1
+			{front 50.8}
+			{top 19.5}
+			{bottom 25.4}
+			{rear 10}
+		}
 	}
-	{Volume "trackright"
+	{volume "barrel1"
+		{thickness 25}
 	}
-	{Volume "trackleft"
+	{volume "engine1"
+		{thickness 38.1
+			{front 10}
+			{rear 38.1}
+			{bottom 12.7}
+		}
 	}
+	{volume "engine2"
+		{thickness 38.1
+			{front 10}
+			{top 19.5}
+			{bottom 25.4}
+		}
+	}
+	{volume "engine3"
+		{thickness 38.1
+			{bottom 25.4}
+		}
+		{able {holed}}
+	}
+	{volume "turret1"
+		{thickness 51
+			{top 25.4}
+			{front 76.2}
+		}
+		{CastSteel 0.8063}
+	}
+	{volume "turret2"
+		{thickness 51}
+		{CastSteel 0.8063}
+	}
+	{volume "turret3"
+		{thickness 89}
+		{CastSteel 0.8063}
+	}
+	{volume "turret4"		;turret rear radio
+		{thickness 51
+		{bottom 25.4}
+		{top 25.4}
+		{rear 63.5}
+		}
+		{CastSteel 0.8063}
+	}
+	{volume "turret5"		; weekspot/hole behind mantlet
+		{thickness 2}    
+	}
+	{volume "mantlet"
+		{tags "turret"}
+		{component "turret"}
+		{thickness 51}
+		{CastSteel 0.8063}
+	}
+
+	{volume "roller1"
+		{thickness 150}
+		{tags "roller"}
+		{able clear {contact}}
+	}
+	{volume "roller2"
+		{thickness 50}
+		{tags "roller"}
+	}
+	{volume "roller3"
+		{thickness 15}
+		{tags "roller"}
+	}
+	{volume "roller4"
+		{thickness 15}
+		{tags "roller"}
+	}
+	{volume "roller5"
+		{thickness 150}
+		{tags "roller"}
+		{able clear {contact}}
+	}
+
+	{volume "armor1"	; turret ring armor
+		{thickness 19.5
+			{top 5.9}
+		}
+	}
+	{volume "armor2"	; flail_chains_frame
+		{thickness 20}
+	}
+	{volume "armor3"	; flail_chains_frame
+		{thickness 20}
+	}
+	{volume "armor4"	; flail_chains_frame
+		{thickness 20}
+	}
+	{volume "armor5"	; flail_chains_frame
+		{thickness 10}
+	}
+	{volume "armor6"	; flail_chains_frame
+		{thickness 10}
+	}
+	{volume "armor7"	; flail_chains_frame
+		{thickness 20}
+	}
+	{volume "cupola"
+		{thickness 51
+			{top 19.5}
+		}
+		{CastSteel 0.8063}
+	}
+	{volume "basket"
+		{thickness 4	}
+	}
+	{volume "part1"
+		{thickness 10}
+	}
+	("tracks" thickness(20))
 }
