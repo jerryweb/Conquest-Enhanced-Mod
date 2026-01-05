@@ -317,7 +317,7 @@
 	        {if not user_control
 	            {if tagged "bot_tank"
 	                {call "engine_off"}
-	                {delay 85
+	                {delay 100
 	                    {if operatable
 	                        {if not user_control
 	                            {if tagged "bot_tank"  

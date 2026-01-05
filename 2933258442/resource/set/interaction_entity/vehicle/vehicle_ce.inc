@@ -180,10 +180,17 @@
         }
     }
 
-    {on "ignore_steal_supplies"
-        {tags add "stealing_supplies"}
-        {delay 60 
-            {tags remove "stealing_supplies"}
+    {on "tag_squad_in_lua_mi"
+        {tags add "_lua_mi"}
+        {tags add "td_attacking_targets"}
+        {delay 45
+            {tags remove "_lua_mi"}
+            {tags remove "td_attacking_targets"}
+            {if operatable
+                {if not user_control
+                    {call "tag_squad_need_next_order"}  
+                }
+            }          
         }
     }
 
@@ -206,13 +213,6 @@
         {tags remove "repair_target_tank_crew"}
         {delay 75
             {tags remove "ignore_repair"}
-        }
-    }
-
-    {on "prep_veh_for_tc_recrew"
-        {tags add "tc_etank_enter"}
-        {delay 70
-            {tags remove "tc_etank_enter"}
         }
     }
 
@@ -646,29 +646,14 @@
 
     {on "tag_artillery"
         ("tag_veh" args "artillery")
-        ;{delay 0.2
-        ;    {if not user_control
-        ;        {tags add "_lua_always_ignore"}
-        ;    }
-        ;}
     }
 
     {on "tag_heavy_artillery"
-        ("tag_veh" args "heavy_artillery")
-        ;{delay 0.2
-        ;    {if not user_control
-        ;        {tags add "_lua_always_ignore"}
-        ;    }
-        ;}       
+        ("tag_veh" args "heavy_artillery")    
     }
 
     {on "tag_rocket_artillery"
         ("tag_veh" args "rocket_artillery")   
-        ;{delay 0.2
-        ;    {if not user_control
-        ;        {tags add "_lua_always_ignore"}
-        ;    }
-        ;}
     }  
 ;================ Vanilla Hardcoded LOGIC ========================
     {on "leave_unit"

@@ -51,7 +51,7 @@ Purchases["conquest.ger"] = {
 				{priority = 1.0, type = {"Infantry", "Squad", "Elite",}, unit = "squad_jaeger_con(ger)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_sturmjager_con(ger)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Elite",}, unit = "squad_sturm_begleitgren_motor_con"},
-				{priority = 1.0, type = {"Infantry", "Squad", "Elite",}, unit = "squad_sturmaufklarer_con"},
+				{priority = 1.0, type = {"Infantry", "Squad", "Elite",}, unit = "squad_sturmaufklarer_con(ger)"},
 
 				--T3+
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_gd_motor_con"},
@@ -207,10 +207,10 @@ Purchases["conquest.ger"] = {
 			{priority = 0.75, type = {"Tank", "Heavy",}, unit = "panzerb2"},
 			{priority = 1.0, type = {"Tank", "Heavy",}, unit = "tiger1h"},
 			{priority = 1.0, type = {"Tank", "Heavy",}, unit = "tiger1e"},
-			{priority = 1.0, type = {"Tank", "Heavy", "Elite",}, unit = "tiger1hunt"},
+			{priority = 0.8, type = {"Tank", "Heavy", "Elite",}, unit = "tiger1hunt"},
 			{priority = 1.0, type = {"Tank", "Heavy",}, unit = "tiger2p"},
 			{priority = 1.0, type = {"Tank", "Heavy", "Elite",}, unit = "tiger2h"},
-			{priority = 1.0, type = {"Tank", "Heavy",}, unit = "pz756r"},
+			{priority = 0.75, type = {"Tank", "Heavy",}, unit = "pz756r"},
 			{priority = 1.0, type = {"Tank", "MG", "Miner"}, unit = "pz3m"},
 		-- Self-Propelled Guns
 			{priority = 1.0, type = {"Tank", "Light", "AT",}, unit = "panzerjager1"},

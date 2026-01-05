@@ -28,6 +28,8 @@ WaveUnit = {
  Max = 10,
 }
 
+-- value to modify total defender ai infantry values
+botDifficultyModifier = 0
 
 
 -- =================== CE Mechanics Variable Set Functions ==================
@@ -119,6 +121,8 @@ function SetCEMissionVariables(botDefender)
   checkVarPercentage("enable_ce_cut_communications_mechanic", enableCommunicationsCutMechanics)
   checkVarPercentage("ai_sabotage", enableSabotageMechanics)
   checkVarPercentage("enable_ai_abandon_mechanics", enableAiAbandonMechanics)
+
+
   -- only run rear attack script if bot is attacking
   BotApi.Scene:SetVar("max_ai_defender_emplacement_count_level_1", AiDefenderCount.Defending.emplacement.defenseLevelOne)
   BotApi.Scene:SetVar("max_ai_defender_emplacement_count_level_2", AiDefenderCount.Defending.emplacement.defenseLevelTwo)
@@ -126,30 +130,30 @@ function SetCEMissionVariables(botDefender)
   if botDefender then
     enableRearAttackMechanics = 0
     if challenge_map then
-      BotApi.Scene:SetVar("max_ai_defender_inf_per_flag_count", AiDefenderCount.Defending.challengeMaps.infantry.perFlag)
+      BotApi.Scene:SetVar("max_ai_defender_inf_per_flag_count", AiDefenderCount.Defending.challengeMaps.infantry.perFlag + botDifficultyModifier)
       BotApi.Scene:SetVar("max_ai_defender_at_flag", AiDefenderCount.Defending.infantry.max_ai_defender_at_flag)
       -- BotApi.Scene:SetVar("max_ai_defender_inf_count", AiDefenderCount.Defending.challengeMaps.infantry.max)
       BotApi.Scene:SetVar("max_ai_inf_def_x5_count", AiDefenderCount.Defending.challengeMaps.infantry.x5_cloneClount)
     else
       print("setting ai defender count for bot defending")
-      BotApi.Scene:SetVar("max_ai_defender_inf_per_flag_count", AiDefenderCount.Defending.infantry.perFlag)
+      BotApi.Scene:SetVar("max_ai_defender_inf_per_flag_count", AiDefenderCount.Defending.infantry.perFlag + botDifficultyModifier)
       BotApi.Scene:SetVar("max_ai_defender_at_flag", AiDefenderCount.Defending.infantry.max_ai_defender_at_flag)
       -- BotApi.Scene:SetVar("max_ai_defender_inf_count", AiDefenderCount.Defending.infantry.max)
       BotApi.Scene:SetVar("max_ai_inf_def_x5_count", AiDefenderCount.Defending.infantry.x5_cloneClount) 
     end
   else
      if challenge_map then
-       BotApi.Scene:SetVar("max_ai_defender_inf_per_flag_count", AiDefenderCount.Attacking.challengeMaps.infantry.perFlag)
+       BotApi.Scene:SetVar("max_ai_defender_inf_per_flag_count", AiDefenderCount.Attacking.challengeMaps.infantry.perFlag + botDifficultyModifier)
        BotApi.Scene:SetVar("max_ai_defender_at_flag", AiDefenderCount.Attacking.infantry.max_ai_defender_at_flag)
       -- BotApi.Scene:SetVar("max_ai_defender_inf_count", AiDefenderCount.Attacking.challengeMaps.infantry.max)
       BotApi.Scene:SetVar("max_ai_inf_def_x5_count", AiDefenderCount.Attacking.challengeMaps.infantry.x2_cloneClount)
       BotApi.Scene:SetVar("max_ai_defender_emplacement_total_count", AiDefenderCount.Attacking.challengeMaps.emplacement.perFlag * totalFlags)
      else
       print("setting ai emplacement defender count for bot attacking = ", AiDefenderCount.Attacking.emplacement.perFlag * totalFlags)
-      print("setting ai defender count for bot attacking = ",  AiDefenderCount.Attacking.infantry.perFlag)
+      print("setting ai defender count for bot attacking = ",  AiDefenderCount.Attacking.infantry.perFlag + botDifficultyModifier)
       BotApi.Scene:SetVar("max_ai_defender_at_flag", AiDefenderCount.Attacking.infantry.max_ai_defender_at_flag)
       -- BotApi.Scene:SetVar("max_ai_defender_inf_count", AiDefenderCount.Attacking.infantry.max)
-      BotApi.Scene:SetVar("max_ai_defender_inf_per_flag_count", AiDefenderCount.Attacking.infantry.perFlag)
+      BotApi.Scene:SetVar("max_ai_defender_inf_per_flag_count", AiDefenderCount.Attacking.infantry.perFlag + botDifficultyModifier)
       BotApi.Scene:SetVar("max_ai_inf_def_x5_count", AiDefenderCount.Attacking.infantry.x2_cloneClount)
       BotApi.Scene:SetVar("max_ai_defender_emplacement_total_count", AiDefenderCount.Attacking.emplacement.perFlag * totalFlags)
     end
@@ -206,6 +210,8 @@ function SelectAiSpawnStrategy()
           followWaypointGraphs = true
           BotApi.Scene:SetVar("enable_ai_waypoint_graphs", 1)
         end
+        print("followWaypointGraphs = ", followWaypointGraphs, " and ai_spawn_strategy = ", aiSpawnStrategy)
+
         BotApi.Scene:SetVar("change_ai_spawns", 1)
         BotApi.Scene:SetVar("ai_spawn_strategy", aiSpawnStrategy)
       end

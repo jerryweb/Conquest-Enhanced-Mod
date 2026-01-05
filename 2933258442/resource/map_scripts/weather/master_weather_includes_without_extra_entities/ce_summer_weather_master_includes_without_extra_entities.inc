@@ -1,0 +1,14 @@
+	{Environment "goh/black"}
+	{Helpers
+		(include "../../ce_events.inc")
+		{vars
+			(include "../../ce_vars.inc")
+		}
+		{functions
+			(include "../../ce_functions.inc")
+		}
+		{triggers
+			(include "../summer_environment.inc")
+			(include "../../ce_triggers.inc")
+		}
+		(include "../../ce_generic_waypoint.inc")

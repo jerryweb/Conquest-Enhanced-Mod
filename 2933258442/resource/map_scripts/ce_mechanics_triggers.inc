@@ -1,3 +1,779 @@
+;============ RADIO SCRIPTS========================================		 
+			{"conquest_enhanced_mechanics/radio/enable_neutral_and_player_units_on_minimap"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag player_veh}
+										}
+										{tag
+											{tag player_armor}
+										}
+										{tag
+											{tag player_car}
+										}
+									}
+									{include
+										{prop
+											{prop vehicle}
+										}
+										{state
+											{state chassis_work}
+										}
+									}
+									{exclude
+										{broken_components
+											{masks
+												"body"
+											}
+										}
+										{destroyed_components
+											{masks
+												"body"
+											}
+										}
+										{destroyed_components
+											{masks
+												"hull"
+											}
+										}
+										{broken_components
+											{masks
+												"hull"
+											}
+										}
+										{destroyed_components
+											{masks
+												"chassis"
+											}
+										}
+										{broken_components
+											{masks
+												"chassis"
+											}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state dead}
+										}
+									}
+								}
+							}
+						}
+						{"2.event"
+							{id "init_radio_mechanics"}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 1}
+					}
+					{"ables"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag player_veh}
+									}
+									{tag
+										{tag player_armor}
+									}
+									{tag
+										{tag player_car}
+									}
+								}
+								{include
+									{prop
+										{prop vehicle}
+									}
+									{state
+										{state chassis_work}
+									}
+								}
+								{exclude
+									{broken_components
+										{masks
+											"body"
+										}
+									}
+									{destroyed_components
+										{masks
+											"body"
+										}
+									}
+									{destroyed_components
+										{masks
+											"hull"
+										}
+									}
+									{broken_components
+										{masks
+											"hull"
+										}
+									}
+									{destroyed_components
+										{masks
+											"chassis"
+										}
+									}
+									{broken_components
+										{masks
+											"chassis"
+										}
+									}
+									{state
+										{state inactive}
+									}
+									{state
+										{state dead}
+									}
+									{tag
+										{tag not_selectable}
+									}
+								}
+							}
+						}
+						{add minimap}
+					}
+					{"delay"
+						{time 15}
+					}
+					{"trigger"
+						{name "conquest_enhanced_mechanics/radio/enable_neutral_and_player_units_on_minimap"}
+					}
+				}
+			}
+			{"conquest_enhanced_mechanics/radio/radio_init"
+				{condition
+					{terms
+						{"1.cmp_i"
+							{var "enable_ce_radio_mechanic$"}
+							{op ">"}
+							{value 0}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 30}
+					}
+					{"if"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag radio_car}
+										}
+									}
+									{include
+										{state
+											{state "operatable inhabited"}
+										}
+										{state
+											{state user_control}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag radio_man}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state operatable}
+										}
+										{state
+											{state user_control}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+						}
+						{"set_i"
+							{var "radio_active$"}
+							{op "="}
+							{value 1}
+						}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "radio_active$"}
+								{op ">"}
+								{value 0}
+							}
+							{"timer"
+								{time 5}
+								{title "mission/multi/enable_radio"}
+							}
+						}
+						{"default"
+							{"call"
+								{function "alert_radio_down"}
+							}
+						}
+					}
+					{"event"
+						{event "init_radio_mechanics"}
+						{mode set}
+						{delay 5}
+					}
+					{"if"
+						{condition
+							{type cmp_i}
+							{var "enable_ce_cut_communications_mechanic$"}
+							{op "=="}
+							{value 1}
+						}
+						{"event"
+							{event "cut_communications"}
+							{mode set}
+							{delay 30}
+						}
+						{"delay"
+							{time 30}
+						}
+						{"talk"
+							{selector
+								{ignore_captured_by_user 0}
+								{amount 1
+								}
+								{tag player}
+								{zone "gamezone"}
+								{type human}
+								{state "not dead"}
+							}
+							{text "mission/multi/radio_event"}
+						}
+					}
+				}
+			}
+			{"conquest_enhanced_mechanics/radio/check_radio_car_manned"
+				{condition
+					{terms
+						{"1.event"
+							{id "init_radio_mechanics"}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 1}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag radio_car}
+											}
+										}
+										{include
+											{state
+												{state "operatable inhabited"}
+											}
+											{state
+												{state user_control}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+											{state
+												{state linked}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag radio_man}
+											}
+										}
+										{include
+											{prop
+												{prop human}
+											}
+											{state
+												{state operatable}
+											}
+											{state
+												{state user_control}
+											}
+										}
+										{exclude
+											{state
+												{state dead}
+											}
+											{state
+												{state inactive}
+											}
+											{state
+												{state linked}
+											}
+										}
+									}
+								}
+							}
+							{"if"
+								{condition
+									{type cmp_i}
+									{var "radio_active$"}
+									{op "=="}
+									{value 0}
+								}
+								{"set_i"
+									{var "radio_active$"}
+									{op "="}
+									{value 1}
+								}
+								{"sound"
+									{name "interface/task_new"}
+								}
+								{"timer"
+									{time 5}
+									{title "mission/multi/enable_radio"}
+								}
+							}
+						}
+						{"default"
+							{"if"
+								{condition
+									{type cmp_i}
+									{var "radio_active$"}
+									{op ">"}
+									{value 0}
+								}
+								{"set_i"
+									{var "radio_active$"}
+									{op "="}
+									{value 0}
+								}
+								{"call"
+									{function "alert_radio_down"}
+								}
+							}
+						}
+					}
+					{"delay"
+						{time 5}
+					}
+					{"if"
+						{condition
+							{type event}
+							{id "cut_communications"}
+						}
+						{"call"
+							{function "set_ai_minimap_ables"}
+						}
+					}
+					{"delay"
+						{time 5}
+					}
+					{"trigger"
+						{name "conquest_enhanced_mechanics/radio/check_radio_car_manned"}
+					}
+				}
+			}
+			{"conquest_enhanced_mechanics/radio/tag_player_radio_man"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{with_item
+											{type existance}
+											{item "ce_usa_radio"}
+										}
+										{state
+											{state "operatable user_control"}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state dead}
+										}
+										{tag
+											{tag radio_man}
+										}
+									}
+								}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{with_item
+											{type existance}
+											{item "ce_eng_radio"}
+										}
+										{state
+											{state "operatable user_control"}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state dead}
+										}
+										{tag
+											{tag radio_man}
+										}
+									}
+								}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{with_item
+											{type existance}
+											{item "ce_german_radio"}
+										}
+										{state
+											{state "operatable user_control"}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state dead}
+										}
+										{tag
+											{tag radio_man}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{zone
+										{zone "gamezone"}
+									}
+								}
+								{include
+									{prop
+										{prop human}
+									}
+									{with_item
+										{type existance}
+										{item "ce_usa_radio"}
+									}
+									{state
+										{state "operatable user_control"}
+									}
+								}
+								{exclude
+									{state
+										{state inactive}
+									}
+									{state
+										{state linked}
+									}
+									{state
+										{state dead}
+									}
+									{tag
+										{tag radio_man}
+									}
+								}
+							}
+							{group
+								{select
+									{zone
+										{zone "gamezone"}
+									}
+								}
+								{include
+									{prop
+										{prop human}
+									}
+									{with_item
+										{type existance}
+										{item "ce_eng_radio"}
+									}
+									{state
+										{state "operatable user_control"}
+									}
+								}
+								{exclude
+									{state
+										{state inactive}
+									}
+									{state
+										{state linked}
+									}
+									{state
+										{state dead}
+									}
+									{tag
+										{tag radio_man}
+									}
+								}
+							}
+							{group
+								{select
+									{zone
+										{zone "gamezone"}
+									}
+								}
+								{include
+									{prop
+										{prop human}
+									}
+									{with_item
+										{type existance}
+										{item "ce_german_radio"}
+									}
+									{state
+										{state "operatable user_control"}
+									}
+								}
+								{exclude
+									{state
+										{state inactive}
+									}
+									{state
+										{state linked}
+									}
+									{state
+										{state dead}
+									}
+									{tag
+										{tag radio_man}
+									}
+								}
+							}
+						}
+						{tag_add radio_man}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"effect"
+						{selector
+							{tag radio_man}
+							{zone "gamezone"}
+							{type human}
+							{state operatable}
+						}
+						{effect show_radio_icon}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"trigger"
+						{name "conquest_enhanced_mechanics/radio/tag_player_radio_man"}
+					}
+				}
+			}
+			
+;============ MAP SETUP SCRIPTS========================================			
+			{"conquest_enhanced_mechanics/set_ai_veh_sabotage_chance"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{prop
+											{prop vehicle}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{prop
+											{prop airborne}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag _user_ally}
+										}
+									}
+								}
+							}
+						}
+						{"3.cmp_i"
+							{var "ai_attack_started$"}
+							{op ">"}
+							{value 0}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 1}
+					}
+					{"if"
+						{condition
+							{type cmp_i}
+							{var "ai_sabotage$"}
+							{op "=="}
+							{value 1}
+						}
+						{"event"
+							{event "sabotage_ai_veh"}
+							{mode set}
+							{delay 0}
+						}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"if"
+						{condition
+							{type event}
+							{id "sabotage_ai_veh"}
+						}
+						{"call"
+							{function "sabotage_ai_veh_function"}
+						}
+					}
+				}
+			}
+			{"conquest_enhanced_mechanics/scene_variable/move_scene_variable"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{tag scene_variable}
+								{type vehicle}
+							}
+						}
+					}
+				}
+				{actions
+					{"select"
+						{tag scene_variable}
+						{type vehicle}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"entity_state"
+						{selector
+							{source current}
+						}
+						{impregnability full}
+						{discovered off}
+						{tag_add "_ce_map_scripts_running"}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"actor_to_waypoint"
+						{selector
+							{source current}
+						}
+						{waypoint "3001"}
+						{approach "safe teleport"}
+					}
+				}
+			}
+
+;============ OFF MAP SCRIPTS========================================			
 			{"ai_offmap/player_response_to_big_bertha"
 				{condition
 					{type 1}
@@ -279,7 +1055,7 @@
 											{zone "gamezone"}
 										}
 										{tag
-											{tag player}
+											{tag _user}
 										}
 									}
 									{include
@@ -309,7 +1085,7 @@
 											{zone "gamezone"}
 										}
 										{tag
-											{tag player}
+											{tag _user}
 										}
 									}
 									{include
@@ -339,7 +1115,7 @@
 											{zone "gamezone"}
 										}
 										{tag
-											{tag player}
+											{tag _user}
 										}
 									}
 									{include
@@ -371,7 +1147,7 @@
 									{zone "gamezone"}
 								}
 								{tag
-									{tag player}
+									{tag _user}
 								}
 							}
 							{include

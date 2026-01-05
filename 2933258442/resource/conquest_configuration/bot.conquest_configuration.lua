@@ -54,7 +54,7 @@
 	}
 
 	-- Time when the AI reinforcements are called in when testing is set to true
-	firstWaveOffsetTimeForTesting = 2.0
+	firstWaveOffsetTimeForTesting = 1.15
 
 	-- Time from last purchase AI will wait before attempting to buy a new unit.
 	DCGWaveOffOverwrite = {
@@ -71,6 +71,8 @@
 	    -- Bot is attacker
 	    AttackMin = 10,
 	    AttackMax = 16,
+	    -- AttackMin = 1,
+	    -- AttackMax = 1,
 	    -- Bot is defender
 	    DefendMin = 4,
 	    DefendMax = 12,
@@ -123,8 +125,7 @@
 			},
 			infantry = {
 				x2_cloneClount = 4,
-				max = 60,
-				perFlag = 25,
+				perFlag = 15,
 				max_ai_defender_at_flag = 12
 
 			},
@@ -135,10 +136,15 @@
 				},
 				infantry = {
 					x2_cloneClount = 3,
-					max = 45,
 					perFlag = 20,
 					max_ai_defender_at_flag = 10
 				},
+			},
+			difficultyModifier = {
+				heroic = -6,
+				hard = -3,
+				normal = 0,
+				easy = 3,
 			}
 		}, 
 		-- Bot is defender
@@ -151,7 +157,6 @@
 
 			infantry = {
 				x5_cloneClount = 8,
-				max = -1,
 				perFlag = 120,
 				max_ai_defender_at_flag = 25
 			},
@@ -163,10 +168,15 @@
 				},
 				infantry = {
 					x5_cloneClount = 20,
-					max = -1,
 					perFlag = 70,
 					max_ai_defender_at_flag = 40
 				},
+			},
+			difficultyModifier = {
+				heroic = 2,
+				hard = 1,
+				normal = 0,
+				easy = -3,
 			}
 		}
 	}

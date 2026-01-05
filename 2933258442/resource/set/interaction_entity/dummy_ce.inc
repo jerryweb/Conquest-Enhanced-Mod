@@ -257,6 +257,15 @@
 
 ;=================== Effects ====================
 
+{"shell_cannon_large"		;// empty shell ejected from cannons
+	{on spawn
+		{volumes "body" disable contact}
+		{delay 0.1
+			{volumes "body" enable contact}
+		}
+	}
+}
+
 ;{"shell_s1"
 ;	{on spawn overload
 ;		{delay 120

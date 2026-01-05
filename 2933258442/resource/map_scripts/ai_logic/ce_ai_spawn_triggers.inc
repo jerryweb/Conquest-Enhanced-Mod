@@ -252,7 +252,7 @@
 					}
 				}	
 			)
-
+			
 			(define "ai_vehicle_spawn" ; parms: side, zone, waypoint 
 				{"ai_spawn_logic/side_%side/veh/veh_spawn_%zone"
 					{condition
@@ -490,385 +490,6 @@
 						}
 					}
 				}
-			)
-
-			(define "ai_cannon_spawn" ; parms: side, zone, waypoint
-				{## "ai_spawn_logic/side_%side/cannon/can_spawn_%zone"
-						{condition
-							{terms
-								{"1.entities"
-									{selector
-										{source advanced}
-										{group
-											{select
-												{zone
-													{zone "%zone"}
-												}
-											}
-											{include
-												{state
-													{state inhabited}
-												}
-												{prop
-													{prop cannon}
-												}
-											}
-											{exclude
-												{state
-													{state user_control}
-												}
-												{state
-													{state dead}
-												}
-												{state
-													{state linked}
-												}
-												{state
-													{state inactive}
-												}
-												{prop
-													{prop human}
-												}
-												{prop
-													{prop airborne}
-												}
-												{prop
-													{prop tank}
-												}
-												{tag
-													{tag ignore_spawn_logic}
-												}
-												{tag
-													{tag moving_to_waypoint_graph}
-												}
-												{tag
-													{tag artillery}
-												}
-												{tag
-													{tag heavy_artillery}
-												}
-												{tag
-													{tag rocket_artillery}
-												}										
-												{tag
-													{tag cmp_def}
-												}
-												{tag
-													{tag _def}
-												}
-											}
-										}
-									}
-								}
-								{"2.cmp_i"
-									{var "enable_ai_waypoint_graphs$"}
-									{op ">"}
-									{value 0}
-								}
-							}
-						}
-						{actions
-							{"delay"
-								{time 1}
-							}
-							{"select"
-								{source advanced}
-								{group
-									{select
-										{zone
-											{zone "%zone"}
-										}
-									}
-									{include
-										{state
-											{state inhabited}
-										}
-										{prop
-											{prop cannon}
-										}
-									}
-									{exclude
-										{state
-											{state user_control}
-										}
-										{state
-											{state dead}
-										}
-										{state
-											{state linked}
-										}
-										{state
-											{state inactive}
-										}
-										{prop
-											{prop human}
-										}
-										{prop
-											{prop airborne}
-										}
-										{prop
-											{prop tank}
-										}
-										{tag
-											{tag ignore_spawn_logic}
-										}
-										{tag
-											{tag moving_to_waypoint_graph}
-										}
-										{tag
-											{tag artillery}
-										}
-										{tag
-											{tag heavy_artillery}
-										}
-										{tag
-											{tag rocket_artillery}
-										}										
-										{tag
-											{tag cmp_def}
-										}
-										{tag
-											{tag _def}
-										}
-									}
-								}
-								{amount 1
-								}
-							}
-							{"delay"
-								{time 0.5}
-							}
-							{"entity_state"
-								{selector
-									{source current}
-								}
-								{tag_add in_spawn_zone_%zone_can}
-							}
-							{"delay"
-								{time 0.5}
-							}
-							
-							{"select"
-								{source advanced}
-								{group
-									{select
-										{tag
-											{tag in_spawn_zone_%zone_can}
-										}
-									}
-									{include
-										{state
-											{state inhabited}
-										}
-										{prop
-											{prop cannon}
-										}
-									}
-									{exclude
-										{state
-											{state user_control}
-										}
-										{state
-											{state dead}
-										}
-										{state
-											{state linked}
-										}
-										{state
-											{state inactive}
-										}
-										{prop
-											{prop human}
-										}
-										{prop
-											{prop airborne}
-										}
-										{tag
-											{tag ignore_spawn_logic}
-										}
-										{tag
-											{tag artillery}
-										}
-										{tag
-											{tag heavy_artillery}
-										}
-										{tag
-											{tag rocket_artillery}
-										}
-									}
-								}
-							}
-							{"delay"
-								{time 0.5}
-							}
-							{"entity_state"
-								{selector
-									{source current}
-								}
-								{tag_add _lua_mi}
-							}					
-							{"delay"
-								{time 0.5}
-							}
-							{## "waypoint"
-								{who
-									{type actor}
-									{actors
-										{tag in_spawn_zone_%zone_can}
-										{type cannon}
-										{state operatable}
-									}
-								}
-								{action
-									{type start}
-									{waypoint "%waypoint"}
-									{make_squad}
-								}
-							}
-							{"entity_state"
-								{selector
-									{source advanced}
-									{group
-										{select
-											{zone
-												{zone "fpc1"}
-											}
-											{zone
-												{zone "fpc2"}
-											}
-											{zone
-												{zone "fpc3"}
-											}
-											{zone
-												{zone "fpc4"}
-											}
-											{zone
-												{zone "fpc5"}
-											}
-										}
-										{include
-											{tag
-												{tag flag_point}
-											}
-										}
-										{exclude
-											{state
-												{state inactive}
-											}
-										}
-									}
-									{amount 1
-									}
-								}
-								{tag_add selected_for_cannon_attack_%zone}
-							}
-							{"delay"
-								{time 0.2}
-							}
-							{"switch"
-								{"case"
-									{condition
-										{type entities}
-										{selector
-											{tag selected_for_cannon_attack_%zone}
-											{zone "fpc1"}
-										}
-									}
-									{"action"
-										{selector
-											{source current}
-										}
-										{drop orders}
-										{action attack}
-										{waypoint "1"}
-									}
-								}
-								{"case"
-									{condition
-										{type entities}
-										{selector
-											{tag selected_for_cannon_attack_%zone}
-											{zone "fpc2"}
-										}
-									}
-									{"action"
-										{selector
-											{source current}
-										}
-										{drop orders}
-										{action attack}
-										{waypoint "2"}
-									}
-								}
-								{"case"
-									{condition
-										{type entities}
-										{selector
-											{tag selected_for_cannon_attack_%zone}
-											{zone "fpc3"}
-										}
-									}
-									{"action"
-										{selector
-											{source current}
-										}
-										{drop orders}
-										{action attack}
-										{waypoint "3"}
-									}
-								}
-								{"case"
-									{condition
-										{type entities}
-										{selector
-											{tag selected_for_cannon_attack_%zone}
-											{zone "fpc4"}
-										}
-									}
-									{"action"
-										{selector
-											{source current}
-										}
-										{drop orders}
-										{action attack}
-										{waypoint "4"}
-									}
-								}
-								{"case"
-									{condition
-										{type entities}
-										{selector
-											{tag selected_for_cannon_attack_%zone}
-											{zone "fpc5"}
-										}
-									}
-									{"action"
-										{selector
-											{source current}
-										}
-										{drop orders}
-										{action attack}
-										{waypoint "5"}
-									}
-								}
-							}
-							{"delay"
-								{time 0.5}
-							}
-							{"effect"
-								{selector
-									{source current}
-								}
-								{effect set_ignore_spawn_logic}
-							}
-							{"delay"
-								{time 3}
-							}
-							{"trigger"
-								{name "ai_spawn_logic/side_%side/cannon/can_spawn_%zone"}
-							}
-						}
-					}
 			)
 
 			(define "focus_ai_spawn_case" ; parms: target_waypoint, 
@@ -1134,7 +755,7 @@
 					}
 				}
 			}
-			{"ai_spawn/tag_spawned_veh_with_sabotage_chance"
+			{"ai_spawn_logic/tag_spawned_veh_with_sabotage_chance"
 				{condition
 					{terms
 						{"1.entities"
@@ -1249,11 +870,11 @@
 						{time 5}
 					}
 					{"trigger"
-						{name "ai_spawn/tag_spawned_veh_with_sabotage_chance"}
+						{name "ai_spawn_logic/tag_spawned_veh_with_sabotage_chance"}
 					}
 				}
 			}
-			{"ai_spawn_logic/move_ai_spawn_new"
+			{"ai_spawn_logic/move_ai_spawn"
 				{condition
 					{terms
 						{"1.cmp_i"
@@ -1309,7 +930,7 @@
 						{value 0}
 					}
 					{"trigger"
-						{name "ai_spawn_logic/move_ai_spawn_new"}
+						{name "ai_spawn_logic/move_ai_spawn"}
 					}
 				}
 			}

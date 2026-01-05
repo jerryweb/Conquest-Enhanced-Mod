@@ -227,6 +227,10 @@
             }
         }
     }
+
+    ;{on "tank_reloaded"
+    ;    {tags add "tank_reloaded"}
+    ;}
 }
 
 {"tank light" 

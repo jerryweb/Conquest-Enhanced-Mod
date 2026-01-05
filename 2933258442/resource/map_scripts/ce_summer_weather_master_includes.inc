@@ -1,15 +1,15 @@
 	(include "entity_additons/extra_ai_defense_inf.inc")
 	{Environment "goh/black"}
 	{Helpers
-		(include "conquest_enhanced_events.inc")
+		(include "ce_events.inc")
 		{vars
-			(include "conquest_enhanced_vars.inc")
+			(include "ce_vars.inc")
 		}
 		{functions
-			(include "conquest_enhanced_functions.inc")
+			(include "ce_functions.inc")
 		}
 		{triggers
-			(include "summer_environment.inc")
-			(include "conquest_enhanced_triggers.inc")
+			(include "weather/summer_environment.inc")
+			(include "ce_triggers.inc")
 		}
-		(include "conquest_enhanced_generic_waypoint.inc")
+		(include "ce_generic_waypoint.inc")

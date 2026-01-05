@@ -19,8 +19,9 @@ local OrderRotationPeriod = {
 }
 
 local waveUnitTotal = math.random(WaveUnit.Min, WaveUnit.Max)
--- local botDefender
 enableWaveCounter = true
+
+
 local function isAttackerOrDefender()
 	botDefender = teamSize > 1
 	if printDebug then print("Print: BotIsDefender -", botDefender) end
@@ -43,6 +44,29 @@ local function setVarsInMissionScript()
 	
 	BotApi.Scene:SetVar("bot_army", nationMap[botNation] or 0)
 	BotApi.Scene:SetVar("bot_difficulty", difficultyMap[botDifficulty] or 0)
+
+	if botDefender then 
+		if difficultyMap[botDifficulty] == 4 then 
+			botDifficultyModifier = AiDefenderCount.Attacking.difficultyModifier.heroic
+		elseif difficultyMap[botDifficulty] == 3 then 
+			botDifficultyModifier = AiDefenderCount.Attacking.difficultyModifier.hard
+		elseif difficultyMap[botDifficulty] == 2 then 
+			botDifficultyModifier = AiDefenderCount.Attacking.difficultyModifier.normal
+		else 
+			botDifficultyModifier = AiDefenderCount.Attacking.difficultyModifier.easy
+		end
+	else 
+		if difficultyMap[botDifficulty] == 4 then 
+			botDifficultyModifier = AiDefenderCount.Defending.difficultyModifier.heroic
+		elseif difficultyMap[botDifficulty] == 3 then 
+			botDifficultyModifier = AiDefenderCount.Defending.difficultyModifier.hard
+		elseif difficultyMap[botDifficulty] == 2 then 
+			botDifficultyModifier = AiDefenderCount.Defending.difficultyModifier.normal
+		else 
+			botDifficultyModifier = AiDefenderCount.Defending.difficultyModifier.easy
+		end
+	end
+	print("botDifficultyModifier = ", botDifficultyModifier)
 
 	local spawnMap = { a = 1, b = 2}
 	BotApi.Scene:SetVar("bots_spawnside", spawnMap[spawnSide] or 0)
@@ -356,6 +380,9 @@ function CaptureFlag(squad)
 		if printDebug then print("Print: SQUADinSCRIPT/inFlag thus no action squad ", squad, "Player#", BotApi.Instance.playerId) end
 		return
 	end
+	-- print("FLAG NAME = ", flag.name + "0")
+
+	-- return BotApi.Commands:CaptureFlag(squad, flag.name)
 
 	if IsSquadToIgnore(squad) then
 		if searchDestroy > rndAI then

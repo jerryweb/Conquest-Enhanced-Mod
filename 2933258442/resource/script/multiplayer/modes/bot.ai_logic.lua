@@ -4,6 +4,7 @@ require([[/script/multiplayer/modes/bot.strategies]])
 generalSquadTagCheckDelay = 10 * 1000
 checkAiSpawnMoveDelay = 2.0 * 60 * 1000
 followWaypointGraphs = true
+-- followWaypointGraphs = false
 botDefender = false
 sceneVariableSquad = nil 
 forceUnitPriority = false 

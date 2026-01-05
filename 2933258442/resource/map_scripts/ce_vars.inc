@@ -1,25 +1,6 @@
-			{"ai_air_on"}
-			{"arrows"}
-			{"balance"}
-			{"bot_army"}
-			{"bot_difficulty"}
-			{"bots_spawnside"}
-			{"dcg_error"}
-			{"dcg_on"}
-			{"def_team"}
-			{"display"}
-			{"enemyid"}
-			{"id_1st_enemy"}
-			{"id_1st_player"}
-			{"id_defenderbot"}
-			{"music_hero"}
-			{"music_intense"}
-			{"music_rnd"}
-			{"user_is_defender"}
-			{"user_nation"}
-			{"user_team"}
-			{"tier2"}
-			
+; Vanilla var includes
+(include "../map/multi/dcg_vars.inc")
+
 
 ;============ CE MECHANICS VARIABLES ========================================
 			{"ai_sabotage"}			

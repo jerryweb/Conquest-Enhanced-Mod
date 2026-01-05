@@ -19,6 +19,14 @@
 		}
 	}
 
+	{on "smoke_for_test"
+        {add_view "smoke_flare_blue" "smoke" "root"}
+        {view start "smoke"}
+        {delay 10 "smoke"
+            {view stop "smoke"}
+        }
+    }
+
 	{on "show_radio_icon"
        	{view start "beacon_fx"}
     }
@@ -268,14 +276,6 @@
 	}
 
 ;============= Auto Resupply Functions =============
-
-	{on "start_ammo_out"
-		{tags add "no_ammo"}
-	}
-
-	{on "start_ammo_refill"
-		{tags remove "no_ammo"}
-	}
 
 	{on "set_auto_resupply"
 		{tags add "auto_resupply"}
