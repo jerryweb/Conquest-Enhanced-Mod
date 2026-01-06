@@ -346,12 +346,15 @@ Purchases["conquest.eng"] = {
 				-- {priority = 0.5, type = {"Aircraft", "Paratrooper", "Group_Air",}, unit = "ai_paradrop_eng_1stpoleng_x2", multiplier = 2},
 				-- {priority = 0.5, type = {"Aircraft", "Paratrooper", "Group_Air",}, unit = "ai_paradrop_eng_6th_x2", multiplier = 2},
 				-- {priority = 0.5, type = {"Aircraft", "Paratrooper", "Group_Air",}, unit = "ai_paradrop_eng_SAS_x2", multiplier = 2},
+				{priority = 0.5, type = {"Aircraft", "Paratrooper", "Group_Air",}, unit = "ai_paradrop_eng_1strecon_mid_x1", multiplier = 3},
+				{priority = 0.5, type = {"Aircraft", "Paratrooper", "Group_Air",}, unit = "ai_paradrop_eng_1st_mid_x1", multiplier = 3},	
 				{priority = 0.5, type = {"Aircraft", "Paratrooper", "Group_Air",}, unit = "ai_paradrop_eng_1strecon_x1", multiplier = 3},
 				{priority = 0.5, type = {"Aircraft", "Paratrooper", "Group_Air",}, unit = "ai_paradrop_eng_1statcan_x1", multiplier = 3},
 				{priority = 0.5, type = {"Aircraft", "Paratrooper", "Group_Air",}, unit = "ai_paradrop_eng_1stpol_x1", multiplier = 3},
 				{priority = 0.5, type = {"Aircraft", "Paratrooper", "Group_Air",}, unit = "ai_paradrop_eng_1stpoleng_x1", multiplier = 3},
 				{priority = 0.5, type = {"Aircraft", "Paratrooper", "Group_Air",}, unit = "ai_paradrop_eng_6th_x1", multiplier = 3},
 				{priority = 0.5, type = {"Aircraft", "Paratrooper", "Group_Air",}, unit = "ai_paradrop_eng_SAS_x1", multiplier = 3},
+							
 		}
 	}
 }
