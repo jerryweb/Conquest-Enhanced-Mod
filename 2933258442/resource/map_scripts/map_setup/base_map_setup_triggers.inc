@@ -5892,6 +5892,38 @@
 									}
 								}
 							}
+							{group
+								{select
+									{tag
+										{tag _ai_defender}
+									}
+								}
+								{include
+									{state
+										{state inhabited}
+									}
+									{prop
+										{prop vehicle}
+									}
+									{prop
+										{prop panzer1f}
+									}
+								}
+								{exclude
+									{tag
+										{tag player_veh}
+									}
+									{state
+										{state inactive}
+									}
+									{state
+										{state user_control}
+									}
+									{tag
+										{tag player}
+									}
+								}
+							}
 						}
 						{tag_add cmp_mg}
 					}

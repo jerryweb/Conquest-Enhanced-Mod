@@ -2274,7 +2274,7 @@
 							{effect spawn_ai_waypoint_poles}
 						}
 					}
-					{"timer"
+					{## "timer"
 						{time 15}
 						{title "air raid started"}
                     }
@@ -2851,7 +2851,7 @@
 					{"delay"
 						{time 0.1}
 					}
-					{ "timer"
+					{## "timer"
 						{time 5}
 						{title "moving planes"}
 					}
@@ -3184,7 +3184,7 @@
 					{"delay"
 						{time 0.5}
 					}
-					{"timer"
+					{## "timer"
 						{time 6}
 						{title "sending planes on fly by"}
 					}
@@ -4333,84 +4333,96 @@
 								{ai_move
 									{mode enable}
 								}
-								{movement
-									{speed assault}
-									{type normal}
-								}
+								;{movement
+								;	{speed assault}
+								;	{type normal}
+								;}
 								{human
 									{veterancy 5}
 								}
 							}
 							{"delay"
 								{time 1}
-							}
-							{## "effect"
-								{selector
-									{tag selected_paratrooper}
-								}
-								{effect tag_squad_need_next_order}
-							}
+							}							
 							{"switch"
 								{"case"
 									{condition
-										{type rand}
-										{value 0.33}
+										{type cmp_i}
+										{var "ai_grid_system_active$"}
+										{op ">"}
+										{value 0}
 									}
-									{"waypoint"
-										{who
-											{type actor}
-											{actors
-												{tag selected_paratrooper}
-												{type human}
-												{state "not dead"}
+									{"switch"
+										{"case"
+											{condition
+												{type rand}
+												{value 0.33}
+											}
+											{"waypoint"
+												{who
+													{type actor}
+													{actors
+														{tag selected_paratrooper}
+														{type human}
+														{state "not dead"}
+													}
+												}
+												{action
+													{type start}
+													{waypoint "5004"}
+													{make_squad}
+												}
 											}
 										}
-										{action
-											{type start}
-											{waypoint "5004"}
-											{make_squad}
-										}
-									}
-								}
-								{"case"
-									{condition
-										{type rand}
-										{value 0.33}
-									}
-									{"waypoint"
-										{who
-											{type actor}
-											{actors
-												{tag selected_paratrooper}
-												{type human}
-												{state "not dead"}
+										{"case"
+											{condition
+												{type rand}
+												{value 0.33}
+											}
+											{"waypoint"
+												{who
+													{type actor}
+													{actors
+														{tag selected_paratrooper}
+														{type human}
+														{state "not dead"}
+													}
+												}
+												{action
+													{type start}
+													{waypoint "5005"}
+													{make_squad}
+												}
 											}
 										}
-										{action
-											{type start}
-											{waypoint "5005"}
-											{make_squad}
-										}
-									}
-								}
-								{"case"
-									{condition
-										{type rand}
-										{value 0.33}
-									}
-									{"waypoint"
-										{who
-											{type actor}
-											{actors
-												{tag selected_paratrooper}
-												{type human}
-												{state "not dead"}
+										{"case"
+											{condition
+												{type rand}
+												{value 0.33}
+											}
+											{"waypoint"
+												{who
+													{type actor}
+													{actors
+														{tag selected_paratrooper}
+														{type human}
+														{state "not dead"}
+													}
+												}
+												{action
+													{type start}
+													{waypoint "5006"}
+													{make_squad}
+												}
 											}
 										}
-										{action
-											{type start}
-											{waypoint "5006"}
-											{make_squad}
+										{"default"
+											{"effect"
+												{selector
+													{tag selected_paratrooper}
+												}
+												{effect tag_squad_need_next_order}
+											}
 										}
 									}
 								}
@@ -4424,12 +4436,6 @@
 								}
 							}
 						}
-					}
-					{## "effect"
-						{selector
-							{tag selected_paratrooper}
-						}
-						{effect tag_squad_need_next_order}
 					}
 					{"delay"
 						{time 0.25}
@@ -6685,7 +6691,7 @@
 					{"delay"
 						{time 120}
 					}
-					{"timer"
+					{## "timer"
 						{time 8}
 						{title "Force Canceling Artillery Attack"}
 					}
@@ -6827,7 +6833,7 @@
 					{"delay"
 						{time 180}
 					}
-					{"timer"
+					{## "timer"
 						{time 8}
 						{title "Artillery in rear grids getting new orders"}
 					}

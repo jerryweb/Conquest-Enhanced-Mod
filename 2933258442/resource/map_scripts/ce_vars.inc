@@ -28,6 +28,7 @@
 			{"ai_attack_started"}
 			{"max_ai_defender_at_flag"}
 			{"ai_strategy_selection"}
+			{"ai_grid_system_active"}
 
 ;============ CE SPAWN VARIABLES			
 			{"change_ai_spawns"}

@@ -9,7 +9,7 @@
 			(include "ce_functions.inc")
 		}
 		{triggers
-			(include "winter_environment.inc")
+			(include "weather/winter_environment.inc")
 			(include "ce_triggers.inc")
 		}
 		(include "ce_generic_waypoint.inc")

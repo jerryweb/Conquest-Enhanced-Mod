@@ -10,7 +10,7 @@
 	printTempDebug = false
 
 	-- This enables testing mode for debugging, and is not advised for regular play. Make sure this is off unless you are specifically testing for something. 
-	testing = false
+	-- testing = true
 	
 	-- This is the strategy the ai will use to spawn units. If you want to randomly select one, just set it to nil
 	-- strategyIndexOverride = 3
@@ -54,7 +54,7 @@
 	}
 
 	-- Time when the AI reinforcements are called in when testing is set to true
-	firstWaveOffsetTimeForTesting = 1.15
+	firstWaveOffsetTimeForTesting = 1.5
 
 	-- Time from last purchase AI will wait before attempting to buy a new unit.
 	DCGWaveOffOverwrite = {
@@ -151,8 +151,8 @@
 		Defending = {
 			emplacement = {
 				defenseLevelOne = 8,
-				defenseLevelTwo = 15,
-				defenseLevelThree = 20
+				defenseLevelTwo = 12,
+				defenseLevelThree = 16
 			},
 
 			infantry = {

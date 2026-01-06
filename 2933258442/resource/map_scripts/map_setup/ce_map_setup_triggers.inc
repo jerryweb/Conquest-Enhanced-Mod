@@ -579,9 +579,65 @@
 						{op "="}
 						{value 0}
 					}
-					{"timer"
+					{## "timer"
 						{time 5}
 						{title "disabling ai waypoint graphs"}
+					}
+				}
+			}
+			{"check_if_grid_zones_exist"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "grid_a1"}
+										}
+										{zone
+											{zone "grid_a2"}
+										}
+										{zone
+											{zone "grid_a3"}
+										}
+										{zone
+											{zone "grid_b1"}
+										}
+										{zone
+											{zone "grid_b2"}
+										}
+										{zone
+											{zone "grid_b3"}
+										}
+										{zone
+											{zone "grid_c1"}
+										}
+										{zone
+											{zone "grid_c2"}
+										}
+										{zone
+											{zone "grid_c3"}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 3}
+					}
+					{"set_i"
+						{var "ai_grid_system_active$"}
+						{op "+"}
+						{value 1}
+					}
+					{"timer"
+						{time 5}
+						{title "AI grid system available"}
 					}
 				}
 			}
@@ -1049,7 +1105,7 @@
 								}
 								{tag_add defense_level_3}
 							}
-							{"timer"
+							{## "timer"
 								{time 5}
 								{title "tagging defense level 3"}
 							}
@@ -1151,7 +1207,7 @@
 								}
 								{tag_add defense_level_2}
 							}
-							{"timer"
+							{## "timer"
 								{time 5}
 								{title "tagging defense level 2"}
 							}
@@ -1162,7 +1218,7 @@
 								{op "="}
 								{value 1}
 							}
-							{"timer"
+							{## "timer"
 								{time 5}
 								{title "tagging defense level 1"}
 							}
@@ -1230,7 +1286,7 @@
 								}
 								{effect call_flag_defense_crates}
 							}
-							{"timer"
+							{## "timer"
 								{time 5}
 								{title "calling defense crates"}
 							}

@@ -4388,6 +4388,12 @@
 											{state
 												{state linked}
 											}
+											{tag
+												{tag cmp_def}
+											}
+											{tag
+												{tag _def}
+											}
 										}
 									}
 									{amount 4
@@ -5042,7 +5048,7 @@
 					{"delay"
 						{time 0.1}
 					}
-					{"timer"
+					{## "timer"
 						{time 4}
 						{title "recrewing portables"}
 					}
@@ -5622,6 +5628,12 @@
 										{tag
 											{tag _user_ally}
 										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag _def}
+										}
 									}
 								}
 							}
@@ -5692,6 +5704,12 @@
 									}
 									{tag
 										{tag _user_ally}
+									}
+									{tag
+										{tag cmp_def}
+									}
+									{tag
+										{tag _def}
 									}
 								}
 							}
@@ -6915,7 +6933,7 @@
 									{value 0}
 								}
 							}
-							{"timer"
+							{## "timer"
 								{time 4}
 								{title "AI Tank Destroyer targets not found"}
 							}
@@ -6954,7 +6972,7 @@
 								}
 								{effect smoke_for_test}
 							}
-							{"timer"
+							{## "timer"
 								{time 4}
 								{title "AI Tank Destroyer Scripts Engaged"}
 							}

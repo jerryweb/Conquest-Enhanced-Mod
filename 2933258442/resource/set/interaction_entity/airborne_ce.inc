@@ -132,7 +132,7 @@
 
 {"airborne drop_plane"
     {on "prep_drop_plane_to_move"
-		{delay 5
+		{delay 15
 			{if rand 0.15
 				{delay 18
 					{call "drop_paratroopers"}
