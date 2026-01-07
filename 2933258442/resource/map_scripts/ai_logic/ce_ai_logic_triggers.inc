@@ -4029,7 +4029,7 @@
 				}
 				{actions
 					{"delay"
-						{time 1}
+						{time 10}
 					}
 					{"switch"
 						{"case"

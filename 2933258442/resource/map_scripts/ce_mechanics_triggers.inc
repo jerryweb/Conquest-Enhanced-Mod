@@ -9,13 +9,7 @@
 								{group
 									{select
 										{tag
-											{tag player_veh}
-										}
-										{tag
-											{tag player_armor}
-										}
-										{tag
-											{tag player_car}
+											{tag _user}
 										}
 									}
 									{include
@@ -63,6 +57,9 @@
 										{state
 											{state dead}
 										}
+										{tag
+											{tag not_selectable}
+										}
 									}
 								}
 							}
@@ -83,13 +80,7 @@
 							{group
 								{select
 									{tag
-										{tag player_veh}
-									}
-									{tag
-										{tag player_armor}
-									}
-									{tag
-										{tag player_car}
+										{tag _user}
 									}
 								}
 								{include
@@ -136,6 +127,9 @@
 									}
 									{state
 										{state dead}
+									}
+									{tag
+										{tag not_selectable}
 									}
 									{tag
 										{tag not_selectable}

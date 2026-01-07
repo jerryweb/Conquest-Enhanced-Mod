@@ -323,6 +323,30 @@
 			{hide 5}
 		}
 	}
+
+	{on break				;// component breaks
+		{if not tagged "exploded"
+			{if chassis "airborne"
+				{if component "body"
+					{if not tagged "dropping_troopers"
+						{if rand 0.5
+							{call "drop_paratroopers"}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	{on destroy				;// component destroyed
+		{if not tagged "exploded"
+			{if chassis "airborne"
+				{if not tagged "dropping_troopers"
+					{call "drop_paratroopers"}
+				}
+			}
+		}
+	}
 }
 
 {"airborne drop_plane player"
@@ -396,7 +420,6 @@
 				{tags add "move_to_start_waypoint"}
 			}
 		}
-		
 	}
 }
 

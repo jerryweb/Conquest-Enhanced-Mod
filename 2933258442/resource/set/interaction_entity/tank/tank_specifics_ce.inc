@@ -555,6 +555,13 @@
 			}
 		}
 	}
+	{"sdkfz6_ammo"
+		{on spawn
+			{delay 0.2
+				{call "tag_supplies"}
+			}
+		}
+	}
 	{"ammo_trailer"
 		{on spawn
 			{delay 0.2
@@ -592,6 +599,20 @@
 		}
 	}
 	{"cckw_redball"
+		{on spawn
+			{delay 0.2
+				{call "tag_supplies"}
+			}
+		}
+	}
+	{"bedford_oyd_art_ammo"
+		{on spawn
+			{delay 0.2
+				{call "tag_supplies"}
+			}
+		}
+	}
+	{"bedford_qld_art_ammo"
 		{on spawn
 			{delay 0.2
 				{call "tag_supplies"}
