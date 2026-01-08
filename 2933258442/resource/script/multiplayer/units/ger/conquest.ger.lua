@@ -211,7 +211,7 @@ Purchases["conquest.ger"] = {
 			{priority = 1.0, type = {"Tank", "Heavy",}, unit = "tiger2p"},
 			{priority = 1.0, type = {"Tank", "Heavy", "Elite",}, unit = "tiger2h"},
 			{priority = 0.75, type = {"Tank", "Heavy",}, unit = "pz756r"},
-			{priority = 1.0, type = {"Tank", "MG", "Miner"}, unit = "pz3m"},
+			{priority = 1.0, type = {"Tank", "Medium", "Deminer"}, unit = "pz3m"},
 		-- Self-Propelled Guns
 			{priority = 1.0, type = {"Tank", "Light", "AT",}, unit = "panzerjager1"},
 			{priority = 1.0, type = {"Tank", "Light", "AT",}, unit = "marder2"},
