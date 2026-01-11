@@ -3134,6 +3134,9 @@
 										{state
 											{state linked}
 										}
+										{tag
+											{tag _user_ally}
+										}
 									}
 								}
 							}
@@ -3215,6 +3218,9 @@
 										}
 										{prop
 											{prop airborne}
+										}
+										{tag
+											{tag _user_ally}
 										}
 									}
 								}
@@ -4217,6 +4223,12 @@
 										}
 										{prop
 											{prop multi_board}
+										}
+										{tag
+											{tag _user_ally}
+										}
+										{tag
+											{tag _ai_defender}
 										}
 									}
 								}
@@ -7088,6 +7100,1099 @@
 								{name "ai/td_attack_see_actors"}
 							}
 						}
+					}
+				}
+			}
+			{"ai/ai_tnt_hedgehogs"
+				{condition
+					{expression "(1 & 2) | (1 & 3)"}
+					{terms
+						{"1.near"
+							{units
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag bot}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag _lua_mi}
+										}
+										{tag
+											{tag repairing}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+							{near_to
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag hedgehog}
+										}
+									}
+									{include
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{exclude
+										{tag
+											{tag crushed}
+										}
+									}
+								}
+							}
+							{distance 10}
+						}
+						{"2.entities"
+							{selector
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag hedgehog}
+										}
+									}
+									{exclude
+										{tag
+											{tag crushed}
+										}
+									}
+								}
+							}
+							{count
+								{op ">"}
+								{value 10}
+							}
+						}
+						{"3.entities"
+							{selector
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag "+chokehog"}
+										}
+									}
+									{exclude
+										{tag
+											{tag crushed}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag bot}
+									}
+								}
+								{include
+									{prop
+										{prop human}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag _lua_mi}
+									}
+									{tag
+										{tag repairing}
+									}
+									{state
+										{state inactive}
+									}
+									{state
+										{state linked}
+									}
+								}
+							}
+							{sort
+								{type entity}
+								{entity
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag hedgehog}
+											}
+										}
+										{exclude
+											{tag
+												{tag crushed}
+											}
+										}
+									}
+								}
+							}
+							{amount 1
+							}
+						}
+						{tag_add bot_destroyer}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type near}
+								{units
+									{ignore_captured_by_user 0}
+									{tag bot_destroyer}
+									{type human}
+									{state operatable}
+								}
+								{near_to
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag _bot}
+											}
+										}
+										{include
+											{prop
+												{prop vehicle}
+											}
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{distance 20}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"entity_state"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag bot_destroyer}
+								}
+								{tag_remove bot_destroyer}
+							}
+							{"delay"
+								{time 50}
+							}
+							{"trigger"
+								{name "ai/ai_tnt_hedgehogs"}
+							}
+						}
+						{"default"
+							{"delay"
+								{time 0.1}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type near}
+										{units
+											{ignore_captured_by_user 0}
+											{tag bot_destroyer}
+											{type human}
+											{state operatable}
+										}
+										{near_to
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag "+chokehog"}
+													}
+												}
+												{include
+													{tag
+														{tag hedgehog}
+													}
+												}
+												{exclude
+													{tag
+														{tag crushed}
+													}
+												}
+											}
+										}
+										{distance 10}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"entity_state"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag "+chokehog"}
+													}
+												}
+												{exclude
+													{tag
+														{tag crushed}
+													}
+												}
+											}
+											{sort
+												{type entity}
+												{entity
+													{ignore_captured_by_user 0}
+													{tag bot_destroyer}
+												}
+											}
+											{amount 1
+											}
+										}
+										{tag_add "+tnt"}
+									}
+									{"squad_create"
+										{selector
+											{ignore_captured_by_user 0}
+											{tag bot_destroyer}
+											{type human}
+											{state operatable}
+										}
+										{name e_bot_tnt}
+									}
+									{"delay"
+										{time 0.2}
+									}
+									{"actor_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{tag bot_destroyer}
+											{type human}
+											{state operatable}
+										}
+										{drop orders}
+										{fire_mode hold}
+										{move_mode hold}
+										{weapon_prepare off}
+										{ai_move
+											{mode disable}
+											{enable_on injure}
+										}
+										{movement
+											{speed bow}
+											{kind fast}
+											{type normal}
+										}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"action"
+										{selector
+											{ignore_captured_by_user 0}
+											{tag bot_destroyer}
+											{type human}
+											{state operatable}
+										}
+										{drop "orders sensor senseless"}
+										{action advance}
+										{target
+											{ignore_captured_by_user 0}
+											{tag "+tnt"}
+										}
+									}
+									{"entity_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{tag bot_destroyer}
+											{type human}
+											{state operatable}
+										}
+										{tag_add _lua_mi}
+									}
+									{"delay"
+										{time 15}
+									}
+									{"squad_dismiss"
+										{squad e_bot_tnt}
+									}
+									{"actor_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{tag bot_destroyer}
+											{type human}
+											{state operatable}
+										}
+										{fire_mode open}
+										{move_mode free}
+										{weapon_prepare on}
+										{ai_move
+											{mode enable}
+										}
+										{movement
+											{speed assault}
+										}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"action"
+										{selector
+											{ignore_captured_by_user 0}
+											{tag bot_destroyer}
+											{type human}
+											{state operatable}
+										}
+										{drop orders}
+										{action move}
+										{target
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag flag}
+													}
+												}
+												{exclude
+													{state
+														{state inactive}
+													}
+												}
+											}
+											{sort
+												{type entity}
+												{entity
+													{ignore_captured_by_user 0}
+													{tag bot_destroyer}
+												}
+											}
+											{amount 1
+											}
+										}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"entity_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{tag bot_destroyer}
+										}
+										{tag_remove _lua_mi}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"entity_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{tag bot_destroyer}
+										}
+										{tag_remove bot_destroyer}
+									}
+									{"delay"
+										{time 35}
+									}
+									{"trigger"
+										{name "ai/ai_tnt_hedgehogs"}
+									}
+								}
+								{"default"
+									{"delay"
+										{time 0.1}
+									}
+									{"actor_state"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag bot_destroyer}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+												}
+											}
+										}
+										{drop orders}
+										{fire_mode return}
+										{move_mode hold}
+										{ai_move
+											{mode disable}
+											{enable_on injure}
+										}
+										{movement
+											{type squat}
+										}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"entity_state"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag hedgehog}
+													}
+												}
+												{exclude
+													{tag
+														{tag crushed}
+													}
+												}
+											}
+											{amount 4
+											}
+											{sort
+												{type entity}
+												{entity
+													{ignore_captured_by_user 0}
+													{tag bot_destroyer}
+												}
+											}
+										}
+										{tag_add _hedgehog}
+									}
+									{"delay"
+										{time 0.3}
+									}
+									{"while"
+										{condition
+											{type near}
+											{units
+												{ignore_captured_by_user 0}
+												{tag bot_destroyer}
+											}
+											{near_to
+												{source advanced}
+												{ignore_captured_by_user 0}
+												{group
+													{select
+														{tag
+															{tag _hedgehog}
+														}
+													}
+													{exclude
+														{tag
+															{tag "+hedgehog"}
+														}
+														{tag
+															{tag crushed}
+														}
+													}
+												}
+											}
+											{distance 16}
+										}
+										{"delay"
+											{time 0.1}
+										}
+										{"entity_state"
+											{selector
+												{source advanced}
+												{ignore_captured_by_user 0}
+												{group
+													{select
+														{tag
+															{tag _hedgehog}
+														}
+													}
+													{exclude
+														{tag
+															{tag "+hedgehog"}
+														}
+														{tag
+															{tag crushed}
+														}
+													}
+												}
+												{sort
+													{type entity}
+													{entity
+														{ignore_captured_by_user 0}
+														{tag bot_destroyer}
+													}
+												}
+												{amount 1
+												}
+											}
+											{tag_add "+hedgehog"}
+											{tag_remove _hedgehog}
+										}
+										{"delay"
+											{time 0.1}
+										}
+									}
+									{"delay"
+										{time 0.2}
+									}
+									{"entity_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{tag _hedgehog}
+										}
+										{tag_remove _hedgehog}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"switch"
+										{"case"
+											{condition
+												{type entities}
+												{selector
+													{ignore_captured_by_user 0}
+													{tag "+hedgehog"}
+												}
+												{count
+													{op ">"}
+													{value 3}
+												}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"entity_state"
+												{selector
+													{source advanced}
+													{ignore_captured_by_user 0}
+													{group
+														{select
+															{tag
+																{tag "+hedgehog"}
+															}
+														}
+													}
+													{sort
+														{type entity}
+														{entity
+															{ignore_captured_by_user 0}
+															{tag bot_destroyer}
+														}
+													}
+													{amount 1
+													}
+												}
+												{tag_add "+tnt"}
+												{tag_remove "+hedgehog"}
+											}
+											{"squad_create"
+												{selector
+													{ignore_captured_by_user 0}
+													{tag bot_destroyer}
+													{type human}
+													{state operatable}
+												}
+												{name e_bot_tnt}
+											}
+											{"delay"
+												{time 0.2}
+											}
+											{"entity_state"
+												{selector
+													{source advanced}
+													{ignore_captured_by_user 0}
+													{group
+														{select
+															{tag
+																{tag "+hedgehog"}
+															}
+														}
+														{exclude
+															{tag
+																{tag "+tnt"}
+															}
+														}
+													}
+												}
+												{tag_remove "+hedgehog"}
+											}
+											{"actor_state"
+												{selector
+													{ignore_captured_by_user 0}
+													{tag bot_destroyer}
+													{type human}
+													{state operatable}
+												}
+												{drop orders}
+												{fire_mode hold}
+												{move_mode hold}
+												{weapon_prepare off}
+												{ai_move
+													{mode disable}
+													{enable_on injure}
+												}
+												{movement
+													{speed bow}
+													{kind fast}
+													{type normal}
+												}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"action"
+												{selector
+													{ignore_captured_by_user 0}
+													{tag bot_destroyer}
+													{type human}
+													{state operatable}
+												}
+												{drop "orders sensor senseless"}
+												{action advance}
+												{target
+													{ignore_captured_by_user 0}
+													{tag "+tnt"}
+												}
+											}
+											{"entity_state"
+												{selector
+													{ignore_captured_by_user 0}
+													{tag bot_destroyer}
+													{type human}
+													{state operatable}
+												}
+												{tag_add _lua_mi}
+											}
+											{"delay"
+												{time 15}
+											}
+											{"squad_dismiss"
+												{squad e_bot_tnt}
+											}
+											{"actor_state"
+												{selector
+													{ignore_captured_by_user 0}
+													{tag bot_destroyer}
+													{type human}
+													{state operatable}
+												}
+												{fire_mode open}
+												{move_mode free}
+												{weapon_prepare on}
+												{ai_move
+													{mode enable}
+												}
+												{movement
+													{speed assault}
+												}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"action"
+												{selector
+													{ignore_captured_by_user 0}
+													{tag bot_destroyer}
+													{type human}
+													{state operatable}
+												}
+												{drop orders}
+												{action move}
+												{target
+													{source advanced}
+													{ignore_captured_by_user 0}
+													{group
+														{select
+															{tag
+																{tag flag}
+															}
+														}
+														{exclude
+															{state
+																{state inactive}
+															}
+														}
+													}
+													{sort
+														{type entity}
+														{entity
+															{ignore_captured_by_user 0}
+															{tag bot_destroyer}
+														}
+													}
+													{amount 1
+													}
+												}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"entity_state"
+												{selector
+													{ignore_captured_by_user 0}
+													{tag bot_destroyer}
+												}
+												{tag_remove _lua_mi}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"entity_state"
+												{selector
+													{ignore_captured_by_user 0}
+													{tag bot_destroyer}
+												}
+												{tag_remove bot_destroyer}
+											}
+											{"delay"
+												{time 35}
+											}
+											{"trigger"
+												{name "ai/ai_tnt_hedgehogs"}
+											}
+										}
+										{"default"
+											{"delay"
+												{time 0.1}
+											}
+											{"entity_state"
+												{selector
+													{ignore_captured_by_user 0}
+													{tag bot_destroyer}
+												}
+												{tag_remove bot_destroyer}
+											}
+											{"entity_state"
+												{selector
+													{ignore_captured_by_user 0}
+													{tag "+hedgehog"}
+												}
+												{tag_remove "+hedgehog"}
+											}
+											{"delay"
+												{time 50}
+											}
+											{"trigger"
+												{name "ai/ai_tnt_hedgehogs"}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			{"ai/ai_tnt_do"
+				{condition
+					{terms
+						{"1.trigger"
+							{name "ai/ai_tnt_hedgehogs"}
+						}
+						{"2.near"
+							{units
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag bot_destroyer}
+										}
+									}
+									{include
+										{tag
+											{tag _lua_mi}
+										}
+										{state
+											{state operatable}
+										}
+									}
+								}
+							}
+							{near_to
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag "+tnt"}
+										}
+									}
+									{exclude
+										{tag
+											{tag crushed}
+										}
+									}
+								}
+							}
+							{distance 2}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.1}
+					}
+					{"inventory"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag bot_destroyer}
+									}
+								}
+								{include
+									{tag
+										{tag _lua_mi}
+									}
+									{state
+										{state operatable}
+									}
+								}
+							}
+						}
+						{action add}
+						{item "dynamite_ger_x7"}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"action"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag bot_destroyer}
+									}
+								}
+								{include
+									{tag
+										{tag _lua_mi}
+									}
+									{state
+										{state operatable}
+									}
+								}
+							}
+						}
+						{drop orders}
+						{action put_dynamite}
+						{target
+							{ignore_captured_by_user 0}
+							{tag null}
+						}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"while"
+						{condition
+							{type near}
+							{units
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag bot}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag bot_destroyer}
+										}
+										{tag
+											{tag temp5}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+							{near_to
+								{ignore_captured_by_user 0}
+								{tag "+tnt"}
+							}
+							{distance 10}
+						}
+						{"delay"
+							{time 0.1}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag bot}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag temp5}
+										}
+										{tag
+											{tag bot_destroyer}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+								{sort
+									{type entity}
+									{entity
+										{ignore_captured_by_user 0}
+										{tag "+tnt"}
+									}
+								}
+								{amount 2
+								}
+							}
+							{tag_add _temp5}
+						}
+						{"delay"
+							{time 0.1}
+						}
+						{"action"
+							{selector
+								{ignore_captured_by_user 0}
+								{tag _temp5}
+								{type human}
+								{state operatable}
+							}
+							{drop "orders sensor senseless"}
+							{action move}
+							{target
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag flag}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+									}
+								}
+								{sort
+									{type entity}
+									{entity
+										{ignore_captured_by_user 0}
+										{tag _temp5}
+									}
+								}
+								{amount 1
+								}
+							}
+						}
+						{"delay"
+							{time 0.1}
+						}
+						{"entity_state"
+							{selector
+								{ignore_captured_by_user 0}
+								{tag _temp5}
+							}
+							{tag_add temp5}
+							{tag_remove _temp5}
+						}
+						{"delay"
+							{time 0.2}
+						}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag temp5}
+						}
+						{tag_remove temp5}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag "+tnt"}
+						}
+						{tag_remove "+tnt"}
+					}
+					{"delay"
+						{time 18}
+					}
+					{"trigger"
+						{name "ai/ai_tnt_do"}
 					}
 				}
 			}

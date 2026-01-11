@@ -127,24 +127,90 @@
         {if not tagged "deactivated"
             {start_sound "vehicle/deploy/foxhole"}
             {call "deactivate_vehicle"}
-            {delay 16
-                {spawn "building_smoke" "fx_dirt01"}
-                {spawn "building_smoke" "fx_dirt02"}
-                {spawn "building_smoke" "fx_dirt03"}
-                {spawn "building_smoke" "fx_dirt04"}
-                {spawn "building_smoke" "fx_dirt05"}
-                {link_sound "trench_deploy" "vehicle/deploy/trench/"}
-                {play_sound "trench_deploy"}
-                {if terrain_fx "ice"
-                    {spawn "tank_cover_new" "basis" x constrain_after_dir  {tex_mod "win"}}  
-                else terrain_fx "snow"
-                    {spawn "tank_cover_new" "basis" x constrain_after_dir  {tex_mod "win"}}
-                else
-                    {spawn "tank_cover_new" "basis" x constrain_after_dir }
+            {if rand 0.25
+                {delay 16
+                    {spawn "building_smoke" "fx_dirt01"}
+                    {spawn "building_smoke" "fx_dirt02"}
+                    {spawn "building_smoke" "fx_dirt03"}
+                    {spawn "building_smoke" "fx_dirt04"}
+                    {spawn "building_smoke" "fx_dirt05"}
+                    {link_sound "trench_deploy" "vehicle/deploy/trench/"}
+                    {play_sound "trench_deploy"}
+                    {if terrain_fx "ice"
+                        {spawn "tank_cover_new" "basis" x constrain_after_dir  {tex_mod "win"}}  
+                    else terrain_fx "snow"
+                        {spawn "tank_cover_new" "basis" x constrain_after_dir  {tex_mod "win"}}
+                    else
+                        {spawn "tank_cover_new" "basis" x constrain_after_dir }
+                    }
+
+                    {delay 4
+                        {call "activate_vehicle"}
+                    }
+                } 
+            else rand 0.25      
+                {delay 17.5
+                    {spawn "building_smoke" "fx_dirt01"}
+                    {spawn "building_smoke" "fx_dirt02"}
+                    {spawn "building_smoke" "fx_dirt03"}
+                    {spawn "building_smoke" "fx_dirt04"}
+                    {spawn "building_smoke" "fx_dirt05"}
+                    {link_sound "trench_deploy" "vehicle/deploy/trench/"}
+                    {play_sound "trench_deploy"}
+                    {if terrain_fx "ice"
+                        {spawn "tank_cover_new" "basis" x constrain_after_dir  {tex_mod "win"}}  
+                    else terrain_fx "snow"
+                        {spawn "tank_cover_new" "basis" x constrain_after_dir  {tex_mod "win"}}
+                    else
+                        {spawn "tank_cover_new" "basis" x constrain_after_dir }
+                    }
+
+                    {delay 4
+                        {call "activate_vehicle"}
+                    }
                 }
-            }
-            {delay 20
-                {call "activate_vehicle"}
+            else rand 0.25      
+                {delay 18.75
+                    {spawn "building_smoke" "fx_dirt01"}
+                    {spawn "building_smoke" "fx_dirt02"}
+                    {spawn "building_smoke" "fx_dirt03"}
+                    {spawn "building_smoke" "fx_dirt04"}
+                    {spawn "building_smoke" "fx_dirt05"}
+                    {link_sound "trench_deploy" "vehicle/deploy/trench/"}
+                    {play_sound "trench_deploy"}
+                    {if terrain_fx "ice"
+                        {spawn "tank_cover_new" "basis" x constrain_after_dir  {tex_mod "win"}}  
+                    else terrain_fx "snow"
+                        {spawn "tank_cover_new" "basis" x constrain_after_dir  {tex_mod "win"}}
+                    else
+                        {spawn "tank_cover_new" "basis" x constrain_after_dir }
+                    }
+
+                    {delay 4
+                        {call "activate_vehicle"}
+                    }
+                }
+            else 
+                {delay 20
+                    {spawn "building_smoke" "fx_dirt01"}
+                    {spawn "building_smoke" "fx_dirt02"}
+                    {spawn "building_smoke" "fx_dirt03"}
+                    {spawn "building_smoke" "fx_dirt04"}
+                    {spawn "building_smoke" "fx_dirt05"}
+                    {link_sound "trench_deploy" "vehicle/deploy/trench/"}
+                    {play_sound "trench_deploy"}
+                    {if terrain_fx "ice"
+                        {spawn "tank_cover_new" "basis" x constrain_after_dir  {tex_mod "win"}}  
+                    else terrain_fx "snow"
+                        {spawn "tank_cover_new" "basis" x constrain_after_dir  {tex_mod "win"}}
+                    else
+                        {spawn "tank_cover_new" "basis" x constrain_after_dir }
+                    }
+
+                    {delay 4
+                        {call "activate_vehicle"}
+                    }
+                }
             }
         }
     }
@@ -806,6 +872,15 @@
         {if not tagged "exploded"
             {if component "body"
                 {tags remove "_user_ally"}
+                {if not user_control
+                    {if tagged "artillery"
+                        {able minimap 0}
+                    }
+                else tagged "_bot"
+                    {if tagged "artillery"
+                        {able minimap 0}
+                    }   
+                }
             }
         }
     }
