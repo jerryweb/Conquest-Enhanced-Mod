@@ -950,7 +950,7 @@
 							{op "=="}
 							{value 1}
 						}
-						{"entity_state"
+						{"effect"
 							{selector
 								{source advanced}
 								{group
@@ -983,7 +983,7 @@
 									}
 								}
 							}
-							{tag_add _user_ally}
+							{effect tag_user_ally}
 						}
 					}
 					{"event"
@@ -1574,47 +1574,55 @@
 						}
 						{tag_add ignore_spawn_logic}
 					}
-					{"entity_state"
-						{selector
-							{source advanced}
-							{ignore_captured_by_user 0}
-							{group
-								{select
-									{zone
-										{zone "gamezone"}
+					{"if"
+						{condition
+							{type cmp_i}
+							{var "user_is_defender$"}
+							{op "=="}
+							{value 1}
+						}
+						{"effect"
+							{selector
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag _def}
+										}
 									}
-									{tag
-										{tag cmp_def}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state operatable}
+										}
 									}
-									{tag
-										{tag _def}
-									}
-								}
-								{include
-									{prop
-										{prop human}
-									}
-									{state
-										{state operatable}
-									}
-								}
-								{exclude
-									{state
-										{state inactive}
-									}
-									{state
-										{state user_control}
-									}
-									{tag
-										{tag player}
-									}
-									{tag
-										{tag _user}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag player}
+										}
+										{tag
+											{tag _user}
+										}
 									}
 								}
 							}
+							{effect tag_user_ally}
 						}
-						{tag_add _user_ally}
 					}
 					{"delay"
 						{time 0.2}

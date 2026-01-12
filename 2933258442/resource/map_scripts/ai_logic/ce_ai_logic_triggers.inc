@@ -4864,6 +4864,9 @@
 										{tag
 											{tag artillery_ordered}
 										}
+										{tag
+											{tag _ai_defender}
+										}
 									}
 								}
 							}
@@ -4925,6 +4928,9 @@
 										{tag _user_ally}
 									}
 									{tag
+										{tag _ai_defender}
+									}
+									{tag
 										{tag artillery_selected}
 									}
 									{tag
@@ -4939,6 +4945,16 @@
 					}
 					{"delay"
 						{time 0.3}
+					}
+					{## "timer"
+						{time 10}
+						{title "artillery scripts active"}
+					}
+					{## "effect"
+						{selector
+							{tag artillery_selected}
+						}
+						{effect smoke_for_test}
 					}
 					{"call"
 						{function "check_if_player_in_flag_zones"}
@@ -5172,6 +5188,7 @@
 					{"delay"
 						{time 1}
 					}
+					
 					{"effect"
 						{selector
 							{source advanced}

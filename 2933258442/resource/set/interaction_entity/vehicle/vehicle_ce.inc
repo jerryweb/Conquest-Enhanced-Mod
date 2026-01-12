@@ -260,6 +260,13 @@
         }
     }
 
+    {on "tag_user_ally"
+        {tags add "_user_ally"}
+        {tags remove "_ai"}
+        {tags remove "_bot"}
+        {tags remove "bot"}
+    }
+
     {on "ignore_recrew_for_x_sec"
         {tags add "ignore_recrew"}
         {tags remove "recrew_action"}

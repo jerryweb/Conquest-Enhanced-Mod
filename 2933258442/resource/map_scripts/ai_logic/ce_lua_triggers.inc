@@ -41,6 +41,12 @@
 										{state
 											{state user_control}
 										}
+										{tag
+											{tag _user_ally}
+										}
+										{tag
+											{tag _ai_defender}
+										}
 									}
 								}
 								{group
@@ -133,6 +139,12 @@
 									}
 									{state
 										{state user_control}
+									}
+									{tag
+										{tag _user_ally}
+									}
+									{tag
+										{tag _ai_defender}
 									}
 								}
 							}
