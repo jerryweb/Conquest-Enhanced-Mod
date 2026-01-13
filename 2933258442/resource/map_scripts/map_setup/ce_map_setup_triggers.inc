@@ -1053,20 +1053,23 @@
 											{tag
 												{tag cmp_def}
 											}
+											{zone
+												{zone "gamezone"}
+											}
 										}
 										{exclude
 											{state
 												{state dead}
 											}
-											;{tag
-											;	{tag hidden}
-											;}
+											{tag
+												{tag hidden}
+											}
 											{state
 												{state user_control}
 											}
-											;{state
-											;	{state inactive}
-											;}
+											{state
+												{state inactive}
+											}
 											;{state
 											;	{state linked}
 											;}
@@ -1155,20 +1158,23 @@
 											{tag
 												{tag cmp_def}
 											}
+											{zone
+												{zone "gamezone"}
+											}
 										}
 										{exclude
 											{state
 												{state dead}
 											}
-											;{tag
-											;	{tag hidden}
-											;}
+											{tag
+												{tag hidden}
+											}
 											{state
 												{state user_control}
 											}
-											;{state
-											;	{state inactive}
-											;}
+											{state
+												{state inactive}
+											}
 											;{state
 											;	{state linked}
 											;}
