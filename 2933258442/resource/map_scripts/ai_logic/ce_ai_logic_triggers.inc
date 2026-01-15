@@ -2123,6 +2123,360 @@
 					}
 				}
 			}
+			{"ai_logic/reverse_tank_to_repair"
+				{condition
+					{terms
+						{"1.near"
+							{units
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag turret_brake}
+										}
+										{tag
+											{tag gun_brake}
+										}
+									}
+									{include
+										{zone
+											{zone "gamezone"}
+										}
+										{prop
+											{prop tank}
+										}
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state "operatable inhabited"}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state inactive}
+										}
+										{tag
+											{tag _user_ally}
+										}
+										{broken_components
+											{masks
+												"trackleft"
+											}
+										}
+										{broken_components
+											{masks
+												"trackright"
+											}
+										}
+										{tag
+											{tag engine_brake}
+										}
+										{tag
+											{tag selected_tank_to_repair}
+										}
+										{tag
+											{tag reversing_to_repair}
+										}
+										{tag
+											{tag reversing_to_repair}
+										}
+										{tag
+											{tag _lua_mi}
+										}
+									}
+								}
+							}
+							{near_to
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+										{tag
+											{tag _user_ally}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{state
+											{state dead}
+										}
+										{prop
+											{prop airborne}
+										}
+									}
+								}
+							}
+							{distance 160}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 5}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag turret_brake}
+									}
+									{tag
+										{tag gun_brake}
+									}
+								}
+								{include
+									{zone
+										{zone "gamezone"}
+									}
+									{prop
+										{prop tank}
+									}
+									{tag
+										{tag _bot}
+									}
+									{state
+										{state "operatable inhabited"}
+									}
+								}
+								{exclude
+									{state
+										{state user_control}
+									}
+									{state
+										{state linked}
+									}
+									{state
+										{state inactive}
+									}
+									{tag
+										{tag _user_ally}
+									}
+									{tag
+										{tag selected_tank_to_repair}
+									}
+									{tag
+										{tag reversing_to_repair}
+									}
+									{tag
+										{tag _lua_mi}
+									}
+								}
+							}
+							{sort
+								{type entity}
+								{entity
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag _user}
+											}
+											{tag
+												{tag _user_ally}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{zone
+												{zone "gamezone"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+											{state
+												{state dead}
+											}
+											{prop
+												{prop airborne}
+											}
+										}
+									}
+									{amount 1
+									}
+								}
+							}
+							{amount 1
+							}
+						}
+						{tag_add selected_tank_to_repair}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"select"
+						{tag selected_tank_to_repair}
+						{type tank}
+						{state inhabited}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"actor_state"
+						{selector
+							{source current}
+						}
+						{drop orders}
+						{movement
+							{speed fast}
+							{kind fast}
+							{forward off}
+							{backward on}
+						}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"action"
+						{selector
+							{source current}
+						}
+						{drop orders}
+						{action move}
+						{target
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag spawn}
+									}
+								}
+								{include
+									{zone
+										{zone "gamezone"}
+									}
+								}
+								{exclude
+									{state
+										{state inactive}
+									}
+								}
+							}
+							{sort
+								{type entity}
+								{entity
+									{tag selected_tank_to_repair}
+									{type vehicle}
+									{state inhabited}
+								}
+							}
+						}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"effect"
+						{selector
+							{source current}
+						}
+						{effect retreat_to_repair}
+					}
+					{"timer"
+						{time 120}
+						{title "falling back"}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"trigger"
+						{name "ai_logic/reverse_tank_to_repair"}
+					}
+				}
+			}
+			{"ai_logic/stop_reversing"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag ai_stop_reversing}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"entity_state"
+						{selector
+							{amount 1
+							}
+							{tag ai_stop_reversing}
+							{type vehicle}
+							{state inhabited}
+						}
+						{tag_add reversing_ai_selected}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"select"
+						{amount 1
+						}
+						{tag reversing_ai_selected}
+						{type vehicle}
+						{state inhabited}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"actor_state"
+						{selector
+							{source current}
+						}
+						{movement
+							{forward on}
+							{backward on}
+						}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{tag reversing_ai_selected}
+						}
+						{tag_remove reversing_ai_selected}
+					}
+					{"entity_state"
+						{selector
+							{tag ai_stop_reversing}
+						}
+						{tag_remove ai_stop_reversing}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"trigger"
+						{name "ai_logic/stop_reversing"}
+					}
+				}
+			}
 
 ;============== AI AIR =========================
 			{"ai_logic/air/set_air_raid_event"

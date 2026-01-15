@@ -80,5 +80,142 @@
 		}
 	}
 
+	(define "deploy_smoke_screen"
+        {if not user_control
+            {if not tagged "smoke_screen_launch"
+                {delay 3
+                    {if operatable
+                        {call "smoke_screen"}
+                        {tags add "smoke_screen_launch"}
+                        {delay 60
+                            {tags remove "smoke_screen_launch"}
+                        }
+                    }   
+                }    
+            }
+        }
+    )
+
+    {on "tag_veh_wait"
+        {tags remove "veh_attacking"}
+    }
+
+    {on "tag_tank_slow"
+        {tags remove "tank_slow"}
+        {tags add "slow_move"}
+        {tags remove "remove_slow_move"}
+        {delay 60
+            {tags remove "slow_move"}
+            {tags add "remove_slow_move"}
+        }
+    }
+
+    {on "destory_if_abandoned"
+        {if not tagged "tankaction"
+            {if tagged "immobile"
+                {if not tagged "_abandoned"
+                    {if not tagged "destroyed"
+                        {if not user_control
+                            {if operatable
+                                {call "emit_crew"}
+                                {delay 5
+                                    {components "body" break}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    {on "abandoncheck"
+        {if tagged "_ai_abandon_check_active"
+            {if not tagged "ai_emplacement_defenses"
+                {if not tagged "player_armor" 
+                    {if not user_control
+                        ;/("destory_if_abandoned" args delay(240))
+                        ;/("destory_if_abandoned" args delay(300))
+                        ;/("destory_if_abandoned" args delay(360))
+                        ;/("destory_if_abandoned" args delay(420))
+                        {delay 180
+                            {call "destory_if_abandoned"}
+                        }
+                        {delay 240
+                            {call "destory_if_abandoned"}
+                        }
+                        {delay 360
+                            {call "destory_if_abandoned"}
+                        }
+                        {delay 480
+                            {call "destory_if_abandoned"}
+                        }
+                    }
+                }
+            } 
+        }   
+    }
+
+    {on "retreat_to_repair"
+        {tags remove "selected_tank_to_repair"}
+        {tags add "reversing_to_repair"}
+        {tags add "_lua_mi"}
+        {delay 120
+        	{if rand 0.3
+            	("deploy_smoke_screen")
+            } 
+            {drop_orders}
+            {tags add "ai_stop_reversing"}
+            {tags remove "reversing_to_repair"}
+            {delay 30
+            	{tags remove "_lua_mi"}
+            }            
+        }
+    }
+
+    {on break                       ;// {on break} is for when components break
+        {if not tagged "exploded"
+            ("deploy_smoke_screen")
+            {if component "engine"
+                {tags add "immobile"}   
+            else component "trackleft"
+                {if operatable
+                    {if not user_control 
+                        {if not tagged "ai_emplacement_defenses"   
+                            {tags add "immobile"}
+                        }    
+                    }
+                }
+            else component "trackright"
+                {if operatable
+                    {if not user_control 
+                        {if not tagged "ai_emplacement_defenses"   
+                            {tags add "immobile"}
+                        }    
+                    }
+                }    
+            }
+        }
+    }
+
+    {on repair 
+        {if component "engine"
+            {tags remove "immobile"}
+        else component "trackleft"
+            {tags remove "immobile"}
+        else component "trackright"
+            {tags remove "immobile"}
+        else component "turret"
+            {if not user_control
+                {if not tagged "ai_emplacement_defenses"
+                    {tags remove "disarmed_tank"}
+                    {tags remove "engine_turned_off"}
+                    ;{call "repaired_engine_check"}
+                    {call "tag_squad_need_next_order"}
+                }
+            }
+        }
+    }
+
 	(include "tank-damage_ce.inc")	
 }
