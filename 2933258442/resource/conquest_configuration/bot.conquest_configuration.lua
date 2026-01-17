@@ -141,10 +141,10 @@
 				},
 			},
 			difficultyModifier = {
-				heroic = -6,
-				hard = -3,
+				heroic = -3,
+				hard = -2,
 				normal = 0,
-				easy = 3,
+				easy = 2,
 			}
 		}, 
 		-- Bot is defender
