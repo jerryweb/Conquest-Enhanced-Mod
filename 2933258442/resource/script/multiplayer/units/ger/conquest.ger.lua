@@ -42,6 +42,8 @@ Purchases["conquest.ger"] = {
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_pz_pio_con"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_pz_pio_late_con"},
 
+				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_lw_pio_late_irr_1(ger)"},
+				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_lw_recon_late_irr(ger)"},
 				--T2+
 				{priority = 2.0, type = {"Infantry", "Squad",}, unit = "squad_regular_vet_con(ger)"},
 
@@ -51,14 +53,25 @@ Purchases["conquest.ger"] = {
 				{priority = 1.5, type = {"Infantry", "Squad", "Elite",}, unit = "squad_jaeger_con(ger)"},
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_sturmjager_con(ger)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Elite",}, unit = "squad_sturm_begleitgren_motor_con"},
+				{priority = 1.0, type = {"Infantry", "Squad", "Elite",}, unit = "squad_begleit_pio_late_sup(ger)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "Elite",}, unit = "squad_begleit_sturm_late_sup(ger)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "Elite",}, unit = "squad_begleitgren_late_off(ger)"},
+
+				
 				{priority = 1.0, type = {"Infantry", "Squad", "Elite",}, unit = "squad_sturmaufklarer_con(ger)"},
 
 				--T3+
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_gd_motor_con"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Mechanized_Infantry",}, unit = "squad_pzg_gd_armor_con"},
+				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_pzgren_gd_late_off(ger)"},
+				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_pz_pio_gd_late_off(ger)"},
+
 				{priority = 1.0, type = {"Infantry", "Squad", "Mechanized_Infantry",}, unit = "squad_pzg_lehr_armor_con"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Mechanized_Infantry",}, unit = "squad_sturm_pzg_lehr_armor_con"},
-
+				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_pzlehr_pzgren_late_all2(ger)"},
+				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_pzlehr_pz_sturmgren_late_all2(ger)"},
+				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_pzlehr_pio_late_all2(ger)"},
+				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_pzlehr_recon_late_all2(ger)"},
 				--T4
 				{priority = 1.5, type = {"Infantry", "Squad", "Elite",}, unit = "squad_blau_con(ger)"},
 				{priority = 1.5, type = {"Infantry", "Squad", "Elite",}, unit = "squad_gebirgsjaeger_con(ger)"},
@@ -72,7 +85,11 @@ Purchases["conquest.ger"] = {
 				{priority = 1.0, type = {"Infantry", "Squad", "Elite",}, unit = "squad_fallschirmjaeger_motor_con"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Elite",}, unit = "squad_fallschirm_recon_late_con(ger)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Elite",}, unit = "squad_fallschirmjaeger_late_motor_con"},
-				
+
+				{priority = 1.0, type = {"Infantry", "Squad", "Elite",}, unit = "squad_fallschirm_pio_late_irr_3(ger)"},		
+				{priority = 1.0, type = {"Infantry", "Squad", "Elite",}, unit = "squad_fallschirm_late_off_2(ger)"},		
+				{priority = 1.0, type = {"Infantry", "Squad", "Elite",}, unit = "squad_fallschirm_recon_late_irr_3(ger)"},		
+				{priority = 1.0, type = {"Infantry", "Squad", "Elite",}, unit = "squad_fallschirm_recon_late_con(ger)"},			
 				--Singles/Teams
 				{priority = 1.0, type = {"Infantry", "Team", "AT",}, unit = "single_at(ger)"},
 				{priority = 1.5, type = {"Infantry", "Team", "AT",}, unit = "single_at_pzs_late_con(ger)"},
