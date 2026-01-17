@@ -58,8 +58,8 @@
 	{"squad_sturm_pzgren_armor_con"		requires	"squad_pzgren_armor_con"			costs 2  position 12 17}
 	{"squad_gd_motor_con"				requires	"squad_regular_vet_con(ger) squad_regular_motor_con"	costs 3  position 4 16}
 	{"squad_pzg_gd_armor_con"			requires	"squad_gd_motor_con squad_pzgren_armor_con"				costs 2  position 12 16}
-	{"squad_pzg_lehr_armor_con"			requires	"squad_pzgren_armor_con"			costs 2  position 12 18}
-	{"squad_sturm_pzg_lehr_armor_con"	requires	"squad_pzg_lehr_armor_con"			costs 2  position 13 18}
+	{"squad_pzg_lehr_armor_con"			requires	"squad_pzlehr_pzgren_late_all2(ger)"			costs 0  position 12 22}
+	{"squad_sturm_pzg_lehr_armor_con"	requires	"squad_pzlehr_pz_sturmgren_late_all2(ger)"			costs 1  position 14 22}
 	{"squad_volksg_con(ger)"			requires	"squad_grenadier_con(ger)"			costs 1  position 10 19}
 	{"squad_volksg_sturm_con(ger)"		requires	"squad_volksg_con(ger)"				costs 2  position 11 19}
 	{"squad_volksg_heavy_con(ger)"		requires	"squad_volksg_sturm_con(ger)"		costs 2  position 12 19}
@@ -92,14 +92,28 @@
 	{"squad_luftwaffe_con(ger)"			requires	"squad_strafbatallion_con(ger)"		costs 1  position 2 22}
 	{"squad_lw_jaeger_con(ger)"			requires	"squad_luftwaffe_con(ger) reinforcement_stage_4"			costs 1  position 3 23}
 	{"squad_fallschirmjaeger_con(ger)"	requires	"squad_luftwaffe_con(ger)"			costs 3 position 7 22}
-	{"squad_fallschirmjaeger_motor_con"	requires	"squad_fallschirmjaeger_con(ger)"	costs 2  position 8 22}
-	{"squad_fallschirmjaeger_late_motor_con" requires "squad_fallschirmjaeger_motor_con squad_lw_jaeger_con(ger)" costs 1  position 9 23}
-	{"squad_fallschirm_recon_late_con(ger)"	requires "squad_fallschirmjaeger_late_motor_con reinforcement_stage_4" costs 1  position 10 23}
+	{"squad_fallschirmjaeger_motor_con"	requires	"squad_fallschirmjaeger_con(ger)"	costs 1  position 8 22}
+	{"squad_fallschirmjaeger_late_motor_con" requires "squad_fallschirm_late_off_2(ger)" costs 0  position 10 23}
+	{"squad_fallschirm_recon_late_con(ger)"	requires "squad_fallschirm_recon_late_irr_3(ger)" costs 0  position 9 22}
 	{"squad_blau_con(ger)"				requires	"squad_regular_con(ger)"			costs 2  position 0 17}
 	{"squad_brandenburger_con(ger)"		requires	"squad_regular_vet_con(ger)"		costs 3  position 3 14}
 	{"squad_brandenburger_44_con(ger)"	requires	"squad_brandenburger_con(ger) reinforcement_stage_4"		costs 1  position 5 14}
 	
-	{"squad_sturm_begleitgren_motor_con"requires	"stug3g_late"						costs 0  position 6 53} ;// only found in stug (sturmartillerie) units
+	{"squad_sturm_begleitgren_motor_con"requires	"squad_begleit_sturm_late_sup(ger)"						costs 0  position 8 51} ;// only found in stug (sturmartillerie) units
+	{"squad_pz_pio_gd_late_off(ger)"		requires	"squad_pzgren_gd_late_off(ger)"		costs 0  position 11 15}
+	{"squad_pzgren_gd_late_off(ger)"		requires	"squad_gd_motor_con reinforcement_stage_4"		costs 1  position 10 16}
+	{"squad_lw_pio_late_irr_1(ger)"		requires	"squad_pionier_con(ger) reinforcement_stage_3"		costs 0  position 6 19}
+	{"squad_lw_recon_late_irr(ger)"		requires	"squad_recon_con(ger) reinforcement_stage_3"		costs 1  position 5 20}
+	{"squad_fallschirm_recon_late_irr_3(ger)"		requires	"squad_fallschirm_late_off_2(ger)"		costs 1  position 9 23}
+	{"squad_pzlehr_recon_late_all2(ger)"		requires	"squad_pzlehr_pzgren_late_all2(ger)"		costs 0  position 11 21}
+	{"squad_pzlehr_pio_late_all2(ger)"		requires	"squad_pzlehr_pzgren_late_all2(ger)"		costs 0  position 12 21}
+	{"squad_pzlehr_pzgren_late_all2(ger)"		requires	"squad_grenadier_con(ger)"		costs 2  position 11 22}
+	{"squad_pzlehr_pz_sturmgren_late_all2(ger)"		requires	"squad_pzg_lehr_armor_con"		costs 2  position 13 22}
+	{"squad_fallschirm_late_off_2(ger)"		requires	"squad_lw_jaeger_con(ger) squad_fallschirmjaeger_con(ger)"		costs 2  position 7 23}
+	{"squad_fallschirm_pio_late_irr_3(ger)"		requires	"squad_fallschirm_late_off_2(ger)"		costs 0  position 10 24}
+	{"squad_begleit_pio_late_sup(ger)"		requires	"squad_begleitgren_late_off(ger)"		costs 0  position 6 51}
+	{"squad_begleit_sturm_late_sup(ger)"		requires	"squad_begleitgren_late_off(ger)"		costs 1  position 7 51}
+	{"squad_begleitgren_late_off(ger)"		requires	"stug3g_late"		costs 0  position 6 52}
 ;TOTAL:
 
 
