@@ -80,7 +80,7 @@ StrategyTemplates = {
 		},
 		BotInfantry = {
 			min = 40,
-			max = 75,
+			max = 95,
 		},
 		BotATInfantry = {
 			min = 1,

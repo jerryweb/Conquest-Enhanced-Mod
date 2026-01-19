@@ -249,9 +249,9 @@ Purchases["conquest.rus"] = {
 				{priority = 1.5, type = {"Tank", "Heavy",}, unit = "kv2_40"},
 				{priority = 2.0, type = {"Tank", "Heavy",}, unit = "kv1s"},
 				{priority = 0.5, type = {"Tank", "Heavy",}, unit = "kv85"},
-				{priority = 0.5, type = {"Tank", "Heavy",}, unit = "is1_43"},
-				{priority = 1.5, type = {"Tank", "Heavy",}, unit = "is2_43"},
-				{priority = 2.0, type = {"Tank", "Heavy",}, unit = "is2_44"},
+				{priority = 1.1, type = {"Tank", "Heavy",}, unit = "is1_43"},
+				{priority = 1.25, type = {"Tank", "Heavy",}, unit = "is2_43"},
+				{priority = 1.75, type = {"Tank", "Heavy",}, unit = "is2_44"},
 				{priority = 0.5, type = {"Tank", "Heavy", "Elite", "Big_gun",}, unit = "is2_45"},
 				--]]
 
@@ -265,8 +265,8 @@ Purchases["conquest.rus"] = {
 				{priority = 1.0, type = {"Tank", "Medium", "AT",}, unit = "su100"},
 				{priority = 1.5, type = {"Tank", "Medium", "Support",}, unit = "su122"},
 				{priority = 1.0, type = {"Tank", "Heavy", "AT", "Big_gun",}, unit = "su152"},
-				{priority = 2.0, type = {"Tank", "Heavy", "AT", "Big_gun",}, unit = "isu122s"},
-				{priority = 2.0, type = {"Tank", "Heavy", "AT", "Big_gun",}, unit = "isu152"},
+				{priority = 1.5, type = {"Tank", "Heavy", "AT", "Big_gun",}, unit = "isu122s"},
+				{priority = 1.0, type = {"Tank", "Heavy", "AT", "Big_gun",}, unit = "isu152"},
 				--]]
 
 			--Aircraft
