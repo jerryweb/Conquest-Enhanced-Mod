@@ -2125,6 +2125,7 @@
 			}
 			{"ai_logic/reverse_tank_to_repair"
 				{condition
+					{expression "1 & !2"}
 					{terms
 						{"1.near"
 							{units
@@ -2190,6 +2191,30 @@
 										{tag
 											{tag _lua_mi}
 										}
+										{zone
+											{zone "a_1"}
+										}
+										{zone
+											{zone "a_2"}
+										}
+										{zone
+											{zone "a_3"}
+										}
+										{zone
+											{zone "a_4"}
+										}
+										{zone
+											{zone "b_1"}
+										}
+										{zone
+											{zone "b_2"}
+										}
+										{zone
+											{zone "b_3"}
+										}
+										{zone
+											{zone "b_4"}
+										}
 									}
 								}
 							}
@@ -2222,7 +2247,10 @@
 									}
 								}
 							}
-							{distance 160}
+							{distance 200}
+						}
+						{"2.trigger"
+							{name "ai_logic/stop_reversing"}
 						}
 					}
 				}
@@ -2269,6 +2297,19 @@
 									{tag
 										{tag _user_ally}
 									}
+									{broken_components
+										{masks
+											"trackleft"
+										}
+									}
+									{broken_components
+										{masks
+											"trackright"
+										}
+									}
+									{tag
+										{tag engine_brake}
+									}
 									{tag
 										{tag selected_tank_to_repair}
 									}
@@ -2276,7 +2317,34 @@
 										{tag reversing_to_repair}
 									}
 									{tag
+										{tag reversing_to_repair}
+									}
+									{tag
 										{tag _lua_mi}
+									}
+									{zone
+										{zone "a_1"}
+									}
+									{zone
+										{zone "a_2"}
+									}
+									{zone
+										{zone "a_3"}
+									}
+									{zone
+										{zone "a_4"}
+									}
+									{zone
+										{zone "b_1"}
+									}
+									{zone
+										{zone "b_2"}
+									}
+									{zone
+										{zone "b_3"}
+									}
+									{zone
+										{zone "b_4"}
 									}
 								}
 							}
@@ -2392,7 +2460,7 @@
 						}
 						{effect retreat_to_repair}
 					}
-					{"timer"
+					{## "timer"
 						{time 120}
 						{title "falling back"}
 					}
@@ -2406,6 +2474,7 @@
 			}
 			{"ai_logic/stop_reversing"
 				{condition
+					{expression "1 & !2"}
 					{terms
 						{"1.entities"
 							{selector
@@ -2419,9 +2488,16 @@
 								}
 							}
 						}
+						{"2.trigger"
+							{name "ai_logic/reverse_tank_to_repair"}
+						}
 					}
 				}
 				{actions
+					{## "timer"
+						{time 3}
+						{title "AI tank stop reversing"}
+					}
 					{"entity_state"
 						{selector
 							{amount 1
