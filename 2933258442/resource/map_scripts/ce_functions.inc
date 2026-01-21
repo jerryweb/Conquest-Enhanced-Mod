@@ -164,6 +164,42 @@
 										{player
 											{player "0"}
 										}
+										{prop
+											{prop airborne}
+										}
+									}
+								}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag _def}
+										}
+										{tag
+											{tag _bot}
+										}
+									}
+									{include
+										{state
+											{state "operatable inhabited"}
+										}
+										{prop
+											{prop airborne}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{player
+											{player "0"}
+										}
+										
 									}
 								}
 							}
@@ -392,6 +428,9 @@
 								}
 								{state
 									{state dead}
+								}
+								{prop
+									{prop airborne}
 								}
 							}
 						}

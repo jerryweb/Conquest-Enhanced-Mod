@@ -21,6 +21,9 @@
 										}
 									}
 									{exclude
+										{prop
+											{prop airborne}
+										}
 										{broken_components
 											{masks
 												"body"
@@ -92,6 +95,9 @@
 									}
 								}
 								{exclude
+									{prop
+										{prop airborne}
+									}
 									{broken_components
 										{masks
 											"body"
