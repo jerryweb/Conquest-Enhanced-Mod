@@ -75,8 +75,8 @@ StrategyTemplates = {
             "Artillery",
 		},
 		forceUnitCount = {
-			min = 3,
-			max = 5,
+			min = 1,
+			max = 2,
 		},
 		BotInfantry = {
 			min = 40,
@@ -87,12 +87,12 @@ StrategyTemplates = {
 			max = 4,
 		},
 		BotInfantrySignaller = {
-			min = 2,
-			max = 3,
+			min = 1,
+			max = 2,
 		},
 		BotArtillery = {
-			min = 4,
-			max = 6,
+			min = 1,
+			max = 3,
 		},
 		BotMortars = {
 			min = 3,
@@ -375,8 +375,8 @@ StrategyTemplates = {
 			max = 4,
 		},
 		BotArtillery = {
-			min = 2,
-			max = 4,
+			min = 1,
+			max = 3,
 		},
 		BotMortars = {
 			min = 3,
