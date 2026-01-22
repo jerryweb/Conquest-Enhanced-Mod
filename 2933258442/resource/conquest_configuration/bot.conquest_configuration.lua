@@ -141,8 +141,8 @@
 				},
 			},
 			difficultyModifier = {
-				heroic = -3,
-				hard = -2,
+				heroic = -2,
+				hard = -1,
 				normal = 0,
 				easy = 2,
 			}
