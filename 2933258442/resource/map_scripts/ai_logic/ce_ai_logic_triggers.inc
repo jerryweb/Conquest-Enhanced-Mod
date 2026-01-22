@@ -2185,12 +2185,9 @@
 										{tag
 											{tag reversing_to_repair}
 										}
-										{tag
-											{tag reversing_to_repair}
-										}
-										{tag
-											{tag _lua_mi}
-										}
+										;{tag
+										;	{tag _lua_mi}
+										;}
 										{zone
 											{zone "a_1"}
 										}
@@ -2316,12 +2313,9 @@
 									{tag
 										{tag reversing_to_repair}
 									}
-									{tag
-										{tag reversing_to_repair}
-									}
-									{tag
-										{tag _lua_mi}
-									}
+									;{tag
+									;	{tag _lua_mi}
+									;}
 									{zone
 										{zone "a_1"}
 									}
@@ -2393,6 +2387,12 @@
 					{"delay"
 						{time 0.2}
 					}
+					{"effect"
+						{selector
+							{tag selected_tank_to_repair}
+						}
+						{effect smoke_for_test}
+					}
 					{"select"
 						{tag selected_tank_to_repair}
 						{type tank}
@@ -2420,14 +2420,13 @@
 						{selector
 							{source current}
 						}
-						{drop orders}
 						{action move}
 						{target
 							{source advanced}
 							{group
 								{select
 									{tag
-										{tag spawn}
+										{tag ai_spawn}
 									}
 								}
 								{include
@@ -2445,7 +2444,7 @@
 								{type entity}
 								{entity
 									{tag selected_tank_to_repair}
-									{type vehicle}
+									{type tank}
 									{state inhabited}
 								}
 							}
@@ -2454,7 +2453,7 @@
 					{"delay"
 						{time 0.2}
 					}
-					{"effect"
+					{## "effect"
 						{selector
 							{source current}
 						}
