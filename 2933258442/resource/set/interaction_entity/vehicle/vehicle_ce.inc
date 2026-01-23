@@ -283,7 +283,6 @@
     {on "ignore_repair_75"
         {tags add "ignore_repair"}
         {tags remove "repair_target"}
-        {tags remove "repair_target_tank_crew"}
         {delay 75
             {tags remove "ignore_repair"}
         }

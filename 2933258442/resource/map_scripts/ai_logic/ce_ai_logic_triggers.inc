@@ -1327,6 +1327,120 @@
 										}
 									}
 								}
+								{group
+									{select
+										{tag
+											{tag _bot}
+										}
+									}
+									{include
+										{broken_components
+											{masks
+												"trackleft"
+											}
+										}
+										{state
+											{state inhabited}
+										}
+									}
+									{exclude
+										{destroyed_components
+											{masks
+												"body"
+											}
+										}
+										{prop
+											{prop airborne}
+										}
+										{tag
+											{tag destroyed}
+										}
+										{prop
+											{prop ammo_point}
+										}
+										{prop
+											{prop parachute_attach}
+										}
+										{tag
+											{tag repair_target}
+										}
+										{tag
+											{tag ignore_repair}
+										}
+										{tag
+											{tag not_selectable}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag ammo_cooked}
+										}
+										{tag
+											{tag _user_ally}
+										}
+										{tag
+											{tag _user}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag _bot}
+										}
+									}
+									{include
+										{broken_components
+											{masks
+												"trackright"
+											}
+										}
+										{state
+											{state inhabited}
+										}
+									}
+									{exclude
+										{destroyed_components
+											{masks
+												"body"
+											}
+										}
+										{prop
+											{prop airborne}
+										}
+										{tag
+											{tag destroyed}
+										}
+										{prop
+											{prop ammo_point}
+										}
+										{prop
+											{prop parachute_attach}
+										}
+										{tag
+											{tag repair_target}
+										}
+										{tag
+											{tag ignore_repair}
+										}
+										{tag
+											{tag not_selectable}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag ammo_cooked}
+										}
+										{tag
+											{tag _user_ally}
+										}
+										{tag
+											{tag _user}
+										}
+									}
+								}
 							}
 						}
 						{"2.entities"
@@ -1396,66 +1510,654 @@
 					}
 				}
 				{actions
-					{## "talk"
-						{selector
-							{amount 1
+					{"select"
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag ai_engineer}
+								}
 							}
-							{zone "gamezone"}
-							{type human}
+							{include
+								{prop
+									{prop human}
+								}
+								{state
+									{state operatable}
+								}
+							}
+							{exclude
+								{state
+									{state user_control}
+								}
+								{state
+									{state dead}
+								}
+								{state
+									{state inactive}
+								}
+								{state
+									{state linked}
+								}
+								{tag
+									{tag repairing}
+								}
+								{tag
+									{tag player}
+								}
+								{tag
+									{tag engineer_action}
+								}
+							}
 						}
-						{text "mission/multi/test_message"}
+						{amount 1
+						}
 					}
-					{"call"
-						{function "ai_repair_vehicle"}
-						{context
-							{specified}
-							{selector
-								{source advanced}
-								{group
-									{select
-										{tag
-											{tag ai_engineer}
+					{"delay"
+						{time 0.2}
+					}
+					{"effect"
+						{selector
+							{source current}
+						}
+						{effect prep_to_repair_veh}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"select"
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag action_repair}
+								}
+							}
+							{include
+								{prop
+									{prop human}
+								}
+								{state
+									{state operatable}
+								}
+							}
+							{exclude
+								{state
+									{state dead}
+								}
+								{tag
+									{tag player}
+								}
+								{state
+									{state user_control}
+								}
+								{state
+									{state linked}
+								}
+								{state
+									{state inactive}
+								}
+							}
+						}
+						{amount 1
+						}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{tag action_repair}
+									{zone "gamezone"}
+									{type human}
+									{state "not dead"}
+								}
+								{count
+									{op "=="}
+									{value 0}
+								}
+							}
+							{"entity_state"
+								{selector
+									{tag action_repair}
+								}
+								{tag_remove action_repair}
+							}
+							{"delay"
+								{time 1}
+							}
+							{"trigger"
+								{name "ai_logic/ai_repair_vehicles"}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag engine_brake}
+											}
+											{tag
+												{tag turret_brake}
+											}
+											{tag
+												{tag immobile}
+											}
+											{tag
+												{tag gun_brake}
+											}
+										}
+										{include
+											{prop
+												{prop vehicle}
+											}
+											{zone
+												{zone "gamezone"}
+											}
+											{state
+												{state "operatable inhabited"}
+											}
+										}
+										{exclude
+											{destroyed_components
+												{masks
+													"body"
+												}
+											}
+											{prop
+												{prop airborne}
+											}
+											{tag
+												{tag destroyed}
+											}
+											{prop
+												{prop ammo_point}
+											}
+											{prop
+												{prop parachute_attach}
+											}
+											{tag
+												{tag repair_target}
+											}
+											{tag
+												{tag ignore_repair}
+											}
+											{tag
+												{tag not_selectable}
+											}
+											{state
+												{state user_control}
+											}
+											{tag
+												{tag ammo_cooked}
+											}
+											{tag
+												{tag _user_ally}
+											}
+											{tag
+												{tag _user}
+											}
 										}
 									}
-									{include
-										{prop
-											{prop human}
+									{group
+										{select
+											{tag
+												{tag _bot}
+											}
 										}
-										{state
-											{state operatable}
+										{include
+											{broken_components
+												{masks
+													"trackleft"
+												}
+											}
+											{state
+												{state inhabited}
+											}
+										}
+										{exclude
+											{destroyed_components
+												{masks
+													"body"
+												}
+											}
+											{prop
+												{prop airborne}
+											}
+											{tag
+												{tag destroyed}
+											}
+											{prop
+												{prop ammo_point}
+											}
+											{prop
+												{prop parachute_attach}
+											}
+											{tag
+												{tag repair_target}
+											}
+											{tag
+												{tag ignore_repair}
+											}
+											{tag
+												{tag not_selectable}
+											}
+											{state
+												{state user_control}
+											}
+											{tag
+												{tag ammo_cooked}
+											}
+											{tag
+												{tag _user_ally}
+											}
+											{tag
+												{tag _user}
+											}
 										}
 									}
-									{exclude
-										{state
-											{state user_control}
+									{group
+										{select
+											{tag
+												{tag _bot}
+											}
 										}
-										{state
-											{state dead}
+										{include
+											{broken_components
+												{masks
+													"trackright"
+												}
+											}
+											{state
+												{state inhabited}
+											}
 										}
-										{state
-											{state inactive}
-										}
-										{state
-											{state linked}
-										}
-										{tag
-											{tag repairing}
-										}
-										{tag
-											{tag player}
-										}
-										{tag
-											{tag engineer_action}
+										{exclude
+											{destroyed_components
+												{masks
+													"body"
+												}
+											}
+											{prop
+												{prop airborne}
+											}
+											{tag
+												{tag destroyed}
+											}
+											{prop
+												{prop ammo_point}
+											}
+											{prop
+												{prop parachute_attach}
+											}
+											{tag
+												{tag repair_target}
+											}
+											{tag
+												{tag ignore_repair}
+											}
+											{tag
+												{tag not_selectable}
+											}
+											{state
+												{state user_control}
+											}
+											{tag
+												{tag ammo_cooked}
+											}
+											{tag
+												{tag _user_ally}
+											}
+											{tag
+												{tag _user}
+											}
 										}
 									}
 								}
-								{amount 1
+							}
+							{"entity_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag engine_brake}
+											}
+											{tag
+												{tag turret_brake}
+											}
+											{tag
+												{tag immobile}
+											}
+											{tag
+												{tag gun_brake}
+											}
+										}
+										{include
+											{prop
+												{prop vehicle}
+											}
+											{zone
+												{zone "gamezone"}
+											}
+											{state
+												{state "operatable inhabited"}
+											}
+										}
+										{exclude
+											{destroyed_components
+												{masks
+													"body"
+												}
+											}
+											{prop
+												{prop airborne}
+											}
+											{tag
+												{tag destroyed}
+											}
+											{prop
+												{prop ammo_point}
+											}
+											{prop
+												{prop parachute_attach}
+											}
+											{tag
+												{tag repair_target}
+											}
+											{tag
+												{tag ignore_repair}
+											}
+											{tag
+												{tag not_selectable}
+											}
+											{state
+												{state user_control}
+											}
+											{tag
+												{tag ammo_cooked}
+											}
+											{tag
+												{tag _user_ally}
+											}
+											{tag
+												{tag _user}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag _bot}
+											}
+										}
+										{include
+											{broken_components
+												{masks
+													"trackleft"
+												}
+											}
+											{state
+												{state inhabited}
+											}
+										}
+										{exclude
+											{destroyed_components
+												{masks
+													"body"
+												}
+											}
+											{prop
+												{prop airborne}
+											}
+											{tag
+												{tag destroyed}
+											}
+											{prop
+												{prop ammo_point}
+											}
+											{prop
+												{prop parachute_attach}
+											}
+											{tag
+												{tag repair_target}
+											}
+											{tag
+												{tag ignore_repair}
+											}
+											{tag
+												{tag not_selectable}
+											}
+											{state
+												{state user_control}
+											}
+											{tag
+												{tag ammo_cooked}
+											}
+											{tag
+												{tag _user_ally}
+											}
+											{tag
+												{tag _user}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag _bot}
+											}
+										}
+										{include
+											{broken_components
+												{masks
+													"trackright"
+												}
+											}
+											{state
+												{state inhabited}
+											}
+										}
+										{exclude
+											{destroyed_components
+												{masks
+													"body"
+												}
+											}
+											{prop
+												{prop airborne}
+											}
+											{tag
+												{tag destroyed}
+											}
+											{prop
+												{prop ammo_point}
+											}
+											{prop
+												{prop parachute_attach}
+											}
+											{tag
+												{tag repair_target}
+											}
+											{tag
+												{tag ignore_repair}
+											}
+											{tag
+												{tag not_selectable}
+											}
+											{state
+												{state user_control}
+											}
+											{tag
+												{tag ammo_cooked}
+											}
+											{tag
+												{tag _user_ally}
+											}
+											{tag
+												{tag _user}
+											}
+										}
+									}
+									{sort
+										{type entity}
+										{entity
+											{amount 1
+											}
+											{tag ai_spawn}
+											{zone "gamezone"}
+										}
+									}
+									{amount 1
+									}
 								}
+								{tag_add repair_target}
+							}
+						}
+						{"default"
+							{"entity_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag body_break}
+											}
+											{tag
+												{tag engine_brake}
+											}
+											{tag
+												{tag turret_brake}
+											}
+											{tag
+												{tag immobile}
+											}
+											{tag
+												{tag gun_brake}
+											}
+										}
+										{include
+											{prop
+												{prop vehicle}
+											}
+											{zone
+												{zone "gamezone"}
+											}
+										}
+										{exclude
+											{destroyed_components
+												{masks
+													"body"
+												}
+											}
+											{prop
+												{prop airborne}
+											}
+											{tag
+												{tag destroyed}
+											}
+											{prop
+												{prop ammo_point}
+											}
+											{prop
+												{prop parachute_attach}
+											}
+											{tag
+												{tag repair_target}
+											}
+											{tag
+												{tag ignore_repair}
+											}
+											{tag
+												{tag not_selectable}
+											}
+											{state
+												{state user_control}
+											}
+											{tag
+												{tag ammo_cooked}
+											}
+											{tag
+												{tag _user_ally}
+											}
+											{tag
+												{tag _user}
+											}
+										}
+									}
+									{sort
+										{type entity}
+										{entity
+											{amount 1
+											}
+											{tag action_repair}
+											{zone "gamezone"}
+											{type human}
+											{state "not dead"}
+										}
+									}
+									{amount 1
+									}
+								}
+								{tag_add repair_target}
 							}
 						}
 					}
 					{"delay"
-						{time 6}
+						{time 0.4}
+					}
+					{"action"
+						{selector
+							{source current}
+						}
+						{drop orders}
+						{action repair}
+						{target
+							{amount 1
+							}
+							{tag repair_target}
+							{zone "gamezone"}
+							{type vehicle}
+						}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"actor_state"
+						{selector
+							{source current}
+						}
+						{movement
+							{speed assault}
+							{kind fast}
+						}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"effect"
+						{selector
+							{tag repair_target}
+						}
+						{effect ignore_repair_75}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{source current}
+						}
+						{tag_remove action_repair}
+					}
+					{"delay"
+						{time 0.5}
 					}
 					{"trigger"
 						{name "ai_logic/ai_repair_vehicles"}
@@ -2387,7 +3089,7 @@
 					{"delay"
 						{time 0.2}
 					}
-					{"effect"
+					{## "effect"
 						{selector
 							{tag selected_tank_to_repair}
 						}

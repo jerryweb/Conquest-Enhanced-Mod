@@ -131,26 +131,6 @@
 		{tags remove "bot"}
 	}
 
-	(define "check_if_tank_crew_idle" 
-		{delay %delay
-			{if tagged "ai_tank_crew"
-				{if not tagged "tank_crew_idle"
-					{if not dead
-						{if not tagged "repairing"
-							{if not tagged "action_repair_tank_crew"
-								{if not linked "vehicle"
-									{if not user_control
-										{tags add "tank_crew_idle"}	
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	)
-
 	{on "notify_signaller_has_spawned"
 		{tags add "acknowledged"}
 		{delay 2
@@ -223,7 +203,7 @@
 ;============= Repair Functions =============
 	{on "prep_to_repair_veh"
 		{if tagged "ai_tank_crew"
-			{tags remove "tank_crew_idle"}
+			
 			{tags add "action_repair_tank_crew"}
 			{tags add "ignore_recrew"}
 		else
@@ -233,18 +213,17 @@
 
 	{on "start_repair"
 		{view start ally neutral "marker_repair"}
-		{tags remove "tank_crew_idle"}
+		
 	}
 
 	{on "stop_repair"
 		{view pause "marker_repair"}
 		{delay 10
 			{if tagged "ai_tank_crew"
-				{tags remove "tank_crew_idle"}
+				
 				{tags remove "ignore_recrew"}
 			}
 		}
-		("check_if_tank_crew_idle" delay(5))
 	}
 
 ;============= More Engineer Functions =============
@@ -312,17 +291,16 @@
 		{tags remove "recrew_action"}
 		{tags remove "recrew_action_defender_ai"}
 		{tags remove "recrew_action_tank_crew"}
-		{tags remove "tank_crew_idle"}
+		
 		{delay 60
 			{tags remove "ignore_recrew"}
-			("check_if_tank_crew_idle" delay(5))
 		}
 	}
 
 	{on "prep_ai_tank_crew_for_recrew"
 		{tags add "ai_tc_vcrew"}
 		{tags add "_lua_mi"}
-		{tags remove "tank_crew_idle"}
+		
 		{tags remove "looking_for_veh"}
 	}
 
@@ -352,7 +330,7 @@
 
 ;============= Vanilla and Overloaded Functions =============
 	{on board in							;// boarding a vehicle
-		{tags remove "tank_crew_idle"}
+		
 		{tags remove "looking_for_veh"}
 		{tags remove "ignore_recrew"}
 		{tags remove "ecrew"}
@@ -368,7 +346,6 @@
 	}	
 
 	{on board out							;// exiting a vehicle
-		("check_if_tank_crew_idle" delay(7))
 		;{if linked "multi_board"
 		;	{if not tagged "ai_tank_crew"
 		;		{if not user_control
@@ -433,7 +410,7 @@
 		{tags remove "ai_engineer"}
 		{tags remove "ai_tank_crew"}
 		{tags remove "inf_need_to_attack"}
-		{tags remove "tank_crew_idle"}
+		
 		{tags remove "ignore_recrew"}	
 		{view stop "beacon_fx"}
 	}
