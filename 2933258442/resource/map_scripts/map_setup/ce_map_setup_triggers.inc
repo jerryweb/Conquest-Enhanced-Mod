@@ -635,7 +635,7 @@
 						{op "+"}
 						{value 1}
 					}
-					{"timer"
+					{## "timer"
 						{time 5}
 						{title "AI grid system available"}
 					}

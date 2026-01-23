@@ -2387,7 +2387,7 @@
 					{"delay"
 						{time 0.2}
 					}
-					{"effect"
+					{## "effect"
 						{selector
 							{tag selected_tank_to_repair}
 						}
