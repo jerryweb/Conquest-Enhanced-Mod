@@ -1,7 +1,6 @@
 {"human"
 	{on spawn	
 		{delay 0.5
-			;{add_view	"auto_medic"				"auto_medic"				"head" not_manual not_scenario} ;// Auto Medic edited by TJDagger
 			{add_view "beacon_fx" "beacon_fx" "head"}
 			{delay 3
 				{if tagged "radio_man"
@@ -10,12 +9,6 @@
 			}
 			{call "tag_ai_tank_crew"}	
 			{call "clear_bad_player_tags"}
-
-			;{if user_control
-			;	{if tagged "auto_medic"
-			;		{view start ally neutral "auto_medic"}
-			;	}
-			;}
 		}
 	}
 

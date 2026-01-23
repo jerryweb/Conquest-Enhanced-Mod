@@ -6708,10 +6708,10 @@
 								}
 								{tag_remove temp3}
 							}
-							{## "delay"
-								{time 0.5}
+							{"delay"
+								{time 4}
 							}
-							{## "effect"
+							{"effect"
 								{selector
 									{tag etank_enter}
 									{state inhabited}

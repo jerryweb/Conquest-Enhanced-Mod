@@ -3226,6 +3226,7 @@
 						{selector
 							{source current}
 						}
+						{drop orders}
 						{movement
 							{forward on}
 							{backward on}
@@ -5238,7 +5239,7 @@
 								}
 								{distance
 									{mode near_than}
-									{meters 100}
+									{meters 160}
 								}
 								{tag
 									{"tag pair"}
