@@ -40,12 +40,12 @@
 	{"ba20_command"						requires	"squad_officer_gaz_con"				costs 2  position 6 2}
 
 {"single_engineer(rus)"				requires	""									costs 2  position 0 11}
-	{"single_ap_miner(rus)"				requires	"single_engineer(rus)"				costs 0  position 1 11}
-	{"single_at_miner(rus)"				requires	"single_ap_miner(rus)"				costs 0  position 2 11}
+	{"single_ap_miner(rus)"				requires	"single_engineer(rus)"				costs 0  position 1 10}
+	{"single_at_miner(rus)"				requires	"single_ap_miner(rus)"				costs 0  position 2 10}
 	{"single_flamer(rus)"				requires	"single_at_miner(rus)"				costs 0  position 3 11}
 
 	{"single_sniper(rus)"				requires	"squad_rifleunit_alt_con(rus)"		costs 1  position 3 16}
-	{"elite_guards_sniper(rus)"				requires	"single_sniper(rus) reinforcement_stage_4"		costs 1  position 3 14}
+	{"elite_guards_sniper(rus)"				requires	"single_sniper(rus) reinforcement_stage_3"		costs 1  position 3 14}
 	{"single_at(rus)"					requires	""									costs 0  position 0 6}
 	{"single_riflegrenade(rus)"			requires	"single_at(rus)"					costs 1  position 1 7}
 	{"single_at2(rus)"					requires	"single_at(rus)"					costs 1  position 2 6}
@@ -84,11 +84,11 @@
 	{"squad_guards_smg_con(rus)"		requires	"squad_guardsrifle_con(rus) squad_smg_mg_43_con(rus)"	costs 2  position 7 13}
 	{"squad_guardsrifle_motorised_con"	requires	"squad_guardsrifle_con(rus) squad_rifle_motorised_con"	costs 1  position 8 15}
 	{"squad_guardsrifle_44_con(rus)"	requires	"squad_guardsrifle_con(rus) squad_rifle_44_con(rus)"	costs 1  position 10 16}
-	{"squad_guardsrifle_44_motor_con(rus)"requires	"squad_guardsrifle_44_con(rus) squad_guardsrifle_motorised_con"	costs 1  position 11 15}
+	{"squad_guardsrifle_44_motor_con(rus)"requires	"squad_guardsrifle_44_con(rus) squad_guardsrifle_motorised_con"	costs 1  position 12 15}
 	{"squad_guards_smg_mg_44_con(rus)"	requires	"squad_guardsrifle_44_con(rus) squad_guards_smg_con(rus) squad_smg_mg_44_con(rus)"	costs 1  position 10 13}
-	{"squad_guards_smg_mg_44_motor_con(rus)"requires"squad_guards_smg_mg_44_con(rus) squad_guardsrifle_44_motor_con(rus)"	costs 1  position 11 12}
-	{"squad_elite_guardsrifle_44_motor_con(rus)"requires"squad_guardsrifle_44_motor_con(rus)"	costs 1  position 12 15}
-	{"squad_elite_guards_smg_mg_44_motor_con(rus)"requires"squad_guards_smg_mg_44_motor_con(rus)"	costs 1  position 12 12}
+	{"squad_guards_smg_mg_44_motor_con(rus)"requires"squad_guards_smg_mg_44_con(rus)"	costs 1  position 11 12}
+	{"squad_elite_guardsrifle_44_motor_con(rus)"requires"squad_guardsrifle_44_motor_con(rus) squad_elite_guard_rifle_late_support(rus)"	costs 1  position 13 15}
+	{"squad_elite_guards_smg_mg_44_motor_con(rus)"requires"squad_veteran_guard_assault_late(rus)"	costs 0  position 12 12}
 
 	{"squad_assaultsappers_con(rus)"	requires	"squad_guards_smg_mg_44_con(rus)"	costs 3  position 12 13}
 	{"squad_assaultsappers_flame_con(rus)"	requires	"squad_assaultsappers_con(rus)"	costs 1  position 13 13}
@@ -106,6 +106,13 @@
 	{"squad_nkvd_at_rifle_con(rus)"		requires	"squad_nkvd_rifle_con(rus)"			costs 1  position 1 15}
 	{"squad_nkvd_mountain_con(rus)"		requires	"squad_nkvd_rifle_con(rus)"			costs 2  position 0 13}
 	{"squad_nkvd_mountain_cav_con(rus)"	requires	"squad_nkvd_mountain_con(rus)"		costs 2  position 1 12}
+	{"squad_guards_marine_assault_44_con(rus)"		requires	"squad_guards_marines_44_con(rus)"		costs 1  position 7 11}
+	{"squad_elite_guard_smg_late(rus)"		requires	"squad_guards_smg_mg_44_con(rus)"		costs 2  position 10 11}
+	{"squad_veteran_guard_assault_late(rus)"		requires	"squad_elite_guard_smg_late(rus)"		costs 1  position 11 11}
+	{"squad_elite_guard_rifle_late_irregular(rus)"		requires	"squad_guardsrifle_44_con(rus)"		costs 2  position 11 14}
+	{"squad_elite_guard_rifle_late_support(rus)"		requires	"squad_elite_guard_rifle_late_irregular(rus)"		costs 0  position 12 14}
+	;{"squad_partisan_wave_con(rus)"		requires	""		costs 0  position 12 20}
+	;{"squad_nkvd_rifle_wave_con(rus)"		requires	""		costs 0  position 12 21}
 ;TOTAL:
 
 
@@ -117,9 +124,9 @@
 
 
 ;//---Mortar---
-	{"82mm_bm37"		requires	""					costs 2 position 4 21}
-	{"m41_ampulomet"	requires	"82mm_bm37"			costs 0  position 5 20}
-	{"120mm_pm38"		requires	"82mm_bm37"			costs 4  position 7 21}
+	{"82mm_bm37"		requires	""					costs 2 position 8 22}
+	{"m41_ampulomet"	requires	"82mm_bm37"			costs 0  position 6 22}
+	{"120mm_pm38"		requires	"82mm_bm37"			costs 4  position 10 22}
 
 ;//---AA---
 	{"dshk_aa"		requires	""						costs 2  position 0 25}
@@ -162,13 +169,13 @@
 
 ;//---Trucks---
 	{"inf_crate_rus"	requires	""					costs 0  position 0 9}
-	{"zis5"				requires	""					costs 0  position 4 17}
+	{"zis5"				requires	""					costs 1  position 4 17}
 	{"ap_2"				requires	"inf_crate_rus"		costs 1  position 1 9}
 	{"gaz_aaa_supply"	requires	"ap_2"				costs 1  position 3 9}
 	{"gaz_fuel"			requires	"gaz_aaa_supply"	costs 1  position 5 9}
 	{"gaz_aaa_maximx4"	requires	"maxim"				costs 2  position 1 22}
 	{"gaz_aaa_72k"		requires	"25mm_72k"			costs 1  position 3 24}
-	{"yag10_29k"		requires	"76mm_m1938"			costs 1  position 6 23}
+	{"yag10_29k"		requires	"76mm_m1938"			costs 1  position 7 24}
 	{"zis5eng"			requires	"single_engineer(rus)"	costs 1  position 4 11}
 	{"zis5_dshk"		requires	"dshk_aa"			costs 1  position 1 24}
 
