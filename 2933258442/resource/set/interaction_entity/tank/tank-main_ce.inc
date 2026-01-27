@@ -160,16 +160,27 @@
         {tags remove "selected_tank_to_repair"}
         {tags add "reversing_to_repair"}
         {tags add "_lua_mi"}
-        {delay 120
-        	{if rand 0.3
+        {delay 200
+        	;{if rand 0.3
             	("deploy_smoke_screen")
-            } 
+            ;} 
             {drop_orders}
             {tags add "ai_stop_reversing"}
             {tags remove "reversing_to_repair"}
-            {delay 30
-            	{tags remove "_lua_mi"}
-            }            
+            ;{delay 30
+            ;	{tags remove "_lua_mi"}
+            ;}            
+        }
+    }
+
+    {on "tag_ai_for_static_repairng"
+        {tags add "ai_stopping_to_repair"}
+        {tags remove "reversing_ai_selected"}
+        {tags remove "ai_stop_reversing"}
+        {delay 60
+            {tags remove "ai_stopping_to_repair"}
+            {tags add "ai_ready_to_move"}
+            {tags remove "_lua_mi"}
         }
     }
 

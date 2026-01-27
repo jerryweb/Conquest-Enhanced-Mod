@@ -2887,9 +2887,6 @@
 										{tag
 											{tag reversing_to_repair}
 										}
-										;{tag
-										;	{tag _lua_mi}
-										;}
 										{zone
 											{zone "a_1"}
 										}
@@ -3015,9 +3012,6 @@
 									{tag
 										{tag reversing_to_repair}
 									}
-									;{tag
-									;	{tag _lua_mi}
-									;}
 									{zone
 										{zone "a_1"}
 									}
@@ -3089,12 +3083,6 @@
 					{"delay"
 						{time 0.2}
 					}
-					{## "effect"
-						{selector
-							{tag selected_tank_to_repair}
-						}
-						{effect smoke_for_test}
-					}
 					{"select"
 						{tag selected_tank_to_repair}
 						{type tank}
@@ -3155,7 +3143,7 @@
 					{"delay"
 						{time 0.2}
 					}
-					{## "effect"
+					{"effect"
 						{selector
 							{source current}
 						}
@@ -3208,6 +3196,7 @@
 							{state inhabited}
 						}
 						{tag_add reversing_ai_selected}
+						{tag_remove ai_stop_reversing}
 					}
 					{"delay"
 						{time 0.1}
@@ -3222,30 +3211,98 @@
 					{"delay"
 						{time 0.1}
 					}
-					{"actor_state"
+					{"effect"
 						{selector
 							{source current}
 						}
-						{drop orders}
-						{movement
-							{forward on}
-							{backward on}
+						{effect engine_toggle}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"effect"
+						{selector
+							{tag reversing_ai_selected}
 						}
+						{effect tag_ai_for_static_repairng}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"trigger"
+						{name "ai_logic/stop_reversing"}
+					}
+				}
+			}
+			{"ai_logic/enable_forward_movement"
+				{condition
+					{expression "1"}
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag ai_ready_to_move}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{## "timer"
+						{time 3}
+						{title "AI tank stop reversing"}
+					}
+					{"entity_state"
+						{selector
+							{amount 1
+							}
+							{tag ai_ready_to_move}
+							{type vehicle}
+							{state inhabited}
+						}
+						{tag_add ready_to_move_ai_selected}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"select"
+						{amount 1
+						}
+						{tag ready_to_move_ai_selected}
+						{type vehicle}
+						{state inhabited}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"effect"
+						{selector
+							{source current}
+						}
+						{effect engine_toggle}
 					}
 					{"delay"
 						{time 0.1}
 					}
 					{"entity_state"
 						{selector
-							{tag reversing_ai_selected}
+							{tag ready_to_move_ai_selected}
 						}
-						{tag_remove reversing_ai_selected}
+						{tag_remove ai_ready_to_move}
+					}
+					{"delay"
+						{time 0.1}
 					}
 					{"entity_state"
 						{selector
-							{tag ai_stop_reversing}
+							{tag ready_to_move_ai_selected}
 						}
-						{tag_remove ai_stop_reversing}
+						{tag_remove ready_to_move_ai_selected}
 					}
 					{"delay"
 						{time 0.2}
@@ -5465,10 +5522,13 @@
 								{ai_move
 									{mode enable}
 								}
-								;{movement
-								;	{speed assault}
-								;	{type normal}
-								;}
+								{movement
+									{speed assault}
+									{type normal}
+								}
+								{ai
+									{advance_ratio "3"}
+								}
 								{human
 									{veterancy 5}
 								}
