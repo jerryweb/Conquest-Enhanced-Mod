@@ -69,6 +69,11 @@ Purchases["conquest.rus"] = {
 				{priority = 1.0, type = {"Infantry", "Squad", "Elite",}, unit = "squad_elite_guards_smg_mg_44_motor_con(rus)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Elite",}, unit = "squad_guards_cav_44_con(rus)"},
 				{priority = 1.0, type = {"Infantry", "Squad", "Elite",}, unit = "squad_guards_marines_44_con(rus)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "Elite",}, unit = "squad_guards_marine_assault_44_con(rus)"},
+				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_elite_guard_rifle_late_support(rus)"},
+				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_elite_guard_rifle_late_irregular(rus)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "Elite",}, unit = "squad_elite_guard_smg_late(rus)"},
+				{priority = 1.0, type = {"Infantry", "Squad", "Elite",}, unit = "squad_veteran_guard_assault_late(rus)"},				
 
 				--T4
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_nkvd_mountain_cav_con(rus)"},
