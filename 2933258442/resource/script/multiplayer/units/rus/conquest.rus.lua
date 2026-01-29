@@ -195,7 +195,7 @@ Purchases["conquest.rus"] = {
 				{priority = 0.5, type = {"Tank", "Light",}, unit = "t40"},
 				{priority = 1.0, type = {"Tank", "Light",}, unit = "t30"},
 				{priority = 3.0, type = {"Tank", "Light",}, unit = "t60"},
-				{priority = 0.1, type = {"Tank", "Light", "Artillery", "Rocket_Arty",}, unit = "t60_bm8_24"},
+				-- {priority = 0.1, type = {"Tank", "Light", "Artillery", "Rocket_Arty",}, unit = "t60_bm8_24"},
 				{priority = 0.1, type = {"Tank", "Light",}, unit = "t50"},
 				{priority = 3.0, type = {"Tank", "Light",}, unit = "t70"},
 				{priority = 3.0, type = {"Tank", "Light",}, unit = "t70m"},

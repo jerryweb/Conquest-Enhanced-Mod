@@ -10,62 +10,77 @@ StrategyTemplates = {
 			"Flamer",
 			"Super_Wave",
 		},
-		forceUnitCount = {
-			min = 8,
-			max = 15,
-		},
-		BotInfantry = {
-			min = 70,
-			max = 140,
-		},
-		BotATInfantry = {
-			min = 4,
-			max = 8,
-		},
-		BotInfantrySignaller = {
-			min = 1,
-			max = 3,
-		},
-		BotArtillery = {
-			min = 1,
-			max = 2,
-		},
-		BotMortars = {
-			min = 1,
-			max = 3,
-		},
-		BotEmplacements = {
-			min = 1,
-			max = 5,
-		},
-		BotTanks = {
-			min = 4,
-			max = 6,
-		},
-		BotHeavyTanks = {
-			min = 1,
-			max = 2,
-		},
-		BotSPGs = {
-			min = 1,
-			max = 2,
-		},
-		BotTankDestroyers = {
-			min = 2,
-			max = 4,
-		},
-		BotAircraft = {
-			min = 1,
-			max = 2,
-		},
-		BotReconAircraft = {
-			min = 1,
-			max = 2,
-		},
-		BotArmored = {
-			min = 2,
-			max = 5,
-		},
+		BotInfantry = 1.0,
+		BotTeamInfantry = 1.0,
+		BotATInfantry = 1.0,
+		BotInfantrySignaller = 1.0,
+		BotArtillery = 1.0,
+		BotMortars = 1.0,
+		BotEmplacements = 1.0,
+		BotTanks = 1.0,
+		BotHeavyTanks = 1.0,
+		BotArmored = 1.0,
+		BotSPGs = 1.0,
+		BotTankDestroyers = 1.0,
+		BotAircraft = 1.0,
+		BotReconAircraft = 1.0,
+		BotParatroopers = 0.2,
+		-- forceUnitCount = {
+		-- 	min = 8,
+		-- 	max = 15,
+		-- },
+		-- BotInfantry = {
+		-- 	min = 70,
+		-- 	max = 140,
+		-- },
+		-- BotATInfantry = {
+		-- 	min = 4,
+		-- 	max = 8,
+		-- },
+		-- BotInfantrySignaller = {
+		-- 	min = 1,
+		-- 	max = 3,
+		-- },
+		-- BotArtillery = {
+		-- 	min = 1,
+		-- 	max = 2,
+		-- },
+		-- BotMortars = {
+		-- 	min = 1,
+		-- 	max = 3,
+		-- },
+		-- BotEmplacements = {
+		-- 	min = 1,
+		-- 	max = 5,
+		-- },
+		-- BotTanks = {
+		-- 	min = 4,
+		-- 	max = 6,
+		-- },
+		-- BotHeavyTanks = {
+		-- 	min = 1,
+		-- 	max = 2,
+		-- },
+		-- BotSPGs = {
+		-- 	min = 1,
+		-- 	max = 2,
+		-- },
+		-- BotTankDestroyers = {
+		-- 	min = 2,
+		-- 	max = 4,
+		-- },
+		-- BotAircraft = {
+		-- 	min = 1,
+		-- 	max = 2,
+		-- },
+		-- BotReconAircraft = {
+		-- 	min = 1,
+		-- 	max = 2,
+		-- },
+		-- BotArmored = {
+		-- 	min = 2,
+		-- 	max = 5,
+		-- },
 	},
 	{-- Index 2
 		-- enableArtyTactic = 1,
@@ -74,62 +89,77 @@ StrategyTemplates = {
 			"Rocket_Arty",
             "Artillery",
 		},
-		forceUnitCount = {
-			min = 1,
-			max = 2,
-		},
-		BotInfantry = {
-			min = 40,
-			max = 95,
-		},
-		BotATInfantry = {
-			min = 1,
-			max = 4,
-		},
-		BotInfantrySignaller = {
-			min = 1,
-			max = 2,
-		},
-		BotArtillery = {
-			min = 1,
-			max = 3,
-		},
-		BotMortars = {
-			min = 3,
-			max = 6,
-		},
-		BotEmplacements = {
-			min = 0,
-			max = 1,
-		},
-		BotTanks = {
-			min = 2,
-			max = 3,
-		},
-		BotHeavyTanks = {
-			min = 1,
-			max = 1,
-		},
-		BotSPGs = {
-			min = 1,
-			max = 1,
-		},
-		BotTankDestroyers = {
-			min = 1,
-			max = 1,
-		},
-		BotAircraft = {
-			min = 0,
-			max = 0,
-		},
-		BotReconAircraft = {
-			min = 1,
-			max = 2,
-		},
-		BotArmored = {
-			min = 2,
-			max = 5,
-		},
+		BotInfantry = 1.0,
+		BotTeamInfantry = 1.0,
+		BotATInfantry = 1.0,
+		BotInfantrySignaller = 1.1,
+		BotArtillery = 1.0,
+		BotMortars = 1.0,
+		BotEmplacements = 1.0,
+		BotTanks = 0.8,
+		BotHeavyTanks = 0.2,
+		BotArmored = 0.8,
+		BotSPGs = 1.0,
+		BotTankDestroyers = 0.7,
+		BotAircraft = 0.5,
+		BotReconAircraft = 1.1,
+		BotParatroopers = 0.2,
+		-- forceUnitCount = {
+		-- 	min = 1,
+		-- 	max = 2,
+		-- },
+		-- BotInfantry = {
+		-- 	min = 40,
+		-- 	max = 95,
+		-- },
+		-- BotATInfantry = {
+		-- 	min = 1,
+		-- 	max = 4,
+		-- },
+		-- BotInfantrySignaller = {
+		-- 	min = 1,
+		-- 	max = 2,
+		-- },
+		-- BotArtillery = {
+		-- 	min = 1,
+		-- 	max = 3,
+		-- },
+		-- BotMortars = {
+		-- 	min = 3,
+		-- 	max = 6,
+		-- },
+		-- BotEmplacements = {
+		-- 	min = 0,
+		-- 	max = 1,
+		-- },
+		-- BotTanks = {
+		-- 	min = 2,
+		-- 	max = 3,
+		-- },
+		-- BotHeavyTanks = {
+		-- 	min = 1,
+		-- 	max = 1,
+		-- },
+		-- BotSPGs = {
+		-- 	min = 1,
+		-- 	max = 1,
+		-- },
+		-- BotTankDestroyers = {
+		-- 	min = 1,
+		-- 	max = 1,
+		-- },
+		-- BotAircraft = {
+		-- 	min = 0,
+		-- 	max = 0,
+		-- },
+		-- BotReconAircraft = {
+		-- 	min = 1,
+		-- 	max = 2,
+		-- },
+		-- BotArmored = {
+		-- 	min = 2,
+		-- 	max = 5,
+		-- },
 	},
 	{-- Index 3
 		-- enableAirborneTactic = 1,
@@ -143,65 +173,79 @@ StrategyTemplates = {
 		StrategyExcludeUnitTypes = {
 			"ReconPlane"
 		},
-		forceUnitCount = {
-			min = 3,
-			max = 6,
-		},
-		BotInfantry = {
-			min = 50,
-			max = 75,
-		},
-		BotATInfantry = {
-			min = 2,
-			max = 5,
-		},
-		BotInfantrySignaller = {
-			min = 1,
-			max = 1,
-		},
-		BotArtillery = {
-			min = 1,
-			max = 2,
-		},
-		BotMortars = {
-			min = 1,
-			max = 2,
-		},
-		BotEmplacements = {
-			min = 1,
-			max = 1,
-		},
-		BotTanks = {
-			min = 2,
-			max = 6,
-		},
-		BotHeavyTanks = {
-			min = 1,
-			max = 1,
-		},
-		BotSPGs = {
-			min = 1,
-			max = 1,
-		},
-		BotTankDestroyers = {
-			min = 1,
-			max = 1,
-		},
-		BotAircraft = {
-			min = 4,
-			max = 12,
-		},
-		BotReconAircraft = {
-			min = 1,
-			max = 4,
-		},
-		BotArmored = {
-			min = 2,
-			max = 5,
-		},
+		BotInfantry = 1.0,
+		BotTeamInfantry = 1.0,
+		BotATInfantry = 1.0,
+		BotInfantrySignaller = 1.0,
+		BotArtillery = 0.5,
+		BotMortars = 0.8,
+		BotEmplacements = 0.8,
+		BotTanks = 0.8,
+		BotHeavyTanks = 0.5,
+		BotArmored = 0.8,
+		BotSPGs = 0.7,
+		BotTankDestroyers = 0.7,
+		BotAircraft = 1.0,
+		BotReconAircraft = 1.0,
+		BotParatroopers = 1.0,
+		-- forceUnitCount = {
+		-- 	min = 3,
+		-- 	max = 6,
+		-- },
+		-- BotInfantry = {
+		-- 	min = 50,
+		-- 	max = 75,
+		-- },
+		-- BotATInfantry = {
+		-- 	min = 2,
+		-- 	max = 5,
+		-- },
+		-- BotInfantrySignaller = {
+		-- 	min = 1,
+		-- 	max = 1,
+		-- },
+		-- BotArtillery = {
+		-- 	min = 1,
+		-- 	max = 2,
+		-- },
+		-- BotMortars = {
+		-- 	min = 1,
+		-- 	max = 2,
+		-- },
+		-- BotEmplacements = {
+		-- 	min = 1,
+		-- 	max = 1,
+		-- },
+		-- BotTanks = {
+		-- 	min = 2,
+		-- 	max = 6,
+		-- },
+		-- BotHeavyTanks = {
+		-- 	min = 1,
+		-- 	max = 1,
+		-- },
+		-- BotSPGs = {
+		-- 	min = 1,
+		-- 	max = 1,
+		-- },
+		-- BotTankDestroyers = {
+		-- 	min = 1,
+		-- 	max = 1,
+		-- },
+		-- BotAircraft = {
+		-- 	min = 4,
+		-- 	max = 12,
+		-- },
+		-- BotReconAircraft = {
+		-- 	min = 1,
+		-- 	max = 4,
+		-- },
+		-- BotArmored = {
+		-- 	min = 2,
+		-- 	max = 5,
+		-- },
 	},
 	{-- Index 4
-		-- enableTankTactic = 1,
 		StrategyName = "Heavy Armor Strategy",
 		StrategyUnitTypes = {
             "Heavy",
@@ -220,58 +264,73 @@ StrategyTemplates = {
 			min = 7,
 			max = 10,
 		},
-		BotInfantry = {
-			min = 30,
-			max = 75,
-		},
-		BotATInfantry = {
-			min = 1,
-			max = 1,
-		},
-		BotInfantrySignaller = {
-			min = 1,
-			max = 2,
-		},
-		BotArtillery = {
-			min = 1,
-			max = 2,
-		},
-		BotMortars = {
-			min = 1,
-			max = 1,
-		},
-		BotEmplacements = {
-			min = 1,
-			max = 1,
-		},
-		BotTanks = {
-			min = 6,
-			max = 12,
-		},
-		BotHeavyTanks = {
-			min = 3,
-			max = 5,
-		},
-		BotSPGs = {
-			min = 3,
-			max = 5,
-		},
-		BotTankDestroyers = {
-			min = 1,
-			max = 1,
-		},
-		BotAircraft = {
-			min = 1,
-			max = 2,
-		},
-		BotReconAircraft = {
-			min = 1,
-			max = 2,
-		},
-		BotArmored = {
-			min = 2,
-			max = 5,
-		},
+		BotInfantry = 0.9,
+		BotTeamInfantry = 0.9,
+		BotATInfantry = 0.5,
+		BotInfantrySignaller = 0.4,
+		BotArtillery = 0.1,
+		BotMortars = 0.1,
+		BotEmplacements = 0.1,
+		BotTanks = 1.0,
+		BotHeavyTanks = 1.25,
+		BotArmored = 0.9,
+		BotSPGs = 0.5,
+		BotTankDestroyers = 0.3,
+		BotAircraft = 0.1,
+		BotReconAircraft = 0.5,
+		BotParatroopers = 0.1,		
+		-- BotInfantry = {
+		-- 	min = 30,
+		-- 	max = 75,
+		-- },
+		-- BotATInfantry = {
+		-- 	min = 1,
+		-- 	max = 1,
+		-- },
+		-- BotInfantrySignaller = {
+		-- 	min = 1,
+		-- 	max = 2,
+		-- },
+		-- BotArtillery = {
+		-- 	min = 1,
+		-- 	max = 2,
+		-- },
+		-- BotMortars = {
+		-- 	min = 1,
+		-- 	max = 1,
+		-- },
+		-- BotEmplacements = {
+		-- 	min = 1,
+		-- 	max = 1,
+		-- },
+		-- BotTanks = {
+		-- 	min = 6,
+		-- 	max = 12,
+		-- },
+		-- BotHeavyTanks = {
+		-- 	min = 3,
+		-- 	max = 5,
+		-- },
+		-- BotSPGs = {
+		-- 	min = 3,
+		-- 	max = 5,
+		-- },
+		-- BotTankDestroyers = {
+		-- 	min = 1,
+		-- 	max = 1,
+		-- },
+		-- BotAircraft = {
+		-- 	min = 1,
+		-- 	max = 2,
+		-- },
+		-- BotReconAircraft = {
+		-- 	min = 1,
+		-- 	max = 2,
+		-- },
+		-- BotArmored = {
+		-- 	min = 2,
+		-- 	max = 5,
+		-- },
 	},
 	{-- Index 5
 		-- enableTankTactic = 1,
@@ -288,62 +347,77 @@ StrategyTemplates = {
 			"AT",
 			"Aircraft",
 		},
-		forceUnitCount = {
-			min = 7,
-			max = 10,
-		},
-		BotInfantry = {
-			min = 30,
-			max = 60,
-		},
-		BotATInfantry = {
-			min = 1,
-			max = 1,
-		},
-		BotInfantrySignaller = {
-			min = 1,
-			max = 2,
-		},
-		BotArtillery = {
-			min = 1,
-			max = 1,
-		},
-		BotMortars = {
-			min = 1,
-			max = 1,
-		},
-		BotEmplacements = {
-			min = 1,
-			max = 1,
-		},
-		BotTanks = {
-			min = 8,
-			max = 14,
-		},
-		BotHeavyTanks = {
-			min = 1,
-			max = 3,
-		},
-		BotSPGs = {
-			min = 1,
-			max = 2,
-		},
-		BotTankDestroyers = {
-			min = 1,
-			max = 1,
-		},
-		BotAircraft = {
-			min = 1,
-			max = 2,
-		},
-		BotReconAircraft = {
-			min = 2,
-			max = 4,
-		},
-		BotArmored = {
-			min = 1,
-			max = 3,
-		},
+		BotInfantry = 1.0,
+		BotTeamInfantry = 1.0,
+		BotATInfantry = 0.5,
+		BotInfantrySignaller = 0.5,
+		BotArtillery = 0.4,
+		BotMortars = 0.4,
+		BotEmplacements = 0.2,
+		BotTanks = 1.25,
+		BotHeavyTanks = 1.0,
+		BotArmored = 0.9,
+		BotSPGs = 0.6,
+		BotTankDestroyers = 0.4,
+		BotAircraft = 0.3,
+		BotReconAircraft = 0.6,
+		BotParatroopers = 0.1,
+		-- forceUnitCount = {
+		-- 	min = 7,
+		-- 	max = 10,
+		-- },
+		-- BotInfantry = {
+		-- 	min = 30,
+		-- 	max = 60,
+		-- },
+		-- BotATInfantry = {
+		-- 	min = 1,
+		-- 	max = 1,
+		-- },
+		-- BotInfantrySignaller = {
+		-- 	min = 1,
+		-- 	max = 2,
+		-- },
+		-- BotArtillery = {
+		-- 	min = 1,
+		-- 	max = 1,
+		-- },
+		-- BotMortars = {
+		-- 	min = 1,
+		-- 	max = 1,
+		-- },
+		-- BotEmplacements = {
+		-- 	min = 1,
+		-- 	max = 1,
+		-- },
+		-- BotTanks = {
+		-- 	min = 8,
+		-- 	max = 14,
+		-- },
+		-- BotHeavyTanks = {
+		-- 	min = 1,
+		-- 	max = 3,
+		-- },
+		-- BotSPGs = {
+		-- 	min = 1,
+		-- 	max = 2,
+		-- },
+		-- BotTankDestroyers = {
+		-- 	min = 1,
+		-- 	max = 1,
+		-- },
+		-- BotAircraft = {
+		-- 	min = 1,
+		-- 	max = 2,
+		-- },
+		-- BotReconAircraft = {
+		-- 	min = 2,
+		-- 	max = 4,
+		-- },
+		-- BotArmored = {
+		-- 	min = 1,
+		-- 	max = 3,
+		-- },
 	},
 	{-- Index 6
 		StrategyName = "Infantry Strategy",
@@ -358,62 +432,77 @@ StrategyTemplates = {
 			"Tank",
 			"Vehicle",
 		},
-		forceUnitCount = {
-			min = 8,
-			max = 16,
-		},
-		BotInfantry = {
-			min = 60,
-			max = 120,
-		},
-		BotATInfantry = {
-			min = 5,
-			max = 10,
-		},
-		BotInfantrySignaller = {
-			min = 2,
-			max = 4,
-		},
-		BotArtillery = {
-			min = 1,
-			max = 3,
-		},
-		BotMortars = {
-			min = 3,
-			max = 4,
-		},
-		BotEmplacements = {
-			min = 2,
-			max = 3,
-		},
-		BotTanks = {
-			min = 1,
-			max = 3,
-		},
-		BotHeavyTanks = {
-			min = 1,
-			max = 1,
-		},
-		BotSPGs = {
-			min = 1,
-			max = 2,
-		},
-		BotTankDestroyers = {
-			min = 2,
-			max = 5,
-		},
-		BotAircraft = {
-			min = 1,
-			max = 1,
-		},
-		BotReconAircraft = {
-			min = 1,
-			max = 2,
-		},
-		BotArmored = {
-			min = 2,
-			max = 5,
-		},
+		BotInfantry = 1.25,
+		BotTeamInfantry = 1.1,
+		BotATInfantry = 1.15,
+		BotInfantrySignaller = 1.0,
+		BotArtillery = 0.7,
+		BotMortars = 0.8,
+		BotEmplacements = 0.8,
+		BotTanks = 0.7,
+		BotHeavyTanks = 0.25,
+		BotArmored = 0.8,
+		BotSPGs = 0.7,
+		BotTankDestroyers = 0.7,
+		BotAircraft = 0.6,
+		BotReconAircraft = 0.7,
+		BotParatroopers = 0.4,
+		-- forceUnitCount = {
+		-- 	min = 8,
+		-- 	max = 16,
+		-- },
+		-- BotInfantry = {
+		-- 	min = 60,
+		-- 	max = 120,
+		-- },
+		-- BotATInfantry = {
+		-- 	min = 5,
+		-- 	max = 10,
+		-- },
+		-- BotInfantrySignaller = {
+		-- 	min = 2,
+		-- 	max = 4,
+		-- },
+		-- BotArtillery = {
+		-- 	min = 1,
+		-- 	max = 3,
+		-- },
+		-- BotMortars = {
+		-- 	min = 3,
+		-- 	max = 4,
+		-- },
+		-- BotEmplacements = {
+		-- 	min = 2,
+		-- 	max = 3,
+		-- },
+		-- BotTanks = {
+		-- 	min = 1,
+		-- 	max = 3,
+		-- },
+		-- BotHeavyTanks = {
+		-- 	min = 1,
+		-- 	max = 1,
+		-- },
+		-- BotSPGs = {
+		-- 	min = 1,
+		-- 	max = 2,
+		-- },
+		-- BotTankDestroyers = {
+		-- 	min = 2,
+		-- 	max = 5,
+		-- },
+		-- BotAircraft = {
+		-- 	min = 1,
+		-- 	max = 1,
+		-- },
+		-- BotReconAircraft = {
+		-- 	min = 1,
+		-- 	max = 2,
+		-- },
+		-- BotArmored = {
+		-- 	min = 2,
+		-- 	max = 5,
+		-- },
 	},
 }
 

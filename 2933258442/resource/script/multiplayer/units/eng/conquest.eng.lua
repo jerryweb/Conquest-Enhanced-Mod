@@ -326,8 +326,8 @@ Purchases["conquest.eng"] = {
 				{priority = 2.0, type = {"Tank", "Medium", "AT",}, unit = "achilles_mk2"},
 				{priority = 1.5, type = {"Tank", "Medium", "AT",}, unit = "archer"},
 
-				{priority = 0.5, type = {"Tank", "Medium", "Artillery",}, unit = "bishop"},
-				{priority = 1.5, type = {"Tank", "Medium", "Artillery",}, unit = "sexton_mk2"},
+				-- {priority = 0.5, type = {"Tank", "Medium", "Artillery",}, unit = "bishop"},
+				-- {priority = 1.5, type = {"Tank", "Medium", "Artillery",}, unit = "sexton_mk2"},
 				--]]
 			---]====]
 			-- CE Units

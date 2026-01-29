@@ -3263,7 +3263,7 @@
 							}
 							{tag ai_ready_to_move}
 							{type vehicle}
-							{state inhabited}
+							;{state inhabited}
 						}
 						{tag_add ready_to_move_ai_selected}
 					}
@@ -3275,7 +3275,7 @@
 						}
 						{tag ready_to_move_ai_selected}
 						{type vehicle}
-						{state inhabited}
+						;{state inhabited}
 					}
 					{"delay"
 						{time 0.1}
@@ -3286,6 +3286,12 @@
 						}
 						{effect engine_toggle}
 					}
+					;{"effect"
+					;	{selector
+					;		{source current}
+					;	}
+					;	{effect engine_toggle}
+					;}
 					{"delay"
 						{time 0.1}
 					}

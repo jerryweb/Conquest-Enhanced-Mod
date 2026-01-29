@@ -169,7 +169,7 @@ Purchases["conquest.usa"] = {
 				{priority = 1.5, type = {"Armored", "AT",}, unit = "m3_gmc"},
 				{priority = 1.5, type = {"Armored", "AT",}, unit = "m3a1_gmc"},
 				{priority = 2.0, type = {"Armored", "Support",}, unit = "t30_hmc"},
-				{priority = 1.5, type = {"Armored", "Artillery",}, unit = "t19_hmc"},
+				-- {priority = 1.5, type = {"Armored", "Artillery",}, unit = "t19_hmc"},
 
 				--]]
 
@@ -226,9 +226,9 @@ Purchases["conquest.usa"] = {
 				{priority = 2.0, type = {"Tank", "Light", "AT",}, unit = "m36_gmc"},
 				{priority = 0.5, type = {"Tank", "Medium", "AT",}, unit = "m36b1_gmc"},
 
-				{priority = 1.5, type = {"Tank", "Medium", "Artillery",}, unit = "m7_hmc"},
-				{priority = 1.5, type = {"Tank", "Medium", "Artillery",}, unit = "m7b1_hmc"},
-				{priority = 0.1, type = {"Tank", "Medium", "Artillery",}, unit = "m12_gmc"},
+				-- {priority = 1.5, type = {"Tank", "Medium", "Artillery",}, unit = "m7_hmc"},
+				-- {priority = 1.5, type = {"Tank", "Medium", "Artillery",}, unit = "m7b1_hmc"},
+				-- {priority = 0.1, type = {"Tank", "Medium", "Artillery",}, unit = "m12_gmc"},
 				--]]
 			---]====]
 			--Aircraft
