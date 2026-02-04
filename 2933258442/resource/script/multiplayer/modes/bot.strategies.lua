@@ -272,8 +272,8 @@ StrategyTemplates = {
 		BotMortars = 0.1,
 		BotEmplacements = 0.1,
 		BotTanks = 1.0,
-		BotHeavyTanks = 1.25,
-		BotArmored = 0.9,
+		BotHeavyTanks = 1.3,
+		BotArmored = 0.7,
 		BotSPGs = 0.5,
 		BotTankDestroyers = 0.3,
 		BotAircraft = 0.1,
@@ -347,7 +347,7 @@ StrategyTemplates = {
 			"AT",
 			"Aircraft",
 		},
-		BotInfantry = 1.0,
+		BotInfantry = 0.9,
 		BotTeamInfantry = 1.0,
 		BotATInfantry = 0.5,
 		BotInfantrySignaller = 0.5,
@@ -356,7 +356,7 @@ StrategyTemplates = {
 		BotEmplacements = 0.2,
 		BotTanks = 1.25,
 		BotHeavyTanks = 1.0,
-		BotArmored = 0.9,
+		BotArmored = 0.8,
 		BotSPGs = 0.6,
 		BotTankDestroyers = 0.4,
 		BotAircraft = 0.3,
@@ -542,11 +542,11 @@ function SelectAiStrategyTemplate(botDefender)
 		index = strategyIndexOverride
 		strategy = StrategyTemplates[index] 
 	end
-	if botDefender then 
-		print("Bot defending! Changing infantry threshold")
-		strategy.BotInfantry.min = 10
-		strategy.BotInfantry.max = 20
-	end
+	-- if botDefender then 
+	-- 	print("Bot defending! Changing infantry threshold")
+	-- 	strategy.BotInfantry.min = 10
+	-- 	strategy.BotInfantry.max = 20
+	-- end
 	print("Getting the AI strategy name...")
 	if strategy.StrategyName then
 		print("Loaded AI strategy ", strategy.StrategyName)
