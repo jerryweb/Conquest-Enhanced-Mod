@@ -131,6 +131,19 @@
 }
 
 {"airborne drop_plane"
+    {on "set_static"							;// map/mission helper for static neutral vehicles
+		{able select 0}
+		{able ammo_out_indicator 0}
+		{able ally_crew 0}
+		{able repaired 0}
+		{able talk 0}
+		{able unmask 0}
+		{able emit_passangers_on_enemy 0}
+		{able minimap 0}
+		{able neutral 1}
+		{clear_inventory}
+	}
+
     {on "prep_drop_plane_to_move"
 		{delay 15
 			{if rand 0.15
@@ -448,6 +461,19 @@
 }
 
 {"airborne fighter ai"	
+	{on "set_static"							;// map/mission helper for static neutral vehicles
+		{able select 0}
+		{able ammo_out_indicator 0}
+		{able ally_crew 0}
+		{able repaired 0}
+		{able talk 0}
+		{able unmask 0}
+		{able emit_passangers_on_enemy 0}
+		{able minimap 0}
+		{able neutral 1}
+		{clear_inventory}
+	}
+
 	{on spawn
 		{delay 0.2
 			{if work "body"
@@ -459,6 +485,19 @@
 }
 
 {"airborne bomber_ce ai"
+	{on "set_static"							;// map/mission helper for static neutral vehicles
+		{able select 0}
+		{able ammo_out_indicator 0}
+		{able ally_crew 0}
+		{able repaired 0}
+		{able talk 0}
+		{able unmask 0}
+		{able emit_passangers_on_enemy 0}
+		{able minimap 0}
+		{able neutral 1}
+		{clear_inventory}
+	}
+
 	{on spawn
 		{delay 0.2
 			{if work "body"
@@ -470,6 +509,19 @@
 }
 
 {"airborne ai_recon_plane"
+	{on "set_static"							;// map/mission helper for static neutral vehicles
+		{able select 0}
+		{able ammo_out_indicator 0}
+		{able ally_crew 0}
+		{able repaired 0}
+		{able talk 0}
+		{able unmask 0}
+		{able emit_passangers_on_enemy 0}
+		{able minimap 0}
+		{able neutral 1}
+		{clear_inventory}
+	}
+	
 	{on spawn
 		{delay 0.2
 			{if work "body"

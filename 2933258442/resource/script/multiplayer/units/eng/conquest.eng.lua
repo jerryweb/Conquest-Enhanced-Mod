@@ -43,7 +43,7 @@ Purchases["conquest.eng"] = {
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_rifle_late_con(can)"},
 				{priority = 0.5, type = {"Infantry", "Squad", "Mechanized_Infantry",}, unit = "squad_rifle_mech_late_con(can)"}, --vehicle
 				{priority = 0.5, type = {"Infantry", "Squad", "Mechanized_Infantry",}, unit = "squad_carrier_late_con(can)"}, --vehicle
-
+				
 				{priority = 1.0, type = {"Infantry", "Squad",}, unit = "squad_rifle_late_con(pol)"},
 				{priority = 0.5, type = {"Infantry", "Squad", "Mechanized_Infantry",}, unit = "squad_rifle_mech_late_con(pol)"}, --vehicle
 				{priority = 0.5, type = {"Infantry", "Squad", "Mechanized_Infantry",}, unit = "squad_carrier_late_con(pol)"}, --vehicle

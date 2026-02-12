@@ -1314,6 +1314,14 @@
 								{state "not operatable"}
 							}
 						}
+						{"5.entities"
+							{selector
+								{ignore_captured_by_user 0}
+								{tag artillery_target}
+								{zone "gamezone"}
+								{state "not operatable"}
+							}
+						}
 					}
 				}
 				{actions
@@ -1489,6 +1497,18 @@
 							{state "not operatable"}
 						}
 						{tag_remove _lua_need_next_order}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag artillery_target}
+							{zone "gamezone"}
+							{state "not operatable"}
+						}
+						{tag_remove artillery_target}
 					}
 					{"delay"
 						{time 0.5}
@@ -5347,7 +5367,7 @@
 									}
 								}
 								{drop orders}
-								{action move}
+								{action advance}
 								{target
 									{ignore_captured_by_user 0}
 									{tag ecannon_enter}

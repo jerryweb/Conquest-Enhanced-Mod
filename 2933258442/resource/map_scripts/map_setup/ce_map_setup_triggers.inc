@@ -641,6 +641,42 @@
 					}
 				}
 			}
+			{"disable_netural_plane_minimap_icons"
+				{condition
+				}
+				{actions
+					{"delay"
+						{time 3}
+					}
+					{"ables"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{zone
+										{zone "gamezone"}
+									}
+								}
+								{include
+									{prop
+										{prop airborne}
+									}
+								}
+								{exclude
+									{state
+										{state inhabited}
+									}
+									{state
+										{state inactive}
+									}
+								}
+							}
+						}
+						{remove minimap}
+					}	
+				}
+			}
 
 ;============ AI DEFENDER SETUP SCRIPTS========================================
 			(define "delete_ai_defenders_thread" ;parms: flag_number
