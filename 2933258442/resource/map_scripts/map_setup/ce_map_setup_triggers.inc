@@ -1632,12 +1632,12 @@
 										{zone
 											{zone "gamezone"}
 										}
-										{tag
-											{tag cmp_def}
-										}
-										{tag
-											{tag _def}
-										}
+										;{tag
+										;	{tag cmp_def}
+										;}
+										;{tag
+										;	{tag _def}
+										;}
 									}
 									{include
 										{prop
@@ -1648,9 +1648,9 @@
 										}
 									}
 									{exclude
-										{state
-											{state inactive}
-										}
+										;{state
+										;	{state inactive}
+										;}
 										{state
 											{state user_control}
 										}

@@ -6570,7 +6570,7 @@
 						{time 10}
 						{title "artillery scripts active"}
 					}
-					{"effect"
+					{## "effect"
 						{selector
 							{tag artillery_selected}
 						}

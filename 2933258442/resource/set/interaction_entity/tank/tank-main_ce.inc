@@ -160,7 +160,7 @@
         {tags remove "selected_tank_to_repair"}
         {tags add "reversing_to_repair"}
         {tags add "_lua_mi"}
-        {delay 200
+        {delay 240
         	;{if rand 0.3
             	("deploy_smoke_screen")
             ;} 
