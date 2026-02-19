@@ -84,7 +84,7 @@ StrategyTemplates = {
 	},
 	{-- Index 2
 		-- enableArtyTactic = 1,
-		StrategyName = "Arty Strategy",
+		StrategyName = "Artillery Strategy",
 		StrategyUnitTypes = {
 			"Rocket_Arty",
             "Artillery",
@@ -522,19 +522,19 @@ function SelectAiStrategyTemplate(botDefender)
 	if neBattalionType then
 		print("AI battalion = ", neBattalionType)
 		if neBattalionType == "INF" then
-			index = PickRandomNumber({1,6,7})
+			index = PickRandomNumber({1,3,6})
 		elseif neBattalionType == "MOT" then
-			index = PickRandomNumber({6,7,9})
+			index = PickRandomNumber({1,6})
 		elseif neBattalionType == "MEC" then
-			index = PickRandomNumber({6,7,11})
+			index = PickRandomNumber({6})
 		elseif neBattalionType == "LT" then
-			index = PickRandomNumber({10,11})
+			index = PickRandomNumber({5})
 		elseif neBattalionType == "MT" then
-			index = PickRandomNumber({5,10})
+			index = PickRandomNumber({5})
 		elseif neBattalionType == "HT" then
 			index = PickRandomNumber({4,5})
 		elseif neBattalionType == "ART" then
-			index = PickRandomNumber({2,8,9})
+			index = PickRandomNumber({2})
 		end
 		strategy = StrategyTemplates[index]
 	end
