@@ -1,0 +1,107 @@
+{entitymanager
+	{group "dead" actor dead
+		(mod "mp" 		{limit 150})
+		(mod not "mp"	{limit 200})
+		{remove dissolve}
+		{entity "human"}
+	}
+
+	{group "broken" gameentity
+		(mod "mp" 		{limit 30})
+		(mod not "mp"	{limit 60})
+		{remove dissolve}
+		{DeadVehicles}
+	}
+
+	{group "piece" gameentity
+		(mod "mp" 		{limit 25})
+		(mod not "mp"	{limit 40})
+		{remove dissolve}
+		{entity "piece_big_steel"}				;// cannon parts
+		{entity "piece_large_steel"}			;// tank turret, ship parts
+		{entity "piece_big_airborne"}			;// airborne parts
+		{entity "piece_big_airborne_wing"}		;// airborne parts
+	}
+
+	{group "piece_large" gameentity
+		(mod "mp" 		{limit 40})
+		(mod not "mp"	{limit 60})
+		{remove dissolve}
+		{entity "building_part_concrete"}		;// parts
+		{entity "building_part_wood"}			;// parts
+		{entity "piece_big_concrete"}			;// parts
+		{entity "piece_big_stone"}				;// parts
+		{entity "piece_big_wood"}				;// parts
+		{entity "piece_large_concrete"}			;// parts
+	}
+
+	{group "piece_medium" gameentity
+		(mod "mp" 		{limit 40})
+		(mod not "mp"	{limit 80})
+		{remove dissolve}
+		{entity "piece_medium_concrete"}
+		{entity "piece_medium_ice"}
+		{entity "piece_medium_sand"}
+		{entity "piece_medium_steel"}
+		{entity "piece_medium_steel_construction"}
+		{entity "piece_medium_wood"}
+	}
+
+	{group "piece_small" gameentity
+		(mod "mp" 		{limit 40})
+		(mod not "mp"	{limit 80})
+		{remove dissolve}
+		{entity "piece_small_concrete"}
+		{entity "piece_small_ice"}
+		{entity "piece_small_steel"}
+		{entity "piece_small_wood"}
+		{entity "piece_tiny_steel"}
+	}
+
+	{group "mine" stuff
+		(mod "mp" 		{limit 9999})
+		(mod not "mp"	{limit 9999})
+		{remove dissolve}
+		{tag "grenade mine"}	;// hybrid AT grenade / mines
+	}
+
+	{group "stuff" stuff
+		(mod "mp" 		{limit 100})
+		(mod not "mp"	{limit 200})
+		{remove dissolve}
+		{tag "shell"}
+		{tag "weapon bullet"}
+		{tag "grenade"}
+		{tag "missile"}		;// thrower hand weapon
+		{tag "sharp_edge"}
+	}
+
+	{group "equip" stuff
+		(mod "mp" 		{limit 30})
+		(mod not "mp"	{limit 60})
+		{remove dissolve}
+		{tag "field_glass"}
+		{tag "head"}
+		{tag "body"}
+	}
+
+	{group "shellhole" gameentity
+		(mod "mp" 		{limit 50})
+		(mod not "mp"	{limit 100})
+		{remove instant}
+		{entity "grenade_shellhole"}
+		{entity "grenade_at_shellhole"}
+	}
+	
+	{group "shell_auto" stuff
+		{limit 50}
+		{remove dissolve}
+		{tag "shell_cannon_auto"}
+	}
+
+	{group "shell" stuff
+		{limit 50}
+		{remove dissolve}
+		{tag "shell_cannon"}
+	}
+}
