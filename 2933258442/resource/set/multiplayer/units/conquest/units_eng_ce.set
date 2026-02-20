@@ -76,6 +76,7 @@
 ("squad_eng_carrier_conquest" side(can) period(late) min_stage(9) max_stage(99) name(squad_carrier_late_con) crew1(driver:1) crew2(rifle:1) vehicle1(wasp_mk2c) c1(sec_com_sgt:1) vehicle2(wasp_mk2c) c2(detach_com:1) vehicle3(wasp_mk2c) c3(detach_com:1) tag(eng))
 
 ("squad_with7types_conquest" side(pol) period(late) min_stage(9) max_stage(99) name(squad_rifle_late_con) c1(1st_ad_sec_com:1) c2(1st_ad_sec_2ic:1) c3(1st_ad_rifle_band:4) c4(1st_ad_at_piat:1) c5(1st_ad_at_piat_asst:1) c6(1st_ad_mg:1) c7(1st_ad_mg_asst:1) tag(eng))
+("squad_vehicle_with8types_conquest" side(can) period(late) min_stage(9) max_stage(99) name(squad_rifle_mech_late_con) vehicle(ram_kangaroo_mk2) c1(vehicle_crew:2) c2(mot_rifle_band:1) c3(mot_sec_com:1) c4(mot_sec_2ic:1) c5(mot_piat:1) c6(mot_piat_asst:1) c7(mot_mg:1) c8(mot_mg_asst:1) tag(eng))
 ("squad_vehicle_with8types_conquest" side(pol) period(late) min_stage(9) max_stage(99) name(squad_rifle_mech_late_con) vehicle(m5a1_halftrack) c1(1st_ad_driver_smg:1) c2(1st_ad_mot_rifle_band:1) c3(1st_ad_mot_sec_com:1) c4(1st_ad_mot_sec_2ic:1) c5(1st_ad_mot_piat:1) c6(1st_ad_mot_piat_asst:1) c7(1st_ad_mot_mg:1) c8(1st_ad_mot_mg_asst:1) tag(eng))
 ("squad_eng_carrier_conquest" side(pol) period(late) min_stage(9) max_stage(99) name(squad_carrier_late_con) crew1(1st_ad_driver:1) crew2(1st_ad_rifle:2) vehicle1(universal_carrier_mk2_2mg) c1(1st_ad_sec_com_sgt:1) vehicle2(mortar_carrier_mk2) c2(1st_ad_detach_com:1) vehicle3(universal_carrier_mk2_piat) c3(1st_ad_detach_com:1) tag(eng))
 ;27
@@ -636,7 +637,14 @@
 	("vehicle2" side(eng) period(late) min_stage(11) max_stage(99) crew1(driver:1) crew2(crew:5) cw(1) cp(4.8))
 	{cost 180}
 }
-
+{"ram_kangaroo"
+	("vehicle"  side(eng) period(late) min_stage(11) max_stage(99) crew(vehicle_crew:2) cw(4) cp(4))
+	{cost 200}
+}
+{"ram_kangaroo_mk2"
+	("vehicle"  side(eng) period(late) min_stage(11) max_stage(99) crew(vehicle_crew:2) cw(4) cp(4))
+	{cost 200}
+}
 
 ;_________________________________________________
 ;|        Main Battle Tanks and SPGs              |

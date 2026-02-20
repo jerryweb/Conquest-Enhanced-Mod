@@ -728,13 +728,13 @@
         ("tag_veh" args "rocket_artillery")   
     }  
 ;================ Vanilla Hardcoded LOGIC ========================
-    {on "leave_unit"
-        {delay 1
-            {if tagged "_abandoned"
-                {tags remove "_user_ally"}
-            }
-        }
-    }
+    ;{on "leave_unit"
+    ;    {delay 1
+    ;        {if tagged "_abandoned"
+    ;            {tags remove "_user_ally"}
+    ;        }
+    ;    }
+    ;}
 
     {on "activate_vehicle"
         {tags remove "ignore_repair"}
@@ -866,11 +866,11 @@
     }
 
     {on operatable off
-        {delay 1
-            {if tagged "_abandoned"
-                {tags remove "_user_ally"}
-            }
-        }
+        ;{delay 1
+        ;    {if tagged "_abandoned"
+        ;        {tags remove "_user_ally"}
+        ;    }
+        ;}
         {view stop "beacon_fx"}
     }
 

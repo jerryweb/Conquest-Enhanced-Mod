@@ -25,10 +25,10 @@ StrategyTemplates = {
 		BotAircraft = 1.0,
 		BotReconAircraft = 1.0,
 		BotParatroopers = 0.2,
-		-- forceUnitCount = {
-		-- 	min = 8,
-		-- 	max = 15,
-		-- },
+		forceUnitCount = {
+			min = 8,
+			max = 15,
+		},
 		-- BotInfantry = {
 		-- 	min = 70,
 		-- 	max = 140,
@@ -84,7 +84,7 @@ StrategyTemplates = {
 	},
 	{-- Index 2
 		-- enableArtyTactic = 1,
-		StrategyName = "Arty Strategy",
+		StrategyName = "Artillery Strategy",
 		StrategyUnitTypes = {
 			"Rocket_Arty",
             "Artillery",
@@ -93,21 +93,21 @@ StrategyTemplates = {
 		BotTeamInfantry = 1.0,
 		BotATInfantry = 1.0,
 		BotInfantrySignaller = 1.1,
-		BotArtillery = 1.0,
+		BotArtillery = 1.1,
 		BotMortars = 1.0,
 		BotEmplacements = 1.0,
-		BotTanks = 0.8,
+		BotTanks = 0.7,
 		BotHeavyTanks = 0.2,
 		BotArmored = 0.8,
 		BotSPGs = 1.0,
 		BotTankDestroyers = 0.7,
 		BotAircraft = 0.5,
-		BotReconAircraft = 1.1,
+		BotReconAircraft = 1.0,
 		BotParatroopers = 0.2,
-		-- forceUnitCount = {
-		-- 	min = 1,
-		-- 	max = 2,
-		-- },
+		forceUnitCount = {
+			min = 1,
+			max = 2,
+		},
 		-- BotInfantry = {
 		-- 	min = 40,
 		-- 	max = 95,
@@ -185,13 +185,13 @@ StrategyTemplates = {
 		BotArmored = 0.8,
 		BotSPGs = 0.7,
 		BotTankDestroyers = 0.7,
-		BotAircraft = 1.0,
+		BotAircraft = 1.1,
 		BotReconAircraft = 1.0,
 		BotParatroopers = 1.0,
-		-- forceUnitCount = {
-		-- 	min = 3,
-		-- 	max = 6,
-		-- },
+		forceUnitCount = {
+			min = 3,
+			max = 6,
+		},
 		-- BotInfantry = {
 		-- 	min = 50,
 		-- 	max = 75,
@@ -279,10 +279,10 @@ StrategyTemplates = {
 		BotAircraft = 0.1,
 		BotReconAircraft = 0.5,
 		BotParatroopers = 0.1,		
-		-- BotInfantry = {
-		-- 	min = 30,
-		-- 	max = 75,
-		-- },
+		BotInfantry = {
+			min = 30,
+			max = 75,
+		},
 		-- BotATInfantry = {
 		-- 	min = 1,
 		-- 	max = 1,
@@ -362,10 +362,10 @@ StrategyTemplates = {
 		BotAircraft = 0.3,
 		BotReconAircraft = 0.6,
 		BotParatroopers = 0.1,
-		-- forceUnitCount = {
-		-- 	min = 7,
-		-- 	max = 10,
-		-- },
+		forceUnitCount = {
+			min = 7,
+			max = 10,
+		},
 		-- BotInfantry = {
 		-- 	min = 30,
 		-- 	max = 60,
@@ -447,10 +447,10 @@ StrategyTemplates = {
 		BotAircraft = 0.6,
 		BotReconAircraft = 0.7,
 		BotParatroopers = 0.4,
-		-- forceUnitCount = {
-		-- 	min = 8,
-		-- 	max = 16,
-		-- },
+		forceUnitCount = {
+			min = 8,
+			max = 16,
+		},
 		-- BotInfantry = {
 		-- 	min = 60,
 		-- 	max = 120,
@@ -522,19 +522,19 @@ function SelectAiStrategyTemplate(botDefender)
 	if neBattalionType then
 		print("AI battalion = ", neBattalionType)
 		if neBattalionType == "INF" then
-			index = PickRandomNumber({1,6,7})
+			index = PickRandomNumber({1,3,6})
 		elseif neBattalionType == "MOT" then
-			index = PickRandomNumber({6,7,9})
+			index = PickRandomNumber({1,6})
 		elseif neBattalionType == "MEC" then
-			index = PickRandomNumber({6,7,11})
+			index = PickRandomNumber({6})
 		elseif neBattalionType == "LT" then
-			index = PickRandomNumber({10,11})
+			index = PickRandomNumber({5})
 		elseif neBattalionType == "MT" then
-			index = PickRandomNumber({5,10})
+			index = PickRandomNumber({5})
 		elseif neBattalionType == "HT" then
 			index = PickRandomNumber({4,5})
 		elseif neBattalionType == "ART" then
-			index = PickRandomNumber({2,8,9})
+			index = PickRandomNumber({2})
 		end
 		strategy = StrategyTemplates[index]
 	end
