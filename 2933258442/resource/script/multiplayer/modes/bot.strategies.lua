@@ -279,10 +279,10 @@ StrategyTemplates = {
 		BotAircraft = 0.1,
 		BotReconAircraft = 0.5,
 		BotParatroopers = 0.1,		
-		BotInfantry = {
-			min = 30,
-			max = 75,
-		},
+		-- BotInfantry = {
+		-- 	min = 30,
+		-- 	max = 75,
+		-- },
 		-- BotATInfantry = {
 		-- 	min = 1,
 		-- 	max = 1,
