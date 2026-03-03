@@ -3396,6 +3396,9 @@
 										{tag
 											{tag cmp_def}
 										}
+										{state
+											{state user_control}
+										}
 										;{prop
 										;	{prop ai_recon_plane}
 										;}

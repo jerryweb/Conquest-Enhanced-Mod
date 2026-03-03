@@ -866,11 +866,11 @@
     }
 
     {on operatable off
-        ;{delay 1
-        ;    {if tagged "_abandoned"
-        ;        {tags remove "_user_ally"}
-        ;    }
-        ;}
+        {delay 1
+            {if tagged "_abandoned"
+                {tags remove "_user_ally"}
+            }
+        }
         {view stop "beacon_fx"}
     }
 
