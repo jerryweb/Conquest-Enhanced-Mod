@@ -33,44 +33,6 @@
 											{tag cmp_def}
 										}
 										{tag
-											{tag air_vehicle}
-										}
-										{player
-											{player "0"}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag _user_ally}
-										}
-										{tag
-											{tag _ai_defender}
-										}
-									}
-								}
-								{group
-									{select
-										{zone
-											{zone "gamezone"}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-									}
-									{exclude
-										{tag
-											{tag _bot}
-										}
-										{tag
-											{tag _animal}
-										}
-										{tag
-											{tag cmp_def}
-										}
-										{tag
 											{tag _def}
 										}
 										{tag
@@ -87,6 +49,9 @@
 										}
 										{tag
 											{tag _ai_defender}
+										}
+										{state
+											{state linked}
 										}
 									}
 								}
@@ -145,6 +110,9 @@
 									}
 									{tag
 										{tag _ai_defender}
+									}
+									{state
+										{state linked}
 									}
 								}
 							}
