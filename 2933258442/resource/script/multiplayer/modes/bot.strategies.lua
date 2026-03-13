@@ -542,11 +542,6 @@ function SelectAiStrategyTemplate(botDefender)
 		index = strategyIndexOverride
 		strategy = StrategyTemplates[index] 
 	end
-	-- if botDefender then 
-	-- 	print("Bot defending! Changing infantry threshold")
-	-- 	strategy.BotInfantry.min = 10
-	-- 	strategy.BotInfantry.max = 20
-	-- end
 	print("Getting the AI strategy name...")
 	if strategy.StrategyName then
 		print("Loaded AI strategy ", strategy.StrategyName)
