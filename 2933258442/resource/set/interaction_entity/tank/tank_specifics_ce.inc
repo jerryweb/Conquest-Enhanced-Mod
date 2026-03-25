@@ -58,6 +58,16 @@
 			}
 		}
 	}
+
+	{"m5a1_halftrack_radio" 
+		{on spawn
+			{delay 0.2
+				{if work "body"
+					("tag_veh" args "radio_car")
+				}
+			}
+		}
+	}
     
     {"blitz3_6_radio"
         {on spawn
