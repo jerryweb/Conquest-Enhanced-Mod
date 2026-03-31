@@ -6295,6 +6295,30 @@
 					{"delay"
 						{time 1}
 					}
+					{"ables"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag _ai_defender}
+									}
+								}
+								{include
+									{prop
+										{prop vehicle}
+									}
+								}
+								{exclude
+									{state
+										{state user_control}
+									}
+								}
+							}
+						}
+						{remove select}
+					}
 					{"set_i"
 						{var "dcg_on$"}
 						{op "+"}
