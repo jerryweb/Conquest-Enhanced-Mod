@@ -10,10 +10,10 @@
 	printTempDebug = false
 
 	-- This enables testing mode for debugging, and is not advised for regular play. Make sure this is off unless you are specifically testing for something. 
-	testing = true
+	-- testing = true
 	
 	-- This is the strategy the ai will use to spawn units. If you want to randomly select one, just set it to nil
-	-- strategyIndexOverride = 7
+	-- strategyIndexOverride = 3
 
 	-- weather_selection_override = 0
 
@@ -71,6 +71,8 @@
 	    -- Bot is attacker
 	    AttackMin = 10,
 	    AttackMax = 16,
+	    -- AttackMin = 1,
+	    -- AttackMax = 1,
 	    -- Bot is defender
 	    DefendMin = 4,
 	    DefendMax = 12,
@@ -95,7 +97,7 @@
 	}
 
 
-	-- Percentage chance (between 0 and 1) to enable the Classic CE Radio Mechanics. Currently it is set as a random event with a 15% chance to occur per match.
+	-- Percentage chance (between 0 and 1) to enable the Classic CE Radio Mechanics. Currently it is set as a random event with a 18% chance to occur per match.
 	-- and can be countered with a radio vehicle.
 	enableRadioMechanics = 1
 	
@@ -105,7 +107,7 @@
 	enableSabotageMechanics = 0.35
 	
 	-- Percentage chance (between 0 and 1) that the AI will spawn from the player's side randomly during battle
-	enableRearAttackMechanics = 0.18
+	enableRearAttackMechanics = 0.2
 
 	-- Enabled this setting to allow AI to scuttle disabled tanks (tanks that have turret and gun disabled or are immobile for at least 3 mins). MUST BE SET TO 1 0R 0
 	enableAiAbandonMechanics = 0
@@ -123,8 +125,7 @@
 			},
 			infantry = {
 				x2_cloneClount = 4,
-				max = 60,
-				perFlag = 25,
+				perFlag = 30,
 				max_ai_defender_at_flag = 12
 
 			},
@@ -135,25 +136,29 @@
 				},
 				infantry = {
 					x2_cloneClount = 3,
-					max = 45,
 					perFlag = 20,
 					max_ai_defender_at_flag = 10
 				},
+			},
+			difficultyModifier = {
+				heroic = -2,
+				hard = -1,
+				normal = 0,
+				easy = 2,
 			}
 		}, 
 		-- Bot is defender
 		Defending = {
 			emplacement = {
 				defenseLevelOne = 8,
-				defenseLevelTwo = 15,
-				defenseLevelThree = 20
+				defenseLevelTwo = 12,
+				defenseLevelThree = 16
 			},
 
 			infantry = {
-				x5_cloneClount = 8,
-				max = -1,
-				perFlag = 120,
-				max_ai_defender_at_flag = 25
+				x5_cloneClount = 20,
+				perFlag = 220,
+				max_ai_defender_at_flag = 120
 			},
 			challengeMaps = {
 				emplacement = {
@@ -163,10 +168,15 @@
 				},
 				infantry = {
 					x5_cloneClount = 20,
-					max = -1,
 					perFlag = 70,
 					max_ai_defender_at_flag = 40
 				},
+			},
+			difficultyModifier = {
+				heroic = 2,
+				hard = 1,
+				normal = 0,
+				easy = -3,
 			}
 		}
 	}
