@@ -156,9 +156,9 @@
 			},
 
 			infantry = {
-				x5_cloneClount = 16,
-				perFlag = 200,
-				max_ai_defender_at_flag = 100
+				x5_cloneClount = 20,
+				perFlag = 220,
+				max_ai_defender_at_flag = 120
 			},
 			challengeMaps = {
 				emplacement = {
