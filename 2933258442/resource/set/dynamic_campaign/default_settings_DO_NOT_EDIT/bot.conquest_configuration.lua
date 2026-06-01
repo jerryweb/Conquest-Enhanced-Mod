@@ -62,8 +62,8 @@
 		AttackMinWaveOff = 1.25 * 60000,
 		AttackMaxWaveOff = 1.75 * 60000,
      	-- Time between each wave when bot is defending
-     	DefenseMinWaveOff = 2 * 60000, 
-     	DefenseMaxWaveOff = 3 * 60000,
+     	DefenseMinWaveOff = 1.75 * 60000, 
+     	DefenseMaxWaveOff = 2.5 * 60000,
      }
 
     -- Number of possible units than can be in a wave attack in conquest
@@ -74,8 +74,8 @@
 	    -- AttackMin = 1,
 	    -- AttackMax = 1,
 	    -- Bot is defender
-	    DefendMin = 4,
-	    DefendMax = 12,
+	    DefendMin = 6,
+	    DefendMax = 14,
 	}
 
 -- ================================= Advanced Settings =========================================
@@ -156,9 +156,9 @@
 			},
 
 			infantry = {
-				x5_cloneClount = 20,
-				perFlag = 220,
-				max_ai_defender_at_flag = 120
+				x5_cloneClount = 8,
+				perFlag = 120,
+				max_ai_defender_at_flag = 28
 			},
 			challengeMaps = {
 				emplacement = {
