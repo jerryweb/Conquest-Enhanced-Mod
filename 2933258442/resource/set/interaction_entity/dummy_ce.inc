@@ -732,14 +732,9 @@
 
 {"dummy_emplacement"
 	{on spawn
-		{delay 0.1
-            {able "select" 0}
-            {components "body" break}
-            {able select 0}
-            {crew_enable group "crew" 0}
-            {crew_enable group "passenger" 0}
-            {crew_emit}
-        }
+		{delay 2.0
+			{delete}
+		}
 	}
 }
 {"illusion_emplacement"
@@ -750,160 +745,191 @@
 	}
 }
 
+; ================= Habla emplacemento? =================
+
 {"heavy_blitz3_6_radio"
 	{on spawn
-		{delay 0.1
+		{delay 0.2 {delete}
             {spawn "blitz3_6_radio" "enumerator_logo1" x }
         }
 	}
 }
 {"heavy_aa_regelbau_flak_ring_88mm_flak36"
 	{on spawn
-		{delay 0.1
+		{delay 0.2 {delete}
             {spawn "aa_regelbau_flak_ring_88mm_flak36" "enumerator_logo1" x }
         }
 	}
 }
 {"heavy_emplacement_50mm_kwk39_platform"
 	{on spawn
-		{delay 0.1
+		{delay 0.2 {delete}
             {spawn "emplacement_50mm_kwk39_platform" "enumerator_logo1" x }
         }
 	}
 }
 {"heavy_emplacement_80mm_sgrw34_rapid"
 	{on spawn
-		{delay 0.1
+		{delay 0.2 {delete}
             {spawn "emplacement_80mm_sgrw34_rapid" "enumerator_logo1" x }
         }
 	}
 }
 {"heavy_emplacement_81mm_m1"
 	{on spawn
-		{delay 0.1
+		{delay 0.2 {delete}
             {spawn "emplacement_81mm_m1" "enumerator_logo1" x }
         }
 	}
 }
 {"heavy_emplacement_82mm_bm37"
 	{on spawn
-		{delay 0.1
+		{delay 0.2 {delete}
             {spawn "emplacement_82mm_bm37" "enumerator_logo1" x }
         }
 	}
 }
 {"heavy_emplacement_152mm_ml20"
 	{on spawn
-		{delay 0.1
+		{delay 0.2 {delete}
             {spawn "emplacement_152mm_ml20" "enumerator_logo1" x }
         }
 	}
 }
 {"heavy_emplacement_155mm_gpf_platform"
 	{on spawn
-		{delay 0.1
+		{delay 0.2 {delete}
             {spawn "emplacement_155mm_gpf_platform" "enumerator_logo1" x }
         }
 	}
 }
 {"heavy_emplacement_155mm_gpf_us"
 	{on spawn
-		{delay 0.1
+		{delay 0.2 {delete}
             {spawn "emplacement_155mm_gpf_us" "enumerator_logo1" x }
         }
 	}
 }
 {"heavy_emplacement_305mm_mb_2_12"
 	{on spawn
-		{delay 0.1
+		{delay 0.2 {delete}
             {spawn "emplacement_305mm_mb_2_12" "enumerator_logo1" x }
         }
 	}
 }
 {"heavy_flak_ring_88mm_flak36"
 	{on spawn
-		{delay 0.1
+		{delay 0.2 {delete}
             {spawn "flak_ring_88mm_flak36" "enumerator_logo1" x }
         }
 	}
 }
 {"heavy_m1917_30cal_emplacement"
 	{on spawn
-		{delay 0.1
+		{delay 0.2 {delete}
             {spawn "m1917_30cal_emplacement" "enumerator_logo1" x }
         }
 	}
 }
 {"heavy_maxim_emplacement"
 	{on spawn
-		{delay 0.1
+		{delay 0.2 {delete}
             {spawn "maxim_emplacement" "enumerator_logo1" x }
         }
 	}
 }
 {"heavy_maxim_x4_emplacement"
 	{on spawn
-		{delay 0.1
+		{delay 0.2 {delete}
             {spawn "maxim_x4_emplacement" "enumerator_logo1" x }
         }
 	}
 }
 {"heavy_50cal_quad_m45_emplacement"
 	{on spawn
-		{delay 0.1
+		{delay 0.2 {delete}
             {spawn "50cal_quad_m45_emplacement" "enumerator_logo1" x }
         }
 	}
 }
 {"heavy_mg42_lafette_emplacement"
 	{on spawn
-		{delay 0.1
+		{delay 0.2 {delete}
             {spawn "mg42_lafette_emplacement" "enumerator_logo1" x }
         }
 	}
 }
 {"heavy_mgun_ring_emplacement"
 	{on spawn
-		{delay 0.1
+		{delay 0.2 {delete}
             {spawn "mgun_ring_emplacement" "enumerator_logo1" x }
         }
 	}
 }
 {"heavy_regel_bau_pak_75mm_pak40"
 	{on spawn
-		{delay 0.1
+		{delay 0.2 {delete}
             {spawn "regel_bau_pak_75mm_pak40" "enumerator_logo1" x }
         }
 	}
 }
 {"heavy_regel_bau_76mm_m5_m1"
 	{on spawn
-		{delay 0.1
+		{delay 0.2 {delete}
             {spawn "regel_bau_76mm_m5_m1" "enumerator_logo1" x }
         }
 	}
 }
 {"heavy_regel_bau_76mm_zis3"
 	{on spawn
-		{delay 0.1
+		{delay 0.2 {delete}
             {spawn "regel_bau_76mm_zis3" "enumerator_logo1" x }
         }
 	}
 }
 {"heavy_sandbag_bunker_dummy_50cal"
 	{on spawn
-		{delay 0.1
+		{delay 0.2 {delete}
             {spawn "sandbag_bunker_dummy_50cal" "enumerator_logo1" x }
         }
 	}
 }
 {"heavy_sandbag_bunker_m2_50cal_tripod" ;// Added June 21
 	{on spawn
-		{delay 0.1
+		{delay 0.2 {delete}
             {spawn "sandbag_bunker_m2_50cal_tripod" "enumerator_logo1" x }
         }
 	}
 }
+{"heavy_sandbag_bunker_sg43_stand"
+	{on spawn
+		{delay 0.2 {delete}
+            {spawn "sandbag_bunker_sg43_stand" "enumerator_logo1" x }
+        }
+	}
+}
+{"heavy_sandbag_bunker_ds39_stand"
+	{on spawn
+		{delay 0.2 {delete}
+            {spawn "sandbag_bunker_ds39_stand" "enumerator_logo1" x }
+        }
+	}
+}
+{"heavy_sandbag_bunker_hmg42" ;// Added June 21
+    {on spawn
+        {delay 0.2 {delete}
+            {spawn "sandbag_bunker_hmg42" "enumerator_logo1" x }
+        }
+    }
+}
+{"heavy_supply_crate_build"
+	{on spawn
+		{delay 0.2 {delete}
+            {spawn "supply_crate_build" "enumerator_logo1" x }
+        }
+	}
+}
+
 {"trench_logs_straight_illusion"
 	{on spawn
 		{delay 0.1
@@ -918,42 +944,6 @@
         }
 	}
 }
-{"heavy_sandbag_bunker_sg43_stand"
-	{on spawn
-		{delay 0.1
-            {spawn "sandbag_bunker_sg43_stand" "enumerator_logo1" x }
-        }
-	}
-}
-{"heavy_sandbag_bunker_ds39_stand"
-	{on spawn
-		{delay 0.1
-            {spawn "sandbag_bunker_ds39_stand" "enumerator_logo1" x }
-        }
-	}
-}
-{"heavy_sandbag_bunker_ds39_stand"
-	{on spawn
-		{delay 0.1
-            {spawn "sandbag_bunker_ds39_stand" "enumerator_logo1" x }
-        }
-	}
-}
-{"heavy_sandbag_bunker_hmg42" ;// Added June 21
-    {on spawn
-        {delay 0.1
-            {spawn "sandbag_bunker_hmg42" "enumerator_logo1" x }
-        }
-    }
-}
-{"heavy_supply_crate_build"
-	{on spawn
-		{delay 0.1
-            {spawn "supply_crate_build" "enumerator_logo1" x }
-        }
-	}
-}
-
 {"heavy_240mm_type_45"
 	{on spawn
 		{delay 0.1
