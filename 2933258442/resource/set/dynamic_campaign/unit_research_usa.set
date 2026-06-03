@@ -1,7 +1,7 @@
 {IconGap 28}
-	{positions
-		{"single_officer(usa)" 0 2}
-	}
+    {positions
+        {"single_officer(usa)" 0 2}
+    }
 
 ;//---TECH UPGRADES---
 	{ tech "defense_level_1"			requires "reinforcement_stage_2"									costs 1  position 2 0}
@@ -10,55 +10,53 @@
 
 	{ tech "reinforcement_stage_2"		requires "single_officer(usa)"										costs 0  position 1 1}
 	{ tech "reinforcement_stage_3"		requires "reinforcement_stage_2 squad_officer_con(usa)"				costs 7  position 3 1}
-	{ tech "reinforcement_stage_4"		requires "reinforcement_stage_3 squad_officer_m3a1_commander_con"	costs 8  position 5 1}
-	{ tech "reinforcement_stage_5"		requires "reinforcement_stage_4 squad_officer_m3a1_halftrack_con"	costs 9  position 7 1}
+	{ tech "reinforcement_stage_4"		requires "reinforcement_stage_3 squad_officer_m3a1_halftrack_con"	costs 8  position 5 1}
+	{ tech "reinforcement_stage_5"		requires "reinforcement_stage_4"	costs 9  position 7 1}
 ;TOTAL:
 
 
 ;//---Off Map Support---
-	{"conquest_p47_recon"				requires	"squad_officer_m3a1_commander_con"						costs 1  position 4 4}
-	{"conquest_p47_light"				requires	"squad_officer_m3a1_halftrack_con conquest_p47_recon"	costs 1  position 6 4}
-	{"conquest_p47"						requires	"conquest_p47_light"									costs 1  position 8 4}
+	{"conquest_p47_recon"				requires	"squad_officer_m3a1_halftrack_con"						costs 1  position 4 3}
+	{"conquest_p47_light"				requires	"conquest_p47_recon"	costs 1  position 6 4}
+	{"conquest_p47"						requires	"conquest_p47_light"									costs 1  position 7 4}
 
-	{"105mm_m2a1_smoke_barrage"			requires	"single_officer(usa)"				costs 0  position 0 3}
+	{"105mm_m2a1_smoke_barrage"			requires	"single_officer(usa)"				costs 0  position 1 3}
 
 	{"81mm_m1_mortar_barrage"			requires	"squad_officer_con(usa)"			costs 1  position 2 3}
-	{"105mm_m2a1_artillery_barrage"		requires	"squad_officer_m3a1_commander_con 81mm_m1_mortar_barrage"	costs 1  position 4 3}
+	{"105mm_m2a1_artillery_barrage"		requires	"squad_officer_m3a1_halftrack_con"	costs 1  position 6 2}
 
-	{"107mm_m2_mortar_barrage"			requires	"squad_officer_m3a1_halftrack_con 81mm_m1_mortar_barrage"	costs 1  position 6 3}
-	{"155mm_m1_artillery_barrage"		requires	"squad_officer_m3a1_halftrack_con 105mm_m2a1_artillery_barrage"	costs 1  position 7 3}
+	{"107mm_m2_mortar_barrage"			requires	"81mm_m1_mortar_barrage"	costs 1  position 2 4}
+	{"155mm_m1_artillery_barrage"		requires	"105mm_m2a1_artillery_barrage"	costs 1  position 7 2}
 ;TOTAL:
 
 
 ;//---SQUADS---
-;//	{"single_officer(usa)"				requires	""									costs 1  position 0 2}
 	{"squad_officer_con(usa)"			requires	"single_officer(usa)"				costs 2  position 2 2}
-	{"squad_officer_m3a1_commander_con"	requires	"squad_officer_con(usa)"			costs 3  position 4 2}
-	{"squad_officer_m3a1_halftrack_con"	requires	"squad_officer_m3a1_commander_con"	costs 2  position 6 2}
+	{"squad_officer_m3a1_halftrack_con"	requires	"squad_officer_con(usa)"	costs 2  position 4 2}
 
-	{"single_engineer(usa)"				requires	""									costs 2  position 0 20}
-	{"single_ap_miner(usa)"				requires	"single_engineer(usa)"				costs 0  position 1 19}
-	{"single_at_miner(usa)"				requires	"single_ap_miner(usa)"				costs 0  position 2 19}
-	{"single_flamer(usa)"				requires	"single_engineer(usa)"				costs 0  position 1 21}
+	{"single_engineer(usa)"				requires	""									costs 2  position 1 20}
+	{"single_ap_miner(usa)"				requires	"single_engineer(usa)"				costs 0  position 1 21}
+	{"single_at_miner(usa)"				requires	"single_ap_miner(usa)"				costs 0  position 0 21}
+	{"single_flamer(usa)"				requires	"single_engineer(usa)"				costs 0  position 0 20}
 
 	{"single_sniper(usa)"				requires	"squad_1st_arm_recon_con(usa)"		costs 1  position 1 14}
-	{"single_101st_late_pathfinder_sniper(usa)"				requires	"single_sniper(usa) reinforcement_stage_4"		costs 1  position 3 14}
+	{"single_101st_late_pathfinder_sniper(usa)"				requires	"single_sniper(usa)"		costs 1  position 3 14}
 	{"single_riflegrenade_con(usa)"		requires	""									costs 0  position 0 6}
-	{"single_riflegrenade2_con(usa)"	requires	"single_riflegrenade_con(usa)"		costs 1  position 1 6}
-	{"single_at_con(usa)"				requires	"reinforcement_stage_4 single_riflegrenade2_con(usa)" costs 1  position 5 6}
-	{"single_at1_con(usa)"				requires	"single_at_con(usa)"				costs 1  position 6 6}
+	{"single_riflegrenade2_con(usa)"	requires	"single_riflegrenade_con(usa)"		costs 1  position 0.75 6}
+	{"single_at_con(usa)"				requires	"single_riflegrenade2_con(usa)" costs 6  position 6 6}
+	{"single_at1_con(usa)"				requires	"single_at_con(usa)"				costs 1  position 6.75 6}
 	{"single_at2_con(usa)"				requires	"single_at1_con(usa)"				costs 1  position 8 6}
-	{"single_at3_con(usa)"				requires	"single_at2_con(usa)"				costs 1  position 9 6}
+	{"single_at3_con(usa)"				requires	"single_at2_con(usa)"				costs 1  position 8.75 6}
 	{"single_at4_con(usa)"				requires	"single_at3_con(usa)"				costs 3  position 10 6}
 
 	{"squad_45th_rifle_con(usa)"		requires	""									costs 0  position 0 12}
 	{"squad_mp_con(usa)"				requires	"squad_45th_rifle_con(usa)"			costs 1  position 0 14}
 
 	{"squad_rifle_con(usa)"				requires	"squad_45th_rifle_con(usa)"			costs 2  position 1 11}
-	{"squad_1st_arm_rifle_con(usa)"		requires	"squad_rifle_con(usa) single_at_con(usa)" costs 2  position 5 11}
+	{"squad_1st_arm_rifle_con(usa)"		requires	"squad_rifle_con(usa)" costs 4  position 5 11}
 	{"squad_1st_arm_rifle_mech_con(usa)" requires	"squad_1st_arm_rifle_con(usa) m3_halftrack" costs 1  position 7 11}
 	{"squad_vet_rifle_con(usa)"			requires	"squad_rifle_con(usa)"				costs 2  position 2 10}
-	{"squad_rifle_late_con(usa)"		requires	"squad_1st_arm_rifle_mech_con(usa) reinforcement_stage_4"	costs 1  position 9 11}
+	{"squad_rifle_late_con(usa)"		requires	"squad_1st_arm_rifle_mech_con(usa)"	costs 1  position 9 11}
 	{"squad_arm_rifle_mech_late_con(usa)"requires	"squad_rifle_late_con(usa)"			costs 2  position 10 11}
 	{"squad_vet_rifle_late_con(usa)"	requires	"squad_rifle_late_con(usa)"			costs 2  position 10 12}
 	{"squad_1st_rifle_late_con(usa)"	requires	"squad_vet_rifle_late_con(usa)"		costs 2  position 12 12}
@@ -71,7 +69,7 @@
 	{"squad_ranger_assault_mg_con(usa)"	requires	"squad_ranger_assault_con(usa)"			costs 2  position 7 10}
 	{"squad_ranger_assault_late_con(usa)"	requires	"squad_ranger_assault_mg_con(usa)" 	costs 2  position 9 10}
 	{"squad_ranger_assault_mg_late_con(usa)"requires	"squad_ranger_assault_late_con(usa)"costs 1  position 10 10}
-	{"squad_ranger_special_late_con(usa)"requires	"squad_ranger_assault_late_con(usa) reinforcement_stage_4"costs 1  position 10 9}
+	{"squad_ranger_special_late_con(usa)"requires	"squad_ranger_assault_late_con(usa)"costs 1  position 10 9}
 
 	{"squad_eng_con(usa)"				requires	"squad_45th_rifle_con(usa)"			costs 2  position 1 12}
 	{"squad_eng_mech_con(usa)"			requires	"squad_eng_con(usa) m3_halftrack"	costs 2  position 7 12}
@@ -80,22 +78,22 @@
 	{"squad_1st_arm_recon_con(usa)"		requires	"squad_45th_rifle_con(usa)"			costs 1  position 1 13}
 	{"squad_cav_late_con1(usa)"			requires	"squad_1st_arm_recon_con(usa)"		costs 1  position 2 13}
 	{"squad_cav_late_con2(usa)"			requires	"squad_cav_late_con1(usa)"			costs 1  position 3 13}
-	{"squad_82nd_recon_con(usa)"		requires	"squad_cav_late_con2(usa)"			costs 2  position 6 13}
+	{"squad_82nd_recon_con(usa)"		requires	"squad_cav_late_con2(usa)"			costs 2  position 5 13}
 
 	{"squad_82nd_glider_con(usa)"		requires	"squad_rifle_con(usa)"				costs 1  position 1 10}
-	{"squad_82nd_glider_pio_con(usa)"	requires	"squad_82nd_glider_con(usa)"		costs 1  position 1 8}
+	{"squad_82nd_glider_pio_con(usa)"	requires	"squad_82nd_glider_con(usa)"		costs 1  position 2 8}
 	{"squad_82nd_con(usa)"				requires	"squad_82nd_glider_pio_con(usa)"	costs 1  position 4 8}
-	{"squad_82nd_eng_con(usa)"			requires	"squad_82nd_con(usa) single_at_con(usa)" costs 1  position 5 8}
-	{"squad_101st_glider_late_con(usa)"	requires	"squad_82nd_eng_con(usa) reinforcement_stage_4"			costs 1  position 9 8}
-	{"squad_101st_con(usa)"				requires	"squad_101st_glider_late_con(usa)"	costs 1  position 10 7}
-	{"squad_101st_eng_con(usa)"			requires	"squad_101st_con(usa)"				costs 1  position 11 7}
-	{"squad_101st_pathfinder_con(usa)"	requires	"squad_101st_con(usa)"			costs 1  position 8 7}
-	{"squad_82nd_glider_late_con(usa)"	requires	"squad_101st_glider_late_con(usa)"	costs 2  position 11 8}
-	{"squad_82nd_glider_pio_late_con(usa)"requires	"squad_82nd_glider_late_con(usa)"	costs 1  position 11 9}
-	{"squad_82nd_late_con(usa)"			requires	"squad_82nd_glider_late_con(usa)"	costs 1  position 13 8}
-	{"squad_82nd_eng_late_con(usa)"		requires	"squad_82nd_late_con(usa)"			costs 1  position 13 7}
-	{"squad_82nd_demo_late_con(usa)"	requires	"squad_82nd_late_con(usa)"			costs 1  position 13 9}
-	{"squad_82nd_pathfinder_con(usa)"	requires	"squad_82nd_late_con(usa)"			costs 1  position 14 10}
+	{"squad_82nd_eng_con(usa)"			requires	"squad_82nd_con(usa) single_at_con(usa)" costs 1  position 6 8}
+	{"squad_101st_glider_late_con(usa)"	requires	"squad_82nd_eng_con(usa)"			costs 1  position 10 8}
+	{"squad_101st_con(usa)"				requires	"squad_101st_glider_late_con(usa)"	costs 1  position 11 7}
+	{"squad_101st_eng_con(usa)"			requires	"squad_101st_con(usa)"				costs 1  position 12 7}
+	{"squad_101st_pathfinder_con(usa)"	requires	"squad_101st_con(usa)"			costs 1  position 11 6}
+	{"squad_82nd_glider_late_con(usa)"	requires	"squad_101st_glider_late_con(usa)"	costs 2  position 12 8}
+	{"squad_82nd_glider_pio_late_con(usa)"requires	"squad_82nd_glider_late_con(usa)"	costs 1  position 12 9}
+	{"squad_82nd_late_con(usa)"			requires	"squad_82nd_glider_late_con(usa)"	costs 1  position 14 8}
+	{"squad_82nd_eng_late_con(usa)"		requires	"squad_82nd_late_con(usa)"			costs 1  position 15 7}
+	{"squad_82nd_demo_late_con(usa)"	requires	"squad_82nd_late_con(usa)"			costs 1  position 14 9}
+	{"squad_82nd_pathfinder_con(usa)"	requires	"squad_82nd_late_con(usa)"			costs 1  position 15 9}
 	{"1st_special_con(usa)"				requires	"squad_10th_mountain_late_off_1(usa)"	costs 2  position 8 12}
 ;TOTAL:
 
@@ -111,21 +109,21 @@
 ;//---Mortar---
 	{"60mm_m2"		requires	""					costs 1  position 0 25}
 	{"81mm_m1"		requires	"60mm_m2"			costs 2  position 2 25}
-	{"107mm_m2"		requires	"81mm_m1"			costs 4  position 4 25}
+	{"107mm_m2"		requires	"81mm_m1"			costs 4  position 3 25}
 
 ;//---AA---
-	{"50cal_quad_m45" requires	""					costs 2  position 0	30}
-	{"40mm_m1"		requires	"50cal_quad_m45"	costs 6  position 1 31}
+	{"50cal_quad_m45" requires	""					costs 2  position 0 30}
+	{"40mm_m1"		requires	"50cal_quad_m45"	costs 4  position 2 31}
 	{"90mm_m1a1"	requires	"40mm_m1"			costs 8  position 4 31}
 
 ;//---AT Guns---
 	{"37mm_m3a1"	requires	""					costs 0  position 0 33}
-	{"37mm_m3"		requires	"37mm_m3a1" 		costs 2  position 1 32}
+	{"37mm_m3"		requires	"37mm_m3a1" 		costs 2  position 0 32}
 	{"57mm_m1"		requires	"37mm_m3a1"			costs 3  position 2 33}
 	{"57mm_m1_late"	requires	"57mm_m1"			costs 2  position 3 33}
 	{"75mm_m1897"	requires	"57mm_m1"			costs 3  position 5 33}
-	{"76mm_m5_m1"	requires	"75mm_m1897"		costs 3  position 8 33}
-	{"76mm_m5_m6"	requires	"76mm_m5_m1" 		costs 2  position 9 33}
+	{"76mm_m5_m1"	requires	"75mm_m1897"		costs 3  position 7 31}
+	{"76mm_m5_m6"	requires	"76mm_m5_m1" 		costs 2  position 8 31}
 
 ;//---Infantry Guns---
 	{"75mm_m1a1"		requires 	"squad_82nd_eng_con(usa)" costs 1  position 6 9}
@@ -140,19 +138,20 @@
 
 	{"114mm_m1"				requires	"105mm_m2a1"			costs 3  position 4 35}
 	{"155mm_schneider_us"	requires	"114mm_m1"				costs 1  position 5 36}
-	{"155mm_gpf_us"			requires	"155mm_schneider_us"	costs 3  position 7 36}
+	{"155mm_gpf_us"			requires	"155mm_m1"	costs 3  position 7 36}
 ;TOTAL:
 
 
 ;//---Trucks---
-	{"inf_crate_usa"		requires	""						costs 0  position 0 17}
-	{"ammo_trailer_usa"		requires	"inf_crate_usa"			costs 1  position 1 17}
+	{"inf_crate_usa"		requires	""						costs 0  position 11 3}
+	{"ammo_trailer_usa"		requires	"inf_crate_usa"			costs 1  position 12 3}
 
-	{"cckw_art_ammo"		requires	"ammo_trailer_usa"		costs 1  position 3 17}
-	{"cckw_redball"			requires	"cckw_art_ammo"			costs 1  position 4 16}
-	{"cckw_fuel"			requires	"cckw_art_ammo"			costs 1  position 5 17}
-	{"cckw_engineer"		requires	"single_engineer(usa)"	costs 1  position 4 20}
-	{"cckw_engineer_late"	requires	"cckw_engineer"			costs 1  position 5 20}
+	{"cckw_art_ammo"		requires	"ammo_trailer_usa"		costs 1  position 12 1}
+	{"cckw_redball"			requires	"cckw_art_ammo"			costs 1  position 12 0}
+	{"cckw_fuel"			requires	"cckw_art_ammo"			costs 1  position 13 1}
+	;{"single_officer(usa)"		requires	""		costs 1  position 0 2}
+	{"cckw_engineer"		requires	"single_engineer(usa)"	costs 1  position 2 18}
+	{"cckw_engineer_late"	requires	"cckw_engineer"			costs 1  position 2 16}
 
 	{"m3_halftrack"			requires	"squad_1st_arm_rifle_con(usa)" costs 2  position 6 11}
 
@@ -164,9 +163,9 @@
 	{"wc52_50cal"			requires	"wc51 willys_mb_50cal"	costs 1  position 3 40}
 	{"m6_gmc"				requires	"wc52_50cal"			costs 1  position 5 40}
 	{"cckw"					requires	"wc51"					costs 0  position 0 41}
-	{"m3a1_transport"		requires	"cckw"					costs 1  position 1 41}
-	{"m3a1_scout"			requires	"m3a1_transport"		costs 0  position 2 41}
-	{"m5_hst"				requires	"wc52_50cal"			costs 1  position 3 42}
+	{"m3a1_transport"		requires	"cckw"					costs 1  position 1 42}
+	{"m3a1_scout"			requires	"m3a1_transport"		costs 0  position 1.75 42}
+	{"m5_hst"				requires	"wc52_50cal"			costs 1  position 3 41}
 
 	{"m2_halftrack"			requires	""						costs 1  position 0 27}
 	{"m4_mortar_carrier"	requires	"m2_halftrack 81mm_m1"	costs 1  position 2 27}
@@ -174,34 +173,34 @@
 
 	{"m3a1_halftrack"		requires	"m2_halftrack"			costs 1  position 1 28}
 	{"m21_mortar_carrier"	requires	"m4a1_mortar_carrier m3a1_halftrack"	costs 1  position 4 28}
-	{"m13_mgmc"				requires	"m3a1_halftrack"		costs 1  position 2 29}
-	{"m15a1_cgmc"			requires	"m13_mgmc"				costs 1  position 3 29}
-	{"m16_mgmc"				requires	"m15a1_cgmc 50cal_quad_m45"	costs 1  position 3 30}
+	{"m13_mgmc"				requires	"m3a1_halftrack 50cal_quad_m45"		costs 1  position 1 29}
+	{"m15a1_cgmc"			requires	"m16_mgmc"				costs 1  position 5 29}
+	{"m16_mgmc"				requires	"m13_mgmc"	costs 1  position 3 29}
 
 
-	{"m3_gmc"				requires	"75mm_m1897"			costs 1  position 6 34} ;75mm_m1897
-	{"m3a1_gmc"				requires	"m3_gmc"				costs 1  position 7 34} ;75mm_m1897
+	{"m3_gmc"				requires	"75mm_m1897"			costs 1  position 7 33} ;75mm_m1897
+	{"m3a1_gmc"				requires	"m3_gmc"				costs 1  position 7.75 33} ;75mm_m1897
 	{"t30_hmc"				requires	"75mm_m3a3"				costs 2  position 3 34} ;75mm_m1a1
 	{"t19_hmc"				requires	"105mm_m2a1"			costs 1  position 2 37}	;105mm_m2a1
 
 
 	{"m20"					requires	"wc52_50cal"			costs 1  position 4 41}
-	{"m8_greyhound_early"	requires	"m20"					costs 1  position 5 41}
-	{"m8_greyhound"			requires	"m8_greyhound_early"	costs 1  position 6 41}
+	{"m8_greyhound_early"	requires	"m20"					costs 1  position 5 42}
+	{"m8_greyhound"			requires	"m8_greyhound_early"	costs 1  position 5.75 42}
 ;TOTAL:
 
 
 ;//---Light Tanks---
-	{"m3_stuart_early"		requires	""					costs 5  position 0 44}
-	{"m3_stuart_late"		requires	"m3_stuart_early"	costs 1  position 1 44}
+	{"m3_stuart_early"		requires	""					costs 3  position 0 44}
+	{"m3_stuart_late"		requires	"m3_stuart_early"	costs 2  position 0.75 44}
 
-	{"m3a1_stuart"			requires	"m3_stuart_late"	costs 1  position 3 44}
-	{"lvt4"					requires	"m3a1_stuart"		costs 0  position 4 45}
+	{"m3a1_stuart"			requires	"m3_stuart_late"	costs 1  position 1.5 44}
+	{"lvt4"					requires	"cckw"		costs 1  position 1 41}
 
-	{"m5a1_stuart"			requires	"m3a1_stuart"		costs 2  position 5 44}
-	{"m5a1_stuart_late"		requires	"m5a1_stuart"		costs 1  position 6 44}
+	{"m5a1_stuart"			requires	"m3a1_stuart"		costs 2  position 4 44}
+	{"m5a1_stuart_late"		requires	"m5a1_stuart"		costs 1  position 4.75 44}
 
-	{"m8_hmc"				requires	"m5a1_stuart"		costs 4  position 6 45}
+	{"m8_hmc"				requires	"m5a1_stuart"		costs 4  position 4 45}
 
 	{"m24_chaffee"			requires	"m5a1_stuart_late"	costs 2  position 7 44}
 	
@@ -210,57 +209,55 @@
 
 
 ;//---Medium Tanks---
-	{"m3_lee"				requires	"m3a1_stuart"		costs 6  position 3 48}
+	{"m3_lee"				requires	"m3a1_stuart"		costs 6  position 1.5 47}
 
-	{"m4_75_early"			requires	"m3_lee"			costs 3  position 4 47}
-	{"m4_75_early_armor"	requires	"m4_75_early"		costs 1  position 5 47}
+	{"m4_75_early"			requires	"m3_lee"			costs 3  position 3 47}
+	{"m4_75_early_armor"	requires	"m4_75_early"		costs 1  position 4 47}
 	{"m4_75_late"			requires	"m4_75_early_armor"	costs 2  position 8 47}
 	{"m4_105"				requires	"m4_75_late"		costs 2  position 10 47}
 
-	{"m4a1_75_early"		requires	"m3_lee"			costs 2  position 4 49}
-	{"m4a1_75_mid"			requires	"m4a1_75_early"		costs 2  position 6 49}
-	{"m4a1_75_mid_armor"	requires	"m4a1_75_mid"		costs 1  position 7 49}
+	{"m4a1_75_early"		requires	"m3_lee"			costs 2  position 3.5 48}
+	{"m4a1_75_mid"			requires	"m4a1_75_early"		costs 2  position 5 48}
+	{"m4a1_75_mid_armor"	requires	"m4a1_75_mid"		costs 1  position 5.75 48}
 	{"m4a1_75_late"			requires	"m4a1_75_mid_armor"	costs 1  position 8 49}
 	{"m4a1_75_dd"			requires	"m4a1_75_late"				costs 0  position 8 48}
 	{"t1e3_m4a1_75"			requires	"m4a1_75_late"				costs 1  position 8 50}
-	{"m4a1_76w"				requires	"m4a1_75_late"		costs 4  position 12 49}
-	{"m4a1_76w_mid"			requires	"m4a1_76w"			costs 1  position 13 49}
+	{"m4a1_76w"				requires	"m4a1_75_late"		costs 2  position 12 49}
+	{"m4a1_76w_mid"			requires	"m4a1_76w"			costs 1  position 12.75 49}
 
-	{"m4a3_75_late"			requires	"m4_75_late m4a1_75_late" costs 2  position 9 48}
-	{"m4a3_75w_early"		requires	"m4a3_75_late"		costs 3  position 9 51}
-	{"sherman3_late"		requires	"m4a3_75w_early" costs 1  position 8 52}
+	{"m4a3_75_late"			requires	"m4a3_75w_early" costs 2  position 9 51}
+	{"m4a3_75w_early"		requires	"m4a1_75_late m4_75_late"		costs 2  position 9 48}
 
-	{"m4a3_105"				requires	"m4_105 m4a3_75w_early"	costs 0  position 10 50}
-	{"m4a3_105_hvss"		requires	"m4a3_105"			costs 1  position 11 50}
+	{"m4a3_105"				requires	"m4_105 m4a3_75_late"	costs 1  position 10 50}
+	{"m4a3_105_hvss"		requires	"m4a3_105"			costs 1  position 10.75 50}
 
-	{"m4a3_76w"				requires	"m4a3_75w_early m4a1_76w"	costs 4  position 12 51}
-	{"sherman5c"			requires	"m4a3_76w" costs 3  position 13 50}
-	{"m4a3_76w_hvss"		requires	"m4a3_76w "			costs 2  position 13 51}
-	{"m4a3_76w_field1"		requires	"m4a3_76w_hvss"		costs 2  position 14 51}
+	{"m4a3_76w"				requires	"m4a1_76w m4a3_75_late"	costs 2  position 12 51}
+	{"m4a3_76w_hvss"		requires	"m4a3_76w"			costs 2  position 13 51}
+	{"m4a3_76w_field1"		requires	"m4a3_76w_hvss"		costs 2  position 13.75 51}
 
-	{"m4a3_75w"				requires	"m4a3_75w_early"	costs 2  position 10 52}
+	{"m4a3_75w"				requires	"m4a3_75_late"	costs 2  position 10 52}
 	{"m4a3_75w_e4_5"		requires	"m4a3_75w"			costs 1  position 11 52}
-	{"m4a3e2_75"			requires	"m4a3_75w"			costs 2  position 11 53}
-	{"m4a3e2_76"			requires	"m4a3_76w_hvss m4a3e2_75" costs 3  position 13 53}
+	{"m4a3e2_75"			requires	"m4a3_75w"			costs 2  position 11.25 54}
+	{"m4a3e2_76"			requires	"m4a3e2_75 m4a3_76w" costs 3  position 12 54}
 
-	{"m10_gmc"				requires	"m4a1_75_mid"		costs 4  position 6 51}
-	{"m10_gmc_late"			requires	"m10_gmc"			costs 1  position 7 51}
-	{"m18_hellcat"			requires	"m10_gmc"			costs 2  position 6 52}
-	{"m18_hellcat_late"		requires	"m18_hellcat"		costs 1  position 7 52}
+	{"m10_gmc"				requires	"m4a1_75_mid"		costs 4  position 5 51}
+	{"m10_gmc_late"			requires	"m10_gmc"			costs 1  position 6 51}
+	{"m18_hellcat"			requires	"m10_gmc"			costs 2  position 6 53}
+	{"m18_hellcat_late"		requires	"m18_hellcat"		costs 1  position 7 53}
 	{"m36_gmc"				requires	"m18_hellcat"		costs 4  position 6 54}
-	{"m36b1_gmc"			requires	"m36_gmc m4a3_75w_early" costs 1  position 9 54}
+	{"m36b1_gmc"			requires	"m36_gmc m4a3_75_late" costs 1  position 9 54}
 
-	{"m7_hmc"				requires	"t19_hmc"			costs 3  position 4 37}
+	{"m7_hmc"				requires	"t19_hmc"			costs 2  position 4 37}
 	{"m7b1_hmc"				requires	"m7_hmc"			costs 1  position 5 37}
-	{"m12_gmc"				requires	"155mm_gpf_us m7b1_hmc"	costs 4  position 8 37}
+	{"m12_gmc"				requires	"155mm_gpf_us"	costs 4  position 8 37}
 	{"m4a3_calliope"		requires	"m12_gmc"			costs 4  position 10 37}
 
 ;TOTAL:
 
 
 ;//---Heavy Tanks---
-	{"m26_pershing"			requires	"m36b1_gmc m4a3e2_76" costs 6  position 13 54}
-	{"t26e4"				requires	"m26_pershing"		costs 10  position 14 55}
+	{"m26_pershing"			requires	"m4a3e2_76" costs 6  position 13.5 54}
+	{"t26e4"				requires	"m26_pershing"		costs 4  position 14.25 54}
 
 ;TOTAL:
 
