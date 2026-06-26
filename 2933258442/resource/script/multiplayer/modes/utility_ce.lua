@@ -1,49 +1,29 @@
 -- File created by Hawka
-require([[/script/multiplayer/modes/bot.ai_logic]])
--- =================== Vanilla Variable Redefines ==================
--- Time from start of match AI will wait before attempting to buy a unit.
-StartSpawnTime = {
- -- Bot is defender
- DefenseMin = 5 * 1000, 
- DefenseMax = 7 * 1000,
- -- Bot is attacker
- AttackMin = 6 * 60000, 
- AttackMax = 8 * 60000,
-}
+require([[/conquest_configuration/bot.conquest_configuration]])
 
--- Time from last purchase AI will wait before attempting to buy a new unit.
-SpawnCooldownTime = {
- -- Time between each wave
- DCGWaveOffMin = 2 * 60000, 
- DCGWaveOffMax = 2.5 * 60000,
- -- Time between each spawn
- DCGMin = 2 * 1000, 
- DCGMax = 7 * 1000,
-}
+-- =================== CE AI Variables ==================
+checkIfVanillaMapLoaded = false
+followWaypointGraphs = true
+generalSquadTagCheckDelay = 10 * 1000
+sceneVariableSquad = nil 
 
+-- =====================================
+function SetCEWaveSettings(SpawnCooldownTime, WaveUnit, botDefender)
+  print("TESTING MODE = ", testing)
 
--- Number of possible units than can be in a wave attack
-WaveUnit = {
- Min = 7,
- Max = 10,
-}
-
--- value to modify total defender ai infantry values
-botDifficultyModifier = 0
-
-
--- =================== CE Mechanics Variable Set Functions ==================
-challenge_map = false
-function CheckIfChallengeMap()
-  challenge_map = false
-  for i, flag in pairs(BotApi.Scene.Flags) do
-    if flag.name == "f99" or flag.name == "f98" or flag.name == "f97" or flag.name == "f96" or flag.name == "f95" then
-      challenge_map = true
-
-      break
-    end
+  if botDefender then
+    WaveUnit.Min = WaveUnitOverride.DefendMin
+    WaveUnit.Max = WaveUnitOverride.DefendMax
+    SpawnCooldownTime.DCGWaveOffMin = DCGWaveOffOverwrite.DefenseMinWaveOff
+    SpawnCooldownTime.DCGWaveOffMax = DCGWaveOffOverwrite.DefenseMaxWaveOff
+  else
+    WaveUnit.Min = WaveUnitOverride.AttackMin
+    WaveUnit.Max = WaveUnitOverride.AttackMax
+    SpawnCooldownTime.DCGWaveOffMin = DCGWaveOffOverwrite.AttackMinWaveOff
+    SpawnCooldownTime.DCGWaveOffMax = DCGWaveOffOverwrite.AttackMaxWaveOff
   end
-  print("challenge map check = ", challenge_map)
+
+  return SpawnCooldownTime, WaveUnit
 end
 
 local function checkMapAIMovementLogic(flagName)
@@ -92,7 +72,30 @@ local function checkRearAttackPercentage()
   print("enable_rear_attack_mechanic" .. " = ", enableRearAttackMechanics)
 end
 
-function SetCEMissionVariables(botDefender)
+function SetCEMissionVariables(botDefender, botDifficulty)
+  if botDefender then 
+    if botDifficulty == 4 then 
+      botDifficultyModifier = AiDefenderCount.Attacking.difficultyModifier.heroic
+    elseif botDifficulty == 3 then 
+      botDifficultyModifier = AiDefenderCount.Attacking.difficultyModifier.hard
+    elseif botDifficulty == 2 then 
+      botDifficultyModifier = AiDefenderCount.Attacking.difficultyModifier.normal
+    else 
+      botDifficultyModifier = AiDefenderCount.Attacking.difficultyModifier.easy
+    end
+  else 
+    if botDifficulty == 4 then 
+      botDifficultyModifier = AiDefenderCount.Defending.difficultyModifier.heroic
+    elseif botDifficulty == 3 then 
+      botDifficultyModifier = AiDefenderCount.Defending.difficultyModifier.hard
+    elseif botDifficulty == 2 then 
+      botDifficultyModifier = AiDefenderCount.Defending.difficultyModifier.normal
+    else 
+      botDifficultyModifier = AiDefenderCount.Defending.difficultyModifier.easy
+    end
+  end
+  print("botDifficultyModifier = ", botDifficultyModifier)
+
   BotApi.Scene:SetVar("noresusenabled", enabledNoresus)
   print("enabledNoresus == ", enabledNoresus)
 
@@ -105,7 +108,6 @@ function SetCEMissionVariables(botDefender)
     if followWaypointGraphs then
       checkMapAIMovementLogic(flag.name)
     end
-    totalFlags = totalFlags + 1
   end
 
   if followWaypointGraphs then
@@ -166,109 +168,72 @@ function SetCEMissionVariables(botDefender)
   -- BotApi.Scene:SetVar("force_ai_direct_attack_logic", force_ai_direct_attack_logic)
 end
 
-function KillGeneralSquadTagCheckTimer()
-  if Context.GeneralSquadTagCheckTimer then 
-    BotApi.Events:KillQuantTimer(Context.GeneralSquadTagCheckTimer)
-    Context.GeneralSquadTagCheckTimer = nil
+function KillSceneCheckTimer()
+  if Context.SceneCheckTimer then
+    BotApi.Events:KillQuantTimer(Context.SceneCheckTimer)
+    Context.SceneCheckTimer = nil
   end
 end
 
-function KillInitialSceneCheckTimer()
-  if Context.InitialSceneTimerCheck then
-    BotApi.Events:KillQuantTimer(Context.InitialSceneTimerCheck)
-    Context.InitialSceneTimerCheck = nil
-  end
+-- Checks the squad scene variable for tagged info about the match
+function CheckSceneVariable(squad)
+
+  --   if followWaypointGraphs then 
+  --     if BotApi.Scene:IsSquadTagged(squad, "_lua_waypoint_graph_disabled") then
+  --       print("Print: AI Waypoint graphs disabled by scene! followWaypointGraphs = ", followWaypointGraphs)
+  --       followWaypointGraphs = false
+  --   end
+  --   else
+  --     if BotApi.Scene:IsSquadTagged(squad, "_lua_waypoint_graph_enabled") then
+  --         print("Print: AI Waypoint graphs enabled by scene! followWaypointGraphs = ", followWaypointGraphs)
+  --         followWaypointGraphs = true
+  --     end
+  --   end
+
+  --   if not forceUnitPriority then
+  --     if BotApi.Scene:IsSquadTagged(squad, "_prioritize_de_miner") then
+  --       print("Player has a lot of mines. Prioritze buying de-meiner!")
+  --         forceUnitPriority = true 
+  --       forcedUnitTypes = {"Miner"}
+  --       forceUnitCountMax = 1   
+  --     end
+  --   end
+
+  --   if not environment then
+  --     if BotApi.Scene:IsSquadTagged(squad, "_autumn") then
+  --       environment = "autumn"
+  --   elseif BotApi.Scene:IsSquadTagged(squad, "_spring") then
+  --       environment = "spring"
+  --   elseif BotApi.Scene:IsSquadTagged(squad, "_summer") then
+  --       environment = "summer"
+  --   elseif BotApi.Scene:IsSquadTagged(squad, "_winter") then
+  --       environment = "winter"
+  --   end
+  -- elseif environment and not intialSceneEnvironmentCheck then 
+  --   print("Print: Scene evironment = ", environment)
+  --   print("Print: Getting maxWeatherOptions with max size of ", maxWeatherOptions[environment])
+  --   intialSceneEnvironmentCheck = true
+  --     SetDynamicWeatherTimer()
+  -- end
 end
 
-function KillAiSpawnMoveTimer()
-  if Context.AiSpawnMoveTimer then
-    BotApi.Events:KillQuantTimer(Context.AiSpawnMoveTimer)
-    Context.AiSpawnMoveTimer = nil
-  end
-end
-
-function SelectAiSpawnStrategy()
-  print("in SelectAiSpawnStrategy function")
-  Context.AiSpawnMoveTimer = BotApi.Events:SetQuantTimer(
-    function()
-      math.randomseed(os.time())
-      local changeSpawnStrategyChance = 0.45
-
-      if math.random() < changeSpawnStrategyChance then
-        local aiSpawnStrategy = 0
-        if enableRearAttackMechanics == 1 then
-          aiSpawnStrategy = math.random(0, 6)
-        else 
-          aiSpawnStrategy = math.random(0, 5)
-        end
-
-        print("Ai spawn strategy = ", aiSpawnStrategy)
-        if aiSpawnStrategy == 5 or aiSpawnStrategy == 6 then 
-          followWaypointGraphs = false
-          BotApi.Scene:SetVar("enable_ai_waypoint_graphs", 0)  
-        else 
-          followWaypointGraphs = true
-          BotApi.Scene:SetVar("enable_ai_waypoint_graphs", 1)
-        end
-        print("followWaypointGraphs = ", followWaypointGraphs, " and ai_spawn_strategy = ", aiSpawnStrategy)
-
-        BotApi.Scene:SetVar("change_ai_spawns", 1)
-        BotApi.Scene:SetVar("ai_spawn_strategy", aiSpawnStrategy)
-      end
-    end, checkAiSpawnMoveDelay)
-end
-
-function SetFirstWaveOffset(flagCount)
-  if flagCount == 1 then
-    StartSpawnTime = oneFlagOffsetTime
-  elseif flagCount == 2 then
-    StartSpawnTime = twoFlagOffsetTime
-  elseif flagCount == 3 then
-    StartSpawnTime = threeFlagOffsetTime
-  elseif flagCount == 4 then
-    StartSpawnTime = fourFlagOffsetTime
-  elseif flagCount == 5 then
-    StartSpawnTime = fiveFlagOffsetTime
-  end
-
-  if testing then
-    StartSpawnTime.DefenseMin = firstWaveOffsetTimeForTesting 
-    StartSpawnTime.DefenseMax = firstWaveOffsetTimeForTesting
-    StartSpawnTime.AttackMin = firstWaveOffsetTimeForTesting
-    StartSpawnTime.AttackMax = firstWaveOffsetTimeForTesting
-  end 
-
-  StartSpawnTime.DefenseMin = StartSpawnTime.DefenseMin * 60000
-  StartSpawnTime.DefenseMax = StartSpawnTime.DefenseMax * 60000
-  StartSpawnTime.AttackMin = StartSpawnTime.AttackMin * 60000
-  StartSpawnTime.AttackMax = StartSpawnTime.AttackMax * 60000
-end
-
-function SetCEWaveSettings()
-  print("TESTING MODE = ", testing)
-  local totalFlags = 0
-  for i, flag in pairs(BotApi.Scene.Flags) do
-    totalFlags = totalFlags + 1
-  end
-
-  if botDefender then
-    WaveUnit.Min = WaveUnitOverride.DefendMin
-    WaveUnit.Max = WaveUnitOverride.DefendMax
-    SpawnCooldownTime.DCGWaveOffMin = DCGWaveOffOverwrite.DefenseMinWaveOff
-    SpawnCooldownTime.DCGWaveOffMax = DCGWaveOffOverwrite.DefenseMaxWaveOff
-  else
-    WaveUnit.Min = WaveUnitOverride.AttackMin
-    WaveUnit.Max = WaveUnitOverride.AttackMax
-    SpawnCooldownTime.DCGWaveOffMin = DCGWaveOffOverwrite.AttackMinWaveOff
-    SpawnCooldownTime.DCGWaveOffMax = DCGWaveOffOverwrite.AttackMaxWaveOff
-  end
-
-  if printDebug then 
-    print("WaveUnit.Min = ", WaveUnit.Min)
-    print("WaveUnit.Max = ", WaveUnit.Max)
-  end
-
-  SetFirstWaveOffset(totalFlags)
+function StartSceneCheckTimer()
+  local setSceneCheckTimer = function(callback)
+      Context.SceneCheckTimer = BotApi.Events:SetQuantTimer(
+        function()
+          print("checking scene")         
+          if not checkIfVanillaMapLoaded and not BotApi.Scene:IsSquadTagged(sceneVariableSquad, "_ce_map_scripts_running") then
+            print("Vanilla Map Loaded!!! Disabling CE bot file logic")
+            followWaypointGraphs = false           
+          end
+          checkIfVanillaMapLoaded = true
+          Context.SceneCheckTimer  = nil
+          CheckSceneVariable(sceneVariableSquad)
+          callback(callback)          
+        end,
+        generalSquadTagCheckDelay)
+    end
+    setSceneCheckTimer(setSceneCheckTimer)
 end
 
 -- =================== Noresus Mechanics ==================
@@ -311,31 +276,4 @@ function NoresusOnGameEnd()
     end
     salva:close()   
   end
-end
-
--- =================== Double Queue Data Structure ==================
-DoubleQueue = {}
-function DoubleQueue.new ()
-  return {first = 0, last = -1}
-end
-
-function DoubleQueue.pushRight (list, value)
-  local last = list.last + 1
-  list.last = last
-  list[last] = value
-end
-
-function DoubleQueue.popLeft (list)
-  local first = list.first
-  if first > list.last then error("list is empty") end
-  local value = list[first]
-  list[first] = nil        -- to allow garbage collection
-  list.first = first + 1
-  return value
-end
-
-function DoubleQueue.size(list)
-  local first = list.first
-  if first > list.last then return 0 
-  else return math.abs(list.last - first) + 1 end
 end

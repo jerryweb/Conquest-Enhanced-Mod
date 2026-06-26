@@ -14,8 +14,6 @@
 			{resource
 				{start		%mpStart}
 				{finish		%mpFinish}
-				;{growTime	1200} ;// in seconds
-				;{growTable	"0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0"} ;// each entry divides divides grow time: # of entries = growtime / #
 				{growTime	1} ;// in seconds
 				{growTable	"1"} ;// each entry divides divides grow time: # of entries = growtime / #		
 				{payback
@@ -44,7 +42,8 @@
 	{settings
 		{difficulty				multiplayer}
 		{scoreFinal				22000}
-		{preparationTime		0}	; seconds
+		{preparationTime		600} ; seconds. is sets how long before bot begins an attack when player is the defender.
+		{pauseDuringPreparation false} ; controls if simulation is paused during preparation time
 		{impregnableTimeout		20}	; seconds
 		{floraRespawn			0}
 		{friendlyFire			1}

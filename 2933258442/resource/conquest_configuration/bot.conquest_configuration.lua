@@ -17,45 +17,7 @@
 
 	-- weather_selection_override = 0
 
-	-- Time from start of match AI will wait before attempting to buy a unit in mins
-	oneFlagOffsetTime = {
-	    -- Bot is defender
-    	DefenseMin = 1, 
-    	DefenseMax = 2,
-    	-- Bot is attacker
-    	AttackMin = 8, 
-    	AttackMax = 10,
-	}
-
-	twoFlagOffsetTime = oneFlagOffsetTime
-	threeFlagOffsetTime = {
-	     -- Bot is defender
-    	DefenseMin = 1, 
-    	DefenseMax = 2,
-    	-- Bot is attacker
-    	AttackMin = 10, 
-    	AttackMax = 13,
-	}
-	fourFlagOffsetTime = {
-	     -- Bot is defender
-    	DefenseMin = 1, 
-    	DefenseMax = 1,
-    	-- Bot is attacker
-    	AttackMin = 11, 
-    	AttackMax = 13,
-	}
-	fiveFlagOffsetTime = {
-	     -- Bot is defender
-    	DefenseMin = 1, 
-    	DefenseMax = 1,
-    	-- Bot is attacker
-    	AttackMin = 13, 
-    	AttackMax = 15,
-	}
-
-	-- Time when the AI reinforcements are called in when testing is set to true
-	firstWaveOffsetTimeForTesting = 1.5
-
+	
 	-- Time from last purchase AI will wait before attempting to buy a new unit.
 	DCGWaveOffOverwrite = {
 		-- Time between each wave when bot is attacking
@@ -71,10 +33,8 @@
 	    -- Bot is attacker
 	    AttackMin = 10,
 	    AttackMax = 16,
-	    -- AttackMin = 1,
-	    -- AttackMax = 1,
 	    -- Bot is defender
-	    DefendMin = 6,
+	    DefendMin = 8,
 	    DefendMax = 14,
 	}
 
