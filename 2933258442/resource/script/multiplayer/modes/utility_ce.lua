@@ -1,11 +1,49 @@
 -- File created by Hawka
-require([[/conquest_configuration/bot.conquest_configuration]])
+require([[/script/multiplayer/modes/spawn_logic]])
 
 -- =================== CE AI Variables ==================
 checkIfVanillaMapLoaded = false
 followWaypointGraphs = true
 generalSquadTagCheckDelay = 10 * 1000
 sceneVariableSquad = nil 
+
+currentUnitCountTable = {}
+-- spawnMuliplierActivated = false
+-- spawnMuliplier = 0
+
+local intialSceneEnvironmentCheck = false
+local environment = nil
+local dynamicWeatherTimer = 0
+
+-- =================== Double Queue Data Structure ==================
+DoubleQueue = {}
+function DoubleQueue.new ()
+  return {first = 0, last = -1}
+end
+
+function DoubleQueue.pushRight (list, value)
+  local last = list.last + 1
+  list.last = last
+  list[last] = value
+end
+
+function DoubleQueue.popLeft (list)
+  local first = list.first
+  if first > list.last then error("list is empty") end
+  local value = list[first]
+  list[first] = nil        -- to allow garbage collection
+  list.first = first + 1
+  return value
+end
+
+function DoubleQueue.size(list)
+  local first = list.first
+  if first > list.last then return 0 
+  else return math.abs(list.last - first) + 1 end
+end
+
+unitsToSpawnQueue = DoubleQueue.new()
+
 
 -- =====================================
 function SetCEWaveSettings(SpawnCooldownTime, WaveUnit, botDefender)
@@ -178,43 +216,43 @@ end
 -- Checks the squad scene variable for tagged info about the match
 function CheckSceneVariable(squad)
 
-  --   if followWaypointGraphs then 
-  --     if BotApi.Scene:IsSquadTagged(squad, "_lua_waypoint_graph_disabled") then
-  --       print("Print: AI Waypoint graphs disabled by scene! followWaypointGraphs = ", followWaypointGraphs)
-  --       followWaypointGraphs = false
-  --   end
-  --   else
-  --     if BotApi.Scene:IsSquadTagged(squad, "_lua_waypoint_graph_enabled") then
-  --         print("Print: AI Waypoint graphs enabled by scene! followWaypointGraphs = ", followWaypointGraphs)
-  --         followWaypointGraphs = true
-  --     end
-  --   end
+    if followWaypointGraphs then 
+      if BotApi.Scene:IsSquadTagged(squad, "_lua_waypoint_graph_disabled") then
+        print("Print: AI Waypoint graphs disabled by scene! followWaypointGraphs = ", followWaypointGraphs)
+        followWaypointGraphs = false
+    end
+    else
+      if BotApi.Scene:IsSquadTagged(squad, "_lua_waypoint_graph_enabled") then
+          print("Print: AI Waypoint graphs enabled by scene! followWaypointGraphs = ", followWaypointGraphs)
+          followWaypointGraphs = true
+      end
+    end
 
-  --   if not forceUnitPriority then
-  --     if BotApi.Scene:IsSquadTagged(squad, "_prioritize_de_miner") then
-  --       print("Player has a lot of mines. Prioritze buying de-meiner!")
-  --         forceUnitPriority = true 
-  --       forcedUnitTypes = {"Miner"}
-  --       forceUnitCountMax = 1   
-  --     end
-  --   end
+    if not forceUnitPriority then
+      if BotApi.Scene:IsSquadTagged(squad, "_prioritize_de_miner") then
+        print("Player has a lot of mines. Prioritze buying de-meiner!")
+          forceUnitPriority = true 
+        forcedUnitTypes = {"Miner"}
+        forceUnitCountMax = 1   
+      end
+    end
 
-  --   if not environment then
-  --     if BotApi.Scene:IsSquadTagged(squad, "_autumn") then
-  --       environment = "autumn"
-  --   elseif BotApi.Scene:IsSquadTagged(squad, "_spring") then
-  --       environment = "spring"
-  --   elseif BotApi.Scene:IsSquadTagged(squad, "_summer") then
-  --       environment = "summer"
-  --   elseif BotApi.Scene:IsSquadTagged(squad, "_winter") then
-  --       environment = "winter"
-  --   end
-  -- elseif environment and not intialSceneEnvironmentCheck then 
-  --   print("Print: Scene evironment = ", environment)
-  --   print("Print: Getting maxWeatherOptions with max size of ", maxWeatherOptions[environment])
-  --   intialSceneEnvironmentCheck = true
-  --     SetDynamicWeatherTimer()
-  -- end
+    if not environment then
+      if BotApi.Scene:IsSquadTagged(squad, "_autumn") then
+        environment = "autumn"
+    elseif BotApi.Scene:IsSquadTagged(squad, "_spring") then
+        environment = "spring"
+    elseif BotApi.Scene:IsSquadTagged(squad, "_summer") then
+        environment = "summer"
+    elseif BotApi.Scene:IsSquadTagged(squad, "_winter") then
+        environment = "winter"
+    end
+  elseif environment and not intialSceneEnvironmentCheck then 
+    print("Print: Scene evironment = ", environment)
+    print("Print: Getting maxWeatherOptions with max size of ", maxWeatherOptions[environment])
+    intialSceneEnvironmentCheck = true
+      SetDynamicWeatherTimer()
+  end
 end
 
 function StartSceneCheckTimer()
@@ -235,6 +273,105 @@ function StartSceneCheckTimer()
     end
     setSceneCheckTimer(setSceneCheckTimer)
 end
+
+
+function DefaultSquadSpawnOrders(args)
+  local squadTypes = DoubleQueue.popLeft(unitsToSpawnQueue)
+  local unitFollowWaypointGraph = true
+  local isAircaft = false
+  local isCannon = false
+  local function UnitType (val, types)
+    for index, value in ipairs(types) do
+      if value == "Cannon" then 
+        unitFollowWaypointGraph = false
+        isCannon = true
+        return false
+      elseif value == "Aircraft" then
+        isAircaft = true
+        return false    
+      elseif value == val then
+        return true
+      end
+    end
+    return false
+  end
+end
+
+function CheckUnitMaxCount(unit, available) 
+  if unit.maxUnitCount then 
+    local currentUnitCount = 0
+    if currentUnitCountTable[unit.unit] then 
+      currentUnitCount = currentUnitCountTable[unit.unit] 
+    end
+    if unit.maxUnitCount and currentUnitCount >= unit.maxUnitCount  then 
+      available = false
+      if printDebug then print("Max allowed count of " .. unit.maxUnitCount .. " for " .. unit.unit .. " reached! Unit not available!") end
+    end
+  end
+
+  return available
+end
+
+function IncrementMaxUnitCount(unit)
+  if currentUnitCountTable[unit] then
+    currentUnitCountTable[unit] = currentUnitCountTable[unit] + 1
+  else
+    currentUnitCountTable[unit] = 1
+  end
+  if printDebug then print("Incrementing  ", unit, " unit count. Current unit count =", currentUnitCountTable[unit]) end
+  DoubleQueue.pushRight(unitsToSpawnQueue, Context.SpawnInfo.type)
+  -- if printDebug then print("Adding ", unit, " of types ", Context.SpawnInfo.type, " Queue size is now ", DoubleQueue.size(unitsToSpawnQueue)) end
+  if printDebug then print("Adding ", unit, ". Queue size is now ", DoubleQueue.size(unitsToSpawnQueue)) end
+end
+
+-- function CheckForUnitMultiplier(unit)
+--   if not spawnMuliplierActivated and Context.SpawnInfo.multiplier then 
+--     if printDebug then print("Print: unit spawn multipler actived.") end
+--     spawnMuliplierActivated = true
+--     spawnMuliplier = Context.SpawnInfo.multiplier - 1 -- // adding -1 to prevent spawning an extra unit
+--     if printDebug then print("Print: Will spawn unit ".. unit .. " ".. spawnMuliplier .. " times!") end
+--   elseif spawnMuliplier == 0 and spawnMuliplierActivated then 
+--     spawnMuliplierActivated = false 
+--     if printDebug then print("Print: unit spawn multipler DEACTIVATED!") end
+--   end
+-- end
+
+function SetDynamicWeatherVariables()
+  print("Print: setting dynamic weather delay")
+  local weatherDelay = 9999 * 60 * 1000
+
+  math.randomseed(os.time())
+  if environment and enableDynamicWeather >=  math.random()  then
+    weatherDelay = math.random(applyDelay.min, applyDelay.max)
+  end 
+  
+  return weatherDelay
+end
+
+function SetDynamicWeatherTimer()
+  dynamicWeatherTimer = SetDynamicWeatherVariables()
+  print("Print: dynamic weather apply delay = ", dynamicWeatherTimer / 1000, "seconds")
+  Context.SpawnWait.CooldownTimer = BotApi.Events:SetQuantTimer(
+    function() 
+      local weather_selection = math.random(1, maxWeatherOptions[environment])
+      if weather_selection_override then 
+          weather_selection = weather_selection_override
+        end
+      print("Setting dynamic weather selection =  ", weather_selection)
+      BotApi.Scene:SetVar("weather_selection", weather_selection)
+      Context.DynamicWeatherTimer = nil
+      KillDynamicWeatherTimer()
+    end, 
+    dynamicWeatherTimer)
+end
+
+function KillDynamicWeatherTimer()
+  if Context.DynamicWeatherTimer then
+    BotApi.Events:KillQuantTimer(Context.DynamicWeatherTimer)
+    Context.DynamicWeatherTimer = nil
+  end
+end
+
 
 -- =================== Noresus Mechanics ==================
 function NoresusOnGameStart()
@@ -277,3 +414,4 @@ function NoresusOnGameEnd()
     salva:close()   
   end
 end
+

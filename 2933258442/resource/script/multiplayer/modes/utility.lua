@@ -3,8 +3,6 @@ require([[/script/multiplayer/modes/utility_ce]])
 
 printDebug = true
 printTempDebug = false
-local intialSceneEnvironmentCheck = false
-local environment = nil
 
 spawnPoint = BotApi.Instance.spawnPointName
 spawnSide = string.sub(spawnPoint,1,1)
@@ -65,6 +63,10 @@ Context = {
 	AiSpawnMoveTimer = nil,
 	DynamicWeatherTimer = nil,
 }
+
+local spawnMuliplierActivated = false
+local spawnMuliplier = 0
+
 
 -- Function to set spawn cooldown timer
 function SetSpawnCooldownTimer()
@@ -360,9 +362,10 @@ function OnGameStartUtility(purchasesModuleSuffix, botDefender)
     -- Update and set cooldown. unit selection now happens when the bot is ready to spawn
     Context.SpawnInfo = nil
     SetSpawnCooldownTimer()
+
     -- Load random AI strategy for advanced AI system
-    -- strategyTable = SelectAiStrategyTemplate(botDefender)
-	-- waveUnitTotal = ActivateAiStrategy(waveUnitTotal)
+    strategyTable = SelectAiStrategyTemplate(botDefender)
+	return 
 end
 
 ---[=[
@@ -370,25 +373,34 @@ function TrySpawnUnit()
 	if Context.SpawnWait.CooldownTimer then
 		return
 	end
-
 	if Context.SpawnWait.WaitTimer then
 		return
 	end
-
 	if not BotApi.Commands:CanSpawn() then
 		return
 	end
 
 	if spawningUnit then
+
+		if spawnMuliplierActivated then 
+			spawnMuliplier = spawnMuliplier - 1
+			if printDebug then print("Print: Will spawn unit ".. Context.SpawnInfo.unit.. " more ".. spawnMuliplier.. " times!")	end	
+			local maxCountReached = CheckUnitMaxCount(Context.SpawnInfo, true)  
+			if not maxCountReached then 
+				spawnMuliplierActivated = false
+			end
+		end
 		if OnUnitPurchased then -- used for conquest
 			OnUnitPurchased()
-		elseif enableWaveCounter then
+		elseif enableWaveCounter and not spawnMuliplierActivated then
 			WaveUnitCounter()
 		end
-
 		KillSpawnWaitTimer()
-		Context.SpawnInfo = nil
 		SetSpawnCooldownTimer()
+
+		if not spawnMuliplierActivated then
+			Context.SpawnInfo = nil
+		end
 		spawningUnit = nil
 		return
 	end
@@ -397,14 +409,14 @@ function TrySpawnUnit()
 	Context.SpawnWait.RetryPendingUnit = false
 
 	if not retryPendingUnit or not Context.SpawnInfo then
-		-- Updates the unit selection at the moment bot is ready to buy, instead of immediately after previous purchase
-		UpdateUnitToSpawn(Context.Purchase)
+		if not spawnMuliplierActivated then
+			-- Updates the unit selection at the moment bot is ready to buy, instead of immediately after previous purchase
+			UpdateUnitToSpawn(Context.Purchase)
+		end
 	end
-
 	if not Context.SpawnInfo then
 		return
 	end
-
 	local unit = Context.SpawnInfo.unit
 
 	---[[ -- ! Moved to GetUnitToSpawn(). Active for debuging
@@ -416,8 +428,21 @@ function TrySpawnUnit()
 	end
 	--]]
 
+	-- CheckForUnitMultiplier(unit)
+
+	if not spawnMuliplierActivated and Context.SpawnInfo.multiplier then 
+		if printDebug then print("Print: unit spawn multipler actived.") end
+		spawnMuliplierActivated = true
+		spawnMuliplier = Context.SpawnInfo.multiplier --// - 1 -- // adding -1 to prevent spawning an extra unit
+		if printDebug then print("Print: Will spawn unit ".. unit .. " ".. spawnMuliplier .. " times!") end
+	elseif spawnMuliplier == 0 and spawnMuliplierActivated then 
+		spawnMuliplierActivated = false 
+		if printDebug then print("Print: unit spawn multipler DEACTIVATED!") end 
+	end
+
 	if BotApi.Commands:Spawn(unit, MaxSquadSize) then
 		spawningUnit = true
+		IncrementMaxUnitCount(unit)
 		return
 	end
 	
@@ -456,7 +481,7 @@ function OnGameStop()
 	KillSpawnWaitTimer()
 	KillSceneCheckTimer()
 	NoresusOnGameEnd()
-
+	KillDynamicWeatherTimer()
 	for squad, timer in pairs(Context.SquadTimers) do
 		if timer then
 			BotApi.Events:KillQuantTimer(timer)

@@ -97,6 +97,12 @@ function WaveAttack()
 		waveSpawnPossible = true
 	end
 
+	if forceUnitCount >= forceUnitCountMax then
+		if printDebug then print("Print: forceUnitCount max reached: ", forceUnitCount, " Disabling unit priority override") end
+		forceUnitPriority = false
+		forceUnitCount = 0
+	end
+
 	if waveSpawnPossible then
 		if waveUnitCount >= waveUnitTotal then
 			waveUnitTotal = math.random(WaveUnit.Min, WaveUnit.Max)
@@ -115,6 +121,11 @@ function WaveUnitCounter()
 	if waveSpawnPossible then
 		waveUnitCount = waveUnitCount + 1
 		if printDebug then print("Print: waveUnitCount =", waveUnitCount) end
+	end
+
+	if forceUnitPriority then 
+		forceUnitCount = forceUnitCount + 1
+		if printDebug then print("Print: forceUnitCount =", forceUnitCount) end
 	end
 end
 
@@ -283,6 +294,8 @@ function GetUnitToSpawn(units)
 		local min_team = unit.min_team  -- not used
 		local min_income = unit.min_income -- not used
 		local available = BotApi.Commands:IsUnitAvailable(unit.unit)
+
+		available = CheckUnitMaxCount(unit, available)
 		
 		if not min_income then min_income = -1 end
 		if not min_team then min_team = 0 end
@@ -300,26 +313,7 @@ function GetUnitToSpawn(units)
 	end
 
 	return GetRandomItem(unitsToSpawn, function(t)
-
-		-- search "type" array for specific element
-		local function UnitType (val)
-			for index, value in ipairs(t.type) do
-				if value == val then
-					return true
-				end
-			end
-			return false
-		end
-
-		if UnitType("Squad") then
-			return t.priority * 1.75
-		end
-
-		if UnitType("Cannon") then
-			return t.priority * 0.80
-		end
-
-		return t.priority
+		return GetUnitPriority(t)
 	end)
 end
 
@@ -327,7 +321,8 @@ function OnGameStart()
 	NoresusOnGameStart() 
     isAttackerOrDefender()
     setVarsInMissionScript()
-    OnGameStartUtility("conquest", SpawnCooldownTime, botDefender)
+    OnGameStartUtility("conquest", botDefender)
+    waveUnitTotal = ActivateAiStrategy(waveUnitTotal)
 end
 
 function OnGameQuant()
@@ -344,7 +339,6 @@ function OnGameQuant()
 end
 
 function OnGameSpawn(args)
-	print("spawned unit")
 	if not sceneVariableSquad then 
 		sceneVariableSquad = args.squadId 
 		if printDebug then print("Print: SQAUD ", args.squadId, " set as scene variable.") end
