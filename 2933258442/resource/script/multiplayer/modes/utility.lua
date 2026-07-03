@@ -493,7 +493,8 @@ function SetSquadOrder(order, squad, delay, initialOrder)
 	if initialOrder then
 		order(squad)		
 	end
-	local setTimer = function(callback)
+	local setTimer = nil
+	setTimer = function(callback)
 		Context.SquadTimers[squad] = BotApi.Events:SetQuantTimer(
 			function()
 				order(squad)
@@ -503,6 +504,6 @@ function SetSquadOrder(order, squad, delay, initialOrder)
 				end
 			end,
 			delay)
-	end
+		end
 	setTimer(setTimer)
 end

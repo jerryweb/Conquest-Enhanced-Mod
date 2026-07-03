@@ -30,7 +30,18 @@ local WaveUnit = {
 local UnitSpawnWaitTime = 1.5 * 60000 -- 1:30min (ms) 
 
 -- Time delay for units to get a new move order after spawn move order. Loops.
-local OrderRotationPeriod = 2.5 * 60000 -- 2:30 min (ms)
+local OrderRotationPeriod = {
+    DCG = { 
+    	Min = 2 * 60000, -- 2:30 min (ms)
+    	Max = 4 * 60000, -- 4:00 min (ms)
+    }, -- 4:30 min (ms)
+    DCG_FLANK = {
+    	Min = 6 * 60000, -- 6:00 min (ms)
+    	Max = 8 * 60000 -- 8:00 min (ms)
+    },
+    CannonTimeOut = 1.0 * 60000,
+    InitialUnitSpawnTimeout = 0.5 * 60000,
+}
 
 local botDefender
 enableWaveCounter = true
@@ -243,6 +254,11 @@ function IsSquadToIgnore(squad)
 end
 
 function CaptureFlag(squad)
+	if IsSquadToAlwaysIgnore(squad) then
+		if printDebug then print("Print: SQUAD always ignored thus no action squad ", squad, "Player#", BotApi.Instance.playerId) end
+		return
+	end
+
 	local flags = {}
     for i, flag in pairs(BotApi.Scene.Flags) do
         table.insert(flags, {id = i, name = flag.name, priority = getDefaultFlagPriority(flag), owner = flag.occupant})
@@ -332,7 +348,8 @@ function OnGameQuant()
 	if #waypoints == 0 then
 		for i, squad in pairs(BotApi.Scene.Squads) do
 			if not Context.SquadTimers[squad] then
-				SetSquadOrder(CaptureFlag, squad, OrderRotationPeriod, true)
+				if printDebug then print("SQUAD ", squad, " SquadTimers = nil") end
+				SetSquadOrder(CaptureFlag, squad, math.random(OrderRotationPeriod.DCG.Min, OrderRotationPeriod.DCG.Max), true)
 			end
 		end
 	end
@@ -345,13 +362,7 @@ function OnGameSpawn(args)
 		StartSceneCheckTimer()
 		return
 	else
-		local waypoints = BotApi.Scene.Waypoints
-		if #waypoints == 0 then
-			SetSquadOrder(CaptureFlag, args.squadId, OrderRotationPeriod, true)
-		else
-			GotoNextWaypoint(args.squadId)
-			if printDebug then print("Print: #waypoints != 0") end
-		end
+		DefaultSquadSpawnOrders(args, OrderRotationPeriod)
 	end
 end
 
@@ -362,6 +373,7 @@ function OnPrepTimeOver()
 	
 	BotApi.Scene:SetVar("prep_inform", 1)
 	-- SelectAiSpawnStrategy()
+	SetGeneralSquadTagCheckTimer()
 	if printDebug then print("Print: prep_inform set to 1, Player defense prep is over.") end
 end
 
