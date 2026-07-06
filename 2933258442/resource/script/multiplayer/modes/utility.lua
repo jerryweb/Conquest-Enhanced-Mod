@@ -332,7 +332,7 @@ function OnGameStartUtility(purchasesModuleSuffix, botDefender)
     print("Print: AI Bot is player#" .. BotApi.Instance.playerId .. ", nation " .. BotApi.Instance.army .. ", on team " .. team .. " which has " .. teamSize .. " player(s)")
     print("Print: player#" .. BotApi.Instance.playerId .. ", has a difficulty of " .. BotApi.Instance.difficulty)
 	print("CUSTOM WAYPOINTS = ", followWaypointGraphs)
-	print("Attempting to spawn scene_variable")
+	print("Attempting to spawn scene_variable")	
 
     -- Seed random for unpredictability
     math.randomseed(os.time() * BotApi.Instance.hostId)
@@ -353,8 +353,9 @@ function OnGameStartUtility(purchasesModuleSuffix, botDefender)
         purchases = {}
     end
 
-    BotApi.Commands:Spawn("scene_variable", MaxSquadSize)
-	print("Spawned Scene variable successfully!")
+    if not botDefender then 
+		SpawnSceneVariable()
+	end
 
     -- Set up context
     Context.Purchase = PIter:new(purchases)

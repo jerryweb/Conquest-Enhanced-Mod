@@ -358,8 +358,10 @@ end
 function OnGameSpawn(args)
 	if not sceneVariableSquad then 
 		sceneVariableSquad = args.squadId 
+		print("Spawned Scene variable successfully!")
 		if printDebug then print("Print: SQAUD ", args.squadId, " set as scene variable.") end
 		StartSceneCheckTimer()
+		SetGeneralSquadTagCheckTimer()
 		return
 	else
 		DefaultSquadSpawnOrders(args, OrderRotationPeriod)
@@ -368,12 +370,10 @@ end
 
 -- Notifies the mission script that player defense prep time is over.
 function OnPrepTimeOver()
-	BotApi.Commands:Spawn("scene_variable", MaxSquadSize)
-	print("Spawned Scene variable successfully!")
-	
+	SpawnSceneVariable()
 	BotApi.Scene:SetVar("prep_inform", 1)
 	-- SelectAiSpawnStrategy()
-	SetGeneralSquadTagCheckTimer()
+	
 	if printDebug then print("Print: prep_inform set to 1, Player defense prep is over.") end
 end
 

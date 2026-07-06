@@ -1,12 +1,9 @@
-		{event "cancel_artillery_attack"}		
+;============ Vanilla EVENTS ========================================
+		
 		{event "ai_air_on"}
 		{event "ai_air_possible"}
-		{event "ai_general_flank"}
-		{event "ai_recon_units_flank"}
 		{event "airplane_set"}
-		{event "attack_or_defend_mission_set"}
 		{event "dcg"}
-		{event "emplacement_stage_balancing"}
 		{event "flag1"}
 		{event "flag2"}
 		{event "flag3"}
@@ -14,8 +11,6 @@
 		{event "flag5"}
 		{event "init"}
 		{event "init2"}
-		{event "cut_communications"}
-		{event "init_radio_mechanics"}
 		{event "music_detect"}
 		{event "music_intense"}
 		{event "music_regular"}
@@ -23,6 +18,16 @@
 		{event "music_rnd"}
 		{event "music_start"}
 		{event "talk_on"}
+
+;============ CE EVENTS ========================================
+
+		{event "cancel_artillery_attack"}
+		{event "ai_general_flank"}
+		{event "ai_recon_units_flank"}
+		{event "attack_or_defend_mission_set"}
+		{event "emplacement_stage_balancing"}
+		{event "cut_communications"}
+		{event "init_radio_mechanics"}
 		{event "sabotage_ai_veh"}
 		{event "air_raid_start"}
 		{event "air_raid_warning"}
@@ -32,3 +37,4 @@
 		{event "ai_defender_inf_balanced"}
 		{event "ai_defender_vehicles_balanced"}
 		{event "ai_defender_vehicles_tagged"}
+

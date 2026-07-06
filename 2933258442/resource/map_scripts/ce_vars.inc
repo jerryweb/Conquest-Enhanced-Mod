@@ -25,7 +25,6 @@
 			{"max_ai_defender_emplacement_count_level_1"}
 			{"max_ai_defender_emplacement_count_level_2"}
 			{"max_ai_defender_emplacement_count_level_3"}
-			{"ai_attack_started"}
 			{"max_ai_defender_at_flag"}
 			{"ai_strategy_selection"}
 			{"ai_grid_system_active"}

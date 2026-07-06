@@ -10,5 +10,6 @@
 		{triggers
 			(include "../summer_environment.inc")
 			(include "../../ce_triggers.inc")
+			;(include "../../../map/multi/dcg_script.inc")
 		}
 		(include "../../ce_generic_waypoint.inc")

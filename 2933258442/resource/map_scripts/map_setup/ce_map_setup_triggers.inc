@@ -904,42 +904,456 @@
 				}
 				{actions
 					{"delay"
-						{time 10}
+						{time 5}
 					}
-					{"entity_state"
-						{selector
-							{source advanced}
-							{group
-								{select
-									{zone
-										{zone "gamezone"}
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "id_defenderbot$"}
+								{op "=="}
+								{value 1}
+							}
+							{"entity_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{zone
+												{zone "gamezone"}
+											}
+										}
+										{include
+											{player
+												{player "1"}
+											}
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{state
+												{state dead}
+											}
+											{state
+												{state inactive}
+											}
+											{tag
+												{tag _ai_defender}
+											}
+											{state
+												{state user_control}
+											}
+											{prop
+												{prop human}
+											}
+										}
 									}
 								}
-								{include
-									{prop
-										{prop vehicle}
-									}
-									{state
-										{state "operatable inhabited"}
-									}
-								}
-								{exclude
-									{state
-										{state user_control}
-									}
-									{state
-										{state inactive}
-									}
-									{state
-										{state linked}
-									}
-								}
+								{tag_add _ai_defender}
+							}
+							{## "timer"
+								{time 10}
+								{title "Ai Defender Bot Player ID = 1"}
 							}
 						}
-						{tag_add _ai_defender}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "id_defenderbot$"}
+								{op "=="}
+								{value 2}
+							}
+							{"entity_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{zone
+												{zone "gamezone"}
+											}
+										}
+										{include
+											{player
+												{player "2"}
+											}
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{state
+												{state dead}
+											}
+											{state
+												{state inactive}
+											}
+											{tag
+												{tag _ai_defender}
+											}
+											{state
+												{state user_control}
+											}
+											{prop
+												{prop human}
+											}
+										}
+									}
+								}
+								{tag_add _ai_defender}
+							}
+							{## "timer"
+								{time 10}
+								{title "Ai Defender Bot Player ID = 2"}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "id_defenderbot$"}
+								{op "=="}
+								{value 3}
+							}
+							{"entity_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{zone
+												{zone "gamezone"}
+											}
+										}
+										{include
+											{player
+												{player "3"}
+											}
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{state
+												{state dead}
+											}
+											{state
+												{state inactive}
+											}
+											{tag
+												{tag _ai_defender}
+											}
+											{state
+												{state user_control}
+											}
+											{prop
+												{prop human}
+											}
+										}
+									}
+								}
+								{tag_add _ai_defender}
+							}
+							{## "timer"
+								{time 10}
+								{title "Ai Defender Bot Player ID = 3"}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "id_defenderbot$"}
+								{op "=="}
+								{value 4}
+							}
+							{"entity_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{zone
+												{zone "gamezone"}
+											}
+										}
+										{include
+											{player
+												{player "4"}
+											}
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{state
+												{state dead}
+											}
+											{state
+												{state inactive}
+											}
+											{tag
+												{tag _ai_defender}
+											}
+											{state
+												{state user_control}
+											}
+											{prop
+												{prop human}
+											}
+										}
+									}
+								}
+								{tag_add _ai_defender}
+							}
+							{## "timer"
+								{time 10}
+								{title "Ai Defender Bot Player ID = 4"}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "id_defenderbot$"}
+								{op "=="}
+								{value 5}
+							}
+							{"entity_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{zone
+												{zone "gamezone"}
+											}
+										}
+										{include
+											{player
+												{player "5"}
+											}
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{state
+												{state dead}
+											}
+											{state
+												{state inactive}
+											}
+											{tag
+												{tag _ai_defender}
+											}
+											{state
+												{state user_control}
+											}
+											{prop
+												{prop human}
+											}
+										}
+									}
+								}
+								{tag_add _ai_defender}
+							}
+							{## "timer"
+								{time 10}
+								{title "Ai Defender Bot Player ID = 5"}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "id_defenderbot$"}
+								{op "=="}
+								{value 6}
+							}
+							{"entity_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{zone
+												{zone "gamezone"}
+											}
+										}
+										{include
+											{player
+												{player "6"}
+											}
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{state
+												{state dead}
+											}
+											{state
+												{state inactive}
+											}
+											{tag
+												{tag _ai_defender}
+											}
+											{state
+												{state user_control}
+											}
+											{prop
+												{prop human}
+											}
+										}
+									}
+								}
+								{tag_add _ai_defender}
+							}
+							{## "timer"
+								{time 10}
+								{title "Ai Defender Bot Player ID = 6"}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "id_defenderbot$"}
+								{op "=="}
+								{value 7}
+							}
+							{"entity_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{zone
+												{zone "gamezone"}
+											}
+										}
+										{include
+											{player
+												{player "7"}
+											}
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{state
+												{state dead}
+											}
+											{state
+												{state inactive}
+											}
+											{tag
+												{tag _ai_defender}
+											}
+											{state
+												{state user_control}
+											}
+											{prop
+												{prop human}
+											}
+										}
+									}
+								}
+								{tag_add _ai_defender}
+							}
+							{## "timer"
+								{time 10}
+								{title "Ai Defender Bot Player ID = 7"}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "id_defenderbot$"}
+								{op "=="}
+								{value 8}
+							}
+							{"entity_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{zone
+												{zone "gamezone"}
+											}
+										}
+										{include
+											{player
+												{player "8"}
+											}
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{state
+												{state dead}
+											}
+											{state
+												{state inactive}
+											}
+											{tag
+												{tag _ai_defender}
+											}
+											{state
+												{state user_control}
+											}
+											{prop
+												{prop human}
+											}
+										}
+									}
+								}
+								{tag_add _ai_defender}
+							}
+							{## "timer"
+								{time 10}
+								{title "Ai Defender Bot Player ID = 8"}
+							}
+						}
+						{"default"
+							{"entity_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{zone
+												{zone "gamezone"}
+											}
+										}
+										{include
+											{player
+												{player "9"}
+											}
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{state
+												{state dead}
+											}
+											{state
+												{state inactive}
+											}
+											{tag
+												{tag _ai_defender}
+											}
+											{state
+												{state user_control}
+											}
+											{prop
+												{prop human}
+											}
+										}
+									}
+								}
+								{tag_add _ai_defender}
+							}
+							{## "timer"
+								{time 10}
+								{title "Ai Defender Bot Player ID = 9"}
+							}
+						}
 					}
 					{"delay"
-						{time 0.1}
+						{time 0.2}
 					}
 					{"entity_state"
 						{selector
@@ -951,25 +1365,25 @@
 									}
 								}
 								{include
-									{state
-										{state "operatable inhabited"}
-									}
 									{prop
 										{prop vehicle}
+									}
+									{state
+										{state "operatable inhabited"}
 									}
 								}
 								{exclude
 									{state
 										{state inactive}
 									}
+									{prop
+										{prop airborne}
+									}
 									{state
 										{state user_control}
 									}
 									{tag
-										{tag _user}
-									}
-									{state
-										{state linked}
+										{tag no_scavenge}
 									}
 								}
 							}
@@ -979,49 +1393,6 @@
 					{"delay"
 						{time 0.1}
 					}
-					{"if"
-						{condition
-							{type cmp_i}
-							{var "user_is_defender$"}
-							{op "=="}
-							{value 1}
-						}
-						{"effect"
-							{selector
-								{source advanced}
-								{group
-									{select
-										{tag
-											{tag _ai_defender}
-										}
-									}
-									{include
-										{state
-											{state "operatable inhabited"}
-										}
-										{prop
-											{prop vehicle}
-										}
-									}
-									{exclude
-										{state
-											{state inactive}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag _user}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-							}
-							{effect tag_user_ally}
-						}
-					}
 					{"event"
 						{event "ai_defender_vehicles_tagged"}
 						{mode set}
@@ -1029,12 +1400,15 @@
 					}
 				}
 			}
-			{"conquest_enhanced_mechanics/ai_defenders/set_defense_level"
+			{"conquest_enhanced_mechanics/ai_defenders/balance_ai_defender_veh"
 				{condition
 					{terms
-						{"1.cmp_i"
-							{var "defense_level$"}
-							{op "=="}
+						{"1.event"
+							{id "ai_defender_vehicles_tagged"}
+						}
+						{"2.cmp_i"
+							{var "max_ai_defender_emplacement_count_level_3$"}
+							{op ">"}
 							{value 0}
 						}
 					}
@@ -1043,299 +1417,151 @@
 					{"delay"
 						{time 1}
 					}
-					{"switch"
-						{"case"
-							{condition
-								{type entities}
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag "1_a_3"}
-											}
-											{tag
-												{tag "1_b_3"}
-											}
-											{tag
-												{tag "2_a_3"}
-											}
-											{tag
-												{tag "2_b_3"}
-											}
-											{tag
-												{tag "3_a_3"}
-											}
-											{tag
-												{tag "3_b_3"}
-											}
-											{tag
-												{tag "4_a_3"}
-											}
-											{tag
-												{tag "4_b_3"}
-											}
-											{tag
-												{tag "5_a_3"}
-											}
-											{tag
-												{tag "5_b_3"}
-											}
-										}
-										{include
-											;{prop
-											;	{prop human}
-											;}
-											{tag
-												{tag cmp_def}
-											}
-											{zone
-												{zone "gamezone"}
-											}
-										}
-										{exclude
-											{state
-												{state dead}
-											}
-											{tag
-												{tag hidden}
-											}
-											{state
-												{state user_control}
-											}
-											{state
-												{state inactive}
-											}
-											;{state
-											;	{state linked}
-											;}
-										}
-									}
-								}
-							}
-							{"set_i"
-								{var "defense_level$"}
-								{op "="}
-								{value 3}
-							}
-							{"delay"
-								{time 0.5}
-							}
-							{"entity_state"
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag flag_point}
-											}
-										}
-										{include
-											{zone
-												{zone "gamezone"}
-											}
-										}
-										{exclude
-											{state
-												{state inactive}
-											}
-										}
-									}
-								}
-								{tag_add defense_level_3}
-							}
-							{## "timer"
-								{time 5}
-								{title "tagging defense level 3"}
-							}
+					{"if"
+						{condition
+							{type cmp_i}
+							{var "user_is_defender$"}
+							{op "=="}
+							{value 0}
 						}
-						{"case"
-							{condition
-								{type entities}
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag "1_a_2-3"}
-											}
-											{tag
-												{tag "1_b_2-3"}
-											}
-											{tag
-												{tag "2_a_2-3"}
-											}
-											{tag
-												{tag "2_b_2-3"}
-											}
-											{tag
-												{tag "3_a_2-3"}
-											}
-											{tag
-												{tag "3_b_2-3"}
-											}
-											{tag
-												{tag "4_a_2-3"}
-											}
-											{tag
-												{tag "4_b_2-3"}
-											}
-											{tag
-												{tag "5_a_2-3"}
-											}
-											{tag
-												{tag "5_b_2-3"}
-											}
-										}
-										{include
-											;{prop
-											;	{prop human}
-											;}
-											{tag
-												{tag cmp_def}
-											}
-											{zone
-												{zone "gamezone"}
-											}
-										}
-										{exclude
-											{state
-												{state dead}
-											}
-											{tag
-												{tag hidden}
-											}
-											{state
-												{state user_control}
-											}
-											{state
-												{state inactive}
-											}
-											;{state
-											;	{state linked}
-											;}
-										}
-									}
+						{"switch"
+							{"case"
+								{condition
+									{type cmp_i}
+									{var "defense_level$"}
+									{op ">="}
+									{value 3}
+								}
+								{"set_i"
+									{var "max_ai_defender_emplacement_total_count$"}
+									{op "="}
+									{value "max_ai_defender_emplacement_count_level_3$"}
 								}
 							}
-							{"set_i"
-								{var "defense_level$"}
-								{op "="}
-								{value 2}
-							}
-							{"delay"
-								{time 0.5}
-							}
-							{"entity_state"
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag flag_point}
-											}
-										}
-										{include
-											{zone
-												{zone "gamezone"}
-											}
-										}
-										{exclude
-											{state
-												{state inactive}
-											}
-										}
-									}
+							{"case"
+								{condition
+									{type cmp_i}
+									{var "defense_level$"}
+									{op "=="}
+									{value 2}
 								}
-								{tag_add defense_level_2}
+								{"set_i"
+									{var "max_ai_defender_emplacement_total_count$"}
+									{op "="}
+									{value "max_ai_defender_emplacement_count_level_2$"}
+								}
 							}
-							{## "timer"
-								{time 5}
-								{title "tagging defense level 2"}
-							}
-						}
-						{"default"
-							{"set_i"
-								{var "defense_level$"}
-								{op "="}
-								{value 1}
-							}
-							{## "timer"
-								{time 5}
-								{title "tagging defense level 1"}
+							{"default"
+								{"set_i"
+									{var "max_ai_defender_emplacement_total_count$"}
+									{op "="}
+									{value "max_ai_defender_emplacement_count_level_1$"}
+								}
 							}
 						}
 					}
 					{"delay"
 						{time 1}
 					}
-					{"if"
+					{"while"
 						{condition
-							{type cmp_i}
-							{var "user_is_defender$"}
-							{op "=="}
-							{value 1}
-						}
-						{"if"
-							{condition
-								{type entities}
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag defense_level_3}
-											}
-											{tag
-												{tag defense_level_2}
-											}
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{prop
+											{prop vehicle}
+										}
+										{tag
+											{tag _ai_defender}
+										}
+									}
+									{exclude
+										{state
+											{state linked}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag hidden}
+										}
+										{prop
+											{prop airborne}
+										}
+										{prop
+											{prop human}
 										}
 									}
 								}
 							}
-							{"effect"
-								{selector
-									{source advanced}
-										{group
-											{select						
-												{zone
-													{zone "fpc1"}
-												}
-												{zone
-													{zone "fpc2"}
-												}
-												{zone
-													{zone "fpc3"}
-												}
-												{zone
-													{zone "fpc4"}
-												}
-												{zone
-													{zone "fpc5"}
-												}
-											}
-											{include
-												{tag
-													{tag flag_point}
-												}
-											}
-											{exclude
-												{state
-													{state inactive}
-												}
-											}
-										}
-								}
-								{effect call_flag_defense_crates}
-							}
-							{## "timer"
-								{time 5}
-								{title "calling defense crates"}
+							{count
+								{op ">"}
+								{value "max_ai_defender_emplacement_total_count$"}
 							}
 						}
+						{"delete"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{prop
+											{prop vehicle}
+										}
+										{state
+											{state operatable}
+										}
+										{tag
+											{tag _ai_defender}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag hidden}
+										}
+										{prop
+											{prop airborne}
+										}
+										{prop
+											{prop human}
+										}
+									}
+								}
+								{amount 1
+								}
+							}
+						}
+						{"delay"
+							{time 0.2}
+						}
+					}
+					{"delay"
+						{time 5}
+					}
+					{"event"
+						{event "ai_defender_vehicles_balanced"}
+						{mode set}
+						{delay 0}
 					}
 				}
-			}
+			}			
 			{"conquest_enhanced_mechanics/ai_defenders/balance_ai_defender_infantry"
 				{condition
 					{terms
@@ -1710,158 +1936,7 @@
 					}
 				}
 			}
-			{"conquest_enhanced_mechanics/ai_defenders/balance_ai_defender_veh"
-				{condition
-					{terms
-						{"1.event"
-							{id "ai_defender_vehicles_tagged"}
-						}
-					}
-				}
-				{actions
-					{"delay"
-						{time 2}
-					}
-					{"if"
-						{condition
-							{type cmp_i}
-							{var "user_is_defender$"}
-							{op "=="}
-							{value 0}
-						}
-						{"switch"
-							{"case"
-								{condition
-									{type cmp_i}
-									{var "defense_level$"}
-									{op ">="}
-									{value 3}
-								}
-								{"set_i"
-									{var "max_ai_defender_emplacement_total_count$"}
-									{op "="}
-									{value "max_ai_defender_emplacement_count_level_3$"}
-								}
-							}
-							{"case"
-								{condition
-									{type cmp_i}
-									{var "defense_level$"}
-									{op "=="}
-									{value 2}
-								}
-								{"set_i"
-									{var "max_ai_defender_emplacement_total_count$"}
-									{op "="}
-									{value "max_ai_defender_emplacement_count_level_2$"}
-								}
-							}
-							{"default"
-								{"set_i"
-									{var "max_ai_defender_emplacement_total_count$"}
-									{op "="}
-									{value "max_ai_defender_emplacement_count_level_1$"}
-								}
-							}
-						}
-					}
-					{"delay"
-						{time 1}
-					}
-					{"while"
-						{condition
-							{type entities}
-							{selector
-								{source advanced}
-								{group
-									{select
-										{zone
-											{zone "gamezone"}
-										}
-									}
-									{include
-										{state
-											{state "operatable inhabited"}
-										}
-										{prop
-											{prop vehicle}
-										}
-										{tag
-											{tag _ai_defender}
-										}
-									}
-									{exclude
-										{state
-											{state linked}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag hidden}
-										}
-										{prop
-											{prop airborne}
-										}
-									}
-								}
-							}
-							{count
-								{op ">"}
-								{value "max_ai_defender_emplacement_total_count$"}
-							}
-						}
-						{"delete"
-							{selector
-								{source advanced}
-								{group
-									{select
-										{zone
-											{zone "gamezone"}
-										}
-									}
-									{include
-										{prop
-											{prop vehicle}
-										}
-										{state
-											{state "operatable inhabited"}
-										}
-										{tag
-											{tag _ai_defender}
-										}
-									}
-									{exclude
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag hidden}
-										}
-										{prop
-											{prop airborne}
-										}
-									}
-								}
-								{amount 1
-								}
-							}
-						}
-						{"delay"
-							{time 0.2}
-						}
-					}
-					{"delay"
-						{time 5}
-					}
-					{"event"
-						{event "ai_defender_vehicles_balanced"}
-						{mode set}
-						{delay 0}
-					}
-				}
-			}
-			{"conquest_enhanced_mechanics/delete_untagged_humans"
+			{"conquest_enhanced_mechanics/ai_defenders/delete_untagged_humans"
 				{condition
 					{terms
 						{"1.entities"

@@ -6,10 +6,7 @@ checkIfVanillaMapLoaded = false
 followWaypointGraphs = true
 generalSquadTagCheckDelay = 10 * 1000
 sceneVariableSquad = nil 
-
 currentUnitCountTable = {}
--- spawnMuliplierActivated = false
--- spawnMuliplier = 0
 
 local intialSceneEnvironmentCheck = false
 local environment = nil
@@ -236,11 +233,14 @@ function SetCEMissionVariables(botDefender, botDifficulty)
     -- print("i: ", i)
     print("flag name: ", flag.name)
     print("flag occupant: ", flag.occupant)
+
+    totalFlags = totalFlags + 1
     
     if followWaypointGraphs then
       checkMapAIMovementLogic(flag.name)
     end
   end
+  print("totalFlags: ", totalFlags)
 
   if followWaypointGraphs then
       BotApi.Scene:SetVar("enable_ai_waypoint_graphs", 1)
@@ -261,43 +261,29 @@ function SetCEMissionVariables(botDefender, botDifficulty)
   BotApi.Scene:SetVar("max_ai_defender_emplacement_count_level_1", AiDefenderCount.Defending.emplacement.defenseLevelOne)
   BotApi.Scene:SetVar("max_ai_defender_emplacement_count_level_2", AiDefenderCount.Defending.emplacement.defenseLevelTwo)
   BotApi.Scene:SetVar("max_ai_defender_emplacement_count_level_3", AiDefenderCount.Defending.emplacement.defenseLevelThree)
+
+
   if botDefender then
     enableRearAttackMechanics = 0
-    if challenge_map then
-      BotApi.Scene:SetVar("max_ai_defender_inf_per_flag_count", AiDefenderCount.Defending.challengeMaps.infantry.perFlag + botDifficultyModifier)
-      BotApi.Scene:SetVar("max_ai_defender_at_flag", AiDefenderCount.Defending.infantry.max_ai_defender_at_flag)
-      -- BotApi.Scene:SetVar("max_ai_defender_inf_count", AiDefenderCount.Defending.challengeMaps.infantry.max)
-      BotApi.Scene:SetVar("max_ai_inf_def_x5_count", AiDefenderCount.Defending.challengeMaps.infantry.x5_cloneClount)
-    else
       print("setting ai defender count for bot defending")
       BotApi.Scene:SetVar("max_ai_defender_inf_per_flag_count", AiDefenderCount.Defending.infantry.perFlag + botDifficultyModifier)
       BotApi.Scene:SetVar("max_ai_defender_at_flag", AiDefenderCount.Defending.infantry.max_ai_defender_at_flag)
-      -- BotApi.Scene:SetVar("max_ai_defender_inf_count", AiDefenderCount.Defending.infantry.max)
       BotApi.Scene:SetVar("max_ai_inf_def_x5_count", AiDefenderCount.Defending.infantry.x5_cloneClount) 
-    end
   else
-     if challenge_map then
-       BotApi.Scene:SetVar("max_ai_defender_inf_per_flag_count", AiDefenderCount.Attacking.challengeMaps.infantry.perFlag + botDifficultyModifier)
-       BotApi.Scene:SetVar("max_ai_defender_at_flag", AiDefenderCount.Attacking.infantry.max_ai_defender_at_flag)
-      -- BotApi.Scene:SetVar("max_ai_defender_inf_count", AiDefenderCount.Attacking.challengeMaps.infantry.max)
-      BotApi.Scene:SetVar("max_ai_inf_def_x5_count", AiDefenderCount.Attacking.challengeMaps.infantry.x2_cloneClount)
-      BotApi.Scene:SetVar("max_ai_defender_emplacement_total_count", AiDefenderCount.Attacking.challengeMaps.emplacement.perFlag * totalFlags)
-     else
-      print("setting ai emplacement defender count for bot attacking = ", AiDefenderCount.Attacking.emplacement.perFlag * totalFlags)
-      print("setting ai defender count for bot attacking = ",  AiDefenderCount.Attacking.infantry.perFlag + botDifficultyModifier)
+      print("setting ai emplacement defender count when bot attacking = ", AiDefenderCount.Attacking.emplacement.perFlag * totalFlags)
+      print("setting ai defender count when bot attacking = ",  AiDefenderCount.Attacking.infantry.perFlag + botDifficultyModifier)
       BotApi.Scene:SetVar("max_ai_defender_at_flag", AiDefenderCount.Attacking.infantry.max_ai_defender_at_flag)
-      -- BotApi.Scene:SetVar("max_ai_defender_inf_count", AiDefenderCount.Attacking.infantry.max)
       BotApi.Scene:SetVar("max_ai_defender_inf_per_flag_count", AiDefenderCount.Attacking.infantry.perFlag + botDifficultyModifier)
       BotApi.Scene:SetVar("max_ai_inf_def_x5_count", AiDefenderCount.Attacking.infantry.x2_cloneClount)
       BotApi.Scene:SetVar("max_ai_defender_emplacement_total_count", AiDefenderCount.Attacking.emplacement.perFlag * totalFlags)
-    end
+
+      print("max_ai_defender_emplacement_total_count = ", AiDefenderCount.Attacking.emplacement.perFlag * totalFlags + 1)
   end
   -- checkVarPercentage("enable_rear_attack_mechanic", enableRearAttackMechanics)
   checkRearAttackPercentage()
-  BotApi.Scene:SetVar("max_ai_defender_emplacement_count_level_1", AiDefenderCount.Defending.emplacement.defenseLevelOne)
-  BotApi.Scene:SetVar("max_ai_defender_emplacement_count_level_2", AiDefenderCount.Defending.emplacement.defenseLevelTwo)
-  BotApi.Scene:SetVar("max_ai_defender_emplacement_count_level_3", AiDefenderCount.Defending.emplacement.defenseLevelThree)
   -- BotApi.Scene:SetVar("force_ai_direct_attack_logic", force_ai_direct_attack_logic)
+
+
 end
 
 function CheckUnitMaxCount(unit, available) 
@@ -407,6 +393,10 @@ end
 
 
 -- =================== Check Squad Tags ==================
+function SpawnSceneVariable()
+  BotApi.Commands:Spawn("scene_variable", MaxSquadSize)
+end
+
 
 function IsSquadToAlwaysIgnore(squad)
   if BotApi.Scene:IsSquadTagged(squad, "_lua_always_ignore") then

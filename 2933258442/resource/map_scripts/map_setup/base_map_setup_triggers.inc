@@ -1,3 +1,6 @@
+; File created by Hawka
+;==========================================================================================================
+
 ;============ Vanilla Setup SCRIPTS========================================					
 			{"parachute"
 				{condition
@@ -3322,7 +3325,7 @@
 						{op "="}
 						{value 0}
 					}
-					{"set_i"
+					{## "set_i"
 						{var "balance$"}
 						{op "="}
 						{value 1}
@@ -3499,7 +3502,7 @@
 					{"delay"
 						{time 0.5}
 					}
-					{"event"
+					{## "event"
 						{event "attack_or_defend_mission_set"}
 						{mode set}
 						{delay 0}
@@ -5832,7 +5835,7 @@
 					}
 				}
 			}
-			{"sandbag_mg_cmp_def"
+			{## "old/sandbag_mg_cmp_def"
 				{condition
 					{terms
 						{"1.event"
@@ -6326,6 +6329,439 @@
 					}
 				}
 			}
+			{"sandbag_mg_cmp_def"
+				{condition
+					{terms
+						{"1.event"
+							{id "init2"}
+						}
+						{"2.event"
+							{id "ai_defender_vehicles_tagged"}
+						}
+					}
+				}
+				{actions
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag cmp_mg}
+						}
+						{tag_remove cmp_mg}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{zone
+										{zone "gamezone"}
+									}
+								}
+								{include
+									{prop
+										{prop no_scavenge}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{state
+										{state inactive}
+									}
+									{state
+										{state user_control}
+									}
+								}
+							}
+							{group
+								{select
+									{zone
+										{zone "gamezone"}
+									}
+								}
+								{include
+									{tag
+										{tag _ai_defender}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{state
+										{state inactive}
+									}
+									{state
+										{state user_control}
+									}
+								}
+							}
+						}
+						{tag_add cmp_mg}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{zone
+										{zone "gamezone"}
+									}
+								}
+								{include
+									{prop
+										{prop human}
+									}
+									{state
+										{state "operatable linked"}
+									}
+								}
+								{exclude
+									{tag
+										{tag cmp_def}
+									}
+									{tag
+										{tag pilot}
+									}
+									{state
+										{state inactive}
+									}
+									{state
+										{state user_control}
+									}
+								}
+							}
+						}
+						{tag_add cmp_def}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"effect"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag _ai_defender}
+									}
+								}
+								{include
+									{prop
+										{prop vehicle}
+									}
+								}
+								{exclude
+									{prop
+										{prop cannon_sandbag_small}
+									}
+									{prop
+										{prop mg_stan}
+									}
+									{prop
+										{prop tank}
+									}
+									{state
+										{state user_control}
+									}
+								}
+							}
+						}
+						{effect construction_sandbag_cannon_standard}
+					}
+					{"delay"
+						{time 0.4}
+					}
+					{"effect"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag _ai_defender}
+									}
+								}
+								{include
+									{prop
+										{prop cannon_sandbag_small}
+									}
+									{prop
+										{prop vehicle}
+									}
+								}
+								{exclude
+									{prop
+										{prop tank}
+									}
+									{state
+										{state user_control}
+									}
+								}
+							}
+						}
+						{effect construction_sandbag_cannon_shallow}
+					}
+					{"delay"
+						{time 0.4}
+					}
+					{"effect"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag _ai_defender}
+									}
+								}
+								{include
+									{prop
+										{prop vehicle}
+									}
+									{prop
+										{prop mg_stan}
+									}
+									{prop
+										{prop cannon_sandbag_standard}
+									}
+								}
+								{exclude
+									{prop
+										{prop cannon_sandbag_small}
+									}
+									{prop
+										{prop tank}
+									}
+									{state
+										{state user_control}
+									}
+								}
+							}
+						}
+						{effect construction_sandbag_cannon_standard}
+					}
+					{"delay"
+						{time 0.4}
+					}
+					{"effect"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag _ai_defender}
+									}
+								}
+								{include
+									{prop
+										{prop cannon_sandbag_small}
+									}
+									{prop
+										{prop vehicle}
+									}
+									{prop
+										{prop mg_stan}
+									}
+								}
+								{exclude
+									{prop
+										{prop cannon_sandbag_standard}
+									}
+									{prop
+										{prop tank}
+									}
+								}
+							}
+						}
+						{effect construction_sandbag_cannon_shallow_ai}
+					}
+					{"delay"
+						{time 0.4}
+					}
+					{"effect"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag _ai_defender}
+									}
+								}
+								{include
+									{prop
+										{prop fixed}
+									}
+									{prop
+										{prop vehicle}
+									}
+									{prop
+										{prop mg_stan}
+									}
+								}
+								{exclude
+									{prop
+										{prop tank}
+									}
+								}
+							}
+						}
+						{effect construction_sandbag_cannon_shallow_ai}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{ignore_captured_by_user 0}
+									{tag cmp_mg}
+									{type vehicle}
+								}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type cmp_i}
+										{var "user_is_defender$"}
+										{op "=="}
+										{value 1}
+									}
+									{"entity_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{tag cmp_mg}
+										}
+										{tag_add cmp_def}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"entity_state"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{zone
+														{zone "gamezone"}
+													}
+												}
+												{include
+													{state
+														{state operatable}
+													}
+												}
+												{exclude
+													{tag
+														{tag _user}
+													}
+													{tag
+														{tag cmp_def}
+													}
+													{tag
+														{tag _animal}
+													}
+													{tag
+														{tag air_vehicle}
+													}
+													{state
+														{state inactive}
+													}
+													{state
+														{state user_control}
+													}
+												}
+											}
+										}
+										{tag_add cmp_def}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"entity_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{tag cmp_def}
+										}
+										{tag_remove bot}
+									}
+									{"entity_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{tag cmp_def}
+										}
+										{tag_remove _bot}
+									}
+									{"entity_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{tag cmp_def}
+										}
+										{tag_remove _ai}
+									}
+									{"entity_state"
+										{selector
+											{ignore_captured_by_user 0}
+											{tag cmp_def}
+										}
+										{tag_remove bot_veh}
+									}
+								}
+								{"default"
+									{"delay"
+										{time 0.1}
+									}
+									{"ables"
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag cmp_mg}
+													}
+												}
+												{include
+													{prop
+														{prop no_scavenge}
+													}
+												}
+												{exclude
+													{state
+														{state user_control}
+													}
+												}
+											}
+										}
+										{remove select}
+									}
+								}
+							}
+						}
+						{"default"}
+					}
+					{"delay"
+						{time 3}
+					}
+					{"set_i"
+						{var "dcg_on$"}
+						{op "+"}
+						{value 1}
+					}
+				}
+			}
 			{"dcg/def_team"
 				{condition
 					{terms
@@ -6555,7 +6991,7 @@
 						{"default"}
 					}
 					{"delay"
-						{time 1}
+						{time 0.5}
 					}
 					{"switch"
 						{"case"
@@ -8045,6 +8481,9 @@
 				}
 			}
 
+;// Minimap/N scripts are not needed in CE.
+;// AI and LUA logic has been moved/overwritten in the various CE AI logic script files.
+
 			{"clean-saved-tags"
 				{condition
 				}
@@ -8415,7 +8854,6 @@
 					}
 				}
 			}
-
 			{"minimap/arrows"
 				{condition
 					{terms
@@ -8431,7 +8869,7 @@
 				}
 				{actions
 					{"delay"
-						{time 0.2}
+						{time 0.1}
 					}
 					{"switch"
 						{"case"
@@ -8441,12 +8879,6 @@
 								{op "=="}
 								{value 2}
 							}
-							{"entity_state"
-								{selector
-									{tag spawn_b}
-								}
-								{tag_add ai_spawn}
-							}
 							{"delay"
 								{time 0.1}
 							}
@@ -8460,190 +8892,173 @@
 								{op "="}
 								{value 2}
 							}
+							{## "delete"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag arrow_enemy_a}
+								}
+							}
 							{"if"
 								{condition
 									{type cmp_i}
 									{var "user_is_defender$"}
 									{op "=="}
-									{value 1}
+									{value 0}
 								}
-								{"delay"
-									{time 300}
-								}
-							}
-							{"entity_state"
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag arrow_enemy_b}
+								{"entity_state"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag arrow_enemy_b}
+												}
 											}
-										}
-										{exclude
-											{tag
-												{tag arrow_enemy_a}
+											{exclude
+												{tag
+													{tag arrow_enemy_a}
+												}
 											}
 										}
 									}
+									{tag_remove hidden}
+									{inactive off}
 								}
-								{tag_remove hidden}
-								{inactive off}
+							}							
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "bots_spawnside$"}
+								{op "=="}
+								{value 1}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"set_i"
+								{var "user_team$"}
+								{op "="}
+								{value 2}
+							}
+							{"set_i"
+								{var "arrows$"}
+								{op "="}
+								{value 1}
+							}
+							{## "delete"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag arrow_enemy_b}
+								}
+							}
+							{"if"
+								{condition
+									{type cmp_i}
+									{var "user_is_defender$"}
+									{op "=="}
+									{value 0}
+								}
+								{"entity_state"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag arrow_enemy_a}
+												}
+											}
+											{exclude
+												{tag
+													{tag arrow_enemy_b}
+												}
+											}
+										}
+									}
+									{tag_remove hidden}
+									{inactive off}
+								}
+							}
+						}
+						{"default"}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "arrows$"}
+								{op ">"}
+								{value 0}
 							}
 						}
 						{"default"
-							{"entity_state"
-								{selector
-									{tag spawn_a}
-								}
-								{tag_add ai_spawn}
-							}
 							{"delay"
-								{time 0.1}
+								{time 1}
 							}
 							{"set_i"
-								{var "user_team$"}
-								{op "="}
-								{value 2}
-							}
-							{"set_i"
-								{var "arrows$"}
-								{op "="}
+								{var "dcg_error$"}
+								{op "-"}
 								{value 1}
 							}
-							{"if"
-								{condition
-									{type cmp_i}
-									{var "user_is_defender$"}
-									{op "=="}
-									{value 1}
-								}
-								{"delay"
-									{time 300}
-								}
+							{"delay"
+								{time 4}
 							}
-							{"entity_state"
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag arrow_enemy_a}
-											}
-										}
-										{exclude
-											{tag
-												{tag arrow_enemy_b}
-											}
-										}
+							{"switch"
+								{"case"
+									{condition
+										{type cmp_i}
+										{var "dcg_error$"}
+										{op ">"}
+										{value 0}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"trigger"
+										{name "minimap/arrows"}
 									}
 								}
-								{tag_remove hidden}
-								{inactive off}
-							}
-						}
-					}
-					{"delay"
-						{time 0.2}
-					}
-					{"entity_state"
-						{selector
-							{source advanced}
-							{group
-								{select
-									{zone
-										{zone "a_1"}
+								{"default"
+									{"delay"
+										{time 0.1}
 									}
-									{zone
-										{zone "b_1"}
+									{"set_i"
+										{var "user_team$"}
+										{op "="}
+										{value 1}
 									}
-								}
-								{include
-									{tag
-										{tag ai_spawn}
+									{"delay"
+										{time 0.1}
+									}
+									{"objective_progress"
+										{set 0}
+										{add 0}
+										{title "mission/multi/dcg_error03"}
+									}
+									{"delay"
+										{time 10}
+									}
+									{"objective_progress"
+										{hide}
+										{set 0}
+										{add 0}
+										{title "mission/multi/dcg_error03"}
+									}
+									{"delay"
+										{time 0.1}
 									}
 								}
 							}
 						}
-						{tag_add spawn_1}
-					}
-					{"delay"
-						{time 0.2}
-					}
-					{"entity_state"
-						{selector
-							{source advanced}
-							{group
-								{select
-									{zone
-										{zone "a_2"}
-									}
-									{zone
-										{zone "b_2"}
-									}
-								}
-								{include
-									{tag
-										{tag ai_spawn}
-									}
-								}
-							}
-						}
-						{tag_add spawn_2}
-					}
-					{"delay"
-						{time 0.2}
-					}
-					{"entity_state"
-						{selector
-							{source advanced}
-							{group
-								{select
-									{zone
-										{zone "a_3"}
-									}
-									{zone
-										{zone "b_3"}
-									}
-								}
-								{include
-									{tag
-										{tag ai_spawn}
-									}
-								}
-							}
-						}
-						{tag_add spawn_3}
-					}
-					{"delay"
-						{time 0.2}
-					}
-					{"entity_state"
-						{selector
-							{source advanced}
-							{group
-								{select
-									{zone
-										{zone "a_4"}
-									}
-									{zone
-										{zone "b_4"}
-									}
-								}
-								{include
-									{tag
-										{tag ai_spawn}
-									}
-								}
-							}
-						}
-						{tag_add spawn_4}
 					}
 				}
 			}
 			{"dcg/def/show"
 				{condition
-					{expression "!1 & 2 & 3 & 4"}
+					{expression "!1 & 2 & 3"}
 					{terms
 						{"1.event"
 							{id "talk_on"}
@@ -8658,197 +9073,202 @@
 							{op ">"}
 							{value 0}
 						}
-						{"4.entities"
-							{selector
-								{ignore_captured_by_user 0}
-								{tag player}
-								{zone "gamezone"}
-								{type human}
-								{state operatable}
-							}
-						}
+						;{"4.entities"
+						;	{selector
+						;		{ignore_captured_by_user 0}
+						;		{tag player}
+						;		{zone "gamezone"}
+						;		{type human}
+						;		{state operatable}
+						;	}
+						;}
 					}
 				}
 				{actions
 					{"delay"
-						{time 1}
-					}
-					{"set_i"
-						{var "display$"}
-						{op "="}
-						{value 4}
-					}
-					{"event"
-						{event "talk_on"}
-						{mode set}
-						{delay 0}
-					}
-					{"delay"
-						{time 1}
-					}
-					{"sound"
-						{name "interface/morse"}
-					}
-					{"delay"
-						{time 6}
+						{time 2}
 					}
 					{"switch"
 						{"case"
 							{condition
 								{type cmp_i}
-								{var "bot_army$"}
+								{var "prep_inform$"}
 								{op "=="}
-								{value 2}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"talk"
-								{selector
-									{ignore_captured_by_user 0}
-									{amount 1
-									}
-									{tag player}
-									{zone "gamezone"}
-									{type human}
-									{state operatable}
-								}
-								{text "mission/multi/display_defense_ger"}
-							}
-						}
-						{"case"
-							{condition
-								{type cmp_i}
-								{var "bot_army$"}
-								{op "=="}
-								{value 3}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"talk"
-								{selector
-									{ignore_captured_by_user 0}
-									{amount 1
-									}
-									{tag player}
-									{zone "gamezone"}
-									{type human}
-									{state operatable}
-								}
-								{text "mission/multi/display_defense_fin"}
-							}
-						}
-						{"case"
-							{condition
-								{type cmp_i}
-								{var "bot_army$"}
-								{op "=="}
-								{value 4}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"talk"
-								{selector
-									{ignore_captured_by_user 0}
-									{amount 1
-									}
-									{tag player}
-									{zone "gamezone"}
-									{type human}
-									{state operatable}
-								}
-								{text "mission/multi/display_defense_usa"}
-							}
-						}
-						{"case"
-							{condition
-								{type cmp_i}
-								{var "bot_army$"}
-								{op "=="}
-								{value 5}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"talk"
-								{selector
-									{ignore_captured_by_user 0}
-									{amount 1
-									}
-									{tag player}
-									{zone "gamezone"}
-									{type human}
-									{state operatable}
-								}
-								{text "mission/multi/display_defense_eng"}
+								{value 1}
 							}
 						}
 						{"default"
 							{"delay"
 								{time 0.1}
 							}
-							{"talk"
-								{selector
-									{ignore_captured_by_user 0}
-									{amount 1
-									}
-									{tag player}
-									{zone "gamezone"}
-									{type human}
-									{state operatable}
-								}
-								{text "mission/multi/display_defense_rus"}
+							{"set_i"
+								{var "display$"}
+								{op "="}
+								{value 4}
 							}
-						}
-					}
-					{"delay"
-						{time 10}
-					}				
-					{"event"
-						{event "talk_on"}
-						{mode reset}
-						{delay 0}
-					}
-					{"set_i"
-						{var "display$"}
-						{op "="}
-						{value 0}
-					}
-					{"delay"
-						{time 30}
-					}	
-					{## "timer"
-						{time 8}
-						{title "show ai army strat"}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type cmp_i}
-								{var "enable_ce_radio_mechanic$"}
-								{op "=="}
-								{value 1}
+							{"event"
+								{event "talk_on"}
+								{mode set}
+								{delay 0}
 							}
-							
+							{"sound"
+								{name "interface/morse"}
+							}
+							{"delay"
+								{time 6}
+							}
 							{"switch"
 								{"case"
 									{condition
 										{type cmp_i}
-										{var "radio_active$"}
+										{var "bot_army$"}
+										{op "=="}
+										{value 2}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"talk"
+										{selector
+											{ignore_captured_by_user 0}
+											{amount 1
+											}
+											{tag player}
+											{zone "gamezone"}
+											{type human}
+											{state operatable}
+										}
+										{text "mission/multi/display_defense_ger"}
+									}
+								}
+								{"case"
+									{condition
+										{type cmp_i}
+										{var "bot_army$"}
+										{op "=="}
+										{value 3}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"talk"
+										{selector
+											{ignore_captured_by_user 0}
+											{amount 1
+											}
+											{tag player}
+											{zone "gamezone"}
+											{type human}
+											{state operatable}
+										}
+										{text "mission/multi/display_defense_fin"}
+									}
+								}
+								{"case"
+									{condition
+										{type cmp_i}
+										{var "bot_army$"}
+										{op "=="}
+										{value 4}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"talk"
+										{selector
+											{ignore_captured_by_user 0}
+											{amount 1
+											}
+											{tag player}
+											{zone "gamezone"}
+											{type human}
+											{state operatable}
+										}
+										{text "mission/multi/display_defense_usa"}
+									}
+								}
+								{"case"
+									{condition
+										{type cmp_i}
+										{var "bot_army$"}
+										{op "=="}
+										{value 5}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"talk"
+										{selector
+											{ignore_captured_by_user 0}
+											{amount 1
+											}
+											{tag player}
+											{zone "gamezone"}
+											{type human}
+											{state operatable}
+										}
+										{text "mission/multi/display_defense_eng"}
+									}
+								}
+								{"default"
+									{"delay"
+										{time 0.1}
+									}
+									{"talk"
+										{selector
+											{ignore_captured_by_user 0}
+											{amount 1
+											}
+											{tag player}
+											{zone "gamezone"}
+											{type human}
+											{state operatable}
+										}
+										{text "mission/multi/display_defense_rus"}
+									}
+								}
+							}
+							{"delay"
+								{time 10}
+							}
+							{"event"
+								{event "talk_on"}
+								{mode reset}
+								{delay 0}
+							}
+							{"set_i"
+								{var "display$"}
+								{op "="}
+								{value 0}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type cmp_i}
+										{var "enable_ce_radio_mechanic$"}
 										{op "=="}
 										{value 1}
 									}
+									
+									{"switch"
+										{"case"
+											{condition
+												{type cmp_i}
+												{var "radio_active$"}
+												{op "=="}
+												{value 1}
+											}
+											{"call"
+												{function "alert_ai_strategy"}
+											}
+										}
+									}
+								}
+								{"default"
 									{"call"
 										{function "alert_ai_strategy"}
 									}
 								}
-							}
-						}
-						{"default"
-							{"call"
-								{function "alert_ai_strategy"}
 							}
 						}
 					}
@@ -9198,6 +9618,370 @@
 							{"trigger"
 								{name "dcg/def/display_b"}
 							}
+						}
+					}
+				}
+			}
+			{"dcg2/init"
+				{condition
+				}
+				{actions
+					{"delay"
+						{time 0.1}
+					}
+					{"call"
+						{function "default_spawns_a"}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "prep_inform$"}
+								{op ">"}
+								{value 0}
+							}
+						}
+						{"default"
+							{"set_i"
+								{var "prep_inform$"}
+								{op "="}
+								{value 0}
+							}
+						}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"call"
+						{function "default_spawns_b"}
+					}
+				}
+			}
+			{"dcg2/userdefend/prep_end"
+				{condition
+					{terms
+						{"1.cmp_i"
+							{var "user_is_defender$"}
+							{op "=="}
+							{value 1}
+						}
+						{"2.cmp_i"
+							{var "prep_inform$"}
+							{op "=="}
+							{value 1}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.1}
+					}
+					{"delete"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag conquest_spawn_indicator}
+						}
+					}
+					{"set_i"
+						{var "display$"}
+						{op "="}
+						{value 0}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "player_spawn_name$"}
+								{op "=="}
+								{value 1}
+							}
+							{"placement"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag a1}
+											}
+										}
+										{include
+											{tag
+												{tag spawn_a}
+											}
+										}
+									}
+								}
+								{target
+									{ignore_captured_by_user 0}
+									{tag _default_a1}
+								}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "player_spawn_name$"}
+								{op "=="}
+								{value 2}
+							}
+							{"placement"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag a2}
+											}
+										}
+										{include
+											{tag
+												{tag spawn_a}
+											}
+										}
+									}
+								}
+								{target
+									{ignore_captured_by_user 0}
+									{tag _default_a2}
+								}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "player_spawn_name$"}
+								{op "=="}
+								{value 3}
+							}
+							{"placement"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag a3}
+											}
+										}
+										{include
+											{tag
+												{tag spawn_a}
+											}
+										}
+									}
+								}
+								{target
+									{ignore_captured_by_user 0}
+									{tag _default_a3}
+								}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "player_spawn_name$"}
+								{op "=="}
+								{value 4}
+							}
+							{"placement"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag a4}
+											}
+										}
+										{include
+											{tag
+												{tag spawn_a}
+											}
+										}
+									}
+								}
+								{target
+									{ignore_captured_by_user 0}
+									{tag _default_a4}
+								}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "player_spawn_name$"}
+								{op "=="}
+								{value 5}
+							}
+							{"placement"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag b1}
+											}
+										}
+										{include
+											{tag
+												{tag spawn_b}
+											}
+										}
+									}
+								}
+								{target
+									{ignore_captured_by_user 0}
+									{tag _default_b1}
+								}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "player_spawn_name$"}
+								{op "=="}
+								{value 6}
+							}
+							{"placement"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag b2}
+											}
+										}
+										{include
+											{tag
+												{tag spawn_b}
+											}
+										}
+									}
+								}
+								{target
+									{ignore_captured_by_user 0}
+									{tag _default_b2}
+								}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "player_spawn_name$"}
+								{op "=="}
+								{value 7}
+							}
+							{"placement"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag b3}
+											}
+										}
+										{include
+											{tag
+												{tag spawn_b}
+											}
+										}
+									}
+								}
+								{target
+									{ignore_captured_by_user 0}
+									{tag _default_b3}
+								}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "player_spawn_name$"}
+								{op "=="}
+								{value 8}
+							}
+							{"placement"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag b4}
+											}
+										}
+										{include
+											{tag
+												{tag spawn_b}
+											}
+										}
+									}
+								}
+								{target
+									{ignore_captured_by_user 0}
+									{tag _default_b4}
+								}
+							}
+						}
+						{"default"
+							{"delay"
+								{time 0.1}
+							}
+						}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "bots_spawnside$"}
+								{op "=="}
+								{value 2}
+							}
+							{"entity_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag arrow_enemy_b}
+											}
+										}
+										{exclude
+											{tag
+												{tag arrow_enemy_a}
+											}
+										}
+									}
+								}
+								{tag_remove hidden}
+								{inactive off}
+							}
+						}
+						{"default"
+							{"entity_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag arrow_enemy_a}
+											}
+										}
+										{exclude
+											{tag
+												{tag arrow_enemy_b}
+											}
+										}
+									}
+								}
+								{tag_remove hidden}
+								{inactive off}
+							}							
 						}
 					}
 				}
