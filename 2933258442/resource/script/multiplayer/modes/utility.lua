@@ -331,7 +331,6 @@ end
 function OnGameStartUtility(purchasesModuleSuffix, botDefender)
     print("Print: AI Bot is player#" .. BotApi.Instance.playerId .. ", nation " .. BotApi.Instance.army .. ", on team " .. team .. " which has " .. teamSize .. " player(s)")
     print("Print: player#" .. BotApi.Instance.playerId .. ", has a difficulty of " .. BotApi.Instance.difficulty)
-	print("CUSTOM WAYPOINTS = ", followWaypointGraphs)
 	print("Attempting to spawn scene_variable")	
 
     -- Seed random for unpredictability

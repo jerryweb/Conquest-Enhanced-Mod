@@ -1,0 +1,489 @@
+		{zone "poly"
+			{position -5342.49 5351.73 0}
+			{Name "grid_a1"}
+			{Point -2550.27 -2610.28}
+			{Point -2565.18 2591.86}
+			{Point 2565.79 2618.88}
+			{Point 2549.66 -2600.46}
+		}
+		{zone "poly"
+			{position -5338.98 1.84192 0}
+			{Name "grid_a2"}
+			{Point -2575.85 -2596.57}
+			{Point -2587.33 2595.92}
+			{Point 2581.64 2578.61}
+			{Point 2581.54 -2577.96}
+		}
+		{zone "poly"
+			{position -5324.04 -5328.21 0}
+			{Name "grid_a3"}
+			{Point -2602.63 -2595.23}
+			{Point -2596.72 2599.9}
+			{Point 2623.01 2632.51}
+			{Point 2576.34 -2637.17}
+		}
+		{zone "poly"
+			{position 9.77161 5364.87 0}
+			{Name "grid_b1"}
+			{Point -2571.55 -2614.18}
+			{Point -2573.58 2613.3}
+			{Point 2584.33 2627.3}
+			{Point 2560.8 -2626.43}
+		}
+		{zone "poly"
+			{position -1.70239 3.80334 0}
+			{Name "grid_b2"}
+			{Point -2573.69 -2566.3}
+			{Point -2553.73 2577.8}
+			{Point 2571.68 2576.09}
+			{Point 2555.74 -2587.59}
+		}
+		{zone "poly"
+			{position -17.3298 -5346.88 0}
+			{Name "grid_b3"}
+			{Point -2576.74 -2587.95}
+			{Point -2556.03 2609.55}
+			{Point 2550.74 2592.28}
+			{Point 2582.02 -2613.89}
+		}
+		{zone "poly"
+			{position 5345.84 5349.95 0}
+			{Name "grid_c1"}
+			{Point -2578.46 -2600.71}
+			{Point -2603.33 2589.23}
+			{Point 2614.61 2630.84}
+			{Point 2567.19 -2619.36}
+		}
+		{zone "poly"
+			{position 5346.41 -3.81985 0}
+			{Name "grid_c2"}
+			{Point -2558.28 -2561.29}
+			{Point -2568.45 2565.69}
+			{Point 2535.89 2559.19}
+			{Point 2590.85 -2563.59}
+		}
+		{zone "poly"
+			{position 5339.46 -5328.85 0}
+			{Name "grid_c3"}
+			{Point -2608 -2604.61}
+			{Point -2578.03 2610.13}
+			{Point 2596.51 2603.58}
+			{Point 2589.52 -2609.11}
+		}
+		{waypoints "map_caridnal_direction_waypoints"
+			{"3001"
+				{position -323.755 -8364.65 0}
+				{radius 300}
+				{RandomPosition 1}
+			}
+			{"3002"
+				{position 377.884 8373.31 0}
+				{radius 300}
+				{RandomPosition 1}
+			}
+			{"3003"
+				{position 8617.03 -679.677 0}
+				{radius 300}
+				{RandomPosition 1}
+			}
+			{"3004"
+				{position -8500.22 -396.78 0}
+				{radius 300}
+				{RandomPosition 1}
+			}
+		}
+		{waypoints "inital_waypoints"
+			{"1011"
+				{position -6349.4 6590.66 0}
+				{radius 300}
+				{RandomPosition 1}
+				{transition "295"}
+			}
+			{"1012"
+				{position -6390.38 5990.35 0}
+				{radius 300}
+				{RandomPosition 1}
+				{transition "299"}
+			}
+			{"1013"
+				{position -6386.13 5256.14 0}
+				{radius 300}
+				{RandomPosition 1}
+				{transition "293"}
+			}
+			{"1014"
+				{position -6394.73 4476.57 0}
+				{radius 300}
+				{RandomPosition 1}
+				{transition "16"}
+			}
+			{"2011"
+				{position 7098.1 5222.3 0}
+				{radius 300}
+				{RandomPosition 1}
+				{transition "15"}
+			}
+			{"2012"
+				{position 7253.35 4417.03 0}
+				{radius 300}
+				{RandomPosition 1}
+				{transition "239"}
+			}
+			{"2013"
+				{position 7273.41 3500.14 0}
+				{radius 300}
+				{RandomPosition 1}
+				{transition "243"}
+			}
+			{"2014"
+				{position 7230.1 2574.19 0}
+				{radius 300}
+				{RandomPosition 1}
+				{transition "264"}
+			}
+		}
+		{waypoints "wapoint_graph_east"
+			{"15"
+				{position 6078.1 5204.78 0}
+				{radius 300}
+				{RandomPosition 1}
+				{transition "20"}
+			}
+			{"17"
+				{position 4280.59 2219.18 0}
+				{radius 1000}
+				{RandomPosition 1}
+				{transition "21"}
+			}
+			{"18"
+				{position 4384.39 3400.85 0}
+				{radius 1000}
+				{RandomPosition 1}
+				{transition "24"}
+			}
+			{"19"
+				{position 4239.82 4607.57 0}
+				{radius 1000}
+				{RandomPosition 1}
+				{transition "27"}
+			}
+			{"20"
+				{position 3877 5740.09 0}
+				{radius 1000}
+				{RandomPosition 1}
+				{transition "30"}
+			}
+			{"21"
+				{position 887.357 1830.08 0}
+				{radius 1000}
+				{RandomPosition 1}
+				{transition "22"}
+			}
+			{"22"
+				{position -2751.1 1411.47 0}
+				{radius 1000}
+				{RandomPosition 1}
+				{transition "23"}
+			}
+			{"23"
+				{position -5281.07 1227.53 0}
+				{radius 800}
+				{RandomPosition 1}
+				{commands
+					{"call"
+						{function "attack_selected_flag"}
+						{context
+							{specified}
+						}
+					}
+				}
+			}
+			{"239"
+				{position 5952.25 4303.04 0}
+				{radius 300}
+				{RandomPosition 1}
+				{transition "19"}
+			}
+			{"24"
+				{position 993.044 3266 0}
+				{radius 1000}
+				{RandomPosition 1}
+				{transition "25"}
+			}
+			{"243"
+				{position 6246.54 3308.21 0}
+				{radius 300}
+				{RandomPosition 1}
+				{transition "18"}
+			}
+			{"25"
+				{position -1981.23 3026.45 0}
+				{radius 1000}
+				{RandomPosition 1}
+				{transition "26"}
+			}
+			{"26"
+				{position -4914.43 2848 0}
+				{radius 800}
+				{RandomPosition 1}
+				{commands
+					{"call"
+						{function "attack_selected_flag"}
+						{context
+							{specified}
+						}
+					}
+				}
+			}
+			{"264"
+				{position 6587.97 2517.45 0}
+				{radius 300}
+				{RandomPosition 1}
+				{transition "17"}
+			}
+			{"27"
+				{position 1073.34 4529.71 0}
+				{radius 1000}
+				{RandomPosition 1}
+				{transition "28"}
+			}
+			{"28"
+				{position -1946.26 4234.05 0}
+				{radius 1000}
+				{RandomPosition 1}
+				{transition "29"}
+			}
+			{"29"
+				{position -4730.61 4011.65 0}
+				{radius 800}
+				{RandomPosition 1}
+				{commands
+					{"call"
+						{function "attack_selected_flag"}
+						{context
+							{specified}
+						}
+					}
+				}
+			}
+			{"30"
+				{position 1180.76 5794.67 0}
+				{radius 1000}
+				{RandomPosition 1}
+				{transition "31"}
+			}
+			{"31"
+				{position -1753.43 5522.71 0}
+				{radius 1000}
+				{RandomPosition 1}
+				{transition "32"}
+			}
+			{"32"
+				{position -4925.56 5384.36 0}
+				{radius 800}
+				{RandomPosition 1}
+				{commands
+					{"call"
+						{function "attack_selected_flag"}
+						{context
+							{specified}
+						}
+					}
+				}
+			}
+		}
+		{waypoints "wapoint_graph_west"
+			{"16"
+				{position -5524.27 4494.98 0}
+				{transition "34"}
+			}
+			{"293"
+				{position -5598.18 5311.66 0}
+				{radius 300}
+				{RandomPosition 1}
+				{transition "35"}
+			}
+			{"295"
+				{position -5610.96 6613.62 0}
+				{radius 300}
+				{RandomPosition 1}
+				{transition "37"}
+			}
+			{"299"
+				{position -5582.15 6058.43 0}
+				{radius 300}
+				{RandomPosition 1}
+				{transition "36"}
+			}
+			{"33"
+				{position -1720.81 5437.86 0}
+				{radius 1000}
+				{RandomPosition 1}
+				{transition "41"}
+			}
+			{"34"
+				{position -4201.53 4259.33 0}
+				{radius 1000}
+				{RandomPosition 1}
+				{transition "38"}
+			}
+			{"35"
+				{position -4045.2 5530.54 0}
+				{radius 1000}
+				{RandomPosition 1}
+				{transition "33"}
+			}
+			{"36"
+				{position -3962.28 6377.3 0}
+				{radius 1000}
+				{RandomPosition 1}
+				{transition "42"}
+			}
+			{"37"
+				{position -4226.46 7024.19 0}
+				{radius 1000}
+				{RandomPosition 1}
+				{transition "44"}
+			}
+			{"38"
+				{position -1795.23 4254.77 0}
+				{radius 1000}
+				{RandomPosition 1}
+				{transition "39"}
+			}
+			{"39"
+				{position 653.904 4322 0}
+				{radius 1000}
+				{RandomPosition 1}
+				{transition "40"}
+			}
+			{"40"
+				{position 1775.71 4421.93 0}
+				{radius 800}
+				{RandomPosition 1}
+				{commands
+					{"call"
+						{function "attack_selected_flag"}
+						{context
+							{specified}
+						}
+					}
+				}
+			}
+			{"41"
+				{position 335.887 5531.5 0}
+				{radius 1000}
+				{RandomPosition 1}
+				{transition "46"}
+			}
+			{"42"
+				{position -1309.23 6515.7 0}
+				{radius 1000}
+				{RandomPosition 1}
+				{transition "43"}
+			}
+			{"43"
+				{position 57.2886 6428.72 0}
+				{radius 1000}
+				{RandomPosition 1}
+				{transition "47"}
+			}
+			{"44"
+				{position -1373.16 7316.26 0}
+				{radius 1000}
+				{RandomPosition 1}
+				{transition "45"}
+			}
+			{"45"
+				{position 472.643 7325.64 0}
+				{radius 1000}
+				{RandomPosition 1}
+				{transition "48"}
+			}
+			{"46"
+				{position 1733.05 5332.3 0}
+				{radius 800}
+				{RandomPosition 1}
+				{commands
+					{"call"
+						{function "attack_selected_flag"}
+						{context
+							{specified}
+						}
+					}
+				}
+			}
+			{"47"
+				{position 1694.16 6503 0}
+				{radius 800}
+				{RandomPosition 1}
+				{commands
+					{"call"
+						{function "attack_selected_flag"}
+						{context
+							{specified}
+						}
+					}
+				}
+			}
+			{"48"
+				{position 1790.94 7486.66 0}
+				{radius 800}
+				{RandomPosition 1}
+				{commands
+					{"call"
+						{function "attack_selected_flag"}
+						{context
+							{specified}
+						}
+					}
+				}
+			}
+		}
+		{waypoints "grid_waypoints"
+			{"5001"
+				{position -5361.09 5317.85 0}
+				{radius 2550}
+				{RandomPosition 1}
+			}
+			{"5002"
+				{position -5352.83 29.444 0}
+				{radius 2550}
+				{RandomPosition 1}
+			}
+			{"5003"
+				{position -5385.84 -5399.83 0}
+				{radius 2550}
+				{RandomPosition 1}
+			}
+			{"5004"
+				{position 26.2539 5437.12 0}
+				{radius 2550}
+				{RandomPosition 1}
+			}
+			{"5005"
+				{position 9.19775 8.703 0}
+				{radius 2550}
+				{RandomPosition 1}
+			}
+			{"5006"
+				{position 31.5811 -5489.26 0}
+				{radius 2550}
+				{RandomPosition 1}
+			}
+			{"5007"
+				{position 5283.78 5411.17 0}
+				{radius 2550}
+				{RandomPosition 1}
+			}
+			{"5008"
+				{position 5381.72 0.27771 0}
+				{radius 2550}
+				{RandomPosition 1}
+			}
+			{"5009"
+				{position 5473.38 -5344.11 0}
+				{radius 2550}
+				{RandomPosition 1}
+			}
+		}

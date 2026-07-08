@@ -626,7 +626,7 @@
 			("ai_vehicle_spawn" side(b) zone(b_4) waypoint(2014))
 
 ; ============= GENERAL TRIGGERS ===================================
-			{"ai_spawn_logic/tag_ai_spawns"
+			{## "ai_spawn_logic/tag_ai_spawns"
 				{condition
 				}
 				{actions
@@ -755,7 +755,7 @@
 					}
 				}
 			}
-			{"ai_spawn_logic/tag_spawned_veh_with_sabotage_chance"
+			{## "ai_spawn_logic/tag_spawned_veh_with_sabotage_chance"
 				{condition
 					{terms
 						{"1.entities"
@@ -874,7 +874,7 @@
 					}
 				}
 			}
-			{"ai_spawn_logic/move_ai_spawn"
+			{## "ai_spawn_logic/move_ai_spawn"
 				{condition
 					{terms
 						{"1.cmp_i"

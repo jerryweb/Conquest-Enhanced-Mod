@@ -3,7 +3,7 @@ require([[/script/multiplayer/modes/spawn_logic]])
 
 -- =================== CE AI Variables ==================
 checkIfVanillaMapLoaded = false
-followWaypointGraphs = true
+followWaypointGraphs = false
 generalSquadTagCheckDelay = 10 * 1000
 sceneVariableSquad = nil 
 currentUnitCountTable = {}
@@ -63,23 +63,30 @@ end
 
 function StartSceneCheckTimer()
   local setSceneCheckTimer = nil
+  local setCEWaypointSystemCheckTimer = nil
 
-  if not checkIfVanillaMapLoaded and not BotApi.Scene:IsSquadTagged(sceneVariableSquad, "_ce_map_scripts_running") then
-    print("Vanilla Map Loaded!!! Disabling CE bot file logic")
-    followWaypointGraphs = false           
-  end
+  setCEWaypointSystemCheckTimer = BotApi.Events:SetQuantTimer(
+    function()
+      setCEWaypointSystemCheckTimer = nil
+      print("checking if ce waypoint system active")
+      if not checkIfVanillaMapLoaded and not BotApi.Scene:IsSquadTagged(sceneVariableSquad, "_ce_map_scripts_running") then
+        print("Vanilla Map Loaded!!! Disabling CE bot file logic")
+        followWaypointGraphs = false           
+      end
+      print("CUSTOM WAYPOINTS = ", followWaypointGraphs)
+    end, 1000)
+    
+  -- setCEWaypointSystemCheckTimer()
 
   setSceneCheckTimer = function(callback)
       Context.SceneCheckTimer = BotApi.Events:SetQuantTimer(
         function()
           print("checking scene")         
-
-          checkIfVanillaMapLoaded = true
+          -- checkIfVanillaMapLoaded = true
           Context.SceneCheckTimer  = nil
           CheckSceneVariable(sceneVariableSquad)
           callback(callback)          
-        end,
-        generalSquadTagCheckDelay)
+        end, generalSquadTagCheckDelay)
     end
     setSceneCheckTimer(setSceneCheckTimer)
 end
@@ -156,7 +163,6 @@ function SetCEWaveSettings(SpawnCooldownTime, WaveUnit, botDefender)
 end
 
 local function checkMapAIMovementLogic(flagName)
-  print("checking flags to disable custom waypoints")
   if followWaypointGraphs == true then 
     for i = 1, 5, 1 do 
         if flagName == "f1" .. i then
@@ -229,6 +235,7 @@ function SetCEMissionVariables(botDefender, botDifficulty)
   print("enabledNoresus == ", enabledNoresus)
 
   local totalFlags = 0
+  print("checking flags to disable custom waypoints")
   for i, flag in pairs(BotApi.Scene.Flags) do
     -- print("i: ", i)
     print("flag name: ", flag.name)
@@ -270,12 +277,12 @@ function SetCEMissionVariables(botDefender, botDifficulty)
       BotApi.Scene:SetVar("max_ai_defender_at_flag", AiDefenderCount.Defending.infantry.max_ai_defender_at_flag)
       BotApi.Scene:SetVar("max_ai_inf_def_x5_count", AiDefenderCount.Defending.infantry.x5_cloneClount) 
   else
-      print("setting ai emplacement defender count when bot attacking = ", AiDefenderCount.Attacking.emplacement.perFlag * totalFlags)
+      print("setting ai emplacement defender count when bot attacking = ", AiDefenderCount.Attacking.emplacement.perFlag * totalFlags + 1)
       print("setting ai defender count when bot attacking = ",  AiDefenderCount.Attacking.infantry.perFlag + botDifficultyModifier)
       BotApi.Scene:SetVar("max_ai_defender_at_flag", AiDefenderCount.Attacking.infantry.max_ai_defender_at_flag)
       BotApi.Scene:SetVar("max_ai_defender_inf_per_flag_count", AiDefenderCount.Attacking.infantry.perFlag + botDifficultyModifier)
       BotApi.Scene:SetVar("max_ai_inf_def_x5_count", AiDefenderCount.Attacking.infantry.x2_cloneClount)
-      BotApi.Scene:SetVar("max_ai_defender_emplacement_total_count", AiDefenderCount.Attacking.emplacement.perFlag * totalFlags)
+      BotApi.Scene:SetVar("max_ai_defender_emplacement_total_count", AiDefenderCount.Attacking.emplacement.perFlag * totalFlags + 1)
 
       print("max_ai_defender_emplacement_total_count = ", AiDefenderCount.Attacking.emplacement.perFlag * totalFlags + 1)
   end

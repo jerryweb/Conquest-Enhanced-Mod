@@ -677,6 +677,45 @@
 					}	
 				}
 			}
+			{"conquest_enhanced_mechanics/scene_variable/move_scene_variable"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{tag scene_variable}
+								{type vehicle}
+							}
+						}
+					}
+				}
+				{actions
+					{"select"
+						{tag scene_variable}
+						{type vehicle}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{source current}
+						}
+						{impregnability full}
+						{discovered off}
+						{tag_add "_ce_map_scripts_running"}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"actor_to_waypoint"
+						{selector
+							{source current}
+						}
+						{waypoint "3001"}
+						{approach "safe teleport"}
+					}
+				}
+			}
 
 ;============ AI DEFENDER SETUP SCRIPTS========================================
 			(define "delete_ai_defenders_thread" ;parms: flag_number

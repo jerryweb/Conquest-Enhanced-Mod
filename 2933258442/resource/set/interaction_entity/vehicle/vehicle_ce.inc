@@ -728,20 +728,15 @@
         ("tag_veh" args "rocket_artillery")   
     }  
 ;================ Vanilla Hardcoded LOGIC ========================
-    ;{on "leave_unit"
-    ;    {delay 1
-    ;        {if tagged "_abandoned"
-    ;            {tags remove "_user_ally"}
-    ;        }
-    ;    }
-    ;}
-
     {on "activate_vehicle"
         {tags remove "ignore_repair"}
     }
 
     {on "show_radio_icon"
         {view start "beacon_fx"}
+        {delay 60
+            {view stop "beacon_fx"}
+        }
     }
 
     {on spawn
@@ -814,7 +809,8 @@
     {on operatable on
         {if user_control
             ;{call "clear_bad_player_tags"}
-            {tags remove "artillery_moving_slow"}  
+            {tags remove "artillery_moving_slow"}
+            {tags remove "_ai_defender"}  
             {delay 1.5
                 {if tagged "radio_car"
                     {view start "beacon_fx"}
