@@ -1,3 +1,6 @@
+; File created by Hawka
+;==========================================================================================================
+
 ; ============= GENERAL AI SPAWN TRIGGER DEFINES ===================================
 			(define "ai_inf_spawn" ; parms: side, zone, waypoint 
 				{"ai_spawn_logic/side_%side/inf/inf_spawn_%zone"

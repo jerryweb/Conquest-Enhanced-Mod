@@ -387,36 +387,6 @@
 			}			
 			
 ;============ DEFENSE START SCRIPTS ==========
-			{"player_logic/inform_defense_end"
-				{condition
-					{terms
-						{"1.cmp_i"
-							{var "user_is_defender$"}
-							{op "=="}
-							{value 1}
-						}
-					}
-				}
-				{actions
-					{"delay"
-						{time 1800}
-					}
-					{"loop" 8
-						{"talk"
-							{selector
-								{amount 1
-								}
-								{tag _user}
-								{state "not dead"}
-							}
-							{text "mission/multi/pointmessage"}
-						}
-						{"delay"
-							{time 200}
-						}
-					}
-				}
-			}
 			{"player_scripts/check_officer_cheese"
 				{condition
 					{terms

@@ -1,3 +1,5 @@
+; File created by Hawka
+;==========================================================================================================
 			{## "debug/vars"
 				{condition
 					{terms
@@ -585,7 +587,7 @@
 					}
 				}
 			}
-			{"check_if_grid_zones_exist"
+			{"conquest_enhanced_mechanics/check_if_grid_zones_exist"
 				{condition
 					{terms
 						{"1.entities"
@@ -641,7 +643,7 @@
 					}
 				}
 			}
-			{"disable_netural_plane_minimap_icons"
+			{"conquest_enhanced_mechanics/disable_netural_plane_minimap_icons"
 				{condition
 				}
 				{actions
@@ -713,6 +715,81 @@
 						}
 						{waypoint "3001"}
 						{approach "safe teleport"}
+					}
+				}
+			}
+			{"conquest_enhanced_mechanics/set_ai_veh_sabotage_chance"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{prop
+											{prop vehicle}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{prop
+											{prop airborne}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag _user_ally}
+										}
+									}
+								}
+							}
+						}
+						{"3.cmp_i"
+							{var "ai_attack_started$"}
+							{op ">"}
+							{value 0}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 1}
+					}
+					{"if"
+						{condition
+							{type cmp_i}
+							{var "ai_sabotage$"}
+							{op "=="}
+							{value 1}
+						}
+						{"event"
+							{event "sabotage_ai_veh"}
+							{mode set}
+							{delay 0}
+						}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"if"
+						{condition
+							{type event}
+							{id "sabotage_ai_veh"}
+						}
+						{"call"
+							{function "sabotage_ai_veh_function"}
+						}
 					}
 				}
 			}

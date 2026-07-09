@@ -6480,7 +6480,7 @@
 						{effect construction_sandbag_cannon_standard}
 					}
 					{"delay"
-						{time 0.4}
+						{time 0.2}
 					}
 					{"effect"
 						{selector
@@ -6513,7 +6513,7 @@
 						{effect construction_sandbag_cannon_shallow}
 					}
 					{"delay"
-						{time 0.4}
+						{time 0.2}
 					}
 					{"effect"
 						{selector
@@ -6552,7 +6552,7 @@
 						{effect construction_sandbag_cannon_standard}
 					}
 					{"delay"
-						{time 0.4}
+						{time 0.2}
 					}
 					{"effect"
 						{selector
@@ -6588,7 +6588,7 @@
 						{effect construction_sandbag_cannon_shallow_ai}
 					}
 					{"delay"
-						{time 0.4}
+						{time 0.2}
 					}
 					{"effect"
 						{selector
@@ -6619,6 +6619,67 @@
 							}
 						}
 						{effect construction_sandbag_cannon_shallow_ai}
+					}
+					{"delay"
+						{time 0.2}
+					}	
+					{"switch"
+						{"case"
+							{condition
+								{type rand}
+								{value 0.5}
+							}
+							{"effect"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag _ai_defender}
+											}
+										}
+										{include
+											{prop
+												{prop tank}
+											}
+										}
+										{exclude
+											{prop
+												{prop cannon}
+											}
+										}
+									}
+								}
+								{effect hull_down}
+							}
+						}
+						{"default"
+							{"effect"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag _ai_defender}
+											}
+										}
+										{include
+											{prop
+												{prop tank}
+											}
+										}
+										{exclude
+											{prop
+												{prop cannon}
+											}
+										}
+									}
+								}
+								{effect tank_cover_hull_down}
+							}
+						}
 					}
 					{"switch"
 						{"case"

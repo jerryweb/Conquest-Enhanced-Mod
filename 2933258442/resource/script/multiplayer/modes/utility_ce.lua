@@ -2,7 +2,6 @@
 require([[/script/multiplayer/modes/spawn_logic]])
 
 -- =================== CE AI Variables ==================
-checkIfVanillaMapLoaded = false
 followWaypointGraphs = false
 generalSquadTagCheckDelay = 10 * 1000
 sceneVariableSquad = nil 
@@ -12,35 +11,7 @@ local intialSceneEnvironmentCheck = false
 local environment = nil
 local dynamicWeatherTimer = 0
 
--- =================== Double Queue Data Structure ==================
-DoubleQueue = {}
-function DoubleQueue.new ()
-  return {first = 0, last = -1}
-end
-
-function DoubleQueue.pushRight (list, value)
-  local last = list.last + 1
-  list.last = last
-  list[last] = value
-end
-
-function DoubleQueue.popLeft (list)
-  local first = list.first
-  if first > list.last then error("list is empty") end
-  local value = list[first]
-  list[first] = nil        -- to allow garbage collection
-  list.first = first + 1
-  return value
-end
-
-function DoubleQueue.size(list)
-  local first = list.first
-  if first > list.last then return 0 
-  else return math.abs(list.last - first) + 1 end
-end
-
-unitsToSpawnQueue = DoubleQueue.new()
-
+-- =================== Debug Utilities ==================
 
 function printArray(arr)
     if type(arr) ~= "table" then
@@ -69,20 +40,21 @@ function StartSceneCheckTimer()
     function()
       setCEWaypointSystemCheckTimer = nil
       print("checking if ce waypoint system active")
-      if not checkIfVanillaMapLoaded and not BotApi.Scene:IsSquadTagged(sceneVariableSquad, "_ce_map_scripts_running") then
+      if BotApi.Scene:IsSquadTagged(sceneVariableSquad, "_ce_map_scripts_running") then
         print("Vanilla Map Loaded!!! Disabling CE bot file logic")
-        followWaypointGraphs = false           
+        followWaypointGraphs = true         
+        BotApi.Scene:SetVar("enable_ai_waypoint_graphs", 1)  
+      else
+        followWaypointGraphs = false  
+        BotApi.Scene:SetVar("enable_ai_waypoint_graphs", 0)
       end
       print("CUSTOM WAYPOINTS = ", followWaypointGraphs)
     end, 1000)
     
-  -- setCEWaypointSystemCheckTimer()
-
   setSceneCheckTimer = function(callback)
       Context.SceneCheckTimer = BotApi.Events:SetQuantTimer(
         function()
-          print("checking scene")         
-          -- checkIfVanillaMapLoaded = true
+          if printDebug then print("checking scene variable") end         
           Context.SceneCheckTimer  = nil
           CheckSceneVariable(sceneVariableSquad)
           callback(callback)          
@@ -247,17 +219,10 @@ function SetCEMissionVariables(botDefender, botDifficulty)
       checkMapAIMovementLogic(flag.name)
     end
   end
-  print("totalFlags: ", totalFlags)
-
-  if followWaypointGraphs then
-      BotApi.Scene:SetVar("enable_ai_waypoint_graphs", 1)
-  else
-      BotApi.Scene:SetVar("enable_ai_waypoint_graphs", 0)
-  end
+  if printDebug then print("totalFlags: ", totalFlags) end
 
   -- checkVarPercentage("weather_selection", weather_selection_override)
 
-  --checkVarPercentage("enable_ce_radio_mechanic", enableRadioMechanics)
   checkVarPercentage("enable_ce_radio_mechanic", enableCommunicationsCutMechanics) -- use this to control both variables for now
   checkVarPercentage("enable_ce_cut_communications_mechanic", enableCommunicationsCutMechanics)
   checkVarPercentage("ai_sabotage", enableSabotageMechanics)
@@ -289,8 +254,6 @@ function SetCEMissionVariables(botDefender, botDifficulty)
   -- checkVarPercentage("enable_rear_attack_mechanic", enableRearAttackMechanics)
   checkRearAttackPercentage()
   -- BotApi.Scene:SetVar("force_ai_direct_attack_logic", force_ai_direct_attack_logic)
-
-
 end
 
 function CheckUnitMaxCount(unit, available) 
@@ -315,13 +278,9 @@ function IncrementMaxUnitCount(unit)
     currentUnitCountTable[unit] = 1
   end
   if printDebug then print("Incrementing  ", unit, " unit count. Current unit count =", currentUnitCountTable[unit]) end
-  -- DoubleQueue.pushRight(unitsToSpawnQueue, Context.SpawnInfo.type)
-  -- -- if printDebug then print("Adding ", unit, " of types ", Context.SpawnInfo.type, " Queue size is now ", DoubleQueue.size(unitsToSpawnQueue)) end
-  -- if printDebug then print("Adding ", unit, ". Queue size is now ", DoubleQueue.size(unitsToSpawnQueue)) end
 end
 
 function DefaultSquadSpawnOrders(args, OrderRotationPeriod)
-  -- local squadTypes = DoubleQueue.popLeft(unitsToSpawnQueue)
   local squadTypes = Context.SpawnInfo.type
   local unitFollowWaypointGraph = true
   local isAircaft = false
@@ -342,10 +301,6 @@ function DefaultSquadSpawnOrders(args, OrderRotationPeriod)
     return false
   end
 
-  -- if printDebug then print("The squadTypes from the Queue is ",  printArray(squadTypes)) end
-  -- if printDebug then
-  --  print("Popping off next squad that spawed from the unitsToSpawnQueue. Queue size is now ", DoubleQueue.size(unitsToSpawnQueue)) 
-  -- end
   if UnitType("Tank", squadTypes) then 
     if UnitType("Support", squadTypes) then
       unitFollowWaypointGraph = false
@@ -359,7 +314,7 @@ function DefaultSquadSpawnOrders(args, OrderRotationPeriod)
     
     if isAircaft then
       if not UnitType("ReconPlane", squadTypes) then
-        print("SQUAD  ", args.squadId, " with unit type airplane is not using bot logic! This unit will rely on scripting!")
+        if printDebug then print("SQUAD  ", args.squadId, " with unit type airplane is not using bot logic! This unit will rely on scripting!") end
         squadOrderDelay = OrderRotationPeriod.DCG_FLANK.Max
       end
     elseif isCannon then

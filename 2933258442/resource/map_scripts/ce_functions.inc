@@ -149,8 +149,7 @@
 				{"effect"
 					{effect set_ignore_spawn_logic}
 				}
-			}
-			
+			}			
 			{"ai_rear_attack_notify"
 				{"sound"
 					{name "interface/morse"}
@@ -427,6 +426,487 @@
 					}
 					{inactive off}
 				}	
+			}
+			{"alert_ai_strategy"
+				{"switch"
+					{"case"
+						{condition
+							{type cmp_i}
+							{var "ai_strategy_selection$"}
+							{op "=="}
+							{value 1}
+						}
+						{"switch"
+							{"case"
+								{condition
+									{type rand}
+									{value 0.25}
+								}
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_massinf_01"}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.25}
+								}
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_massinf_02"}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.25}
+								}
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_massinf_03"}
+								}
+							}
+							{"default"
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_massinf_04"}
+								}
+							}
+						}
+					}
+					{"case"
+						{condition
+							{type cmp_i}
+							{var "ai_strategy_selection$"}
+							{op "=="}
+							{value 2}
+						}
+						{"switch"
+							{"case"
+								{condition
+									{type rand}
+									{value 0.33}
+								}
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_artillery_01"}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.33}
+								}
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_artillery_02"}
+								}
+							}
+							{"default"
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_massinf_03"}
+								}
+							}
+						}
+					}
+					{"case"
+						{condition
+							{type cmp_i}
+							{var "ai_strategy_selection$"}
+							{op "=="}
+							{value 3}
+						}
+						{"switch"
+							{"case"
+								{condition
+									{type rand}
+									{value 0.17}
+								}
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_airborne_01"}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.17}
+								}
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_airborne_02"}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.17}
+								}
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_airborne_03"}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.17}
+								}
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_airborne_04"}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.17}
+								}
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_airborne_05"}
+								}
+							}
+							{"default"
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_airborne_06"}
+								}
+							}
+						}
+					}
+					{"case"
+						{condition
+							{type cmp_i}
+							{var "ai_strategy_selection$"}
+							{op "=="}
+							{value 4}
+						}
+						{"switch"
+							{"case"
+								{condition
+									{type rand}
+									{value 0.33}
+								}
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_heavy_01"}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.33}
+								}
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_heavy_02"}
+								}
+							}
+							{"default"
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_heavy_03"}
+								}
+							}
+						}
+					}
+					{"case"
+						{condition
+							{type cmp_i}
+							{var "ai_strategy_selection$"}
+							{op "=="}
+							{value 5}
+						}
+						{"switch"
+							{"case"
+								{condition
+									{type rand}
+									{value 0.33}
+								}
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_armored_01"}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.33}
+								}
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_armored_02"}
+								}
+							}
+							{"default"
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_armored_03"}
+								}
+							}
+						}
+					}
+					{"case"
+						{condition
+							{type cmp_i}
+							{var "ai_strategy_selection$"}
+							{op "=="}
+							{value 6}
+						}
+						{"switch"
+							{"case"
+								{condition
+									{type rand}
+									{value 0.5}
+								}
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_elite_01"}
+								}
+							}
+							{"default"
+								{"delay"
+									{time 0.1}
+								}
+								{"talk"
+									{selector
+										{source standart}
+										{amount 1
+										}
+										{tag player}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+									{text "mission/multi/player_enemy_division_notification_elite_02"}
+								}
+							}
+						}
+					}
+				}
 			}
 
 ;============ AI TAGGING LOGIC  ========================================
@@ -976,6 +1456,131 @@
 				}
 			}
 
+;============ AI ARTILLERY ========================================
+			{"alert_player_of_signaller"
+				{"switch"
+					{"case"
+						{condition
+							{type rand}
+							{value 0.33}
+						}
+						{"talk"
+							{selector
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state user_control}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+									}
+								}
+								{amount 1
+								}
+							}
+							{text "mission/multi/enemy_artillery_signaler_on_field_1"}
+						}
+					}
+					{"case"
+						{condition
+							{type rand}
+							{value 0.33}
+						}
+						{"talk"
+							{selector
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state user_control}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+									}
+								}
+								{amount 1
+								}
+							}
+							{text "mission/multi/enemy_artillery_signaler_on_field_2"}
+						}
+					}
+					{"default"
+						{"talk"
+							{selector
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state user_control}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+									}
+								}
+								{amount 1
+								}
+							}
+							{text "mission/multi/enemy_artillery_signaler_on_field_3"}
+						}
+					}
+				}
+			}
+
 ;============ AI REPAIR ========================================
 			{"ai_repair_vehicle"
 				{"effect"
@@ -1233,5 +1838,473 @@
 						{state "not dead"}
 					}
 					{effect ignore_auto_resupply_30}
+				}
+			}
+
+;============ RADIO ========================================
+			{"set_ai_minimap_ables"
+				{"delay"
+					{time 1}
+				}
+				{"switch"
+					{"case"
+						{condition
+							{type cmp_i}
+							{var "radio_active$"}
+							{op "=="}
+							{value 1}
+						}
+						{"ables"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag _def}
+										}
+										{tag
+											{tag _bot}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{player
+											{player "0"}
+										}
+										{prop
+											{prop airborne}
+										}
+									}
+								}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag _def}
+										}
+										{tag
+											{tag _bot}
+										}
+									}
+									{include
+										{state
+											{state "operatable inhabited"}
+										}
+										{prop
+											{prop airborne}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{player
+											{player "0"}
+										}
+										
+									}
+								}
+							}
+							{add minimap}
+						}
+					}
+					{"default"
+						{"switch"
+							{"case"
+								{condition
+									{type cmp_i}
+									{var "user_is_defender$"}
+									{op "=="}
+									{value 1}
+								}
+								{"ables"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{zone
+													{zone "gamezone"}
+												}
+												{zone_ex
+													{zone "gamezone"}
+												}
+											}
+											{include
+												{prop
+													{prop human}
+												}
+											}
+											{exclude
+												{state
+													{state dead}
+												}
+												{tag
+													{tag hidden}
+												}
+												{state
+													{state user_control}
+												}
+												{tag
+													{tag cmp_def}
+												}
+												{tag
+													{tag _def}
+												}
+												{tag
+													{tag _user_ally}
+												}
+												{player
+													{player "0"}
+												}
+											}
+										}
+										{group
+											{select
+												{zone
+													{zone "gamezone"}
+												}
+												{zone_ex
+													{zone "gamezone"}
+												}
+											}
+											{include
+												{prop
+													{prop vehicle}
+												}
+												{state
+													{state inhabited}
+												}
+											}
+											{exclude
+												{tag
+													{tag hidden}
+												}
+												{state
+													{state user_control}
+												}
+												{tag
+													{tag cmp_def}
+												}
+												{tag
+													{tag _def}
+												}
+												{tag
+													{tag _user_ally}
+												}
+												{player
+													{player "0"}
+												}
+												{prop
+													{prop airborne}
+												}
+											}
+										}
+									}
+									{remove minimap}
+								}
+							}
+							{"default"
+								{## "ables"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{zone
+													{zone "gamezone"}
+												}
+												{zone_ex
+													{zone "gamezone"}
+												}
+											}
+											{include
+												{prop
+													{prop human}
+												}
+											}
+											{exclude
+												{state
+													{state dead}
+												}
+												{tag
+													{tag hidden}
+												}
+												{state
+													{state user_control}
+												}
+											}
+										}
+										{group
+											{select
+												{zone
+													{zone "gamezone"}
+												}
+												{zone_ex
+													{zone "gamezone"}
+												}
+											}
+											{include
+												{prop
+													{prop vehicle}
+												}
+												{state
+													{state inhabited}
+												}
+											}
+											{exclude
+												{tag
+													{tag hidden}
+												}
+												{state
+													{state user_control}
+												}
+											}
+										}
+									}
+									{remove minimap}
+								}
+								{"ables"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{zone
+													{zone "gamezone"}
+												}
+											}
+											{include
+												{state
+													{state operatable}
+												}
+											}
+											{exclude
+												{tag
+													{tag hidden}
+												}
+												{state
+													{state user_control}
+												}
+												{state
+													{state inactive}
+												}
+												{state
+													{state dead}
+												}
+												{prop
+													{prop airborne}
+												}
+											}
+										}
+									}
+									{remove minimap}
+								}
+							}
+						}
+					}
+				}
+				{"delay"
+					{time 1}
+				}
+				{"ables"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{zone
+									{zone "gamezone"}
+								}
+								{zone_ex
+									{zone "gamezone"}
+								}
+							}
+							{include
+								{prop
+									{prop vehicle}
+								}
+								{state
+									{state user_control}
+								}
+							}
+							{exclude
+								{state
+									{state inactive}
+								}
+								{state
+									{state dead}
+								}
+								{prop
+									{prop airborne}
+								}
+							}
+						}
+					}
+					{add minimap}
+				}
+			}
+			{"alert_radio_down"
+				{"timer"
+					{time 5}
+					{title "mission/multi/disable_radio"}
+				}
+				{"sound"
+					{name "interface/task_fail"}
+				}
+				{"delay"
+					{time 3}
+				}
+				{"talk"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{zone
+									{zone "gamezone"}
+								}
+							}
+							{include
+								{state
+									{state user_control}
+								}
+								{prop
+									{prop human}
+								}
+							}
+						}
+						{amount 1
+						}
+					}
+					{text "mission/multi/radio_vehicle_unmanned"}
+				}
+			}
+
+;============ MISC ========================================
+			{"move_extra_ai_defenders_to_point"
+				("move_extra_ai_defenders_to_point_thread" fpc(1) waypoint(1))
+				("move_extra_ai_defenders_to_point_thread" fpc(2) waypoint(2))
+				("move_extra_ai_defenders_to_point_thread" fpc(3) waypoint(3))
+				("move_extra_ai_defenders_to_point_thread" fpc(4) waypoint(4))
+				("move_extra_ai_defenders_to_point_thread" fpc(5) waypoint(5))
+			}
+			{"sabotage_ai_veh_function"
+				{"delay"
+					{time 15}
+				}
+				{"talk"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{zone
+									{zone "gamezone"}
+								}
+							}
+							{include
+								{prop
+									{prop human}
+								}
+								{state
+									{state linked}
+								}
+							}
+							{exclude
+								{state
+									{state user_control}
+								}
+								{state
+									{state dead}
+								}
+								{state
+									{state inactive}
+								}
+								{tag
+									{tag _user_ally}
+								}
+							}
+						}
+						{amount 1
+						}
+					}
+					{text "mission/multi/ai_sabotage_notify"}
+				}
+				{"delay"
+					{time 10}
+				}
+				{"talk"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{zone
+									{zone "gamezone"}
+								}
+								{tag
+									{tag player}
+								}
+							}
+							{include
+								{prop
+									{prop human}
+								}
+								{state
+									{state user_control}
+								}
+								{state
+									{state operatable}
+								}
+							}
+							{exclude
+								{state
+									{state dead}
+								}
+								{state
+									{state inactive}
+								}
+							}
+						}
+						{amount 1
+						}
+					}
+					{text "mission/multi/player_sabotage_notify"}
+				}
+			}
+			{"recon_random_flag"
+				{"loop" 6
+					{"action"
+						{action advance}
+						{target
+							{amount 1
+							}
+							{tag drop_zone}
+							{zone "gamezone"}
+						}
+					}
+					{"delay"
+						{time 0.2}
+					}
+				}
+			}
+			{"attack_selected_flag"
+				{"delay"
+					{time 10}
+				}
+				{"effect"
+					{effect tag_squad_need_next_order}
 				}
 			}

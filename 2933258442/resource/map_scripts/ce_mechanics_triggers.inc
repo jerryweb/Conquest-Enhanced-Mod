@@ -1,3 +1,6 @@
+; File created by Hawka
+;==========================================================================================================
+
 ;============ RADIO SCRIPTS========================================		 
 			{"conquest_enhanced_mechanics/radio/enable_neutral_and_player_units_on_minimap"
 				{condition
@@ -653,122 +656,6 @@
 					}
 					{"trigger"
 						{name "conquest_enhanced_mechanics/radio/tag_player_radio_man"}
-					}
-				}
-			}
-			
-;============ MAP SETUP SCRIPTS========================================			
-			{"conquest_enhanced_mechanics/set_ai_veh_sabotage_chance"
-				{condition
-					{terms
-						{"1.entities"
-							{selector
-								{source advanced}
-								{group
-									{select
-										{zone
-											{zone "gamezone"}
-										}
-									}
-									{include
-										{prop
-											{prop vehicle}
-										}
-										{state
-											{state operatable}
-										}
-									}
-									{exclude
-										{state
-											{state inactive}
-										}
-										{prop
-											{prop airborne}
-										}
-										{state
-											{state user_control}
-										}
-										{tag
-											{tag _user_ally}
-										}
-									}
-								}
-							}
-						}
-						{"3.cmp_i"
-							{var "ai_attack_started$"}
-							{op ">"}
-							{value 0}
-						}
-					}
-				}
-				{actions
-					{"delay"
-						{time 1}
-					}
-					{"if"
-						{condition
-							{type cmp_i}
-							{var "ai_sabotage$"}
-							{op "=="}
-							{value 1}
-						}
-						{"event"
-							{event "sabotage_ai_veh"}
-							{mode set}
-							{delay 0}
-						}
-					}
-					{"delay"
-						{time 1}
-					}
-					{"if"
-						{condition
-							{type event}
-							{id "sabotage_ai_veh"}
-						}
-						{"call"
-							{function "sabotage_ai_veh_function"}
-						}
-					}
-				}
-			}
-			{"conquest_enhanced_mechanics/scene_variable/move_scene_variable"
-				{condition
-					{terms
-						{"1.entities"
-							{selector
-								{tag scene_variable}
-								{type vehicle}
-							}
-						}
-					}
-				}
-				{actions
-					{"select"
-						{tag scene_variable}
-						{type vehicle}
-					}
-					{"delay"
-						{time 0.2}
-					}
-					{"entity_state"
-						{selector
-							{source current}
-						}
-						{impregnability full}
-						{discovered off}
-						{tag_add "_ce_map_scripts_running"}
-					}
-					{"delay"
-						{time 0.2}
-					}
-					{"actor_to_waypoint"
-						{selector
-							{source current}
-						}
-						{waypoint "3001"}
-						{approach "safe teleport"}
 					}
 				}
 			}
