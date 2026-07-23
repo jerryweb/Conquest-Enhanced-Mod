@@ -36,10 +36,13 @@
 											{tag cmp_def}
 										}
 										{tag
-											{tag air_vehicle}
+											{tag pilot}
 										}
 										{player
 											{player "0"}
+										}
+										{prop
+											{prop airborne}
 										}
 										{state
 											{state user_control}
@@ -57,7 +60,7 @@
 					{"delay"
 						{time 0.1}
 					}
-					{## "entity_state"
+					{"entity_state"
 						{selector
 							{source advanced}
 							{ignore_captured_by_user 0}
@@ -86,10 +89,13 @@
 										{tag cmp_def}
 									}
 									{tag
-										{tag air_vehicle}
+										{tag pilot}
 									}
 									{player
 										{player "0"}
+									}
+									{prop
+										{prop airborne}
 									}
 									{state
 										{state user_control}
@@ -103,7 +109,7 @@
 						{function "select_ai_bot_units_to_tag"}
 					}
 					{"delay"
-						{time 0.5}
+						{time 0.2}
 					}
 					{"ables"
 						{selector
@@ -116,7 +122,7 @@
 						{remove personage}
 					}
 					{"delay"
-						{time 0.5}
+						{time 0.2}
 					}
 					{"entity_state"
 						{selector
@@ -248,14 +254,11 @@
 									{tag
 										{tag bot_veh}
 									}
-									{tag
-										{tag air_vehicle}
+									{prop
+										{prop airborne}
 									}
 									{state
 										{state user_control}
-									}
-									{prop
-										{prop airborne}
 									}
 								}
 							}
@@ -263,7 +266,7 @@
 						{tag_add _bot_veh}
 					}
 					{"delay"
-						{time 1}
+						{time 0.2}
 					}
 					{"ables"
 						{selector
@@ -310,7 +313,7 @@
 						{tag_remove _ai}
 					}
 					{"delay"
-						{time 1}
+						{time 0.1}
 					}
 					{"entity_state"
 						{selector
@@ -400,7 +403,7 @@
 						{tag_add "+chokehog"}
 					}
 					{"delay"
-						{time 1}
+						{time 0.1}
 					}
 					{## "switch"
 						{"case"
@@ -520,7 +523,7 @@
 						{"default"}
 					}
 					{"delay"
-						{time 6}
+						{time 1}
 					}
 					{"trigger"
 						{name "lua/bot_tags"}
@@ -3609,11 +3612,8 @@
 										}
 									}
 									{exclude
-										{tag
-											{tag engine_count_1}
-										}
-										{tag
-											{tag engine_count_2}
+										{prop
+											{prop airborne}
 										}
 										{state
 											{state inactive}
@@ -3637,11 +3637,11 @@
 					{"delay"
 						{time 0.1}
 					}
-					{"timer"
+					{## "timer"
 						{time 4}
 						{title "AI tank stopping to fight"}
 					}
-					{"effect"
+					{## "effect"
 						{selector
 							{tag e_tank_alt}
 						}
@@ -4053,7 +4053,6 @@
 													{type vehicle}
 													{state inhabited}
 												}
-												{drop orders}
 												{action move}
 												{target
 													{ignore_captured_by_user 0}

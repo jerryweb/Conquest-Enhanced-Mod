@@ -248,6 +248,9 @@
 						}
 					}
 				}
+				{"delay"
+					{time 0.2}
+				}
 				{"entity_state"
 					{selector
 						{source advanced}
@@ -260,45 +263,10 @@
 						}
 					}
 					{tag_remove hidden}
-					{inactive on}
+					{inactive off}
 				}
 				{"delay"
-					{time 1}
-				}
-				{"spawn"
-					{entity "conquest_spawn_indicator"}
-					{waypoint "1001"}
-				}
-				{"spawn"
-					{entity "conquest_spawn_indicator"}
-					{waypoint "1002"}
-				}
-				{"spawn"
-					{entity "conquest_spawn_indicator"}
-					{waypoint "1003"}
-				}
-				{"spawn"
-					{entity "conquest_spawn_indicator"}
-					{waypoint "1004"}
-				}
-				{"spawn"
-					{entity "conquest_spawn_indicator"}
-					{waypoint "2001"}
-				}
-				{"spawn"
-					{entity "conquest_spawn_indicator"}
-					{waypoint "2002"}
-				}
-				{"spawn"
-					{entity "conquest_spawn_indicator"}
-					{waypoint "2003"}
-				}
-				{"spawn"
-					{entity "conquest_spawn_indicator"}
-					{waypoint "2004"}
-				}				
-				{"delay"
-					{time 300}
+					{time 0.5}
 				}
 				{"entity_state"
 					{selector
@@ -360,6 +328,40 @@
 							}
 						}
 					}
+					{tag_remove hidden}
+					{inactive off}
+				}
+				{"delay"
+					{time 0.5}
+				}
+				{"entity_state"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag arrow_enemy}
+								}
+							}
+						}
+					}
+					{inactive on}
+				}
+				{"delay"
+					{time 0.5}
+				}
+				{"entity_state"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag arrow_enemy}
+								}
+							}
+						}
+					}
+					{tag_remove hidden}
 					{inactive off}
 				}
 				{"delay"
@@ -425,7 +427,103 @@
 						}
 					}
 					{inactive off}
-				}	
+				}
+				{"delay"
+					{time 0.5}
+				}
+				{"entity_state"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag arrow_enemy}
+								}
+							}
+						}
+					}
+					{inactive on}
+				}
+				{"delay"
+					{time 0.5}
+				}
+				{"entity_state"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag arrow_enemy}
+								}
+							}
+						}
+					}
+					{inactive off}
+				}
+				{"delay"
+					{time 0.5}
+				}
+				{"entity_state"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag arrow_enemy}
+								}
+							}
+						}
+					}
+					{inactive on}
+				}
+				{"delay"
+					{time 0.5}
+				}
+				{"entity_state"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag arrow_enemy}
+								}
+							}
+						}
+					}
+					{inactive off}
+				}
+				{"delay"
+					{time 0.5}
+				}
+				{"entity_state"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag arrow_enemy}
+								}
+							}
+						}
+					}
+					{inactive on}
+				}
+				{"delay"
+					{time 0.5}
+				}
+				{"entity_state"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag arrow_enemy}
+								}
+							}
+						}
+					}
+					{inactive off}
+				}
 			}
 			{"alert_ai_strategy"
 				{"switch"
@@ -947,7 +1045,10 @@
 											{tag cmp_def}
 										}
 										{tag
-											{tag air_vehicle}
+											{tag pilot}
+										}
+										{prop
+											{prop airborne}
 										}
 										{player
 											{player "0"}
@@ -1002,7 +1103,10 @@
 											{tag cmp_def}
 										}
 										{tag
-											{tag air_vehicle}
+											{tag pilot}
+										}
+										{prop
+											{prop airborne}
 										}
 										{player
 											{player "0"}
@@ -1057,7 +1161,10 @@
 											{tag cmp_def}
 										}
 										{tag
-											{tag air_vehicle}
+											{tag pilot}
+										}
+										{prop
+											{prop airborne}
 										}
 										{player
 											{player "0"}
@@ -1112,7 +1219,10 @@
 											{tag cmp_def}
 										}
 										{tag
-											{tag air_vehicle}
+											{tag pilot}
+										}
+										{prop
+											{prop airborne}
 										}
 										{player
 											{player "0"}
@@ -1167,7 +1277,10 @@
 											{tag cmp_def}
 										}
 										{tag
-											{tag air_vehicle}
+											{tag pilot}
+										}
+										{prop
+											{prop airborne}
 										}
 										{player
 											{player "0"}
@@ -1222,7 +1335,10 @@
 											{tag cmp_def}
 										}
 										{tag
-											{tag air_vehicle}
+											{tag pilot}
+										}
+										{prop
+											{prop airborne}
 										}
 										{player
 											{player "0"}
@@ -1277,7 +1393,10 @@
 											{tag cmp_def}
 										}
 										{tag
-											{tag air_vehicle}
+											{tag pilot}
+										}
+										{prop
+											{prop airborne}
 										}
 										{player
 											{player "0"}
@@ -1332,7 +1451,10 @@
 											{tag cmp_def}
 										}
 										{tag
-											{tag air_vehicle}
+											{tag pilot}
+										}
+										{prop
+											{prop airborne}
 										}
 										{player
 											{player "0"}
@@ -1387,7 +1509,10 @@
 											{tag cmp_def}
 										}
 										{tag
-											{tag air_vehicle}
+											{tag pilot}
+										}
+										{prop
+											{prop airborne}
 										}
 										{player
 											{player "0"}
@@ -1436,7 +1561,10 @@
 											{tag cmp_def}
 										}
 										{tag
-											{tag air_vehicle}
+											{tag pilot}
+										}
+										{prop
+											{prop airborne}
 										}
 										{player
 											{player "0"}

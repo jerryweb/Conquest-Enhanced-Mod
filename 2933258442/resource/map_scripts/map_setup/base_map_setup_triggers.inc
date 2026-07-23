@@ -186,7 +186,7 @@
 										{"case"
 											{condition
 												{type rand}
-												{value 0.35}
+												{value 0.25}
 											}
 											{"delay"
 												{time 0.1}
@@ -204,7 +204,7 @@
 										{"case"
 											{condition
 												{type rand}
-												{value 0.35}
+												{value 0.33}
 											}
 											{"delay"
 												{time 0.1}
@@ -222,7 +222,7 @@
 										{"case"
 											{condition
 												{type rand}
-												{value 0.35}
+												{value 0.5}
 											}
 											{"delay"
 												{time 0.1}
@@ -267,7 +267,7 @@
 										{"case"
 											{condition
 												{type rand}
-												{value 0.35}
+												{value 0.25}
 											}
 											{"delay"
 												{time 0.1}
@@ -285,7 +285,7 @@
 										{"case"
 											{condition
 												{type rand}
-												{value 0.35}
+												{value 0.33}
 											}
 											{"delay"
 												{time 0.1}
@@ -303,7 +303,7 @@
 										{"case"
 											{condition
 												{type rand}
-												{value 0.35}
+												{value 0.5}
 											}
 											{"delay"
 												{time 0.1}
@@ -342,7 +342,7 @@
 										{"case"
 											{condition
 												{type rand}
-												{value 0.35}
+												{value 0.25}
 											}
 											{"delay"
 												{time 0.1}
@@ -360,7 +360,7 @@
 										{"case"
 											{condition
 												{type rand}
-												{value 0.35}
+												{value 0.33}
 											}
 											{"delay"
 												{time 0.1}
@@ -378,7 +378,7 @@
 										{"case"
 											{condition
 												{type rand}
-												{value 0.35}
+												{value 0.5}
 											}
 											{"delay"
 												{time 0.1}
@@ -425,7 +425,7 @@
 								{"case"
 									{condition
 										{type rand}
-										{value 0.35}
+										{value 0.25}
 									}
 									{"delay"
 										{time 0.1}
@@ -443,7 +443,7 @@
 								{"case"
 									{condition
 										{type rand}
-										{value 0.35}
+										{value 0.33}
 									}
 									{"delay"
 										{time 0.1}
@@ -461,7 +461,7 @@
 								{"case"
 									{condition
 										{type rand}
-										{value 0.35}
+										{value 0.5}
 									}
 									{"delay"
 										{time 0.1}
@@ -506,7 +506,7 @@
 								{"case"
 									{condition
 										{type rand}
-										{value 0.35}
+										{value 0.25}
 									}
 									{"delay"
 										{time 0.1}
@@ -524,7 +524,7 @@
 								{"case"
 									{condition
 										{type rand}
-										{value 0.35}
+										{value 0.33}
 									}
 									{"delay"
 										{time 0.1}
@@ -542,7 +542,7 @@
 								{"case"
 									{condition
 										{type rand}
-										{value 0.35}
+										{value 0.5}
 									}
 									{"delay"
 										{time 0.1}
@@ -626,7 +626,7 @@
 								{"case"
 									{condition
 										{type rand}
-										{value 0.35}
+										{value 0.25}
 									}
 									{"delay"
 										{time 0.1}
@@ -644,7 +644,7 @@
 								{"case"
 									{condition
 										{type rand}
-										{value 0.35}
+										{value 0.33}
 									}
 									{"delay"
 										{time 0.1}
@@ -662,7 +662,7 @@
 								{"case"
 									{condition
 										{type rand}
-										{value 0.35}
+										{value 0.5}
 									}
 									{"delay"
 										{time 0.1}
@@ -2999,8 +2999,8 @@
 										}
 									}
 									{exclude
-										{tag
-											{tag air_vehicle}
+										{prop
+											{prop airborne}
 										}
 										{state
 											{state inactive}
@@ -9396,11 +9396,11 @@
 				{condition
 				}
 				{actions
+					{"call"
+						{function "default_spawns"}
+					}
 					{"delay"
 						{time 0.1}
-					}
-					{"call"
-						{function "default_spawns_a"}
 					}
 					{"switch"
 						{"case"
@@ -9418,12 +9418,6 @@
 								{value 0}
 							}
 						}
-					}
-					{"delay"
-						{time 0.5}
-					}
-					{"call"
-						{function "default_spawns_b"}
 					}
 				}
 			}

@@ -54,6 +54,16 @@ local waveUnitTotal = math.random(WaveUnit.Min, WaveUnit.Max)
 if printDebug then print("Print: initial waveUnitTotal", waveUnitTotal) end
 
 local firstPurchase = true
+local conquestSpawnPointIndex = 0
+
+function GameModeSpawnUnit(unit, maxSquadSize)
+	if BotApi.Commands:SpawnAt(unit, maxSquadSize, conquestSpawnPointIndex) then
+		conquestSpawnPointIndex = setAiSpawnIndex(conquestSpawnPointIndex)
+		return true
+	end
+
+	return false
+end
 
 local function isAttackerOrDefender()
 	botDefender = not BotApi.Conquest.Attacking
@@ -108,7 +118,7 @@ function WaveAttack()
 		waveSpawnPossible = true
 	end
 
-	if forceUnitCount >= forceUnitCountMax then
+	if forceUnitPriority and forceUnitCount >= forceUnitCountMax then
 		if printDebug then print("Print: forceUnitCount max reached: ", forceUnitCount, " Disabling unit priority override") end
 		forceUnitPriority = false
 		forceUnitCount = 0
@@ -357,6 +367,7 @@ end
 
 function OnGameSpawn(args)
 	if not sceneVariableSquad then 
+		SelectAiSpawnStrategy()
 		sceneVariableSquad = args.squadId 
 		print("Spawned Scene variable successfully!")
 		if printDebug then print("Print: SQAUD ", args.squadId, " set as scene variable.") end

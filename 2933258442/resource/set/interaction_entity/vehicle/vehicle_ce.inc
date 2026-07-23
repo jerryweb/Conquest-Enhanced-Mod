@@ -35,19 +35,13 @@
                 {damage_report "sabotage" "<s(10)b+c(#FF0000)>SABOTAGE"}
                 {if not operatable
                     {if able "repair"
-                        {if rand 0.5
-                            {call_synced "explosion"}
-                        else
-                            {clear_inventory}   
-                        }       
+                        {clear_inventory}  
+                        {call_synced "explosion"}                         
                     }   
                 else
                     {if user_control
-                        {if rand 0.5
-                            {call_synced "break_all"}
-                        else
-                            {clear_inventory}   
-                        }
+                        {clear_inventory}   
+                        {call_synced "break_all"}  
                     }
                 }
                 {tags remove "sabotage_possible"}   

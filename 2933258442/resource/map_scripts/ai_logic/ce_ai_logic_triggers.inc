@@ -2572,248 +2572,6 @@
 			}
 
 ;============== AI ARTILLERY ==============						
-			(define "cannon_artillery_flag_attack_case" ; flag
-				{"case"
-					{condition
-						{type entities}
-						{selector
-							{tag possible_artillery_target}
-							{zone "fpc%flag"}
-						}
-					}
-					{"select"
-						{amount 1
-						}
-						{tag artillery_selected}
-						{type vehicle}
-						{state inhabited}
-					}
-					{"delay"
-						{time 0.2}
-					}
-					{"action"
-						{selector
-							{source current}
-						}
-						{action cancel}
-					}
-					{"delay"
-						{time 0.2}
-					}
-					{"actor_state"
-						{selector
-							{source current}
-						}
-						{drop orders}
-						{cannon fire}
-					}
-					{"delay"
-						{time 0.2}
-					}
-					{"entity_state"
-						{selector
-							{source current}
-						}
-						{tag_add attacking_flag_%flag}
-					}
-					{"delay"
-						{time 1}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type near}
-								{units
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag _user}
-											}
-											{tag
-												{tag _ai_defender}
-											}
-										}
-										{include
-											{state
-												{state operatable}
-											}
-											{zone
-												{zone "gamezone"}
-											}
-										}
-										{exclude
-											{prop
-												{prop airborne}
-											}
-											{state
-												{state dead}
-											}
-											{state
-												{state inactive}
-											}
-											{tag
-												{tag _bot}
-											}
-										}
-									}
-									{amount 1
-									}
-								}
-								{near_to
-									{source advanced}
-									{group
-										{select
-											{zone
-												{zone "fpc%flag"}
-											}
-										}
-										{include
-											{tag
-												{tag possible_artillery_target}
-											}
-										}
-									}
-									{amount 1
-									}
-								}
-								{distance 100}
-							}
-							{"loop" 18
-								{"actor_fire"
-									{selector
-										{amount 1
-										}
-										{tag artillery_selected}
-										{type vehicle}
-										{state inhabited}
-									}
-									{attack enemies}
-									{enemies
-										{source advanced}
-										{group
-											{select
-												{tag
-													{tag _user}
-												}
-												{tag
-													{tag _ai_defender}
-												}
-											}
-											{include
-												{state
-													{state operatable}
-												}
-												{zone
-													{zone "gamezone"}
-												}
-											}
-											{exclude
-												{prop
-													{prop airborne}
-												}
-												{state
-													{state dead}
-												}
-												{state
-													{state inactive}
-												}
-												{tag
-													{tag _bot}
-												}
-											}
-										}
-										{sort
-											{type entity}
-											{entity
-												{amount 1
-												}
-												{tag flag_point}
-												{zone "fpc%flag"}
-											}
-										}
-										{amount 1
-										}
-									}
-									{interval 0}
-									{time 0}
-									{burst_mode long}
-								}
-								{## "action"
-									{selector
-										{source current}
-									}
-									{action suppression_fire}
-									{target
-										{source advanced}
-										{group
-											{select
-												{tag
-													{tag _user}
-												}
-												{tag
-													{tag _ai_defender}
-												}
-											}
-											{include
-												{state
-													{state operatable}
-												}
-												{zone
-													{zone "gamezone"}
-												}
-											}
-											{exclude
-												{prop
-													{prop airborne}
-												}
-												{state
-													{state dead}
-												}
-												{state
-													{state inactive}
-												}
-												{tag
-													{tag _bot}
-												}
-											}
-										}
-										{sort
-											{type entity}
-											{entity
-												{amount 1
-												}
-												{tag flag_point}
-												{zone "fpc%flag"}
-											}
-										}
-										{amount 1
-										}
-									}
-								}
-							}
-						}
-						{"default"
-							{"loop" 18
-								{"actor_fire"
-									{selector
-										{tag artillery_selected}
-										{type vehicle}
-										{state inhabited}
-									}
-									{attack position}
-									{waypoint "%flag"}
-									{deviate}
-									{burst_mode long}
-								}
-							}
-						}
-					}
-					{"delay"
-						{time 1}
-					}
-				}
-			)
 			(define "cannon_artillery_target_attack_case" ;
 				{"if"
 					{condition
@@ -2825,9 +2583,9 @@
 									{tag
 										{tag _user}
 									}
-									{tag
-										{tag _ai_defender}
-									}
+									;{tag
+									;	{tag _ai_defender}
+									;}
 								}
 								{include
 									{state
@@ -2886,9 +2644,9 @@
 									{source advanced}
 									{group
 										{select
-											{tag
-												{tag _ai_defender}
-											}
+											;{tag
+											;	{tag _ai_defender}
+											;}
 											{tag
 												{tag _user}
 											}
@@ -2939,9 +2697,9 @@
 									{source advanced}
 									{group
 										{select
-											{tag
-												{tag _ai_defender}
-											}
+											;{tag
+											;	{tag _ai_defender}
+											;}
 											{tag
 												{tag _user}
 											}
@@ -3009,9 +2767,9 @@
 											{tag
 												{tag _user}
 											}
-											{tag
-												{tag _ai_defender}
-											}
+											;{tag
+											;	{tag _ai_defender}
+											;}
 										}
 										{include
 											{state
@@ -3074,271 +2832,6 @@
 					{"delay"
 						{time 0.2}
 					}
-				}
-			)
-			(define "spg_cannon_artillery_flag_attack_case" ; flag
-				{"case"
-					{condition
-						{type entities}
-						{selector
-							{tag spg_artillery_flag_to_attack}
-							{zone "fpc%flag"}
-						}
-					}
-					{"select"
-						{amount 1
-						}
-						{tag spg_artillery_selected}
-						{type vehicle}
-						{state inhabited}
-					}
-					{"delay"
-						{time 0.2}
-					}
-					{"action"
-						{selector
-							{source current}
-						}
-						{drop orders}
-						{action rotate}
-						{target
-							{amount 1
-							}
-							{tag spg_artillery_flag_to_attack}
-						}
-					}
-					{"delay"
-						{time 4}
-					}
-					{"entity_state"
-						{selector
-							{source current}
-						}
-						{tag_add attacking_flag_%flag}
-					}
-					{"delay"
-						{time 1}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type entities}
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag spg_artillery_selected}
-											}
-										}
-										{include
-											{tag
-												{tag rocket_artillery}
-											}
-											{state
-												{state "operatable inhabited"}
-											}
-											{tag
-												{tag _bot}
-											}
-										}
-										{exclude
-											{state
-												{state inactive}
-											}
-											{state
-												{state linked}
-											}
-											{tag
-												{tag _user}
-											}
-											{tag
-												{tag _ai_defender}
-											}
-											{state
-												{state user_control}
-											}
-											{prop
-												{prop panzerwerfer42}
-											}
-										}
-									}
-								}
-							}
-							{"loop" 18
-								{"actor_fire"
-									{selector
-										{tag spg_artillery_selected}
-										{type vehicle}
-										{state inhabited}
-									}
-									{attack position}
-									{waypoint "%flag"}
-									{deviate}
-									{burst_mode long}
-									{only_weapon
-										{use}
-										{place rocket}
-									}
-								}
-								{## "action"
-									{selector
-										{source current}
-									}
-									{drop orders}
-									{action surpression_fire}
-									{waypoint "%flag"}
-								}
-								{## "timer"
-									{time 5}
-									{title adfad}
-								}
-							}
-						}
-						{"default"
-							{"loop" 18
-								{"actor_fire"
-									{selector
-										{tag spg_artillery_selected}
-										{type vehicle}
-										{state inhabited}
-									}
-									{attack position}
-									{waypoint "%flag"}
-									{deviate}
-									{burst_mode long}
-								}
-								{## "action"
-									{selector
-										{source current}
-									}
-									{drop orders}
-									{action surpression_fire}
-									{waypoint "%flag"}
-								}
-							}
-						}
-					}
-				}
-			)
-			(define "cancel_arillery_attack_on_flag_conditions"  ; entities_group_1, entities_group_2, flag 
-				{"%entities_group_1.entities"
-					{selector
-						{source advanced}
-						{group
-							{select
-								{tag
-									{tag _user}
-								}
-								{tag
-									{tag _ai_defender}
-								}
-							}
-							{include
-								{zone
-									{zone "fpc%flag"}
-								}
-								{state
-									{state operatable}
-								}
-							}
-							{exclude
-								{state
-									{state dead}
-								}
-								{state
-									{state inactive}
-								}
-								{prop
-									{prop airborne}
-								}
-							}
-						}
-					}
-					{count
-						{op "=="}
-						{value 0}
-					}
-				}
-				{"%entities_group_2.entities"
-					{selector
-						{tag attacking_flag_%flag}
-						{type vehicle}
-						{state inhabited}
-					}
-				}
-			)
-			(define "cancel_attack_for_flag" ; flag
-				{"if"
-					{condition
-						{type entities}
-						{selector
-							{source advanced}
-							{group
-								{select
-									{tag
-										{tag _user}
-									}
-									{tag
-										{tag _ai_defender}
-									}
-								}
-								{include
-									{state
-										{state operatable}
-									}
-									{zone
-										{zone "fpc%flag"}
-									}
-								}
-								{exclude
-									{state
-										{state dead}
-									}
-									{state
-										{state inactive}
-									}
-								}
-							}
-						}
-						{count
-							{op "=="}
-							{value 0}
-						}
-					}
-					{## "action"
-						{selector
-							{tag attacking_flag_%flag}
-							{type vehicle}
-							{state inhabited}
-						}
-						{drop orders}
-					}
-					{"delay"
-						{time 0.1}
-					}
-					{"actor_state"
-						{selector
-							{tag attacking_flag_%flag}
-							{type vehicle}
-							{state inhabited}
-						}
-						{cannon move}
-					}					
-					{"delay"
-						{time 0.1}
-					}
-					{"effect"
-						{selector
-							{tag attacking_flag_%flag}
-							{type vehicle}
-							{state inhabited}
-						}
-						{effect tag_squad_need_next_order}
-					}
-				}
-				{"delay"
-					{time 0.4}
 				}
 			)
 	;------- Functions ---------------------
@@ -3591,7 +3084,7 @@
 								}
 								{distance 400}
 							}
-							{## "timer"
+							{"timer"
 								{time 3}
 								{title "long range artillery in range of flag"}
 							}

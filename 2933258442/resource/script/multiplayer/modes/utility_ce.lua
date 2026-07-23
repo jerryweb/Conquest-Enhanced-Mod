@@ -6,10 +6,14 @@ followWaypointGraphs = false
 generalSquadTagCheckDelay = 10 * 1000
 sceneVariableSquad = nil 
 currentUnitCountTable = {}
+DynamicWeatherTimer = nil
+
 
 local intialSceneEnvironmentCheck = false
 local environment = nil
-local dynamicWeatherTimer = 0
+local aiSpawnStrategy = 0
+local aiSpawnSelectionDelay = 3 * 60000
+
 
 -- =================== Debug Utilities ==================
 
@@ -90,9 +94,9 @@ function KillGeneralSquadTagCheckTimer()
 end
 
 function SetDynamicWeatherTimer()
-  dynamicWeatherTimer = SetDynamicWeatherVariables()
-  print("Print: dynamic weather apply delay = ", dynamicWeatherTimer / 1000, "seconds")
-  Context.SpawnWait.CooldownTimer = BotApi.Events:SetQuantTimer(
+  local weatherTimer = SetDynamicWeatherVariables()
+  print("Print: dynamic weather apply delay = ", weatherTimer / 1000, "seconds")
+  DynamicWeatherTimer = BotApi.Events:SetQuantTimer(
     function() 
       local weather_selection = math.random(1, maxWeatherOptions[environment])
       if weather_selection_override then 
@@ -100,20 +104,17 @@ function SetDynamicWeatherTimer()
         end
       print("Setting dynamic weather selection =  ", weather_selection)
       BotApi.Scene:SetVar("weather_selection", weather_selection)
-      Context.DynamicWeatherTimer = nil
       KillDynamicWeatherTimer()
     end, 
-    dynamicWeatherTimer)
+    weatherTimer)
 end
 
 function KillDynamicWeatherTimer()
-  if Context.DynamicWeatherTimer then
-    BotApi.Events:KillQuantTimer(Context.DynamicWeatherTimer)
-    Context.DynamicWeatherTimer = nil
+  if DynamicWeatherTimer then
+    BotApi.Events:KillQuantTimer(DynamicWeatherTimer)
+    DynamicWeatherTimer = nil
   end
 end
-
-
 
 -- =====================================
 function SetCEWaveSettings(SpawnCooldownTime, WaveUnit, botDefender)
@@ -221,13 +222,10 @@ function SetCEMissionVariables(botDefender, botDifficulty)
   end
   if printDebug then print("totalFlags: ", totalFlags) end
 
-  -- checkVarPercentage("weather_selection", weather_selection_override)
-
   checkVarPercentage("enable_ce_radio_mechanic", enableCommunicationsCutMechanics) -- use this to control both variables for now
   checkVarPercentage("enable_ce_cut_communications_mechanic", enableCommunicationsCutMechanics)
   checkVarPercentage("ai_sabotage", enableSabotageMechanics)
   checkVarPercentage("enable_ai_abandon_mechanics", enableAiAbandonMechanics)
-
 
   -- only run rear attack script if bot is attacking
   BotApi.Scene:SetVar("max_ai_defender_emplacement_count_level_1", AiDefenderCount.Defending.emplacement.defenseLevelOne)
@@ -251,9 +249,7 @@ function SetCEMissionVariables(botDefender, botDifficulty)
 
       print("max_ai_defender_emplacement_total_count = ", AiDefenderCount.Attacking.emplacement.perFlag * totalFlags + 1)
   end
-  -- checkVarPercentage("enable_rear_attack_mechanic", enableRearAttackMechanics)
   checkRearAttackPercentage()
-  -- BotApi.Scene:SetVar("force_ai_direct_attack_logic", force_ai_direct_attack_logic)
 end
 
 function CheckUnitMaxCount(unit, available) 
@@ -277,7 +273,7 @@ function IncrementMaxUnitCount(unit)
   else
     currentUnitCountTable[unit] = 1
   end
-  if printDebug then print("Incrementing  ", unit, " unit count. Current unit count =", currentUnitCountTable[unit]) end
+  -- if printDebug then print("Incrementing  ", unit, " unit count. Current unit count =", currentUnitCountTable[unit]) end
 end
 
 function DefaultSquadSpawnOrders(args, OrderRotationPeriod)
@@ -353,12 +349,73 @@ function SetDynamicWeatherVariables()
   return weatherDelay
 end
 
+function SelectAiSpawnStrategy()
+  local setAiSpawnStrategyTimer = nil
+
+  setAiSpawnStrategyTimer = function(callback)
+    aiSpawnStrategyTimer = BotApi.Events:SetQuantTimer(
+      function()
+        print("in SelectAiSpawnStrategy function")
+        math.randomseed(os.time())
+        local changeSpawnStrategyChance = 0.45
+
+        if math.random() < changeSpawnStrategyChance then
+          local prevAiSpawnStrategy = aiSpawnStrategy
+          
+          if enableRearAttackMechanics == 1 then
+            aiSpawnStrategy = math.random(0, 3)
+          else 
+            aiSpawnStrategy = math.random(0, 2)
+          end
+
+          print("Ai spawn strategy = ", aiSpawnStrategy)
+          if aiSpawnStrategy == 3 and prevAiSpawnStrategy ~= aiSpawnStrategy then 
+            followWaypointGraphs = false
+            BotApi.Scene:SetVar("enable_ai_waypoint_graphs", 0)  
+          elseif prevAiSpawnStrategy == 3 and prevAiSpawnStrategy ~= aiSpawnStrategy  then
+            followWaypointGraphs = true
+            BotApi.Scene:SetVar("enable_ai_waypoint_graphs", 1)
+          end
+
+          print("followWaypointGraphs = ", followWaypointGraphs, " and ai_spawn_strategy = ", aiSpawnStrategy)
+          if prevAiSpawnStrategy == 3 or aiSpawnStrategy == 3 and prevAiSpawnStrategy ~= aiSpawnStrategy then 
+            BotApi.Scene:SetVar("change_ai_spawns", 1)       
+          end
+          BotApi.Scene:SetVar("ai_spawn_strategy", aiSpawnStrategy)
+        end
+        callback(callback)   
+      end, generalSquadTagCheckDelay)
+  end
+  setAiSpawnStrategyTimer(setAiSpawnStrategyTimer)
+end
+
+function setAiSpawnIndex(SpawnPointIndex)
+  if aiSpawnStrategy == 1 then -- spawn only points 1 and 4
+      if SpawnPointIndex == 0 then 
+        SpawnPointIndex = 3
+      elseif SpawnPointIndex == 3 then 
+        SpawnPointIndex = 0
+      else 
+        SpawnPointIndex = 0
+      end
+    elseif aiSpawnStrategy == 2 then -- spawn only points 2 and 3 
+      if SpawnPointIndex == 1 then 
+        SpawnPointIndex = 2
+      elseif SpawnPointIndex == 2 then 
+        SpawnPointIndex = 1
+      else 
+        SpawnPointIndex = 1
+      end
+    else
+      SpawnPointIndex = SpawnPointIndex + 1
+    end
+  return SpawnPointIndex
+end
 
 -- =================== Check Squad Tags ==================
 function SpawnSceneVariable()
   BotApi.Commands:Spawn("scene_variable", MaxSquadSize)
 end
-
 
 function IsSquadToAlwaysIgnore(squad)
   if BotApi.Scene:IsSquadTagged(squad, "_lua_always_ignore") then
@@ -416,7 +473,7 @@ function CheckSceneVariable(squad)
     print("Print: Scene evironment = ", environment)
     print("Print: Getting maxWeatherOptions with max size of ", maxWeatherOptions[environment])
     intialSceneEnvironmentCheck = true
-      SetDynamicWeatherTimer()
+    SetDynamicWeatherTimer()
   end
 end
 

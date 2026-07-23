@@ -606,6 +606,39 @@
 						}
 			)
 
+			(define "spawn_placement"; parms: conquest_spawn_point, location
+				{"if"
+					{condition
+						{type entities}
+						{selector
+							{tag _default_%location}
+						}
+					}
+					{"placement"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag spawnpoint_conquest}
+									}
+								}
+								{include
+									{tag
+										{tag %conquest_spawn_point}
+									}
+								}
+							}
+						}
+						{target
+							{amount 1
+							}
+							{tag _default_%location}
+						}
+					}
+				}
+			)
+
 ; ============= SIDE A ===================================
 			("ai_inf_spawn" side(a) zone(a_1) waypoint(1011))
 			("ai_inf_spawn" side(a) zone(a_2) waypoint(1012))
@@ -629,136 +662,81 @@
 			("ai_vehicle_spawn" side(b) zone(b_4) waypoint(2014))
 
 ; ============= GENERAL TRIGGERS ===================================
-			{## "ai_spawn_logic/tag_ai_spawns"
+			{"ai_spawn_logic/move_ai_spawn"
 				{condition
+					{terms
+						{"2.cmp_i"
+							{var "change_ai_spawns$"}
+							{op "=="}
+							{value 1}
+						}
+					}
 				}
 				{actions
 					{"delay"
-						{time 1}
+						{time 0.2}
 					}
 					{"switch"
 						{"case"
 							{condition
 								{type cmp_i}
-								{var "bots_spawnside$"}
+								{var "ai_spawn_strategy$"}
 								{op "=="}
-								{value 2}
+								{value 3}
 							}
-							{"entity_state"
-								{selector
-									{tag spawn_b}
+							{"switch"
+								{"case"
+									{condition
+										{type cmp_i}
+										{var "bots_spawnside$"}
+										{op "=="}
+										{value 1}
+									}
+									("spawn_placement" conquest_spawn_point(a1) location(b1))
+									("spawn_placement" conquest_spawn_point(a2) location(b2))
+									("spawn_placement" conquest_spawn_point(a3) location(b3))
+									("spawn_placement" conquest_spawn_point(a4) location(b4))
 								}
-								{tag_add ai_spawn}
+								{"case"
+									{condition
+										{type cmp_i}
+										{var "bots_spawnside$"}
+										{op "=="}
+										{value 2}
+									}
+									("spawn_placement" conquest_spawn_point(b1) location(a1))
+									("spawn_placement" conquest_spawn_point(b2) location(a2))
+									("spawn_placement" conquest_spawn_point(b3) location(a3))
+									("spawn_placement" conquest_spawn_point(b4) location(a4))
+								}
+								{"default"}
 							}
 						}
 						{"default"
-							{"entity_state"
-								{selector
-									{tag spawn_a}
-								}
-								{tag_add ai_spawn}
-							}
+							("spawn_placement" conquest_spawn_point(a1) location(a1))
+							("spawn_placement" conquest_spawn_point(a2) location(a2))
+							("spawn_placement" conquest_spawn_point(a3) location(a3))
+							("spawn_placement" conquest_spawn_point(a4) location(a4))				
+							("spawn_placement" conquest_spawn_point(b1) location(b1))
+							("spawn_placement" conquest_spawn_point(b2) location(b2))
+							("spawn_placement" conquest_spawn_point(b3) location(b3))
+							("spawn_placement" conquest_spawn_point(b4) location(b4))
 						}
 					}
 					{"delay"
 						{time 0.2}
 					}
-					{"entity_state"
-						{selector
-							{source advanced}
-							{group
-								{select
-									{zone
-										{zone "a_1"}
-									}
-									{zone
-										{zone "b_1"}
-									}
-								}
-								{include
-									{tag
-										{tag ai_spawn}
-									}
-								}
-							}
-						}
-						{tag_add spawn_1}
+					{"set_i"
+						{var "change_ai_spawns$"}
+						{op "="}
+						{value 0}
 					}
-					{"delay"
-						{time 0.2}
-					}
-					{"entity_state"
-						{selector
-							{source advanced}
-							{group
-								{select
-									{zone
-										{zone "a_2"}
-									}
-									{zone
-										{zone "b_2"}
-									}
-								}
-								{include
-									{tag
-										{tag ai_spawn}
-									}
-								}
-							}
-						}
-						{tag_add spawn_2}
-					}
-					{"delay"
-						{time 0.2}
-					}
-					{"entity_state"
-						{selector
-							{source advanced}
-							{group
-								{select
-									{zone
-										{zone "a_3"}
-									}
-									{zone
-										{zone "b_3"}
-									}
-								}
-								{include
-									{tag
-										{tag ai_spawn}
-									}
-								}
-							}
-						}
-						{tag_add spawn_3}
-					}
-					{"delay"
-						{time 0.2}
-					}
-					{"entity_state"
-						{selector
-							{source advanced}
-							{group
-								{select
-									{zone
-										{zone "a_4"}
-									}
-									{zone
-										{zone "b_4"}
-									}
-								}
-								{include
-									{tag
-										{tag ai_spawn}
-									}
-								}
-							}
-						}
-						{tag_add spawn_4}
+					{"trigger"
+						{name "ai_spawn_logic/move_ai_spawn"}
 					}
 				}
 			}
-			{## "ai_spawn_logic/tag_spawned_veh_with_sabotage_chance"
+			{"ai_spawn_logic/tag_spawned_veh_with_sabotage_chance"
 				{condition
 					{terms
 						{"1.entities"
@@ -766,8 +744,8 @@
 								{source advanced}
 								{group
 									{select
-										{zone
-											{zone "gamezone"}
+										{tag
+											{tag bot}
 										}
 									}
 									{include
@@ -776,6 +754,9 @@
 										}
 										{prop
 											{prop vehicle}
+										}
+										{zone
+											{zone "gamezone"}
 										}
 									}
 									{exclude
@@ -797,15 +778,6 @@
 										{tag
 											{tag _user}
 										}
-										{tag
-											{tag player_armor}
-										}
-										{tag
-											{tag player_car}
-										}
-										{tag
-											{tag player_veh}
-										}
 									}
 								}
 							}
@@ -817,23 +789,23 @@
 				}
 				{actions
 					{"entity_state"
-						{"delay"
-							{time 5}
-						}
 						{selector
 							{source advanced}
 							{group
 								{select
-									{zone
-										{zone "gamezone"}
+									{tag
+										{tag bot}
 									}
 								}
 								{include
 									{state
-										{state operatable}
+										{state "operatable inhabited"}
 									}
 									{prop
 										{prop vehicle}
+									}
+									{zone
+										{zone "gamezone"}
 									}
 								}
 								{exclude
@@ -855,85 +827,16 @@
 									{tag
 										{tag _user}
 									}
-									{tag
-										{tag player_armor}
-									}
-									{tag
-										{tag player_car}
-									}
-									{tag
-										{tag player_veh}
-									}
 								}
 							}
 						}
 						{tag_add sabotage_possible}
 					}
 					{"delay"
-						{time 5}
+						{time 2}
 					}
 					{"trigger"
 						{name "ai_spawn_logic/tag_spawned_veh_with_sabotage_chance"}
-					}
-				}
-			}
-			{## "ai_spawn_logic/move_ai_spawn"
-				{condition
-					{terms
-						{"1.cmp_i"
-							{var "change_ai_spawns$"}
-							{op "=="}
-							{value 1}
-						}
-					}
-				}
-				{actions
-					{"delay"
-						{time 1}
-					}
-					{"switch"
-						("focus_ai_spawn_case" waypoint(1))
-						("focus_ai_spawn_case" waypoint(2))
-						("focus_ai_spawn_case" waypoint(3))
-						("focus_ai_spawn_case" waypoint(4))
-						; Case 5 is vanilla attack logic						
-						{"case"
-							{condition
-								{type cmp_i}
-								{var "ai_spawn_strategy$"}
-								{op "=="}
-								{value 6}
-							}
-							{## "call"
-								{function "ai_rear_attack_notify"}
-							}
-							{"delay"
-								{time 10}
-							}
-							{"call"
-								{function "move_ai_spawns_to_rear"}
-							}
-						}
-						{"default"
-							{## "timer"
-								{time 8}
-								{title "vanilla ai spawns and logic activated"}
-							}
-							{"call"
-								{function "reset_ai_spawn_new"}
-							}
-						}
-					}
-					{"delay"
-						{time 1}
-					}
-					{"set_i"
-						{var "change_ai_spawns$"}
-						{op "="}
-						{value 0}
-					}
-					{"trigger"
-						{name "ai_spawn_logic/move_ai_spawn"}
 					}
 				}
 			}
@@ -943,7 +846,7 @@
 						{"1.cmp_i"
 							{var "ai_spawn_strategy$"}
 							{op "=="}
-							{value 6}
+							{value 3}
 						}
 					}
 				}

@@ -13,7 +13,6 @@ teamSize = BotApi.Instance.teamSize
 
 MaxSquadSize = 0
 gameModeSpawnTimer = 0
-dynamicWeatherTimer = 0
 Purchases = {}
 PIter = {}
 PIter.__index = PIter
@@ -60,8 +59,6 @@ Context = {
 -- CE timers
 	GeneralSquadTagCheckTimer = nil,
 	SceneCheckTimer = nil,
-	AiSpawnMoveTimer = nil,
-	DynamicWeatherTimer = nil,
 }
 
 local spawnMuliplierActivated = false
@@ -327,10 +324,15 @@ function UpdateUnitToSpawn(purchase)
 	Context.SpawnInfo = GetNextUnitToSpawn(purchase)
 end
 
+function GameModeSpawnUnit(unit, maxSquadSize)
+	return BotApi.Commands:Spawn(unit, maxSquadSize)
+end
+
 -- Called OnGameStart()
 function OnGameStartUtility(purchasesModuleSuffix, botDefender)
     print("Print: AI Bot is player#" .. BotApi.Instance.playerId .. ", nation " .. BotApi.Instance.army .. ", on team " .. team .. " which has " .. teamSize .. " player(s)")
     print("Print: player#" .. BotApi.Instance.playerId .. ", has a difficulty of " .. BotApi.Instance.difficulty)
+	print("CUSTOM WAYPOINTS = ", followWaypointGraphs)
 	print("Attempting to spawn scene_variable")	
 
     -- Seed random for unpredictability
@@ -440,7 +442,7 @@ function TrySpawnUnit()
 		if printDebug then print("Print: unit spawn multipler DEACTIVATED!") end 
 	end
 
-	if BotApi.Commands:Spawn(unit, MaxSquadSize) then
+	if GameModeSpawnUnit(unit, MaxSquadSize) then
 		spawningUnit = true
 		IncrementMaxUnitCount(unit)
 		return

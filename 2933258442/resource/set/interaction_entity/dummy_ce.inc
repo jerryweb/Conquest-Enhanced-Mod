@@ -254,7 +254,6 @@
 	}
 }
 
-
 ;=================== Effects ====================
 
 {"shell_cannon_large"		;// empty shell ejected from cannons
