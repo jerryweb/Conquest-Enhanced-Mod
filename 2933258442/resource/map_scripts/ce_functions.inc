@@ -1708,6 +1708,747 @@
 					}
 				}
 			}
+			
+;============ AI ATTACK ========================================
+			{"attack_player_ai_bomber"
+				{"switch"
+					{"case"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+									}
+									{include
+										{prop
+											{prop heavy}
+										}
+										{prop
+											{prop tank}
+										}
+										{state
+											{state "operatable inhabited"}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+									}
+									{include
+										{prop
+											{prop heavy}
+										}
+										{prop
+											{prop tank}
+										}
+										{state
+											{state "operatable inhabited"}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+								{sort
+									{type shuffle}
+								}
+								{amount 1
+								}
+							}
+							{tag_add bomber_priority_target}
+						}
+					}
+					{"case"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+									}
+									{include
+										{state
+											{state "operatable inhabited"}
+										}
+										{tag
+											{tag radio_car}
+										}
+										{prop
+											{prop vehicle}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+									}
+									{include
+										{state
+											{state "operatable inhabited"}
+										}
+										{tag
+											{tag radio_car}
+										}
+										{prop
+											{prop vehicle}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+								{sort
+									{type shuffle}
+								}
+								{amount 1
+								}
+							}
+							{tag_add bomber_priority_target}
+						}
+					}
+					{"case"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+									}
+									{include
+										{state
+											{state "operatable inhabited"}
+										}
+										{tag
+											{tag artillery}
+										}
+										{prop
+											{prop vehicle}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+									}
+									{include
+										{state
+											{state "operatable inhabited"}
+										}
+										{tag
+											{tag artillery}
+										}
+										{prop
+											{prop vehicle}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+								{sort
+									{type shuffle}
+								}
+								{amount 1
+								}
+							}
+							{tag_add bomber_priority_target}
+						}
+					}
+					{"case"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+									}
+									{include
+										{prop
+											{prop tank}
+										}
+										{state
+											{state "operatable inhabited"}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+									}
+									{include
+										{prop
+											{prop tank}
+										}
+										{state
+											{state "operatable inhabited"}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+								{sort
+									{type shuffle}
+								}
+								{amount 1
+								}
+							}
+							{tag_add bomber_priority_target}
+						}
+					}
+					{"default"
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state dead}
+										}
+									}
+								}
+								{sort
+									{type shuffle}
+								}
+								{amount 1
+								}
+							}
+							{tag_add bomber_priority_target}
+						}
+					}
+				}
+				{"delay"
+					{time 0.25}
+				}
+				{"air_attack"
+					{drop orders}
+					{enemies
+						{amount 1
+						}
+						{tag bomber_priority_target}
+						{zone "gamezone"}
+						{state operatable}
+					}
+					{random_weapon 0}
+					{attack_altitude 55}
+				}
+				{"delay"
+					{time 0.25}
+				}
+				{"entity_state"
+					{selector
+						{source standart}
+						{tag bomber_priority_target}
+					}
+					{tag_remove bomber_priority_target}
+				}
+			}
+			{"attack_player_ai_fighter"
+				{"switch"
+					{"case"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag officer}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state user_control}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state dead}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag officer}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state user_control}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state dead}
+										}
+									}
+								}
+								{sort
+									{type shuffle}
+								}
+								{amount 1
+								}
+							}
+							{tag_add fighter_priority_target}
+						}
+					}
+					{"case"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+									}
+									{include
+										{state
+											{state "operatable inhabited"}
+										}
+										{prop
+											{prop cannon}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+									}
+									{include
+										{state
+											{state "operatable inhabited"}
+										}
+										{prop
+											{prop cannon}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+								{sort
+									{type shuffle}
+								}
+								{amount 1
+								}
+							}
+							{tag_add fighter_priority_target}
+						}
+					}
+					{"case"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{prop
+											{prop human}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state dead}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{prop
+											{prop human}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state dead}
+										}
+									}
+								}
+								{sort
+									{type shuffle}
+								}
+								{amount 1
+								}
+							}
+							{tag_add fighter_priority_target}
+						}
+					}
+					{"case"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state dead}
+										}
+									}
+								}
+							}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state dead}
+										}
+									}
+								}
+								{sort
+									{type shuffle}
+								}
+								{amount 1
+								}
+							}
+							{tag_add fighter_priority_target}
+						}
+					}
+					{"default"
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state dead}
+										}
+									}
+								}
+								{sort
+									{type shuffle}
+								}
+								{amount 1
+								}
+							}
+							{tag_add fighter_priority_target}
+						}
+					}
+				}
+				{"delay"
+					{time 0.25}
+				}
+				{"air_attack"
+					{drop orders}
+					{enemies
+						{amount 1
+						}
+						{tag fighter_priority_target}
+						{zone "gamezone"}
+					}
+					{random_weapon 0}
+					{attack_altitude 35}
+				}
+				{"delay"
+					{time 0.25}
+				}
+				{"entity_state"
+					{selector
+						{source standart}
+						{tag fighter_priority_target}
+					}
+					{tag_remove fighter_priority_target}
+				}
+			}
 
 ;============ AI REPAIR ========================================
 			{"ai_repair_vehicle"

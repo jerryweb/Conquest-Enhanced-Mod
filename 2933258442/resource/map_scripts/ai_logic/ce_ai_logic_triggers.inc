@@ -1,3 +1,2236 @@
+; File created by Hawka
+;==========================================================================================================
+
+;============== AI AIR =========================
+			{"ai_logic/air/set_air_raid_event"
+				{condition
+					{expression "(1 & 2) | 3"}
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag user_plane}
+										}
+									}
+									{include
+										{state
+											{state user_control}
+										}
+										{prop
+											{prop drop_plane}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag dropping_troopers}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{tag
+											{tag moving_to_drop_zone}
+										}
+										{tag
+											{tag on_mission}
+										}
+									}
+								}
+							}
+						}
+						{"2.cmp_i"
+							{var "noresusenabled$"}
+							{op "=="}
+							{value 1}
+						}
+						{"3.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag move_to_start_waypoint}
+										}
+									}
+									{include
+										{prop
+											{prop airborne}
+										}
+										{state
+											{state "operatable inhabited"}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag bot_recon}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"event"
+						{event "air_raid_warning"}
+						{mode set}
+						{delay 12}
+					}
+					{"event"
+						{event "air_raid_start"}
+						{mode set}
+						{delay 24}
+					}
+					{"if"
+						{condition
+							{type entities}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag user_plane}
+										}
+									}
+									{include
+										{prop
+											{prop drop_plane}
+										}
+										{state
+											{state inhabited}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{tag
+											{tag ai}
+										}
+									}
+								}
+							}
+						}
+						{"effect"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{prop
+											{prop spawnpoint_conquest}
+										}
+									}
+								}
+							}
+							{effect spawn_ai_waypoint_poles}
+						}
+					}
+					{## "timer"
+						{time 15}
+						{title "air raid started"}
+					}
+				}
+			}
+			{"ai_logic/air/big_air_raid_alarm"
+				{condition
+					{terms
+						{"1.event"
+							{id "air_raid_warning"}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 5}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag drop_plane}
+											}
+										}
+										{include
+											{prop
+												{prop airborne}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop drop_plane}
+											}
+										}
+										{exclude
+											{state
+												{state user_control}
+											}
+											{state
+												{state inactive}
+											}
+											{state
+												{state linked}
+											}
+										}
+									}
+								}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type cmp_i}
+										{var "enable_ce_radio_mechanic$"}
+										{op "=="}
+										{value 1}
+									}
+									{"switch"
+										{"case"
+											{condition
+												{type cmp_i}
+												{var "radio_active$"}
+												{op "=="}
+												{value 1}
+											}
+											{"sound"
+												{name "world/alarm/sirene"}
+											}
+											{"delay"
+												{time 45}
+											}
+											{"if"
+												{condition
+													{type entities}
+													{selector
+														{source advanced}
+														{group
+															{select
+																{tag
+																	{tag user_plane}
+																}
+															}
+															{include
+																{prop
+																	{prop drop_plane}
+																}
+																{state
+																	{state inhabited}
+																}
+															}
+															{exclude
+																{state
+																	{state inactive}
+																}
+																{state
+																	{state linked}
+																}
+																{tag
+																	{tag ai}
+																}
+															}
+														}
+													}
+												}
+												{"sound"
+													{name "world/alarm/sirene"}
+												}
+											}
+										}
+										{"default"
+											{"if"
+												{condition
+													{type entities}
+													{selector
+														{source advanced}
+														{group
+															{select
+																{tag
+																	{tag user_plane}
+																}
+															}
+															{include
+																{prop
+																	{prop drop_plane}
+																}
+																{state
+																	{state inhabited}
+																}
+															}
+															{exclude
+																{state
+																	{state inactive}
+																}
+																{state
+																	{state linked}
+																}
+																{tag
+																	{tag ai}
+																}
+															}
+														}
+													}
+												}
+												{"sound"
+													{name "world/alarm/sirene"}
+												}
+												{"delay"
+													{time 45}
+												}
+												{"sound"
+													{name "world/alarm/sirene"}
+												}
+											}
+										}
+									}
+								}
+								{"default"
+									{"sound"
+										{name "world/alarm/sirene"}
+									}
+									{"delay"
+										{time 45}
+									}
+									{"if"
+										{condition
+											{type entities}
+											{selector
+												{source advanced}
+												{group
+													{select
+														{tag
+															{tag user_plane}
+														}
+													}
+													{include
+														{prop
+															{prop drop_plane}
+														}
+														{state
+															{state inhabited}
+														}
+													}
+													{exclude
+														{state
+															{state inactive}
+														}
+														{state
+															{state linked}
+														}
+														{tag
+															{tag ai}
+														}
+													}
+												}
+											}
+										}
+										{"sound"
+											{name "world/alarm/sirene"}
+										}
+									}
+								}
+							}
+						}
+						{"default"
+							{"switch"
+								{"case"
+									{condition
+										{type cmp_i}
+										{var "enable_ce_radio_mechanic$"}
+										{op "=="}
+										{value 1}
+									}
+									{"switch"
+										{"case"
+											{condition
+												{type cmp_i}
+												{var "radio_active$"}
+												{op "=="}
+												{value 1}
+											}
+											{"sound"
+												{name "world/alarm/sirenlong01"}
+											}
+											{"delay"
+												{time 45}
+											}
+											{"if"
+												{condition
+													{type entities}
+													{selector
+														{source advanced}
+														{group
+															{select
+																{tag
+																	{tag user_plane}
+																}
+															}
+															{include
+																{prop
+																	{prop drop_plane}
+																}
+																{state
+																	{state inhabited}
+																}
+															}
+															{exclude
+																{state
+																	{state inactive}
+																}
+																{state
+																	{state linked}
+																}
+																{tag
+																	{tag ai}
+																}
+															}
+														}
+													}
+												}
+												{"sound"
+													{name "world/alarm/sirenlong01"}
+												}
+											}
+										}
+										{"default"
+											{"if"
+												{condition
+													{type entities}
+													{selector
+														{source advanced}
+														{group
+															{select
+																{tag
+																	{tag user_plane}
+																}
+															}
+															{include
+																{prop
+																	{prop drop_plane}
+																}
+																{state
+																	{state inhabited}
+																}
+															}
+															{exclude
+																{state
+																	{state inactive}
+																}
+																{state
+																	{state linked}
+																}
+																{tag
+																	{tag ai}
+																}
+															}
+														}
+													}
+												}
+												{"sound"
+													{name "world/alarm/sirenlong01"}
+												}
+												{"delay"
+													{time 45}
+												}
+												{"sound"
+													{name "world/alarm/sirenlong01"}
+												}
+											}
+										}
+									}
+								}
+								{"default"
+									{"sound"
+										{name "world/alarm/sirenlong01"}
+									}
+									{"delay"
+										{time 45}
+									}
+									{"if"
+										{condition
+											{type entities}
+											{selector
+												{source advanced}
+												{group
+													{select
+														{tag
+															{tag user_plane}
+														}
+													}
+													{include
+														{prop
+															{prop drop_plane}
+														}
+														{state
+															{state inhabited}
+														}
+													}
+													{exclude
+														{state
+															{state inactive}
+														}
+														{state
+															{state linked}
+														}
+														{tag
+															{tag ai}
+														}
+													}
+												}
+											}
+										}
+										{"sound"
+											{name "world/alarm/sirenlong01"}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			
+			{"ai_logic/air/tag_ai_drop_plane_faction"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag drop_plane}
+										}
+									}
+									{include
+										{prop
+											{prop ai}
+										}
+										{prop
+											{prop drop_plane}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag rus}
+										}
+										{tag
+											{tag ger}
+										}
+										{tag
+											{tag usa}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.2}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "bot_army$"}
+								{op "=="}
+								{value 1}
+							}
+							{"entity_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag drop_plane}
+											}
+										}
+										{include
+											{prop
+												{prop ai}
+											}
+											{prop
+												{prop drop_plane}
+											}
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{tag
+												{tag rus}
+											}
+											{tag
+												{tag ger}
+											}
+											{tag
+												{tag usa}
+											}
+											{state
+												{state inactive}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{tag_add rus}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "bot_army$"}
+								{op "=="}
+								{value 4}
+							}
+							{"entity_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag drop_plane}
+											}
+										}
+										{include
+											{prop
+												{prop ai}
+											}
+											{prop
+												{prop drop_plane}
+											}
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{tag
+												{tag rus}
+											}
+											{tag
+												{tag ger}
+											}
+											{tag
+												{tag usa}
+											}
+											{state
+												{state inactive}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{tag_add usa}
+							}
+						}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"trigger"
+						{name "ai_logic/air/tag_ai_drop_plane_faction"}
+					}
+				}
+			}
+			{"ai_logic/air/move_planes_offmap"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag move_to_start_waypoint}
+										}
+									}
+									{include
+										{prop
+											{prop airborne}
+										}
+										{state
+											{state "operatable inhabited"}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag plane_ready}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{tag
+											{tag user_plane}
+										}
+										{tag
+											{tag plane_select_fly_by}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.1}
+					}
+					{## "timer"
+						{time 5}
+						{title "moving planes"}
+					}
+					{"select"
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag move_to_start_waypoint}
+								}
+							}
+							{include
+								{prop
+									{prop airborne}
+								}
+								{state
+									{state "operatable inhabited"}
+								}
+							}
+							{exclude
+								{state
+									{state inactive}
+								}
+								{state
+									{state linked}
+								}
+								{state
+									{state user_control}
+								}
+								{tag
+									{tag plane_ready}
+								}
+								{tag
+									{tag cmp_def}
+								}
+								{tag
+									{tag user_plane}
+								}
+								{tag
+									{tag plane_select_fly_by}
+								}
+							}
+						}
+						{amount 1
+						}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{source current}
+						}
+						{tag_add plane_selected_to_move_to_start}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"select"
+						{amount 1
+						}
+						{tag plane_selected_to_move_to_start}
+						{type vehicle}
+						{state inhabited}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag plane_selected_to_move_to_start}
+									}
+								}
+								{exclude
+									{prop
+										{prop ai_recon_plane}
+									}
+								}
+							}
+						}
+						{tag_add _lua_always_ignore}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag plane_selected_to_move_to_start}
+											}
+										}
+										{include
+											{prop
+												{prop drop_plane}
+											}
+											{state
+												{state "operatable inhabited"}
+											}
+										}
+										{exclude
+											{state
+												{state linked}
+											}
+											{state
+												{state user_control}
+											}
+											{state
+												{state inactive}
+											}
+										}
+									}
+								}
+							}
+							{"air_state"
+								{selector
+									{source current}
+								}
+								{drop orders}
+								{altitude 80}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag plane_selected_to_move_to_start}
+											}
+										}
+										{include
+											{prop
+												{prop ai_recon_plane}
+											}
+											{state
+												{state "operatable inhabited"}
+											}
+										}
+										{exclude
+											{state
+												{state linked}
+											}
+											{state
+												{state user_control}
+											}
+											{state
+												{state inactive}
+											}
+										}
+									}
+								}
+							}
+							{"air_state"
+								{selector
+									{source current}
+								}
+								{drop orders}
+								{altitude 75}
+							}
+						}
+						{"default"
+							{"air_state"
+								{selector
+									{source current}
+								}
+								{drop orders}
+								{altitude 70}
+							}
+						}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"waypoint"
+						{who
+							{type actor}
+							{actors
+								{tag plane_selected_to_move_to_start}
+								{type vehicle}
+								{state inhabited}
+							}
+						}
+						{action
+							{type start}
+							{waypoint "3000"}
+							{approach "safe teleport & rotate"}
+						}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"effect"
+						{selector
+							{source current}
+						}
+						{effect move_plane_to_initial_waypoint}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"trigger"
+						{name "ai_logic/air/move_planes_offmap"}
+					}
+				}
+			}
+			{"ai_logic/air/send_plane_to_fly_by"
+				{condition
+					{expression "1 & 3 & !2"}
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag plane_ready}
+										}
+									}
+									{include
+										{state
+											{state "operatable inhabited"}
+										}
+										{prop
+											{prop airborne}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{tag
+											{tag combat_run}
+										}
+										{tag
+											{tag plane_select_fly_by}
+										}
+										{tag
+											{tag move_to_start_waypoint}
+										}
+										{tag
+											{tag bot_recon}
+										}
+									}
+								}
+							}
+						}
+						{"3.event"
+							{id "air_raid_start"}
+						}
+						{"2.trigger"
+							{name "ai_logic/air/send_plane_to_fly_by"}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 1}
+					}
+					{"effect"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag plane_ready}
+									}
+								}
+								{include
+									{state
+										{state "operatable inhabited"}
+									}
+									{prop
+										{prop airborne}
+									}
+								}
+								{exclude
+									{state
+										{state user_control}
+									}
+									{state
+										{state inactive}
+									}
+									{state
+										{state linked}
+									}
+									{tag
+										{tag combat_run}
+									}
+									{tag
+										{tag plane_select_fly_by}
+									}
+									{tag
+										{tag move_to_start_waypoint}
+									}
+									{tag
+										{tag bot_recon}
+									}
+								}
+							}
+							{amount 1
+							}
+						}
+						{effect select_plane_for_fly_by}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{## "timer"
+						{time 6}
+						{title "sending planes on fly by"}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag plane_select_fly_by}
+											}
+										}
+										{include
+											{state
+												{state "operatable inhabited"}
+											}
+											{prop
+												{prop drop_plane}
+											}
+										}
+										{exclude
+											{state
+												{state user_control}
+											}
+											{state
+												{state inactive}
+											}
+											{state
+												{state linked}
+											}
+										}
+									}
+								}
+							}
+							{"select"
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag plane_select_fly_by}
+										}
+									}
+									{include
+										{state
+											{state "operatable inhabited"}
+										}
+										{prop
+											{prop airborne}
+										}
+										{tag
+											{tag drop_plane}
+										}
+									}
+									{exclude
+										{tag
+											{tag dropping_troopers}
+										}
+										{state
+											{state user_control}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+							{"delay"
+								{time 0.5}
+							}
+							{"effect"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag plane_select_fly_by}
+											}
+										}
+										{include
+											{state
+												{state "operatable inhabited"}
+											}
+											{prop
+												{prop drop_plane}
+											}
+										}
+										{exclude
+											{state
+												{state user_control}
+											}
+											{state
+												{state inactive}
+											}
+											{state
+												{state linked}
+											}
+										}
+									}
+								}
+								{effect prep_drop_plane_to_move}
+							}
+							{"delay"
+								{time 0.5}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{tag drop_zone_selected}
+											{zone "gamezone"}
+										}
+									}
+									{"placement"
+										{selector
+											{source current}
+										}
+										{target
+											{amount 1
+											}
+											{tag drop_plane_start_point}
+										}
+									}
+									{"delay"
+										{time 0.5}
+									}
+									{"air_attack"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag plane_select_fly_by}
+													}
+												}
+												{include
+													{state
+														{state "operatable inhabited"}
+													}
+													{prop
+														{prop drop_plane}
+													}
+												}
+												{exclude
+													{state
+														{state user_control}
+													}
+													{state
+														{state inactive}
+													}
+													{state
+														{state linked}
+													}
+												}
+											}
+										}
+										{drop orders}
+										{enemies
+											{amount 1
+											}
+											{tag drop_zone_selected}
+											{zone "gamezone"}
+										}
+										{force_placement}
+										{random_weapon 0}
+										{attack_altitude 45}
+									}
+								}
+								{"default"
+									{"air_attack"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag plane_select_fly_by}
+													}
+												}
+												{include
+													{state
+														{state "operatable inhabited"}
+													}
+													{prop
+														{prop drop_plane}
+													}
+												}
+												{exclude
+													{state
+														{state user_control}
+													}
+													{state
+														{state inactive}
+													}
+													{state
+														{state linked}
+													}
+												}
+											}
+										}
+										{drop orders}
+										{enemies
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag drop_zone}
+													}
+												}
+												{include
+													{zone
+														{zone "gamezone"}
+													}
+												}
+											}
+											{amount 1
+											}
+										}
+										{move_from_back}
+										{force_placement}
+										{random_weapon 0}
+										{attack_altitude 75}
+									}
+								}
+							}
+						}
+						{"default"
+							{"select"
+								{amount 1
+								}
+								{tag plane_select_fly_by}
+								{type vehicle}
+								{state inhabited}
+							}
+							{"delay"
+								{time 1}
+							}
+							{"air_state"
+								{selector
+									{source current}
+								}
+								{drop orders}
+								{altitude 70}
+							}
+							{"delay"
+								{time 1}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type cmp_i}
+										{var "user_team$"}
+										{op "=="}
+										{value 1}
+									}
+									{"actor_to_waypoint"
+										{selector
+											{source current}
+										}
+										{waypoint "0"}
+										{approach "safe teleport & rotate"}
+									}
+								}
+								{"default"
+									{"actor_to_waypoint"
+										{selector
+											{source current}
+										}
+										{waypoint "6"}
+										{approach "safe teleport & rotate"}
+									}
+								}
+							}
+						}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"entity_state"
+						{selector
+							{tag plane_select_fly_by}
+						}
+						{tag_remove plane_select_fly_by}
+					}
+					{"delay"
+						{time 2}
+					}
+					{"trigger"
+						{name "ai_logic/air/send_plane_to_fly_by"}
+					}
+				}
+			}
+			{"ai_logic/air/send_recon_plan_to_scout"
+				{condition
+					{expression "1 & !2"}
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag plane_ready}
+										}
+									}
+									{include
+										{state
+											{state "operatable inhabited"}
+										}
+										{prop
+											{prop airborne}
+										}
+										{tag
+											{tag bot_recon}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{tag
+											{tag combat_run}
+										}
+										{tag
+											{tag plane_select_fly_by}
+										}
+										{tag
+											{tag move_to_start_waypoint}
+										}
+									}
+								}
+							}
+						}
+						{"2.trigger"
+							{name "ai_logic/air/send_plane_to_fly_by"}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 1}
+					}
+					{"effect"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag plane_ready}
+									}
+								}
+								{include
+									{state
+										{state "operatable inhabited"}
+									}
+									{prop
+										{prop airborne}
+									}
+									{tag
+										{tag bot_recon}
+									}
+								}
+								{exclude
+									{state
+										{state user_control}
+									}
+									{state
+										{state inactive}
+									}
+									{state
+										{state linked}
+									}
+									{tag
+										{tag combat_run}
+									}
+									{tag
+										{tag plane_select_fly_by}
+									}
+									{tag
+										{tag move_to_start_waypoint}
+									}
+								}
+							}
+							{amount 1
+							}
+						}
+						{effect select_plane_for_fly_by}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{## "timer"
+						{time 6}
+						{title "sending recon plane on fly by"}
+					}
+					{"select"
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag plane_select_fly_by}
+								}
+							}
+							{include
+								{state
+									{state "operatable inhabited"}
+								}
+								{prop
+									{prop ai_recon_plane}
+								}
+							}
+							{exclude
+								{state
+									{state user_control}
+								}
+								{state
+									{state inactive}
+								}
+								{state
+									{state linked}
+								}
+								{tag
+									{tag combat_run}
+								}
+								{prop
+									{prop drop_plane}
+								}
+							}
+						}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"air_state"
+						{selector
+							{source current}
+						}
+						{drop orders}
+						{altitude 80}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type rand}
+								{value 0.5}
+							}
+							{"actor_to_waypoint"
+								{selector
+									{source current}
+								}
+								{waypoint "0"}
+								{approach "safe teleport & rotate"}
+							}
+						}
+						{"default"
+							{"actor_to_waypoint"
+								{selector
+									{source current}
+								}
+								{waypoint "6"}
+								{approach "safe teleport & rotate"}
+							}
+						}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"entity_state"
+						{selector
+							{tag plane_select_fly_by}
+						}
+						{tag_remove plane_select_fly_by}
+					}
+					{"delay"
+						{time 2}
+					}
+					{"trigger"
+						{name "ai_logic/air/send_recon_plan_to_scout"}
+					}
+				}
+			}
+			{"ai_logic/air/send_plane_on_sorty"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag plane_ready_for_sorty}
+										}
+									}
+									{include
+										{state
+											{state "operatable inhabited"}
+										}
+										{prop
+											{prop airborne}
+										}
+									}
+									{exclude
+										{tag
+											{tag combat_run}
+										}
+										{prop
+											{prop drop_plane}
+										}
+										{prop
+											{prop ai_recon_plane}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.2}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag plane_ready_for_sorty}
+									}
+								}
+								{include
+									{state
+										{state "operatable inhabited"}
+									}
+									{prop
+										{prop airborne}
+									}
+								}
+								{exclude
+									{tag
+										{tag plane_select_fly_by}
+									}
+									{state
+										{state linked}
+									}
+									{state
+										{state user_control}
+									}
+									{state
+										{state inactive}
+									}
+									{tag
+										{tag plane_select_for_sorty}
+									}
+								}
+							}
+							{amount 1
+							}
+						}
+						{tag_add plane_select_for_sorty}
+						{tag_remove plane_ready_for_sorty}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"select"
+						{tag plane_select_for_sorty}
+						{type vehicle}
+						{state inhabited}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"air_state"
+						{selector
+							{source current}
+						}
+						{altitude 35}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag plane_select_for_sorty}
+											}
+										}
+										{include
+											{tag
+												{tag fighter}
+											}
+											{state
+												{state "operatable inhabited"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+											{state
+												{state linked}
+											}
+											{tag
+												{tag combat_run}
+											}
+										}
+									}
+								}
+							}
+							{"call"
+								{function "attack_player_ai_fighter"}
+								{context
+									{specified}
+									{selector
+										{amount 1
+										}
+										{tag plane_select_for_sorty}
+										{type vehicle}
+										{state inhabited}
+									}
+								}
+							}
+						}
+						{"default"
+							{"call"
+								{function "attack_player_ai_bomber"}
+								{context
+									{specified}
+									{selector
+										{amount 1
+										}
+										{tag plane_select_for_sorty}
+										{type vehicle}
+										{state inhabited}
+									}
+								}
+							}
+						}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"entity_state"
+						{selector
+							{source current}
+						}
+						{tag_add combat_run}
+						{tag_remove plane_select_for_sorty}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"trigger"
+						{name "ai_logic/air/send_plane_on_sorty"}
+					}
+				}
+			}
+			
+			{"ai_logic/paratrooper_orders"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag paratrooper_need_orders}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag eject_null}
+										}
+										{tag
+											{tag ai_signaller}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 10}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type see_actors}
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag selected_paratrooper}
+											}
+										}
+										{include
+											{prop
+												{prop human}
+											}
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{state
+												{state dead}
+											}
+											{state
+												{state linked}
+											}
+											{state
+												{state inactive}
+											}
+											{state
+												{state user_control}
+											}
+											{tag
+												{tag eject_null}
+											}
+											{tag
+												{tag ai_signaller}
+											}
+										}
+									}
+									{amount 1
+									}
+								}
+								{enemy
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag paradropped_veh}
+											}
+										}
+										{include
+											{prop
+												{prop vehicle}
+											}
+										}
+										{exclude
+											{tag
+												{tag destroyed}
+											}
+											{tag
+												{tag trooper_to_crew}
+											}
+											{state
+												{state inhabited}
+											}
+											{state
+												{state linked}
+											}
+										}
+									}
+								}
+								{distance
+									{mode near_than}
+									{meters 160}
+								}
+								{tag
+									{"tag pair"}
+									{"for selector" p_crew}
+									{"for enemy" p_cannon_enter}
+								}
+							}
+							{"effect"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag paratrooper_need_orders}
+											}
+										}
+										{include
+											{prop
+												{prop human}
+											}
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{state
+												{state dead}
+											}
+											{state
+												{state linked}
+											}
+											{state
+												{state inactive}
+											}
+											{state
+												{state user_control}
+											}
+											{tag
+												{tag eject_null}
+											}
+											{tag
+												{tag ai_signaller}
+											}
+										}
+									}
+									{sort
+										{type entity}
+										{entity
+											{amount 1
+											}
+											{tag p_crew}
+											{type human}
+											{state operatable}
+										}
+									}
+									{amount 2
+									}
+								}
+								{effect select_paratroopers_to_give_orders}
+							}
+							{"delay"
+								{time 0.5}
+							}
+							{"entity_state"
+								{selector
+									{tag selected_paratrooper}
+									{type human}
+									{state operatable}
+								}
+								{tag_add p_crew}
+							}
+							{"delay"
+								{time 0.5}
+							}
+							{"actor_state"
+								{selector
+									{tag p_crew}
+									{type human}
+									{state operatable}
+								}
+								{drop orders}
+								{movement
+									{speed fast}
+									{kind fast}
+									{type normal}
+								}
+							}
+							{"delay"
+								{time 0.5}
+							}
+							{"board"
+								{selector
+									{tag p_crew}
+									{type human}
+									{state operatable}
+								}
+								{vehicle
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag p_cannon_enter}
+											}
+										}
+										{include
+											{prop
+												{prop vehicle}
+											}
+										}
+										{exclude
+											{tag
+												{tag destroyed}
+											}
+											{state
+												{state inhabited}
+											}
+											{state
+												{state linked}
+											}
+										}
+									}
+								}
+							}
+							{"delay"
+								{time 0.5}
+							}
+							{"effect"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag p_cannon_enter}
+											}
+										}
+										{include
+											{prop
+												{prop vehicle}
+											}
+										}
+										{exclude
+											{tag
+												{tag destroyed}
+											}
+											{state
+												{state inhabited}
+											}
+											{state
+												{state linked}
+											}
+										}
+									}
+								}
+								{effect prep_veh_for_p_crew}
+							}
+						}
+						{"default"
+							{"effect"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag paratrooper_need_orders}
+											}
+										}
+										{include
+											{prop
+												{prop human}
+											}
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{tag
+												{tag selected_paratrooper}
+											}
+											{state
+												{state dead}
+											}
+											{state
+												{state inactive}
+											}
+											{state
+												{state linked}
+											}
+											{state
+												{state user_control}
+											}
+											{tag
+												{tag eject_null}
+											}
+										}
+									}
+									{amount 5
+									}
+									{sort
+										{type entity}
+										{entity
+											{amount 1
+											}
+											{tag selected_paratrooper}
+											{type human}
+										}
+									}
+								}
+								{effect select_paratroopers_to_give_orders}
+							}
+							{"delay"
+								{time 1}
+							}
+							{"actor_state"
+								{selector
+									{tag selected_paratrooper}
+									{type human}
+									{state operatable}
+								}
+								{drop orders}
+								{move_mode free}
+								{weapon_prepare on}
+								{ai_move
+									{mode enable}
+								}
+								{movement
+									{speed assault}
+									{type normal}
+								}
+								{human
+									{veterancy 5}
+								}
+								{ai
+									{advance_ratio 3}
+								}
+							}
+							{"delay"
+								{time 1}
+							}
+							{"switch"
+								{## "case"
+									{condition
+										{type cmp_i}
+										{var "ai_grid_system_active$"}
+										{op ">"}
+										{value 0}
+									}
+									{"switch"
+										{"case"
+											{condition
+												{type rand}
+												{value 0.33}
+											}
+											{"waypoint"
+												{who
+													{type actor}
+													{actors
+														{tag selected_paratrooper}
+														{type human}
+														{state "not dead"}
+													}
+												}
+												{action
+													{type start}
+													{waypoint "5004"}
+													{make_squad}
+												}
+											}
+										}
+										{"case"
+											{condition
+												{type rand}
+												{value 0.33}
+											}
+											{"waypoint"
+												{who
+													{type actor}
+													{actors
+														{tag selected_paratrooper}
+														{type human}
+														{state "not dead"}
+													}
+												}
+												{action
+													{type start}
+													{waypoint "5005"}
+													{make_squad}
+												}
+											}
+										}
+										{"case"
+											{condition
+												{type rand}
+												{value 0.33}
+											}
+											{"waypoint"
+												{who
+													{type actor}
+													{actors
+														{tag selected_paratrooper}
+														{type human}
+														{state "not dead"}
+													}
+												}
+												{action
+													{type start}
+													{waypoint "5006"}
+													{make_squad}
+												}
+											}
+										}
+										{"default"
+											{"effect"
+												{selector
+													{tag selected_paratrooper}
+												}
+												{effect tag_squad_need_next_order}
+											}
+										}
+									}
+								}
+								{"default"
+									{"effect"
+										{selector
+											{tag selected_paratrooper}
+										}
+										{effect tag_squad_need_next_order}
+									}
+								}
+							}
+						}
+					}
+					{"delay"
+						{time 0.25}
+					}
+					{"inventory"
+						{selector
+							{tag selected_paratrooper}
+							{type human}
+							{state operatable}
+						}
+						{action add}
+						{item "ai_nbk39" "grenade"}
+						{stack 0}
+					}
+					{"delay"
+						{time 0.25}
+					}
+					{"effect"
+						{selector
+							{tag selected_paratrooper}
+						}
+						{effect order_paratrooper}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"trigger"
+						{name "ai_logic/paratrooper_orders"}
+					}
+				}
+			}
+
 ;============== AI Purchase Priority Scripts ==============					
 			{"ai/purchase_priority/set_de-miner_priority"
 				{condition
@@ -2570,6 +4803,247 @@
 					}
 				}
 			}
+
+
+
+;============== AI ATTACK LOGIC ==========
+			{## "ai_logic/force_move_ai_cannons"
+				{condition
+					{expression "1"}
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _bot}
+										}
+									}
+									{include
+										{prop
+											{prop cannon}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state linked}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag ignore_ai_cannon_move}
+										}
+										{tag
+											{tag _user_ally}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag heavy_artillery}
+										}
+										{tag
+											{tag rocket_artillery}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 120}
+					}
+					{"while"
+						{condition
+							{type see_actors}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _bot}
+										}
+									}
+									{include
+										{prop
+											{prop cannon}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state linked}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag ignore_ai_cannon_move}
+										}
+										{tag
+											{tag _user_ally}
+										}
+										{tag
+											{tag artillery}
+										}
+										{tag
+											{tag heavy_artillery}
+										}
+										{tag
+											{tag rocket_artillery}
+										}
+									}
+								}
+							}
+							{enemy
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+										{tag
+											{tag _user_ally}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{tag
+											{tag _bot}
+										}
+									}
+								}
+							}
+							{distance
+								{mode near_than}
+								{meters 50}
+							}
+							{tag
+								{"tag pair"}
+								{"for selector" ignore_ai_cannon_move}
+							}
+						}
+						{"delay"
+							{time 0.2}
+						}
+					}
+					{"select"
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag _bot}
+								}
+							}
+							{include
+								{prop
+									{prop cannon}
+								}
+								{state
+									{state operatable}
+								}
+							}
+							{exclude
+								{state
+									{state linked}
+								}
+								{state
+									{state inactive}
+								}
+								{state
+									{state user_control}
+								}
+								{tag
+									{tag ignore_ai_cannon_move}
+								}
+								{tag
+									{tag _user_ally}
+								}
+								{tag
+									{tag artillery}
+								}
+								{tag
+									{tag heavy_artillery}
+								}
+								{tag
+									{tag rocket_artillery}
+								}
+							}
+						}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"actor_state"
+						{selector
+							{source current}
+						}
+						{cannon move}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"effect"
+						{selector
+							{source current}
+						}
+						{effect tag_squad_need_next_order}
+					}
+					{"delay"
+						{time 3}
+					}
+					{"actor_state"
+						{selector
+							{source current}
+						}
+						{cannon move}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"entity_state"
+						{selector
+							{source current}
+						}
+						{tag_remove ai_connon_to_move}
+					}
+					{"delay"
+						{time 2}
+					}
+					{"trigger"
+						{name "ai_logic/force_move_ai_cannons"}
+					}
+				}
+			}
+
 
 ;============== AI ARTILLERY ==============						
 			(define "cannon_artillery_target_attack_case" ;

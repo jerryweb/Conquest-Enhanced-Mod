@@ -321,6 +321,8 @@ function GetUnitToSpawn(units)
 		local min_income = unit.min_income -- not used
 		local available = BotApi.Commands:IsUnitAvailable(unit.unit)
 
+		if printDebug then print(unit.unit, " -> available = ", available) end
+
 		available = CheckUnitMaxCount(unit, available)
 		
 		if not min_income then min_income = -1 end

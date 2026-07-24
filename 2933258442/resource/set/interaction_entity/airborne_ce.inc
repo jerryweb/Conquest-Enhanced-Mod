@@ -101,7 +101,7 @@
 	{on "select_plane_for_fly_by"
 		{tags add "plane_select_fly_by"}
 		{if tagged "fighter"
-			{delay 40
+			{delay 30
 				{tags add "plane_ready_for_sorty"}
 			}
 		else tagged "bomber_ce"
@@ -128,6 +128,13 @@
             {tags remove "_lua_need_next_order"}
         }
     }
+
+    {on "takeoff_load" 					;// plane spawns in chassis "airborne"
+		{tags remove "enemy_air"}
+		{if tagged "bot_recon"
+			{call "tag_squad_need_next_order"} 
+		}	
+	}
 }
 
 {"airborne drop_plane"
