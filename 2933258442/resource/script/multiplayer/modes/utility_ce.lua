@@ -384,7 +384,7 @@ function SelectAiSpawnStrategy()
           BotApi.Scene:SetVar("ai_spawn_strategy", aiSpawnStrategy)
         end
         callback(callback)   
-      end, generalSquadTagCheckDelay)
+      end, aiSpawnSelectionDelay)
   end
   setAiSpawnStrategyTimer(setAiSpawnStrategyTimer)
 end

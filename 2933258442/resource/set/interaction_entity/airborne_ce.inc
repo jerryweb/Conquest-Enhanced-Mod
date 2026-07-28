@@ -152,7 +152,7 @@
 	}
 
     {on "prep_drop_plane_to_move"
-		{delay 15
+		{delay 10
 			{if rand 0.15
 				{delay 18
 					{call "drop_paratroopers"}
@@ -488,6 +488,11 @@
 				{tags add "move_to_start_waypoint"}
 			}
 		}
+	}
+
+	{on "check_if_ai_plane"
+		
+
 	}
 }
 

@@ -32,10 +32,10 @@
 	WaveUnitOverride = {
 	    -- Bot is attacker
 	    AttackMin = 10,
-	    AttackMax = 16,
+	    AttackMax = 13,
 	    -- Bot is defender
 	    DefendMin = 8,
-	    DefendMax = 14,
+	    DefendMax = 10,
 	}
 
 -- ================================= Advanced Settings =========================================

@@ -321,15 +321,11 @@ function GetUnitToSpawn(units)
 		local min_income = unit.min_income -- not used
 		local available = BotApi.Commands:IsUnitAvailable(unit.unit)
 
-		if printDebug then print(unit.unit, " -> available = ", available) end
-
 		available = CheckUnitMaxCount(unit, available)
 		
 		if not min_income then min_income = -1 end
 		if not min_team then min_team = 0 end
 		
-		--if printDebug then print("------ Unit", unit.unit) end
-
 		if teamSize >= min_team and income >= min_income and available then
 			table.insert(unitsToSpawn, unit)
 		end
@@ -384,9 +380,7 @@ end
 -- Notifies the mission script that player defense prep time is over.
 function OnPrepTimeOver()
 	SpawnSceneVariable()
-	BotApi.Scene:SetVar("prep_inform", 1)
-	-- SelectAiSpawnStrategy()
-	
+	BotApi.Scene:SetVar("prep_inform", 1)	
 	if printDebug then print("Print: prep_inform set to 1, Player defense prep is over.") end
 end
 

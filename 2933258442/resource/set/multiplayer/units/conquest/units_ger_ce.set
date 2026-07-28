@@ -25,6 +25,11 @@
 ;======================= VANILLA OVERWRITES =======================================
 ;SDL
 
+;_________________________________________________
+;|      On Map Emplacements For AI                |
+;|________________________________________________|
+
+(include "ai_defender_emplacements/ger_ai_emplacements.set")
 
 ;_________________________________________________
 ;|             inf1                               |
@@ -954,163 +959,6 @@
 	{cost 800}
 }
 
-
-;_________________________________________________
-;|      On Map Emplacements For AI                |
-;|________________________________________________|
-
-
-
-
-;AUTOMATIC WEAPONRY
-{"heavy_mg_mg34"
-	("emplacement" side(ger) period(mid) min_stage(1) max_stage(99) cw(0) cp(0) cd(5) crew(mgun_2:2) condition(barricade) action(mg34_lafette))
-	{cost 80}{not_for_player_sale 1}
-}
-{"heavy_mg_mg42"
-	("emplacement" side(ger) period(mid) min_stage(8) max_stage(99) cw(0) cp(0) cd(5) crew(mgun_2:2) condition(barricade) action(mg42_lafette))
-	{cost 100}{not_for_player_sale 1}
-}
-{"heavy_mg_panzernest_krab_ger"
-	("emplacement" side(ger) period(mid) min_stage(4) max_stage(99) cw(0) cp(0) cd(5) crew(mgun_2:2) condition(barricade) action(panzernest_krab_ger))
-	{cost 150}{not_for_player_sale 1}
-}
-
-
-{"heavy_mg_20mm_flak30"
-	("emplacement" side(ger) period(mid) min_stage(1) max_stage(12) cw(0) cp(0) cd(5) crew(artilleryman:2) condition(barricade) action(20mm_flak30))
-	{cost 190}{not_for_player_sale 1}
-}
-{"heavy_mg_20mm_flak38"
-	("emplacement" side(ger) period(mid) min_stage(1) max_stage(99) cw(0) cp(0) cd(5) crew(artilleryman:2) condition(barricade) action(20mm_flak38))
-	{cost 200}{not_for_player_sale 1}
-}
-{"heavy_mg_37mm_flak37"
-	("emplacement" side(ger) period(mid) min_stage(8) max_stage(99) cw(0) cp(0) cd(5) crew(artilleryman:3) condition(barricade) action(37mm_flak37))
-	{cost 270}{not_for_player_sale 1}
-}
-{"heavy_mg_50mm_flak41"
-	("emplacement" side(ger) period(mid) min_stage(10) max_stage(99) cw(0) cp(0) cd(5) crew(artilleryman:5) condition(barricade) action(50mm_flak41))
-	{cost 400}{not_for_player_sale 1}
-}
-
-
-; AT WEAPONRY
-{"heavy_mg_28mm_pzb41"
-	("emplacement" side(ger) period(mid) min_stage(1) max_stage(6) cw(0) cp(0) cd(5) crew(artilleryman:3) condition(barricade) action(28mm_pzb41))
-	{cost 140}{not_for_player_sale 1}
-}
-{"heavy_mg_37mm_pak36"
-	("emplacement" side(ger) period(mid) min_stage(1) max_stage(6) cw(0) cp(0) cd(5) crew(artilleryman:4) condition(barricade) action(37mm_pak36))
-	{cost 180}{not_for_player_sale 1}
-}
-{"heavy_mg_47mm_pakt"
-	("emplacement" side(ger) period(mid) min_stage(1) max_stage(12) cw(0) cp(0) cd(5) crew(artilleryman:4) condition(barricade) action(47mm_pakt))
-	{cost 230}{not_for_player_sale 1}
-}
-{"heavy_mg_50mm_pak38"
-	("emplacement" side(ger) period(mid) min_stage(6) max_stage(12) cw(0) cp(0) cd(5) crew(artilleryman:4) condition(barricade) action(50mm_pak38))
-	{cost 270}{not_for_player_sale 1}
-}
-{"heavy_mg_50mm_pak38_late"
-	("emplacement" side(ger) period(mid) min_stage(7) max_stage(99) cw(0) cp(0) cd(5) crew(artilleryman:4) condition(barricade) action(50mm_pak38_late))
-	{cost 270}{not_for_player_sale 1}
-}
-{"heavy_mg_75mm_lg40"
-	("emplacement" side(ger) period(mid) min_stage(7) max_stage(99) cw(0) cp(0) cd(5) crew(artilleryman:2) condition(barricade) action(75mm_lg40))
-	{cost 300}{not_for_player_sale 1} 
-}
-{"heavy_mg_75mm_pak9738"
-	("emplacement" side(ger) period(mid) min_stage(9) max_stage(14) cw(0) cp(0) cd(5) crew(artilleryman:4) condition(barricade) action(75mm_pak9738))
-	{cost 300}{not_for_player_sale 1} 
-}
-{"heavy_mg_75mm_pak40"
-	("emplacement" side(ger) period(mid) min_stage(9) max_stage(99) cw(0) cp(0) cd(5) crew(artilleryman:4) condition(barricade) action(75mm_pak40))
-	{cost 330}{not_for_player_sale 1} 
-}
-{"heavy_mg_88mm_pak4341"
-	("emplacement" side(ger) period(mid) min_stage(16) max_stage(99) cw(0) cp(0) cd(5) crew(artilleryman:4) condition(barricade) action(88mm_pak4341))
-	{cost 650}{not_for_player_sale 1} 
-}
-{"heavy_mg_88mm_flak18"
-	("emplacement" side(ger) period(mid) min_stage(9) max_stage(18) cw(0) cp(0) cd(5) crew(artilleryman:5) condition(barricade) action(88mm_flak18))
-	{cost 540}{not_for_player_sale 1} 
-}
-{"heavy_mg_88mm_flak36"
-	("emplacement" side(ger) period(mid) min_stage(9) max_stage(99) cw(0) cp(0) cd(5) crew(artilleryman:5) condition(barricade) action(88mm_flak36))
-	{cost 640}{not_for_player_sale 1}
-}
-
-
-; ARTY
-{"heavy_mg_75mm_leig18"
-	("emplacement" side(ger) period(mid) min_stage(2) max_stage(99) cw(0) cp(0) cd(5) crew(artilleryman:4) condition(barricade) action(75mm_leig18))
-	{cost 310}{not_for_player_sale 1}
-}
-{"heavy_mg_75mm_legebig18"
-	("emplacement" side(ger) period(mid) min_stage(2) max_stage(99) cw(0) cp(0) cd(5) crew(artilleryman:4) condition(barricade) action(75mm_legebig18))
-	{cost 260}{not_for_player_sale 1}
-}
-{"heavy_mg_80mm_sgrw34"
-	("emplacement" side(ger) period(mid) min_stage(1) max_stage(10) cw(0) cp(0) cd(5) crew(rifleman_1:2) condition(barricade) action(80mm_sgrw34))
-	{cost 225}{not_for_player_sale 1}
-}
-{"heavy_mg_100mm_nbw35"
-	("emplacement" side(ger) period(mid) min_stage(8) max_stage(99) cw(0) cp(0) cd(5) crew(rifleman_1:2) condition(barricade) action(100mm_nbw35))
-	{cost 400}{not_for_player_sale 1}
-}
-{"heavy_mg_120mm_sgrw42"
-	("emplacement" side(ger) period(mid) min_stage(9) max_stage(99) cw(0) cp(0) cd(5) crew(rifleman_1:2) condition(barricade) action(120mm_sgrw42))
-	{cost 450}{not_for_player_sale 1}
-}
-{"heavy_mg_105mm_lefh18"
-	("emplacement" side(ger) period(mid) min_stage(15) max_stage(99) cw(0) cp(0)  cd(5) crew(artilleryman:4) condition(barricade) action(105mm_lefh18))
-	{cost 750}{not_for_player_sale 1}
-}
-{"heavy_mg_150mm_sig33"
-	("emplacement" side(ger) period(mid) min_stage(9) max_stage(99) cw(0) cp(0)  cd(5) crew(artilleryman:4) condition(barricade) action(150mm_sig33))
-	{cost 800}{not_for_player_sale 1}
-}
-
-
-{"heavy_mg_panzer1f"
-	("emplacement"  side(ger) period(mid) min_stage(1) max_stage(99) cw(0) cp(15) crew(artilleryman:4)condition(barricade) action(panzer1f))
-	{cost 300}{not_for_player_sale 1}
-}
-
-{"heavy_mg_pz38t_g"
-	("emplacement"  side(ger) period(mid) min_stage(1) max_stage(8) cw(0) cp(15) crew(artilleryman:4)condition(barricade) action(pz38t_g))
-	{cost 340}{not_for_player_sale 1}
-}
-
-{"heavy_mg_panzer4f1"
-	("emplacement"  side(ger) period(mid) min_stage(5) max_stage(8) cw(0) cp(15) crew(artilleryman:4)condition(barricade) action(panzer4f1))
-	{cost 420}{not_for_player_sale 1}
-}
-
-{"heavy_mg_panzer4g"
-	("emplacement"  side(ger) period(mid) min_stage(9) max_stage(16) cw(0) cp(15) crew(artilleryman:4)condition(barricade) action(panzer4g))
-	{cost 590}{not_for_player_sale 1}
-}
-
-{"heavy_mg_wirbelwind"
-	("emplacement"  side(ger) period(mid) min_stage(10) max_stage(99) cw(0) cp(15) crew(artilleryman:4)condition(barricade) action(wirbelwind))
-	{cost 590}{not_for_player_sale 1}
-}
-
-{"heavy_mg_panzer4h"
-	("emplacement"  side(ger) period(mid) min_stage(16) max_stage(99) cw(0) cp(15) crew(artilleryman:4)condition(barricade) action(panzer4h))
-	{cost 630}{not_for_player_sale 1}
-}
-{"heavy_mg_tiger1e"
-	("emplacement"  side(ger) period(mid) min_stage(16) max_stage(99) cw(0) cp(15) crew(tankman:5)condition(barricade) action(tiger1e))
-	{cost 1280}{not_for_player_sale 1}
-}
-
-{"heavy_mg_panzer5a_armor"
-	("emplacement"  side(ger) period(mid) min_stage(16) max_stage(99) cw(0) cp(15) crew(tankman:5)condition(barricade) action(panzer5a_armor))
-	{cost 1200}{not_for_player_sale 1}
-}
 ;_______________________________________________
 ;|					AI Artillery				|
 ;|______________________________________________|

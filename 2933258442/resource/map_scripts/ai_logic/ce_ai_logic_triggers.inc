@@ -4807,7 +4807,7 @@
 
 
 ;============== AI ATTACK LOGIC ==========
-			{## "ai_logic/force_move_ai_cannons"
+			{"ai_logic/force_move_ai_cannons"
 				{condition
 					{expression "1"}
 					{terms
@@ -5558,7 +5558,7 @@
 								}
 								{distance 400}
 							}
-							{"timer"
+							{## "timer"
 								{time 3}
 								{title "long range artillery in range of flag"}
 							}
@@ -6738,7 +6738,7 @@
 					}
 				}
 			}
-			{## "ai_logic/ai_patrol_logic"
+			{"ai_logic/ai_patrol_logic"
 				{condition
 					{expression "(1 | 2 | 3 | 4 | 5) & 6"}
 					{terms

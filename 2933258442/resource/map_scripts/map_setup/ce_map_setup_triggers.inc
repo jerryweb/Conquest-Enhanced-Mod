@@ -1008,7 +1008,314 @@
 					}
 				}
 			)
-
+			{"conquest_enhanced_mechanics/ai_defenders/set_defense_level"
+				{condition
+					{terms
+						{"1.cmp_i"
+							{var "defense_level$"}
+							{op "=="}
+							{value 0}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 1}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag "1_a_3"}
+											}
+											{tag
+												{tag "1_b_3"}
+											}
+											{tag
+												{tag "2_a_3"}
+											}
+											{tag
+												{tag "2_b_3"}
+											}
+											{tag
+												{tag "3_a_3"}
+											}
+											{tag
+												{tag "3_b_3"}
+											}
+											{tag
+												{tag "4_a_3"}
+											}
+											{tag
+												{tag "4_b_3"}
+											}
+											{tag
+												{tag "5_a_3"}
+											}
+											{tag
+												{tag "5_b_3"}
+											}
+										}
+										{include
+											;{prop
+											;	{prop human}
+											;}
+											{tag
+												{tag cmp_def}
+											}
+											{zone
+												{zone "gamezone"}
+											}
+										}
+										{exclude
+											{state
+												{state dead}
+											}
+											{tag
+												{tag hidden}
+											}
+											{state
+												{state user_control}
+											}
+											{state
+												{state inactive}
+											}
+											;{state
+											;	{state linked}
+											;}
+										}
+									}
+								}
+							}
+							{"set_i"
+								{var "defense_level$"}
+								{op "="}
+								{value 3}
+							}
+							{"delay"
+								{time 0.5}
+							}
+							{"entity_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag flag_point}
+											}
+										}
+										{include
+											{zone
+												{zone "gamezone"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+								}
+								{tag_add defense_level_3}
+							}
+							{## "timer"
+								{time 5}
+								{title "tagging defense level 3"}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag "1_a_2-3"}
+											}
+											{tag
+												{tag "1_b_2-3"}
+											}
+											{tag
+												{tag "2_a_2-3"}
+											}
+											{tag
+												{tag "2_b_2-3"}
+											}
+											{tag
+												{tag "3_a_2-3"}
+											}
+											{tag
+												{tag "3_b_2-3"}
+											}
+											{tag
+												{tag "4_a_2-3"}
+											}
+											{tag
+												{tag "4_b_2-3"}
+											}
+											{tag
+												{tag "5_a_2-3"}
+											}
+											{tag
+												{tag "5_b_2-3"}
+											}
+										}
+										{include
+											;{prop
+											;	{prop human}
+											;}
+											{tag
+												{tag cmp_def}
+											}
+											{zone
+												{zone "gamezone"}
+											}
+										}
+										{exclude
+											{state
+												{state dead}
+											}
+											{tag
+												{tag hidden}
+											}
+											{state
+												{state user_control}
+											}
+											{state
+												{state inactive}
+											}
+											;{state
+											;	{state linked}
+											;}
+										}
+									}
+								}
+							}
+							{"set_i"
+								{var "defense_level$"}
+								{op "="}
+								{value 2}
+							}
+							{"delay"
+								{time 0.5}
+							}
+							{"entity_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag flag_point}
+											}
+										}
+										{include
+											{zone
+												{zone "gamezone"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+								}
+								{tag_add defense_level_2}
+							}
+							{## "timer"
+								{time 5}
+								{title "tagging defense level 2"}
+							}
+						}
+						{"default"
+							{"set_i"
+								{var "defense_level$"}
+								{op "="}
+								{value 1}
+							}
+							{## "timer"
+								{time 5}
+								{title "tagging defense level 1"}
+							}
+						}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"if"
+						{condition
+							{type cmp_i}
+							{var "user_is_defender$"}
+							{op "=="}
+							{value 1}
+						}
+						{"if"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag defense_level_3}
+											}
+											{tag
+												{tag defense_level_2}
+											}
+										}
+									}
+								}
+							}
+							{"effect"
+								{selector
+									{source advanced}
+										{group
+											{select						
+												{zone
+													{zone "fpc1"}
+												}
+												{zone
+													{zone "fpc2"}
+												}
+												{zone
+													{zone "fpc3"}
+												}
+												{zone
+													{zone "fpc4"}
+												}
+												{zone
+													{zone "fpc5"}
+												}
+											}
+											{include
+												{tag
+													{tag flag_point}
+												}
+											}
+											{exclude
+												{state
+													{state inactive}
+												}
+											}
+										}
+								}
+								{effect call_flag_defense_crates}
+							}
+							{## "timer"
+								{time 5}
+								{title "calling defense crates"}
+							}
+						}
+					}
+				}
+			}
+			
 			{"conquest_enhanced_mechanics/ai_defenders/tag_ai_defenders"
 				{condition
 					{terms
@@ -1021,7 +1328,7 @@
 				}
 				{actions
 					{"delay"
-						{time 5}
+						{time 6.25}
 					}
 					{"switch"
 						{"case"
@@ -1471,6 +1778,12 @@
 					}
 					{"delay"
 						{time 0.2}
+					}
+					{## "effect"
+						{selector
+							{tag _ai_defender}
+						}
+						{effect smoke_for_test}
 					}
 					{"entity_state"
 						{selector
