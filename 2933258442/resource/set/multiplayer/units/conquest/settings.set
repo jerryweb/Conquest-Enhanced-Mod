@@ -152,6 +152,12 @@
 	{button "vehicles"}
 )
 
+(define "special_vehicle2"
+	("generic_v_conquest" t(%side %period %tag) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp) cost_sp(%cost_sp))
+	{content "* ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 )"}
+	{button "vehicles"}
+)
+
 ; vehicle with 3 types of crew
 (define "vehicle3"
 	("generic_v_conquest" t(%side %period %tag) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp))
@@ -256,6 +262,13 @@
 (define "squad_vehicle8"
 	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp)) ;//h
 	{content "%vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3 mp/%side/%period/%crew4 mp/%side/%period/%crew5 mp/%side/%period/%crew6 mp/%side/%period/%crew7 mp/%side/%period/%crew8)"}
+	{button "vehicles"}
+)
+
+
+(define "special_squad_vehicle3"
+	("special_generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp) cost_sp(%cost_sp)) ;//h
+	{content "%vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3"}
 	{button "vehicles"}
 )
 

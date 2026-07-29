@@ -32,9 +32,9 @@
 ;|________________________________________________|
 
 
-("squad_with1types_conquest" side(rus) period(mid) min_stage(3) max_stage(99) name(single_officer)		c1(commisar:1))
+("special_squad_with1types_conquest" side(rus) period(mid) min_stage(3) max_stage(99) cost_sp(2) name(single_officer)		c1(commisar:1))
 
-("squad_with4types_conquest" side(rus) period(mid) min_stage(3) max_stage(99) name(squad_officer_con)	c1(nco:1) c2(commisar2:1) c3(Radio_man_rus) c4(sniper:2))
+("special_squad_with4types_conquest" side(rus) period(mid) min_stage(3) max_stage(99) cost_sp(5) name(squad_officer_con)	c1(nco:1) c2(commisar2:1) c3(Radio_man_rus) c4(sniper:2))
 
 {"squad_officer_gaz_con"
 	("squad_vehicle3"		 side(rus) period(mid) min_stage(3) max_stage(99) cw(3) cp(2) vehicle(gaz67) crew1(nco:1) crew2(commisar:1) crew3(sniper:2)) 
@@ -177,8 +177,9 @@
 ("squad_with2types_conquest" side(rus) period(late) min_stage(10) max_stage(99) name(elite_guards_sniper)		c1(elite_guards_sniper:1) c2(elite_guards_senior_sa:2))
 
 {"ba20_command"
-	("vehicle2" side(rus) period(mid) min_stage(2) max_stage(99) cw(2) cp(-8.4) crew1(tankman:2) crew2(commisar:1))
+	("special_vehicle2" side(rus) period(mid) min_stage(2) max_stage(99) cw(2) cp(-8.4) crew1(tankman:2) crew2(commisar:1))
 	{cost 1400}
+	{cost_sp 10}
 }
 
 ;_________________________________________________
@@ -188,10 +189,12 @@
 {"inf_crate_rus"
 	("vehicle" side(rus) period(mid) min_stage(1) max_stage(99) cw(1) cp(0) crew(rifleman_1:2))
 	{cost 50}
+	("supply_ap" supply(250)) ;// cost
 }
 {"ap_2"
 	("vehicle"  side(rus) period(mid) min_stage(1) max_stage(99) cw(1) cp(0) crew(rifleman_1:2))
 	{cost 150}
+	("supply_ap" supply(1000)) ;// cost
 }
 
 ;AUTOMATIC WEAPONRY
@@ -352,10 +355,12 @@
 {"gaz_aaa_supply"
 	("vehicle"  side(rus) period(mid) min_stage(2) max_stage(99) cw(1) cp(4) crew(rifleman_1:1))
 	{cost 190}
+	("supply_ap" supply(1000)) ;// cost
 }
 {"gaz_fuel"
 	("vehicle"  side(rus) period(mid) min_stage(2) max_stage(99) cw(1) cp(4) crew(rifleman_1:1))
 	{cost 90}
+	("supply_fp" liters(2050)) ;// cost
 }
 {"gaz_aaa_maximx4"
 	("vehicle"  side(rus) period(mid) min_stage(3) max_stage(99) cw(1) cp(4.4) crew(artilleryman:3))
@@ -376,6 +381,7 @@
 {"zis5eng"
 	("vehicle2" side(rus) period(mid) min_stage(2) max_stage(99) cw(1) cp(2) crew1(engineer_1:1) crew2(engineer_2:1))
 	{cost 190}
+	("supply_ap" supply(500)) ;// cost
 }
 {"zis5_dshk"
 	("vehicle"  side(rus) period(mid) min_stage(3) max_stage(99) cw(1) cp(5.4) crew(artilleryman:3))
@@ -767,7 +773,7 @@
 ;cost = 12
 {"122mm_m1910_artillery_barrage"
 	("squad_vehicle" side(rus) period(mid)  min_stage(3) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(offmap_placeholder_4))
-	{cost 12} ;122mm_m1910 cost 700 - 697 = 3
+	{cost_sp 12} ;122mm_m1910 cost 700 - 697 = 3
 	{round_multiple 1.0}
 	{action "airstrike:conquest_artillery_barrage_122_rus"}
 }
@@ -779,27 +785,27 @@
 ; cost = 2
 {"122mm_m1910_smoke_barrage"
     ("squad_vehicle" side(rus) period(mid)  min_stage(1) max_stage(99) cw(0) cp(-10) crew(tankman:0) vehicle(offmap_placeholder))
-    {cost 2} 
+    {cost_sp 2} 
     {round_multiple 1.0}
     {action "airstrike:conquest_smoke_barrage_105_ger"}
 }
 
 {"82mm_bm37_mortar_barrage"
 	("squad_vehicle" side(rus) period(mid)  min_stage(1) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(offmap_placeholder_3))
-	{cost 8} ;82mm_bm37 cost 250 - 248 = 2
+	{cost_sp 8} ;82mm_bm37 cost 250 - 248 = 2
 	{round_multiple 1.0}
 	{action "airstrike:conquest_mortar_barrage_80"}
 }
 {"120mm_pm38_mortar_barrage"
 	("squad_vehicle" side(rus) period(mid)  min_stage(5) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(offmap_placeholder_4))
-	{cost 12} ;120mm_pm38 cost 450 - 447 = 3
+	{cost_sp 12} ;120mm_pm38 cost 450 - 447 = 3
 	{round_multiple 1.0}
 	{action "airstrike:conquest_mortar_barrage_120"}
 }
 ; cost = 18
 {"152mm_ml20_artillery_barrage"
 	("squad_vehicle" side(rus) period(mid)  min_stage(4) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(offmap_placeholder_5))
-	{cost 18} ;152mm_ml20 cost 100 - 996 = 4
+	{cost_sp 18} ;152mm_ml20 cost 100 - 996 = 4
 	{round_multiple 1.0}
 	{action "airstrike:conquest_artillery_barrage_152_rus"}
 }
@@ -921,51 +927,62 @@
 
 {"conquest_po2"
 	("squad_vehicle" side(rus) period(mid) min_stage(1) max_stage(99) cw(0) cp(3) crew(tankman:2) vehicle(po2))
-	{cost -46}
+	{cost -50}
+	{cost_sp 4}
 	{round_multiple 1.0}
 	{action "airstrike:reconnaissance_50"}
 }
 
 {"controllable_plane_sov"
 	("squad_vehicle" side(rus) period(mid) min_stage(1) max_stage(99) cw(0) cp(3) crew(tankman:1) vehicle(il2_mod42_player))
-	{cost -10}
+	{cost -25}
+	{cost_sp 15}
 	{action "airstrike:pistol_ammo"}
 }
 
 {"supply_drop_allies"
 	("squad_vehicle" side(rus) period(mid) min_stage(1) max_stage(99) cw(0) cp(-7) crew(tankman:2) vehicle(c47_d))
-	{cost -40}
+	{cost -50}
+	{cost_sp 10}
 	{action "airstrike:rus_supply_drop_aim"}
 }
 
 {"supply_drop_76mm_m43"
 	("squad_vehicle" side(rus) period(mid) min_stage(1) max_stage(99) cw(0) cp(-7) crew(tankman:2) vehicle(c47_d))
-	{cost -44}{round_multiple 1.0}
+	{cost -50}
+	{round_multiple 1.0}
+	{cost_sp 6}
 	{action "airstrike:paradrop_76mm_m43"}
 }
 
 {"supply_drop_bpk"
 	("squad_vehicle" side(rus) period(mid) min_stage(1) max_stage(99) cw(0) cp(-7) crew(tankman:2) vehicle(c47_d))
-	{cost -46}{round_multiple 1.0}
+	{cost -50}
+	{round_multiple 1.0}
+	{cost_sp 4}
 	{action "airstrike:paradrop_bpk"}
 }
 
 {"supply_drop_maxim"
 	("squad_vehicle" side(rus) period(mid) min_stage(1) max_stage(99) cw(0) cp(-7) crew(tankman:2) vehicle(c47_d))
-	{cost -47}{round_multiple 1.0}
+	{cost -50}
+	{round_multiple 1.0}
+	{cost_sp 3}
 	{action "airstrike:paradrop_maxim"}
 }
 
 {"conquest_yak1"
 	("squad_vehicle" side(rus) period(mid) min_stage(1) max_stage(99) cw(0) cp(9) crew(tankman:1) vehicle(yak1_ser69))
-	{cost -19}
+	{cost -25}
+	{cost_sp 6}
 	{round_multiple 1.0}
 	{action "airstrike:sc_50"}
 }
 
 {"conquest_il2"
 	("squad_vehicle" side(rus) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(tankman:1) vehicle(il2_mod42))
-	{cost -15}
+	{cost -25}
+	{cost_sp 12}
 	{action "airstrike:sc_250_mp"} 
 }
 
@@ -975,28 +992,32 @@
 ; cost = 25
 {"heavy_artillery_barrage"
     ("squad_vehicle" side(rus) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(tankman:0) vehicle(offmap_placeholder_6))
-    {cost 25}
+    {cost -25}
+    {cost_sp 25}
     {action "airstrike:conquest_artillery_barrage_heavy"}
 }
 
 ; cost = 40
 {"super_heavy_artillery_barrage"
     ("squad_vehicle" side(rus) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(tankman:0) vehicle(offmap_placeholder_8))
-    {cost 40}
+    {cost -40}
+    {cost_sp 40}
     {action "airstrike:conquest_artillery_barrage_super_heavy"}
 }
 
 ; cost = 15
 {"rocket_artillery_barrage"
     ("squad_vehicle" side(rus) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(tankman:0) vehicle(offmap_placeholder_5))
-    {cost 15} 
+    {cost -15}
+    {cost_sp 15} 
     {action "airstrike:conquest_light_rocket_barrage"}
 }
 
 ; cost = 35
 {"heavy_rocket_artillery_barrage"
     ("squad_vehicle" side(rus) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(tankman:0) vehicle(offmap_placeholder_6))
-    {cost 25} 
+    {cost -25}
+    {cost_sp 25} 
     {action "airstrike:conquest_heavy_rocket_barrage"}
 }
 
