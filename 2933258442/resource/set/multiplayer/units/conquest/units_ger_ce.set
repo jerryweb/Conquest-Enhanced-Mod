@@ -35,16 +35,16 @@
 ;|________________________________________________|
 
 ;---------------
-("squad_with1types_conquest" side(ger) period(mid) min_stage(3) max_stage(99) name(single_officer)		c1(officer:1))
+("special_squad_with1types_conquest" side(ger) period(mid) min_stage(3) max_stage(99) cost_sp(2) name(single_officer)		c1(officer:1))
 
-("squad_with4types_conquest" side(ger) period(late) min_stage(3) max_stage(99) name(squad_officer_con)	c1(company_hauptfeldwebel:1) c2(nco:1) c3(Radio_man_ger:1) c4(rifleman_1:2))
+("special_squad_with4types_conquest" side(ger) period(late) min_stage(3) max_stage(99) cost_sp(5) name(squad_officer_con)	c1(company_hauptfeldwebel:1) c2(nco:1) c3(Radio_man_ger:1) c4(rifleman_1:2))
 
 {"squad_officer_kubel_con"
 	("squad_vehicle4"		 side(ger) period(mid) min_stage(3) max_stage(99) cw(1) cp(2) vehicle(kubelwagen) crew1(rifleman_1:1) crew2(officer:1) crew3(nco:1) crew4(medic:1))
 }
 
 {"squad_officer_250_3_con"
-	("squad_vehicle6"		 side(ger) period(mid) min_stage(3) max_stage(99) cw(3) cp(-31) vehicle(sdkfz250a_3) crew1(rifleman_1:1) crew2(mg_crew_asst:1) crew3(officer:1) crew4(nco:1) crew5(rifleman_1:1) crew6(medic:1))
+	("special_squad_vehicle6"		 side(ger) period(mid) min_stage(3) max_stage(99) cw(3) cp(-31) cost_sp(10) vehicle(sdkfz250a_3) crew1(rifleman_1:1) crew2(mg_crew_asst:1) crew3(officer:1) crew4(nco:1) crew5(rifleman_1:1) crew6(medic:1))
 }
 
 ;// t1
@@ -242,14 +242,17 @@
 {"inf_crate_ger"
 	("vehicle" side(ger) period(mid) min_stage(1) max_stage(99) cw(0) cp(0) crew(rifleman_1:2))
 	{cost 50}
+	("supply_ap" supply(250)) ;// cost
 }
 {"infantry_cart_if8"
 	("vehicle"  side(ger) period(mid) min_stage(1) max_stage(99) cw(1) cp(0) crew(rifleman_1:2))
 	{cost 60}
+	("supply_ap" supply(250)) ;// cost
 }
 {"ammo_trailer"
 	("vehicle"  side(ger) period(mid) min_stage(1) max_stage(99) cw(0) cp(0) crew(rifleman_1:2))
 	{cost 80}
+	("supply_ap" supply(500)) ;// cost
 }
 {"150mm_sw34_ger" ; // Searchlight
 	("vehicle"  side(ger) period(mid) min_stage(1) max_stage(99) cw(0) cp(1) crew(rifleman_1:2))
@@ -308,6 +311,10 @@
 	("vehicle" side(ger) period(mid) min_stage(1) max_stage(7) cw(1) cp(6.2) crew(artilleryman:4))
 	{cost 180}
 }
+{"37mm_pak36_late"
+	("vehicle" side(ger) period(late) min_stage(2) max_stage(7) cw(1) cp(6.2) crew(artilleryman:4))
+	{cost 180} ;// PRICE AND STAGES NEED TO BE REVISITED
+}
 {"47mm_pakt"
 	("vehicle" side(ger) period(mid) min_stage(2) max_stage(10) cw(1) cp(8.2) crew(artilleryman:4))
 	{cost 230}
@@ -316,9 +323,17 @@
 	("vehicle" side(ger) period(mid) min_stage(4) max_stage(12) cw(1) cp(10.2) crew(artilleryman:4))
 	{cost 270}
 }
+{"50mm_pak38_late"
+	("vehicle" side(ger) period(late) min_stage(4) max_stage(12) cw(1) cp(10.2) crew(artilleryman:4))
+	{cost 270} ;// PRICE AND STAGES NEED TO BE REVISITED
+}
 {"75mm_pak9738"
 	("vehicle"  side(ger) period(mid) min_stage(4) max_stage(14) cw(1) cp(10.2) crew(artilleryman:4))
 	{cost 300}
+}
+{"75mm_pak9738_late"
+	("vehicle" side(ger) period(late) min_stage(8) max_stage(16) cw(1) cp(10.2) crew(artilleryman:4))
+	{cost 285} ;// PRICE AND STAGES NEED TO BE REVISITED
 }
 {"75mm_pak40"
 	("vehicle" side(ger) period(mid) min_stage(6) max_stage(99) cw(1) cp(14.2) crew(artilleryman:4))
@@ -361,6 +376,10 @@
 {"150mm_sig33"
 	("vehicle" side(ger) period(mid) min_stage(5) max_stage(99) cw(1) cp(15.2) crew(artilleryman:4))
 	{cost 800}
+}
+{"150mm_sig33_late"
+	("vehicle" side(ger) period(late) min_stage(5) max_stage(99) cw(1) cp(15.2) crew(artilleryman:4))
+	{cost 800} ;// PRICE AND STAGES NEED TO BE REVISITED
 }
 {"105mm_sk18"
 	("vehicle"  side(ger) period(mid) min_stage(8) max_stage(99) cw(1) cp(21) crew(artilleryman:5))
@@ -558,18 +577,22 @@
 {"blitz3_6_art_ammo"
 	("vehicle"  side(ger) period(mid) min_stage(2) max_stage(99) cw(1) cp(4) crew(rifleman_1:1))
 	{cost 190}
+	("supply_ap" supply(1000)) ;// cost
 }
 {"sdkfz6_ammo"
 	("vehicle"  side(ger) period(mid) min_stage(2) max_stage(99) cw(1) cp(4) crew(rifleman_1:1))
 	{cost 340}
+	("supply_ap" supply(2000)) ;// cost
 }
 {"blitz3_6_fuel"
 	("vehicle"  side(ger) period(mid) min_stage(2) max_stage(99) cw(1) cp(4) crew(rifleman_1:1))
 	{cost 90}
+	("supply_fp" liters(2500)) ;// cost
 }
 {"blitz3_6_engineering"
 	("vehicle2" side(ger) period(mid) min_stage(2) max_stage(99) cw(1) cp(2) crew1(engineer_1:1) crew2(engineer_2:1))
 	{cost 190}
+	("supply_ap" supply(500)) ;// cost
 }
 {"panzerwerfer42"
 	("vehicle2" side(ger) period(mid) min_stage(10) max_stage(99) cw(2) cp(24.2) crew1(tankman_stug:3) crew2(tank_commander_stug:1))
@@ -868,14 +891,14 @@
 ; cost = 5
 {"80mm_sgrw34_mortar_barrage"
 	("squad_vehicle" side(ger) period(mid)  min_stage(1) max_stage(99) cw(0) cp(3) crew(artilleryman:0) vehicle(offmap_placeholder_3))
-	{cost 8} ;80mm_sgrw34 cost 250 - 248 = 2
+	{cost_sp 8} ;80mm_sgrw34 cost 250 - 248 = 2
 	{round_multiple 1.0}
 	{action "airstrike:conquest_mortar_barrage_80"}
 }
 ; cost = 12
 {"120mm_sgrw42_mortar_barrage"
 	("squad_vehicle" side(ger) period(mid)  min_stage(5) max_stage(99) cw(0) cp(3) crew(artilleryman:0) vehicle(offmap_placeholder_4))
-	{cost 12} ;120mm_sgrw42 cost 450 - 447 = 3
+	{cost_sp 12} ;120mm_sgrw42 cost 450 - 447 = 3
 	{round_multiple 1.0}
 	{action "airstrike:conquest_mortar_barrage_120"}
 }
@@ -883,7 +906,7 @@
 ; cost = 2
 {"105mm_lefh18_smoke_barrage"
     ("squad_vehicle" side(ger) period(mid)  min_stage(1) max_stage(99) cw(0) cp(15) crew(artilleryman:0) vehicle(offmap_placeholder))
-    {cost 2} ;105mm_lefh18 cost 750 - 749 = 1
+    {cost_sp 2} ;105mm_lefh18 cost 750 - 749 = 1
     {round_multiple 1.0}
     {action "airstrike:conquest_smoke_barrage_105_ger"}
 }
@@ -891,7 +914,7 @@
 ; cost = 12
 {"105mm_lefh18_artillery_barrage"
 	("squad_vehicle" side(ger) period(mid)  min_stage(3) max_stage(99) cw(0) cp(5) crew(artilleryman:0) vehicle(offmap_placeholder_4))
-	{cost 12};105mm_lefh18 cost 750 - 747 = 3
+	{cost_sp 12};105mm_lefh18 cost 750 - 747 = 3
 	{round_multiple 1.0}
 	{action "airstrike:conquest_artillery_barrage_105_ger"}
 }
@@ -899,7 +922,7 @@
 ; cost = 18
 {"150mm_sfh18_artillery_barrage"
 	("squad_vehicle" side(ger) period(mid)  min_stage(4) max_stage(99) cw(0) cp(5) crew(artilleryman:0) vehicle(offmap_placeholder_5))
-	{cost 18} ;150mm_sfh18 cost 1000 - 996 = 4
+	{cost_sp 18} ;150mm_sfh18 cost 1000 - 996 = 4
 	{round_multiple 1.0}
 	{action "airstrike:conquest_artillery_barrage_150_ger"}
 }
@@ -1020,26 +1043,26 @@
 ; cost = 5
 {"conquest_fi156"
 	("squad_vehicle" side(ger) period(mid) min_stage(1) max_stage(99) cw(0) cp(3) crew(pilot:2) vehicle(fi156))
-	{cost 4}
+	{cost_sp 4}
 	{round_multiple 1.0}
 	{action "airstrike:reconnaissance_50"}
 }
 {"conquest_bf109"
 	("squad_vehicle" side(ger) period(mid) min_stage(1) max_stage(99) cw(0) cp(8) crew(pilot:1) vehicle(bf109_f4))
-	{cost 6}
+	{cost_sp 6}
 	{round_multiple 1.0}
 	{action "airstrike:sc_50"}
 }
 
 {"conquest_bf110"
 	("squad_vehicle2" side(ger) period(mid) min_stage(1) max_stage(99) cw(0) cp(12) crew1(pilot:1) crew2(pilot:1) vehicle(bf110_e2))
-	{cost 12}
+	{cost_sp 12}
     {round_multiple 1.0}
 	{action "airstrike:sc_250_mp"}
 }
 {"controllable_plane_ger"
 	("squad_vehicle" side(ger) period(mid) min_stage(1) max_stage(99) cw(0) cp(7) crew(pilot:2) vehicle(bf110_e2_player))
-	{cost 15}
+	{cost_sp 15}
 	{action "airstrike:pistol_ammo"}
 }
 
@@ -1049,25 +1072,25 @@
 ; cost = 10
 {"supply_drop_axis"
 	("squad_vehicle" side(ger) period(mid) min_stage(1) max_stage(99) cw(0) cp(11) crew(pilot:3) vehicle(c47_d))
-	{cost 10}
+	{cost_sp 10}
 	{action "airstrike:ger_supply_drop_aim"}
 }
 
 {"supply_drop_75mm_legebig18"
 	("squad_vehicle" side(ger) period(mid) min_stage(1) max_stage(99) cw(0) cp(12) crew(pilot:3) vehicle(c47_d))
-	{cost 6}{round_multiple 1.0}
+	{cost_sp 6}{round_multiple 1.0}
 	{action "airstrike:paradrop_75mm_legebig18"}
 }
 
 {"supply_drop_75mm_lg40"
 	("squad_vehicle" side(ger) period(mid) min_stage(1) max_stage(99) cw(0) cp(12) crew(pilot:3) vehicle(c47_d))
-	{cost 4}{round_multiple 1.0}
+	{cost_sp 4}{round_multiple 1.0}
 	{action "airstrike:paradrop_75mm_lg40"}
 }
 
 {"supply_drop_mg34_lafette"
 	("squad_vehicle" side(ger) period(mid) min_stage(1) max_stage(99) cw(0) cp(3) crew(pilot:3) vehicle(c47_d))
-	{cost 3}{round_multiple 1.0}
+	{cost_sp 3}{round_multiple 1.0}
 	{action "airstrike:paradrop_mg34_lafette"}
 }
 
@@ -1079,28 +1102,28 @@
 ; cost = 25
 {"heavy_artillery_barrage"
     ("squad_vehicle" side(ger) period(mid)  min_stage(1) max_stage(99) cw(0) cp(30) crew(pilot:0) vehicle(offmap_placeholder_6))
-    {cost 25}
+    {cost_sp 25}
     {action "airstrike:conquest_artillery_barrage_heavy"}
 }
 
 ; cost = 40
 {"super_heavy_artillery_barrage"
     ("squad_vehicle" side(ger) period(mid)  min_stage(1) max_stage(99) cw(0) cp(50) crew(pilot:0) vehicle(offmap_placeholder_8))
-    {cost 40}
+    {cost_sp 40}
     {action "airstrike:conquest_artillery_barrage_super_heavy"}
 }
 
 ; cost = 15
 {"rocket_artillery_barrage"
     ("squad_vehicle" side(ger) period(mid)  min_stage(1) max_stage(99) cw(0) cp(22) crew(pilot:0) vehicle(offmap_placeholder_5))
-    {cost 15} 
+    {cost_sp 15} 
     {action "airstrike:conquest_light_rocket_barrage"}
 }
 
 ; cost = 35
 {"heavy_rocket_artillery_barrage"
     ("squad_vehicle" side(ger) period(mid)  min_stage(1) max_stage(99) cw(0) cp(33) crew(pilot:0) vehicle(offmap_placeholder_6))
-    {cost 25} 
+    {cost_sp 25} 
     {action "airstrike:conquest_heavy_rocket_barrage"}
 } 
 
@@ -1198,25 +1221,6 @@
 ;THINGS AND STUFF
 ;---------
 
-{"37mm_pak36_late"
-	("vehicle" side(ger) period(late) min_stage(2) max_stage(7) cw(1) cp(6.2) crew(artilleryman:4))
-	{cost 180} ;// PRICE AND STAGES NEED TO BE REVISITED
-}
-
-{"50mm_pak38_late"
-	("vehicle" side(ger) period(late) min_stage(4) max_stage(12) cw(1) cp(10.2) crew(artilleryman:4))
-	{cost 270} ;// PRICE AND STAGES NEED TO BE REVISITED
-}
-
-{"75mm_pak9738_late"
-	("vehicle" side(ger) period(late) min_stage(8) max_stage(16) cw(1) cp(10.2) crew(artilleryman:4))
-	{cost 285} ;// PRICE AND STAGES NEED TO BE REVISITED
-}
-
-{"150mm_sig33_late"
-	("vehicle" side(ger) period(late) min_stage(5) max_stage(99) cw(1) cp(15.2) crew(artilleryman:4))
-	{cost 800} ;// PRICE AND STAGES NEED TO BE REVISITED
-}
 
 {"sdkfz7"
 	("vehicle2" side(ger) period(mid) min_stage(1) max_stage(99) cw(2) cp(0.6) crew1(tankman:1) crew2(tank_commander:1))
