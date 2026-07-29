@@ -39,6 +39,21 @@
 	{button "vehicles"}
 )
 
+(define "special_generic_v_conquest"
+	{score_factor 0.05}
+	{tags "conquest conquestonly %t"}
+	{charge {delay 0}{interval 0}}
+	{cw %cw}
+	{cp %cp}
+	{cost_sp %cost_sp}
+	{research_stage %r}
+	{research_stage_max %mr}
+	{squad_cost_factor 1}
+	{round_multiple 5.0}
+	{level 1}
+	{button "vehicles"}
+)
+
 ; emplacements
 (define "emplacement"
 	("generic_v_conquest" t(%side %period lvl1 lvl2 lvl3 lvl4) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp))
@@ -113,18 +128,26 @@
 	{action "%action"}
 	{button "empl"}
 )
+(define "supply_ap" ;// ammo points
+	{cost_ap (* %supply 0.15)} ;// multiplier = {ResupplyCost} rate in resource settings. supply = quantity of supply vehicle comes with
+)
+
+(define "supply_fp" ;// fuel
+	{cost_ap (* %liters 0.25)} ;// multiplier = {ResupplyCost} rate in resource settings. liters = quantity of fuel vehicle comes with
+)
+
 ;/////////////// THE FOLLOWING SETTINGS FETCH VEHICLES DIRECTLY /////////////////////////
 
 ; vehicle with one type of crew
 (define "vehicle"
-	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp))
+	("generic_v_conquest" t(%side %period %tag) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp))
 	{content "* ( mp/%side/%period/%crew )"} 
 	{button "vehicles"}
 )
 
 ; vehicle with 2 types of crew
 (define "vehicle2"
-	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp))
+	("generic_v_conquest" t(%side %period %tag) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp))
 	{content "* ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 )"}
 	{button "vehicles"}
 )
@@ -138,7 +161,7 @@
 
 ; vehicle with 4 types of crew
 (define "vehicle4"
-	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp))
+	("generic_v_conquest" t(%side %period %tag) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp))
 	{content "* ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3 mp/%side/%period/%crew4 )"}
 	{button "vehicles"}
 )
@@ -236,6 +259,12 @@
 	{button "vehicles"}
 )
 
+(define "special_squad_vehicle8"
+	("special_generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp) cost_sp(%cost_sp)) ;//h
+	{content "%vehicle ( mp/%side/%period/%crew1 mp/%side/%period/%crew2 mp/%side/%period/%crew3 mp/%side/%period/%crew4 mp/%side/%period/%crew5 mp/%side/%period/%crew6 mp/%side/%period/%crew7 mp/%side/%period/%crew8)"}
+	{button "vehicles"}
+)
+
 ; squad setup for vehicle, 9 crew
 (define "squad_vehicle9"
 	("generic_v_conquest" t(%side %period) r(%min_stage) mr(%max_stage) cw(%cw) cp(%cp)) ;//h
@@ -298,6 +327,20 @@
 		{tags "conquest conquestonly %side %period %tag"}
 		{level 1}
 		{cost 0}
+		{research_stage %min_stage}
+		{research_stage_max %max_stage}
+		{squad_cost_factor 1}
+		{button "inf1"}
+	}
+)
+
+(define "special_squad_with1types_conquest"
+	{"%name(%side)"
+		{charge {delay 0}{interval 0}}
+		{content "mp/%side/%period/%c1"}
+		{tags "conquest conquestonly %side %period %tag"}
+		{level 1}
+		{cost_sp %cost_sp}
 		{research_stage %min_stage}
 		{research_stage_max %max_stage}
 		{squad_cost_factor 1}
@@ -391,6 +434,20 @@
 	}
 )
 
+(define "special_squad_with5types_conquest"
+	{"%name(%side)"
+		{charge {delay 0}{interval 0}}
+		{content "mp/%side/%period/%c1 mp/%side/%period/%c2 mp/%side/%period/%c3 mp/%side/%period/%c4 mp/%side/%period/%c5"}
+		{tags "conquest conquestonly %side %period %tag"}
+		{level 1}
+		{cost 0}
+		{cost_sp %cost_sp}
+		{research_stage %min_stage}
+		{research_stage_max %max_stage}
+		{squad_cost_factor 1}
+		{button "inf1"}
+	}
+)
 (define "squad_with5types_conquest_nobuy"
     {"%name(%side)"
         {charge {delay 0}{interval 0}}

@@ -28,6 +28,11 @@
 		}
 	}
 
+	{on "tag_ai_plane"
+		{tags add "ai_plane"}
+		{tags add "move_to_start_waypoint"}
+	}
+
 	{on ground_hit sync overload
         {if not tagged "ce_plane_grounded"
             {tags add "ce_plane_grounded"}
@@ -558,6 +563,99 @@
 
 
 ;/*=========== Plane Specifics Begin  ===========*/
+
+{"bf109_f4"
+	{on "tag_plane_type"
+		{tags add "fighter"}
+	}
+}
+{"bf109_g6"
+	{on "tag_plane_type"
+		{tags add "fighter"}
+	}
+}
+{"bf110_e2"
+	{on "tag_plane_type"
+		{tags add "bomber_ce"}
+	}
+}
+{"fi156"
+	{on "tag_plane_type"
+		{tags add "bot_recon"}
+	}
+}
+
+{"yak1_ser69"
+	{on "tag_plane_type"
+		{tags add "fighter"}
+	}
+}
+{"il2_mod42"
+	{on "tag_plane_type"
+		{tags add "bomber_ce"}
+	}
+}
+{"po2"
+	{on "tag_plane_type"
+		{tags add "bot_recon"}
+	}
+}
+
+{"blenheim_mk1"
+	{on "tag_plane_type"
+		{tags add "bomber_ce"}
+	}
+}
+{"blenheim_mk1_recon"
+	{on "tag_plane_type"
+		{tags add "bot_recon"}
+	}
+}
+
+{"p47_d22"
+	{on "tag_plane_type"
+		{tags add "fighter"}
+	}
+}
+{"p47_d22_bomber"
+	{on "tag_plane_type"
+		{tags add "bomber_ce"}
+	}
+}
+{"recon_p47_d22"
+	{on "tag_plane_type"
+		{tags add "bot_recon"}
+	}
+}
+
+{"p47_d22"
+	{on "tag_plane_type"
+		{tags add "fighter"}
+	}
+}
+{"p47_d22_bomber"
+	{on "tag_plane_type"
+		{tags add "bomber_ce"}
+	}
+}
+{"recon_p47_d22"
+	{on "tag_plane_type"
+		{tags add "bot_recon"}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 {"c-47_skytrain_dakota"
 	;("bf110_sound")

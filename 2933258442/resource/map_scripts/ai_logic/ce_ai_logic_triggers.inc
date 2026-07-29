@@ -2,6 +2,308 @@
 ;==========================================================================================================
 
 ;============== AI AIR =========================
+			(define "tag_ai_aircraft" ; parms: player			
+				{"case"
+					{condition
+						{type cmp_i}
+						{var "id_1st_player$"}
+						{op "=="}
+						{value %player}
+					}
+					{"effect"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag engine_count_2}
+									}
+									{tag
+										{tag engine_count_1}
+									}
+								}
+								{include
+									{prop
+										{prop airborne}
+									}
+									{state
+										{state "operatable inhabited"}
+									}
+								}
+								{exclude
+									{player
+										{player "%player"}
+									}
+									{state
+										{state inactive}
+									}
+									{state
+										{state user_control}
+									}
+									{state
+										{state linked}
+									}
+									{tag
+										{tag ai_plane}
+									}
+								}
+							}
+						}
+						{effect tag_plane_type}
+					}
+					{"effect"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag engine_count_2}
+									}
+									{tag
+										{tag engine_count_1}
+									}
+								}
+								{include
+									{prop
+										{prop airborne}
+									}
+									{state
+										{state "operatable inhabited"}
+									}
+								}
+								{exclude
+									{player
+										{player "%player"}
+									}
+									{state
+										{state inactive}
+									}
+									{state
+										{state user_control}
+									}
+									{state
+										{state linked}
+									}
+									{tag
+										{tag ai_plane}
+									}
+								}
+							}
+						}
+						{effect tag_ai_plane}
+					}
+				}
+			)
+
+			{"ai_logic/air/tag_new_ai_planes"
+				{condition
+					{expression "(1 & 2) | (3 & 4) | (5 & 6) | (7 & 8) & 9"}
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+									}
+									{include
+										{prop
+											{prop airborne}
+										}
+										{state
+											{state "operatable inhabited"}
+										}
+									}
+									{exclude
+										{player
+											{player "1"}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state user_control}
+										}
+										{state
+											{state linked}
+										}
+										{tag
+											{tag ai_plane}
+										}
+									}
+								}
+							}
+						}
+						{"2.cmp_i"
+							{var "id_1st_player$"}
+							{op "=="}
+							{value 1}
+						}
+						{"3.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+									}
+									{include
+										{prop
+											{prop airborne}
+										}
+										{state
+											{state "operatable inhabited"}
+										}
+									}
+									{exclude
+										{player
+											{player "2"}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state user_control}
+										}
+										{state
+											{state linked}
+										}
+										{tag
+											{tag ai_plane}
+										}
+									}
+								}
+							}
+						}
+						{"4.cmp_i"
+							{var "id_1st_player$"}
+							{op "=="}
+							{value 2}
+						}
+						{"5.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+									}
+									{include
+										{prop
+											{prop airborne}
+										}
+										{state
+											{state "operatable inhabited"}
+										}
+									}
+									{exclude
+										{player
+											{player "3"}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state user_control}
+										}
+										{state
+											{state linked}
+										}
+										{tag
+											{tag ai_plane}
+										}
+									}
+								}
+							}
+						}
+						{"6.cmp_i"
+							{var "id_1st_player$"}
+							{op "=="}
+							{value 3}
+						}
+						{"7.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag engine_count_2}
+										}
+										{tag
+											{tag engine_count_1}
+										}
+									}
+									{include
+										{prop
+											{prop airborne}
+										}
+										{state
+											{state "operatable inhabited"}
+										}
+									}
+									{exclude
+										{player
+											{player "4"}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state user_control}
+										}
+										{state
+											{state linked}
+										}
+										{tag
+											{tag ai_plane}
+										}
+									}
+								}
+							}
+						}
+						{"8.cmp_i"
+							{var "id_1st_player$"}
+							{op "=="}
+							{value 4}
+						}
+						{"9.cmp_i"
+							{var "id_1st_player$"}
+							{op ">"}
+							{value 0}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.1}
+					}
+					{"switch"
+						("tag_ai_aircraft" player(1))
+						("tag_ai_aircraft" player(2))
+						("tag_ai_aircraft" player(3))
+						("tag_ai_aircraft" player(4))
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"trigger"
+						{name "ai_logic/air/tag_new_ai_planes"}
+					}
+				}
+			}
 			{"ai_logic/air/set_air_raid_event"
 				{condition
 					{expression "(1 & 2) | 3"}

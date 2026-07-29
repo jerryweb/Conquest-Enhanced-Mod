@@ -28,16 +28,16 @@
 ;_________________________________________________
 ;|             inf1                               |
 ;|________________________________________________|
-("squad_with1types_conquest" side(usa) period(mid) min_stage(3) max_stage(99) name(single_officer)		c1(officer_2lt:1))
+("special_squad_with1types_conquest" side(usa) period(mid) min_stage(3) max_stage(99) cost_sp(2) name(single_officer)		c1(officer_2lt:1))
 
-("squad_with5types_conquest" side(usa) period(mid) min_stage(3) max_stage(99) name(squad_officer_con)	c1(platoon_com2:1) c2(platoon_ssgt:1) c3(nco_sgt_rifle:1) c4(rifle:1) c5(radio_man_usa))
+("special_squad_with5types_conquest" side(usa) period(mid) min_stage(3) max_stage(99) cost_sp(5) name(squad_officer_con)	c1(platoon_com2:1) c2(platoon_ssgt:1) c3(nco_sgt_rifle:1) c4(rifle:1) c5(radio_man_usa))
 
 {"squad_officer_m3a1_commander_con"
 	("squad_vehicle5" side(usa) period(mid) min_stage(3) max_stage(99) vehicle(m3a1_commander) crew1(cav_driver:1) crew2(cav_gunner:1) crew3(platoon_com:1) crew4(cav_gunner:1) crew5(platoon_ssgt:1) cw(2) cp(5))
 }
 
 {"squad_officer_m3a1_halftrack_con"
-	("squad_vehicle8" side(usa) period(late) min_stage(9) max_stage(99) cw(3) cp(2) vehicle(m3a1_halftrack_radio) crew1(ar_driver:1) crew2(ar_rifle:1) crew3(ar_company_com:1) crew4(ar_company_1st_sgt:1) crew5(ar_carbine_gren:1) crew6(ar_rifle:1) crew7(ar_rifle_at_m9a1:1) crew8(ar_rifle_at_asst:1))
+	("special_squad_vehicle8" side(usa) period(late) min_stage(9) max_stage(99) cw(3) cp(2) cost_sp(10) vehicle(m3a1_halftrack_radio) crew1(ar_driver:1) crew2(ar_rifle:1) crew3(ar_company_com:1) crew4(ar_company_1st_sgt:1) crew5(ar_carbine_gren:1) crew6(ar_rifle:1) crew7(ar_rifle_at_m9a1:1) crew8(ar_rifle_at_asst:1))
 }
 
 ;//t1
@@ -159,10 +159,12 @@
 {"inf_crate_usa"
 	("vehicle"  side(usa) period(mid) min_stage(1) max_stage(99) cw(1) cp(0) crew(rifle:2))
 	{cost 50}
+	("supply_ap" supply(250)) ;// cost
 }
 {"ammo_trailer_usa"
 	("vehicle"  side(usa) period(mid) min_stage(1) max_stage(99) cw(1) cp(0) crew(rifle:2))
 	{cost 100}
+	("supply_ap" supply(500)) ;// cost
 }
 
 ;AUTOMATIC WEAPONRY
@@ -329,7 +331,8 @@
 }
 {"m3a1_halftrack_radio"
 	("vehicle2" side(usa) period(mid) min_stage(3) max_stage(99) crew1(ar1_driver:1) crew2(mg_crew:2) cw(2) cp(-18))
-	{cost 295} {not_for_player_sale 1}
+	{cost 295}
+ 	{not_for_player_sale 1}
 }
 {"m5_hst"
 	("vehicle2" side(usa) period(mid) min_stage(1) max_stage(99) crew1(driver:1) crew2(mg_crew:1) cw(1) cp(3))
@@ -409,22 +412,27 @@
 {"cckw_art_ammo"
 	("vehicle"  side(usa) period(mid) min_stage(1) max_stage(99) crew(driver:1) cw(1) cp(4.8))
 	{cost 190}
+	("supply_ap" supply(1000)) ;// cost
 }
 {"cckw_redball"
 	("vehicle"  side(usa) period(mid) min_stage(1) max_stage(99) crew(driver:2) cw(1) cp(5.6))
 	{cost 400}
+	("supply_ap" supply(2000)) ;// cost
 }
 {"cckw_fuel"
 	("vehicle"  side(usa) period(mid) min_stage(1) max_stage(99) crew(driver:1) cw(1) cp(4.8))
 	{cost 90}
+	("supply_fp" liters(2840)) ;// cost
 }
 {"cckw_engineer"
 	("vehicle"  side(usa) period(mid) min_stage(1) max_stage(99) crew(engineer_builder:2) cw(1) cp(2))
 	{cost 180}
+	("supply_ap" supply(500)) ;// cost
 }
 {"cckw_engineer_late"
 	("vehicle"  side(usa) period(mid) min_stage(1) max_stage(99) crew(engineer_builder:2) cw(1) cp(2))
 	{cost 250}
+	("supply_ap" supply(500)) ;// cost
 }
 
 
@@ -632,21 +640,22 @@
 ;|______________________________________________|
 
 
+
 {"conquest_p47_recon"
 	("squad_vehicle" side(usa) period(mid) min_stage(1) max_stage(99) cw(0) cp(0) crew(pilot:1) vehicle(p47_d22_recon))
-	{cost 4}
+	{cost_sp 4}
 	{round_multiple 1.0}
 	{action "airstrike:reconnaissance_50"}
 }
 {"conquest_p47_light"
 	("squad_vehicle" side(usa) period(mid) min_stage(1) max_stage(99) cw(0) cp(0) crew(pilot:1) vehicle(p47_d22))
-	{cost 6}
+	{cost_sp 6}
 	{round_multiple 1.0}
 	{action "airstrike:m30_100lb"}
 }
 {"conquest_p47"
 	("squad_vehicle" side(usa) period(mid) min_stage(1) max_stage(99) cw(0) cp(0) crew(pilot:1) vehicle(p47_d22))
-	{cost 10}
+	{cost_sp 10}
 	{round_multiple 1.0}
 	{action "airstrike:m64_500lb"}
 }
@@ -654,32 +663,39 @@
 
 
 {"81mm_m1_mortar_barrage"
-	("squad_vehicle" side(usa) period(mid)  min_stage(1) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(offmap_placeholder_3))
-	{cost 5} ;81mm_m1 cost 250 - 248 = 2
+	("squad_vehicle" side(usa) period(mid)  min_stage(1) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(81mm_m1))
+	{cost_sp 5}
+	{cost -270} ;81mm_m1 cost 270
 	{round_multiple 1.0}
 	{action "airstrike:conquest_mortar_barrage_80"}
 }
 {"107mm_m2_mortar_barrage"
-	("squad_vehicle" side(usa) period(mid)  min_stage(5) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(offmap_placeholder_4))
-	{cost 12} ;107mm_m2 cost 420 - 417 = 3
+	("squad_vehicle" side(usa) period(mid)  min_stage(5) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(107mm_m2))
+	{cost_sp 12}
+	{cost -420} ;107mm_m2 cost 420
 	{round_multiple 1.0}
 	{action "airstrike:conquest_mortar_barrage_120"}
 }
+
 {"105mm_m2a1_smoke_barrage"
-	("squad_vehicle" side(usa) period(mid)  min_stage(3) max_stage(99) cw(0) cp(5) crew(artilleryman:0) vehicle(offmap_placeholder_2))
-	{cost 2} ;105mm_m2a1 cost 750 - 748 = 2
+	("squad_vehicle" side(usa) period(mid)  min_stage(3) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(105mm_m2a1))
+	{cost_sp 2}
+	{cost -750} ;105mm_m2a1 cost 750
 	{round_multiple 1.0}
 	{action "airstrike:conquest_smoke_barrage_122_rus"}
 }
 {"105mm_m2a1_artillery_barrage"
-	("squad_vehicle" side(usa) period(mid)  min_stage(3) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(offmap_placeholder_4))
-	{cost 12} ;105mm_m2a1 cost 750 - 747 = 3
+	("squad_vehicle" side(usa) period(mid)  min_stage(3) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(105mm_m2a1))
+	{cost_sp 12}
+	{cost -750} ;105mm_m2a1 cost 750
 	{round_multiple 1.0}
 	{action "airstrike:conquest_artillery_barrage_122_rus"}
 }
+
 {"155mm_m1_artillery_barrage"
-	("squad_vehicle" side(usa) period(mid)  min_stage(4) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(offmap_placeholder_5))
-	{cost 18} ;155mm_m1 cost 1000 - 996 = 4
+	("squad_vehicle" side(usa) period(mid)  min_stage(4) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(155mm_m1))
+	{cost_sp 18}
+	{cost -1000} ;155mm_m1 cost 1000
 	{round_multiple 1.0}
 	{action "airstrike:conquest_artillery_barrage_152_rus"}
 }
@@ -734,12 +750,12 @@
 ;_______________________________________________
 ;|					Aircraft					|
 ;|______________________________________________|
-{"p47_d22_ai"
+{"p47_d22"
 	("vehicle"  side(usa) period(mid) min_stage(6) max_stage(12) cw(0) cp(5) crew(pilot:1))
 	{cost 400}{not_for_player_sale 1}
 }
 
-{"p47_d22_bomber_ai"
+{"p47_d22_bomber"
 	("vehicle"  side(usa) period(mid) min_stage(8) max_stage(16) cw(0) cp(20) crew(pilot:1))
 	{cost 1700}{not_for_player_sale 1}
 }
@@ -759,34 +775,34 @@
 ; cost = 25
 {"heavy_artillery_barrage"
     ("squad_vehicle" side(usa) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(pilot:0) vehicle(offmap_placeholder_6))
-    {cost 25}
+    {cost_sp 25}
     {action "airstrike:conquest_artillery_barrage_heavy"}
 }
 
-; cost = 40
+; cost_sp = 40
 {"super_heavy_artillery_barrage"
     ("squad_vehicle" side(usa) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(pilot:0) vehicle(offmap_placeholder_8))
-    {cost 40}
+    {cost_sp 40}
     {action "airstrike:conquest_artillery_barrage_super_heavy"}
 }
 
-; cost = 15
+; cost_sp = 15
 {"rocket_artillery_barrage"
     ("squad_vehicle" side(usa) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(pilot:0) vehicle(offmap_placeholder_5))
-    {cost 15} 
+    {cost_sp 15} 
     {action "airstrike:conquest_light_rocket_barrage"}
 }
 
-; cost = 35
+; cost_sp = 35
 {"heavy_rocket_artillery_barrage"
     ("squad_vehicle" side(usa) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(pilot:0) vehicle(offmap_placeholder_6))
-    {cost 25} 
+    {cost_sp 25} 
     {action "airstrike:conquest_heavy_rocket_barrage"}
 }
 
 {"controllable_plane_usa"
 	("squad_vehicle" side(usa) period(mid) min_stage(1) max_stage(99) cw(0) cp(7) crew(pilot:1) vehicle(p47_d22_player))
-	{cost 20}
+	{cost_sp 20}
 	{action "airstrike:pistol_ammo"}
 }
 
@@ -900,27 +916,9 @@
 	{cost 425}{not_for_ai_sale 1}
 }
 
-{"p47_d22_recon" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 4} {cost 0} {not_for_sale 1}}
-{"p47_d22" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 6} {cost 0} {not_for_sale 1}}
+;{"p47_d22_recon" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 4} {cost 0} {not_for_sale 1}}
+;{"p47_d22" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 6} {cost 0} {not_for_sale 1}}
 {"c47_d" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
 {"p47_d22_player" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 12} {cost 0} {not_for_sale 1}}
-
-;{"ai_support_in_attack_high"
- ;   ("squad_vehicle" side(usa) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(pilot:0) vehicle(offmap_100cp_placeholder))
- ;   {cost 0} 
-;    {action "airstrike:ally_support_dummy_high"}
-;}
-
-;{"ai_support_in_attack_low"
-;    ("squad_vehicle" side(usa) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(pilot:0) vehicle(offmap_50cp_placeholder))
-;    {cost 60} 
-;    {action "airstrike:ally_support_dummy_low"}
-;}
-
-
-;---------
-;THINGS AND STUFF
-;---------
-
 
 

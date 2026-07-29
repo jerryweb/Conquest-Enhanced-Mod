@@ -275,10 +275,10 @@ Purchases["conquest.rus"] = {
 				--]]
 
 			--Aircraft
-				{priority = 1.0, type = {"Aircraft", "Fighter",}, unit = "yak1_ser69_ai", maxUnitCount = 3,},
-				{priority = 0.85, type = {"Aircraft", "Fighter", "Group_Air"}, unit = "yak1_ser69_ai_x3", maxUnitCount = 6, multiplier = 3},
-				{priority = 1.0, type = {"Aircraft", "Bomber",}, unit = "il2_mod42_ai", maxUnitCount = 1},
-				{priority = 0.15, type = {"Aircraft", "Bomber", "Group_Air"}, unit = "il2_mod42_ai_x2", maxUnitCount = 4, multiplier = 2},
+				{priority = 1.0, type = {"Aircraft", "Fighter",}, unit = "yak1_ser69", maxUnitCount = 3,},
+				{priority = 0.85, type = {"Aircraft", "Fighter", "Group_Air"}, unit = "yak1_ser69_x3", maxUnitCount = 6, multiplier = 3},
+				{priority = 1.0, type = {"Aircraft", "Bomber",}, unit = "il2_mod42", maxUnitCount = 1},
+				{priority = 0.15, type = {"Aircraft", "Bomber", "Group_Air"}, unit = "il2_mod42_x2", maxUnitCount = 4, multiplier = 2},
 				{priority = 0.5, type = {"Aircraft", "Paratrooper", "Group_Air",}, unit = "squad_rus_paras_con", multiplier = 4},
 				{priority = 0.5, type = {"Aircraft", "Paratrooper", "Group_Air",}, unit = "squad_rus_paras_con_late", multiplier = 4},
 			---]====]

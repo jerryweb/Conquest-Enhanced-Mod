@@ -243,7 +243,8 @@ Purchases["conquest.fin"] = {
 				{priority = 0.1, type = {"Tank", "Heavy", "AT",}, unit = "isu152_fin"},
 				--]]
 			--Aircraft
-				{priority = 1.0, type = {"Aircraft", "Bomber",}, unit = "blenheim_mk1_ai", maxUnitCount = 5},	
+				{priority = 1.0, type = {"Aircraft", "Bomber",}, unit = "blenheim_mk1", maxUnitCount = 5},	
+				{priority = 1.0, type = {"Aircraft", "ReconPlane",}, unit = "blenheim_mk1_recon"},
 			---]====]
 		}
 	}

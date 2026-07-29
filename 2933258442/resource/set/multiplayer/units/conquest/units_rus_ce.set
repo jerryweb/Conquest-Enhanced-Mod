@@ -20,27 +20,6 @@
 ;//////////////////////////////////////////////////
 
 ;======================= VANILLA OVERWRITES =======================================s
-;SDL
-
-;////////////////// INSTRUCTIONS //////////////////
-;Buttons go as follows, displayed in-game in this order:
-
-; inf1       - infantry squads
-; inf2       - infantry single units
-; empl       - Emplacements, AA, AT, Mortars, Howitzers
-; vehicles   - vehicles, armoured cars, supplies
-; tanks      - main battle tanks, TDs, SPGs
-; doctrine   - specific doctrine setups
-
-; TEMP: Note all levels have been brought down to 1 to remove unit locks.
-; Squads currently have an MP cost of 0 - their cost is currently calculated as the sum of their soldiers cost, see inf_ger.set
-; Check ../settings.set for syntax instructions!!
-; unit limits per game are not defined here but in gamemode presets
-
-;user defined set tags that should be featured on units:
-;all artillery heavyart cannon mediumcan heavycan light medium heavy infantry supply
-;these tags allow player to disable certain sets for custom setups like "no heavy artillery"
-;//////////////////////////////////////////////////
 
 ;_________________________________________________
 ;|      On Map Emplacements For AI                |
@@ -918,16 +897,16 @@
 ;|					Aircraft					|
 ;|______________________________________________|
 
-{"yak1_ser69_ai"
+{"yak1_ser69"
 	("vehicle"  side(rus) period(mid) min_stage(6) max_stage(99) cw(0) cp(5) crew(tankman:1))
 	{cost 400}{not_for_player_sale 1}
 }
 
-{"il2_mod42_ai"
+{"il2_mod42"
 	("vehicle"  side(rus) period(mid) min_stage(8) max_stage(99) cw(0) cp(20) crew(tankman:1))
 	{cost 1700}{not_for_player_sale 1}
 }
-{"ai_po2"
+{"po2"
 	("vehicle"  side(rus) period(mid) min_stage(8) max_stage(99) cw(0) cp(5) crew(tankman:1))
 	{cost 500}{not_for_player_sale 1}
 }
@@ -1095,9 +1074,9 @@
 }
 
 
-{"po2" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 4} {cost 0} {not_for_sale 1}}
-{"yak1_ser69" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 6} {cost 0} {not_for_sale 1}}
-{"il2_mod42" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
+;{"po2" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 4} {cost 0} {not_for_sale 1}}
+;{"yak1_ser69" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 6} {cost 0} {not_for_sale 1}}
+;{"il2_mod42" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
 {"c47_d" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 9} {cost 0} {not_for_sale 1}}
 {"il2_mod42_player" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
 

@@ -21,28 +21,6 @@
 ;//////////////////////////////////////////////////
 
 ;======================= VANILLA OVERWRITES =======================================
-;SDL
-
-;////////////////// INSTRUCTIONS //////////////////
-;Buttons go as follows, displayed in-game in this order:
-
-; inf1       - infantry squads
-; inf2       - infantry single units
-; empl       - Emplacements, AA, AT, Mortars, Howitzers
-; vehicles   - vehicles, armoured cars, supplies
-; tanks      - main battle tanks, TDs, SPGs
-; doctrine   - specific doctrine setups
-
-; TEMP: Note all levels have been brought down to 1 to remove unit locks.
-; Squads currently have an MP cost of 0 - their cost is currently calculated as the sum of their soldiers cost, see inf_fin.set
-; Check ../settings.set for syntax instructions!!
-; unit limits per game are not defined here but in gamemode presets
-
-;user defined set tags that should be featured on units:
-;all artillery heavyart cannon mediumcan heavycan light medium heavy infantry supply
-;these tags allow player to disable certain sets for custom setups like "no heavy artillery" 
-;//////////////////////////////////////////////////
-
 ;_________________________________________________
 ;|      On Map Emplacements For AI                |
 ;|________________________________________________|
@@ -667,6 +645,7 @@
 
 ("squad_with2types_conquest" side(fin) period(mid) min_stage(0) max_stage(0) cp(5)  name(single_tankman)		c1(tank_commander:1) c2(tankman:4))
 
+
 ;_______________________________________________
 ;|					AI Artillery				|
 ;|______________________________________________|
@@ -721,9 +700,14 @@
 ;|					Aircraft					|
 ;|______________________________________________|
 
-{"blenheim_mk1_ai"
+{"blenheim_mk1"
 	("vehicle"  side(fin) period(mid) min_stage(7) max_stage(99) cw(0) cp(20) crew(tankman:2))
 	{cost 1700}{not_for_player_sale 1}
+}
+
+{"blenheim_mk1_recon"
+	("vehicle"  side(fin) period(mid) min_stage(7) max_stage(99) cw(0) cp(20) crew(tankman:2))
+	{cost 400}{not_for_player_sale 1}
 }
 
 ; cost = 5
@@ -894,8 +878,8 @@
 
 
 
-{"blenheim_mk1_recon" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 4} {cost 0} {not_for_sale 1}}
-{"blenheim_mk1" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
+;{"blenheim_mk1_recon" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 4} {cost 0} {not_for_sale 1}}
+;{"blenheim_mk1" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
 {"blenheim_mk1_player" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
 
 ;{"ai_support_in_attack_high"
