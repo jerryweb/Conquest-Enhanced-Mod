@@ -357,7 +357,7 @@ function SelectAiSpawnStrategy()
       function()
         print("in SelectAiSpawnStrategy function")
         math.randomseed(os.time())
-        local changeSpawnStrategyChance = 0.45
+        local changeSpawnStrategyChance = 0.5
 
         if math.random() < changeSpawnStrategyChance then
           local prevAiSpawnStrategy = aiSpawnStrategy

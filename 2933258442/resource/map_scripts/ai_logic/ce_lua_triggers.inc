@@ -5460,6 +5460,9 @@
 										{tag
 											{tag _ai_defense}
 										}
+										{tag
+											{tag supplies}
+										}
 									}
 									{include
 										{zone
