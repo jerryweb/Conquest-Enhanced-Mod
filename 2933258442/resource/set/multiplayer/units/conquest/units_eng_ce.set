@@ -1013,7 +1013,8 @@
 ;Early
 {"conquest_blenheim_mk1_eng_recon"
 	("squad_vehicle" side(eng) period(early) min_stage(1) max_stage(8) cw(0) cp(0) crew(pilot:2) vehicle(blenheim_mk1_eng_recon))
-	{cost 1}
+	{cost -501}
+	{cost_sp 1}
 	{round_multiple 1.0}
 	{action "airstrike:reconnaissance_50"}
 }
@@ -1032,7 +1033,8 @@
 ;Mid
 {"conquest_hurribomber_mk2c_light"
 	("squad_vehicle" side(eng) period(mid) min_stage(5) max_stage(8) cw(0) cp(0) crew(pilot:1) vehicle(hurribomber_mk2c))
-	{cost 2}
+	{cost -852}
+	{cost_sp 8}
 	{round_multiple 1.0}
 	{action "airstrike:250lb_gp_mk4"}
 }
@@ -1057,7 +1059,8 @@
 ;}
 {"conquest_typhoon_mk1b"
 	("squad_vehicle" side(eng) period(late) min_stage(9) max_stage(99) cw(0) cp(0) crew(pilot:1) vehicle(typhoon_mk1b))
-	{cost 3}
+	{cost_sp 10}
+	{cost -403}
 	{round_multiple 1.0}
 	{action "airstrike:500lb_mc"}
 }
@@ -1071,31 +1074,36 @@
 
 {"81mm_ml3_mortar_barrage"
 	("squad_vehicle" side(eng) period(mid)  min_stage(1) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(81mm_ml3))
-	{cost -248} ;81mm_ml3 cost 250 - 248 = 2
+	{cost_sp 5}
+	{cost -270} ;81mm_m1 cost 270
 	{round_multiple 1.0}
 	{action "airstrike:conquest_mortar_barrage_80"}
 }
 {"107mm_ml4_2_mortar_barrage"
 	("squad_vehicle" side(eng) period(mid)  min_stage(5) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(107mm_ml4_2))
-	{cost -422} ;107mm_ml4_2 cost 425 - 422 = 3
+	{cost_sp 12}
+	{cost -420} ;107mm_m2 cost 420
 	{round_multiple 1.0}
 	{action "airstrike:conquest_mortar_barrage_120"}
 }
 {"114mm_bl_4_5_smoke_barrage"
 	("squad_vehicle" side(eng) period(mid)  min_stage(3) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(114mm_bl_4_5))
-	{cost -848} ;114mm_bl_4_5 cost 850 - 848 = 2
+	{cost -850} ;114mm_bl_4_5 cost 850 - 848 = 2
+	{cost_sp 2}	
 	{round_multiple 1.0}
 	{action "airstrike:conquest_smoke_barrage_122_rus"}
 }
 {"114mm_bl_4_5_artillery_barrage"
 	("squad_vehicle" side(eng) period(mid)  min_stage(3) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(114mm_bl_4_5))
-	{cost -847} ;114mm_bl_4_5 cost 850 - 847 = 3
+	{cost -850} ;114mm_bl_4_5 cost 850 - 847 = 3
+	{cost_sp 12}
 	{round_multiple 1.0}
 	{action "airstrike:conquest_artillery_barrage_122_rus"}
 }
 {"152mm_bl_6_artillery_barrage"
 	("squad_vehicle" side(eng) period(mid)  min_stage(4) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(152mm_bl_6))
-	{cost -976} ;155mm_m1 cost 980 - 976 = 4
+	{cost -1000} ;155mm_m1 cost 980 - 976 = 4
+	{cost_sp 18}
 	{round_multiple 1.0}
 	{action "airstrike:conquest_artillery_barrage_152_rus"}
 }
@@ -1127,12 +1135,12 @@
 
 
 {"typhoon_mk1b"
-	("vehicle"  side(eng) period(mid) min_stage(6) max_stage(99) cw(0) cp(1) crew(pilot:1))
+	("vehicle"  side(eng) period(mid) min_stage(6) max_stage(99) cw(0) cp(10) crew(pilot:1))
 	{cost 400}{not_for_player_sale 1}
 }
 
 {"hurribomber_mk2c"
-	("vehicle"  side(eng) period(mid) min_stage(8) max_stage(99) cw(0) cp(1) crew(pilot:2))
+	("vehicle"  side(eng) period(mid) min_stage(8) max_stage(99) cw(0) cp(6) crew(pilot:2))
 	{cost 850}{not_for_player_sale 1}
 }
 

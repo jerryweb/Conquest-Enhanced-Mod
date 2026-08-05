@@ -21,6 +21,28 @@
 ;//////////////////////////////////////////////////
 
 ;======================= VANILLA OVERWRITES =======================================
+;SDL
+
+;////////////////// INSTRUCTIONS //////////////////
+;Buttons go as follows, displayed in-game in this order:
+
+; inf1       - infantry squads
+; inf2       - infantry single units
+; empl       - Emplacements, AA, AT, Mortars, Howitzers
+; vehicles   - vehicles, armoured cars, supplies
+; tanks      - main battle tanks, TDs, SPGs
+; doctrine   - specific doctrine setups
+
+; TEMP: Note all levels have been brought down to 1 to remove unit locks.
+; Squads currently have an MP cost of 0 - their cost is currently calculated as the sum of their soldiers cost, see inf_fin.set
+; Check ../settings.set for syntax instructions!!
+; unit limits per game are not defined here but in gamemode presets
+
+;user defined set tags that should be featured on units:
+;all artillery heavyart cannon mediumcan heavycan light medium heavy infantry supply
+;these tags allow player to disable certain sets for custom setups like "no heavy artillery" 
+;//////////////////////////////////////////////////
+
 ;_________________________________________________
 ;|      On Map Emplacements For AI                |
 ;|________________________________________________|
@@ -616,7 +638,8 @@
 
 {"conquest_blenheim"
 	("squad_vehicle" side(fin) period(mid) min_stage(1) max_stage(99) cw(0) cp(0) crew(tankman:2) vehicle(blenheim_mk1))
-	{cost -40}
+	{cost -50}
+	{cost_sp 10}
 	{action "airstrike:sc_250_mp"}
 }
 
@@ -644,7 +667,6 @@
 
 
 ("squad_with2types_conquest" side(fin) period(mid) min_stage(0) max_stage(0) cp(5)  name(single_tankman)		c1(tank_commander:1) c2(tankman:4))
-
 
 ;_______________________________________________
 ;|					AI Artillery				|
@@ -700,14 +722,9 @@
 ;|					Aircraft					|
 ;|______________________________________________|
 
-{"blenheim_mk1"
+{"blenheim_mk1_ai"
 	("vehicle"  side(fin) period(mid) min_stage(7) max_stage(99) cw(0) cp(20) crew(tankman:2))
 	{cost 1700}{not_for_player_sale 1}
-}
-
-{"blenheim_mk1_recon"
-	("vehicle"  side(fin) period(mid) min_stage(7) max_stage(99) cw(0) cp(20) crew(tankman:2))
-	{cost 400}{not_for_player_sale 1}
 }
 
 ; cost = 5
@@ -719,7 +736,8 @@
 ;}
 {"conquest_blenheim_recon"
 	("squad_vehicle" side(fin) period(mid) min_stage(1) max_stage(99) cw(0) cp(3) crew(pilot:2) vehicle(blenheim_mk1_recon))
-	{cost 4}
+	{cost -4}
+	{cost_sp 4}
 	{round_multiple 1.0}
 	{action "airstrike:reconnaissance_50"}
 }	
@@ -728,7 +746,8 @@
 ;____________
 {"controllable_plane_fin"
 	("squad_vehicle" side(fin) period(mid) min_stage(1) max_stage(99) cw(0) cp(3) crew(tankman:2) vehicle(blenheim_mk1_player))
-	{cost -35}
+	{cost -50}
+	{cost_sp 15}
 	{action "airstrike:pistol_ammo"}
 }
 
@@ -741,7 +760,8 @@
 
 {"conquest_blenheim_light"
 	("squad_vehicle" side(fin) period(mid) min_stage(1) max_stage(99) cw(0) cp(0) crew(pilot:2) vehicle(blenheim_mk1))
-	{cost 6}
+	{cost -6}
+	{cost_sp 6}
 	{round_multiple 1.0}
 	{action "airstrike:sc_50"}
 }
@@ -754,20 +774,23 @@
 ;{"smoke_barrage"
 {"122mm_m1910_fin_smoke_barrage"
     ("squad_vehicle" side(fin) period(mid)  min_stage(1) max_stage(99) cw(0) cp(-10) crew(pilot:0) vehicle(offmap_placeholder))
-    {cost 2} 
+    {cost -2} 
+    {cost_sp 2} 
     {round_multiple 1.0}
     {action "airstrike:conquest_smoke_barrage_122_rus"}
 }
 
 {"81mm_krh36_mortar_barrage"
 	("squad_vehicle" side(fin) period(mid)  min_stage(2) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(offmap_placeholder_3))
-	{cost 8} ;81mm_krh36 cost 225 - 223 = 2
+	{cost -8}	 ;81mm_krh36 cost 225 - 223 = 2
+    {cost_sp 8} 
 	{round_multiple 1.0}
 	{action "airstrike:conquest_mortar_barrage_80"}
 }
 {"120mm_krh40_mortar_barrage"
 	("squad_vehicle" side(fin) period(mid)  min_stage(4) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(offmap_placeholder_4))
-	{cost 12} ;120mm_krh40 cost 450 - 447 = 3
+	{cost -12} ;120mm_krh40 cost 450 - 447 = 3
+    {cost_sp 12} 
 	{round_multiple 1.0}
 	{action "airstrike:conquest_mortar_barrage_120"}
 }
@@ -801,7 +824,8 @@
 ; cost = 12
 {"122mm_m1910_fin_artillery_barrage"
 	("squad_vehicle" side(fin) period(mid)  min_stage(4) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(offmap_placeholder_4))
-	{cost 12} ;122mm_m1910_fin cost 750 - 747 = 3
+	{cost -12} ;122mm_m1910_fin cost 750 - 747 = 3
+	{cost_sp 12}
 	{round_multiple 1.0}
 	{action "airstrike:conquest_artillery_barrage_122_rus"}
 }
@@ -809,7 +833,8 @@
 ; cost = 18
 {"155mm_h17_artillery_barrage"
 	("squad_vehicle" side(fin) period(mid)  min_stage(3) max_stage(99) cw(0) cp(0) crew(artilleryman:0) vehicle(offmap_placeholder_5))
-	{cost 18} ;155mm_h17 cost 980 - 976 = 4
+	{cost -18} ;155mm_h17 cost 980 - 976 = 4
+    {cost_sp 18} 
 	{round_multiple 1.0}
 	{action "airstrike:conquest_artillery_barrage_155_fin"}
 }
@@ -878,8 +903,8 @@
 
 
 
-;{"blenheim_mk1_recon" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 4} {cost 0} {not_for_sale 1}}
-;{"blenheim_mk1" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
+{"blenheim_mk1_recon" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 4} {cost 0} {not_for_sale 1}}
+{"blenheim_mk1" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
 {"blenheim_mk1_player" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
 
 ;{"ai_support_in_attack_high"
