@@ -30,7 +30,7 @@
 						{type vehicle}
 					}
 					{"delay"
-						{time 2}
+						{time 0.2}
 					}
 					{"entity_state"
 						{selector

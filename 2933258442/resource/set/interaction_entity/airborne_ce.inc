@@ -110,7 +110,7 @@
 				{tags add "plane_ready_for_sorty"}
 			}
 		else tagged "bomber_ce"
-			{delay 50
+			{delay 40
 				{tags add "plane_ready_for_sorty"}
 			}
 		}

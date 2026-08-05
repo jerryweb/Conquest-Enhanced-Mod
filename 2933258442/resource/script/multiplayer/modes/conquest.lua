@@ -36,8 +36,8 @@ local OrderRotationPeriod = {
     	Max = 4 * 60000, -- 4:00 min (ms)
     }, -- 4:30 min (ms)
     DCG_FLANK = {
-    	Min = 6 * 60000, -- 6:00 min (ms)
-    	Max = 8 * 60000 -- 8:00 min (ms)
+    	Min = 4 * 60000, -- 6:00 min (ms)
+    	Max = 6 * 60000 -- 8:00 min (ms)
     },
     CannonTimeOut = 1.0 * 60000,
     InitialUnitSpawnTimeout = 0.5 * 60000,

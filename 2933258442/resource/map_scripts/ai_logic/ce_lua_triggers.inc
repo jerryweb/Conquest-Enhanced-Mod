@@ -5452,6 +5452,9 @@
 											{tag player_armor}
 										}
 										{tag
+											{tag player_veh}
+										}
+										{tag
 											{tag bot_car}
 										}
 										{tag
@@ -5459,6 +5462,9 @@
 										}
 										{tag
 											{tag _ai_defense}
+										}
+										{tag
+											{tag supplies}
 										}
 									}
 									{include

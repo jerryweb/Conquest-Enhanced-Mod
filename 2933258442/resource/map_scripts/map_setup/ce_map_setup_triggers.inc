@@ -1820,6 +1820,41 @@
 						}
 						{tag_add no_scavenge}
 					}
+					{"ables"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag _ai_defender}
+									}
+								}
+								{include
+									{prop
+										{prop vehicle}
+									}
+									{state
+										{state "operatable inhabited"}
+									}
+								}
+								{exclude
+									{state
+										{state inactive}
+									}
+									{prop
+										{prop airborne}
+									}
+									{state
+										{state user_control}
+									}
+									{tag
+										{tag no_scavenge}
+									}
+								}
+							}
+						}
+						{remove select}
+					}
 					{"delay"
 						{time 0.1}
 					}
@@ -2036,6 +2071,9 @@
 									}
 									{zone
 										{zone "gamezone"}
+									}
+									{player
+										{player "0"}
 									}
 								}
 							}
@@ -2315,6 +2353,9 @@
 										}
 										{tag
 											{tag _user}
+										}
+										{player
+											{player "0"}
 										}
 									}
 								}

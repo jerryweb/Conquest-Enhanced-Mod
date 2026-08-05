@@ -84,7 +84,7 @@
 						{time 1}
 					}					
 					{"trigger"
-						{name "dynamic_weather_script"}
+						{name "player_scripts/dynamic_weather_script"}
 					}
 				}
 			}
