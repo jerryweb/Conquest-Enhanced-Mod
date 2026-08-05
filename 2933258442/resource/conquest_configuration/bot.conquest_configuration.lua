@@ -51,7 +51,7 @@
 	-- Max weather presets for each season. You will also have to change the environment scripts if you change these scripts
 	maxWeatherOptions = {
 		autumn = 12,
-		spring = 6,
+		spring = 12,
 		summer = 12,
 		winter = 20,
 	}

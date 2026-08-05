@@ -2091,7 +2091,7 @@
 				}
 				{actions
 					{"delay"
-						{time 10}
+						{time 4}
 					}
 					{"switch"
 						{"case"

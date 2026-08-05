@@ -257,12 +257,12 @@ Purchases["conquest.ger"] = {
 			{priority = 0.1, type = {"Tank", "Heavy", "AT",}, unit = "jagdtiger"},
 			{priority = 0.1, type = {"Tank", "Heavy", "AT", "Big_gun",}, unit = "sturmtiger"},
 		--Aircraft
-			{priority = 1.0, type = {"Aircraft", "Fighter",}, unit = "bf109_f4", maxUnitCount = 2},
-			{priority = 1.0, type = {"Aircraft", "Fighter", "Group_Air"}, unit = "bf109_f4_x3", maxUnitCount = 6, multiplier = 3},
+			-- {priority = 1.0, type = {"Aircraft", "Fighter",}, unit = "bf109_f4", maxUnitCount = 2},
+			-- {priority = 1.0, type = {"Aircraft", "Fighter", "Group_Air"}, unit = "bf109_f4_x3", maxUnitCount = 6, multiplier = 3},
 			{priority = 0.25, type = {"Aircraft", "Bomber", "Group_Air"}, unit = "bf110_e2_x2", maxUnitCount = 4, multiplier = 2},
 			-- {priority = 0.5, type = {"Aircraft", "Fighter", "Bomber", "Group_Air"}, unit = "fighter_bomber_squad", maxUnitCount = 1},
-			{priority = 1.0, type = {"Aircraft", "Bomber",}, unit = "bf110_e2", maxUnitCount = 2, multiplier = 2},
-            {priority = 1.0, type = {"Aircraft", "ReconPlane",}, unit = "fi156"},
+			{priority = 0.7, type = {"Aircraft", "Bomber",}, unit = "bf110_e2_x1", maxUnitCount = 1},
+            {priority = 1.0, type = {"Aircraft", "ReconPlane",}, unit = "fi156_x1"},
 			{priority = 0.5, type = {"Aircraft", "Paratrooper", "Group_Air",}, unit = "squad_fallschirmjaeger_para_con_x2", multiplier = 2},
 			{priority = 0.5, type = {"Aircraft", "Paratrooper", "Group_Air",}, unit = "squad_fallschirmjaeger_para_con_late_x2", multiplier = 2},
 		-- --STUFF

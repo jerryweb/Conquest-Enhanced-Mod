@@ -5452,6 +5452,9 @@
 											{tag player_armor}
 										}
 										{tag
+											{tag player_veh}
+										}
+										{tag
 											{tag bot_car}
 										}
 										{tag

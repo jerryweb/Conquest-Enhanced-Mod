@@ -60,9 +60,17 @@
 						("weather_case" weather_selection_value(2) weather_path(dynamic_campaign/spring/clear/midday_1) 	apply_time(150))
 						("weather_case" weather_selection_value(3) weather_path(dynamic_campaign/spring/clear/evening_01) 	apply_time(150))
 
-						("weather_case" weather_selection_value(4) weather_path(dynamic_campaign/spring/sloudy/morning_01) 	apply_time(150))
-						("weather_case" weather_selection_value(5) weather_path(dynamic_campaign/spring/sloudy/midday_1) 	apply_time(150))
-						("weather_case" weather_selection_value(6) weather_path(dynamic_campaign/spring/sloudy/evening_01) 	apply_time(150))
+						("weather_case" weather_selection_value(4) weather_path(dynamic_campaign/spring/cloudy/morning_01) 	apply_time(150))
+						("weather_case" weather_selection_value(5) weather_path(dynamic_campaign/spring/cloudy/midday_1) 	apply_time(150))
+						("weather_case" weather_selection_value(6) weather_path(dynamic_campaign/spring/cloudy/evening_01) 	apply_time(150))
+
+						("weather_case" weather_selection_value(4) weather_path(dynamic_campaign/dcg_dunkirk/cloudy/morning_01) 	apply_time(150))
+						("weather_case" weather_selection_value(5) weather_path(dynamic_campaign/dcg_dunkirk/cloudy/midday_1) 	apply_time(150))
+						("weather_case" weather_selection_value(6) weather_path(dynamic_campaign/dcg_dunkirk/cloudy/evening_01) 	apply_time(150))
+
+						("weather_case" weather_selection_value(4) weather_path(dynamic_campaign/dcg_dunkirk/clear/morning_01) 	apply_time(150))
+						("weather_case" weather_selection_value(5) weather_path(dynamic_campaign/dcg_dunkirk/clear/midday_1) 	apply_time(150))
+						("weather_case" weather_selection_value(6) weather_path(dynamic_campaign/dcg_dunkirk/clear/evening_01) 	apply_time(150))
 					}
 					{"delay"
 						{time 150}
@@ -155,6 +163,90 @@
 							}
 							{"environment"
 								{name "dynamic_campaign/spring/cloudy/midday_1"}
+								{time -1}
+								{apply}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.15}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"environment"
+								{name "dynamic_campaign/dcg_dunkirk/cloudy/midday_1"}
+								{time -1}
+								{apply}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.15}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"environment"
+								{name "dynamic_campaign/dcg_dunkirk/cloudy/evening_1"}
+								{time -1}
+								{apply}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.15}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"environment"
+								{name "dynamic_campaign/dcg_dunkirk/cloudy/morning_1"}
+								{time -1}
+								{apply}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.15}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"environment"
+								{name "dynamic_campaign/dcg_dunkirk/clear/midday_1"}
+								{time -1}
+								{apply}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.15}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"environment"
+								{name "dynamic_campaign/dcg_dunkirk/clear/evening_1"}
+								{time -1}
+								{apply}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.15}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"environment"
+								{name "dynamic_campaign/dcg_dunkirk/clear/morning_1"}
 								{time -1}
 								{apply}
 							}
