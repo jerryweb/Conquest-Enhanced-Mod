@@ -1,5 +1,12 @@
 ; ================= Flag Point Entities =================
 
+(define "spawn_waypoint_poles_x4"
+	{spawn "ai_waypoint_pole" random_position 6000 constrain_after_dir scale 4.0}
+	{spawn "ai_waypoint_pole" random_position 6000 constrain_after_dir scale 4.0}
+	{spawn "ai_waypoint_pole" random_position 6000 constrain_after_dir scale 4.0}
+	{spawn "ai_waypoint_pole" random_position 6000 constrain_after_dir scale 4.0}
+)
+
 {"flag"
 	{on spawn
 		{delay 1
@@ -7,27 +14,11 @@
 		}
 		{delay 3
 			(mod "mp"
-				{spawn "ai_waypoint_pole" random_position 6000 constrain_after_dir scale 4.0}
-				{spawn "ai_waypoint_pole" random_position 6000 constrain_after_dir scale 4.0}
-				{spawn "ai_waypoint_pole" random_position 6000 constrain_after_dir scale 4.0}
-				{spawn "ai_waypoint_pole" random_position 6000 constrain_after_dir scale 4.0}
-	            ;{spawn "chicken" random_position 400 offset 0 0 180}
-
-				{spawn "ai_waypoint_pole" random_position 6000 constrain_after_dir scale 4.0}
-				{spawn "ai_waypoint_pole" random_position 6000 constrain_after_dir scale 4.0}
-				{spawn "ai_waypoint_pole" random_position 6000 constrain_after_dir scale 4.0}
-				{spawn "ai_waypoint_pole" random_position 6000 constrain_after_dir scale 4.0}
-
-				{spawn "ai_waypoint_pole" random_position 6000 constrain_after_dir scale 4.0}
-				{spawn "ai_waypoint_pole" random_position 6000 constrain_after_dir scale 4.0}
-				{spawn "ai_waypoint_pole" random_position 6000 constrain_after_dir scale 4.0}
-				{spawn "ai_waypoint_pole" random_position 6000 constrain_after_dir scale 4.0} 
-
-				{spawn "ai_waypoint_pole" random_position 6000 constrain_after_dir scale 4.0}
-				{spawn "ai_waypoint_pole" random_position 6000 constrain_after_dir scale 4.0}
-				{spawn "ai_waypoint_pole" random_position 6000 constrain_after_dir scale 4.0}
-				{spawn "ai_waypoint_pole" random_position 6000 constrain_after_dir scale 4.0}				  
-	        )   
+				("spawn_waypoint_poles_x4")
+				("spawn_waypoint_poles_x4")
+				("spawn_waypoint_poles_x4")
+				("spawn_waypoint_poles_x4")
+			)   
 		}
     }
     
@@ -82,6 +73,13 @@
 	}
 }
 
+(define "spawn_drop_zone_pole"
+	{spawn "ai_waypoint_pole" random_position %radius scale 4.0
+		{tags add "drop_zone_selected"}
+		{tags add "spawn_drop_zone"}
+	}
+)
+
 {"map_point"
 	{on spawn
 		{delay 1
@@ -91,66 +89,23 @@
 		}
 	}
 	{on "spawn_drop_zone_targets"
-		{spawn "ai_waypoint_pole" random_position 50 scale 4.0
-			{tags add "drop_zone_selected"}
-			{tags add "spawn_drop_zone"}
-		}
-		{spawn "ai_waypoint_pole" random_position 2500 scale 4.0
-			{tags add "drop_zone_selected"}
-			{tags add "spawn_drop_zone"}
-		}
-		{spawn "ai_waypoint_pole" random_position 2500 scale 4.0
-			{tags add "drop_zone_selected"}
-			{tags add "spawn_drop_zone"}
-		}
-		{spawn "ai_waypoint_pole" random_position 2500 scale 4.0
-			{tags add "drop_zone_selected"}
-			{tags add "spawn_drop_zone"}
-		}
-		{spawn "ai_waypoint_pole" random_position 2500 scale 4.0
-			{tags add "drop_zone_selected"}
-			{tags add "spawn_drop_zone"}
-		}
-		{spawn "ai_waypoint_pole" random_position 2500 scale 4.0
-			{tags add "drop_zone_selected"}
-			{tags add "spawn_drop_zone"}
-		}
-		{spawn "ai_waypoint_pole" random_position 2500 scale 4.0
-			{tags add "drop_zone_selected"}
-			{tags add "spawn_drop_zone"}
-		}
-		{spawn "ai_waypoint_pole" random_position 2500 scale 4.0
-			{tags add "drop_zone_selected"}
-			{tags add "spawn_drop_zone"}
-		}
-		{spawn "ai_waypoint_pole" random_position 2500 scale 4.0
-			{tags add "drop_zone_selected"}
-			{tags add "spawn_drop_zone"}
-		}
-		{spawn "ai_waypoint_pole" random_position 2500 scale 4.0
-			{tags add "drop_zone_selected"}
-			{tags add "spawn_drop_zone"}
-		}
-		{spawn "ai_waypoint_pole" random_position 2500 scale 4.0
-			{tags add "drop_zone_selected"}
-			{tags add "spawn_drop_zone"}
-		}
-		{spawn "ai_waypoint_pole" random_position 2500 scale 4.0
-			{tags add "drop_zone_selected"}
-			{tags add "spawn_drop_zone"}
-		}
+		("spawn_drop_zone_pole" radius(50))
+		("spawn_drop_zone_pole" radius(2500))
+		("spawn_drop_zone_pole" radius(2500))
+		("spawn_drop_zone_pole" radius(2500))
+		("spawn_drop_zone_pole" radius(2500))
+		("spawn_drop_zone_pole" radius(2500))
+		("spawn_drop_zone_pole" radius(2500))
+		("spawn_drop_zone_pole" radius(2500))
+		("spawn_drop_zone_pole" radius(2500))
+		("spawn_drop_zone_pole" radius(2500))
+		("spawn_drop_zone_pole" radius(2500))
+		("spawn_drop_zone_pole" radius(2500))
 	}
 	
 	{on "spawn_ai_waypoint_poles"
-		{spawn "ai_waypoint_pole" random_position 6000 constrain_after_dir scale 4.0}
-		{spawn "ai_waypoint_pole" random_position 6000 constrain_after_dir scale 4.0}
-		{spawn "ai_waypoint_pole" random_position 6000 constrain_after_dir scale 4.0}
-		{spawn "ai_waypoint_pole" random_position 6000 constrain_after_dir scale 4.0} 
-
-		{spawn "ai_waypoint_pole" random_position 6000 constrain_after_dir scale 4.0}
-		{spawn "ai_waypoint_pole" random_position 6000 constrain_after_dir scale 4.0}
-		{spawn "ai_waypoint_pole" random_position 6000 constrain_after_dir scale 4.0}
-		{spawn "ai_waypoint_pole" random_position 6000 constrain_after_dir scale 4.0}
+		("spawn_waypoint_poles_x4")
+		("spawn_waypoint_poles_x4")
 	}
 }
 
@@ -175,6 +130,12 @@
 }
 
 {"parachute_attach ammo_crate"
+	(define "spawn_paradropped_vehicle"
+		{spawn %veh offset 0 0 18
+			{tags add "paradropped_veh"}
+		}
+	)
+
 	(define "paradrop_vehicle"
 		{if tagged "rus"
 			{if rand 0.5
@@ -200,12 +161,6 @@
 			("spawn_paradropped_vehicle" veh("inf_crate_ger"))	
 		else tagged "usa_supply_box"	
 			("spawn_paradropped_vehicle" veh("inf_crate_usa"))	
-		}
-	)
-
-	(define "spawn_paradropped_vehicle"
-		{spawn %veh offset 0 0 18
-			{tags add "paradropped_veh"}
 		}
 	)
 
@@ -245,11 +200,21 @@
 
 {"pointer_mines"				;// mission objective icon/helper
 	{on spawn
-		;{tags add "pointer_mines"}
-		;{add_view "mines" "mines" "upper"}
-		;{view start "mines"}
 		{delay 300
 			{delete}
+		}
+	}
+}
+
+{"bullet_sound"
+	{on spawn
+		;// link all possible sounds for projectiles
+		{delay 0 ;// required
+		;// check for specific bone names in the {view "entity"} of the weapons ammo file
+			{if bone "sound_shell_high_vel"		;// high velocity shells
+				{link_sound "shell_high"		"projectile/shell/standard_high/"}
+				{play_sound "shell_high"}
+			}	
 		}
 	}
 }
@@ -293,10 +258,6 @@
 {"ai_waypoint_pole"
 	{on spawn
 		{tags add "drop_zone"}
-		;{delay 15
-		;	{add_view "smoke_yellow_norm" "smoke" "root"}
-		;	{view start "smoke"}
-		;}
 	}
 
 	(define "spawn_object_for_defense"
@@ -345,21 +306,9 @@
 	(define "spawn_aim_dummy"
 		{on spawn
 			{tags add %0}
-			;{spawn %1
-			;	{tags add %1}
-			;}
 			{delay 0.2
 				{call "static_supply_drop"}
 			}
-			{delay 3
-				{delete}
-			}
-		}
-	)
-
-	(define "spawn_no_aim_dummy"
-		{on spawn
-			{tags add %0}
 			{delay 3
 				{delete}
 			}
@@ -397,54 +346,11 @@
 	{on spawn
 		{delay 3
 			{delete}
-			
 		}
 	}
-
 }
-
 
 ; ================= Spawn Entities =================
-{"spawn_aim"
-	(define "spawn_aim_dummy"
-		{on spawn
-			{tags add "spawn_aim"}
-			{tags add "%0_%1"}
-		}
-	)
-}
-
-{"spawn_aim side_a 1"
-	("spawn_aim_dummy" args side_a 1)
-}
-
-{"spawn_aim side_a 2"
-	("spawn_aim_dummy" args side_a 2)
-}
-
-{"spawn_aim side_a 3"
-	("spawn_aim_dummy" args side_a 3)
-}
-
-{"spawn_aim side_a 4"
-	("spawn_aim_dummy" args side_a 1)
-}
-
-{"spawn_aim side_b 1"
-	("spawn_aim_dummy" args side_b 1)
-}
-
-{"spawn_aim side_b 2"
-	("spawn_aim_dummy" args side_b 2)
-}
-
-{"spawn_aim side_b 3"
-	("spawn_aim_dummy" args side_b 3)
-}
-
-{"spawn_aim side_b 4"
-	("spawn_aim_dummy" args side_b 4)
-}
 
 {"spawn_waypoint_graph_disable"
 	{on spawn
@@ -534,247 +440,96 @@
 
 ; ================= Habla emplacemento? =================
 
-{"heavy_blitz3_6_radio"
-	{on spawn
-		{delay 0.2 {delete}
-            {spawn "blitz3_6_radio" "enumerator_logo1" x }
-        }
+(define "spawn_heavy_emplacement"
+	{"%dummy"
+		{on spawn
+			{delay 0.2
+				{spawn "%target" "enumerator_logo1" x}
+				{delete}
+			}
+		}
 	}
-}
-{"heavy_aa_regelbau_flak_ring_88mm_flak36"
-	{on spawn
-		{delay 0.2 {delete}
-            {spawn "aa_regelbau_flak_ring_88mm_flak36" "enumerator_logo1" x }
-        }
-	}
-}
-{"heavy_emplacement_50mm_kwk39_platform"
-	{on spawn
-		{delay 0.2 {delete}
-            {spawn "emplacement_50mm_kwk39_platform" "enumerator_logo1" x }
-        }
-	}
-}
-{"heavy_emplacement_80mm_sgrw34_rapid"
-	{on spawn
-		{delay 0.2 {delete}
-            {spawn "emplacement_80mm_sgrw34_rapid" "enumerator_logo1" x }
-        }
-	}
-}
-{"heavy_emplacement_81mm_m1"
-	{on spawn
-		{delay 0.2 {delete}
-            {spawn "emplacement_81mm_m1" "enumerator_logo1" x }
-        }
-	}
-}
-{"heavy_emplacement_82mm_bm37"
-	{on spawn
-		{delay 0.2 {delete}
-            {spawn "emplacement_82mm_bm37" "enumerator_logo1" x }
-        }
-	}
-}
-{"heavy_emplacement_152mm_ml20"
-	{on spawn
-		{delay 0.2 {delete}
-            {spawn "emplacement_152mm_ml20" "enumerator_logo1" x }
-        }
-	}
-}
-{"heavy_emplacement_155mm_gpf_platform"
-	{on spawn
-		{delay 0.2 {delete}
-            {spawn "emplacement_155mm_gpf_platform" "enumerator_logo1" x }
-        }
-	}
-}
-{"heavy_emplacement_155mm_gpf_us"
-	{on spawn
-		{delay 0.2 {delete}
-            {spawn "emplacement_155mm_gpf_us" "enumerator_logo1" x }
-        }
-	}
-}
-{"heavy_emplacement_305mm_mb_2_12"
-	{on spawn
-		{delay 0.2 {delete}
-            {spawn "emplacement_305mm_mb_2_12" "enumerator_logo1" x }
-        }
-	}
-}
-{"heavy_flak_ring_88mm_flak36"
-	{on spawn
-		{delay 0.2 {delete}
-            {spawn "flak_ring_88mm_flak36" "enumerator_logo1" x }
-        }
-	}
-}
-{"heavy_m1917_30cal_emplacement"
-	{on spawn
-		{delay 0.2 {delete}
-            {spawn "m1917_30cal_emplacement" "enumerator_logo1" x }
-        }
-	}
-}
-{"heavy_maxim_emplacement"
-	{on spawn
-		{delay 0.2 {delete}
-            {spawn "maxim_emplacement" "enumerator_logo1" x }
-        }
-	}
-}
-{"heavy_maxim_x4_emplacement"
-	{on spawn
-		{delay 0.2 {delete}
-            {spawn "maxim_x4_emplacement" "enumerator_logo1" x }
-        }
-	}
-}
-{"heavy_50cal_quad_m45_emplacement"
-	{on spawn
-		{delay 0.2 {delete}
-            {spawn "50cal_quad_m45_emplacement" "enumerator_logo1" x }
-        }
-	}
-}
-{"heavy_mg42_lafette_emplacement"
-	{on spawn
-		{delay 0.2 {delete}
-            {spawn "mg42_lafette_emplacement" "enumerator_logo1" x }
-        }
-	}
-}
-{"heavy_mgun_ring_emplacement"
-	{on spawn
-		{delay 0.2 {delete}
-            {spawn "mgun_ring_emplacement" "enumerator_logo1" x }
-        }
-	}
-}
-{"heavy_regel_bau_pak_75mm_pak40"
-	{on spawn
-		{delay 0.2 {delete}
-            {spawn "regel_bau_pak_75mm_pak40" "enumerator_logo1" x }
-        }
-	}
-}
-{"heavy_regel_bau_76mm_m5_m1"
-	{on spawn
-		{delay 0.2 {delete}
-            {spawn "regel_bau_76mm_m5_m1" "enumerator_logo1" x }
-        }
-	}
-}
-{"heavy_regel_bau_76mm_zis3"
-	{on spawn
-		{delay 0.2 {delete}
-            {spawn "regel_bau_76mm_zis3" "enumerator_logo1" x }
-        }
-	}
-}
-{"heavy_sandbag_bunker_dummy_50cal"
-	{on spawn
-		{delay 0.2 {delete}
-            {spawn "sandbag_bunker_dummy_50cal" "enumerator_logo1" x }
-        }
-	}
-}
-{"heavy_sandbag_bunker_m2_50cal_tripod" ;// Added June 21
-	{on spawn
-		{delay 0.2 {delete}
-            {spawn "sandbag_bunker_m2_50cal_tripod" "enumerator_logo1" x }
-        }
-	}
-}
-{"heavy_sandbag_bunker_sg43_stand"
-	{on spawn
-		{delay 0.2 {delete}
-            {spawn "sandbag_bunker_sg43_stand" "enumerator_logo1" x }
-        }
-	}
-}
-{"heavy_sandbag_bunker_ds39_stand"
-	{on spawn
-		{delay 0.2 {delete}
-            {spawn "sandbag_bunker_ds39_stand" "enumerator_logo1" x }
-        }
-	}
-}
-{"heavy_sandbag_bunker_hmg42" ;// Added June 21
-    {on spawn
-        {delay 0.2 {delete}
-            {spawn "sandbag_bunker_hmg42" "enumerator_logo1" x }
-        }
-    }
-}
-{"heavy_supply_crate_build"
-	{on spawn
-		{delay 0.2 {delete}
-            {spawn "supply_crate_build" "enumerator_logo1" x }
-        }
-	}
-}
+)
+
+("spawn_heavy_emplacement" dummy(heavy_blitz3_6_radio) target(blitz3_6_radio))
+("spawn_heavy_emplacement" dummy(heavy_aa_regelbau_flak_ring_88mm_flak36) target(aa_regelbau_flak_ring_88mm_flak36))
+("spawn_heavy_emplacement" dummy(heavy_emplacement_50mm_kwk39_platform) target(emplacement_50mm_kwk39_platform))
+("spawn_heavy_emplacement" dummy(heavy_emplacement_80mm_sgrw34_rapid) target(emplacement_80mm_sgrw34_rapid))
+("spawn_heavy_emplacement" dummy(heavy_emplacement_81mm_m1) target(emplacement_81mm_m1))
+("spawn_heavy_emplacement" dummy(heavy_emplacement_82mm_bm37) target(emplacement_82mm_bm37))
+("spawn_heavy_emplacement" dummy(heavy_emplacement_152mm_ml20) target(emplacement_152mm_ml20))
+("spawn_heavy_emplacement" dummy(heavy_emplacement_155mm_gpf_platform) target(emplacement_155mm_gpf_platform))
+("spawn_heavy_emplacement" dummy(heavy_emplacement_155mm_gpf_us) target(emplacement_155mm_gpf_us))
+("spawn_heavy_emplacement" dummy(heavy_emplacement_305mm_mb_2_12) target(emplacement_305mm_mb_2_12))
+("spawn_heavy_emplacement" dummy(heavy_flak_ring_88mm_flak36) target(flak_ring_88mm_flak36))
+("spawn_heavy_emplacement" dummy(heavy_m1917_30cal_emplacement) target(m1917_30cal_emplacement))
+("spawn_heavy_emplacement" dummy(heavy_maxim_emplacement) target(maxim_emplacement))
+("spawn_heavy_emplacement" dummy(heavy_maxim_x4_emplacement) target(maxim_x4_emplacement))
+("spawn_heavy_emplacement" dummy(heavy_50cal_quad_m45_emplacement) target(50cal_quad_m45_emplacement))
+("spawn_heavy_emplacement" dummy(heavy_mg42_lafette_emplacement) target(mg42_lafette_emplacement))
+("spawn_heavy_emplacement" dummy(heavy_mgun_ring_emplacement) target(mgun_ring_emplacement))
+("spawn_heavy_emplacement" dummy(heavy_regel_bau_pak_75mm_pak40) target(regel_bau_pak_75mm_pak40))
+("spawn_heavy_emplacement" dummy(heavy_regel_bau_76mm_m5_m1) target(regel_bau_76mm_m5_m1))
+("spawn_heavy_emplacement" dummy(heavy_regel_bau_76mm_zis3) target(regel_bau_76mm_zis3))
+("spawn_heavy_emplacement" dummy(heavy_sandbag_bunker_dummy_50cal) target(sandbag_bunker_dummy_50cal))
+("spawn_heavy_emplacement" dummy(heavy_sandbag_bunker_m2_50cal_tripod) target(sandbag_bunker_m2_50cal_tripod))
+("spawn_heavy_emplacement" dummy(heavy_sandbag_bunker_sg43_stand) target(sandbag_bunker_sg43_stand))
+("spawn_heavy_emplacement" dummy(heavy_sandbag_bunker_ds39_stand) target(sandbag_bunker_ds39_stand))
+("spawn_heavy_emplacement" dummy(heavy_sandbag_bunker_hmg42) target(sandbag_bunker_hmg42))
+("spawn_heavy_emplacement" dummy(heavy_supply_crate_build) target(supply_crate_build))
+("spawn_heavy_emplacement" dummy(heavy_240mm_type_45) target(240mm_type_45))
+("spawn_heavy_emplacement" dummy(heavy_200mm_type_3) target(200mm_type_3))
 
 {"trench_logs_straight_illusion"
 	{on spawn
 		{delay 0.1
-            {spawn "trench_logs_straight" "basic" x }
-        }
+			{spawn "trench_logs_straight" "basic" x}
+			{delete}
+		}
 	}
 }
 {"trench_engineer_illusion"
 	{on spawn
 		{delay 0.1
-            {spawn "trench_engineer" "basic" x }
-        }
-	}
-}
-{"heavy_240mm_type_45"
-	{on spawn
-		{delay 0.1
-            {spawn "240mm_type_45" "enumerator_logo1" x }
-        }
-	}
-}
-{"heavy_200mm_type_3"
-	{on spawn
-		{delay 0.1
-            {spawn "200mm_type_3" "enumerator_logo1" x }
-        }
+			{spawn "trench_engineer" "basic" x}
+			{delete}
+		}
 	}
 }
 
 {"heavyy_mg_type1"
 	{on spawn
 		{delay 0.1
-            {spawn "heavy_mgg_type1" "enumerator_logo1" x }
-        }
+			{spawn "heavy_mgg_type1" "enumerator_logo1" x}
+			{delete}
+		}
 	}
 }
 
 {"heavyy_200mm_type_4"
 	{on spawn
 		{delay 0.1
-            {spawn "heavy_200mm_type_4" "enumerator_logo1" x }
-        }
+			{spawn "heavy_200mm_type_4" "enumerator_logo1" x}
+			{delete}
+		}
 	}
 }
 
 {"heavyy_75mm_type_88"
 	{on spawn
 		{delay 0.1
-            {spawn "heavy_75mm_type_88" "enumerator_logo1" x }
-        }
+			{spawn "heavy_75mm_type_88" "enumerator_logo1" x}
+			{delete}
+		}
 	}
 }
 
 {"heavyy_57mm_type_2"
 	{on spawn
 		{delay 0.1
-            {spawn "heavy_57mm_type_2" "enumerator_logo1" x }
-        }
+			{spawn "heavy_57mm_type_2" "enumerator_logo1" x}
+			{delete}
+		}
 	}
 }
 
@@ -795,22 +550,18 @@
 }
 
 {"ally_support_dummy_high_dum"
-    {on spawn overload
-        
-        {delay 0.2
-            {tags add "support_mark_high"}
-        }
+	{on spawn overload
+		{delay 0.2
+			{tags add "support_mark_high"}
+		}
 	}
 }
 
 {"ally_support_dummy_low_dum"
-    {on spawn overload
-        
-        {delay 0.2
-            {tags add "support_mark_low"}
-        }
-        
-        
+	{on spawn overload
+		{delay 0.2
+			{tags add "support_mark_low"}
+		}
 	}
 }
 
@@ -921,4 +672,3 @@
 		}
 	}
 }
-

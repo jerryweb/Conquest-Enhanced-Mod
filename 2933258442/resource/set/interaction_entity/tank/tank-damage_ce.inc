@@ -25,9 +25,9 @@
 		{if not tagged "_ai_defender"
 			{mark_for_persistence}			;// Conquest map persistence
 		}
-		{link_sound "cook_off" "detonation/cook_off/cook"}
-		{link_sound "cook_off" "detonation/cook_off/transition"}
-		{link_sound "burnup_ammo" "detonation/cook_off/burn_ammo"}
+		{link_sound "cook_off" "detonation/cook_off/cook/"}
+		{link_sound "cook_off" "detonation/cook_off/transition/"}
+		{link_sound "burnup_ammo" "detonation/cook_off/burn_ammo/"}
 		{call "engine_off"}
 		{if tagged "vehicle_destroyed" ;// vehicle already burning so no build up
 			;//random explosion timer

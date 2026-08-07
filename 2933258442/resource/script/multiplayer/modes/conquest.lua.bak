@@ -303,7 +303,9 @@ function GetCurrentSpawnWaitTime()
 end
 
 function GetUnitToSpawn(units)
-	if not units then return nil end
+	if not units then
+		return nil
+	end
 	
 	local unitsToSpawn = {}
 	
@@ -348,7 +350,7 @@ function OnGameQuant()
 
 	local waypoints = BotApi.Scene.Waypoints
 	if #waypoints == 0 then
-		for _, squad in pairs(BotApi.Scene.Squads) do
+		for i, squad in pairs(BotApi.Scene.Squads) do
 			if not Context.SquadTimers[squad] then
 				if printDebug then print("SQUAD ", squad, " SquadTimers = nil") end
 				SetSquadOrder(CaptureFlag, squad, math.random(OrderRotationPeriod.DCG.Min, OrderRotationPeriod.DCG.Max), true)

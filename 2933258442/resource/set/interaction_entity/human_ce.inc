@@ -1,5 +1,6 @@
 {"human"
-	{on spawn	
+	; ================= Spawn Extensions =================
+	{on spawn
 		{delay 0.5
 			{add_view "beacon_fx" "beacon_fx" "head"}
 			{delay 3
@@ -134,69 +135,65 @@
 	{on "select_paratroopers_to_give_orders"
 		{tags remove "paratrooper_need_orders"}
 		{tags add "selected_paratrooper"}
-		;{tags add "_lua_mi"}
-		;{delay 5.25
-		;	{tags remove "_lua_mi"}
-		;}
 	}
 
 	{on "order_paratrooper"
 		{tags remove "p_crew"}
 		{tags remove "selected_paratrooper"}
-		{tags remove "paratrooper_need_orders"}
+		;{tags remove "paratrooper_need_orders"}
 		{tags remove "_lua_mi"}
 	}
 
 	{on "send_ai_to_partol"
 		{tags add "go_patrol"}
-		{delay 150
-			{if not dead
-				{tags remove "patrolling"}
-			}
+		{delay_ex 150 "patrol_timer"
+			{tags remove "patrolling"}
 		}
 	}
 
 	{on "pervitin_taken"
-        {if not tagged "enhanced"
-            {delay 0.1
-               	{if rand 0.25
-                    {damage_report "medic_action" "<s(10)b+c(FF0000)>....OOOOHHHH YEAHHH!!!"}
-                else rand 0.25
-                    {damage_report "medic_action" "<s(10)b+c(FF0000)>THAT'S THE STUFF!"}
-                else rand 0.25
-                    {damage_report "medic_action" "<s(10)b+c(FF0000)>oof...KILL THEM ALL!!!"}
-                else
-                    {damage_report "medic_action" "<s(10)b+c(FF0000)>Pill taken"}
-                }
-                {tags add "enhanced"}
-                ("human_health" c(-2000))
-            }
-            {delay 120
-                {if rand 0.5
-               	 	{damage_report "medic_action" "<s(10)b+c(00FF00)>Sobered up"}
-                    ("human_health" c(2000))
-                    {tags remove "enhanced"}
-                else rand 0.1
-                	{damage_report "medic_action" "<s(10)b+c(00FF00)>Sobered up"}
-                    ("human_health" c(1900))
-                    {tags remove "enhanced"}
-                else rand 0.1
-               		{damage_report "medic_action" "<s(10)b+c(00FF00)>Sobered up"}
-                    ("human_health" c(1800))
-                    {tags remove "enhanced"}
-                else
-                	{damage_report "medic_action" "<s(10)b+c(FF0009)>OVERDOSE"}
-                    ("human_health" c(2800))
-                    {tags remove "enhanced"}
-                }
-            }
-        }
-    }
+	    {if not tagged "enhanced"
+	        {delay 0.1
+	            {if rand 0.25
+	                {damage_report "medic_action" "<s(10)b+c(FF0000)>....OOOOHHHH YEAHHH!!!"}
+	            else rand 0.25
+	                {damage_report "medic_action" "<s(10)b+c(FF0000)>THAT'S THE STUFF!"}
+	            else rand 0.25
+	                {damage_report "medic_action" "<s(10)b+c(FF0000)>oof...KILL THEM ALL!!!"}
+	            else
+	                {damage_report "medic_action" "<s(10)b+c(FF0000)>Pill taken"}
+	            }
+	            {tags add "enhanced"}
+	            ("human_health" c(-2000))
+	        }
+	        
+	        {delay_ex 120 "pervitin_timer"
+	            {if not dead
+	                {if rand 0.5
+	                    {damage_report "medic_action" "<s(10)b+c(00FF00)>Sobered up"}
+	                    ("human_health" c(2000))
+	                    {tags remove "enhanced"}
+	                else rand 0.1
+	                    {damage_report "medic_action" "<s(10)b+c(00FF00)>Sobered up"}
+	                    ("human_health" c(1900))
+	                    {tags remove "enhanced"}
+	                else rand 0.1
+	                    {damage_report "medic_action" "<s(10)b+c(00FF00)>Sobered up"}
+	                    ("human_health" c(1800))
+	                    {tags remove "enhanced"}
+	                else
+	                    {damage_report "medic_action" "<s(10)b+c(FF0009)>OVERDOSE"}
+	                    ("human_health" c(2800))
+	                    {tags remove "enhanced"}
+	                }
+	            }
+	        }
+	    }
+	}
 
 ;============= Repair Functions =============
 	{on "prep_to_repair_veh"
 		{if tagged "ai_tank_crew"
-			
 			{tags add "action_repair_tank_crew"}
 			{tags add "ignore_recrew"}
 		else
@@ -204,16 +201,11 @@
 		}
 	}
 
-	{on "start_repair"
-		{view start ally neutral "marker_repair"}
-		
-	}
+	; (Note: start_repair is omitted here since human.inc already starts marker_repair)
 
 	{on "stop_repair"
-		{view pause "marker_repair"}
-		{delay 10
+		{delay_ex 10 "repair_recrew_timer"
 			{if tagged "ai_tank_crew"
-				
 				{tags remove "ignore_recrew"}
 			}
 		}
@@ -226,7 +218,7 @@
 			{tags remove "action_destroy_hedgehog"}
 			{tags add "engineer_action"}
 			{tags add "attacking_hedgehog"}
-			{delay 30
+			{delay_ex 30 "hedgehog_timer"
 				{if tagged "attacking_hedgehog"
 					{drop_orders}
 					{tags remove "engineer_action"}
@@ -304,7 +296,7 @@
 			{tags remove "_lua_mi"}
 			{tags add "throwing_smoke_ignore"}
 
-			{delay 45
+			{delay_ex 45 "smoke_ignore_timer"
 				{tags remove "throwing_smoke_ignore"}
 			}
 		}
@@ -313,7 +305,7 @@
 	{on "add_custom_smoke_grenade"
 		{if not user_control
 			{tags add "give_custom_smoke_grenade"}
-			{delay 120 ;// previously 240
+			{delay 120
 				{if not dead
 					{tags remove "ignore_give_smoke"}
 				}
@@ -338,50 +330,18 @@
 		{view stop "beacon_fx"}
 	}	
 
-	{on board out							;// exiting a vehicle
-		;{if linked "multi_board"
-		;	{if not tagged "ai_tank_crew"
-		;		{if not user_control
-		;			{if not dead
-		;				{tags add "inf_need_to_attack"}
-		;				{delay 30
-		;					{tags remove "inf_need_to_attack"}
-		;				}
-		;			}
-		;		}
-		;	}
-		;}
+	{on board out
 		{if tagged "radio_man"
 			{view start "beacon_fx"}
 		}
 	}
-
-	;{on "linker_simulation"
-	;	{if effector "airborne"
-	;		;// do nothing
-	;	else effector "cannon"
-	;		;// do nothing
-	;	else effector "paratrooper"
-	;		{tags remove "eject"}
-	;		{call "para_idle_animation"}
-	;	else altitude 3
-	;		{throw_off up 1 forward 2 die force}
-	;	}
-	;	{if effector "parachute_attach"
-	;		{physics_work 0}
-	;		{delay 6
-	;			{physics_work 1}
-	;			{drop_orders}
-	;		}
-	;	}
-	;}
 
 	{on ground_hit 
 		{if tagged "paratrooper"
 			{if not user_control
 				{if not dead
 					{tags add "paratrooper_need_orders"}
-					{delay 120
+					{delay_ex 120 "para_orders_timer"
 						{tags remove "paratrooper_need_orders"}
 					}
 				}
@@ -391,6 +351,12 @@
 	}
 
 	{on "die"
+		{kill_delay "pervitin_timer"}
+		{kill_delay "smoke_ignore_timer"}
+		{kill_delay "repair_recrew_timer"}
+		{kill_delay "need_next_order_timer"}
+		{kill_delay "patrol_timer"}
+
 		{if tagged "ai_signaller"
 			{clear_inventory}
 			{tags remove "ai_signaller"}
@@ -403,7 +369,7 @@
 		{tags remove "ai_engineer"}
 		{tags remove "ai_tank_crew"}
 		{tags remove "inf_need_to_attack"}
-		
+		{tags remove "enhanced"}
 		{tags remove "ignore_recrew"}	
 		{view stop "beacon_fx"}
 	}

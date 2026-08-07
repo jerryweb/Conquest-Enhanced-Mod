@@ -2103,7 +2103,7 @@
 									{group
 										{select
 											{tag
-												{tag selected_paratrooper}
+												{tag paratrooper_need_orders}
 											}
 										}
 										{include

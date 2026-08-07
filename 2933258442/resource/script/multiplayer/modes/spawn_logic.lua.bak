@@ -8,10 +8,11 @@ forceUnitCount = 0
 forceUnitCountMax = 0
 
 function ActivateAiStrategy(waveUnitTotal)
+  math.randomseed(os.time())
   if not forceUnitPriority then 
     if enableAiStrategy > math.random() then
       if strategyTable.StrategyUnitTypes then
-        print("AI activating forced priority!")	
+        print("AI activating forced priorirty!")	
         forceUnitPriority = true
         forceUnitCount = 0
         forceUnitCountMax = math.random(strategyTable.forceUnitCount.min, strategyTable.forceUnitCount.max)
@@ -35,8 +36,9 @@ function ActivateAiStrategy(waveUnitTotal)
 end
 
 function GetUnitPriority(t)
+  -- if printDebug then print("getting uint priorties") end
   local function UnitType (val)
-    for _, value in ipairs(t.type) do
+    for index, value in ipairs(t.type) do
       if value == val then
         return true
       end
@@ -46,21 +48,19 @@ function GetUnitPriority(t)
 
   local function UnitTypesWithExclusions(types, excludedTypes) 
     local unitTypeFound = false
-    for _, type in ipairs(types) do
+    for i, type in ipairs(types) do
       if UnitType(type) then
         unitTypeFound = true
         break
       end
     end 
 
-    if unitTypeFound and excludedTypes then
-      for _, excludedType in ipairs(excludedTypes) do
-        if UnitType(excludedType) then
-          unitTypeFound = false
-          break
-        end
-      end 
-    end
+    for i, excludedType in ipairs(excludedTypes) do
+      if UnitType(excludedType) then
+        unitTypeFound = false
+        break
+      end
+    end 
     return unitTypeFound
   end
   
@@ -124,7 +124,7 @@ function GetUnitPriority(t)
     priorityMultiplier = 0.1
   end
 
-  -- Override all previous priority calculations if true
+  -- Override all preivous priority calculations if true
   if forceUnitPriority then
     if UnitTypesWithExclusions(forcedUnitTypes, excludedUnitTypes) then 
       if UnitType("Command") then 
@@ -141,6 +141,6 @@ function GetUnitPriority(t)
       priorityMultiplier = 0.01
     end 
   end
-
+  -- print("Unit ", t.unit, " has priority = ", basePriority * priorityMultiplier)
   return basePriority * priorityMultiplier
 end

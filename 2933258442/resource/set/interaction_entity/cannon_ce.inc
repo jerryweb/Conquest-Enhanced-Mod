@@ -1,8 +1,8 @@
 {"cannon"
 	{on spawn
-		{link_sound "big_ass_fire" "fire\loops\big"}
-		{link_sound "cook_off_transition" "detonation/cook_off/transition"}
-		{link_sound "wecookingmethupinherejessie" "detonation\cook_off\cook"}
+		{link_sound "big_ass_fire" "fire/loops/big/"}
+		{link_sound "cook_off_transition" "detonation/cook_off/transition/"}
+		{link_sound "wecookingmethupinherejessie" "detonation/cook_off/cook/"}
 		{delay 0.5
         	{if linked "ce_drop"
         	    {tags add "no_scavenge"}
@@ -137,14 +137,6 @@
 	}
 }
 
-;{"mortar_big cannon" 
-;	{on spawn
-;		{delay 0.2
-;			{call "tag_mortar"}	
-;		}
-;	}
-;}
-
 {"mortar_pit_emplacement"
     {on spawn
         {delay 5.1
@@ -213,272 +205,66 @@
 
 ;============================Short Range Artillery=========================================
 
-{"76mm_land_mattress_animation"
-	{on spawn
-        {delay 1
-            {tags add "short_range"}
-        }
-    }
-}
+(define "tag_short_range"
+	{"%entity" 
+		{on spawn
+			{delay 1
+				{tags add "short_range"}
+				{if prop "nebelwerfer"
+					{tags add "neby"}
+				}
+			}
+		}
+	}
+)
 
-{"105mm_m3" 
-	{on spawn
-        {delay 1
-            {tags add "short_range"}
-        }
-    }
-}
-
-{"114mm_qf_how" 
-	{on spawn
-        {delay 1
-            {tags add "short_range"}
-        }
-    }
-}
-
-{"114mm_qf_how_wooden" 
-	{on spawn
-        {delay 1
-            {tags add "short_range"}
-        }
-    }
-}
-
-{"122mm_m1910_fin" 
-	{on spawn
-        {delay 1
-            {tags add "short_range"}
-        }
-    }
- }
-
- {"114mm_h18_how_mid" 
-	{on spawn
-        {delay 1
-            {tags add "short_range"}
-        }
-    }
- }
-
-{"114mm_h18_how_late" 
-	{on spawn
-        {delay 1
-            {tags add "short_range"}
-        }
-    }
-}
-
-{"152mm_bl_6" 
-	{on spawn
-        {delay 1
-            {tags add "short_range"}
-        }
-    }
-}
-
-{"210mm_h17" 
-	{on spawn
-        {delay 1
-            {tags add "short_range"}
-        }
-    }
- }
-
-{"280mm_br5" 
-	{on spawn
-        {delay 1
-            {tags add "short_range"}
-        }
-    }
- }
+("tag_short_range" entity(76mm_land_mattress_animation))
+("tag_short_range" entity(105mm_m3))
+("tag_short_range" entity(114mm_qf_how))
+("tag_short_range" entity(114mm_qf_how_wooden))
+("tag_short_range" entity(122mm_m1910_fin))
+("tag_short_range" entity(114mm_h18_how_mid))
+("tag_short_range" entity(114mm_h18_how_late))
+("tag_short_range" entity(152mm_bl_6))
+("tag_short_range" entity(210mm_h17))
+("tag_short_range" entity(280mm_br5))
 
 
 ;============================Long Range Artillery=========================================
 
-{"105mm_sk18"
-    {on spawn
-        {delay 0.2
-            {tags add "long_range"}
-        }
-    }
-}
+(define "tag_long_range"
+	{"%entity"
+		{on spawn
+			{delay 0.2
+				{tags add "long_range"}
+			}
+		}
+	}
+)
 
-{"105mm_k34"
-    {on spawn
-        {delay 0.2
-            {tags add "long_range"}
-        }
-    }
-}
-
-{"107mm_m1910_30"
-    {on spawn
-        {delay 0.2
-            {tags add "long_range"}
-        }
-    }
-}
-
-{"114mm_bl_4_5"
-    {on spawn
-        {delay 0.2
-            {tags add "long_range"}
-        }
-    }
-}
-
-{"114mm_bl_4_5_mk1"
-    {on spawn
-        {delay 0.2
-            {tags add "long_range"}
-        }
-    }
-}
-
-
-
-{"122mm_a19"
-    {on spawn
-        {delay 0.2
-            {tags add "long_range"}
-        }
-    }
-}
-
-{"152mm_br2"
-    {on spawn
-        {delay 0.2
-            {tags add "long_range"}
-        }
-    }
-}
-
-{"152mm_bl_6_mk19"
-    {on spawn
-        {delay 0.2
-            {tags add "long_range"}
-        }
-    }
-}
-
-{"155mm_gpf_ger"
-    {on spawn
-        {delay 0.2
-            {tags add "long_range"}
-        }
-    }
-}
-
-{"155mm_gpf_us"
-    {on spawn
-        {delay 0.2
-            {tags add "long_range"}
-        }
-    }
-}
-
-{"155mm_k17"
-    {on spawn
-        {delay 0.2
-            {tags add "long_range"}
-        }
-    }
-}
-
-{"155mm_m1a1_longtom_eng"
-    {on spawn
-        {delay 0.2
-            {tags add "long_range"}
-        }
-    }
-}
-
-{"170mm_k18"
-    {on spawn
-        {delay 0.2
-            {tags add "long_range"}
-        }
-    }
-}
-
-
-{"183mm_bl_7_2"
-    {on spawn
-        {delay 0.2
-            {tags add "long_range"}
-        }
-    }
-}
-
-{"183mm_bl_7_2_mk6"
-    {on spawn
-        {delay 0.2
-            {tags add "long_range"}
-        }
-    }
-}
-
-{"203mm_b4"
-    {on spawn
-        {delay 0.2
-            {tags add "long_range"}
-        }
-    }
-}
-
-{"203mm_m1"
-    {on spawn
-        {delay 0.2
-            {tags add "long_range"}
-        }
-    }
-}
-
-{"210mm_k39"
-    {on spawn
-        {delay 0.2
-            {tags add "long_range"}
-        }
-    }
-}
-
-{"210mm_morser"
-    {on spawn
-        {delay 0.2
-            {tags add "long_range"}
-        }
-    }
-}
-
-{"600mm_thorai"
-    {on spawn
-        {delay 0.2
-            {tags add "long_range"}
-        }
-    }
-}
+("tag_long_range" entity(105mm_sk18))
+("tag_long_range" entity(105mm_k34))
+("tag_long_range" entity(107mm_m1910_30))
+("tag_long_range" entity(114mm_bl_4_5))
+("tag_long_range" entity(114mm_bl_4_5_mk1))
+("tag_long_range" entity(122mm_a19))
+("tag_long_range" entity(152mm_br2))
+("tag_long_range" entity(152mm_bl_6_mk19))
+("tag_long_range" entity(155mm_gpf_ger))
+("tag_long_range" entity(155mm_gpf_us))
+("tag_long_range" entity(155mm_k17))
+("tag_long_range" entity(155mm_m1a1_longtom_eng))
+("tag_long_range" entity(170mm_k18))
+("tag_long_range" entity(183mm_bl_7_2))
+("tag_long_range" entity(183mm_bl_7_2_mk6))
+("tag_long_range" entity(203mm_b4))
+("tag_long_range" entity(203mm_m1))
+("tag_long_range" entity(210mm_k39))
+("tag_long_range" entity(210mm_morser))
+("tag_long_range" entity(600mm_thorai))
 
 
 ; ============ CE CANNONS DETONATIONS DEFINES ============ 
-
-;{"cannon"		
-;	{on spawn
-;		{link_sound "cracks01" "detonation\cook_off\cracks"}	
-;		{link_sound "cracks02" "detonation\cook_off\cracks"}
-;		{link_sound "cracks03" "detonation\cook_off\cracks"}
-;		{link_sound "cracks04" "detonation\cook_off\cracks"}		
-;		{link_sound "cracks05" "detonation\cook_off\cracks"}				
-;	}					
-;}	
-
-;{"cannon"		
-;	{on spawn
-;		{link_sound "big_ass_fire" "fire\loops\big"}
-;		{link_sound "cook_off_transition" "detonation/cook_off/transition"}
-;		{link_sound "wecookingmethupinherejessie" "detonation\cook_off\cook"}
-;	}
-;}
 ; 		============ MEDIUM_LIGHT ============ 
 
 (define "Medium_light_Cannon_Detonation"
@@ -529,24 +315,24 @@
 
 			; --- delayed cook-off sounds ---
 			{delay 1		
-				{start_Sound "detonation\cook_off\cracks"}								
+				{start_Sound "detonation/cook_off/cracks"}								
 			}		
 			{delay 1.5					
-				{start_Sound "detonation\cook_off\cracks"}	
+				{start_Sound "detonation/cook_off/cracks"}	
 			}							
 			{delay 2 "loop"	
 				;{play_sound "cracks01" 1}		
 				;{play_sound "cracks02" 1}										
 				;{play_sound "cracks03" 1}
 				;{play_sound "cracks04" 1}	
-				{start_Sound "detonation\s3\shockwave\Dirt\Trickle"}																					
+				{start_Sound "detonation/s3/shockwave/Dirt/Trickle"}																					
 			}
 			{delay 4
-				{start_Sound "detonation\cook_off\snaps"}
+				{start_Sound "detonation/cook_off/snaps"}
 				{play_sound "snaps05" 1}																	
 			}
 			{delay 8.5					
-				{start_Sound "detonation\cook_off\cracks"}	
+				{start_Sound "detonation/cook_off/cracks"}	
 			}						
 			{delay 14
 				{start_sound "detonation/cook_off/transition"}						
@@ -631,29 +417,29 @@
 			{delay 1
 				{play_sound "big_ass_fire" 1}
 				;{start_sound "fire/loops/big"}		
-				{start_Sound "detonation\cook_off\cracks"}	
-				{start_Sound "detonation\s3\shockwave\Dirt\Trickle"}							
+				{start_Sound "detonation/cook_off/cracks"}	
+				{start_Sound "detonation/s3/shockwave/Dirt/Trickle"}							
 			}		
 			{delay 1.5					
-				{start_Sound "detonation\cook_off\cracks"}	
+				{start_Sound "detonation/cook_off/cracks"}	
 			}							
 			{delay 2 "loop"	
 				;{play_sound "cracks01" 1}		
 				;{play_sound "cracks02" 1}										
 				;{play_sound "cracks03" 1}
 				;{play_sound "cracks04" 1}	
-				{start_Sound "detonation\s3\shockwave\Dirt\Trickle"}																					
+				{start_Sound "detonation/s3/shockwave/Dirt/Trickle"}																					
 			}
 			{delay 3
 				{spawn "fire_cooking_explosion"}	
 			}
 			{delay 4
-				{start_Sound "detonation\cook_off\snaps"}
+				{start_Sound "detonation/cook_off/snaps"}
 				{play_sound "snaps05" 1}																	
 			}
 			{delay 8.5	
 				{spawn "fire_cooking_explosion"}				
-				{start_Sound "detonation\cook_off\cracks"}	
+				{start_Sound "detonation/cook_off/cracks"}	
 			}
 			{delay 13.600001 0.0
 				{spawn "fuel_die"}	
@@ -664,7 +450,7 @@
 			{delay 14 0.0
 				{stop_sound "big_ass_fire"}
 				{play_sound "cook_off_transition" 1}
-				{stop_sound "cook_off_transition"}						
+				;{stop_sound "cook_off_transition"}						
 			}
 		else
 			; ==== Otherwise (no cook-off) choose simpler explosion type ====
@@ -676,7 +462,7 @@
 				{spawn "tank_die_light"}	
 				{spawn "tank_die_dust_light"}
 				{spawn "metal_hit_br_max"}	
-				{start_Sound "detonation\cook_off\ext_explosion"}	
+				{start_Sound "detonation/cook_off/ext_explosion"}	
 				}			
 			else rand 0.5
 				; --- Air HE type blast ---
@@ -685,7 +471,7 @@
 				{spawn "ex_air_he_size3"}
 				{spawn "tank_die_dust_light"}
 				{spawn "tank_die_peaceful_light"}
-				{start_Sound "detonation\s3\shockwave\Dirt\Trickle"}
+				{start_Sound "detonation/s3/shockwave/Dirt/Trickle"}
 			else
 				; --- Failsafe / vanilla-style detonation ---
 				{call "explosion"}	
@@ -693,7 +479,7 @@
 				;{spawn "medium_flash"}				
 				{spawn "tank_die_dust_light"}
 				{spawn "det_flash_medium"}
-				{start_Sound "detonation\s2\shockwave\Generic\Impact"}					
+				{start_Sound "detonation/s2/shockwave/Generic/Impact"}					
 			}
 		}
 	}
@@ -749,24 +535,24 @@
 
 			; --- delayed cook-off sounds ---
 			{delay 1		
-				{start_Sound "detonation\cook_off\cracks"}								
+				{start_Sound "detonation/cook_off/cracks"}								
 			}		
 			{delay 1.5					
-				{start_Sound "detonation\cook_off\cracks"}	
+				{start_Sound "detonation/cook_off/cracks"}	
 			}							
 			{delay 2 "loop"	
 				;{play_sound "cracks01" 1}		
 				;{play_sound "cracks02" 1}										
 				;{play_sound "cracks03" 1}
 				;{play_sound "cracks04" 1}	
-				{start_Sound "detonation\s3\shockwave\Dirt\Trickle"}																					
+				{start_Sound "detonation/s3/shockwave/Dirt/Trickle"}																					
 			}
 			{delay 4
-				{start_Sound "detonation\cook_off\snaps"}
+				{start_Sound "detonation/cook_off/snaps"}
 				{play_sound "snaps05" 1}																	
 			}
 			{delay 8.5					
-				{start_Sound "detonation\cook_off\cracks"}	
+				{start_Sound "detonation/cook_off/cracks"}	
 			}						
 			{delay 14
 				{start_sound "detonation/cook_off/transition"}						

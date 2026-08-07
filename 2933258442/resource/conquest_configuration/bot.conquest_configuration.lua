@@ -6,7 +6,7 @@
 
 -- ================================= Standard Settings =========================================
 	-- Prints more information in game.log for debugging purposes
-	printDebug = false
+	printDebug = true
 	printTempDebug = false
 
 	-- This enables testing mode for debugging, and is not advised for regular play. Make sure this is off unless you are specifically testing for something. 
@@ -31,8 +31,8 @@
     -- Number of possible units than can be in a wave attack in conquest
 	WaveUnitOverride = {
 	    -- Bot is attacker
-	    AttackMin = 10,
-	    AttackMax = 13,
+	    AttackMin = 9,
+	    AttackMax = 11,
 	    -- Bot is defender
 	    DefendMin = 8,
 	    DefendMax = 10,

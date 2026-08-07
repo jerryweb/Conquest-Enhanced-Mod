@@ -571,24 +571,24 @@
         }   
     }
     {on "sandbag_ring_heap_straight"
-        {delay 8
+        {delay_ex 8 "building_sandbag_ring"
             {spawn "sandbag_heap_straight" offset 80 25 -5}
             {spawn "sandbag_heap_straight" offset 80 -25 -5}
-            {delay 2
+            {delay_ex 2 "building_sandbag_ring"
                 {spawn "sandbag_heap_pile" offset 76 76 -5}
-                {delay 2
+                {delay_ex 2 "building_sandbag_ring"
                     {spawn "sandbag_heap_straight_90" offset 25 80 -5}
                     {spawn "sandbag_heap_straight_90" offset -25 80 -5}
-                    {delay 2
+                    {delay_ex 2 "building_sandbag_ring"
                         {spawn "sandbag_heap_pile" offset -76 76 -5}
-                        {delay 2
+                        {delay_ex 2 "building_sandbag_ring"
                             {spawn "sandbag_heap_straight" offset -80 25 -5}
-                            {delay 2
+                            {delay_ex 2 "building_sandbag_ring"
                                 {spawn "sandbag_heap_pile" offset -76 -76 -5}
-                                {delay 2
+                                {delay_ex 2 "building_sandbag_ring"
                                     {spawn "sandbag_heap_straight_270" offset 25 -80 -5}
                                     {spawn "sandbag_heap_straight_270" offset -25 -80 -5}
-                                    {delay 2
+                                    {delay_ex 2 "building_sandbag_ring"
                                         {spawn "sandbag_heap_pile" offset 76 -76 -5}
                                         {call "activate_vehicle"}
                                     }
@@ -596,9 +596,9 @@
                             }
                         }
                     }
-                }       
+                }
             }
-        }   
+        }
     }
     {on "sandbag_ring_heap_straight_short_no_piles"
         {delay 8
@@ -868,6 +868,7 @@
         {if not tagged "exploded"
             {if component "body"
                 {tags remove "_user_ally"}
+                {kill_delay "building_sandbag_ring"}
                 {if not user_control
                     {if tagged "artillery"
                         {able minimap 0}

@@ -221,8 +221,11 @@ end
 
 function CheckUnitMaxCount(unit, available) 
   if unit.maxUnitCount then 
-    local currentUnitCount = currentUnitCountTable[unit.unit] or 0
-    if currentUnitCount >= unit.maxUnitCount then 
+    local currentUnitCount = 0
+    if currentUnitCountTable[unit.unit] then 
+      currentUnitCount = currentUnitCountTable[unit.unit] 
+    end
+    if unit.maxUnitCount and currentUnitCount >= unit.maxUnitCount  then 
       available = false
       if printDebug then print("Max allowed count of " .. unit.maxUnitCount .. " for " .. unit.unit .. " reached! Unit not available!") end
     end
@@ -243,16 +246,16 @@ end
 function DefaultSquadSpawnOrders(args, OrderRotationPeriod)
   local squadTypes = Context.SpawnInfo.type
   local unitFollowWaypointGraph = true
-  local isAircraft = false
+  local isAircaft = false
   local isCannon = false
   local function UnitType (val, types)
-    for _, value in ipairs(types) do
+    for index, value in ipairs(types) do
       if value == "Cannon" then 
         unitFollowWaypointGraph = false
         isCannon = true
         return false
       elseif value == "Aircraft" then
-        isAircraft = true
+        isAircaft = true
         return false    
       elseif value == val then
         return true
@@ -261,8 +264,10 @@ function DefaultSquadSpawnOrders(args, OrderRotationPeriod)
     return false
   end
 
-  if UnitType("Tank", squadTypes) and UnitType("Support", squadTypes) then 
-    unitFollowWaypointGraph = false
+  if UnitType("Tank", squadTypes) then 
+    if UnitType("Support", squadTypes) then
+      unitFollowWaypointGraph = false
+    end
   end
 
   local waypoints = BotApi.Scene.Waypoints
@@ -270,7 +275,7 @@ function DefaultSquadSpawnOrders(args, OrderRotationPeriod)
     local initialOrder = false
     local squadOrderDelay = math.random(OrderRotationPeriod.DCG.Min, OrderRotationPeriod.DCG.Max)
     
-    if isAircraft then
+    if isAircaft then
       if not UnitType("ReconPlane", squadTypes) then
         if printDebug then print("SQUAD  ", args.squadId, " with unit type airplane is not using bot logic! This unit will rely on scripting!") end
         squadOrderDelay = OrderRotationPeriod.DCG_FLANK.Max
@@ -298,10 +303,13 @@ function DefaultSquadSpawnOrders(args, OrderRotationPeriod)
   end
 end
 
+
 function SetDynamicWeatherVariables()
   print("Print: setting dynamic weather delay")
   local weatherDelay = 9999 * 60 * 1000
-  if environment and enableDynamicWeather >= math.random() then
+
+  math.randomseed(os.time())
+  if environment and enableDynamicWeather >=  math.random()  then
     weatherDelay = math.random(applyDelay.min, applyDelay.max)
   end 
   
@@ -309,10 +317,13 @@ function SetDynamicWeatherVariables()
 end
 
 function SelectAiSpawnStrategy()
-  local setAiSpawnStrategyTimer
+  local setAiSpawnStrategyTimer = nil
+
   setAiSpawnStrategyTimer = function(callback)
     aiSpawnStrategyTimer = BotApi.Events:SetQuantTimer(
       function()
+        print("in SelectAiSpawnStrategy function")
+        math.randomseed(os.time())
         local changeSpawnStrategyChance = 0.5
 
         if math.random() < changeSpawnStrategyChance then
@@ -328,7 +339,7 @@ function SelectAiSpawnStrategy()
           if aiSpawnStrategy == 3 and prevAiSpawnStrategy ~= aiSpawnStrategy then 
             followWaypointGraphs = false
             BotApi.Scene:SetVar("enable_ai_waypoint_graphs", 0)  
-          elseif prevAiSpawnStrategy == 3 and prevAiSpawnStrategy ~= aiSpawnStrategy then
+          elseif prevAiSpawnStrategy == 3 and prevAiSpawnStrategy ~= aiSpawnStrategy  then
             followWaypointGraphs = true
             BotApi.Scene:SetVar("enable_ai_waypoint_graphs", 1)
           end
@@ -374,15 +385,21 @@ function SpawnSceneVariable()
 end
 
 function IsSquadToAlwaysIgnore(squad)
-  return BotApi.Scene:IsSquadTagged(squad, "_lua_always_ignore")
+  if BotApi.Scene:IsSquadTagged(squad, "_lua_always_ignore") then
+    return true
+  end
 end
 
 function IsSquadForceNextOrder(squad)
-  return BotApi.Scene:IsSquadTagged(squad, "force_next_order")
+  if BotApi.Scene:IsSquadTagged(squad, "force_next_order") then
+    return true
+  end
 end
 
 function IsSquadNeedNextOrder(squad)
-  return BotApi.Scene:IsSquadTagged(squad, "_lua_need_next_order")
+  if BotApi.Scene:IsSquadTagged(squad, "_lua_need_next_order") then
+    return true
+  end
 end
 
 -- Checks the squad scene variable for tagged info about the match
@@ -392,7 +409,7 @@ function CheckSceneVariable(squad)
       if BotApi.Scene:IsSquadTagged(squad, "_lua_waypoint_graph_disabled") then
         print("Print: AI Waypoint graphs disabled by scene! followWaypointGraphs = ", followWaypointGraphs)
         followWaypointGraphs = false
-      end
+    end
     else
       if BotApi.Scene:IsSquadTagged(squad, "_lua_waypoint_graph_enabled") then
           print("Print: AI Waypoint graphs enabled by scene! followWaypointGraphs = ", followWaypointGraphs)
@@ -410,17 +427,21 @@ function CheckSceneVariable(squad)
     end
 
     if not environment then
-      if BotApi.Scene:IsSquadTagged(squad, "_autumn") then environment = "autumn"
-      elseif BotApi.Scene:IsSquadTagged(squad, "_spring") then environment = "spring"
-      elseif BotApi.Scene:IsSquadTagged(squad, "_summer") then environment = "summer"
-      elseif BotApi.Scene:IsSquadTagged(squad, "_winter") then environment = "winter"
-      end
-    elseif environment and not intialSceneEnvironmentCheck then
-      print("Print: Scene evironment = ", environment)
-      print("Print: Getting maxWeatherOptions with max size of ", maxWeatherOptions[environment])
-      intialSceneEnvironmentCheck = true
-      SetDynamicWeatherTimer()
+      if BotApi.Scene:IsSquadTagged(squad, "_autumn") then
+        environment = "autumn"
+    elseif BotApi.Scene:IsSquadTagged(squad, "_spring") then
+        environment = "spring"
+    elseif BotApi.Scene:IsSquadTagged(squad, "_summer") then
+        environment = "summer"
+    elseif BotApi.Scene:IsSquadTagged(squad, "_winter") then
+        environment = "winter"
     end
+  elseif environment and not intialSceneEnvironmentCheck then 
+    print("Print: Scene evironment = ", environment)
+    print("Print: Getting maxWeatherOptions with max size of ", maxWeatherOptions[environment])
+    intialSceneEnvironmentCheck = true
+    SetDynamicWeatherTimer()
+  end
 end
 
 -- =================== Noresus Mechanics ==================

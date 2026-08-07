@@ -14,11 +14,11 @@
 
 		(define "offmap_artillery_cannon_custom"
 			{on spawn
-				{start_sound "weapon/shot/ambient_cannon"}
+				{start_sound "weapon/shot/ambient_cannon/"}
 				{delay %0
-					{start_sound "weapon/shot/mortar/whistle"}
+					{start_sound "weapon/shot/mortar/whistle/"}
 					{delay 1
-						{start_sound "weapon/shot/artillery"}
+						{start_sound "weapon/shot/artillery/"}
 						;{spawn %1 offset -250 0 1000}
 						{spawn %1 offset -250 0 %2}
 						{hide 1}
