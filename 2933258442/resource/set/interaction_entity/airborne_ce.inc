@@ -450,9 +450,8 @@
 ("tag_plane_category" entity(blenheim_mk1) tag(bomber_ce))
 ("tag_plane_category" entity(blenheim_mk1_recon) tag(bot_recon))
 
-("tag_plane_category" entity(p47_d22) tag(fighter))
-("tag_plane_category" entity(p47_d22_bomber) tag(bomber_ce))
-("tag_plane_category" entity(recon_p47_d22) tag(bot_recon))
+("tag_plane_category" entity(p47_d22) tag(bomber_ce))
+("tag_plane_category" entity(p47_d22_recon) tag(bot_recon))
 
 ("tag_plane_category" entity(hurricane_mk1a) tag(fighter))
 ("tag_plane_category" entity(typhoon_mk1b) tag(fighter))

@@ -232,10 +232,13 @@ Purchases["conquest.usa"] = {
 				--]]
 			---]====]
 			--Aircraft
-				{priority = 1.0, type = {"Aircraft", "Fighter",}, unit = "p47_d22", maxUnitCount = 2},
-				{priority = 1.0, type = {"Aircraft", "Bomber",}, unit = "p47_d22_bomber", maxUnitCount = 1},
-				{priority = 0.8, type = {"Aircraft", "Fighter",}, unit = "p47_d22_x3", maxUnitCount = 6, multiplier = 3},
-				{priority = 0.15, type = {"Aircraft", "Bomber",}, unit = "p47_d22_bomber_x2", maxUnitCount = 4, multiplier = 2},	
+				-- {priority = 1.0, type = {"Aircraft", "Fighter",}, unit = "p47_d22", maxUnitCount = 2},
+				-- {priority = 1.0, type = {"Aircraft", "Bomber",}, unit = "p47_d22_bomber", maxUnitCount = 1},
+				-- {priority = 0.8, type = {"Aircraft", "Fighter",}, unit = "p47_d22_x3", maxUnitCount = 6, multiplier = 3},
+				{priority = 0.8, type = {"Aircraft", "Bomber",}, unit = "p47_d22_bomber_x1", maxUnitCount = 2, multiplier = 1},
+				{priority = 0.7, type = {"Aircraft", "Bomber",}, unit = "p47_d22_bomber_x2", maxUnitCount = 4, multiplier = 2},	
+				{priority = 0.6, type = {"Aircraft", "Bomber",}, unit = "p47_d22_bomber_x3", maxUnitCount = 6, multiplier = 3},	
+				{priority = 1.0, type = {"Aircraft", "ReconPlane",}, unit = "p47_d22_recon_x1"},	
 				{priority = 0.5, type = {"Aircraft", "Paratrooper", "Group_Air",}, unit = "squad_82nd_paras_glider_con_x2", multiplier = 2},
 				{priority = 0.5, type = {"Aircraft", "Paratrooper", "Group_Air",}, unit = "squad_82nd_paras_eng_con_x2", multiplier = 2},
 				{priority = 0.5, type = {"Aircraft", "Paratrooper", "Group_Air",}, unit = "squad_82nd_paras_con_x2", multiplier = 2},
