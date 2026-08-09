@@ -95,7 +95,7 @@
 				{tags add "recon_select_sorty"}
 			}
 
-			{delay 5
+			{delay_ex 5 "sorty_timer"
 				{tags remove "fighter_select_sorty"}
 				{tags remove "bomber_ce_select_sorty"}
 				{tags remove "recon_select_sorty"}
@@ -106,11 +106,11 @@
 	{on "select_plane_for_fly_by"
 		{tags add "plane_select_fly_by"}
 		{if tagged "fighter"
-			{delay 30
+			{delay_ex 30 "sorty_ready_timer"
 				{tags add "plane_ready_for_sorty"}
 			}
 		else tagged "bomber_ce"
-			{delay 40
+			{delay_ex 40 "sorty_ready_timer"
 				{tags add "plane_ready_for_sorty"}
 			}
 		}
@@ -140,6 +140,12 @@
 			{call "tag_squad_need_next_order"} 
 		}	
 	}
+
+	{on "die"
+		{kill_delay "sorty_timer"}
+		{kill_delay "sorty_ready_timer"}
+		{kill_delay "next_order_timer"}
+	}
 }
 
 {"airborne drop_plane"
@@ -156,75 +162,15 @@
 		{clear_inventory}
 	}
 
-    {on "prep_drop_plane_to_move"
-		{delay 10
-			{if rand 0.15
-				{delay 18
-					{call "drop_paratroopers"}
-				}
-			else rand 0.15
-				{delay 15
-					{call "drop_paratroopers"}
-				}
-			else rand 0.15
-				{delay 5
-					{call "drop_paratroopers"}
-				}
-			else rand 0.15
-				{delay 4
-					{call "drop_paratroopers"}
-				}	
-			else rand 0.15
-				{delay 20
-					{call "drop_paratroopers"}
-				}
-			else rand 0.15
-				{delay 8
-					{call "drop_paratroopers"}
-				}
-			else rand 0.15
-				{delay 11
-					{call "drop_paratroopers"}
-				}	
-			else 
-				{delay 10
-					{call "drop_paratroopers"}
-				}
-			}
+	{on "prep_drop_plane_to_move"
+		{delay_ex 12 6 "drop_move_timer"
+			{call "drop_paratroopers"}
 		}
 	}
 
 	{on "prep_drop_plane_to_move_fast_drop"
-		{delay 5
-			{if rand 0.15
-				{delay 1
-					{call "drop_paratroopers"}
-				}
-			else rand 0.15
-				{delay 2
-					{call "drop_paratroopers"}
-				}
-			else rand 0.15
-				{delay 7
-					{call "drop_paratroopers"}
-				}
-			else rand 0.15
-				{delay 4
-					{call "drop_paratroopers"}
-				}
-			else rand 0.15
-				{delay 3
-					{call "drop_paratroopers"}
-				}
-			else rand 0.15
-				{delay 9
-					{call "drop_paratroopers"}
-				}	
-			else 
-				{delay 1.5
-					{call "drop_paratroopers"}
-				}
-			}
+		{delay_ex 4 3 "drop_move_timer"
+			{call "drop_paratroopers"}
 		}
 	}
 
@@ -264,9 +210,9 @@
 					{if tagged "rus"
 						{if rand 0.25
 							("drop_veh" veh("paradrop_emplacement_box") tag("rus"))
-						else rand 0.25
+						else rand 0.33
 							("drop_veh" veh("paradrop_76mm_m43") tag(""))	
-						else rand 0.25
+						else rand 0.5
 							("drop_veh" veh("paradrop_bpk") tag(""))
 						else
 							("drop_veh" veh("paradrop_maxim") tag(""))
@@ -274,9 +220,9 @@
 					else tagged "ger"
 						{if rand 0.25
 							("drop_veh" veh("paradrop_emplacement_box") tag("ger"))
-						else rand 0.25
+						else rand 0.33
 							("drop_veh" veh("paradrop_75mm_legebig18") tag(""))	
-						else rand 0.25
+						else rand 0.5
 							("drop_veh" veh("paradrop_75mm_lg40") tag(""))
 						else
 							("drop_veh" veh("paradrop_mg34_lafette") tag(""))
@@ -284,7 +230,7 @@
 					else tagged "usa"
 						{if rand 0.33
 							("drop_veh" veh("paradrop_emplacement_box") tag("usa"))
-						else rand 0.33
+						else rand 0.5
 							("drop_veh" veh("paradrop_75mm_m1a1") tag(""))	
 						else
 							("drop_veh" veh("paradrop_m2_50cal_tripod") tag(""))
@@ -379,8 +325,6 @@
 		{delay 0.2
 			{tags add "move_to_start_waypoint"}
 			{tags add "user_plane"}	
-			;{tags remove "moving_to_drop_zone"}	
-			;{tags remove "ready_to_move"}	
 			{tags remove "on_mission"}	
 			{tags remove "nocrew"}
 			{tags remove "out"}
@@ -394,47 +338,21 @@
 	{on crew out
         {if not tagged "nocrew"
 			{delay 0.01
-	            {tags add "out"}
-	                {if not crew_in_place "driver1" 
-	                	{if not crew_in_place "seat01" 
-	                        {if not crew_in_place "seat02" 
-	                            {if not crew_in_place "seat03" 
-	                                {if not crew_in_place "seat04" 
-	                                    {if not crew_in_place "seat05" 
-	                                        {if not crew_in_place "seat06" 
-	                                            {if not crew_in_place "seat07" 
-	                                                {if not crew_in_place "seat08" 
-	                                                   {if not crew_in_place "seat09" 
-	                                                    {if not crew_in_place "seat10"
-	                                                        {if not crew_in_place "seat11"
-	                                                            {if not crew_in_place "seat12"
-	                                                                {if not crew_in_place "seat13"
-	                                                                	{if operatable
-	                     													{delay 0.01
-															                    {damage_report "paradrop_action" "<s(10)b+c(FF0009)>GOING TO BASE"}   
-															                    {tags add "nocrew"} 
-															                    {delay 15
-															                    	{hide 10}
-															                    }
-	                														}
-	                													}
-	                												}
-	                											}
-	                										}
-	                									}
-	                								}
-	                							}
-	                						}
-	                					}
-	                				}
-	                			}
-	                		}
-	                	}
-	                }
-	            }
-	        }
-        }
-    }
+				{tags add "out"}
+				{if not operatable
+					; crew left non-functional plane
+				else
+					{delay 0.01
+						{damage_report "paradrop_action" "<s(10)b+c(FF0009)>GOING TO BASE"}   
+						{tags add "nocrew"} 
+						{delay 15
+							{hide 10}
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 {"airborne drop_plane ai"
@@ -472,193 +390,75 @@
 	}
 }
 
-{"airborne fighter ai"	
-	{on "set_static"							;// map/mission helper for static neutral vehicles
-		{able select 0}
-		{able ammo_out_indicator 0}
-		{able ally_crew 0}
-		{able repaired 0}
-		{able talk 0}
-		{able unmask 0}
-		{able emit_passangers_on_enemy 0}
-		{able minimap 0}
-		{able neutral 1}
-		{clear_inventory}
-	}
+(define "setup_ai_plane"
+	{"%entity"
+		{on "set_static"
+			{able select 0}
+			{able ammo_out_indicator 0}
+			{able ally_crew 0}
+			{able repaired 0}
+			{able talk 0}
+			{able unmask 0}
+			{able emit_passangers_on_enemy 0}
+			{able minimap 0}
+			{able neutral 1}
+			{clear_inventory}
+		}
 
-	{on spawn
-		{delay 0.2
-			{if work "body"
-				{tags add "fighter"}
-				{tags add "move_to_start_waypoint"}
+		{on spawn
+			{delay 0.2
+				{if work "body"
+					{tags add "%tag"}
+					{tags add "move_to_start_waypoint"}
+				}
 			}
 		}
 	}
+)
 
-	{on "check_if_ai_plane"
-		
-
-	}
-}
-
-{"airborne bomber_ce ai"
-	{on "set_static"							;// map/mission helper for static neutral vehicles
-		{able select 0}
-		{able ammo_out_indicator 0}
-		{able ally_crew 0}
-		{able repaired 0}
-		{able talk 0}
-		{able unmask 0}
-		{able emit_passangers_on_enemy 0}
-		{able minimap 0}
-		{able neutral 1}
-		{clear_inventory}
-	}
-
-	{on spawn
-		{delay 0.2
-			{if work "body"
-				{tags add "bomber_ce"}
-				{tags add "move_to_start_waypoint"}
-			}
-		}
-	}
-}
-
-{"airborne ai_recon_plane"
-	{on "set_static"							;// map/mission helper for static neutral vehicles
-		{able select 0}
-		{able ammo_out_indicator 0}
-		{able ally_crew 0}
-		{able repaired 0}
-		{able talk 0}
-		{able unmask 0}
-		{able emit_passangers_on_enemy 0}
-		{able minimap 0}
-		{able neutral 1}
-		{clear_inventory}
-	}
-	
-	{on spawn
-		{delay 0.2
-			{if work "body"
-				{tags add "bot_recon"}
-				{tags add "move_to_start_waypoint"}
-			}
-		}
-	}
-
-	;{on "move_plane_to_initial_waypoint" 
-	;	("move_plane_to_start_waypoint")
-	;}
-}
+("setup_ai_plane" entity(airborne fighter ai) tag(fighter))
+("setup_ai_plane" entity(airborne bomber_ce ai) tag(bomber_ce))
+("setup_ai_plane" entity(airborne ai_recon_plane) tag(bot_recon))
 
 {"player_plane"
-    {on spawn
-        {delay 10
-            {able "select" 1}
-        }
-    }
-}
-
-
-;/*=========== Plane Specifics Begin  ===========*/
-
-{"bf109_f4"
-	{on "tag_plane_type"
-		{tags add "fighter"}
-	}
-}
-{"bf109_g6"
-	{on "tag_plane_type"
-		{tags add "fighter"}
-	}
-}
-{"bf110_e2"
-	{on "tag_plane_type"
-		{tags add "bomber_ce"}
-	}
-}
-{"fi156"
-	{on "tag_plane_type"
-		{tags add "bot_recon"}
+	{on spawn
+		{delay 10
+			{able "select" 1}
+		}
 	}
 }
 
-{"yak1_ser69"
-	{on "tag_plane_type"
-		{tags add "fighter"}
+;/*=========== Plane Specific Tagging ===========*/
+
+(define "tag_plane_category"
+	{"%entity"
+		{on "tag_plane_type"
+			{tags add "%tag"}
+		}
 	}
-}
-{"il2_mod42"
-	{on "tag_plane_type"
-		{tags add "bomber_ce"}
-	}
-}
-{"po2"
-	{on "tag_plane_type"
-		{tags add "bot_recon"}
-	}
-}
+)
 
-{"blenheim_mk1"
-	{on "tag_plane_type"
-		{tags add "bomber_ce"}
-	}
-}
-{"blenheim_mk1_recon"
-	{on "tag_plane_type"
-		{tags add "bot_recon"}
-	}
-}
+("tag_plane_category" entity(bf109_f4) tag(fighter))
+("tag_plane_category" entity(bf109_g6) tag(fighter))
+("tag_plane_category" entity(bf110_e2) tag(bomber_ce))
+("tag_plane_category" entity(fi156) tag(bot_recon))
 
-{"p47_d22"
-	{on "tag_plane_type"
-		{tags add "fighter"}
-	}
-}
-{"p47_d22_bomber"
-	{on "tag_plane_type"
-		{tags add "bomber_ce"}
-	}
-}
-{"recon_p47_d22"
-	{on "tag_plane_type"
-		{tags add "bot_recon"}
-	}
-}
+("tag_plane_category" entity(yak1_ser69) tag(fighter))
+("tag_plane_category" entity(il2_mod42) tag(bomber_ce))
+("tag_plane_category" entity(po2) tag(bot_recon))
 
-{"p47_d22"
-	{on "tag_plane_type"
-		{tags add "fighter"}
-	}
-}
-{"p47_d22_bomber"
-	{on "tag_plane_type"
-		{tags add "bomber_ce"}
-	}
-}
-{"recon_p47_d22"
-	{on "tag_plane_type"
-		{tags add "bot_recon"}
-	}
-}
+("tag_plane_category" entity(blenheim_mk1) tag(bomber_ce))
+("tag_plane_category" entity(blenheim_mk1_recon) tag(bot_recon))
 
+("tag_plane_category" entity(p47_d22) tag(fighter))
+("tag_plane_category" entity(p47_d22_bomber) tag(bomber_ce))
+("tag_plane_category" entity(recon_p47_d22) tag(bot_recon))
 
-
-
-
-
-
-
-
-
-
-
-
+("tag_plane_category" entity(hurricane_mk1a) tag(fighter))
+("tag_plane_category" entity(typhoon_mk1b) tag(fighter))
+("tag_plane_category" entity(hurribomber_mk2c) tag(bomber_ce))
 
 {"c-47_skytrain_dakota"
-	;("bf110_sound")
 	("p47_sound")
 	{on spawn
 		{delay 0.2

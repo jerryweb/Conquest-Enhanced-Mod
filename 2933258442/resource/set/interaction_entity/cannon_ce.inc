@@ -94,37 +94,20 @@
 }
 
 ; ===== Artillery ===== 
-	{"cannon detect_artillery artillery_minimap_medium" 
-		{on spawn
-			{delay 0.2
-				{tags add "artillery"}
-			}
-		}
-	}
-
-	{"cannon detect_artillery trailer_heavy" 
-		{on spawn
-			{delay 0.2
-				{tags add "artillery"}
-			}
-		}
-	}
-
-	{"cannon detect_artillery artillery_minimap_heavy" 
-		{on spawn
-			{delay 0.2
+{"cannon detect_artillery" 
+	{on spawn
+		{delay 0.2
+			{if prop "artillery_minimap_heavy"
 				{tags add "heavy_artillery"}
-			}
-		}
-	}
-
-	{"cannon detect_artillery"
-		{on spawn
-			{delay 0.2
+				{tags add "artillery"}
+			else prop "nebelwerfer"
+				{tags add "rocket_artillery"}
+			else
 				{tags add "artillery"}
 			}
 		}
 	}
+}
 ;=====================================================================
 
 {"mortar cannon" 
@@ -210,9 +193,7 @@
 		{on spawn
 			{delay 1
 				{tags add "short_range"}
-				{if prop "nebelwerfer"
-					{tags add "neby"}
-				}
+				;{tags add "artillery"}
 			}
 		}
 	}
@@ -237,6 +218,7 @@
 		{on spawn
 			{delay 0.2
 				{tags add "long_range"}
+				;{tags add "artillery"}
 			}
 		}
 	}
