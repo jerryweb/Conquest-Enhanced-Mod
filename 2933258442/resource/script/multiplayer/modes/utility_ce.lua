@@ -36,10 +36,11 @@ function StartSceneCheckTimer()
     function()
       print("checking if ce waypoint system active")
       if BotApi.Scene:IsSquadTagged(sceneVariableSquad, "_ce_map_scripts_running") then
-        print("Vanilla Map Loaded!!! Disabling CE bot file logic")
+        
         followWaypointGraphs = true         
         BotApi.Scene:SetVar("enable_ai_waypoint_graphs", 1)  
       else
+        print("Vanilla Map Loaded!!! Disabling CE bot file logic")
         followWaypointGraphs = false  
         BotApi.Scene:SetVar("enable_ai_waypoint_graphs", 0)
       end

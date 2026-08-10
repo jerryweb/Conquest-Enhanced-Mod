@@ -2492,6 +2492,21 @@
 									}
 								}
 								{"default"
+									{"waypoint"
+										{who
+											{type actor}
+											{actors
+												{tag selected_paratrooper}
+												{type human}
+												{state "not dead"}
+											}
+										}
+										{action
+											{type start}
+											{waypoint "1"}
+											{make_squad}
+										}
+									}
 									{"effect"
 										{selector
 											{tag selected_paratrooper}
@@ -6105,7 +6120,7 @@
 						{time 0.2}
 					}
 					{"switch"
-						{"case"
+						{## "case"
 							{condition
 								{type entities}
 								{selector

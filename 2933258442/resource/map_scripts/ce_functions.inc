@@ -3032,8 +3032,11 @@
 					{time 5}
 					{title "mission/multi/disable_radio"}
 				}
-				{"sound"
+				{## "sound"
 					{name "interface/task_fail"}
+				}
+				{"call"
+					{function "fail_radio_objective"}
 				}
 				{"delay"
 					{time 3}
@@ -3060,6 +3063,32 @@
 						}
 					}
 					{text "mission/multi/radio_vehicle_unmanned"}
+				}
+			}
+			{"show_radio_objective"
+				{"task"
+					{name "radio_communications_active"}
+				}
+				{"sound"
+					{name "mission/task_new"}
+				}
+			}
+			{"complete_radio_objective"
+				{"task"
+					{name "radio_communications_active"}
+					{state complete}
+				}
+				{"sound"
+					{name "mission/task_fulfilled"}
+				}
+			}
+			{"fail_radio_objective"
+				{"task"
+					{name "radio_communications_active"}
+					{state fail}
+				}
+				{"sound"
+					{name "mission/task_fail"}
 				}
 			}
 

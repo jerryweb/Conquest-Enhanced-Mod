@@ -6,14 +6,14 @@
 
 -- ================================= Standard Settings =========================================
 	-- Prints more information in game.log for debugging purposes
-	printDebug = true
+	printDebug = false
 	printTempDebug = false
 
 	-- This enables testing mode for debugging, and is not advised for regular play. Make sure this is off unless you are specifically testing for something. 
 	-- testing = true
 	
 	-- This is the strategy the ai will use to spawn units. If you want to randomly select one, just set it to nil
-	-- strategyIndexOverride = 3
+	strategyIndexOverride = 2
 
 	-- weather_selection_override = 0
 

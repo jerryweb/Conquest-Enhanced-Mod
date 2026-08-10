@@ -699,13 +699,21 @@
 					{"delay"
 						{time 0.1}
 					}
-					{"entity_state"
-						{selector
-							{source current}
+					{"if"
+						{condition
+							{type cmp_i}
+							{var "enable_ai_waypoint_graphs$"}
+							{op "=="}
+							{value 1}
 						}
-						{impregnability full}
-						{discovered off}
-						{tag_add "_ce_map_scripts_running"}
+						{"entity_state"
+							{selector
+								{source current}
+							}
+							{impregnability full}
+							{discovered off}
+							{tag_add "_ce_map_scripts_running"}
+						}
 					}
 					{"delay"
 						{time 0.1}

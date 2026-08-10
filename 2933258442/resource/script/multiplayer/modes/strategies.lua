@@ -32,6 +32,9 @@ StrategyTemplates = {
 			"Flamer",
 			"Super_Wave",
 		},
+		StrategyExcludeUnitTypes = {
+			"Paratrooper",
+		},
 		BotInfantry = 1.0,
 		BotTeamInfantry = 1.0,
 		BotATInfantry = 1.0,
@@ -57,7 +60,7 @@ StrategyTemplates = {
 		StrategyName = "Artillery Strategy",
 		StrategyUnitTypes = {
 			"Rocket_Arty",
-            "Artillery",
+      "Artillery",
 		},
 		BotInfantry = 1.0,
 		BotTeamInfantry = 1.0,

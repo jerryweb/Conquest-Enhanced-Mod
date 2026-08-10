@@ -172,6 +172,40 @@
 					}
 					{"if"
 						{condition
+							{type cmp_i}
+							{var "enable_ce_cut_communications_mechanic$"}
+							{op "=="}
+							{value 1}
+						}
+						{"event"
+							{event "cut_communications"}
+							{mode set}
+							{delay 30}
+						}
+						{"delay"
+							{time 30}
+						}
+						{"talk"
+							{selector
+								{ignore_captured_by_user 0}
+								{amount 1
+								}
+								{tag player}
+								{zone "gamezone"}
+								{type human}
+								{state "not dead"}
+							}
+							{text "mission/multi/radio_event"}
+						}
+						{"call"
+							{function "show_radio_objective"}
+						}
+					}
+					{"delay"
+						{time 5}
+					}
+					{"if"
+						{condition
 							{type entities}
 							{selector
 								{source advanced}
@@ -250,6 +284,9 @@
 								{time 5}
 								{title "mission/multi/enable_radio"}
 							}
+							{"call"
+								{function "complete_radio_objective"}
+							}
 						}
 						{"default"
 							{"call"
@@ -261,34 +298,6 @@
 						{event "init_radio_mechanics"}
 						{mode set}
 						{delay 5}
-					}
-					{"if"
-						{condition
-							{type cmp_i}
-							{var "enable_ce_cut_communications_mechanic$"}
-							{op "=="}
-							{value 1}
-						}
-						{"event"
-							{event "cut_communications"}
-							{mode set}
-							{delay 30}
-						}
-						{"delay"
-							{time 30}
-						}
-						{"talk"
-							{selector
-								{ignore_captured_by_user 0}
-								{amount 1
-								}
-								{tag player}
-								{zone "gamezone"}
-								{type human}
-								{state "not dead"}
-							}
-							{text "mission/multi/radio_event"}
-						}
 					}
 				}
 			}
@@ -376,8 +385,8 @@
 									{op "="}
 									{value 1}
 								}
-								{"sound"
-									{name "interface/task_new"}
+								{"call"
+									{function "complete_radio_objective"}
 								}
 								{"timer"
 									{time 5}
