@@ -568,6 +568,12 @@
 								{tag disable_waypoint_graph}
 							}
 						}
+						{"2.entities"
+							{selector
+								{tag scene_variable}
+								{type vehicle}
+							}
+						}
 					}
 				}
 				{actions
@@ -701,10 +707,14 @@
 					}
 					{"if"
 						{condition
-							{type cmp_i}
-							{var "enable_ai_waypoint_graphs$"}
-							{op "=="}
-							{value 1}
+							{type entities}
+							{selector
+								{tag disable_waypoint_graph}
+							}
+							{count
+								{op "=="}
+								{value 0}
+							}
 						}
 						{"entity_state"
 							{selector
