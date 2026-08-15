@@ -1346,7 +1346,7 @@
 				}
 				{actions
 					{"delay"
-						{time 6.25}
+						{time 7}
 					}
 					{"switch"
 						{"case"
@@ -1851,9 +1851,6 @@
 									{prop
 										{prop vehicle}
 									}
-									{state
-										{state "operatable inhabited"}
-									}
 								}
 								{exclude
 									{state
@@ -1864,9 +1861,6 @@
 									}
 									{state
 										{state user_control}
-									}
-									{tag
-										{tag no_scavenge}
 									}
 								}
 							}

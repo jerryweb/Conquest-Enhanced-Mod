@@ -13,7 +13,7 @@
 	-- testing = true
 	
 	-- This is the strategy the ai will use to spawn units. If you want to randomly select one, just set it to nil
-	strategyIndexOverride = 2
+	-- strategyIndexOverride = 2
 
 	-- weather_selection_override = 0
 
