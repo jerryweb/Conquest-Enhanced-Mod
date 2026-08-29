@@ -1,9 +1,6 @@
 -- Utility variables for various game modes
 require([[/script/multiplayer/modes/utility_ce]])
 
-printDebug = true
-printTempDebug = false
-
 spawnPoint = BotApi.Instance.spawnPointName
 spawnSide = string.sub(spawnPoint,1,1)
 gameMode = BotApi.Instance.gameMode
@@ -290,11 +287,11 @@ end
 -- Function to calculate search destroy value
 function CalculateSearchDestroyValue(capturableFlags, alliedFlags, opponentFlags)
     if capturableFlags > alliedFlags then
-        return 0.60
+        return 0.80
     elseif capturableFlags == opponentFlags then
-        return 0.40
+        return 0.50
     else
-        return 0.30
+        return 0.40
     end
 end
 

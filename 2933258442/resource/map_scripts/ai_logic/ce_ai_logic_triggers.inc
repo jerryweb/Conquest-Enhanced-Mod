@@ -5360,7 +5360,499 @@
 					}
 				}
 			}
-
+						{"ai_logic/reverse_tank_to_repair"
+				{condition
+					{expression "1 & !2"}
+					{terms
+						{"1.near"
+							{units
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag turret_brake}
+										}
+										{tag
+											{tag gun_brake}
+										}
+									}
+									{include
+										{zone
+											{zone "gamezone"}
+										}
+										{prop
+											{prop tank}
+										}
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state "operatable inhabited"}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state inactive}
+										}
+										{tag
+											{tag _user_ally}
+										}
+										{broken_components
+											{masks
+												"trackleft"
+											}
+										}
+										{broken_components
+											{masks
+												"trackright"
+											}
+										}
+										{tag
+											{tag engine_brake}
+										}
+										{tag
+											{tag selected_tank_to_repair}
+										}
+										{tag
+											{tag reversing_to_repair}
+										}
+										{zone
+											{zone "a_1"}
+										}
+										{zone
+											{zone "a_2"}
+										}
+										{zone
+											{zone "a_3"}
+										}
+										{zone
+											{zone "a_4"}
+										}
+										{zone
+											{zone "b_1"}
+										}
+										{zone
+											{zone "b_2"}
+										}
+										{zone
+											{zone "b_3"}
+										}
+										{zone
+											{zone "b_4"}
+										}
+									}
+								}
+							}
+							{near_to
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+										{tag
+											{tag _user_ally}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{state
+											{state dead}
+										}
+										{prop
+											{prop airborne}
+										}
+									}
+								}
+							}
+							{distance 200}
+						}
+						{"2.trigger"
+							{name "ai_logic/stop_reversing"}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 5}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag turret_brake}
+									}
+									{tag
+										{tag gun_brake}
+									}
+								}
+								{include
+									{zone
+										{zone "gamezone"}
+									}
+									{prop
+										{prop tank}
+									}
+									{tag
+										{tag _bot}
+									}
+									{state
+										{state "operatable inhabited"}
+									}
+								}
+								{exclude
+									{state
+										{state user_control}
+									}
+									{state
+										{state linked}
+									}
+									{state
+										{state inactive}
+									}
+									{tag
+										{tag _user_ally}
+									}
+									{broken_components
+										{masks
+											"trackleft"
+										}
+									}
+									{broken_components
+										{masks
+											"trackright"
+										}
+									}
+									{tag
+										{tag engine_brake}
+									}
+									{tag
+										{tag selected_tank_to_repair}
+									}
+									{tag
+										{tag reversing_to_repair}
+									}
+									{zone
+										{zone "a_1"}
+									}
+									{zone
+										{zone "a_2"}
+									}
+									{zone
+										{zone "a_3"}
+									}
+									{zone
+										{zone "a_4"}
+									}
+									{zone
+										{zone "b_1"}
+									}
+									{zone
+										{zone "b_2"}
+									}
+									{zone
+										{zone "b_3"}
+									}
+									{zone
+										{zone "b_4"}
+									}
+								}
+							}
+							{sort
+								{type entity}
+								{entity
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag _user}
+											}
+											{tag
+												{tag _user_ally}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{zone
+												{zone "gamezone"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+											{state
+												{state dead}
+											}
+											{prop
+												{prop airborne}
+											}
+										}
+									}
+									{amount 1
+									}
+								}
+							}
+							{amount 1
+							}
+						}
+						{tag_add selected_tank_to_repair}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"select"
+						{tag selected_tank_to_repair}
+						{type tank}
+						{state inhabited}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"actor_state"
+						{selector
+							{source current}
+						}
+						{drop orders}
+						{movement
+							{speed fast}
+							{kind fast}
+							{forward off}
+							{backward on}
+						}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"action"
+						{selector
+							{source current}
+						}
+						{action move}
+						{target
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag ai_spawn}
+									}
+								}
+								{include
+									{zone
+										{zone "gamezone"}
+									}
+								}
+								{exclude
+									{state
+										{state inactive}
+									}
+								}
+							}
+							{sort
+								{type entity}
+								{entity
+									{tag selected_tank_to_repair}
+									{type tank}
+									{state inhabited}
+								}
+							}
+						}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"effect"
+						{selector
+							{source current}
+						}
+						{effect retreat_to_repair}
+					}
+					{## "timer"
+						{time 120}
+						{title "falling back"}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"trigger"
+						{name "ai_logic/reverse_tank_to_repair"}
+					}
+				}
+			}
+			{"ai_logic/stop_reversing"
+				{condition
+					{expression "1 & !2"}
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag ai_stop_reversing}
+										}
+									}
+								}
+							}
+						}
+						{"2.trigger"
+							{name "ai_logic/reverse_tank_to_repair"}
+						}
+					}
+				}
+				{actions
+					{## "timer"
+						{time 3}
+						{title "AI tank stop reversing"}
+					}
+					{"entity_state"
+						{selector
+							{amount 1
+							}
+							{tag ai_stop_reversing}
+							{type vehicle}
+							{state inhabited}
+						}
+						{tag_add reversing_ai_selected}
+						{tag_remove ai_stop_reversing}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"select"
+						{amount 1
+						}
+						{tag reversing_ai_selected}
+						{type vehicle}
+						{state inhabited}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"effect"
+						{selector
+							{source current}
+						}
+						{effect engine_toggle}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"effect"
+						{selector
+							{tag reversing_ai_selected}
+						}
+						{effect tag_ai_for_static_repairng}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"trigger"
+						{name "ai_logic/stop_reversing"}
+					}
+				}
+			}
+			{"ai_logic/enable_forward_movement"
+				{condition
+					{expression "1"}
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag ai_ready_to_move}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{## "timer"
+						{time 3}
+						{title "AI tank stop reversing"}
+					}
+					{"entity_state"
+						{selector
+							{amount 1
+							}
+							{tag ai_ready_to_move}
+							{type vehicle}
+							;{state inhabited}
+						}
+						{tag_add ready_to_move_ai_selected}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"select"
+						{amount 1
+						}
+						{tag ready_to_move_ai_selected}
+						{type vehicle}
+						;{state inhabited}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"effect"
+						{selector
+							{source current}
+						}
+						{effect engine_toggle}
+					}
+					;{"effect"
+					;	{selector
+					;		{source current}
+					;	}
+					;	{effect engine_toggle}
+					;}
+					{"delay"
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{tag ready_to_move_ai_selected}
+						}
+						{tag_remove ai_ready_to_move}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{tag ready_to_move_ai_selected}
+						}
+						{tag_remove ready_to_move_ai_selected}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"trigger"
+						{name "ai_logic/stop_reversing"}
+					}
+				}
+			}
 
 ;============== AI ARTILLERY ==============						
 			(define "cannon_artillery_target_attack_case" ;

@@ -166,9 +166,9 @@ function SetCEMissionVariables(botDefender, botDifficulty)
   local diffName = diffKeys[botDifficulty] or "easy"
   
   if botDefender then
-    botDifficultyModifier = AiDefenderCount.Attacking.difficultyModifier[diffName]
-  else
     botDifficultyModifier = AiDefenderCount.Defending.difficultyModifier[diffName]
+  else
+    botDifficultyModifier = AiDefenderCount.Attacking.difficultyModifier[diffName]    
   end
   print("botDifficultyModifier = ", botDifficultyModifier)
 

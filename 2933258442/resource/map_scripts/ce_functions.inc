@@ -3200,7 +3200,7 @@
 			}
 			{"attack_selected_flag"
 				{"delay"
-					{time 10}
+					{time 5}
 				}
 				{"effect"
 					{effect tag_squad_need_next_order}
