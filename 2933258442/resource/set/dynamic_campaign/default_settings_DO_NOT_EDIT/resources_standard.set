@@ -15,7 +15,7 @@
 		{FinishMP	1.75 min 2000 attackerMultiplier 3.25}
 		{CP
 			{Base "0:60"} ;// seconds : CP
-			{RoundMultiplier "0:0.8 1:0.5 2:0.85 3:0.7 4:0.9 5:0.75 6:0.9 7:0.8 8:0.95 9:0.85 10:1.05 11:1.0 12:1.1 14:1.2 16:1.3 18:1.4 20:1.5"} ;// games played : multiplier for CP
+			{RoundMultiplier "0:1.2 1:0.5 2:1.3 3:0.7 4:1.45 5:0.75 6:1.55 7:0.8 8:0.95 9:0.85 10:1.05 11:1.0 12:1.1 14:1.2 16:1.3 18:1.4 20:1.5"} ;// games played : multiplier for CP
 			{AttackMultiplier 3.8}
 		}
 		{DefenseLevel
@@ -36,8 +36,8 @@
 			}
 		}
 	}
-	{PaybackFactor 0.3}		;// MP paid back when loosing solider, squad or vehicle
-	{SellFactor 0.4}
+	{PaybackFactor 0.3 0 0 0}		;// MP paid back when loosing solider, squad or vehicle
+	{SellFactor 0.4 0 0 0}	
 	{ScavengedVehicleSellFactor 0.1}		;// captured enemy vehicle 
 	{RiskFactor
 		{Low
@@ -112,15 +112,15 @@
 		}
 		{Vehicles
 			{Weight 1.0 AP}
-			{Fuel 1.2 AP}
+			{Fuel 1.0 AP}
 			{Resupply 0.25 AP}
 			{BrokenComponent
-				{body 0 % MP 47 % AP}
-				{turret 0 % MP 37 % AP}
-				{engine 0 % MP 39 % AP}
-				{track 0 % MP 16 % AP}
-				{shield 0 % MP 3 % AP}
-				{other 0 % MP 2 % AP} ;// If none of the above. Required.
+				{body 5 % MP 40 % AP}
+				{turret 5 % MP 32 % AP}
+				{engine 5 % MP 34 % AP}
+				{track 5 % MP 14 % AP}
+				{shield 5 % MP 2 % AP}
+				{other 5 % MP 2 % AP} ;// If none of the above. Required.
 			}
 		}
 		{Support

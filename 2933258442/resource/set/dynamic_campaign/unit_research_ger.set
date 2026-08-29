@@ -47,10 +47,10 @@
 	{"squad_at_late_con(ger)"			requires	"single_at_pzs_late_con(ger)"		costs 2  position 5 8}
 
 	{"squad_regular_con(ger)"			requires	"squad_sicherung_con(ger)"			costs 2  position 1 17}
-	{"squad_regular_motor_con"			requires	"blitz3_6"							costs 0  position 4 18}
-	{"squad_regular_armor_con"			requires	"squad_regular_motor_con"			costs 0  position 5 17}
+	{"squad_regular_motor_con"			requires	"blitz3_6"							costs 1  position 4 18}
+	{"squad_regular_armor_con"			requires	"squad_regular_motor_con"			costs 1  position 5 17}
 	{"squad_regular_vet_con(ger)"		requires	"squad_regular_con(ger)"			costs 2  position 3 16}
-	{"squad_grenadier_con(ger)"			requires	"squad_regular_armor_con"			costs 2  position 8 17}
+	{"squad_grenadier_con(ger)"			requires	"squad_regular_armor_con"			costs 3  position 8 17}
 	{"squad_pzgren_motor_con"			requires	"squad_grenadier_con(ger)"			costs 1  position 10 17}
 	{"squad_pzgren_armor_con"			requires	"squad_pzgren_motor_con"			costs 1  position 11 17}
 	{"squad_sturm_pzgren_armor_con"		requires	"squad_pzgren_armor_con"			costs 2  position 13 17}
@@ -67,15 +67,15 @@
 	{"squad_sicherung_con(ger)"			requires	""									costs 0  position 0 19}
 	{"squad_pionier_con(ger)"			requires	"squad_sicherung_con(ger)"			costs 2  position 4 19}
 	{"squad_pz_pio_con"					requires	"squad_pionier_con(ger) squad_regular_motor_con"		costs 0  position 5 18}
-	{"squad_pz_pio_302_con(ger)"		requires	"squad_pz_pio_con"					costs 1  position 6 18}
-	{"squad_pz_pio_303b_con(ger)"		requires	"squad_pz_pio_302_con(ger)"			costs 0  position 7 18}
+	{"squad_pz_pio_302_con(ger)"		requires	"squad_pz_pio_con"					costs 2  position 6 18}
+	{"squad_pz_pio_303b_con(ger)"		requires	"squad_pz_pio_302_con(ger)"			costs 1  position 7 18}
 	{"squad_pz_pio_late_con"			requires	"squad_pz_pio_con"					costs 1  position 7 19}
 
 	{"squad_recon_con(ger)"				requires	"squad_sicherung_con(ger)"			costs 1  position 1 20}
 	{"squad_recon_motor_con"			requires	"kubelwagen_dak"					costs 1  position 4 20}
 	{"squad_recon_armor_con"			requires	"squad_recon_motor_con"				costs 2  position 5 21}
 	{"squad_pz_recon_armor_late_con"	requires	"squad_recon_armor_con"				costs 2  position 7 21}
-	{"squad_fusilier_late_con(ger)"		requires	"squad_recon_motor_con squad_grenadier_con(ger)" costs 1  position 8 20}
+	{"squad_fusilier_late_con(ger)"		requires	"squad_recon_motor_con squad_grenadier_con(ger)" costs 3  position 8 20}
 	{"squad_fusilier_smg_late_con(ger)"	requires	"squad_fusilier_late_con(ger) squad_volksg_con(ger)" costs 1  position 10 20}
 	{"squad_jaeger_con(ger)"			requires	"squad_regular_con(ger)"			costs 2  position 1 15}
 	{"squad_gebirgsjaeger_con(ger)"		requires	"squad_jaeger_con(ger)"				costs 2  position 6 15}
@@ -89,7 +89,7 @@
 	{"squad_strafbatallion_con(ger)"	requires	"squad_osttruppen_con(ger)"			costs 1  position 1 22}
 	{"squad_luftwaffe_con(ger)"			requires	"squad_strafbatallion_con(ger)"		costs 1  position 3 22}
 	{"squad_lw_jaeger_con(ger)"			requires	"squad_luftwaffe_con(ger)"			costs 1  position 3 24}
-	{"squad_fallschirmjaeger_con(ger)"	requires	"squad_luftwaffe_con(ger)"			costs 2 position 5 22}
+	{"squad_fallschirmjaeger_con(ger)"	requires	"squad_luftwaffe_con(ger)"			costs 4 position 5 22}
 	{"squad_fallschirmjaeger_motor_con"	requires	"squad_fallschirmjaeger_con(ger)"	costs 1  position 7 22}
 	{"squad_fallschirmjaeger_late_motor_con" requires "squad_fallschirm_late_off_2(ger)" costs 0  position 9 23}
 	{"squad_fallschirm_recon_late_con(ger)"	requires "squad_fallschirm_recon_late_irr_3(ger)" costs 0  position 9 25}
@@ -101,11 +101,11 @@
 	{"squad_pz_pio_gd_late_off(ger)"		requires	"squad_pzgren_gd_late_off(ger)"		costs 2  position 5 12}
 	{"squad_pzgren_gd_late_off(ger)"		requires	"squad_gd_motor_con"		costs 5  position 4 13}
 	{"squad_lw_pio_late_irr_1(ger)"		requires	"squad_pionier_con(ger)"		costs 1  position 5 19}
-	{"squad_lw_recon_late_irr(ger)"		requires	"squad_recon_con(ger)"		costs 1  position 5 20}
+	{"squad_lw_recon_late_irr(ger)"		requires	"squad_recon_con(ger)"		costs 2  position 5 20}
 	{"squad_fallschirm_recon_late_irr_3(ger)"		requires	"squad_fallschirm_late_off_2(ger)"		costs 1  position 8 25}
 	{"squad_pzlehr_recon_late_all2(ger)"		requires	"squad_pzlehr_pzgren_late_all2(ger)"		costs 0  position 9 12}
 	{"squad_pzlehr_pio_late_all2(ger)"		requires	"squad_pzlehr_pzgren_late_all2(ger)"		costs 0  position 10 13}
-	{"squad_pzlehr_pzgren_late_all2(ger)"		requires	"squad_grenadier_con(ger)"		costs 2  position 8 13}
+	{"squad_pzlehr_pzgren_late_all2(ger)"		requires	"squad_grenadier_con(ger)"		costs 4  position 8 13}
 	{"squad_pzlehr_pz_sturmgren_late_all2(ger)"		requires	"squad_pzg_lehr_armor_con"		costs 2  position 11 14}
 	{"squad_fallschirm_late_off_2(ger)"		requires	"squad_lw_jaeger_con(ger) squad_fallschirmjaeger_con(ger)"		costs 4  position 7 24}
 	{"squad_fallschirm_pio_late_irr_3(ger)"		requires	"squad_fallschirm_late_off_2(ger)"		costs 0  position 9 24}
@@ -151,7 +151,7 @@
 	{"88mm_pak4341"	requires	"75mm_pak40"		costs 6  position 10 31} ;//SE, LIB
 
 ;//---Infantry Guns---
-	{"75mm_lg40"		requires 	"squad_fallschirmjaeger_con(ger)"	costs 0  position 4 23.5}
+	{"75mm_lg40"		requires 	"squad_fallschirmjaeger_con(ger)"	costs 1  position 4 23.5}
 	{"75mm_leig18"		requires 	"37mm_pak36"	costs 2  position 1 33}
 	{"150mm_sig33"		requires	"75mm_leig18"	costs 3  position 2 33}
 	{"150mm_sig33_late"			requires	"150mm_sig33" costs 2  position 2.75 33}
@@ -174,7 +174,7 @@
 
 ;//---Trucks---
 	{"inf_crate_ger"		requires	""						costs 0  position 10 2}
-	{"blitz3_6"				requires	"squad_regular_con(ger)" costs 0  position 3 18}
+	{"blitz3_6"				requires	"squad_regular_con(ger)" costs 1  position 3 18}
 	{"blitz3_6_fuel"		requires	"blitz3_6_art_ammo"		costs 1  position 13 1}
 	{"infantry_cart_if8"	requires	"inf_crate_ger"			costs 0  position 11 2}
 	{"ammo_trailer"			requires	"infantry_cart_if8"		costs 1  position 12 2}
@@ -210,7 +210,7 @@
 	{"sdkfz250a_1"			requires	"kfz13"			costs 1  position 2 40}
 	{"sdkfz250a_9"			requires	"sdkfz250a_1"	costs 1  position 3 41} ;//SE, LIB
 	{"sdkfz250a_11"			requires	"28mm_pzb41"	costs 1  position 2 6}
-	{"player_paradrop_ger_late"		requires	"squad_fallschirm_late_off_2(ger)"		costs 1  position 7 25}
+	{"player_paradrop_ger_late"		requires	"squad_fallschirm_late_off_2(ger)"		costs 2  position 7 25}
 	{"player_paradrop_ger_recon"		requires	"player_paradrop_ger"		costs 1  position 5.75 23.5}
 
 	{"sdkfz234_1"			requires	"sdkfz234_2"			costs 1  position 3.5 38} ;//SE
@@ -227,7 +227,7 @@
 
 
 ;//---Light Tanks---
-	{"pz38h_735"			requires	"p204_f"		costs 2  position 8 38}
+	{"pz38h_735"			requires	"p204_f"		costs 1  position 8 38}
 	{"pz38h_w40"			requires	"pz38h_735 300mm_nebelwerfer42" costs 1  position 8 37} ;//Talvisota
 
 	{"panzer1b"				requires	""				costs 1  position 0 45}
@@ -255,7 +255,7 @@
 
 
 ;//---Medium Tanks---
-	{"panzer35s"			requires	"pz38h_735"		costs 2  position 9 38}
+	{"panzer35s"			requires	"pz38h_735"		costs 1  position 9 38}
 
 	{"panzer3e"				requires	"pz38t_a"		costs 2  position 0 55}
 	{"panzer3f"				requires	"panzer3e"		costs 2  position 1 55}
@@ -300,7 +300,7 @@
 
 
 ;//---Heavy Tanks---
-	{"panzerb2"				requires	"panzer35s"		costs 4  position 10 38}
+	{"panzerb2"				requires	"panzer35s"		costs 2  position 10 38}
 
 	{"tiger1h"				requires	"panzer4h"		costs 8  position 6 63}
 	{"ferdinand"			requires	"tiger1h"		costs 10 position 6 65}
