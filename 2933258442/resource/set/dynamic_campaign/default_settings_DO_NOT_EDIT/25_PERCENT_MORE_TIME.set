@@ -1,4 +1,4 @@
-(define "bot_state"
+((define "bot_state"
 	{unitset
 		{value "conquest"}
 		{available "all infantry sniper armor light medium heavy artillery airborne mechanized"}
@@ -29,7 +29,7 @@
 
 {game
 	{order -1}
-	{parameters "points_table_player=0/0.000,0.333/0.416,0.5/0.555,0.667/0.667,1.00/0.833;points_table_ai=0/0.000,0.333/0.111,0.50/0.134,0.667/0.166,1.00/0.222;flag_capture_time=75;flag_release_time=25;flag_capture_factor=0.9;kill_score_multiplier=0"}
+	{parameters "points_table_player=0/0.000,0.333/0.416,0.5/0.555,0.667/0.667,1.00/0.833;points_table_ai=0/0.000,0.333/0.333,0.50/0.416,0.667/0.476,1.00/0.555;flag_capture_time=75;flag_release_time=25;flag_capture_factor=0.9;kill_score_multiplier=0"}
 	;rate to time to reach score if 1000
 	;0.139	=	120min
 	;0.167	=	100min
@@ -48,7 +48,7 @@
 		{scoreFinal				1000}
 		{preparationTime		1200} ; seconds. is sets how long before bot begins an attack when player is the defender.
 		{pauseDuringPreparation false} ; controls if simulation is paused during preparation time
-		{impregnableTimeout		20}	; seconds
+		{impregnableTimeout		18}	; seconds
 		{floraRespawn			0}
 		{friendlyFire			1}
 		{showPiercing			1}
