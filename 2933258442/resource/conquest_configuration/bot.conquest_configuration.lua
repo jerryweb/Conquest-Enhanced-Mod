@@ -6,7 +6,7 @@
 
 -- ================================= Standard Settings =========================================
 	-- Prints more information in game.log for debugging purposes
-	printDebug = false
+	printDebug = false --BigNubCow101
 	printTempDebug = false
 
 	-- This enables testing mode for debugging, and is not advised for regular play. Make sure this is off unless you are specifically testing for something. 
