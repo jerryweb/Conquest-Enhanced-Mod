@@ -2,6 +2,7 @@
 	{Environment "goh/black"}
 	{Helpers
 		(include "ce_events.inc")
+		(include "ce_tasks.inc")
 		{vars
 			(include "ce_vars.inc")
 		}
