@@ -6,14 +6,14 @@
 
 -- ================================= Standard Settings =========================================
 	-- Prints more information in game.log for debugging purposes
-	printDebug = true
+	printDebug = false --BigNubCow101
 	printTempDebug = false
 
 	-- This enables testing mode for debugging, and is not advised for regular play. Make sure this is off unless you are specifically testing for something. 
 	-- testing = false
 	
 	-- This is the strategy the ai will use to spawn units. If you want to randomly select one, just set it to nil
-	-- strategyIndexOverride = 3
+	-- strategyIndexOverride = 2
 
 	-- weather_selection_override = 0
 
@@ -67,7 +67,7 @@
 	enableSabotageMechanics = 0.35
 	
 	-- Percentage chance (between 0 and 1) that the AI will spawn from the player's side randomly during battle
-	enableRearAttackMechanics = 0.2
+	enableRearAttackMechanics = 0.18
 
 	-- Enabled this setting to allow AI to scuttle disabled tanks (tanks that have turret and gun disabled or are immobile for at least 3 mins). MUST BE SET TO 1 0R 0
 	enableAiAbandonMechanics = 0

@@ -3,7 +3,23 @@
 		(mod "mp" 		{limit 150})
 		(mod not "mp"	{limit 200})
 		{remove dissolve}
-		{entity "human"}
+		{entity "human"}	
+	}
+
+	{group "limbs" gameentity
+		(mod "mp" 		{limit 500})
+		(mod not "mp"	{limit 500})
+		{remove dissolve}
+		{entity "human_part"}
+		{entity "flesh"}
+		{entity "bm_limb_a"}
+		{entity "bm_limb_b"}
+		{entity "bm_limb_c"}
+		{tag "human_part"}
+		{tag "flesh"}
+		{tag "bm_limb_a"}
+		{tag "bm_limb_b"}
+		{tag "bm_limb_c"}		
 	}
 
 	{group "broken" gameentity
@@ -94,13 +110,13 @@
 	}
 	
 	{group "shell_auto" stuff
-		{limit 50}
+		{limit 150}
 		{remove dissolve}
 		{tag "shell_cannon_auto"}
 	}
 
 	{group "shell" stuff
-		{limit 50}
+		{limit 150}
 		{remove dissolve}
 		{tag "shell_cannon"}
 	}

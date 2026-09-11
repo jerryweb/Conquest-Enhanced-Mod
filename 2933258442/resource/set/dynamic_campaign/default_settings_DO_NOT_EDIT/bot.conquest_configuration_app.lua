@@ -6,55 +6,17 @@
 
 -- ================================= Standard Settings =========================================
 	-- Prints more information in game.log for debugging purposes
-	printDebug = false
+	printDebug = false --BigNubCow101
 	printTempDebug = false
 
 	-- This enables testing mode for debugging, and is not advised for regular play. Make sure this is off unless you are specifically testing for something. 
 	-- testing = false
 	
 	-- This is the strategy the ai will use to spawn units. If you want to randomly select one, just set it to nil
-	-- strategyIndexOverride = 3
+	-- strategyIndexOverride = 2
 
 	-- weather_selection_override = 0
 
-	-- Time from start of match AI will wait before attempting to buy a unit in mins
-	oneFlagOffsetTime = {
-	    -- Bot is defender
-    	DefenseMin = 1, 
-    	DefenseMax = 2,
-    	-- Bot is attacker
-    	AttackMin = 8, 
-    	AttackMax = 10,
-	}
-
-	twoFlagOffsetTime = oneFlagOffsetTime
-	threeFlagOffsetTime = {
-	     -- Bot is defender
-    	DefenseMin = 1, 
-    	DefenseMax = 2,
-    	-- Bot is attacker
-    	AttackMin = 10, 
-    	AttackMax = 13,
-	}
-	fourFlagOffsetTime = {
-	     -- Bot is defender
-    	DefenseMin = 1, 
-    	DefenseMax = 1,
-    	-- Bot is attacker
-    	AttackMin = 11, 
-    	AttackMax = 13,
-	}
-	fiveFlagOffsetTime = {
-	     -- Bot is defender
-    	DefenseMin = 1, 
-    	DefenseMax = 1,
-    	-- Bot is attacker
-    	AttackMin = 13, 
-    	AttackMax = 15,
-	}
-
-	-- Time when the AI reinforcements are called in when testing is set to true
-	firstWaveOffsetTimeForTesting = 1.5
 
 	-- Time from last purchase AI will wait before attempting to buy a new unit.
 	DCGWaveOffOverwrite = {
@@ -62,20 +24,18 @@
 		AttackMinWaveOff = 1.25 * 60000,
 		AttackMaxWaveOff = 1.75 * 60000,
      	-- Time between each wave when bot is defending
-     	DefenseMinWaveOff = 2 * 60000, 
-     	DefenseMaxWaveOff = 3 * 60000,
+     	DefenseMinWaveOff = 1.75 * 60000, 
+     	DefenseMaxWaveOff = 2.5 * 60000,
      }
 
     -- Number of possible units than can be in a wave attack in conquest
 	WaveUnitOverride = {
 	    -- Bot is attacker
-	    AttackMin = 10,
-	    AttackMax = 16,
-	    -- AttackMin = 1,
-	    -- AttackMax = 1,
+	    AttackMin = 9,
+	    AttackMax = 11,
 	    -- Bot is defender
-	    DefendMin = 4,
-	    DefendMax = 12,
+	    DefendMin = 8,
+	    DefendMax = 10,
 	}
 
 -- ================================= Advanced Settings =========================================
@@ -91,7 +51,7 @@
 	-- Max weather presets for each season. You will also have to change the environment scripts if you change these scripts
 	maxWeatherOptions = {
 		autumn = 12,
-		spring = 6,
+		spring = 12,
 		summer = 12,
 		winter = 20,
 	}
@@ -107,7 +67,7 @@
 	enableSabotageMechanics = 0.35
 	
 	-- Percentage chance (between 0 and 1) that the AI will spawn from the player's side randomly during battle
-	enableRearAttackMechanics = 0.2
+	enableRearAttackMechanics = 0.18
 
 	-- Enabled this setting to allow AI to scuttle disabled tanks (tanks that have turret and gun disabled or are immobile for at least 3 mins). MUST BE SET TO 1 0R 0
 	enableAiAbandonMechanics = 0
