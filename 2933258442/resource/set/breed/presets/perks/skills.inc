@@ -100,10 +100,13 @@
 	{barricade
 		{"fortifications" "barricade_sq"}
 		{"fortifications" "barricade"}
+
 		{"fortifications" "barbwire"}
 		{"fortifications" "hedgehog"}
+
 		{"fortifications" "foxhole"}
 		{"fortifications" "foxhole_big"}
+		{"fortifications" "mortar_pit"}
 		{"fortifications" "tank_cover"}
 		{"fortifications" "fin_bunker"}
 		{"fortifications" "fin_coastal_gun"}
@@ -123,6 +126,7 @@
 		{"fortifications" "heavy_mg_mg34"}
 		{"fortifications" "heavy_mg_maxim"}
 		{"fortifications" "heavy_mg_maxim_m1910_30"}
+		{"fortifications" "heavy_mg_maxim_m32_33"}
 		{"fortifications" "heavy_mg_m1917_30cal"}
 	}
 	{"resources" "1000%"}
@@ -140,14 +144,6 @@
 	{mechanic factor 0.3}
 )
 
-
-;/* - Revive Skills - */
-
-;(define "medic"
-;	{"medic" 10.0}
-;	{"speed" 1.15}
-;	{"stamina" "180%"}
-;)
 
 ;/* - Tank and Cannon Main Gun Weapon Skills - */
 
@@ -199,6 +195,7 @@
 	{"rifle" lvl_6}
 )
 
+;/* - Skill zero, civilians or useless sods like volkssturm */
 
 (define "skill_rank_0"
 	("at_rank_1")
@@ -209,47 +206,13 @@
 	{"rifle" lvl_1}
 	{"melee" lvl_1}
 	{"avoidance" lvl_1}
-    ;("health_rank_1")
-	("fortification")
-	("basic_repair")
-	("basic_gun")
-)
-
-(define "at_rank_7"
-	{"rocketlauncher" lvl_7}
-	{"rifle" lvl_7}
-)
-
-(define "at_rank_8"
-	{"rocketlauncher" lvl_8}
-	{"rifle" lvl_8}
-)
-
-(define "at_rank_9"
-	{"rocketlauncher" lvl_9}
-	{"rifle" lvl_9}
-)
-
-(define "at_rank_10"
-	{"rocketlauncher" lvl_10}
-	{"rifle" lvl_10}
-)
-
-(define "skill_rank_0"
-	("at_rank_1")
-	{"pistol" lvl_1}
-	{"smg" lvl_1}
-	{"mgun" lvl_1}
-	{"rifle" lvl_1}
-	{"melee" lvl_1}
-	{"avoidance" lvl_1}
-	;("health_rank_1")
 	("fortification")
 	("basic_repair")
 	("basic_gun")
 )
 
 ;/* - Sub-Machine Gunner Levels - ; Soldiers with an sub-machine gun their for primary weapon */
+
 
 (define "smg_skill_rank_1"
 	("at_rank_1")
@@ -260,7 +223,6 @@
 	{"rifle" lvl_1}
 	{"melee" lvl_1}
 	{"avoidance" lvl_1}
-	;("health_rank_1")
 	("fortification")
 	("basic_repair")
 	("basic_gun")
@@ -275,7 +237,6 @@
 	{"rifle" lvl_2}
 	{"melee" lvl_2}
 	{"avoidance" lvl_2}
-	;("health_rank_2")
 	("fortification")
 	("basic_repair")
 	("basic_gun")
@@ -290,7 +251,6 @@
 	{"rifle" lvl_3}
 	{"melee" lvl_3}
 	{"avoidance" lvl_3}
-	;("health_rank_3")
 	("fortification")
 	("basic_repair")
 	("basic_gun")
@@ -305,7 +265,6 @@
 	{"rifle" lvl_4}
 	{"melee" lvl_4}
 	{"avoidance" lvl_4}
-	;("health_rank_4")
 	("fortification")
 	("basic_repair")
 	("basic_gun")
@@ -320,12 +279,10 @@
 	{"rifle" lvl_5}
 	{"melee" lvl_5}
 	{"avoidance" lvl_5}
-	;("health_rank_4")
 	("fortification")
 	("basic_repair")
 	("basic_gun")
 )
-
 
 ;/* - Rifleman Levels - ; Soldiers with an rifle for their primary weapon */
 
@@ -338,7 +295,6 @@
 	{"rifle" lvl_2}
 	{"melee" lvl_1}
 	{"avoidance" lvl_1}
-	;("health_rank_1")
 	("fortification")
 	("basic_repair")
 	("basic_gun")
@@ -353,7 +309,6 @@
 	{"rifle" lvl_3}
 	{"melee" lvl_2}
 	{"avoidance" lvl_2}
-	;("health_rank_2")
 	("fortification")
 	("basic_repair")
 	("basic_gun")
@@ -368,7 +323,6 @@
 	{"rifle" lvl_4}
 	{"melee" lvl_3}
 	{"avoidance" lvl_3}
-	;("health_rank_3")
 	("fortification")
 	("basic_repair")
 	("basic_gun")
@@ -383,7 +337,6 @@
 	{"rifle" lvl_5}
 	{"melee" lvl_4}
 	{"avoidance" lvl_4}
-	;("health_rank_4")
 	("fortification")
 	("basic_repair")
 	("basic_gun")
@@ -398,81 +351,11 @@
 	{"rifle" lvl_6}
 	{"melee" lvl_5}
 	{"avoidance" lvl_5}
-	;("health_rank_4")
 	("fortification")
 	("basic_repair")
 	("basic_gun")
 )
 
-(define "rifle_skill_rank_6"
-	("at_rank_6")
-	{"pistol" lvl_7}
-	{"smg" lvl_7}
-	{"mgun" lvl_7}
-	{"rifle" lvl_8}
-	{"melee" lvl_7}
-	{"avoidance" lvl_7}
-	;("health_rank_4")
-	("fortification")
-	("basic_repair")
-	("basic_gun")
-)
-
-(define "rifle_skill_rank_7"
-	("at_rank_7")
-	{"pistol" lvl_6}
-	{"smg" lvl_6}
-	{"mgun" lvl_6}
-	{"rifle" lvl_8}
-	{"melee" lvl_6}
-	{"avoidance" lvl_6}
-	;("health_rank_4")
-	("fortification")
-	("basic_repair")
-	("basic_gun")
-)
-
-(define "rifle_skill_rank_8"
-	("at_rank_8")
-	{"pistol" lvl_6}
-	{"smg" lvl_6}
-	{"mgun" lvl_6}
-	{"rifle" lvl_9}
-	{"melee" lvl_6}
-	{"avoidance" lvl_6}
-	;("health_rank_4")
-	("fortification")
-	("basic_repair")
-	("basic_gun")
-)
-
-(define "rifle_skill_rank_9"
-	("at_rank_9")
-	{"pistol" lvl_6}
-	{"smg" lvl_6}
-	{"mgun" lvl_6}
-	{"rifle" lvl_10}
-	{"melee" lvl_6}
-	{"avoidance" lvl_6}
-	;("health_rank_4")
-	("fortification")
-	("basic_repair")
-	("basic_gun")
-)
-
-(define "rifle_skill_rank_10"
-	("at_rank_10")
-	{"pistol" lvl_6}
-	{"smg" lvl_6}
-	{"mgun" lvl_6}
-	{"rifle" lvl_10}
-	{"melee" lvl_6}
-	{"avoidance" lvl_6}
-	;("health_rank_4")
-	("fortification")
-	("basic_repair")
-	("basic_gun")
-)
 
 ;/* - MG Loaders/assistant Levels - ; Soldiers with an rifle/pistol for their primary weapon, but are also trained for MG use */
 
@@ -485,7 +368,6 @@
 	{"rifle" lvl_2}
 	{"melee" lvl_1}
 	{"avoidance" lvl_1}
-	;("health_rank_1")
 	("fortification")
 	("basic_repair")
 	("basic_gun")
@@ -500,7 +382,6 @@
 	{"rifle" lvl_3}
 	{"melee" lvl_2}
 	{"avoidance" lvl_2}
-	;("health_rank_2")
 	("fortification")
 	("basic_repair")
 	("basic_gun")
@@ -515,7 +396,6 @@
 	{"rifle" lvl_4}
 	{"melee" lvl_3}
 	{"avoidance" lvl_3}
-	;("health_rank_3")
 	("fortification")
 	("basic_repair")
 	("basic_gun")
@@ -530,7 +410,6 @@
 	{"rifle" lvl_5}
 	{"melee" lvl_4}
 	{"avoidance" lvl_4}
-	;("health_rank_4")
 	("fortification")
 	("basic_repair")
 	("basic_gun")
@@ -545,7 +424,6 @@
 	{"rifle" lvl_6}
 	{"melee" lvl_5}
 	{"avoidance" lvl_5}
-	;("health_rank_4")
 	("fortification")
 	("basic_repair")
 	("basic_gun")
@@ -560,7 +438,6 @@
 	{"rifle" lvl_1}
 	{"melee" lvl_1}
 	{"avoidance" lvl_1}
-	;("health_rank_1")
 	("fortification")
 	("basic_repair")
 	("basic_gun")
@@ -575,7 +452,6 @@
 	{"rifle" lvl_2}
 	{"melee" lvl_2}
 	{"avoidance" lvl_2}
-	;("health_rank_2")
 	("fortification")
 	("basic_repair")
 	("basic_gun")
@@ -590,7 +466,6 @@
 	{"rifle" lvl_3}
 	{"melee" lvl_3}
 	{"avoidance" lvl_3}
-	;("health_rank_3")
 	("fortification")
 	("basic_repair")
 	("basic_gun")
@@ -605,7 +480,6 @@
 	{"rifle" lvl_4}
 	{"melee" lvl_4}
 	{"avoidance" lvl_4}
-	;("health_rank_4")
 	("fortification")
 	("basic_repair")
 	("basic_gun")
@@ -620,12 +494,10 @@
 	{"rifle" lvl_5}
 	{"melee" lvl_5}
 	{"avoidance" lvl_5}
-	;("health_rank_4")
 	("fortification")
 	("basic_repair")
 	("basic_gun")
 )
-
 
 ;/* - Machine Gunner Levels - ; Soldiers with an machine gun for their primary weapon */
 
@@ -638,7 +510,6 @@
 	{"rifle" lvl_1}
 	{"melee" lvl_1}
 	{"avoidance" lvl_1}
-	;("health_rank_1")
 	("fortification")
 	("basic_repair")
 	("basic_gun")
@@ -653,7 +524,6 @@
 	{"rifle" lvl_2}
 	{"melee" lvl_2}
 	{"avoidance" lvl_2}
-	;("health_rank_2")
 	("fortification")
 	("basic_repair")
 	("basic_gun")
@@ -668,7 +538,6 @@
 	{"rifle" lvl_3}
 	{"melee" lvl_3}
 	{"avoidance" lvl_3}
-	;("health_rank_3")
 	("fortification")
 	("basic_repair")
 	("basic_gun")
@@ -683,7 +552,6 @@
 	{"rifle" lvl_4}
 	{"melee" lvl_4}
 	{"avoidance" lvl_4}
-	;("health_rank_4")
 	("fortification")
 	("basic_repair")
 	("basic_gun")
@@ -698,7 +566,6 @@
 	{"rifle" lvl_5}
 	{"melee" lvl_5}
 	{"avoidance" lvl_5}
-	;("health_rank_4")
 	("fortification")
 	("basic_repair")
 	("basic_gun")
