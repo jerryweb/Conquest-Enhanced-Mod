@@ -630,7 +630,7 @@ ConquestConfig.PurchaseScoring = {
 ConquestConfig.UnitSpawnWaitTime = 1.5 * 60000 -- 1:30 min (ms)
 
 -- Time delay before a squad receives a refreshed order. Loops while squad exists.
-ConquestConfig.OrderRotationPeriod = 2.5 * 60000 -- 2:30 min (ms)
+ConquestConfig.OrderRotationPeriod = 3.0 * 60000 -- 2:30 min (ms)
 
 
 -- Post-final-wave attacker failure watcher.

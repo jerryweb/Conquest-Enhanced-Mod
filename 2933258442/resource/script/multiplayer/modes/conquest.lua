@@ -23,11 +23,15 @@ require([[/script/multiplayer/modes/conquest/orders_flags]]) -- flag priority an
 require([[/script/multiplayer/modes/conquest/orders]]) -- squad order assignment and tag handling.
 
 require([[/script/multiplayer/modes/conquest_enhanced/utilities_ce]])
+require([[/script/multiplayer/modes/conquest_enhanced/orders_ce]])
+
+local firstSpawn = false 
 
 function OnGameStart()
 	ConquestContext.SetBotRole()
 	ConquestPurchaseProfiles.InitializeBattleForce()
 	ConquestContext.SetVarsInMissionScript()
+	ConquestContext.SetCEVarsInMissionScript(ConquestState.botDefender)
 	OnGameStartUtility("conquest")
 	--ConquestDebug.StartSceneQueryTestLog()
 end
@@ -63,6 +67,7 @@ function OnGameQuant()
 	if #waypoints == 0 then
 		for i, squad in pairs(BotApi.Scene.Squads) do
 			if not IsGarrisonSquad(squad) and not Context.SquadTimers[squad] then
+				if printDebug then print("SQUAD ", squad, " SquadTimers = nil") end
 				SetSquadOrder(CaptureFlag, squad, ConquestConfig.OrderRotationPeriod, true)
 			end
 		end
@@ -82,10 +87,15 @@ function OnGameSpawn(args)
 		return
 	end
 
+	if not firstSpawn then  
+		firstSpawn = true
+		SetGeneralSquadTagCheckTimer()
+	end
+
 	local waypoints = BotApi.Scene.Waypoints
 	if #waypoints == 0 then
-		-- local initialOrder = CheckUnitPropertiesToFollowWaypoints()
-		local initialOrder = true
+		local initialOrder = CheckUnitPropertiesToFollowWaypoints()
+		-- local initialOrder = true
 		SetSquadOrder(CaptureFlag, args.squadId, ConquestConfig.OrderRotationPeriod, initialOrder)
 	else
 		GotoNextWaypoint(args.squadId)

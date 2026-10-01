@@ -441,6 +441,7 @@ end
 function OnGameStop()
 	KillSpawnCooldownTimer()
 	KillSpawnWaitTimer()
+	KillGeneralSquadTagCheckTimer()
 
 	for squad, timer in pairs(Context.SquadTimers) do
 		if timer then

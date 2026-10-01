@@ -93,6 +93,11 @@ function CaptureFlag(squad)
 		return
 	end
 
+	if IsSquadToAlwaysIgnore(squad) then
+		if printDebug then print("Print: SQUAD always ignored thus no action squad ", squad, "Player#", BotApi.Instance.playerId) end
+		return
+	end
+
 	local flags = {}
 	for i, flag in pairs(BotApi.Scene.Flags) do
 		table.insert(flags, {id = i, name = flag.name, priority = getDefaultFlagPriority(flag), owner = flag.occupant})
