@@ -13,5 +13,7 @@
 	;{"enable_spawn_b_4_waypoint_grid"}
 
 	{"enable_waypoint_graph"}
-
+	{"weather_selection"}
+	{"season_set"}
+	{"strong_weather_enabled"}
 

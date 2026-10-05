@@ -88,6 +88,34 @@
 								{apply}
 							}
 						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.15}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"environment"
+								{name "goh/west/wip/summer/night_1"}
+								{time -1}
+								{apply}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.15}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"environment"
+								{name "goh/west/wip/summer/night_2"}
+								{time -1}
+								{apply}
+							}
+						}
 						{"default"
 							{"delay"
 								{time 0.1}
@@ -98,6 +126,11 @@
 								{apply}
 							}
 						}
+					}
+					{"set_i"
+						{var "season_set$"}
+						{op "="}
+						{value 2}
 					}
 				}
 			}					
