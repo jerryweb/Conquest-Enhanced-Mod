@@ -31,7 +31,7 @@ function OnGameStart()
 	ConquestContext.SetBotRole()
 	ConquestPurchaseProfiles.InitializeBattleForce()
 	ConquestContext.SetVarsInMissionScript()
-	ConquestContext.SetCEVarsInMissionScript(ConquestState.botDefender)
+	ConquestContext.SetCEVarsInMissionScript()
 	OnGameStartUtility("conquest")
 	--ConquestDebug.StartSceneQueryTestLog()
 end
@@ -94,9 +94,8 @@ function OnGameSpawn(args)
 
 	local waypoints = BotApi.Scene.Waypoints
 	if #waypoints == 0 then
-		local initialOrder = CheckUnitPropertiesToFollowWaypoints()
-		-- local initialOrder = true
-		SetSquadOrder(CaptureFlag, args.squadId, ConquestConfig.OrderRotationPeriod, initialOrder)
+		local shouldSkipGraph = ShouldSkipWaypointGraph()
+		SetSquadOrder(CaptureFlag, args.squadId, ConquestConfig.OrderRotationPeriod, shouldSkipGraph)
 	else
 		GotoNextWaypoint(args.squadId)
 	end

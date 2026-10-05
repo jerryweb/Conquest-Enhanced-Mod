@@ -297,10 +297,16 @@
 					}
 				}
 			)
+
 			(define "ai_veh_spawn" ; parms: side, zone, waypoint 
 				{"ai_spawn_logic/side_%side/veh/veh_spawn_%zone"
 					{condition
 						{terms
+							{"1.cmp_i"
+								{var "enable_waypoint_graph$"}
+								{op ">"}
+								{value 0}
+							}
 							{"2.entities"
 								{selector
 									{source advanced}
@@ -364,11 +370,6 @@
 										}
 									}
 								}
-							}
-							{"1.cmp_i"
-								{var "enable_waypoint_graph$"}
-								{op ">"}
-								{value 0}
 							}
 						}
 					}

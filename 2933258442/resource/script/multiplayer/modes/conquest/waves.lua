@@ -179,7 +179,7 @@ local function StartAttackerWave()
 
 	ConquestWaves.StartPurchasePhase(PHASE_ATTACKER_WAVE, ConquestState.waveUnitTotal)
 
-	CheckIfInitialAttackingReconWave()
+	UpdateWaveOneGraphOverride()
 
 	if printDebug then
 		print("Print: attacker wave", ConquestState.waveNumber + 1, "of", ConquestState.attackerMaxWaves)
