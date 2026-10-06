@@ -2,8 +2,11 @@
 -- UTILITIES FILE FOR CONQUEST ENHANCED
 -- =========================================================
 waveOneGraphOverrideActive = false
-local unitBases = {"Cannon", "SPG", "Plane", "Heavy"}
+local unitBases = {"Cannon", "SPG", "Plane"}
 local unitRoles = {"Artillery", "Breakthrough"}
+local unitClasses = {"Heavy"}
+-- Specific unit names (from roster files like conquest.ger) that should skip the waypoint graph
+local exemptUnitNames = {"sdkfz234_4"}
 local AIR_DEFENSE_ROLE = "AirDefense"
 local ENABLE_WAYPOINT_GRAPH = "enable_waypoint_graph"
 
@@ -79,17 +82,31 @@ function UpdateWaveOneGraphOverride()
 end
 
 -- Returns true for unit types that must never follow the mission-layer waypoint
--- graph, regardless of wave number (e.g. artillery, breakthrough-role armor).
--- AirDefense-role Cannon/SPG/Plane units are exempted from the base-type exclusion.
+-- graph, regardless of wave number (e.g. artillery, heavy armor classes, or specific unit names).
+-- AirDefense-role Cannon/SPG/Plane/Heavy units are exempted from the base/class exclusion.
 local function IsPermanentlyWaypointGraphExempt(spawnInfo)
-	local spawnBase = spawnInfo and spawnInfo.base
-	local spawnRoles = spawnInfo and spawnInfo.roles
-	local isAirDefense = contains(spawnRoles, AIR_DEFENSE_ROLE)
+	if not spawnInfo then return false end
 
-	if not isAirDefense and containsAny(spawnBase, unitBases) then
+	-- 1. Check for specific unit name match from roster definitions
+	local spawnUnit = spawnInfo.unit
+	if spawnUnit and contains(exemptUnitNames, spawnUnit) then
 		return true
 	end
 
+	-- 2. Extract unit properties
+	local spawnBase = spawnInfo.base
+	local spawnClass = spawnInfo.class
+	local spawnRoles = spawnInfo.roles
+	local isAirDefense = contains(spawnRoles, AIR_DEFENSE_ROLE)
+
+	-- 3. Check base and class types (if not AirDefense)
+	if not isAirDefense then
+		if containsAny(spawnBase, unitBases) or containsAny(spawnClass, unitClasses) then
+			return true
+		end
+	end
+
+	-- 4. Check roles
 	return containsAny(spawnRoles, unitRoles)
 end
 
