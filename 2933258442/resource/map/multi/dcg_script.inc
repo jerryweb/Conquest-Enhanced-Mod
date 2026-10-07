@@ -24085,6 +24085,35 @@
 					{"delay"
 						{time 0.5}
 					}
+					{"effect"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag {tag "+garrisoned"}}
+									{tag {tag cmp_mg}}
+								}
+								{include
+									{zone {zone "gamezone"}}
+									{prop {prop cannon}}
+									{state {state operatable}}
+								}
+								{exclude
+									{tag {tag "_garrison_todo+"}}
+									{tag {tag "ce_ai_cannon_sandbags"}}
+									{tag {tag _user}}
+									{tag {tag _user_ally}}
+									{prop {prop tank}}
+									{prop {prop mg_stan}}
+									{prop {prop no_sandbags}}
+									{state {state inactive}}
+									{state {state user_control}}
+								}
+							}
+						}
+						{effect ce_build_ai_cannon_sandbags}
+					}
 					{"set_i"
 						{var "garrison_ready$"}
 						{op "="}
