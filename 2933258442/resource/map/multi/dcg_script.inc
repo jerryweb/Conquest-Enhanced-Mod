@@ -24105,8 +24105,6 @@
 									{tag {tag _user}}
 									{tag {tag _user_ally}}
 									{prop {prop tank}}
-									{prop {prop mg_stan}}
-									{prop {prop no_sandbags}}
 									{state {state inactive}}
 									{state {state user_control}}
 								}

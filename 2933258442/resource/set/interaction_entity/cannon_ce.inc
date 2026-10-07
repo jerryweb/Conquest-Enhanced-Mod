@@ -1,187 +1,117 @@
-
-(define "ce_ai_cannon_bag"
-    {if terrain_fx "ice"
-        {spawn "%entity" offset %x %y %z {tex_mod "win"}}
-    else terrain_fx "snow"
-        {spawn "%entity" offset %x %y %z {tex_mod "win"}}
-    else
-        {spawn "%entity" offset %x %y %z}
-    }
-)
-
-(define "ce_ai_cannon_native_cover"
-    {if terrain_fx "ice"
-        {spawn "%entity" "basis" x constrain_after_dir {tex_mod "win"}}
-    else terrain_fx "snow"
-        {spawn "%entity" "basis" x constrain_after_dir {tex_mod "win"}}
-    else
-        {spawn "%entity" "basis" x constrain_after_dir}
-    }
-)
-
 {"cannon"
     {on "ce_build_ai_cannon_sandbags"
         {if not tagged "ce_ai_cannon_sandbags"
             {if operatable
                 {if not user_control
-                    {if not prop "no_sandbags"
-                        {tags add "ce_ai_cannon_sandbags"}
-                        {call "ce_ai_cannon_cover_shape"}
+                    {tags add "ce_ai_cannon_sandbags"}
+                    {if prop "mg_stan"
+                        {if prop "cannon_sandbag_standard"
+                            {call "construction_sandbag_cannon_standard"}
+                        else prop "cannon_sandbag_small"
+                            {call "construction_sandbag_cannon_shallow_ai"}
+                        else prop "fixed"
+                            {call "construction_sandbag_cannon_shallow_ai"}
+                        else prop "cannon_sandbag_standard_ai"
+                            {call "construction_sandbag_cannon_standard_ai"}
+                        else prop "cannon_sandbag_small_ai"
+                            {call "construction_sandbag_cannon_shallow_ai"}
+                        }
+                    else prop "cannon_sandbag_small"
+                        {call "construction_sandbag_cannon_shallow"}
+                    else
+                        {call "construction_sandbag_cannon_standard"}
                     }
                 }
             }
         }
     }
+}
 
-    {on "ce_ai_cannon_cover_shape"
-        {if prop "mortar"
-            {call "ce_ai_cannon_ring_small"}
-        else prop "detect_cannon_aa"
-            {call "ce_ai_cannon_ring_aa"}
-        else prop "trailer_heavy"
-            {call "ce_ai_cannon_ring_medium"}
-        else prop "cannon_sandbag_small"
-            ("ce_ai_cannon_native_cover" entity(sandbag_cannon_shallow_ai))
-        else
-            ("ce_ai_cannon_native_cover" entity(sandbag_cannon_standard_ai))
-        }
+{"searchlight"
+    {on "construction_sandbag_cannon_standard" overload
+        {call "random_heavy_sandbag_ring"}
     }
-
-    {on "ce_ai_cannon_ring_small"
-        {if rand 0.5
-            {call "ce_ai_cannon_ring_small_heap"}
-        else
-            {call "ce_ai_cannon_ring_small_framed"}
-        }
-    }
-
-    {on "ce_ai_cannon_ring_aa"
-        {if prop "trailer_heavy"
-            {call "ce_ai_cannon_ring_medium"}
-        else prop "trailer_medium"
-            {if prop "muzzle_37mm_40mm_auto"
-                {call "ce_ai_cannon_ring_medium"}
-            else
-                {call "ce_ai_cannon_ring_short"}
-            }
-        else prop "trailer_light"
-            {call "ce_ai_cannon_ring_short"}
-        else
-            {call "ce_ai_cannon_ring_medium"}
-        }
-    }
-
-    {on "ce_ai_cannon_ring_medium"
-        {if rand 0.5
-            {call "ce_ai_cannon_ring_short"}
-        else
-            {call "ce_ai_cannon_ring_lane"}
-        }
-    }
-
-    {on "ce_ai_cannon_ring_heavy"
-        {if rand 0.5
-            {call "ce_ai_cannon_ring_heavy_heap"}
-        else
-            {call "ce_ai_cannon_ring_heavy_framed"}
-        }
-    }
-
-    {on "ce_ai_cannon_ring_small_heap"
-        ("ce_ai_cannon_bag" entity(sandbag_heap_curved) x(40) y(0) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_heap_curved_90) x(0) y(40) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_heap_curved_270) x(0) y(-40) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_heap_pile) x(-60) y(40) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_heap_pile) x(-60) y(-40) z(-5))
-    }
-
-    {on "ce_ai_cannon_ring_small_framed"
-        ("ce_ai_cannon_bag" entity(sandbag_framed_curved) x(40) y(0) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_framed_curved_90) x(0) y(40) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_framed_curved_270) x(0) y(-40) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_heap_pile) x(-60) y(40) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_heap_pile) x(-60) y(-40) z(-5))
-    }
-
-    {on "ce_ai_cannon_ring_short"
-        ("ce_ai_cannon_bag" entity(sandbag_structured_straight) x(80) y(25) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_structured_straight) x(80) y(-25) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_structured_straight2) x(25) y(80) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_structured_straight2) x(-25) y(80) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_structured_straight) x(-80) y(25) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_structured_straight) x(-80) y(-25) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_structured_straight2) x(25) y(-80) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_structured_straight2) x(-25) y(-80) z(-5))
-    }
-
-    {on "ce_ai_cannon_ring_lane"
-        ("ce_ai_cannon_bag" entity(sandbag_heap_straight) x(80) y(25) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_heap_straight) x(80) y(-25) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_heap_pile) x(72) y(72) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_heap_straight_90) x(25) y(80) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_heap_straight_90) x(-25) y(80) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_heap_pile) x(-72) y(72) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_heap_straight) x(-80) y(25) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_heap_pile) x(-90) y(-25) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_heap_pile) x(-130) y(-25) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_heap_straight_270) x(25) y(-80) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_heap_pile) x(-30) y(-80) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_heap_pile) x(-70) y(-80) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_heap_pile) x(-110) y(-80) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_heap_pile) x(72) y(-72) z(-5))
-    }
-
-    {on "ce_ai_cannon_ring_heavy_heap"
-        ("ce_ai_cannon_bag" entity(sandbag_heap_curved) x(75) y(0) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_heap_pile) x(68) y(68) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_heap_curved_90) x(0) y(75) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_heap_pile) x(-68) y(68) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_heap_curved_180) x(-75) y(0) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_heap_curved_270) x(0) y(-75) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_heap_pile) x(70) y(-70) z(-5))
-    }
-
-    {on "ce_ai_cannon_ring_heavy_framed"
-        ("ce_ai_cannon_bag" entity(sandbag_framed_curved) x(80) y(0) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_heap_pile) x(68) y(68) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_framed_curved_90) x(0) y(80) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_heap_pile) x(-68) y(68) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_framed_curved_180) x(-80) y(0) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_framed_curved_270) x(0) y(-80) z(-5))
-        ("ce_ai_cannon_bag" entity(sandbag_heap_pile) x(70) y(-70) z(-5))
+    {on "hull_down" overload
+        {call "random_heavy_sandbag_ring"}
     }
 }
 
 {"cannon trailer_heavy detect_atgun muzzle_85mm_93mm invisible"
-    {on "ce_ai_cannon_cover_shape" overload
-        {call "ce_ai_cannon_ring_heavy"}
+    {on "construction_sandbag_cannon_standard" overload
+        {call "random_heavy_sandbag_ring"}
     }
 }
+
 {"cannon trailer_heavy detect_atgun muzzle_75mm_76mm_round"
-    {on "ce_ai_cannon_cover_shape" overload
-        {call "ce_ai_cannon_ring_medium"}
+    {on "construction_sandbag_cannon_standard" overload
+        {call "random_medium_sandbag_ring"}
     }
 }
-{"37mm_flak37 cannon"
-    {on "ce_ai_cannon_cover_shape" overload
-        {call "ce_ai_cannon_ring_short"}
+
+{"cannon detect_cannon_aa trailer_heavy"
+    {on "construction_sandbag_cannon_standard" overload
+        {call "random_medium_sandbag_ring"}
     }
 }
-{"85mm_52k cannon"
-    {on "ce_ai_cannon_cover_shape" overload
-        {call "ce_ai_cannon_ring_heavy"}
+
+{"cannon detect_cannon_aa trailer_medium"
+    {on "construction_sandbag_cannon_standard" overload
+        {call "sandbag_ring_heap_straight_short_no_piles"}
     }
 }
-{"40mm_m1 cannon"
-    {on "ce_ai_cannon_cover_shape" overload
-        {call "ce_ai_cannon_ring_heavy"}
+
+{"cannon detect_cannon_aa trailer_medium muzzle_37mm_40mm_auto"
+    {on "construction_sandbag_cannon_standard" overload
+        {call "random_medium_sandbag_ring"}
     }
 }
-{"40mm_itk38b cannon"
-    {on "ce_ai_cannon_cover_shape" overload
-        {call "ce_ai_cannon_ring_heavy"}
+
+{"cannon detect_cannon_aa trailer_light"
+    {on "construction_sandbag_cannon_standard" overload
+        {call "sandbag_ring_heap_straight_short_no_piles"}
     }
 }
-{"37mm_pstk36 cannon"
-    {on "ce_build_ai_cannon_sandbags" overload}
+
+{"mortar cannon"
+    {on "construction_sandbag_cannon_standard" overload
+        {call "random_small_sandbag_ring"}
+    }
+    {on "construction_sandbag_cannon_shallow" overload
+        {call "random_small_sandbag_ring"}
+    }
+}
+
+{"37mm_pstk36"
+    {on "construction_sandbag_cannon_standard" overload}
+    {on "construction_sandbag_cannon_shallow" overload}
+}
+
+{"37mm_flak37"
+    {on "construction_sandbag_cannon_standard" overload
+        {call "sandbag_ring_heap_straight_short_no_piles"}
+    }
+}
+
+{"85mm_52k"
+    {on "construction_sandbag_cannon_standard" overload
+        {call "random_heavy_sandbag_ring"}
+    }
+}
+
+{"pak_44"
+    {on "construction_sandbag_cannon_standard" overload
+        {call "random_medium_sandbag_ring"}
+    }
+}
+
+{"40mm_m1"
+    {on "construction_sandbag_cannon_standard" overload
+        {call "random_heavy_sandbag_ring"}
+    }
+}
+
+{"40mm_itk38b"
+    {on "construction_sandbag_cannon_standard" overload
+        {call "random_heavy_sandbag_ring"}
+    }
 }
