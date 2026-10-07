@@ -15,5 +15,7 @@
 	{"enable_waypoint_graph"}
 	{"weather_selection"}
 	{"season_set"}
-	{"strong_weather_enabled"}
+	{"weather_season"}
+	{"weather_pool_selected"}
+	{"weather_change_pending"}
 

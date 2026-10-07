@@ -24,6 +24,7 @@ require([[/script/multiplayer/modes/conquest/orders]]) -- squad order assignment
 
 require([[/script/multiplayer/modes/conquest_enhanced/utilities_ce]])
 require([[/script/multiplayer/modes/conquest_enhanced/orders_ce]])
+require([[/script/multiplayer/modes/conquest_enhanced/weather_ce]])
 
 local firstSpawn = false 
 
@@ -33,6 +34,7 @@ function OnGameStart()
 	ConquestContext.SetVarsInMissionScript()
 	ConquestContext.SetCEVarsInMissionScript()
 	OnGameStartUtility("conquest")
+	--CEWeather.Start()
 	--ConquestDebug.StartSceneQueryTestLog()
 end
 

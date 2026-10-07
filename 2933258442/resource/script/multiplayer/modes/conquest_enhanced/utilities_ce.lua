@@ -6,7 +6,7 @@ local unitBases = {"Cannon", "SPG", "Plane"}
 local unitRoles = {"Artillery", "Breakthrough"}
 local unitClasses = {"Heavy"}
 -- Specific unit names (from roster files like conquest.ger) that should skip the waypoint graph
-local exemptUnitNames = {"sdkfz234_4"}
+local exemptUnitNames = {"sdkfz234_4", "hetzer"}
 local AIR_DEFENSE_ROLE = "AirDefense"
 local ENABLE_WAYPOINT_GRAPH = "enable_waypoint_graph"
 
@@ -40,6 +40,7 @@ local function containsAny(tbl, targets)
 end
 
 function ConquestContext.SetCEVarsInMissionScript()
+	CEWeather.Start()
 	local enableWaypointGraph = ConquestState.botDefender and 1 or 0
 	ConquestContext.SetEnableWaypointGraph(enableWaypointGraph)
 

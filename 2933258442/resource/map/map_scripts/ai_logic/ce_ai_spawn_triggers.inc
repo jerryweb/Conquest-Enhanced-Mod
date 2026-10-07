@@ -369,6 +369,150 @@
 											}
 										}
 									}
+									{group
+										{select
+											{zone
+												{zone "%zone"}
+											}
+										}
+										{include
+											{state
+												{state "operatable inhabited"}
+											}
+											{prop
+												{prop sq_autocannon}
+											}
+											{prop
+												{prop vehicle}
+											}
+										}
+										{exclude
+											{state
+												{state user_control}
+											}
+											{state
+												{state linked}
+											}
+											{state
+												{state inactive}
+											}
+											{prop
+												{prop human}
+											}
+											{prop
+												{prop airborne}
+											}
+											{tag
+												{tag ignore_spawn_logic}
+											}
+											{tag
+												{tag cmp_def}
+											}
+											{prop
+												{prop cannon}
+											}
+										}
+									}
+									{group
+										{select
+											{zone
+												{zone "%zone"}
+											}
+										}
+										{include
+											{state
+												{state "operatable inhabited"}
+											}
+											{prop
+												{prop tank}
+											}
+											{prop
+												{prop medium}
+											}
+										}
+										{exclude
+											{state
+												{state user_control}
+											}
+											{state
+												{state linked}
+											}
+											{state
+												{state inactive}
+											}
+											{prop
+												{prop human}
+											}
+											{prop
+												{prop airborne}
+											}
+											{tag
+												{tag ignore_spawn_logic}
+											}
+											{tag
+												{tag cmp_def}
+											}
+											{prop
+												{prop cannon}
+											}
+											{prop
+												{prop td}
+											}
+											{prop
+												{prop sq_he_large}
+											}
+											{prop
+												{prop sq_he_medium}
+											}
+										}
+									}
+									{group
+										{select
+											{zone
+												{zone "%zone"}
+											}
+										}
+										{include
+											{state
+												{state "operatable inhabited"}
+											}
+											{prop
+												{prop hetzer}
+											}
+										}
+										{exclude
+											{state
+												{state user_control}
+											}
+											{state
+												{state linked}
+											}
+											{state
+												{state inactive}
+											}
+											{prop
+												{prop human}
+											}
+											{prop
+												{prop airborne}
+											}
+											{tag
+												{tag ignore_spawn_logic}
+											}
+											{tag
+												{tag cmp_def}
+											}
+											{prop
+												{prop cannon}
+											}
+											{prop
+												{prop sq_he_large}
+											}
+											{prop
+												{prop sq_he_medium}
+											}
+										}
+									}
 								}
 							}
 						}
@@ -429,6 +573,150 @@
 									}
 									{prop
 										{prop cannon}
+									}
+									{prop
+										{prop sq_he_medium}
+									}
+								}
+							}
+							{group
+								{select
+									{zone
+										{zone "%zone"}
+									}
+								}
+								{include
+									{state
+										{state "operatable inhabited"}
+									}
+									{prop
+										{prop sq_autocannon}
+									}
+									{prop
+										{prop vehicle}
+									}
+								}
+								{exclude
+									{state
+										{state user_control}
+									}
+									{state
+										{state linked}
+									}
+									{state
+										{state inactive}
+									}
+									{prop
+										{prop human}
+									}
+									{prop
+										{prop airborne}
+									}
+									{tag
+										{tag ignore_spawn_logic}
+									}
+									{tag
+										{tag cmp_def}
+									}
+									{prop
+										{prop cannon}
+									}
+								}
+							}
+							{group
+								{select
+									{zone
+										{zone "%zone"}
+									}
+								}
+								{include
+									{state
+										{state "operatable inhabited"}
+									}
+									{prop
+										{prop tank}
+									}
+									{prop
+										{prop medium}
+									}
+								}
+								{exclude
+									{state
+										{state user_control}
+									}
+									{state
+										{state linked}
+									}
+									{state
+										{state inactive}
+									}
+									{prop
+										{prop human}
+									}
+									{prop
+										{prop airborne}
+									}
+									{tag
+										{tag ignore_spawn_logic}
+									}
+									{tag
+										{tag cmp_def}
+									}
+									{prop
+										{prop cannon}
+									}
+									{prop
+										{prop td}
+									}
+									{prop
+										{prop sq_he_large}
+									}
+									{prop
+										{prop sq_he_medium}
+									}
+								}
+							}
+							{group
+								{select
+									{zone
+										{zone "%zone"}
+									}
+								}
+								{include
+									{state
+										{state "operatable inhabited"}
+									}
+									{prop
+										{prop hetzer}
+									}
+								}
+								{exclude
+									{state
+										{state user_control}
+									}
+									{state
+										{state linked}
+									}
+									{state
+										{state inactive}
+									}
+									{prop
+										{prop human}
+									}
+									{prop
+										{prop airborne}
+									}
+									{tag
+										{tag ignore_spawn_logic}
+									}
+									{tag
+										{tag cmp_def}
+									}
+									{prop
+										{prop cannon}
+									}
+									{prop
+										{prop sq_he_large}
 									}
 									{prop
 										{prop sq_he_medium}
