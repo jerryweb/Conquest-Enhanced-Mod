@@ -7,34 +7,16 @@
         }
     }
     
-    {on "smoke_for_test_red"
-        {add_view "smoke_flare_red" "smoke" "root"}
-        {view start "smoke"}
-        {delay 10 {view stop "smoke"}}
-    }
-
-    {on "smoke_for_test_dark_red"
-        {add_view "smoke_flare_dark_red" "smoke" "root"}
-        {view start "smoke"}
-        {delay 10 {view stop "smoke"}}
-    }
-
-    {on "smoke_for_test_blue"
-        {add_view "smoke_flare_blue" "smoke" "root"}
-        {view start "smoke"}
-        {delay 10 {view stop "smoke"}}
-    }
-
-    {on "smoke_for_test_light_red"
-        {add_view "smoke_flare_light_red" "smoke" "root"}
-        {view start "smoke"}
-        {delay 10 {view stop "smoke"}}
-    }
-
-    {on "smoke_for_test_light_purple"
-        {add_view "smoke_flare_light_purple" "smoke" "root"}
-        {view start "smoke"}
-        {delay 10 {view stop "smoke"}}
+    {on crew out    
+        {if not user_control
+            {if prop "multi_board"
+                {if prop "truck"
+                    {if not crew_in_place "seat1"
+                        {delay 3 {tags add "_ai_veh_empty"}}
+                    }
+                }
+            }            
+        }
     }
 
     {on "tag_squad_need_next_order"
@@ -94,21 +76,8 @@
         {tags add "ignore_spawn_logic"}
     } 
 
-    {on "deploy_smoke"}                     ;// overridden in tank file
 
-    {on "reverse_directly_back_20_meters"
-        {call "deploy_smoke"}
-        {spawn "ai_waypoint_pole_h" "basis" x constrain_after_dir scale 4
-            {spawn "ai_waypoint_pole" "reverse_here" x constrain_after_dir
-                {tags add "back_up"}
-            }
-            {delay 0.01 {delete}}
-        }
-    }
-
-
-
-    ; =========== Build Sandbag Ring Functions ===========
+; =========== Build Sandbag Ring Functions ===========
     {on "sandbag_ring_heap_curved"
         {delay 10
             {spawn "sandbag_heap_curved" offset 75 0 -5}
@@ -324,7 +293,6 @@
             }
         }
     }
-
 ; =========== Randomized Sandbag Ring Functions ===========
     {on "sandbag_initial_build_settings"
         {call "deactivate_vehicle"}

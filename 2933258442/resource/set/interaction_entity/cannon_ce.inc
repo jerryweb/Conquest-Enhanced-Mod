@@ -1,6 +1,6 @@
 {"cannon"
     {on "ce_build_ai_cannon_sandbags"
-        {if not tagged "ce_ai_cannon_sandbags"
+        ;{if not tagged "ce_ai_cannon_sandbags"
             {if operatable
                 {if not user_control
                     {tags add "ce_ai_cannon_sandbags"}
@@ -23,7 +23,7 @@
                     }
                 }
             }
-        }
+        ;}
     }
 }
 

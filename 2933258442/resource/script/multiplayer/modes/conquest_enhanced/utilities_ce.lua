@@ -5,8 +5,11 @@ waveOneGraphOverrideActive = false
 local unitBases = {"Cannon", "SPG", "Plane"}
 local unitRoles = {"Artillery", "Breakthrough"}
 local unitClasses = {"Heavy"}
+
+-- Specific unit names (from roster files like conquest.ger) that should use the waypoint graph
+local shouldFollowWaypointUnitNames = {"hetzer"}
 -- Specific unit names (from roster files like conquest.ger) that should skip the waypoint graph
-local exemptUnitNames = {"sdkfz234_4", "hetzer"}
+local exemptUnitNames = {"sdkfz234_4", "sdkfz251d_22", "t30_hmc"}
 local AIR_DEFENSE_ROLE = "AirDefense"
 local ENABLE_WAYPOINT_GRAPH = "enable_waypoint_graph"
 
@@ -90,7 +93,9 @@ local function IsPermanentlyWaypointGraphExempt(spawnInfo)
 
 	-- 1. Check for specific unit name match from roster definitions
 	local spawnUnit = spawnInfo.unit
-	if spawnUnit and contains(exemptUnitNames, spawnUnit) then
+	if spawnUnit and contains(shouldFollowWaypointUnitNames, spawnUnit) then
+		return false
+	elseif spawnUnit and contains(exemptUnitNames, spawnUnit) then
 		return true
 	end
 

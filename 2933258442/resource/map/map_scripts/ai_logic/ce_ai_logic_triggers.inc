@@ -258,3 +258,512 @@
 					}
 				}
 			}
+
+			{"ai_logic/reverse_to_reload"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag spg_fired}
+										}
+									}
+									{include
+										{state
+											{state "operatable inhabited"}
+										}
+										{tag
+											{tag _bot}
+										}
+										{prop
+											{prop tank}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag spg_fired}
+									}
+								}
+								{include
+									{state
+										{state "operatable inhabited"}
+									}
+									{tag
+										{tag _bot}
+									}
+									{prop
+										{prop tank}
+									}
+								}
+								{exclude
+									{state
+										{state inactive}
+									}
+									{state
+										{state user_control}
+									}
+								}
+							}
+							{amount 1
+							}
+						}
+						{tag_add spg_to_reverse}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"select"
+						{tag spg_to_reverse}
+						{type tank}
+						{state inhabited}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"effect"
+						{selector
+							{source current}
+						}
+						{effect spg_reverse_to_reload}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"action"
+						{selector
+							{source current}
+						}
+						{action move}
+						{drop orders}
+						{target
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag back_up_to_reload}
+									}
+								}
+							}
+							{sort
+								{type entity}
+								{entity
+									{amount 1
+									}
+									{tag spg_fired}
+									{type tank}
+									{state inhabited}
+								}
+							}
+							{amount 1
+							}
+						}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"delete"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag back_up_to_reload}
+									}
+								}
+								{exclude
+									{state
+										{state inactive}
+									}
+								}
+							}
+							{sort
+								{type entity}
+								{entity
+									{amount 1
+									}
+									{tag spg_to_reverse}
+									{type tank}
+									{state inhabited}
+								}
+							}
+							{amount 1
+							}
+						}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{source current}
+						}
+						{tag_remove spg_to_reverse}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"trigger"
+						{name "ai_logic/reverse_to_reload"}
+					}
+				}
+			}
+
+			{"ai_logic/send_empty_transport_back"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _ai_veh_empty}
+										}
+									}
+									{include
+										{state
+											{state "chassis_work inhabited"}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag _ai_veh_empty_selected}
+										}
+										{tag}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag _ai_veh_empty}
+									}
+								}
+								{include
+									{prop
+										{prop vehicle}
+									}
+									{state
+										{state "chassis_work inhabited"}
+									}
+								}
+								{exclude
+									{state
+										{state inactive}
+									}
+									{state
+										{state linked}
+									}
+									{tag
+										{tag _ai_veh_empty_selected}
+									}
+									{tag
+										{tag _lua_mi}
+									}
+									{state
+										{state user_control}
+									}
+								}
+							}
+							{amount 1
+							}
+						}
+						{tag_add _ai_veh_empty_selected}
+						{tag_remove _ai_veh_empty}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"select"
+						{tag _ai_veh_empty_selected}
+						{type vehicle}
+						{state inhabited}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "bots_spawnside$"}
+								{op "=="}
+								{value 1}
+							}
+							{"action"
+								{selector
+									{source current}
+								}
+								{drop orders}
+								{action move}
+								{target
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag spawn_a}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{sort
+										{type entity}
+										{entity
+											{amount 1
+											}
+											{tag _ai_veh_empty_selected}
+											{type vehicle}
+											{state inhabited}
+										}
+									}
+									{amount 1
+									}
+								}
+							}
+						}
+						{"default"
+							{"action"
+								{selector
+									{source current}
+								}
+								{drop orders}
+								{action move}
+								{target
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag spawn_b}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+										}
+									}
+									{sort
+										{type entity}
+										{entity
+											{amount 1
+											}
+											{tag _ai_veh_empty_selected}
+											{type vehicle}
+											{state inhabited}
+										}
+									}
+									{amount 1
+									}
+								}
+							}
+						}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{source current}
+						}
+						{tag_add _transport_rtb}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"actor_state"
+						{selector
+							{source current}
+						}
+						{ai_move
+							{mode disable}
+						}
+						{movement
+							{speed fast}
+						}
+						{ai
+							{follow_commander off}
+						}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{source current}
+						}
+						{tag_add _lua_mi}
+						{tag_remove _ai_veh_empty_selected}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"trigger"
+						{name "ai_logic/send_empty_transport_back"}
+					}
+				}
+			}
+			{"ai_logic/delete_empty_transports"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "a_1"}
+										}
+										{zone
+											{zone "a_2"}
+										}
+										{zone
+											{zone "a_3"}
+										}
+										{zone
+											{zone "a_4"}
+										}
+										{zone
+											{zone "b_1"}
+										}
+										{zone
+											{zone "b_2"}
+										}
+										{zone
+											{zone "b_3"}
+										}
+										{zone
+											{zone "b_4"}
+										}
+									}
+									{include
+										{tag
+											{tag _transport_rtb}
+										}
+										{state
+											{state "chassis_work inhabited"}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state inactive}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 4}
+					}
+					{"delete"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{zone
+										{zone "a_1"}
+									}
+									{zone
+										{zone "a_2"}
+									}
+									{zone
+										{zone "a_3"}
+									}
+									{zone
+										{zone "a_4"}
+									}
+									{zone
+										{zone "b_1"}
+									}
+									{zone
+										{zone "b_2"}
+									}
+									{zone
+										{zone "b_3"}
+									}
+									{zone
+										{zone "b_4"}
+									}
+								}
+								{include
+									{tag
+										{tag _transport_rtb}
+									}
+									{state
+										{state "chassis_work inhabited"}
+									}
+								}
+								{exclude
+									{state
+										{state user_control}
+									}
+									{state
+										{state linked}
+									}
+									{state
+										{state inactive}
+									}
+								}
+							}
+						}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"trigger"
+						{name "ai_logic/delete_empty_transports"}
+					}
+				}
+			}

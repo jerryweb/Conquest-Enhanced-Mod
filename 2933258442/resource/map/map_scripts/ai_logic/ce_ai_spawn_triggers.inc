@@ -459,11 +459,14 @@
 												{prop td}
 											}
 											{prop
-												{prop sq_he_large}
+												{prop "-turret"}
 											}
-											{prop
-												{prop sq_he_medium}
-											}
+											;{prop
+											;	{prop sq_he_large}
+											;}
+											;{prop
+											;	{prop sq_he_medium}
+											;}
 										}
 									}
 									{group
@@ -559,8 +562,11 @@
 									{tag
 										{tag cmp_def}
 									}
+									;{prop
+									;	{prop sq_armor_heavy}
+									;}
 									{prop
-										{prop sq_armor_heavy}
+										{prop heavy}
 									}
 									{prop
 										{prop sq_armor_super_heavy}
@@ -669,11 +675,14 @@
 										{prop td}
 									}
 									{prop
-										{prop sq_he_large}
+										{prop "-turret"}
 									}
-									{prop
-										{prop sq_he_medium}
-									}
+									;{prop
+									;	{prop sq_he_large}
+									;}
+									;{prop
+									;	{prop sq_he_medium}
+									;}
 								}
 							}
 							{group
@@ -825,7 +834,7 @@
 							{effect set_ignore_spawn_logic}
 						}
 						{"delay"
-							{time 0.1}
+							{time 2}
 						}
 						{"trigger"
 							{name "ai_spawn_logic/side_%side/veh/veh_spawn_%zone"}
