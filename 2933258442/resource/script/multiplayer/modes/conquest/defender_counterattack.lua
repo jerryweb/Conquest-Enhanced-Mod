@@ -97,7 +97,17 @@ function ConquestDefenderCounterattack.Start(flagName)
 		ConquestWaves.ResolveGarrisonReadyBeforePurchase(PHASE_DEFENDER_COUNTERATTACK)
 	end
 
+	-- A security wave that blocked this counterattack holds it for the conflict
+	-- delay before it checks again.
+	if ConquestSecurityWave.IsCounterattackHeld() then
+		return false
+	end
+
 	if ConquestState.purchasePhase then
+		if ConquestSecurityWave.IsActive() then
+			ConquestSecurityWave.HoldCounterattack()
+		end
+
 		return false
 	end
 
@@ -112,6 +122,7 @@ function ConquestDefenderCounterattack.Start(flagName)
 	local targetUnits = RollTargetUnits()
 	ConquestDefenderCounterattack.CapturePlanningSnapshot(flagName, targetUnits)
 	ConquestWaves.StartPurchasePhase(PHASE_DEFENDER_COUNTERATTACK, targetUnits)
+	ConquestContext.RefreshWaypointGraph() -- graph off while the counterattack runs
 
 	return true
 end
@@ -121,6 +132,7 @@ function ConquestDefenderCounterattack.FinishActive()
 	ConquestState.counterattackFlagName = nil
 	ConquestPurchaseProfiles.FinishPurchasePhasePlan()
 	ConquestState.purchasePhase = nil
+	ConquestContext.RefreshWaypointGraph() -- graph back on
 end
 
 -- Returns true if any queued defender counterattack is ready to start.

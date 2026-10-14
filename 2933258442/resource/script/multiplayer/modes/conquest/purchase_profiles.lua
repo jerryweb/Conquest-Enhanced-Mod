@@ -289,9 +289,12 @@ function ConquestPurchaseProfiles.StartPurchasePhasePlan(phase, targetBudget)
 
 	if phase == "attacker_wave" then
 		phaseIntent = ConquestState.attackerWaveIntent
+	elseif phase == "defender_security" then
+		-- Security waves are small, fast flanking groups, so they buy from the probe lanes.
+		phaseIntent = "probe"
 	end
 
-	if phase == "attacker_wave" and phaseIntent == "probe" then
+	if (phase == "attacker_wave" or phase == "defender_security") and phaseIntent == "probe" then
 		secondaryBudget = 0
 		primaryBudget = targetBudget
 		AddProbePrimaryLanes(lanes, ConquestState.primaryForce, primaryBudget)

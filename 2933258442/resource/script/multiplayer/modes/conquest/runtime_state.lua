@@ -81,6 +81,13 @@ ConquestState.counterattacksByFlag = {}
 -- Latest scene snapshot captured when a defender counterattack purchase plan starts.
 ConquestState.defenderCounterattackSnapshot = nil
 
+-- Defender security (flanking) wave state. See conquest_enhanced/security_ce.lua.
+ConquestState.securityWaveReady = false
+ConquestState.securityWavesStarted = 0
+ConquestState.securityWaveRetryPending = false
+-- True while a counterattack is waiting out the conflict delay because a security wave was active.
+ConquestState.counterattackHeldForSecurity = false
+
 -- Match-local force memory built from existing scene snapshots.
 ConquestState.playerSceneMemory = nil
 ConquestState.botSceneMemory = nil

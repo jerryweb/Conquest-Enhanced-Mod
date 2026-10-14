@@ -1,32 +1,27 @@
 -- =========================================================
 -- UTILITIES FILE FOR CONQUEST ENHANCED
 -- =========================================================
-waveOneGraphOverrideActive = false
-local unitBases = {"Cannon", "SPG", "Plane"}
+local waveOneGraphOverrideActive = false
+local lastWrittenGraphVar = nil -- last value sent to BotApi, used to skip redundant writes
+
+-- Cannons never follow the graph, regardless of role.
+local alwaysExemptBases = {"Cannon"}
+-- These bases are exempt unless the unit has the AirDefense role.
+local exemptBasesUnlessAirDefense = {"SPG", "Plane"}
+local exemptClassesUnlessAirDefense = {"Heavy"}
 local unitRoles = {"Artillery", "Breakthrough"}
-local unitClasses = {"Heavy"}
 
 -- Specific unit names (from roster files like conquest.ger) that should use the waypoint graph
-local shouldFollowWaypointUnitNames = {"hetzer"}
+local shouldFollowWaypointUnitNames = { hetzer = true }
 -- Specific unit names (from roster files like conquest.ger) that should skip the waypoint graph
-local exemptUnitNames = {"sdkfz234_4", "sdkfz251d_22", "t30_hmc"}
+local exemptUnitNames = { sdkfz234_4 = true, sdkfz251d_22 = true, t30_hmc = true }
 local AIR_DEFENSE_ROLE = "AirDefense"
 local ENABLE_WAYPOINT_GRAPH = "enable_waypoint_graph"
-
--- local ENABLE_SPAWN_A_1_WAYPOINT_GRID = "enable_spawn_a_1_waypoint_grid"
--- local ENABLE_SPAWN_A_2_WAYPOINT_GRID = "enable_spawn_a_2_waypoint_grid"
--- local ENABLE_SPAWN_A_3_WAYPOINT_GRID = "enable_spawn_a_3_waypoint_grid"
--- local ENABLE_SPAWN_A_4_WAYPOINT_GRID = "enable_spawn_a_4_waypoint_grid"
-
--- local ENABLE_SPAWN_B_1_WAYPOINT_GRID = "enable_spawn_b_1_waypoint_grid"
--- local ENABLE_SPAWN_B_2_WAYPOINT_GRID = "enable_spawn_b_2_waypoint_grid"
--- local ENABLE_SPAWN_B_3_WAYPOINT_GRID = "enable_spawn_b_3_waypoint_grid"
--- local ENABLE_SPAWN_B_4_WAYPOINT_GRID = "enable_spawn_b_4_waypoint_grid"
-
 
 -- Helper function to check if a table contains a specific value
 local function contains(tbl, target)
 	if not tbl then return false end
+	if type(tbl) == "string" then return tbl == target end
 	for _, val in ipairs(tbl) do
 		if val == target then return true end
 	end
@@ -42,88 +37,110 @@ local function containsAny(tbl, targets)
 	return false
 end
 
-function ConquestContext.SetCEVarsInMissionScript()
-	CEWeather.Start()
-	local enableWaypointGraph = ConquestState.botDefender and 1 or 0
-	ConquestContext.SetEnableWaypointGraph(enableWaypointGraph)
+local PHASE_DEFENDER_COUNTERATTACK = "defender_counterattack" -- must match waves.lua
 
-	if printDebug then
-		print("enable spawn waypoint grid = ", enableWaypointGraph)
+-- True while the bot's defender counterattack purchase phase is running.
+local function IsDefenderCounterattackActive()
+	return ConquestState.purchasePhase == PHASE_DEFENDER_COUNTERATTACK
+end
+
+-- The value the graph var should have when the wave-1 override is NOT active.
+-- On, except while the bot's defender counterattack is running.
+local function GetBaseWaypointGraphEnabled()
+	if IsDefenderCounterattackActive() then
+		return 0
 	end
+	return 1
 end
 
 function ConquestContext.SetEnableWaypointGraph(enableWaypointGraphVar)
+	if enableWaypointGraphVar == lastWrittenGraphVar then return end
+	lastWrittenGraphVar = enableWaypointGraphVar
 	BotApi.Scene:SetVar(ENABLE_WAYPOINT_GRAPH, enableWaypointGraphVar)
 	if printDebug then
 		print("enable spawn waypoint grid = ", enableWaypointGraphVar)
 	end
 end
 
+function ConquestContext.SetCEVarsInMissionScript()
+	CEWeather.Start()
+	-- Bot attacker: the first wave is still pending, so the override starts armed.
+	waveOneGraphOverrideActive = not ConquestState.botDefender
+	lastWrittenGraphVar = nil -- force a write at mission start
+	ConquestContext.RefreshWaypointGraph()
+end
+
+-- Recomputes and applies the graph var. Call this whenever the base state can
+-- change mid-match (counter attack starting or finishing).
+function ConquestContext.RefreshWaypointGraph()
+	local enable = waveOneGraphOverrideActive and 0 or GetBaseWaypointGraphEnabled()
+	ConquestContext.SetEnableWaypointGraph(enable)
+end
+
 -- Toggles the wave-1 override: when active, every spawning squad skips the
 -- waypoint graph regardless of unit type.
 function SetWaveOneGraphOverride(isActive)
 	waveOneGraphOverrideActive = isActive
-
-	-- Consistently pass 1 or 0 integer flag to BotApi
-	local enableWaypointGraph = isActive and 0 or 1
-	ConquestContext.SetEnableWaypointGraph(enableWaypointGraph)
+	ConquestContext.RefreshWaypointGraph()
 end
 
--- Arms the wave-1 override when the first attacker wave spawns, and clears it
--- once wave 2 starts.
+-- The override is active only for the very first attacker wave; every later
+-- wave follows the graph again (subject to the base state).
 function UpdateWaveOneGraphOverride()
-	if ConquestState.waveNumber == 0 then
-		if printDebug then
-			print("Initial recon wave spawning.")
-		end
-		SetWaveOneGraphOverride(true)
-	elseif ConquestState.waveNumber == 1 then
-		if printDebug then
-			print("2nd wave spawning.")
-		end
-		SetWaveOneGraphOverride(false)
+	local isFirstWave = ConquestState.waveNumber == 0
+	if printDebug then
+		print(isFirstWave and "Initial recon wave spawning." or "Later wave spawning.")
 	end
+	SetWaveOneGraphOverride(isFirstWave)
 end
 
 -- Returns true for unit types that must never follow the mission-layer waypoint
--- graph, regardless of wave number (e.g. artillery, heavy armor classes, or specific unit names).
--- AirDefense-role Cannon/SPG/Plane/Heavy units are exempted from the base/class exclusion.
+-- graph, regardless of wave number.
+-- Cannons are always exempt. SPG/Plane/Heavy are exempt unless AirDefense.
+-- Artillery/Breakthrough roles are exempt in all cases.
 local function IsPermanentlyWaypointGraphExempt(spawnInfo)
 	if not spawnInfo then return false end
 
-	-- 1. Check for specific unit name match from roster definitions
+	-- 1. Specific unit names from roster definitions take priority
 	local spawnUnit = spawnInfo.unit
-	if spawnUnit and contains(shouldFollowWaypointUnitNames, spawnUnit) then
-		return false
-	elseif spawnUnit and contains(exemptUnitNames, spawnUnit) then
-		return true
-	end
-
-	-- 2. Extract unit properties
-	local spawnBase = spawnInfo.base
-	local spawnClass = spawnInfo.class
-	local spawnRoles = spawnInfo.roles
-	local isAirDefense = contains(spawnRoles, AIR_DEFENSE_ROLE)
-
-	-- 3. Check base and class types (if not AirDefense)
-	if not isAirDefense then
-		if containsAny(spawnBase, unitBases) or containsAny(spawnClass, unitClasses) then
+	if spawnUnit then
+		if shouldFollowWaypointUnitNames[spawnUnit] then
+			return false
+		elseif exemptUnitNames[spawnUnit] then
 			return true
 		end
 	end
 
-	-- 4. Check roles
+	local spawnBase = spawnInfo.base
+	local spawnClass = spawnInfo.class
+	local spawnRoles = spawnInfo.roles
+
+	-- 2. All cannons, including AirDefense cannons
+	if containsAny(spawnBase, alwaysExemptBases) then
+		return true
+	end
+
+	-- 3. Other base/class exclusions, skipped for AirDefense units
+	if not contains(spawnRoles, AIR_DEFENSE_ROLE) then
+		if containsAny(spawnBase, exemptBasesUnlessAirDefense)
+			or containsAny(spawnClass, exemptClassesUnlessAirDefense) then
+			return true
+		end
+	end
+
+	-- 4. Role exclusions
 	return containsAny(spawnRoles, unitRoles)
 end
 
 -- Returns true when this spawning squad should skip the waypoint graph and use
--- a Lua CaptureFlag order instead - either because the wave-1 override is
--- active, or because this unit type is permanently graph-exempt.
+-- a Lua CaptureFlag order instead: the wave-1 override is active, a bot
+-- defender counterattack is running, or this unit type is permanently
+-- graph-exempt.
 function ShouldSkipWaypointGraph()
-	if waveOneGraphOverrideActive then
+	if waveOneGraphOverrideActive or IsDefenderCounterattackActive() then
 		return true
 	end
 
-	-- Added safety guard for Context to prevent runtime nil errors
+	-- Safety guard for Context to prevent runtime nil errors
 	return IsPermanentlyWaypointGraphExempt(Context and Context.SpawnInfo)
 end

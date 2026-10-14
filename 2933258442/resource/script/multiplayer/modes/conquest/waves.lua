@@ -8,6 +8,7 @@ ConquestWaves = ConquestWaves or {}
 local PHASE_ATTACKER_WAVE = "attacker_wave"
 local PHASE_DEFENDER_OPENING = "defender_opening"
 local PHASE_DEFENDER_COUNTERATTACK = "defender_counterattack"
+local PHASE_DEFENDER_SECURITY = "defender_security"
 local MISSION_VAR_GARRISON_END = "garrison_end"
 local MISSION_VAR_GARRISON_READY = "garrison_ready"
 
@@ -360,6 +361,10 @@ function ConquestWaves.UpdatePurchasePhase()
 			ConquestDefenderCounterattack.FinishActive()
 		end
 
+		if ConquestState.purchasePhase == PHASE_DEFENDER_SECURITY and HasPhaseReachedTarget() then
+			ConquestSecurityWave.FinishActive()
+		end
+
 		return
 	end
 
@@ -411,6 +416,10 @@ function ConquestWaves.CanPurchaseUnit()
 		end
 
 		if ConquestState.purchasePhase == PHASE_DEFENDER_COUNTERATTACK then
+			return not HasPhaseReachedTarget()
+		end
+
+		if ConquestState.purchasePhase == PHASE_DEFENDER_SECURITY then
 			return not HasPhaseReachedTarget()
 		end
 

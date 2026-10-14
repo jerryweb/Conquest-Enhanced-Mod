@@ -25,6 +25,7 @@ require([[/script/multiplayer/modes/conquest/orders]]) -- squad order assignment
 require([[/script/multiplayer/modes/conquest_enhanced/utilities_ce]])
 require([[/script/multiplayer/modes/conquest_enhanced/orders_ce]])
 require([[/script/multiplayer/modes/conquest_enhanced/weather_ce]])
+require([[/script/multiplayer/modes/conquest_enhanced/security_ce]]) -- defender security (flanking) waves.
 
 local firstSpawn = false 
 
@@ -33,6 +34,7 @@ function OnGameStart()
 	ConquestPurchaseProfiles.InitializeBattleForce()
 	ConquestContext.SetVarsInMissionScript()
 	ConquestContext.SetCEVarsInMissionScript()
+	ConquestSecurityWave.Init()
 	OnGameStartUtility("conquest")
 	--CEWeather.Start()
 	--ConquestDebug.StartSceneQueryTestLog()

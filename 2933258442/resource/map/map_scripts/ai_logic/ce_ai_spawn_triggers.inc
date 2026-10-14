@@ -346,9 +346,6 @@
 											{tag
 												{tag cmp_def}
 											}
-											;{prop
-											;	{prop sq_armor_heavy}
-											;}
 											{prop
 												{prop heavy}
 											}
@@ -513,6 +510,50 @@
 											}
 											{prop
 												{prop sq_he_medium}
+											}
+										}
+									}
+									{group
+										{select
+											{zone
+												{zone "%zone"}
+											}
+										}
+										{include
+											{state
+												{state "operatable inhabited"}
+											}
+											{prop
+												{prop mortar_carrier_mk1_boys}
+											}
+										}
+										{exclude
+											{state
+												{state user_control}
+											}
+											{state
+												{state linked}
+											}
+											{state
+												{state inactive}
+											}
+											{prop
+												{prop human}
+											}
+											{prop
+												{prop airborne}
+											}
+											{tag
+												{tag ignore_spawn_logic}
+											}
+											{tag
+												{tag cmp_def}
+											}
+											{prop
+												{prop cannon}
+											}
+											{prop
+												{prop sq_he_large}
 											}
 										}
 									}
@@ -729,6 +770,50 @@
 									}
 									{prop
 										{prop sq_he_medium}
+									}
+								}
+							}
+							{group
+								{select
+									{zone
+										{zone "%zone"}
+									}
+								}
+								{include
+									{state
+										{state "operatable inhabited"}
+									}
+									{prop
+										{prop mortar_carrier_mk1_boys}
+									}
+								}
+								{exclude
+									{state
+										{state user_control}
+									}
+									{state
+										{state linked}
+									}
+									{state
+										{state inactive}
+									}
+									{prop
+										{prop human}
+									}
+									{prop
+										{prop airborne}
+									}
+									{tag
+										{tag ignore_spawn_logic}
+									}
+									{tag
+										{tag cmp_def}
+									}
+									{prop
+										{prop cannon}
+									}
+									{prop
+										{prop sq_he_large}
 									}
 								}
 							}

@@ -202,6 +202,26 @@ ConquestConfig.DefenderCounterattack = {
 
 }
 
+-- Small flanking waves the bot defender buys while the player attacks.
+-- Only used when the bot is the defender. Logic lives in conquest_enhanced/security_ce.lua.
+ConquestConfig.DefenderSecurityWave = {
+	-- Time from match start to the first wave, and between wave starts after that.
+	IntervalMin = 4 * 60000,
+	IntervalMax = 6 * 60000,
+
+	-- Base wave size before the risk delta in PurchasePressure.RiskPurchaseCountDelta.
+	MinUnits = 3,
+	MaxUnits = 5,
+	MinWaveUnits = 1,
+
+	-- Maximum security waves started per match.
+	MaxTotal = 6,
+
+	-- How long a wave blocked by another active wave waits before it checks again.
+	-- Applies to both the security wave and the defender counterattack.
+	ConflictRetryDelay = 30 * 1000,
+}
+
 -- Purchase-count deltas applied after baseline phase counts are rolled.
 ConquestConfig.PurchasePressure = {
 	-- Clamp on the summed delta, per phase. A guard against stacked modifiers
@@ -211,6 +231,7 @@ ConquestConfig.PurchasePressure = {
 		attacker_wave = { min = -2, max = 8 },
 		defender_opening = { min = -7, max = 8 },
 		defender_counterattack = { min = -2, max = 8 },
+		defender_security = { min = -2, max = 8 },
 	},
 
 	DifficultyPurchaseCountDelta = {
@@ -241,16 +262,19 @@ ConquestConfig.PurchasePressure = {
 			attacker_wave = 0,
 			defender_opening = -1,
 			defender_counterattack = -1,
+			defender_security = -1,
 		},
 		standard = {
 			attacker_wave = 0,
 			defender_opening = 0,
 			defender_counterattack = 0,
+			defender_security = 1,
 		},
 		high = {
 			attacker_wave = 0,
 			defender_opening = 1,
 			defender_counterattack = 1,
+			defender_security = 2,
 		},
 	},
 
@@ -504,6 +528,11 @@ ConquestConfig.PurchaseScoring = {
 			Defensive = 0.70,
 		},
 
+		defender_security = {
+			OffensiveOrFlexible = 1.15,
+			Defensive = 0.70,
+		},
+
 		defender_opening = {
 			DefensiveOrFlexible = 1.15,
 			MountedInfantry = 0.0,
@@ -600,6 +629,18 @@ ConquestConfig.PurchaseScoring = {
 	SupportLanePhaseFit = {
 		PhaseRules = {
 			attacker_wave = {
+				MobilePlatform = 1.15,
+				Cannon = 0.70,
+				HeavyIndirectSupport = 0.70,
+				MobileAirDefense = 1.10,
+
+				LaneRules = {
+					infantry_organic_support = { InfantryAT = 1.15 },
+					anti_tank_force = { InfantryAT = 1.15 },
+				},
+			},
+
+			defender_security = {
 				MobilePlatform = 1.15,
 				Cannon = 0.70,
 				HeavyIndirectSupport = 0.70,

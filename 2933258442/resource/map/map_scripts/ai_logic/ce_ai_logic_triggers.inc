@@ -1,7 +1,7 @@
 ; File created by Hawka
 ;==========================================================================================================
 
-			{"ai/ai_vehicle_smoke"
+			{"ai_logic/ai_smoke_at_vehicles"
 				{condition
 					{type 1}
 					{terms
@@ -85,7 +85,7 @@
 					{"delay"
 						{time 0.1}
 					}
-					{"timer"
+					{## "timer"
 						{time 6}
 						{title "in ai vehicle smoke script"}
 					}
@@ -254,11 +254,10 @@
 						{time 60}
 					}
 					{"trigger"
-						{name "ai/ai_vehicle_smoke"}
+						{name "ai_logic/ai_smoke_at_vehicles"}
 					}
 				}
 			}
-
 			{"ai_logic/reverse_to_reload"
 				{condition
 					{terms
@@ -445,6 +444,9 @@
 										}
 									}
 									{include
+										{prop
+											{prop vehicle}
+										}
 										{state
 											{state "chassis_work inhabited"}
 										}
@@ -454,12 +456,17 @@
 											{state inactive}
 										}
 										{state
-											{state user_control}
+											{state linked}
 										}
 										{tag
 											{tag _ai_veh_empty_selected}
 										}
-										{tag}
+										{tag
+											{tag _lua_mi}
+										}
+										{state
+											{state user_control}
+										}
 									}
 								}
 							}
