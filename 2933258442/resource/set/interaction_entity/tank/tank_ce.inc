@@ -47,4 +47,17 @@
             {tags remove "_lua_mi"}
         }
     }
+
+    {on "spg_engaging_target"
+        {if not user_control
+            {tags add "_lua_mi"}
+            {tags add "spg_engaging"}
+            {tags remove "spg_stop_to_attack"}
+            {delay 45
+                {tags remove "_lua_mi"}
+                {tags remove "spg_engaging"}
+                {call "tag_squad_need_next_order"}
+            }
+        }
+    }
 }

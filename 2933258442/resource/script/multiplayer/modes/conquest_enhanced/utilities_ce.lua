@@ -3,6 +3,15 @@
 -- =========================================================
 local waveOneGraphOverrideActive = false
 local lastWrittenGraphVar = nil -- last value sent to BotApi, used to skip redundant writes
+-- Latched answer to "does this map have a waypoint graph?". Closed until the map layer
+-- reports it; once open it stays open, and if the wait runs out it stays closed all match.
+local mapGraphGateOpen = false
+-- Map-layer var, written once per match about 3 seconds after start. 1/true: the map
+-- has a waypoint graph. 0/unset: it does not, so the graph never turns on.
+local MAP_CONTAINS_GRAPH_VAR = "map_contains_waypoint_graphs"
+local MAP_GRAPH_FIRST_CHECK_MS = 6 * 1000 -- first read, just after the map layer writes it
+local MAP_GRAPH_RETRY_MS = 1 * 1000       -- re-read interval while it is still unset
+local MAP_GRAPH_MAX_WAIT_MS = 15 * 1000   -- give up after this long: treat as no graph
 
 -- Cannons never follow the graph, regardless of role.
 local alwaysExemptBases = {"Cannon"}
@@ -45,12 +54,41 @@ local function IsDefenderCounterattackActive()
 end
 
 -- The value the graph var should have when the wave-1 override is NOT active.
--- On, except while the bot's defender counterattack is running.
+-- Off until the map reports a graph, and off while the bot's defender counterattack
+-- is running. Otherwise on.
 local function GetBaseWaypointGraphEnabled()
-	if IsDefenderCounterattackActive() then
+	if not mapGraphGateOpen or IsDefenderCounterattackActive() then
 		return 0
 	end
 	return 1
+end
+
+-- Same truthy test waves.lua uses for mission vars.
+local function IsMapGraphVarEnabled()
+	local value = BotApi.Scene:GetVar(MAP_CONTAINS_GRAPH_VAR)
+	return value == 1 or value == "1" or value == true
+end
+
+-- Reads the map-layer var until it reports a graph or the wait runs out. Opening the
+-- gate refreshes the scene var in the same step, so the mission graph and the Lua
+-- spawn order (ShouldSkipWaypointGraph) always change together.
+local function ScheduleMapGraphGateCheck(delay, waited)
+	BotApi.Events:SetQuantTimer(function()
+		waited = waited + delay
+		if IsMapGraphVarEnabled() then
+			mapGraphGateOpen = true
+			ConquestContext.RefreshWaypointGraph()
+			if printDebug then
+				print("Print: map reports a waypoint graph, graph logic enabled")
+			end
+		elseif waited >= MAP_GRAPH_MAX_WAIT_MS then
+			if printDebug then
+				print("Print: map reports no waypoint graph, graph stays off")
+			end
+		else
+			ScheduleMapGraphGateCheck(MAP_GRAPH_RETRY_MS, waited)
+		end
+	end, delay)
 end
 
 function ConquestContext.SetEnableWaypointGraph(enableWaypointGraphVar)
@@ -66,8 +104,10 @@ function ConquestContext.SetCEVarsInMissionScript()
 	CEWeather.Start()
 	-- Bot attacker: the first wave is still pending, so the override starts armed.
 	waveOneGraphOverrideActive = not ConquestState.botDefender
+	mapGraphGateOpen = false -- closed until the map layer reports a graph
 	lastWrittenGraphVar = nil -- force a write at mission start
 	ConquestContext.RefreshWaypointGraph()
+	ScheduleMapGraphGateCheck(MAP_GRAPH_FIRST_CHECK_MS, 0)
 end
 
 -- Recomputes and applies the graph var. Call this whenever the base state can
@@ -133,10 +173,14 @@ local function IsPermanentlyWaypointGraphExempt(spawnInfo)
 end
 
 -- Returns true when this spawning squad should skip the waypoint graph and use
--- a Lua CaptureFlag order instead: the wave-1 override is active, a bot
--- defender counterattack is running, or this unit type is permanently
--- graph-exempt.
+-- a Lua CaptureFlag order instead: the map has no graph (or has not reported one
+-- yet), the wave-1 override is active, a bot defender counterattack is running,
+-- or this unit type is permanently graph-exempt.
 function ShouldSkipWaypointGraph()
+	if not mapGraphGateOpen then
+		return true
+	end
+
 	if waveOneGraphOverrideActive or IsDefenderCounterattackActive() then
 		return true
 	end

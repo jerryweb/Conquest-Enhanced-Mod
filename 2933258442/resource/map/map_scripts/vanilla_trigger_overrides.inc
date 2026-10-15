@@ -515,3 +515,680 @@
 					}
 				}
 			}
+
+			{"ai/tank_alt_fight"
+				{condition
+					{type 1}
+					{terms
+						{"1.see_actors"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag bot_tank}
+										}
+									}
+									{include
+										{prop
+											{prop vehicle}
+										}
+										{state
+											{state "moveable inhabited"}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag "+mobilegun"}
+										}
+									}
+								}
+							}
+							{enemy
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{state
+											{state user_control}
+										}
+									}
+									{exclude
+										{prop
+											{prop airborne}
+										}
+										{state
+											{state inactive}
+										}
+									}
+								}
+							}
+							{distance
+								{mode near_than}
+								{meters 180}
+							}
+							{tag
+								{"tag pair"}
+								{"for selector" e_tank_alt}
+								{"for enemy" p_tank_target}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.1}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{ignore_captured_by_user 0}
+									{tag p_tank_target}
+									{zone "gamezone"}
+									{state operatable}
+								}
+								{count
+									{op "=="}
+									{value 0}
+								}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"entity_state"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag e_tank_alt}
+								}
+								{tag_remove e_tank_alt}
+							}
+							{"entity_state"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag p_tank_target}
+								}
+								{tag_remove p_tank_target}
+							}
+							{"delay"
+								{time 15}
+							}
+							{"trigger"
+								{name "ai/tank_alt_fight"}
+							}
+						}
+						{"default"
+							{"delay"
+								{time 0.1}
+							}
+							{"actor_state"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag e_tank_alt}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{drop orders}
+								{fire_mode open}
+								{ai_move
+									{mode enable}
+								}
+								{movement
+									{forward off}
+									{backward off}
+								}
+							}
+							{"delay"
+								{time 0.2}
+							}
+							{"entity_state"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag bot}
+											}
+										}
+										{include
+											{prop
+												{prop human}
+											}
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{tag
+												{tag _lua_mi}
+											}
+											{tag
+												{tag repairing}
+											}
+											{tag
+												{tag e_tank_alt}
+											}
+											{state
+												{state inactive}
+											}
+											{state
+												{state linked}
+											}
+										}
+									}
+									{amount 4
+									}
+									{sort
+										{type entity}
+										{entity
+											{ignore_captured_by_user 0}
+											{tag e_tank_alt}
+										}
+									}
+								}
+								{tag_add temp2}
+							}
+							{"delay"
+								{time 0.3}
+							}
+							{"while"
+								{condition
+									{type near}
+									{units
+										{source advanced}
+										{ignore_captured_by_user 0}
+										{group
+											{select
+												{tag
+													{tag temp2}
+												}
+											}
+											{include
+												{prop
+													{prop human}
+												}
+												{state
+													{state operatable}
+												}
+											}
+											{exclude
+												{tag
+													{tag e_tank_alt}
+												}
+											}
+										}
+									}
+									{near_to
+										{ignore_captured_by_user 0}
+										{tag e_tank_alt}
+									}
+									{distance 100}
+								}
+								{"delay"
+									{time 0.1}
+								}
+								{"entity_state"
+									{selector
+										{source advanced}
+										{ignore_captured_by_user 0}
+										{group
+											{select
+												{tag
+													{tag temp2}
+												}
+											}
+											{include
+												{prop
+													{prop human}
+												}
+												{state
+													{state operatable}
+												}
+											}
+											{exclude
+												{tag
+													{tag e_tank_alt}
+												}
+											}
+										}
+										{sort
+											{type entity}
+											{entity
+												{ignore_captured_by_user 0}
+												{tag e_tank_alt}
+											}
+										}
+										{amount 1
+										}
+									}
+									{tag_add e_tank_alt}
+									{tag_remove temp2}
+								}
+								{"delay"
+									{time 0.1}
+								}
+							}
+							{"delay"
+								{time 0.3}
+							}
+							{"entity_state"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag e_tank_alt}
+									{state operatable}
+								}
+								{tag_add _lua_mi}
+							}
+							{"actor_state"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag e_tank_alt}
+									{type human}
+									{state operatable}
+								}
+								{drop orders}
+								{fire_mode open}
+								{move_mode free}
+								{ai_move
+									{mode enable}
+								}
+								{ai
+									{advance_ratio "0.1"}
+								}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"actor_state"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag e_tank_alt}
+									{type vehicle}
+								}
+								{drop orders}
+								{fire_mode open}
+								{move_mode free}
+								{ai_move
+									{mode enable}
+								}
+								{movement
+									{speed fast}
+									{forward on}
+									{backward on}
+								}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"squad_create"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag e_tank_alt}
+									{zone "gamezone"}
+									{state operatable}
+								}
+								{name e_tank_squad}
+							}
+							{"delay"
+								{time 0.3}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag e_tank_alt}
+													}
+												}
+												{include
+													{tag
+														{tag "+mobilegun"}
+													}
+												}
+											}
+										}
+									}
+								}
+								{"default"
+									{"delay"
+										{time 0.1}
+									}
+									{"switch"
+										{"case"
+											{condition
+												{type rand}
+												{value 0.5}
+											}
+											{"delay"
+												{time 0.1}
+											}
+											{"action"
+												{selector
+													{tag e_tank_alt}
+													{zone "gamezone"}
+													{type vehicle}
+													{state inhabited}
+												}
+												{drop orders}
+												{action rotate}
+												{target
+													{ignore_captured_by_user 0}
+													{tag p_tank_target}
+													{zone "gamezone"}
+												}
+											}
+											{"delay"
+												{time 5}
+											}
+											{"actor_state"
+												{selector
+													{tag e_tank_alt}
+													{zone "gamezone"}
+													{type vehicle}
+													{state inhabited}
+												}
+												{fire_mode open}
+												{ai_move
+													{mode enable}
+												}
+												{movement
+													{forward on}
+													{backward on}
+												}
+											}
+											{"delay"
+												{time 0.25}
+											}
+											{"action"
+												{selector
+													{tag e_tank_alt}
+													{zone "gamezone"}
+													{type vehicle}
+													{state inhabited}
+												}
+												{action attack}
+												{target
+													{ignore_captured_by_user 0}
+													{tag p_tank_target}
+													{zone "gamezone"}
+												}
+											}
+										}
+										{"default"
+											{"delay"
+												{time 0.25}
+											}
+											{"action"
+												{selector
+													{tag e_tank_alt}
+													{zone "gamezone"}
+													{type vehicle}
+													{state inhabited}
+												}
+												{drop orders}
+												{action rotate}
+												{target
+													{ignore_captured_by_user 0}
+													{tag p_tank_target}
+													{zone "gamezone"}
+												}
+											}
+											{"delay"
+												{time 5}
+											}
+											{"actor_state"
+												{selector
+													{tag e_tank_alt}
+													{zone "gamezone"}
+													{type vehicle}
+													{state inhabited}
+												}
+												{fire_mode open}
+												{weapon_prepare on}
+												{ai_move
+													{mode enable}
+												}
+												{movement
+													{speed fast}
+													{forward on}
+													{backward off}
+												}
+											}
+											{"delay"
+												{time 0.25}
+											}
+											{"action"
+												{selector
+													{tag e_tank_alt}
+													{zone "gamezone"}
+													{type vehicle}
+													{state inhabited}
+												}
+												{action move}
+												{target
+													{ignore_captured_by_user 0}
+													{tag p_tank_target}
+													{zone "gamezone"}
+												}
+											}
+											{"delay"
+												{time 8}
+											}
+											{"actor_state"
+												{selector
+													{ignore_captured_by_user 0}
+													{tag e_tank_alt}
+													{zone "gamezone"}
+													{type vehicle}
+												}
+												{fire_mode open}
+												{move_mode free}
+												{weapon_prepare on}
+												{ai_move
+													{mode enable}
+												}
+												{movement
+													{speed normal}
+													{forward on}
+													{backward on}
+												}
+											}
+											{"delay"
+												{time 1}
+											}
+											{"action"
+												{selector
+													{tag e_tank_alt}
+													{zone "gamezone"}
+													{type vehicle}
+													{state inhabited}
+												}
+												{action attack}
+												{target
+													{ignore_captured_by_user 0}
+													{tag p_tank_target}
+													{zone "gamezone"}
+												}
+											}
+										}
+									}
+								}
+							}
+							{"delay"
+								{time 1}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type near}
+										{units
+											{tag e_tank_alt}
+											{type vehicle}
+											{state operatable}
+										}
+										{near_to
+											{source advanced}
+											{ignore_captured_by_user 0}
+											{group
+												{select
+													{tag
+														{tag flag}
+													}
+												}
+												{exclude
+													{state
+														{state inactive}
+													}
+												}
+											}
+										}
+										{distance 100}
+									}
+									{"delay"
+										{time 0.1}
+									}
+									{"effect"
+										{selector
+											{tag e_tank_alt}
+											{type vehicle}
+											{state operatable}
+										}
+										{effect smoke_screen}
+									}
+								}
+								{"default"}
+							}
+							{"delay"
+								{time 30}
+							}
+							{"squad_dismiss"
+								{squad e_tank_squad}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"actor_state"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag e_tank_alt}
+									{zone "gamezone"}
+									{type vehicle}
+								}
+								{movement
+									{speed normal}
+									{forward on}
+									{backward on}
+								}
+							}
+							{"delay"
+								{time 0.5}
+							}
+							{"entity_state"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag p_tank_target}
+											}
+										}
+										{include
+											{state
+												{state "operatable user_control"}
+											}
+										}
+									}
+								}
+								{tag_add noted_by_ai}
+							}
+							{"delay"
+								{time 1}
+							}
+							{"entity_state"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag e_tank_alt}
+								}
+								{tag_add _mi_temp5}
+								{tag_remove e_tank_alt}
+							}
+							{"entity_state"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag p_tank_target}
+								}
+								{tag_remove p_tank_target}
+							}
+							{"entity_state"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag temp2}
+								}
+								{tag_remove temp2}
+							}
+							{"delay"
+								{time 30}
+							}
+							{"entity_state"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag _mi_temp5}
+								}
+								{tag_remove _lua_mi}
+							}
+							{"delay"
+								{time 1}
+							}
+							{"entity_state"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag _mi_temp5}
+								}
+								{tag_remove _mi_temp5}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"trigger"
+								{name "ai/tank_alt_fight"}
+							}
+						}
+					}
+				}
+			}

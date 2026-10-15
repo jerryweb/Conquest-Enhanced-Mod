@@ -36,7 +36,6 @@ function OnGameStart()
 	ConquestContext.SetCEVarsInMissionScript()
 	ConquestSecurityWave.Init()
 	OnGameStartUtility("conquest")
-	--CEWeather.Start()
 	--ConquestDebug.StartSceneQueryTestLog()
 end
 

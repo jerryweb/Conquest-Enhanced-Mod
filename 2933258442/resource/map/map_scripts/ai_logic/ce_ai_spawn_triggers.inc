@@ -1,6 +1,39 @@
 ; File created by Hawka
 ;==========================================================================================================
 
+			{"ai_spawn_logic/check_waypoint_graph_exists"
+				{condition
+				}
+				{actions
+					{"spawn"
+						{entity "waypoint_graph_key"}
+						{waypoint "1110"}
+					}
+				}
+			}
+			{"ai_spawn_logic/check_if_map_has_waypoint_grid"
+				{condition
+				}
+				{actions
+					{"delay"
+						{time 5}
+					}
+					{"if"
+						{condition
+							{type entities}
+							{selector
+								{tag waypoint_graph_present}
+							}
+						}
+						{"set_i"
+							{var "map_contains_waypoint_graphs$"}
+							{op "="}
+							{value 1}
+						}
+					}
+				}
+			}
+
 ; ============= GENERAL AI SPAWN TRIGGER DEFINES ===================================
 			(define "ai_inf_spawn" ; parms: side, zone, waypoint 
 				{"ai_spawn_logic/side_%side/inf/spawn_%zone"

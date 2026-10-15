@@ -42,8 +42,6 @@
             {tags remove "_lua_always_ignore"}
         }
 
-        ;{call "smoke_for_test_light_purple"}
-
         {tags add "_lua_need_next_order"}
         {delay 10.1 
             {tags remove "_lua_need_next_order"}

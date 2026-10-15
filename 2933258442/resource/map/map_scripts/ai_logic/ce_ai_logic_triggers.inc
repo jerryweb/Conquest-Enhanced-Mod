@@ -258,7 +258,7 @@
 					}
 				}
 			}
-			{"ai_logic/reverse_to_reload"
+			{## "ai_logic/reverse_to_reload"
 				{condition
 					{terms
 						{"1.entities"
@@ -430,6 +430,163 @@
 					}
 				}
 			}
+			{"ai/spg_see_engage"
+				{condition
+					{terms
+						{"2.see_actors"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _bot}
+										}
+									}
+									{include
+										{state
+											{state "operatable inhabited"}
+										}
+										{prop
+											{prop tank}
+										}
+										{tag
+											{tag "+mobilegun"}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag spg_engaging}
+										}
+										{tag
+											{tag _lua_mi}
+										}
+									}
+								}
+								{amount 1
+								}
+							}
+							{enemy
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{player
+											{player "1"}
+										}
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+										{tag
+											{tag _bot}
+										}
+										{player
+											{player "0"}
+										}
+									}
+								}
+							}
+							{distance
+								{mode near_than}
+								{meters 150}
+							}
+							{detection visible}
+							{tag
+								{"tag pair"}
+								{"for selector" spg_stop_to_attack}
+								{"for enemy" spg_target}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.5}
+					}
+					{"select"
+						{amount 1
+						}
+						{tag spg_stop_to_attack}
+						{player "1"}
+						{type tank}
+						{state inhabited}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"action"
+						{selector
+							{source current}
+						}
+						{drop orders}
+						{action rotate}
+						{target
+							{amount 1
+							}
+							{tag spg_target}
+							{state operatable}
+						}
+					}
+					{"delay"
+						{time 4}
+					}
+					{"action"
+						{selector
+							{source current}
+						}
+						{action attack}
+						{target
+							{amount 1
+							}
+							{tag spg_target}
+							{state operatable}
+						}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag spg_target}
+						}
+						{tag_remove spg_target}
+					}
+					{"effect"
+						{selector
+							{source current}
+						}
+						{effect spg_engaging_target}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"trigger"
+						{name "ai/spg_see_engage"}
+					}
+				}
+			}
+			
 
 			{"ai_logic/send_empty_transport_back"
 				{condition
