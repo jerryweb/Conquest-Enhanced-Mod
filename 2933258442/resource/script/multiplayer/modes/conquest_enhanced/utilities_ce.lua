@@ -188,3 +188,19 @@ function ShouldSkipWaypointGraph()
 	-- Safety guard for Context to prevent runtime nil errors
 	return IsPermanentlyWaypointGraphExempt(Context and Context.SpawnInfo)
 end
+
+-- =========================================================
+-- ORDER ROTATION PERIOD BY UNIT TYPE
+-- =========================================================
+-- ConquestConfig.OrderRotationPeriod is a table: { Default = ms, Cannon = ms }.
+-- A plain number is still accepted and applies to every squad.
+function GetRotationPeriod(spawnInfo)
+	local periods = ConquestConfig.OrderRotationPeriod
+	if type(periods) ~= "table" then
+		return periods
+	end
+	if periods.Cannon and spawnInfo and contains(spawnInfo.base, "Cannon") then
+		return periods.Cannon
+	end
+	return periods.Default
+end

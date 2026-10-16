@@ -91,7 +91,7 @@ ConquestConfig.SpawnCooldownTime = {
 -- these targets after the baseline is rolled.
 ConquestConfig.AttackerWaves = {
 	MaxWavesMin = 4,
-	MaxWavesMax = 5,
+	MaxWavesMax = 6,
 
 	MinUnits = 5,
 	MaxUnits = 6,
@@ -671,7 +671,10 @@ ConquestConfig.PurchaseScoring = {
 ConquestConfig.UnitSpawnWaitTime = 1.5 * 60000 -- 1:30 min (ms)
 
 -- Time delay before a squad receives a refreshed order. Loops while squad exists.
-ConquestConfig.OrderRotationPeriod = 3.0 * 60000 -- 2:30 min (ms)
+ConquestConfig.OrderRotationPeriod = {
+	Default = 3.0 * 60000, -- ms; 3:00 min (ms)
+	Cannon = 1.5 * 60000,  -- ms; 
+}
 
 
 -- Post-final-wave attacker failure watcher.

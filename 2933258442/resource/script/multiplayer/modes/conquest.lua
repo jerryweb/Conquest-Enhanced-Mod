@@ -24,6 +24,7 @@ require([[/script/multiplayer/modes/conquest/orders]]) -- squad order assignment
 
 require([[/script/multiplayer/modes/conquest_enhanced/utilities_ce]])
 require([[/script/multiplayer/modes/conquest_enhanced/orders_ce]])
+require([[/script/multiplayer/modes/conquest_enhanced/orders_flags_ce]])
 require([[/script/multiplayer/modes/conquest_enhanced/weather_ce]])
 require([[/script/multiplayer/modes/conquest_enhanced/security_ce]]) -- defender security (flanking) waves.
 
@@ -71,7 +72,7 @@ function OnGameQuant()
 		for i, squad in pairs(BotApi.Scene.Squads) do
 			if not IsGarrisonSquad(squad) and not Context.SquadTimers[squad] then
 				if printDebug then print("SQUAD ", squad, " SquadTimers = nil") end
-				SetSquadOrder(CaptureFlag, squad, ConquestConfig.OrderRotationPeriod, true)
+				SetSquadOrder(CaptureFlag, squad, GetRotationPeriod(nil), true)
 			end
 		end
 	end
@@ -98,7 +99,8 @@ function OnGameSpawn(args)
 	local waypoints = BotApi.Scene.Waypoints
 	if #waypoints == 0 then
 		local shouldSkipGraph = ShouldSkipWaypointGraph()
-		SetSquadOrder(CaptureFlag, args.squadId, ConquestConfig.OrderRotationPeriod, shouldSkipGraph)
+		local period = GetRotationPeriod(Context and Context.SpawnInfo)
+		SetSquadOrder(CaptureFlag, args.squadId, period, shouldSkipGraph)
 	else
 		GotoNextWaypoint(args.squadId)
 	end

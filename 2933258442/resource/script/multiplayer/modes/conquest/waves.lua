@@ -173,7 +173,8 @@ local function StartAttackerWave()
 
 	ConquestState.waveSpawnActive = true
 	ConquestState.attackerWaveTargetFlagName = nil
-
+	SetAttackerWaveTargetFlag(nil)
+	
 	local target, waveIntent = RollAttackerWaveTarget()
 	ConquestState.waveUnitTotal = target
 	ConquestState.attackerWaveIntent = waveIntent

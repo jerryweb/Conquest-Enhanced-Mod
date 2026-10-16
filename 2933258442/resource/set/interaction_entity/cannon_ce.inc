@@ -25,6 +25,19 @@
             }
         ;}
     }
+
+    {on "artillery_attempt_failed"
+        {tags remove "artillery_selected"}
+        {tags remove "_lua_always_ignore"}
+    }
+
+    {on "artillery_start_combat_timer"
+        {delay 120
+            {if tagged "artillery_in_combat"
+                {tags add "artillery_force_cancel"}
+            }
+        }
+    }
 }
 
 {"searchlight"

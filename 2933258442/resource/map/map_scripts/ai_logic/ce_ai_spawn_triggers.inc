@@ -482,6 +482,9 @@
 											{tag
 												{tag cmp_def}
 											}
+											{tag
+												{tag "+mobilegun"}
+											}
 											{prop
 												{prop cannon}
 											}
@@ -741,6 +744,9 @@
 									}
 									{tag
 										{tag cmp_def}
+									}
+									{tag
+										{tag "+mobilegun"}
 									}
 									{prop
 										{prop cannon}

@@ -23,6 +23,10 @@ function SetGeneralSquadTagCheckTimer()
         for _, squad in pairs(BotApi.Scene.Squads) do
           if IsSquadNeedNextOrder(squad) then
             if printDebug then print("squad ", squad, " getting next order") end
+            local oldTimer = Context.SquadTimers[squad]
+            if oldTimer then
+              BotApi.Events:KillQuantTimer(oldTimer)
+            end
             Context.SquadTimers[squad] = nil
           end
         end

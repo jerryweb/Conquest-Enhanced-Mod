@@ -76,7 +76,8 @@ local function SelectNewAttackerWaveTarget(flags, enemyTeam, team)
 
 			if IsAttackerTargetStillValid(target, team) then
 				ConquestState.attackerWaveTargetFlagName = target.name
-
+				SetAttackerWaveTargetFlag(target)
+				
 				if printDebug then
 					print("Print: attacker wave target selected",
 						"wave=", tostring(ConquestState.waveNumber + 1),
@@ -93,6 +94,7 @@ local function SelectNewAttackerWaveTarget(flags, enemyTeam, team)
 	end
 
 	ConquestState.attackerWaveTargetFlagName = nil
+	SetAttackerWaveTargetFlag(nil)
 	return nil
 end
 
