@@ -26,21 +26,12 @@
             }
         }
         {tags remove "cmp_mg"}
-        {tags remove "ai_emplacement_defenses"}
-        {tags remove "_user"}
-        {tags remove "_user_ally"}
-        {tags remove "attacking_flag_1"}
-        {tags remove "attacking_flag_2"}
-        {tags remove "attacking_flag_3"}
-        {tags remove "attacking_flag_4"}
-        {tags remove "attacking_flag_5"}
+        {tags remove "cannon_selected_to_move"}
+        {tags remove "cannon_need_next_order"}
         {tags remove "artillery_in_combat"}
         {tags remove "artillery_selected"}
         {tags remove "artillery_ordered"}
-
-        {if tagged "artillery"
-            {tags remove "_lua_always_ignore"}
-        }
+        {tags remove "_lua_mi"}
 
         {tags add "_lua_need_next_order"}
         {delay 10.1 
@@ -73,6 +64,24 @@
         {tags remove "_lua_mi"}
         {tags add "ignore_spawn_logic"}
     } 
+
+    {on break
+        {if not tagged "exploded"
+            {if component "body"
+                {tags remove "possible_enemy_artillery"}
+                {tags remove "possible_enemy_cannon"}
+                {tags remove "possible_enemy_tank"}
+            }
+        }
+    }
+
+    {on destroy
+        {if component "body"
+            {tags remove "possible_enemy_artillery"}
+            {tags remove "possible_enemy_cannon"}
+            {tags remove "possible_enemy_tank"}
+        }
+    }
     
 (include "veh_sandbags.inc")
 }

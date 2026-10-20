@@ -15551,6 +15551,14 @@
 								{state "not operatable"}
 							}
 						}
+						{"4.entities"
+							{selector
+								{ignore_captured_by_user 0}
+								{tag possible_enemy_officer}
+								{zone "gamezone"}
+								{state "not operatable"}
+							}
+						}
 					}
 				}
 				{actions
@@ -15714,6 +15722,18 @@
 							}
 						}
 						{tag_remove _arrowed}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag possible_enemy_officer}
+							{zone "gamezone"}
+							{state "not operatable"}
+						}
+						{tag_remove possible_enemy_officer}
 					}
 					{"delay"
 						{time 0.5}

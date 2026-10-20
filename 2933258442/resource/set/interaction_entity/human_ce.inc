@@ -1,13 +1,5 @@
 {"human"
-	; ================= Spawn Extensions =================
-	{on "smoke_for_test"
-        {add_view "smoke_flare_blue" "smoke" "root"}
-        {view start "smoke"}
-        {delay 10 "smoke"
-            {view stop "smoke"}
-        }
-    }
-
+; ================= Spawn Extensions =================
 	{on "set_ignore_spawn_logic"
 	
 		{tags remove "in_spawn_zone_a_1_inf"}
@@ -25,6 +17,15 @@
 		{tags add "ignore_spawn_logic"}
 	}
 
+	{on "link_weapon"
+		{if effector "stuff weapon"		;// see interaction_entity/stuff.inc
+			{call "tag_breed"}		
+		}
+		{if effector "stuff grenade"		;// see interaction_entity/stuff.inc
+			{call "tag_breed"}		
+		}
+	}
+
 ;============= Tagging Functions =============
 	{on "tag_squad_need_next_order"
 		{if tagged "_lua_mi"
@@ -39,4 +40,35 @@
 			}		
 		}
 	}
+
+	{on "tag_breed"
+		{if effector "binocular"
+			{if user_control
+				{tags add "officer"}
+			}
+		else effector "ai_flare_pistol"
+			{if not user_control
+				{tags add "ai_signaller"}
+				{tags add "ignore_recrew"}
+			}
+		}
+	}
+
+; ================= Die Extensions =================
+	{on "die"
+		{tags remove "possible_enemy_officer"}
+	}
+
+	{on "die_from_knife"
+		{tags remove "possible_enemy_officer"}
+	}
+
+; ================= CE Functions =================
+	{on "smoke_for_test"
+        {add_view "smoke_yellow_norm" "smoke" "root"}
+        {view start "smoke"}
+        {delay 10 "smoke"
+            {view stop "smoke"}
+        }
+    }
 }

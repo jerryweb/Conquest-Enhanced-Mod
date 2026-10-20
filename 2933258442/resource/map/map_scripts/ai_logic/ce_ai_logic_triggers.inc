@@ -258,179 +258,7 @@
 					}
 				}
 			}
-			{## "ai_logic/reverse_to_reload"
-				{condition
-					{terms
-						{"1.entities"
-							{selector
-								{source advanced}
-								{group
-									{select
-										{tag
-											{tag spg_fired}
-										}
-									}
-									{include
-										{state
-											{state "operatable inhabited"}
-										}
-										{tag
-											{tag _bot}
-										}
-										{prop
-											{prop tank}
-										}
-									}
-									{exclude
-										{state
-											{state inactive}
-										}
-										{state
-											{state user_control}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-				{actions
-					{"delay"
-						{time 0.1}
-					}
-					{"entity_state"
-						{selector
-							{source advanced}
-							{group
-								{select
-									{tag
-										{tag spg_fired}
-									}
-								}
-								{include
-									{state
-										{state "operatable inhabited"}
-									}
-									{tag
-										{tag _bot}
-									}
-									{prop
-										{prop tank}
-									}
-								}
-								{exclude
-									{state
-										{state inactive}
-									}
-									{state
-										{state user_control}
-									}
-								}
-							}
-							{amount 1
-							}
-						}
-						{tag_add spg_to_reverse}
-					}
-					{"delay"
-						{time 0.1}
-					}
-					{"select"
-						{tag spg_to_reverse}
-						{type tank}
-						{state inhabited}
-					}
-					{"delay"
-						{time 0.1}
-					}
-					{"effect"
-						{selector
-							{source current}
-						}
-						{effect spg_reverse_to_reload}
-					}
-					{"delay"
-						{time 0.1}
-					}
-					{"action"
-						{selector
-							{source current}
-						}
-						{action move}
-						{drop orders}
-						{target
-							{source advanced}
-							{group
-								{select
-									{tag
-										{tag back_up_to_reload}
-									}
-								}
-							}
-							{sort
-								{type entity}
-								{entity
-									{amount 1
-									}
-									{tag spg_fired}
-									{type tank}
-									{state inhabited}
-								}
-							}
-							{amount 1
-							}
-						}
-					}
-					{"delay"
-						{time 0.5}
-					}
-					{"delete"
-						{selector
-							{source advanced}
-							{group
-								{select
-									{tag
-										{tag back_up_to_reload}
-									}
-								}
-								{exclude
-									{state
-										{state inactive}
-									}
-								}
-							}
-							{sort
-								{type entity}
-								{entity
-									{amount 1
-									}
-									{tag spg_to_reverse}
-									{type tank}
-									{state inhabited}
-								}
-							}
-							{amount 1
-							}
-						}
-					}
-					{"delay"
-						{time 0.1}
-					}
-					{"entity_state"
-						{selector
-							{source current}
-						}
-						{tag_remove spg_to_reverse}
-					}
-					{"delay"
-						{time 0.1}
-					}
-					{"trigger"
-						{name "ai_logic/reverse_to_reload"}
-					}
-				}
-			}
-			{"ai/spg_see_engage"
+			{"ai_logic/spg_see_engage"
 				{condition
 					{terms
 						{"2.see_actors"
@@ -582,12 +410,1156 @@
 						{time 0.5}
 					}
 					{"trigger"
-						{name "ai/spg_see_engage"}
+						{name "ai_logic/spg_see_engage"}
 					}
 				}
 			}
-			
+			{"ai_logic/give_cannon_next_order"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag cannon_need_next_order}
+										}
+									}
+									{include
+										{prop
+											{prop cannon}
+										}
+										{state
+											{state "operatable inhabited"}
+										}
+										{tag
+											{tag _bot}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.2}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag cannon_need_next_order}
+									}
+								}
+								{include
+									{prop
+										{prop cannon}
+									}
+									{state
+										{state "operatable inhabited"}
+									}
+									{tag
+										{tag _bot}
+									}
+								}
+								{exclude
+									{state
+										{state inactive}
+									}
+									{state
+										{state linked}
+									}
+									{state
+										{state user_control}
+									}
+								}
+							}
+							{amount 1
+							}
+						}
+						{tag_add cannon_selected_to_move}
+						{tag_remove cannon_need_next_order}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"select"
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag cannon_selected_to_move}
+								}
+							}
+							{include
+								{state
+									{state "operatable inhabited"}
+								}
+								{prop
+									{prop cannon}
+								}
+								{tag
+									{tag _bot}
+								}
+							}
+							{exclude
+								{state
+									{state inactive}
+								}
+								{state
+									{state user_control}
+								}
+							}
+						}
+						{amount 1
+						}
+					}
+					{## "delay"
+						{time 0.2}
+					}
+					{## "entity_state"
+						{selector
+							{source current}
+						}
+						{tag_add _lua_mi}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"actor_state"
+						{selector
+							{source current}
+						}
+						{drop orders}
+						{cannon move}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"effect"
+						{selector
+							{source current}
+						}
+						{effect tag_squad_need_next_order}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"trigger"
+						{name "ai_logic/give_cannon_next_order"}
+					}
+				}
+			}
 
+;=========== Recon =======================================================================================
+			
+			(define "spot_inf_targets_criteria" 
+				{"%condition_one.see_actors"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag _bot}
+								}
+							}
+							{include
+								{zone
+									{zone "gamezone"}
+								}
+								{state
+									{state operatable}
+								}
+							}
+							{exclude
+								{state
+									{state dead}
+								}
+								{state
+									{state inactive}
+								}
+								{state
+									{state user_control}
+								}
+							}
+						}
+					}
+					{enemy
+						{source advanced}
+						{group
+							{select
+								{zone
+									{zone "forward%flag"}
+								}
+							}
+							{include
+								{state
+									{state operatable}
+								}
+								{prop
+									{prop human}
+								}
+							}
+							{exclude
+								{state
+									{state dead}
+								}
+								{state
+									{state inactive}
+								}
+								{tag
+									{tag _bot}
+								}
+								{player
+									{player "1"}
+								}
+								{player
+									{player "0"}
+								}
+								{tag
+									{tag possible_enemy_inf}
+								}
+								{state
+									{state linked}
+								}
+							}
+						}
+					}
+					{distance
+						{mode near_than}
+						{meters 200}
+					}
+					{detection visible}
+					{tag
+						{"tag pair"}
+						{"for enemy" possible_enemy_inf}
+					}
+				}
+				{"%condition_two.cmp_i"
+					{var "attacker_target_flag$"}
+					{op "=="}
+					{value %flag}
+				}
+			)
+			(define "spot_inf_targets_case"
+				{"case"
+					{condition
+						{type cmp_i}
+						{var "attacker_target_flag$"}
+						{op "=="}
+						{value %flag}
+					}
+					{"loop" 10
+						{"delay"
+							{time 0.25}
+						}
+						{"if"
+							{condition
+								{type see_actors}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag _bot}
+											}
+										}
+										{include
+											{zone
+												{zone "gamezone"}
+											}
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{state
+												{state dead}
+											}
+											{state
+												{state inactive}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+								}
+								{enemy
+									{source advanced}
+									{group
+										{select
+											{zone
+												{zone "forward%flag"}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+										}
+										{exclude
+											{state
+												{state dead}
+											}
+											{state
+												{state inactive}
+											}
+											{tag
+												{tag _bot}
+											}
+											{player
+												{player "1"}
+											}
+											{player
+												{player "0"}
+											}
+											{tag
+												{tag possible_enemy_inf}
+											}
+											{state
+												{state linked}
+											}
+										}
+									}
+								}
+								{distance
+									{mode near_than}
+									{meters 200}
+								}
+								{detection visible}
+								{tag
+									{"tag pair"}
+									{"for enemy" possible_enemy_inf}
+								}
+							}
+						}
+					}
+				}
+			)
+
+			{"ai_logic/spot_priority_inf_targets"
+				{condition
+					{expression "(1 & 2) | (3 & 4) | (5 & 6) | (7 & 8) | (9 & 10)"}
+					{terms
+						("spot_inf_targets_criteria" flag(1) condition_one(1) condition_2(2))
+						("spot_inf_targets_criteria" flag(2) condition_one(3) condition_2(4))
+						("spot_inf_targets_criteria" flag(3) condition_one(5) condition_2(6))
+						("spot_inf_targets_criteria" flag(4) condition_one(7) condition_2(8))
+						("spot_inf_targets_criteria" flag(5) condition_one(9) condition_2(10))
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.5}
+					}
+					{"entity_state"
+						{selector
+							{tag possible_enemy_inf}
+						}
+						{tag_add possible_enemy_inf}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"switch"
+						("spot_inf_targets_case" flag(1))
+						("spot_inf_targets_case" flag(2))
+						("spot_inf_targets_case" flag(3))
+						("spot_inf_targets_case" flag(4))
+						("spot_inf_targets_case" flag(5))
+					}
+					{"delay"
+						{time 1}
+					}
+					{## "effect"
+						{selector
+							{tag possible_enemy_inf}
+							{type human}
+							{state "not dead"}
+						}
+						{effect smoke_for_test}
+					}
+					{"delay"
+						{time 45}
+					}
+					{"trigger"
+						{name "ai_logic/spot_priority_inf_targets"}
+					}
+				}
+			}
+			{"ai_logic/spot_priority_targets"
+				{condition
+					{expression "(1 | 2 | 3 | 4) & !5"}
+					{terms
+						{"1.see_actors"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _bot}
+										}
+									}
+									{include
+										{zone
+											{zone "gamezone"}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+							{enemy
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{prop
+											{prop artillery_minimap_heavy}
+										}
+									}
+									{exclude
+										{prop
+											{prop airborne}
+										}
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+										{tag
+											{tag _bot}
+										}
+										{player
+											{player "1"}
+										}
+										{player
+											{player "0"}
+										}
+										{tag
+											{tag possible_enemy_artillery}
+										}
+									}
+								}
+							}
+							{distance
+								{mode near_than}
+								{meters 200}
+							}
+							{detection visible}
+							{tag
+								{"tag pair"}
+								{"for enemy" possible_enemy_artillery}
+							}
+						}
+						{"2.see_actors"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _bot}
+										}
+									}
+									{include
+										{zone
+											{zone "gamezone"}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag _ai_defender}
+										}
+									}
+								}
+								{amount 1
+								}
+							}
+							{enemy
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{zone
+											{zone "gamezone"}
+										}
+										{prop
+											{prop tank}
+										}
+									}
+									{exclude
+										{prop
+											{prop airborne}
+										}
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+										{tag
+											{tag _bot}
+										}
+										{player
+											{player "1"}
+										}
+										{player
+											{player "0"}
+										}
+										{tag
+											{tag possible_enemy_tank}
+										}
+										{prop
+											{prop artillery_minimap_heavy}
+										}
+									}
+								}
+							}
+							{distance
+								{mode near_than}
+								{meters 200}
+							}
+							{detection visible}
+							{tag
+								{"tag pair"}
+								{"for enemy" possible_enemy_tank}
+							}
+						}
+						{"3.see_actors"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _bot}
+										}
+									}
+									{include
+										{zone
+											{zone "gamezone"}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag _ai_defender}
+										}
+									}
+								}
+								{amount 1
+								}
+							}
+							{enemy
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{prop
+											{prop cannon}
+										}
+									}
+									{exclude
+										{prop
+											{prop airborne}
+										}
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+										{tag
+											{tag _bot}
+										}
+										{player
+											{player "1"}
+										}
+										{player
+											{player "0"}
+										}
+										{tag
+											{tag possible_enemy_cannon}
+										}
+										{prop
+											{prop artillery_minimap_heavy}
+										}
+									}
+								}
+							}
+							{distance
+								{mode near_than}
+								{meters 200}
+							}
+							{detection visible}
+							{tag
+								{"tag pair"}
+								{"for enemy" possible_enemy_cannon}
+							}
+						}
+						{"4.see_actors"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _bot}
+										}
+									}
+									{include
+										{zone
+											{zone "gamezone"}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+							{enemy
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{prop
+											{prop human}
+										}
+										{tag
+											{tag officer}
+										}
+									}
+									{exclude
+										{prop
+											{prop airborne}
+										}
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+										{tag
+											{tag _bot}
+										}
+										{player
+											{player "1"}
+										}
+										{player
+											{player "0"}
+										}
+										{tag
+											{tag possible_enemy_officer}
+										}
+									}
+								}
+							}
+							{distance
+								{mode near_than}
+								{meters 200}
+							}
+							{detection visible}
+							{tag
+								{"tag pair"}
+								{"for enemy" possible_enemy_officer}
+							}
+						}
+						{"5.event"
+							{id "cannon_artillery_script_thread_active"}
+						}
+					}
+				}
+				{actions
+					{## "timer"
+						{time 25}
+						{title "tagging enemy priority targets"}
+					}
+					{"if"
+						{condition
+							{type see_actors}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _bot}
+										}
+									}
+									{include
+										{zone
+											{zone "gamezone"}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+							{enemy
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{prop
+											{prop artillery_minimap_heavy}
+										}
+									}
+									{exclude
+										{prop
+											{prop airborne}
+										}
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+										{tag
+											{tag _bot}
+										}
+										{player
+											{player "1"}
+										}
+										{player
+											{player "0"}
+										}
+										{tag
+											{tag possible_enemy_artillery}
+										}
+									}
+								}
+							}
+							{distance
+								{mode near_than}
+								{meters 200}
+							}
+							{detection visible}
+							{tag
+								{"tag pair"}
+								{"for enemy" possible_enemy_artillery}
+							}
+						}
+					}
+					{"if"
+						{condition
+							{type see_actors}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _bot}
+										}
+									}
+									{include
+										{zone
+											{zone "gamezone"}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag _ai_defender}
+										}
+									}
+								}
+								{amount 1
+								}
+							}
+							{enemy
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{zone
+											{zone "gamezone"}
+										}
+										{prop
+											{prop tank}
+										}
+									}
+									{exclude
+										{prop
+											{prop airborne}
+										}
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+										{tag
+											{tag _bot}
+										}
+										{player
+											{player "1"}
+										}
+										{player
+											{player "0"}
+										}
+										{tag
+											{tag possible_enemy_tank}
+										}
+										{prop
+											{prop artillery_minimap_heavy}
+										}
+									}
+								}
+							}
+							{distance
+								{mode near_than}
+								{meters 200}
+							}
+							{detection visible}
+							{tag
+								{"tag pair"}
+								{"for enemy" possible_enemy_tank}
+							}
+						}
+					}
+					{"if"
+						{condition
+							{type see_actors}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _bot}
+										}
+									}
+									{include
+										{zone
+											{zone "gamezone"}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag _ai_defender}
+										}
+									}
+								}
+								{amount 1
+								}
+							}
+							{enemy
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{prop
+											{prop cannon}
+										}
+									}
+									{exclude
+										{prop
+											{prop airborne}
+										}
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+										{tag
+											{tag _bot}
+										}
+										{player
+											{player "1"}
+										}
+										{player
+											{player "0"}
+										}
+										{tag
+											{tag possible_enemy_cannon}
+										}
+										{prop
+											{prop artillery_minimap_heavy}
+										}
+									}
+								}
+							}
+							{distance
+								{mode near_than}
+								{meters 200}
+							}
+							{detection visible}
+							{tag
+								{"tag pair"}
+								{"for enemy" possible_enemy_cannon}
+							}
+						}
+					}
+					{"if"
+						{condition
+							{type see_actors}
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _bot}
+										}
+									}
+									{include
+										{zone
+											{zone "gamezone"}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+							{enemy
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{prop
+											{prop human}
+										}
+										{tag
+											{tag officer}
+										}
+									}
+									{exclude
+										{prop
+											{prop airborne}
+										}
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+										{tag
+											{tag _bot}
+										}
+										{player
+											{player "1"}
+										}
+										{player
+											{player "0"}
+										}
+										{tag
+											{tag possible_enemy_artillery}
+										}
+									}
+								}
+							}
+							{distance
+								{mode near_than}
+								{meters 200}
+							}
+							{detection visible}
+							{tag
+								{"tag pair"}
+								{"for enemy" possible_enemy_officer}
+							}
+						}
+					}
+					{## "delay"
+						{time 1}
+					}
+					{## "effect"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag possible_enemy_artillery}
+									}
+									{tag
+										{tag possible_enemy_cannon}
+									}
+									{tag
+										{tag possible_enemy_tank}
+									}
+									{tag
+										{tag possible_enemy_officer}
+									}
+								}
+							}
+						}
+						{effect smoke_for_test}
+					}
+					{"delay"
+						{time 45}
+					}
+					{"trigger"
+						{name "ai_logic/spot_priority_targets"}
+					}
+				}
+			}
+
+			
+;=========== Trucks =======================================================================================
 			{"ai_logic/send_empty_transport_back"
 				{condition
 					{terms

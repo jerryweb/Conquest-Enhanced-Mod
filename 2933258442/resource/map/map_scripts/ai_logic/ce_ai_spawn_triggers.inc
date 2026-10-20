@@ -33,6 +33,328 @@
 					}
 				}
 			}
+			{"ai_spawn_logic/order_usa_cannons_stuck_in_spawn"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "a_1"}
+										}
+										{zone
+											{zone "a_2"}
+										}
+										{zone
+											{zone "a_3"}
+										}
+										{zone
+											{zone "a_4"}
+										}
+										{zone
+											{zone "b_1"}
+										}
+										{zone
+											{zone "b_2"}
+										}
+										{zone
+											{zone "b_3"}
+										}
+										{zone
+											{zone "b_4"}
+										}
+									}
+									{include
+										{state
+											{state "operatable inhabited"}
+										}
+										{prop
+											{prop m2_30cal_tripod}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state inactive}
+										}
+										{tag
+											{tag ignore_spawn_logic}
+										}
+									}
+								}
+								{group
+									{select
+										{zone
+											{zone "a_1"}
+										}
+										{zone
+											{zone "a_2"}
+										}
+										{zone
+											{zone "a_3"}
+										}
+										{zone
+											{zone "a_4"}
+										}
+										{zone
+											{zone "b_1"}
+										}
+										{zone
+											{zone "b_2"}
+										}
+										{zone
+											{zone "b_3"}
+										}
+										{zone
+											{zone "b_4"}
+										}
+									}
+									{include
+										{state
+											{state "operatable inhabited"}
+										}
+										{prop
+											{prop "60mm_m2"}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state inactive}
+										}
+										{tag
+											{tag ignore_spawn_logic}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.1}
+					}
+					{"timer"
+						{time 5}
+						{title "DBG: Force moving emplacements from spawn!"}
+					}
+					{"select"
+						{source advanced}
+						{group
+							{select
+								{zone
+									{zone "a_1"}
+								}
+								{zone
+									{zone "a_2"}
+								}
+								{zone
+									{zone "a_3"}
+								}
+								{zone
+									{zone "a_4"}
+								}
+								{zone
+									{zone "b_1"}
+								}
+								{zone
+									{zone "b_2"}
+								}
+								{zone
+									{zone "b_3"}
+								}
+								{zone
+									{zone "b_4"}
+								}
+							}
+							{include
+								{state
+									{state "operatable inhabited"}
+								}
+								{prop
+									{prop m2_30cal_tripod}
+								}
+							}
+							{exclude
+								{state
+									{state user_control}
+								}
+								{state
+									{state linked}
+								}
+								{state
+									{state inactive}
+								}
+								{tag
+									{tag ignore_spawn_logic}
+								}
+							}
+						}
+						{group
+							{select
+								{zone
+									{zone "a_1"}
+								}
+								{zone
+									{zone "a_2"}
+								}
+								{zone
+									{zone "a_3"}
+								}
+								{zone
+									{zone "a_4"}
+								}
+								{zone
+									{zone "b_1"}
+								}
+								{zone
+									{zone "b_2"}
+								}
+								{zone
+									{zone "b_3"}
+								}
+								{zone
+									{zone "b_4"}
+								}
+							}
+							{include
+								{state
+									{state "operatable inhabited"}
+								}
+								{prop
+									{prop "60mm_m2"}
+								}
+							}
+							{exclude
+								{state
+									{state user_control}
+								}
+								{state
+									{state linked}
+								}
+								{state
+									{state inactive}
+								}
+								{tag
+									{tag ignore_spawn_logic}
+								}
+							}
+						}
+						{amount 1
+						}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"entity_state"
+						{selector
+							{source current}
+						}
+						{tag_add select_force_moving_cannon_from_spawn}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"select"
+						{source advanced}
+						{group
+							{select
+								{zone
+									{zone "a_1"}
+								}
+								{zone
+									{zone "a_2"}
+								}
+								{zone
+									{zone "a_3"}
+								}
+								{zone
+									{zone "a_4"}
+								}
+								{zone
+									{zone "b_1"}
+								}
+								{zone
+									{zone "b_2"}
+								}
+								{zone
+									{zone "b_3"}
+								}
+								{zone
+									{zone "b_4"}
+								}
+							}
+							{include
+								{state
+									{state "operatable inhabited"}
+								}
+								{tag
+									{tag select_force_moving_cannon_from_spawn}
+								}
+							}
+							{exclude
+								{state
+									{state user_control}
+								}
+								{state
+									{state linked}
+								}
+								{state
+									{state inactive}
+								}
+								{tag
+									{tag ignore_spawn_logic}
+								}
+							}
+						}
+						{amount 1
+						}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"actor_state"
+						{selector
+							{source current}
+						}
+						{cannon move}
+					}
+					{"effect"
+						{selector
+							{source current}
+						}
+						{effect smoke_for_test}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"effect"
+						{selector
+							{source current}
+						}
+						{effect force_move_cannons_stuck_in_spawn}
+					}
+					{"delay"
+						{time 2}
+					}
+					{"trigger"
+						{name "ai_spawn_logic/order_usa_cannons_stuck_in_spawn"}
+					}
+				}
+			}
 
 ; ============= GENERAL AI SPAWN TRIGGER DEFINES ===================================
 			(define "ai_inf_spawn" ; parms: side, zone, waypoint 
