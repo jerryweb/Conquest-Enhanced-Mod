@@ -147,7 +147,7 @@
 					{"delay"
 						{time 0.1}
 					}
-					{"timer"
+					{## "timer"
 						{time 5}
 						{title "DBG: Force moving emplacements from spawn!"}
 					}
@@ -332,7 +332,7 @@
 						}
 						{cannon move}
 					}
-					{"effect"
+					{## "effect"
 						{selector
 							{source current}
 						}

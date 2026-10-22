@@ -565,6 +565,318 @@
 					}
 				}
 			}
+			{"ai_logic/tank_reverse_to_repair"
+				{condition
+					{terms
+						{"1.near"
+							{units
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag turret_brake}
+										}
+										{tag
+											{tag gun_brake}
+										}
+									}
+									{include
+										{zone
+											{zone "gamezone"}
+										}
+										{prop
+											{prop tank}
+										}
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state "operatable inhabited"}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state inactive}
+										}
+										{tag
+											{tag _user_ally}
+										}
+										{broken_components
+											{masks
+												"trackleft"
+											}
+										}
+										{broken_components
+											{masks
+												"trackright"
+											}
+										}
+										{tag
+											{tag engine_brake}
+										}
+										{tag
+											{tag selected_tank_to_repair}
+										}
+										{tag
+											{tag reversing_to_repair}
+										}
+										{zone
+											{zone "a_1"}
+										}
+										{zone
+											{zone "a_2"}
+										}
+										{zone
+											{zone "a_3"}
+										}
+										{zone
+											{zone "a_4"}
+										}
+										{zone
+											{zone "b_1"}
+										}
+										{zone
+											{zone "b_2"}
+										}
+										{zone
+											{zone "b_3"}
+										}
+										{zone
+											{zone "b_4"}
+										}
+									}
+								}
+							}
+							{near_to
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+										{tag
+											{tag _user_ally}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{state
+											{state dead}
+										}
+										{prop
+											{prop airborne}
+										}
+									}
+								}
+							}
+							{distance 200}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 2}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag turret_brake}
+									}
+									{tag
+										{tag gun_brake}
+									}
+								}
+								{include
+									{zone
+										{zone "gamezone"}
+									}
+									{prop
+										{prop tank}
+									}
+									{tag
+										{tag _bot}
+									}
+									{state
+										{state "operatable inhabited"}
+									}
+								}
+								{exclude
+									{state
+										{state user_control}
+									}
+									{state
+										{state linked}
+									}
+									{state
+										{state inactive}
+									}
+									{tag
+										{tag _user_ally}
+									}
+									{broken_components
+										{masks
+											"trackleft"
+										}
+									}
+									{broken_components
+										{masks
+											"trackright"
+										}
+									}
+									{tag
+										{tag engine_brake}
+									}
+									{tag
+										{tag selected_tank_to_repair}
+									}
+									{tag
+										{tag reversing_to_repair}
+									}
+									{zone
+										{zone "a_1"}
+									}
+									{zone
+										{zone "a_2"}
+									}
+									{zone
+										{zone "a_3"}
+									}
+									{zone
+										{zone "a_4"}
+									}
+									{zone
+										{zone "b_1"}
+									}
+									{zone
+										{zone "b_2"}
+									}
+									{zone
+										{zone "b_3"}
+									}
+									{zone
+										{zone "b_4"}
+									}
+								}
+							}
+							{sort
+								{type entity}
+								{entity
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag _user}
+											}
+											{tag
+												{tag cmp_def}
+											}
+											{tag
+												{tag cmp_mg}
+											}
+										}
+										{include
+											{state
+												{state operatable}
+											}
+											{zone
+												{zone "gamezone"}
+											}
+										}
+										{exclude
+											{state
+												{state inactive}
+											}
+											{state
+												{state dead}
+											}
+											{prop
+												{prop airborne}
+											}
+										}
+									}
+									{amount 1
+									}
+								}
+							}
+							{amount 1
+							}
+						}
+						{tag_add selected_tank_to_repair}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"select"
+						{tag selected_tank_to_repair}
+						{type tank}
+						{state inhabited}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"effect"
+						{selector
+							{source current}
+						}
+						{effect reverse_to_repair}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"action"
+						{selector
+							{source current}
+						}
+						{drop orders}
+						{action move}
+						{target
+							{amount 1
+							}
+							{tag back_up_to_repair}
+						}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"delete"
+						{selector
+							{tag back_up_to_repair}
+						}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"effect"
+						{selector
+							{source current}
+						}
+						{effect reverse_to_repair}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"trigger"
+						{name "ai_logic/tank_reverse_to_repair"}
+					}
+				}
+			}
+
 
 ;=========== Recon =======================================================================================
 			
@@ -808,7 +1120,7 @@
 			}
 			{"ai_logic/spot_priority_targets"
 				{condition
-					{expression "(1 | 2 | 3 | 4) & !5"}
+					{expression "1 | 2 | 3 | 4"}
 					{terms
 						{"1.see_actors"
 							{selector
@@ -1155,9 +1467,6 @@
 								{"tag pair"}
 								{"for enemy" possible_enemy_officer}
 							}
-						}
-						{"5.event"
-							{id "cannon_artillery_script_thread_active"}
 						}
 					}
 				}

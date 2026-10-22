@@ -85,3 +85,5 @@
     
 (include "veh_sandbags.inc")
 }
+
+(include "radio_vehicle_tagging.inc")

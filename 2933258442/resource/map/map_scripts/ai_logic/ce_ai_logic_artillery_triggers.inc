@@ -391,6 +391,11 @@
 					}
 				}
 			}
+			{"2.cmp_i"
+				{var "user_is_defender$"}
+				{op "=="}
+				{value 1}
+			}
 		}
 	}
 	{actions

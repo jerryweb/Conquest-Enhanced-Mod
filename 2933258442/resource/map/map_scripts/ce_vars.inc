@@ -5,6 +5,11 @@
 	{"attacker_target_flag"}
 	{"enable_waypoint_graph"}
 	{"map_contains_waypoint_graphs"}
+
+	{"enable_ce_radio_mechanic"}
+	{"enable_ce_cut_communications_mechanic"}
+	{"radio_active"}
+
 	{"weather_selection"}
 	{"season_set"}
 	{"weather_season"}

@@ -1,6 +1,11 @@
 -- =========================================================
 -- UTILITIES FILE FOR CONQUEST ENHANCED
 -- =========================================================
+-- Percentage chance (between 0 and 1) to enable the Classic CE Radio Mechanics. Currently it is set as a random event with a 18% chance to occur per match.
+-- and can be countered with a radio vehicle.
+local enableCommunicationsCutMechanics = 0.18
+
+
 local waveOneGraphOverrideActive = false
 local lastWrittenGraphVar = nil -- last value sent to BotApi, used to skip redundant writes
 -- Latched answer to "does this map have a waypoint graph?". Closed until the map layer
@@ -26,6 +31,12 @@ local shouldFollowWaypointUnitNames = { hetzer = true }
 local exemptUnitNames = { sdkfz234_4 = true, sdkfz251d_22 = true, t30_hmc = true }
 local AIR_DEFENSE_ROLE = "AirDefense"
 local ENABLE_WAYPOINT_GRAPH = "enable_waypoint_graph"
+
+local function checkVarPercentage(varName, varPecetage)
+  local result = (varPecetage >= math.random()) and 1 or 0
+  BotApi.Scene:SetVar(varName, result)
+  print(varName .. " = ", result)
+end
 
 -- Helper function to check if a table contains a specific value
 local function contains(tbl, target)
@@ -108,6 +119,9 @@ function ConquestContext.SetCEVarsInMissionScript()
 	lastWrittenGraphVar = nil -- force a write at mission start
 	ConquestContext.RefreshWaypointGraph()
 	ScheduleMapGraphGateCheck(MAP_GRAPH_FIRST_CHECK_MS, 0)
+	checkVarPercentage("enable_ce_radio_mechanic", enableCommunicationsCutMechanics) -- use this to control both variables for now
+  	checkVarPercentage("enable_ce_cut_communications_mechanic", enableCommunicationsCutMechanics)
+	
 end
 
 -- Recomputes and applies the graph var. Call this whenever the base state can
