@@ -45,6 +45,10 @@ local function UnitHasTag(unit, tag)
 end
 
 function ConquestPurchaseScoring.GetPlatformLabel(unit)
+	if UnitHasTag(unit, "Plane") then
+		return "Plane"
+	end
+
 	if UnitHasTag(unit, "Infantry") and UnitHasTag(unit, "Squad") then
 		return "InfantrySquad"
 	end
@@ -98,6 +102,10 @@ end
 
 local function IsSPG(unit)
 	return IsPlatform(unit, "SPG")
+end
+
+local function IsPlane(unit)
+	return IsPlatform(unit, "Plane")
 end
 
 local function IsMobilePlatform(unit)
@@ -228,6 +236,7 @@ local class_gate_group = {
 	SPG = "SPG",
 	Vehicle = "Vehicle",
 	Cannon = "Cannon",
+	Plane = "Plane",
 }
 
 local function GetClassGateGroup(unit)
@@ -295,6 +304,10 @@ local function GetIndirectWeight(key)
 end
 
 local function GetPhaseFit(unit)
+	if IsPlane(unit) then
+		return 1.0
+	end
+
 	local rules = GetPurchaseScoringConfig().PhaseFit[ConquestState.purchasePhase]
 	if not rules then
 		return 1.0
@@ -336,6 +349,25 @@ local function GetActiveIntent()
 	end
 
 	return nil
+end
+
+local function GetPlaneWeight(unit)
+	if not IsPlane(unit) then
+		return 1.0
+	end
+
+	local rules = GetPurchaseScoringConfig().PlaneWeight
+	local weight = rules.Overall
+	if IsRecon(unit) then
+		weight = weight * rules.Recon
+		local plan = ConquestState.purchasePlan
+		local primaryForce = (plan and plan.primaryForce) or ConquestState.primaryForce
+		if primaryForce == "armored_force" and GetActiveIntent() ~= "probe" then
+			weight = weight * rules.ArmoredAssaultRecon
+		end
+	end
+
+	return weight
 end
 
 local function GetArmoredInfantrySupportPhaseFit(unit, laneName)
@@ -399,7 +431,7 @@ local function ApplySupportPhaseRule(unit, laneName, rule)
 end
 
 local function GetSupportLanePhaseFit(unit, laneName)
-	if not IsSupportLane(laneName) then
+	if IsPlane(unit) or not IsSupportLane(laneName) then
 		return 1.0
 	end
 
@@ -653,6 +685,10 @@ local function GetProbeLightArmorFit(unit)
 end
 
 local function GetLaneFit(unit, laneName)
+	if IsPlane(unit) then
+		return GetRuleWeight(GetLaneFitConfig(laneName), "Plane")
+	end
+
 	if laneName == "infantry_body" then
 		return GetInfantryBodyFit(unit)
 	elseif laneName == "infantry_organic_support" then
@@ -690,6 +726,7 @@ local function GetCandidateWeight(unit, laneName, laneFit)
 	local weight = GetAvailabilityWeight(unit)
 		* GetGradeWeight(unit)
 		* GetClassWeight(unit)
+		* GetPlaneWeight(unit)
 		* laneFit
 		* GetPhaseFit(unit)
 		* GetArmoredInfantrySupportPhaseFit(unit, laneName)
@@ -733,16 +770,27 @@ end
 
 local function BuildLaneCandidates(units, laneName)
 	local candidates = {}
+	local hasGroundCandidate = false
 
 	for _, unit in ipairs(units or {}) do
 		local laneFit = GetLaneFit(unit, laneName)
 		if laneFit > 0 then
+			if not IsPlane(unit) then
+				hasGroundCandidate = true
+			end
+
 			table.insert(candidates, {
 				unit = unit,
 				laneName = laneName,
 				weight = GetCandidateWeight(unit, laneName, laneFit),
 			})
 		end
+	end
+
+	-- A lane must never be filled by aircraft alone: every lane gives planes a positive
+	-- fit, so without this a lane with no available ground unit would buy a plane every time.
+	if not hasGroundCandidate then
+		return {}
 	end
 
 	return candidates
@@ -755,7 +803,7 @@ local function BuildFallbackCandidates(units)
 		table.insert(candidates, {
 			unit = unit,
 			laneName = "fallback",
-			weight = GetAvailabilityWeight(unit) * GetGradeWeight(unit) * GetClassWeight(unit),
+			weight = GetAvailabilityWeight(unit) * GetGradeWeight(unit) * GetClassWeight(unit) * GetPlaneWeight(unit),
 		})
 	end
 

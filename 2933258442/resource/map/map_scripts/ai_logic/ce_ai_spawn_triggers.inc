@@ -355,6 +355,641 @@
 					}
 				}
 			}
+			{"ai_spawn_logic/move_ai_spawn"
+				{condition
+					{terms
+						{"2.cmp_i"
+							{var "change_ai_spawns$"}
+							{op "=="}
+							{value 1}
+						}
+						{"1.cmp_i"
+							{var "enable_rear_attack_mechanic$"}
+							{op "=="}
+							{value 1}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.1}
+					}
+					{## "timer"
+						{time 10}
+						{title "DBG: flipping ai spawns"}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "bots_spawnside$"}
+								{op "=="}
+								{value 1}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag spawn_a}
+													}
+												}
+												{include
+													{tag
+														{tag a1}
+													}
+													{zone
+														{zone "a_1"}
+													}
+												}
+												{exclude
+													{state
+														{state inactive}
+													}
+												}
+											}
+										}
+									}
+									{"placement"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag spawn_a}
+													}
+												}
+												{include
+													{tag
+														{tag a1}
+													}
+													{zone
+														{zone "a_1"}
+													}
+												}
+												{exclude
+													{state
+														{state inactive}
+													}
+												}
+											}
+										}
+										{target
+											{amount 1
+											}
+											{tag spawn_anchor}
+											{zone "b_1"}
+										}
+									}
+									{"placement"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag spawn_a}
+													}
+												}
+												{include
+													{tag
+														{tag a2}
+													}
+													{zone
+														{zone "a_2"}
+													}
+												}
+												{exclude
+													{state
+														{state inactive}
+													}
+												}
+											}
+										}
+										{target
+											{amount 1
+											}
+											{tag spawn_anchor}
+											{zone "b_2"}
+										}
+									}
+									{"placement"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag spawn_a}
+													}
+												}
+												{include
+													{tag
+														{tag a3}
+													}
+													{zone
+														{zone "a_3"}
+													}
+												}
+												{exclude
+													{state
+														{state inactive}
+													}
+												}
+											}
+										}
+										{target
+											{amount 1
+											}
+											{tag spawn_anchor}
+											{zone "b_3"}
+										}
+									}
+									{"placement"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag spawn_a}
+													}
+												}
+												{include
+													{tag
+														{tag a4}
+													}
+													{zone
+														{zone "a_4"}
+													}
+												}
+												{exclude
+													{state
+														{state inactive}
+													}
+												}
+											}
+										}
+										{target
+											{amount 1
+											}
+											{tag spawn_anchor}
+											{zone "b_4"}
+										}
+									}
+								}
+								{"default"
+									{"placement"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag spawn_a}
+													}
+												}
+												{include
+													{tag
+														{tag a1}
+													}
+													{zone
+														{zone "b_1"}
+													}
+												}
+												{exclude
+													{state
+														{state inactive}
+													}
+												}
+											}
+										}
+										{target
+											{amount 1
+											}
+											{tag spawn_anchor}
+											{zone "a_1"}
+										}
+									}
+									{"placement"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag spawn_a}
+													}
+												}
+												{include
+													{tag
+														{tag a2}
+													}
+													{zone
+														{zone "b_2"}
+													}
+												}
+												{exclude
+													{state
+														{state inactive}
+													}
+												}
+											}
+										}
+										{target
+											{amount 1
+											}
+											{tag spawn_anchor}
+											{zone "a_2"}
+										}
+									}
+									{"placement"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag spawn_a}
+													}
+												}
+												{include
+													{tag
+														{tag a3}
+													}
+													{zone
+														{zone "b_3"}
+													}
+												}
+												{exclude
+													{state
+														{state inactive}
+													}
+												}
+											}
+										}
+										{target
+											{amount 1
+											}
+											{tag spawn_anchor}
+											{zone "a_3"}
+										}
+									}
+									{"placement"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag spawn_a}
+													}
+												}
+												{include
+													{tag
+														{tag a4}
+													}
+													{zone
+														{zone "b_4"}
+													}
+												}
+												{exclude
+													{state
+														{state inactive}
+													}
+												}
+											}
+										}
+										{target
+											{amount 1
+											}
+											{tag spawn_anchor}
+											{zone "a_4"}
+										}
+									}
+								}
+							}
+						}
+						{"default"
+							{"switch"
+								{"case"
+									{condition
+										{type entities}
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag spawn_b}
+													}
+												}
+												{include
+													{tag
+														{tag b1}
+													}
+													{zone
+														{zone "b_1"}
+													}
+												}
+												{exclude
+													{state
+														{state inactive}
+													}
+												}
+											}
+										}
+									}
+									{"placement"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag spawn_b}
+													}
+												}
+												{include
+													{tag
+														{tag b1}
+													}
+													{zone
+														{zone "b_1"}
+													}
+												}
+												{exclude
+													{state
+														{state inactive}
+													}
+												}
+											}
+										}
+										{target
+											{amount 1
+											}
+											{tag spawn_anchor}
+											{zone "a_1"}
+										}
+									}
+									{"placement"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag spawn_b}
+													}
+												}
+												{include
+													{tag
+														{tag b2}
+													}
+													{zone
+														{zone "b_2"}
+													}
+												}
+												{exclude
+													{state
+														{state inactive}
+													}
+												}
+											}
+										}
+										{target
+											{amount 1
+											}
+											{tag spawn_anchor}
+											{zone "a_2"}
+										}
+									}
+									{"placement"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag spawn_b}
+													}
+												}
+												{include
+													{tag
+														{tag b3}
+													}
+													{zone
+														{zone "b_3"}
+													}
+												}
+												{exclude
+													{state
+														{state inactive}
+													}
+												}
+											}
+										}
+										{target
+											{amount 1
+											}
+											{tag spawn_anchor}
+											{zone "a_3"}
+										}
+									}
+									{"placement"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag spawn_b}
+													}
+												}
+												{include
+													{tag
+														{tag b4}
+													}
+													{zone
+														{zone "b_4"}
+													}
+												}
+												{exclude
+													{state
+														{state inactive}
+													}
+												}
+											}
+										}
+										{target
+											{amount 1
+											}
+											{tag spawn_anchor}
+											{zone "a_4"}
+										}
+									}
+								}
+								{"default"
+									{"placement"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag spawn_b}
+													}
+												}
+												{include
+													{tag
+														{tag b1}
+													}
+													{zone
+														{zone "a_1"}
+													}
+												}
+												{exclude
+													{state
+														{state inactive}
+													}
+												}
+											}
+										}
+										{target
+											{amount 1
+											}
+											{tag spawn_anchor}
+											{zone "b_1"}
+										}
+									}
+									{"placement"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag spawn_b}
+													}
+												}
+												{include
+													{tag
+														{tag b2}
+													}
+													{zone
+														{zone "a_2"}
+													}
+												}
+												{exclude
+													{state
+														{state inactive}
+													}
+												}
+											}
+										}
+										{target
+											{amount 1
+											}
+											{tag spawn_anchor}
+											{zone "b_2"}
+										}
+									}
+									{"placement"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag spawn_b}
+													}
+												}
+												{include
+													{tag
+														{tag b3}
+													}
+													{zone
+														{zone "a_3"}
+													}
+												}
+												{exclude
+													{state
+														{state inactive}
+													}
+												}
+											}
+										}
+										{target
+											{amount 1
+											}
+											{tag spawn_anchor}
+											{zone "b_3"}
+										}
+									}
+									{"placement"
+										{selector
+											{source advanced}
+											{group
+												{select
+													{tag
+														{tag spawn_b}
+													}
+												}
+												{include
+													{tag
+														{tag b4}
+													}
+													{zone
+														{zone "a_4"}
+													}
+												}
+												{exclude
+													{state
+														{state inactive}
+													}
+												}
+											}
+										}
+										{target
+											{amount 1
+											}
+											{tag spawn_anchor}
+											{zone "b_4"}
+										}
+									}
+								}
+							}
+						}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"set_i"
+						{var "change_ai_spawns$"}
+						{op "="}
+						{value 0}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"trigger"
+						{name "ai_spawn_logic/move_ai_spawn"}
+					}
+				}
+			}
+			{"ai_spawn_logic/alert_rear_attack_event"
+				{condition
+					{terms
+						{"1.cmp_i"
+							{var "enable_rear_attack_mechanic$"}
+							{op "=="}
+							{value 1}
+						}
+						{"2.cmp_i"
+							{var "prep_inform$"}
+							{op "=="}
+							{value 1}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.2}
+					}
+					{"call"
+						{function "ai_rear_attack_notify"}
+					}
+				}
+			}
 
 ; ============= GENERAL AI SPAWN TRIGGER DEFINES ===================================
 			(define "ai_inf_spawn" ; parms: side, zone, waypoint 

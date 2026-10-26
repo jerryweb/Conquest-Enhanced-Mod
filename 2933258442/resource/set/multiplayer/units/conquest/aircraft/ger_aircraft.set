@@ -1,0 +1,50 @@
+;SDL
+; AI aircraft purchases - clean this shit up later lol no point keeping things consolidated like this for release
+
+{"mp/ger/late/pilot"
+	("inf_tankman" side(ger) period(late) cost(0.0))
+}
+{"mp/ger/late/pioneer_3"
+	("inf_tier2" side(ger) period(late) lvl(lvl1 lvl2 lvl3 lvl4) r(9) rm(99) cost(50.0))
+}
+{"mp/ger/late/signaller"
+	("inf_settings_general" cost(200.0))
+	{tags "late ger infantry man signaller"}
+	{cp 3}
+	{cw 1}
+	{score (* 200.0 0.02)}
+}
+
+; ---
+(define "ce_paradrop_pair"
+	("generic_v_conquest" t(ger %period) r(%min_stage) mr(99) cw(8) cp(1))
+	{content "c47_d_para_plane_ger ( mp/ger/%period/pilot:2 %passengers ) c47_d_para_plane_ger ( mp/ger/%period/pilot:2 %passengers )"}
+)
+
+; ---
+
+{"bf110_e2_x1"
+	("squad_vehicle" side(ger) period(mid) min_stage(8) max_stage(99) cw(0) cp(10) crew(pilot:2) vehicle(bf110_e2))
+	{cost 850}
+	{not_for_player_sale 1}
+}
+
+{"fi156_x1"
+	("squad_vehicle" side(ger) period(mid) min_stage(4) max_stage(99) cw(0) cp(5) crew(pilot:1) vehicle(fi156))
+	{cost 300}
+	{not_for_player_sale 1}
+}
+
+{"squad_fallschirmjaeger_para_con_x2"
+	("ce_paradrop_pair" period(mid) min_stage(13)
+		passengers(mp/ger/mid/fallsch_sl:1 mp/ger/mid/fallsch_sl_asst:1 mp/ger/mid/fallsch_rifle_scope:1 mp/ger/mid/fallsch_smg:1 mp/ger/mid/fallsch_sa:1 mp/ger/mid/fallsch_sa:2 mp/ger/mid/fallsch_rifle_grenadier:1 mp/ger/mid/fallsch_rifle:2 mp/ger/mid/fallsch_mg:2 mp/ger/mid/fallsch_mg_asst:2))
+	{cost 2000}
+	{not_for_player_sale 1}
+}
+
+{"squad_fallschirmjaeger_para_con_late_x2"
+	("ce_paradrop_pair" period(late) min_stage(16)
+		passengers(mp/ger/late/fallsch_sl:1 mp/ger/late/fallsch_sl_asst:1 mp/ger/late/fallsch_sa_scope:1 mp/ger/late/fallsch_rifle:5 mp/ger/late/pioneer_3:2 mp/ger/late/signaller:1 mp/ger/late/fallsch_stg:4 mp/ger/late/fallsch_mg:2 mp/ger/late/fallsch_mg_asst:1 mp/ger/late/fallsch_mg_asst:1))
+	{cost 2500}
+	{not_for_player_sale 1}
+}

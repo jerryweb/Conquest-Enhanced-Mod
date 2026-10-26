@@ -82,6 +82,11 @@
             {tags remove "possible_enemy_tank"}
         }
     }
+
+    {on "hide_transports"
+        {tags remove "_transport_rtb"}
+        {hide 5}      
+    }
     
 (include "veh_sandbags.inc")
 }

@@ -1,11 +1,6 @@
 -- =========================================================
 -- UTILITIES FILE FOR CONQUEST ENHANCED
 -- =========================================================
--- Percentage chance (between 0 and 1) to enable the Classic CE Radio Mechanics. Currently it is set as a random event with a 18% chance to occur per match.
--- and can be countered with a radio vehicle.
-local enableCommunicationsCutMechanics = 0.18
-
-
 local waveOneGraphOverrideActive = false
 local lastWrittenGraphVar = nil -- last value sent to BotApi, used to skip redundant writes
 -- Latched answer to "does this map have a waypoint graph?". Closed until the map layer
@@ -64,11 +59,17 @@ local function IsDefenderCounterattackActive()
 	return ConquestState.purchasePhase == PHASE_DEFENDER_COUNTERATTACK
 end
 
+-- True for the whole match once the rear attack event has been rolled on.
+local function IsRearAttackEventActive()
+	return ConquestRearAttack ~= nil and ConquestRearAttack.IsEventActive()
+end
+
 -- The value the graph var should have when the wave-1 override is NOT active.
--- Off until the map reports a graph, and off while the bot's defender counterattack
--- is running. Otherwise on.
+-- Off until the map reports a graph, off while the bot's defender counterattack
+-- is running, and off for the whole match when the rear attack event is active.
+-- Otherwise on.
 local function GetBaseWaypointGraphEnabled()
-	if not mapGraphGateOpen or IsDefenderCounterattackActive() then
+	if not mapGraphGateOpen or IsDefenderCounterattackActive() or IsRearAttackEventActive() then
 		return 0
 	end
 	return 1
@@ -189,13 +190,13 @@ end
 -- Returns true when this spawning squad should skip the waypoint graph and use
 -- a Lua CaptureFlag order instead: the map has no graph (or has not reported one
 -- yet), the wave-1 override is active, a bot defender counterattack is running,
--- or this unit type is permanently graph-exempt.
+-- the rear attack event is active, or this unit type is permanently graph-exempt.
 function ShouldSkipWaypointGraph()
 	if not mapGraphGateOpen then
 		return true
 	end
 
-	if waveOneGraphOverrideActive or IsDefenderCounterattackActive() then
+	if waveOneGraphOverrideActive or IsDefenderCounterattackActive() or IsRearAttackEventActive() then
 		return true
 	end
 

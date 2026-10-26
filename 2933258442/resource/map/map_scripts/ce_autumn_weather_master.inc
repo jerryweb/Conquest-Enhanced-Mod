@@ -32,3 +32,4 @@
         (include "../multi/dcg_script.inc")
         (include "ce_triggers.inc")
     }
+    (include "ce_generic_waypoint.inc")

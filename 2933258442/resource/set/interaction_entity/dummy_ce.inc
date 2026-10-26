@@ -47,3 +47,15 @@
 		("spawn_object_for_defense" object("hedgehog"))
 	}
 }
+
+{"map_point_conquest"
+	{on spawn
+		{delay 1
+			(mod "mp"
+				{spawn "ai_waypoint_pole" 
+					{tags add "spawn_anchor"}
+				}
+			)   
+		}
+    }
+}

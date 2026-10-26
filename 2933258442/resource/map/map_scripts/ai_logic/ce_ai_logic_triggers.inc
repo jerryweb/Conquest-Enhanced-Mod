@@ -41,9 +41,6 @@
 								{ignore_captured_by_user 0}
 								{group
 									{select
-										;{tag
-										;	{tag _user}
-										;}
 										{zone
 											{zone "combat"}
 										}
@@ -130,7 +127,8 @@
 									{tag ai_veh_smoke}
 								}
 							}
-							{amount 3}
+							{amount 4
+							}
 						}
 						{tag_add ai_veh_smoke}
 					}
@@ -170,6 +168,8 @@
 					}
 					{"actor_fire"
 						{selector
+							{amount 1
+							}
 							{tag ai_veh_smoke}
 							{type human}
 							{state operatable}
@@ -185,7 +185,26 @@
 						{burst_mode once}
 					}
 					{"delay"
-						{time 2}
+						{time 0.1}
+					}
+					{"actor_fire"
+						{selector
+							{tag ai_veh_smoke}
+							{type human}
+							{state operatable}
+						}
+						{drop "orders sensor senseless"}
+						{deviate}
+						{enemies
+							{ignore_captured_by_user 0}
+							{tag smk_veh_target}
+						}
+						{interval 0}
+						{time 0}
+						{burst_mode once}
+					}
+					{"delay"
+						{time 0.1}
 					}
 					{"actor_state"
 						{selector
@@ -251,7 +270,7 @@
 						{tag_remove _mi_temp_veh_smoke}
 					}
 					{"delay"
-						{time 60}
+						{time 55}
 					}
 					{"trigger"
 						{name "ai_logic/ai_smoke_at_vehicles"}
@@ -345,6 +364,11 @@
 								{"for enemy" spg_target}
 							}
 						}
+						{"1.cmp_i"
+							{var "user_is_defender$"}
+							{op "=="}
+							{value 1}
+						}
 					}
 				}
 				{actions
@@ -411,6 +435,65 @@
 					}
 					{"trigger"
 						{name "ai_logic/spg_see_engage"}
+					}
+				}
+			}
+			{"ai_logic/check_idle_cannons"
+				{condition
+					{terms
+						{"1.cmp_i"
+							{var "user_is_defender$"}
+							{op "=="}
+							{value 1}
+						}
+						{"2.cmp_i"
+							{var "prep_inform$"}
+							{op "=="}
+							{value 1}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 180}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag _bot}
+									}
+								}
+								{include
+									{state
+										{state "operatable inhabited"}
+									}
+									{prop
+										{prop cannon}
+									}
+								}
+								{exclude
+									{state
+										{state inactive}
+									}
+									{state
+										{state linked}
+									}
+									{state
+										{state user_control}
+									}
+								}
+							}
+						}
+						{tag_add cannon_need_next_order}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"trigger"
+						{name "ai_logic/check_idle_cannons"}
 					}
 				}
 			}
@@ -650,6 +733,9 @@
 										{zone
 											{zone "b_4"}
 										}
+										{tag
+											{tag "-turret"}
+										}
 									}
 								}
 							}
@@ -771,6 +857,9 @@
 									}
 									{zone
 										{zone "b_4"}
+									}
+									{tag
+										{tag "-turret"}
 									}
 								}
 							}
@@ -2152,7 +2241,7 @@
 					{"delay"
 						{time 4}
 					}
-					{"delete"
+					{## "delete"
 						{selector
 							{source advanced}
 							{group
@@ -2203,6 +2292,59 @@
 								}
 							}
 						}
+					}
+					{"effect"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{zone
+										{zone "a_1"}
+									}
+									{zone
+										{zone "a_2"}
+									}
+									{zone
+										{zone "a_3"}
+									}
+									{zone
+										{zone "a_4"}
+									}
+									{zone
+										{zone "b_1"}
+									}
+									{zone
+										{zone "b_2"}
+									}
+									{zone
+										{zone "b_3"}
+									}
+									{zone
+										{zone "b_4"}
+									}
+								}
+								{include
+									{tag
+										{tag _transport_rtb}
+									}
+									{state
+										{state "chassis_work inhabited"}
+									}
+								}
+								{exclude
+									{state
+										{state user_control}
+									}
+									{state
+										{state linked}
+									}
+									{state
+										{state inactive}
+									}
+								}
+							}
+						}
+						{effect hide_transports}
 					}
 					{"delay"
 						{time 1}

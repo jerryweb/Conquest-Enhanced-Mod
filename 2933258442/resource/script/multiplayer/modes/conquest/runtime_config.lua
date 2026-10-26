@@ -340,6 +340,14 @@ ConquestConfig.PurchasePressure = {
 }
 
 
+-- Aircraft shit
+ConquestConfig.Aircraft = {
+	AllowedPhases = {
+		attacker_wave = true,
+		defender_counterattack = true,
+	},
+}
+
 -- Force identity and slot-planning configuration.
 ConquestConfig.PurchaseForces = {
 	PrimaryForceRoll = {
@@ -488,6 +496,7 @@ ConquestConfig.PurchaseScoring = {
 			SPG = 0.80,
 			Vehicle = 0.50,
 			Cannon = 0.45,
+			Plane = 0.60,
 		},
 	},
 
@@ -512,6 +521,13 @@ ConquestConfig.PurchaseScoring = {
 			HeavyMortar = 0.70,
 			Artillery = 1.30,
 		},
+	},
+
+	-- Aircraft rarity applies to lane and fallback selection.
+	PlaneWeight = {
+		Overall = 0.35,
+		Recon = 1.50,
+		ArmoredAssaultRecon = 0.50,
 	},
 
 	-- Global reduction for single infantry so purchase selection prefers squads when lane fit is otherwise equal.
@@ -542,6 +558,7 @@ ConquestConfig.PurchaseScoring = {
 
 	LaneFit = {
 		infantry_body = {
+			Plane = 0.20,
 			InfantryLine = 1.00,
 			ReconInfantrySquad = 0.65,
 			ReconInfantrySingle = 0.35,
@@ -549,6 +566,7 @@ ConquestConfig.PurchaseScoring = {
 		},
 
 		infantry_organic_support = {
+			Plane = 0.15,
 			CannonMachineGun = 1.00,
 			LightCannonMortar = 1.00,
 			CannonInfantryGun = 1.00,
@@ -559,11 +577,13 @@ ConquestConfig.PurchaseScoring = {
 		},
 
 		armored_body = {
+			Plane = 0.05,
 			ArmorTank = 1.00,
 			ReconVehicleOrTank = 0.80,
 		},
 
 		armored_infantry_support = {
+			Plane = 0.15,
 			InfantryLine = 1.15,
 			ReconInfantrySquad = 0.45,
 			AssaultInfantrySquad = 0.45,
@@ -571,6 +591,7 @@ ConquestConfig.PurchaseScoring = {
 		},
 
 		armored_mobile_support = {
+			Plane = 0.08,
 			VehicleMachineGun = 1.00,
 			MobileInfantryGun = 1.00,
 			AssaultVehicleOrTank = 0.90,
@@ -580,39 +601,46 @@ ConquestConfig.PurchaseScoring = {
 		},
 
 		secondary_armored_force = {
+			Plane = 0.05,
 			ArmorTank = 1.00,
 			ReconVehicleOrTank = 0.85,
 			AssaultVehicleOrTank = 0.65,
 		},
 
 		anti_tank_force = {
+			Plane = 0.05,
 			InfantryAT = 0.45,
 			FieldGun = 0.85,
 			AntiArmor = 1.00,
 		},
 
 		artillery_support_force = {
+			Plane = 0.08,
 			Artillery = 1.00,
 			HeavyMortar = 0.80,
 		},
 
 		aa_support_force = {
+			Plane = 0.03,
 			AirDefense = 1.00,
 		},
 
 		probe_mobile = {
+			Plane = 0.08,
 			ReconVehicleOrTank = 1.25,
 			VehicleMachineGun = 1.15,
 			LightArmorTank = 0.75,
 		},
 
 		probe_infantry = {
+			Plane = 0.15,
 			InfantryLine = 0.50,
 			ReconInfantrySquad = 1.20,
 			ReconInfantrySingle = 0.35,
 		},
 
 		probe_light_armor = {
+			Plane = 0.03,
 			LightArmorTank = 1.00,
 			ReconVehicleOrTank = 0.90,
 			VehicleMachineGun = 0.65,

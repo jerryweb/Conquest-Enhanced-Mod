@@ -1,8 +1,384 @@
 ; File created by Hawka
-;==========================================================================================================
-
+;=========================================================================================================
 ; Vanilla var includes
 (include "../multi/dcg_functions.inc")
+
+;============ SPAWN ========================================
+			{"ai_rear_attack_notify"
+				{"sound"
+					{name "interface/morse"}
+				}
+				{"switch"
+					{"case"
+						{condition
+							{type rand}
+							{value 0.33}
+						}
+						{"talk"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+								{amount 1
+								}
+							}
+							{text "mission/multi/rear_attack_1"}
+						}
+					}
+					{"case"
+						{condition
+							{type rand}
+							{value 0.33}
+						}
+						{"talk"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag player}
+										}
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+								{amount 1
+								}
+							}
+							{text "mission/multi/rear_attack_2"}
+						}
+					}
+					{"default"
+						{"talk"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+										{tag
+											{tag player}
+										}
+									}
+									{include
+										{state
+											{state user_control}
+										}
+										{prop
+											{prop human}
+										}
+									}
+								}
+								{amount 1
+								}
+							}
+							{text "mission/multi/rear_attack_3"}
+						}
+					}
+				}
+				{"delay"
+					{time 0.2}
+				}
+				{"entity_state"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag arrow_enemy}
+								}
+							}
+						}
+					}
+					{tag_remove hidden}
+					{inactive off}
+				}
+				{"delay"
+					{time 0.5}
+				}
+				{"entity_state"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag arrow_enemy}
+								}
+							}
+						}
+					}
+					{inactive on}
+				}
+				{"delay"
+					{time 0.5}
+				}
+				{"entity_state"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag arrow_enemy}
+								}
+							}
+						}
+					}
+					{tag_remove hidden}
+					{inactive off}
+				}
+				{"delay"
+					{time 0.5}
+				}
+				{"entity_state"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag arrow_enemy}
+								}
+							}
+						}
+					}
+					{inactive on}
+				}
+				{"delay"
+					{time 0.5}
+				}
+				{"entity_state"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag arrow_enemy}
+								}
+							}
+						}
+					}
+					{tag_remove hidden}
+					{inactive off}
+				}
+				{"delay"
+					{time 0.5}
+				}
+				{"entity_state"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag arrow_enemy}
+								}
+							}
+						}
+					}
+					{inactive on}
+				}
+				{"delay"
+					{time 0.5}
+				}
+				{"entity_state"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag arrow_enemy}
+								}
+							}
+						}
+					}
+					{tag_remove hidden}
+					{inactive off}
+				}
+				{"delay"
+					{time 0.5}
+				}
+				{"entity_state"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag arrow_enemy}
+								}
+							}
+						}
+					}
+					{inactive on}
+				}
+				{"delay"
+					{time 0.5}
+				}
+				{"entity_state"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag arrow_enemy}
+								}
+							}
+						}
+					}
+					{inactive off}
+				}
+				{"delay"
+					{time 0.5}
+				}
+				{"entity_state"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag arrow_enemy}
+								}
+							}
+						}
+					}
+					{inactive on}
+				}
+				{"delay"
+					{time 0.5}
+				}
+				{"entity_state"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag arrow_enemy}
+								}
+							}
+						}
+					}
+					{inactive off}
+				}
+				{"delay"
+					{time 0.5}
+				}
+				{"entity_state"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag arrow_enemy}
+								}
+							}
+						}
+					}
+					{inactive on}
+				}
+				{"delay"
+					{time 0.5}
+				}
+				{"entity_state"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag arrow_enemy}
+								}
+							}
+						}
+					}
+					{inactive off}
+				}
+				{"delay"
+					{time 0.5}
+				}
+				{"entity_state"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag arrow_enemy}
+								}
+							}
+						}
+					}
+					{inactive on}
+				}
+				{"delay"
+					{time 0.5}
+				}
+				{"entity_state"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag arrow_enemy}
+								}
+							}
+						}
+					}
+					{inactive off}
+				}
+				{"delay"
+					{time 0.5}
+				}
+				{"entity_state"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag arrow_enemy}
+								}
+							}
+						}
+					}
+					{inactive on}
+				}
+				{"delay"
+					{time 0.5}
+				}
+				{"entity_state"
+					{selector
+						{source advanced}
+						{group
+							{select
+								{tag
+									{tag arrow_enemy}
+								}
+							}
+						}
+					}
+					{inactive off}
+				}
+			}
 
 ;============ AI ORDERS LOGIC  ========================================
 			{"issue_idle_squad_orders"

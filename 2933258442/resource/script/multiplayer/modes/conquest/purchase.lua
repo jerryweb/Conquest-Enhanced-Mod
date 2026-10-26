@@ -5,6 +5,24 @@
 
 local PHASE_DEFENDER_OPENING = "defender_opening"
 
+local function IsAircraftEligible(unit)
+	if ConquestPurchaseScoring.GetPlatformLabel(unit) ~= "Plane" then
+		return true
+	end
+
+	if not ConquestConfig.Aircraft.AllowedPhases[ConquestState.purchasePhase] then
+		return false
+	end
+
+	-- A phase (wave, counterattack) never opens with, or consists only of, aircraft.
+	if (ConquestState.phaseGroundPurchaseCount or 0) < 1 then
+		return false
+	end
+
+	local count = ConquestState.aircraftPurchaseCounts[unit.unit] or 0
+	return not unit.maxUnitCount or count < unit.maxUnitCount
+end
+
 local PLACEMENT_BODY = "body"
 local PLACEMENT_MG_SUPPORT = "mg_support"
 local PLACEMENT_GUN_SUPPORT = "gun_support"
@@ -89,6 +107,14 @@ function GameModeSpawnUnit(unit, maxSquadSize)
 	local isGarrisonSpawn = ConquestState.purchasePhase == PHASE_DEFENDER_OPENING
 	local spawnPointIndex = ConquestState.spawnPointIndex or 0
 	local placementClass
+	local selectedUnit = ConquestState.pendingPurchaseUnit or (Context and Context.SpawnInfo)
+	if type(selectedUnit) ~= "table" and type(unit) == "table" then
+		selectedUnit = unit
+	end
+
+	if not IsAircraftEligible(selectedUnit) then
+		return false
+	end
 
 	if isGarrisonSpawn then
 		local selectedUnit = ConquestState.pendingPurchaseUnit
@@ -102,6 +128,13 @@ function GameModeSpawnUnit(unit, maxSquadSize)
 
 	if not BotApi.Commands:SpawnAt(unit, maxSquadSize, spawnPointIndex) then
 		return false
+	end
+
+	if ConquestPurchaseScoring.GetPlatformLabel(selectedUnit) == "Plane" then
+		local counts = ConquestState.aircraftPurchaseCounts
+		counts[selectedUnit.unit] = (counts[selectedUnit.unit] or 0) + 1
+	else
+		ConquestState.phaseGroundPurchaseCount = (ConquestState.phaseGroundPurchaseCount or 0) + 1
 	end
 
 	if isGarrisonSpawn then
@@ -149,7 +182,7 @@ function GetUnitToSpawn(units)
 	end
 
 	for _, unit in pairs(units) do
-		if BotApi.Commands:IsUnitAvailable(unit.unit) then
+		if IsAircraftEligible(unit) and BotApi.Commands:IsUnitAvailable(unit.unit) then
 			table.insert(unitsToSpawn, unit)
 		end
 	end

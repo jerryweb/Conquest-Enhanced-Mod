@@ -154,6 +154,7 @@ function ConquestWaves.StartPurchasePhase(phase, target)
 
 	ConquestState.purchasePhase = phase
 	ConquestState.phasePurchaseCount = 0
+	ConquestState.phaseGroundPurchaseCount = 0
 	ConquestState.phasePurchaseTarget = target
 
 	ConquestPurchaseProfiles.StartPurchasePhasePlan(phase, target)
@@ -182,6 +183,7 @@ local function StartAttackerWave()
 	ConquestWaves.StartPurchasePhase(PHASE_ATTACKER_WAVE, ConquestState.waveUnitTotal)
 
 	UpdateWaveOneGraphOverride()
+	ConquestRearAttack.OnAttackerWaveStart()
 
 	if printDebug then
 		print("Print: attacker wave", ConquestState.waveNumber + 1, "of", ConquestState.attackerMaxWaves)

@@ -10,6 +10,9 @@
 	{"enable_ce_cut_communications_mechanic"}
 	{"radio_active"}
 
+	{"enable_rear_attack_mechanic"}
+	{"change_ai_spawns"}
+
 	{"weather_selection"}
 	{"season_set"}
 	{"weather_season"}

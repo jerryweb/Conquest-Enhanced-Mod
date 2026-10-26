@@ -22,11 +22,14 @@ require([[/script/multiplayer/modes/conquest/waves]]) -- wave and cooldown behav
 require([[/script/multiplayer/modes/conquest/orders_flags]]) -- flag priority and capture-target selection.
 require([[/script/multiplayer/modes/conquest/orders]]) -- squad order assignment and tag handling.
 
+require([[/script/multiplayer/modes/conquest_enhanced/events_ce]])
 require([[/script/multiplayer/modes/conquest_enhanced/utilities_ce]])
 require([[/script/multiplayer/modes/conquest_enhanced/orders_ce]])
 require([[/script/multiplayer/modes/conquest_enhanced/orders_flags_ce]])
 require([[/script/multiplayer/modes/conquest_enhanced/weather_ce]])
 require([[/script/multiplayer/modes/conquest_enhanced/security_ce]]) -- defender security (flanking) waves.
+require([[/script/multiplayer/modes/conquest_enhanced/rear_attack_ce]]) -- attacker rear attack event.
+
 
 local firstSpawn = false 
 
@@ -36,6 +39,7 @@ function OnGameStart()
 	ConquestContext.SetVarsInMissionScript()
 	ConquestContext.SetCEVarsInMissionScript()
 	ConquestSecurityWave.Init()
+	ConquestRearAttack.Init()
 	OnGameStartUtility("conquest")
 	--ConquestDebug.StartSceneQueryTestLog()
 end
@@ -78,6 +82,14 @@ function OnGameQuant()
 	end
 end
 
+-- True when the unit that was just purchased is an aircraft. Aircraft get no initial
+-- Lua order; the mission layer (.mi triggers) takes over, and tags keep later Lua orders off them.
+local function IsAircraftSpawn()
+	local spawnInfo = Context and Context.SpawnInfo
+	return type(spawnInfo) == "table"
+		and ConquestPurchaseScoring.GetPlatformLabel(spawnInfo) == "Plane"
+end
+
 -- Assigns initial movement orders when a bot squad spawns.
 function OnGameSpawn(args)
 	if ShouldStopNormalSquadOrders() then
@@ -96,12 +108,14 @@ function OnGameSpawn(args)
 		SetGeneralSquadTagCheckTimer()
 	end
 
+	local isAircraft = IsAircraftSpawn()
 	local waypoints = BotApi.Scene.Waypoints
 	if #waypoints == 0 then
-		local shouldSkipGraph = ShouldSkipWaypointGraph()
+		-- initialOrder false = rotation timer only, so the quant fallback does not order the squad either.
+		local shouldSkipGraph = ShouldSkipWaypointGraph() and not isAircraft
 		local period = GetRotationPeriod(Context and Context.SpawnInfo)
 		SetSquadOrder(CaptureFlag, args.squadId, period, shouldSkipGraph)
-	else
+	elseif not isAircraft then
 		GotoNextWaypoint(args.squadId)
 	end
 end
