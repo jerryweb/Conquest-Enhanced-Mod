@@ -19,7 +19,7 @@
 --   enable_rear_attack_mechanic 1 when the event is active, otherwise 0
 -- Lua does not track which side the spawns are on. The mission layer owns that.
 
-ConquestRearAttack = ConquestRearAttack or {}
+
 
 local VAR_ENABLE = "enable_rear_attack_mechanic"
 local VAR_CHANGE = "change_ai_spawns"
@@ -39,7 +39,9 @@ function ConquestRearAttack.Init()
 	eventActive = false
 
 	if not ConquestState.botDefender then
-		eventActive = math.random() < GetPlan().EventChance
+		local rearAttackChance = math.random()
+		print("Print: rear attack event chance =", rearAttackChance)
+		eventActive = rearAttackChance < GetPlan().EventChance
 	end
 
 	BotApi.Scene:SetVar(VAR_ENABLE, eventActive and 1 or 0)

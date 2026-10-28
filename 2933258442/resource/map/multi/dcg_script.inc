@@ -9392,13 +9392,48 @@
 			}
 			{"dcg/warning_air"
 				{condition
-					{expression "!1 & 2"}
+					{expression "!1 & 3"}
 					{terms
 						{"1.event"
 							{id "talk_on"}
 						}
 						{"2.trigger"
-							{name "dcg/ai_airstrike"}
+							{name "ai_logic/air/send_ai_attack_plane"}
+						}
+						{"3.entities"
+							{selector
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag enemy_air}
+										}
+									}
+									{include
+										{prop
+											{prop airborne}
+										}
+										{state
+											{state "operatable inhabited"}
+										}
+										{tag
+											{tag _bot}
+										}
+									}
+									{exclude
+										{tag
+											{tag _user}
+										}
+										{state
+											{state user_control}
+										}
+										{prop
+											{prop drop_plane}
+										}
+									}
+								}
+							}
 						}
 					}
 				}

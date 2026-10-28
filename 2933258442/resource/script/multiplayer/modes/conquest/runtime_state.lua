@@ -19,8 +19,6 @@ ConquestState.garrisonSpawnPointIndexByPlacementClass = {}
 ConquestState.purchasePhase = nil
 ConquestState.phasePurchaseCount = 0
 ConquestState.phasePurchaseTarget = 0
--- Non-aircraft purchases accepted in the current phase. Aircraft need at least one.
-ConquestState.phaseGroundPurchaseCount = 0
 
 
 -- Battle-local purchase force identity.
@@ -36,6 +34,9 @@ ConquestState.pendingPurchaseUnit = nil
 
 -- Aircraft caps, use maxUnitCount = n
 ConquestState.aircraftPurchaseCounts = {}
+
+-- Accepted purchases of the ConquestConfig.TestPurchase unit (testing aid).
+ConquestState.testPurchaseCount = 0
 
 -- Attacker wave state.
 ConquestState.waveSpawnActive = true

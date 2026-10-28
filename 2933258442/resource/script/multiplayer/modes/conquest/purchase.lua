@@ -5,17 +5,26 @@
 
 local PHASE_DEFENDER_OPENING = "defender_opening"
 
+-- True while the testing aid in ConquestConfig.TestPurchase still has purchases to make of this unit.
+local function IsForcedTestUnit(unit)
+	local test = ConquestConfig.TestPurchase
+	if not (test and test.Enabled) or unit.unit ~= test.Unit then
+		return false
+	end
+
+	return (ConquestState.testPurchaseCount or 0) < (test.Count or 1)
+end
+
 local function IsAircraftEligible(unit)
 	if ConquestPurchaseScoring.GetPlatformLabel(unit) ~= "Plane" then
 		return true
 	end
 
-	if not ConquestConfig.Aircraft.AllowedPhases[ConquestState.purchasePhase] then
-		return false
+	if IsForcedTestUnit(unit) then
+		return true
 	end
 
-	-- A phase (wave, counterattack) never opens with, or consists only of, aircraft.
-	if (ConquestState.phaseGroundPurchaseCount or 0) < 1 then
+	if not ConquestConfig.Aircraft.AllowedPhases[ConquestState.purchasePhase] then
 		return false
 	end
 
@@ -130,11 +139,13 @@ function GameModeSpawnUnit(unit, maxSquadSize)
 		return false
 	end
 
+	if IsForcedTestUnit(selectedUnit) then
+		ConquestState.testPurchaseCount = (ConquestState.testPurchaseCount or 0) + 1
+	end
+
 	if ConquestPurchaseScoring.GetPlatformLabel(selectedUnit) == "Plane" then
 		local counts = ConquestState.aircraftPurchaseCounts
 		counts[selectedUnit.unit] = (counts[selectedUnit.unit] or 0) + 1
-	else
-		ConquestState.phaseGroundPurchaseCount = (ConquestState.phaseGroundPurchaseCount or 0) + 1
 	end
 
 	if isGarrisonSpawn then
@@ -173,6 +184,17 @@ function GetUnitToSpawn(units)
 
 	if not ConquestWaves.CanPurchaseUnit() then
 		return nil
+	end
+
+	-- Testing aid: buy the forced unit before anything else, bypassing scoring.
+	for _, unit in pairs(units) do
+		if IsForcedTestUnit(unit) and BotApi.Commands:IsUnitAvailable(unit.unit) then
+			ConquestState.pendingPurchaseForceCost = ConquestPurchaseScoring.GetPurchaseForceCost(unit)
+			ConquestState.pendingPurchaseLane = "fallback"
+			ConquestState.pendingPurchaseUnit = unit
+			print("Print: forced test purchase", unit.unit)
+			return unit
+		end
 	end
 
 	local unitsToSpawn = {}

@@ -4,7 +4,9 @@ enableCommunicationsCutMechanics = 0.18
 
 -- Defaults live here so this file works without edits to runtime_config.lua.
 -- Move the table there if you prefer all tuning values in one place.
+ConquestRearAttack = ConquestRearAttack or {}
+
 ConquestConfig.RearAttack = ConquestConfig.RearAttack or {
-	EventChance = 0.20, -- chance the event is active for the match
+	EventChance = 0.15, -- chance the event is active for the match
 	ToggleChance = 0.50, -- chance the spawns swap sides before each attacker wave
 }

@@ -348,6 +348,17 @@ ConquestConfig.Aircraft = {
 	},
 }
 
+-- Testing aid for any roster unit (aircraft or ground). While Enabled, the bot buys `Unit`
+-- (a purchase ID from the roster) `Count` times as its first purchases, ignoring scoring,
+-- ConquestConfig.Aircraft.AllowedPhases and maxUnitCount.
+-- It still needs an open purchase phase and the unit must be available. Normal buying
+-- continues afterwards. Leave Enabled = false for play.
+ConquestConfig.TestPurchase = {
+	Enabled = false,
+	Unit = "fi156_x1",
+	Count = 1,
+}
+
 -- Force identity and slot-planning configuration.
 ConquestConfig.PurchaseForces = {
 	PrimaryForceRoll = {
