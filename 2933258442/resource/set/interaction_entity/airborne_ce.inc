@@ -3,11 +3,12 @@
         {set "landing" 1}
         {call "takeoff_load"}
         {call "takeoff"} 
-        {tags add "_bot"} 
-        
+        {tags add "_bot"}        
         {delay 4
             {if prop "drop_plane"
                 {tags add "transport_plane_ready_for_mission"}
+            else tagged "bot_recon_plane" 
+                {tags add "recon_plane_ready_for_mission"}
             else 
                 {tags add "plane_ready_for_mission"}
             } 
@@ -33,13 +34,13 @@
                     {tags add "ignore_spawn_logic"} 
                 else 
                     {tags add "player_paratrooper"} 
-                }
-                        
+                }                      
             }
         }   
     )
 
     {on "drop_paratroopers"
+        {tags remove "transport_plan_to_lz"}
         {tags add "dropping_troopers"}
         {spawn "artillery_warning_light"}   
         ;("drop_vehicle"   delay(4.5))
@@ -83,8 +84,11 @@
 
     {on "prep_drop_plane_to_move"
         {tags remove "selected_transport_plane"}
-        {delay_ex 12 6 "drop_move_timer"
-            {call "drop_paratroopers"}
+        {tags add  "transport_plan_to_lz"}
+        {delay_ex 15 6 "drop_move_timer"
+            {if not tagged "droppering_troopers"
+                {call "drop_paratroopers"}
+            }
         }
     }
 
@@ -116,3 +120,20 @@
         {kill_delay "drop_move_timer"}
     }
 }
+
+;/*=========== Plane Specific Tagging ===========*/
+
+(define "tag_plane_category"
+    {"%entity"
+        {on spawn
+            {delay 0.2
+                {tags add "%tag"}
+            }
+        }
+    }
+)
+
+("tag_plane_category" entity(fi156) tag(bot_recon_plane))
+("tag_plane_category" entity(po2) tag(bot_recon_plane))
+("tag_plane_category" entity(blenheim_mk1_recon) tag(bot_recon_plane))
+("tag_plane_category" entity(p47_d22_recon) tag(bot_recon_plane))

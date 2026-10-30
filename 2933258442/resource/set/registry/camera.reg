@@ -1,0 +1,281 @@
+{camera
+	{main
+		{viewAngle		25}
+		{distance		2000}
+		{fov			60}
+		{znear			5}
+		{zfar			10000}
+	}
+	{nearspace
+		{znear			0.1}
+		{depthScale		0.1}
+	}
+	{sprint_fov_change
+		{human
+			{deg		5.0}
+			{sec		0.3}
+		}
+		{vehicle
+			{deg		4.5}
+			{sec		2.0}
+		}
+	}
+
+	;=== Human Zoom settings
+	
+	{"human_zoom0_60"
+		{fov			60}
+		{znear			1}
+	}
+	{"human_zoom0"
+		{fov			50}
+		{znear			1}
+	}
+	{"human_zoom1"
+		{fov			45}
+		{znear			2}
+	}
+	{"human_zoom1.25"
+		{fov			36}
+		{znear			2.35}
+	}
+	{"human_zoom1.5"
+		{fov			30}
+		{znear			2.5}
+	}
+	{"human_zoom2"
+		{fov			22.5}
+		{znear			3}
+	}
+	{"human_zoom3"
+		{fov			15}
+		{znear			3.5}
+	}
+	{"human_zoom4"
+		{fov			11.25}
+		{znear			4}
+	}
+	{"human_zoom8"
+		{fov			5.625}
+		{znear			6}
+	}
+	{"human_zoom10"
+		{fov			4.5}
+		{znear			7}
+	}
+	
+	;=== Vehicle Zoom settings based on zoom factors
+	
+;   FoV2(x,in deg) = (1/x)*45
+
+	{"zoom0_60"
+		{fov			60}
+		{znear			2}
+	}
+	{"zoom0"
+		{fov			50}
+		{znear			2}
+	}
+	{"zoom1"
+		{fov			45}
+		{znear			2}
+	}
+	{"zoom1.15"
+		{fov			39.13}
+		{znear			2}
+	}
+	{"zoom1.5"
+		{fov			30}
+		{znear			2}
+	}
+	{"zoom1.8"
+		{fov			25}
+		{znear			2}
+	}
+	{"zoom1.9"
+		{fov			24.25}
+		{znear			2}
+	}
+	{"zoom2"
+		{fov			22.5}
+		{znear			3}
+	}
+	{"zoom2.4"
+		{fov			18.75}
+		{znear			3}
+	}
+	{"zoom2.5"
+		{fov			18}
+		{znear			3}
+	}
+	{"zoom2.6"
+		{fov			17.3}
+		{znear			3}
+	}
+	{"zoom3"
+		{fov			15}
+		{znear			4}
+	}
+	{"zoom3.5"
+		{fov			12.86}
+		{znear			4}
+	}
+	{"zoom4"
+		{fov			11.25}
+		{znear			4}
+	}
+	{"zoom4.5"
+		{fov			10}
+		{znear			4}
+	}
+	{"zoom5"
+		{fov			9}
+		{znear			4}
+	}
+	{"zoom6"
+		{fov			8.3}
+		{znear			5}
+	}
+	{"zoom8"
+		{fov			5.625}
+		{znear			6}
+	}
+	{"zoom10"
+		{fov			4.5}
+		{znear			7}
+	}
+	{"zoom12"
+		{fov			3.75}
+		{znear			8}
+	}
+
+	;=== Vehicle Zoom settings based on degrees
+	
+	{"zoom_28d"
+		{fov			28}
+		{znear			2}
+	}
+	{"zoom_25d"
+		{fov			25}
+		{znear			2}
+	}
+	{"zoom_14d"
+		{fov			14}
+		{znear			3}
+	}
+
+
+
+
+	
+	
+	; REMOVE, left only for compatibility with prev build
+	{perspective
+		{viewAngle		25}
+		{distance		1500}
+		{fov			60}
+	}
+	; REMOVE, left only for compatibility with prev build
+    {parallel
+		{viewAngle		90}
+		{distance		2000}
+		{fov			0}
+		{centered		1}
+	}
+}
+
+{camera_clip
+	; global camera clip settings
+	{min_distance
+		{distance		100}
+		{viewMin		2}
+		{viewMax		75}
+	}
+	{max_distance
+		{distance		8000}
+		{viewMin		1}
+		{viewMax		90}
+	}
+	; default camera position
+	{default
+		{distance		850}
+		{viewAngle		37.5}
+	}
+}
+
+;different setup values for camera lens effects
+{lens_effects
+	;holds values for effects, when a human in TPC enters low health state
+	{human_low_health
+		{low_health_cap 0.5}	;factor describing at how much health the effects start (0.5 -> 50%)
+		{pulse_constant 1.0}	;factor influencing the flashing rate of the vignette
+		{tone_color		0xFFc81919} ;color for low health tone in hex format (ARGB A: Intensity, RGB: Color)
+	}
+	{human_low_stamina
+		{brightness_drop 0.25}	;factor describing how much the image brightness gets reduced gradually, when at low stamina (0.5 -> 50%)
+		{low_stamina_cap 0.5}	;factor describing at how much stamina the effects start (0.5 -> 50%)
+	}
+	{damage_indicator
+		{indicator_scale 0.5}
+		{max_alpha 		 0.8}
+		
+	}
+	
+	;defines a tone and brightness setting, from which the visuals interpolate to the normal environment settings in
+	;game preparation.
+	{game_preparation
+		{interpolation_start 0.4	}	;describes at which point in the preparation time span, the actual interpolation starts (0.5 -> after half of the preparation time passed, the interpolation starts)
+		{brightness 	0.75		}	;determines the base brightness, from which the interpolation starts
+		{tone_color		0x00FFFFFF	}	;base color tone for interpolation in hex format (ARGB A: Intensity, RGB: Color)
+	}
+	
+	;stettings for grain in standard option and effects it's used in
+	{grain
+		{strength_std 0.08}
+		{strength_fx  0.06}
+		{particlesize_std  1}
+		{particlesize_fx   1}
+	}
+	
+	;defines different aspects of friendly,hostile and neutral outlines around objects
+	{outlines
+		{intensity_regular				3.0  }			;determines the intensity of regular outlines
+		{intensity_emphasized			5.0	 }			;determines the intensity of emphasized outlines
+		{outline_width  				1.0}			;outline width in pixel units
+	
+		{active_outlines 
+			{friendly 	1}
+			{hostile 	1}
+			{allied 	1}
+			{neutral 	0}
+		}
+		{active_outlines_hc
+			{friendly 	1}
+			{hostile 	0}
+			{allied 	1}
+			{neutral 	1}
+		}
+			
+		{friendly_color 	0xFF89734F}	
+		{friendly_alt_color	0xFFC9A64C}
+		{hostile_color 		0xFFB80000}
+		{neutral_color		0xFFB8B800}
+		{allied_color		0xFF89734F}
+		
+		{distance_fade_start	2500}	;when fading out over distance, this is the distance where it starts
+		{distance_fade_end		3000}	;when fading out over distance, this is the distance where the fading ends (0 visibility)
+	
+	;outlines can have a "life span" once activated and will fade out on their own.
+	;time_active determines the whole life span, other attributes "consume" the active time, e.g. a time_active of 5 with a tpc_delay
+	;of 1 will make the outline 4sec visible, NOT 6 sec.
+		{times
+			{time_active	3.0}	;sets how long (in sec) a outline is "alive"
+			{time_fading	1.0}	;sets how long (in sec) it should take to fade in/out (consider this value used twice (in/out))
+			{time_delay		0.05}	;sets a delay (in sec) which the outline needs to wait until it will be drawn visible
+
+			{time_active_HC	2.0}	;sets how long (in sec) a outline is "alive" for hard core modes
+			{time_fading_HC	1.0}	;sets how long (in sec) it should take to fade in/out (consider this value used twice (in/out) for hard core modes)
+			{time_delay_HC	0.05}	;sets a delay (in sec) which the outline needs to wait until it will be drawn visible for hard core modes
+		}
+	}
+}

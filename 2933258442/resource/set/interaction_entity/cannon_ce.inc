@@ -1,9 +1,10 @@
 {"cannon"
-    {on "ce_build_ai_cannon_sandbags"
+    {on "ce_build_ai_cannon_sandbags" overload
         ;{if not tagged "ce_ai_cannon_sandbags"
             {if operatable
                 {if not user_control
                     {tags add "ce_ai_cannon_sandbags"}
+                    {able select 0}
                     {if prop "mg_stan"
                         {if prop "cannon_sandbag_standard"
                             {call "construction_sandbag_cannon_standard"}

@@ -26,6 +26,20 @@
 		}
 	}
 
+;============= Vanilla and Overloaded Functions =============
+	{on ground_hit 
+		{if tagged "paratrooper"
+			{if not user_control
+				{if not dead
+					{tags add "paratrooper_need_orders"}
+					{delay 120 "para_orders_timer"
+						{tags remove "paratrooper_need_orders"}
+					}
+				}
+			}
+			{tags remove "paratrooper"}
+		}
+	}
 ;============= Tagging Functions =============
 	{on "tag_squad_need_next_order"
 		{if tagged "_lua_mi"
@@ -71,4 +85,10 @@
             {view stop "smoke"}
         }
     }
+
+    {on "order_paratrooper"
+		{tags remove "p_crew"}
+		{tags remove "selected_paratrooper"}
+		{tags remove "_lua_mi"}
+	}
 }

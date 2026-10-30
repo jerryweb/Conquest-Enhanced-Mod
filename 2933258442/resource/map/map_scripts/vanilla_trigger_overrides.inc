@@ -1,59 +1,20 @@
 			{## "debug/test_script"
 				{condition
-					;{terms
-					;	{"1.entities"
-					;		{source advanced}
-					;		{ignore_captured_by_user 0}
-					;		{group
-					;			{select
-					;				{tag
-					;					{tag rocket_artillery}
-					;				}
-					;			}
-					;			{include
-					;				{state
-					;					{state "operatable inhabited"}
-					;				}
-					;				{prop
-					;					{prop cannon}
-					;				}
-					;				{tag
-					;					{tag _bot}
-					;				}
-					;			}
-					;			{exclude
-					;				{tag
-					;					{tag artillery_in_combat}
-					;				}
-					;				{state
-					;					{state inactive}
-					;				}
-					;				{state
-					;					{state linked}
-					;				}
-					;				{state
-					;					{state user_control}
-					;				}
-					;				{tag
-					;					{tag _user}
-					;				}
-					;				{tag
-					;					{tag _user_ally}
-					;				}
-					;				{tag
-					;					{tag player_veh}
-					;				}
-					;				{tag
-					;					{tag rocket_arty_selected}
-					;				}
-					;			}
-					;		}
-					;	}
-					;}
+					{terms
+						{"1.cmp_i"
+							{var "user_is_defender$"}
+							{op "=="}
+							{value 1}
+						}
+					}
 				}
 				{actions
-					{"delay"
+					{## "delay"
 						{time 5}
+					}
+					{ "timer"
+						{time 10}
+						{title "user defender set to 1"}
 					}
 					{"sound"
 	  					{name "mission/task_fail"}
@@ -625,7 +586,7 @@
 					}
 				}
 			}
-			{"dcg/ai_airstrike"
+			{## "dcg/ai_airstrike"
 				{condition
 					{terms
 						{"1.event"
@@ -737,7 +698,7 @@
 					}
 				}
 			}
-			{"dcg/ai_airstrike_do"
+			{## "dcg/ai_airstrike_do"
 				{condition
 					{expression "(1 & 2 & 4) | (1 & 3 & !4)"}
 					{terms
@@ -978,7 +939,7 @@
 					}
 				}
 			}
-			{"dcg/ai_air_chance"
+			{## "dcg/ai_air_chance"
 				{condition
 					{terms
 						{"1.event"
@@ -1845,6 +1806,12 @@
 										}
 										{tag
 											{tag "+mobilegun"}
+										}
+										{tag
+											{tag turret_brake}
+										}
+										{tag
+											{tag gun_brake}
 										}
 									}
 								}

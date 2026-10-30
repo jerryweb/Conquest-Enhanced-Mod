@@ -594,3 +594,199 @@
 					}
 				}
 			}
+
+			{"conquest_enhanced_mechanics/delete_empty_ai_emplacements"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "combat"}
+										}
+									}
+									{include
+										{prop
+											{prop cannon}
+										}
+										{player
+											{player "0"}
+										}
+										;{state
+										;	{state operatable}
+										;}
+										;{tag
+										;	{tag cmp_def}
+										;}
+									}
+									{exclude
+										{state
+											{state inhabited}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state dead}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
+						}
+						{"2.cmp_i"
+							{var "user_is_defender$"}
+							{op "=="}
+							{value 0}
+						}
+					}
+				}
+				{actions
+					{## "timer"
+						{time 10}
+						{title "deleting empty cannons"}
+					}
+					{"delay"
+						{time 10}
+					}
+					{"delete"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{zone
+										{zone "combat"}
+									}
+								}
+								{include
+									{prop
+										{prop cannon}
+									}
+									{player
+										{player "0"}
+									}
+									;{state
+									;	{state operatable}
+									;}
+									;{tag
+									;	{tag cmp_def}
+									;}
+								}
+								{exclude
+									{state
+										{state inhabited}
+									}
+									{state
+										{state linked}
+									}
+									{state
+										{state dead}
+									}
+									{state
+										{state user_control}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+			{"conquest_enhanced_mechanics/ai_defenders/spawn_hedgehogs"
+				{condition
+					{terms
+						{"1.cmp_i"
+							{var "user_is_defender$"}
+							{op "=="}
+							{value 0}
+						}
+						{"2.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "combat"}
+										}
+									}
+									{include
+										{prop
+											{prop logic_post}
+										}
+									}
+								}
+							}
+						}
+						{"3.event"
+							{id "dcg"}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 15}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "tier2$"}
+								{op "=="}
+								{value 1}
+							}
+							{"effect"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{zone
+												{zone "combat"}
+											}
+										}
+										{include
+											{prop
+												{prop logic_post}
+											}
+										}
+									}
+									{sort
+										{type shuffle}
+									}
+									{amount 20
+									}
+								}
+								{effect spawn_hedgehogs}
+							}
+						}
+						{"default"
+							{"effect"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{zone
+												{zone "combat"}
+											}
+										}
+										{include
+											{prop
+												{prop logic_post}
+											}
+										}
+									}
+									{sort
+										{type shuffle}
+									}
+									{amount 8
+									}
+								}
+								{effect spawn_hedgehogs}
+							}
+						}
+					}
+				}
+			}

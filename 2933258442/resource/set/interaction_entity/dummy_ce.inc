@@ -1,3 +1,24 @@
+(define "spawn_waypoint_poles_x4"
+	{spawn "ai_waypoint_pole" random_position 6000 constrain_after_dir scale 4.0}
+	{spawn "ai_waypoint_pole" random_position 6000 constrain_after_dir scale 4.0}
+	{spawn "ai_waypoint_pole" random_position 6000 constrain_after_dir scale 4.0}
+	{spawn "ai_waypoint_pole" random_position 6000 constrain_after_dir scale 4.0}
+)
+
+{"flag"
+	{on spawn
+		{delay 3
+			(mod "mp"
+				("spawn_waypoint_poles_x4")
+				("spawn_waypoint_poles_x4")
+				("spawn_waypoint_poles_x4")
+				("spawn_waypoint_poles_x4")
+			)   
+		}
+    }
+}
+
+
 {"waypoint_graph_key"
 	{on spawn
 		{tags add "waypoint_graph_present"}
@@ -57,5 +78,22 @@
 				}
 			)   
 		}
+    }
+}
+
+{"hedgehog_service"
+     {on spawn
+        {tags add "player_hedgehog"}
+    }
+    {on "set_dynamite"
+    	{spawn "satchel_charge_rus" random_position 30
+    		{delay 0.5
+    			{call "onThrow"}
+    			{delay 8
+    				{call "explosion"}
+    			}
+    		}
+    	}
+    	{tags add "dynamite_set"}
     }
 }
