@@ -2,6 +2,7 @@
 ;=========================================================================================================
 ; Vanilla var includes
 (include "../multi/dcg_functions.inc")
+(include "sabotage/ce_sabotage_functions.inc")
 
 ;============ SPAWN ========================================
 			{"ai_rear_attack_notify"

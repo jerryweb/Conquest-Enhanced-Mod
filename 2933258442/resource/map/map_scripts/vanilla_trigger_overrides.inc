@@ -1701,6 +1701,17 @@
 						}
 						{effect ce_build_ai_cannon_sandbags}
 					}
+					{"if"
+						{condition
+							{type cmp_i}
+							{var "ai_sabotage$"}
+							{op "=="}
+							{value 1}
+						}
+						{"call"
+							{function "ce_arm_garrison_sabotage"}
+						}
+					}
 					{"set_i"
 						{var "garrison_ready$"}
 						{op "="}
@@ -3007,6 +3018,17 @@
 					}
 					{"delay"
 						{time 1}
+					}
+					{"if"
+						{condition
+							{type cmp_i}
+							{var "ai_sabotage$"}
+							{op "=="}
+							{value 1}
+						}
+						{"call"
+							{function "ce_register_sabotage_vehicles"}
+						}
 					}
 					{"entity_state"
 						{selector

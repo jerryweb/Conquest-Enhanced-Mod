@@ -1,4 +1,5 @@
 {"vehicle"   
+    (include "sabotage_vehicle.inc")
 ;============= Tagging Functions ============================
 
     {on "tag_squad_need_next_order"

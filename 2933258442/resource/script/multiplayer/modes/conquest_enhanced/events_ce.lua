@@ -2,6 +2,8 @@
 -- and can be countered with a radio vehicle.
 enableCommunicationsCutMechanics = 0.18
 
+enableSabotageMechanics = 0.35
+
 -- Defaults live here so this file works without edits to runtime_config.lua.
 -- Move the table there if you prefer all tuning values in one place.
 ConquestRearAttack = ConquestRearAttack or {}

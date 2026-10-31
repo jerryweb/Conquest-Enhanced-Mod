@@ -114,6 +114,10 @@ end
 
 function ConquestContext.SetCEVarsInMissionScript()
 	CEWeather.Start()
+	local sabotageChance = enableSabotageMechanics
+	local sabotageEnabled = sabotageChance > 0
+		and (sabotageChance >= 1 or math.random() < sabotageChance)
+	BotApi.Scene:SetVar("ai_sabotage", sabotageEnabled and 1 or 0)
 	-- Bot attacker: the first wave is still pending, so the override starts armed.
 	waveOneGraphOverrideActive = not ConquestState.botDefender
 	mapGraphGateOpen = false -- closed until the map layer reports a graph
