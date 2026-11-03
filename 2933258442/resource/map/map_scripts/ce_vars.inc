@@ -6,6 +6,9 @@
 	{"enable_waypoint_graph"}
 	{"map_contains_waypoint_graphs"}
 
+	{"air_raid_active"}
+	{"air_raid_warning"}
+
 	{"enable_ce_radio_mechanic"}
 	{"enable_ce_cut_communications_mechanic"}
 	{"radio_active"}

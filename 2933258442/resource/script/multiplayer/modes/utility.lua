@@ -442,6 +442,7 @@ function OnGameStop()
 	KillSpawnCooldownTimer()
 	KillSpawnWaitTimer()
 	KillGeneralSquadTagCheckTimer()
+	if ConquestAirRaid then ConquestAirRaid.Stop() end
 
 	for squad, timer in pairs(Context.SquadTimers) do
 		if timer then

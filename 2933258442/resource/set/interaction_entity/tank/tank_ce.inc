@@ -3,19 +3,15 @@
         {if not user_control
             {if not tagged "smoke_screen_launch"
                 {if operatable
-                    {call "smoke_screen"}
+                    {call "deploy_smoke"}
                     {tags add "smoke_screen_launch"}
-                    {delay 60
+                    {delay 15
                         {tags remove "smoke_screen_launch"}
                     }
                 }   
             }
         }
     )
-
-    {on "deploy_smoke" overload
-        ("deploy_smoke_screen")
-    }
 
     {on "tag_reverse_to_repair"
         {tags add "_reversing_to_repair"}
@@ -35,7 +31,7 @@
     }
 
     {on "reverse_to_repair"
-        {call "deploy_smoke"}
+        ("deploy_smoke_screen")
         {spawn "ai_waypoint_pole_h" "basis" x constrain_after_dir scale 4
             {spawn "ai_waypoint_pole" "reverse_here" x constrain_after_dir
                 {tags add "back_up_to_repair"}

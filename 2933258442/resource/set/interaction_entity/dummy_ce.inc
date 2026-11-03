@@ -18,6 +18,15 @@
     }
 }
 
+{"mine_sign"
+	{on "identify_sign"
+		{spawn "pointer_watchout" "basis" x
+			{delay 10
+				{delete}
+			}
+		}
+	}
+}
 
 {"waypoint_graph_key"
 	{on spawn
@@ -81,6 +90,24 @@
     }
 }
 
+{"hedgehog_service"
+     {on spawn
+        {tags add "player_hedgehog"}
+    }
+    {on "set_dynamite"
+    	{spawn "satchel_charge_rus" random_position 30
+    		{delay 0.5
+    			{call "onThrow"}
+    			{delay 8
+    				{call "explosion"}
+    			}
+    		}
+    	}
+    	{tags add "dynamite_set"}
+    }
+}
+
+;============== PLAYER SERVICE =============
 {"hedgehog_service"
      {on spawn
         {tags add "player_hedgehog"}

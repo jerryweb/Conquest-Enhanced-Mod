@@ -206,12 +206,12 @@ ConquestConfig.DefenderCounterattack = {
 -- Only used when the bot is the defender. Logic lives in conquest_enhanced/security_ce.lua.
 ConquestConfig.DefenderSecurityWave = {
 	-- Time from match start to the first wave, and between wave starts after that.
-	IntervalMin = 4 * 60000,
-	IntervalMax = 6 * 60000,
+	IntervalMin = 6 * 60000,
+	IntervalMax = 10 * 60000,
 
 	-- Base wave size before the risk delta in PurchasePressure.RiskPurchaseCountDelta.
-	MinUnits = 3,
-	MaxUnits = 5,
+	MinUnits = 2,
+	MaxUnits = 4,
 	MinWaveUnits = 1,
 
 	-- Maximum security waves started per match.
@@ -355,8 +355,8 @@ ConquestConfig.Aircraft = {
 -- continues afterwards. Leave Enabled = false for play.
 ConquestConfig.TestPurchase = {
 	Enabled = false,
-	Unit = "fi156_x1",
-	Count = 1,
+	Unit = "bf110_e2_x1",
+	Count = 3,
 }
 
 -- Force identity and slot-planning configuration.
@@ -710,10 +710,7 @@ ConquestConfig.PurchaseScoring = {
 ConquestConfig.UnitSpawnWaitTime = 1.5 * 60000 -- 1:30 min (ms)
 
 -- Time delay before a squad receives a refreshed order. Loops while squad exists.
-ConquestConfig.OrderRotationPeriod = {
-	Default = 3.0 * 60000, -- ms; 3:00 min (ms)
-	Cannon = 1.5 * 60000,  -- ms; 
-}
+ConquestConfig.OrderRotationPeriod = 3.0 * 60000 -- 2:30 min (ms)
 
 
 -- Post-final-wave attacker failure watcher.
