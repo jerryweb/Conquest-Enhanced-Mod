@@ -109,18 +109,40 @@
 
 ;============== PLAYER SERVICE =============
 {"hedgehog_service"
-     {on spawn
-        {tags add "player_hedgehog"}
-    }
-    {on "set_dynamite"
-    	{spawn "satchel_charge_rus" random_position 30
-    		{delay 0.5
-    			{call "onThrow"}
-    			{delay 8
-    				{call "explosion"}
-    			}
-    		}
-    	}
-    	{tags add "dynamite_set"}
-    }
+	  {on spawn
+	     {tags add "player_hedgehog"}
+	 }
+	 {on "set_dynamite"
+	 	{spawn "satchel_charge_rus" random_position 30
+	 		{delay 0.5
+	 			{call "onThrow"}
+	 			{delay 8
+	 				{call "explosion"}
+	 			}
+	 		}
+	 	}
+	 	{tags add "dynamite_set"}
+	 }
+}
+
+{"ai_support"
+	{on spawn
+      {tags add "ai_support_callin"}
+   }
+}
+
+{"pointer_attack"
+	{on spawn
+		{delay 15
+			{hide 5}
+		}
+	}
+}
+
+{"pointer_defend"
+	{on spawn
+		{delay 15
+			{hide 5}
+		}
+	}
 }

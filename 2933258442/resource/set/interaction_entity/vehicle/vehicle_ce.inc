@@ -47,6 +47,10 @@
                 {if prop "truck"
                     {if not crew_in_place "seat1"
                         {delay 3 {tags add "_ai_veh_empty"}}
+                        ;// for ai support transport vehicles
+                        {if tagged "no_scavenge"
+                            {hide 5}
+                        }
                     }
                 }
             }            

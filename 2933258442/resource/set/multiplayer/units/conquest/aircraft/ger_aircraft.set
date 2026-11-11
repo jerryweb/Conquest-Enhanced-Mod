@@ -16,6 +16,11 @@
 }
 
 ; ---
+
+(define "ce_paradrop"
+	("generic_v_conquest" t(ger %period) r(%min_stage) mr(99) cw(8) cp(1))
+	{content "c47_d_para_plane_ger ( mp/ger/%period/pilot:2 %passengers )"}
+)
 (define "ce_paradrop_pair"
 	("generic_v_conquest" t(ger %period) r(%min_stage) mr(99) cw(8) cp(1))
 	{content "c47_d_para_plane_ger ( mp/ger/%period/pilot:2 %passengers ) c47_d_para_plane_ger ( mp/ger/%period/pilot:2 %passengers )"}
@@ -47,4 +52,14 @@
 		passengers(mp/ger/late/fallsch_sl:1 mp/ger/late/fallsch_sl_asst:1 mp/ger/late/fallsch_sa_scope:1 mp/ger/late/fallsch_rifle:5 mp/ger/late/pioneer_3:2 mp/ger/late/signaller:1 mp/ger/late/fallsch_stg:4 mp/ger/late/fallsch_mg:2 mp/ger/late/fallsch_mg_asst:1 mp/ger/late/fallsch_mg_asst:1))
 	{cost 2500}
 	{not_for_player_sale 1}
+}
+
+{"conquest_ai_call_in_test"
+	("squad_vehicle8"		 side(ger) period(late) min_stage(9) max_stage(99) cw(0) cp(0) vehicle(blitz3_6) crew1(fallsch_rifle:1) crew2(fallsch_sl:1) crew3(fallsch_sl_asst_fg:1) crew4(fallsch_rifle_scope:1) crew5(fallsch_stg:1) crew6(fallsch_rifle_grenadier:2) crew7(fallsch_mg:2) crew8(fallsch_mg_asst:2)) 
+	;("ce_paradrop" period(mid) min_stage(13)
+	;	passengers(mp/ger/mid/fallsch_sl:1 mp/ger/mid/fallsch_sl_asst:1 mp/ger/mid/fallsch_rifle_scope:1 mp/ger/mid/fallsch_smg:1 mp/ger/mid/fallsch_sa:1 mp/ger/mid/fallsch_sa:2 mp/ger/mid/fallsch_rifle_grenadier:1 mp/ger/mid/fallsch_rifle:2 mp/ger/mid/fallsch_mg:2 mp/ger/mid/fallsch_mg_asst:2))
+	{cost -1000}
+	{cost_sp 2}
+	{round_multiple 1.0}
+	{action "airstrike:reconnaissance_50"}
 }

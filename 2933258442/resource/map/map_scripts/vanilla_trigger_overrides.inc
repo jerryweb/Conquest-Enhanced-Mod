@@ -2712,6 +2712,9 @@
 										{state
 											{state user_control}
 										}
+										{tag
+											{tag _ai_support_for_user}
+										}
 									}
 								}
 							}
@@ -2766,6 +2769,9 @@
 									}
 									{state
 										{state user_control}
+									}
+									{tag
+										{tag _ai_support_for_user}
 									}
 								}
 							}

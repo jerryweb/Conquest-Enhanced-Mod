@@ -1,5 +1,16 @@
 {"human"
 ; ================= Spawn Extensions =================
+	{on spawn
+		{delay 0.5
+			{add_view "beacon_fx" "beacon_fx" "head" not_manual not_scenario}
+			{delay 3
+				{if tagged "radio_man"
+					{call "show_radio_icon"}
+				}
+			}
+		}
+	}
+
 	{on "set_ignore_spawn_logic"
 	
 		{tags remove "in_spawn_zone_a_1_inf"}
@@ -40,6 +51,45 @@
 			{tags remove "paratrooper"}
 		}
 	}
+
+	{on "personage_check" overload
+		{if not tagged "hero_unit"				;// exception for unit to be revive-able in missions
+			{if not user_control
+				{if not tagged "_ai_support_for_user"
+					{able "personage" 0}
+				}
+			else swimming
+				{able "personage" 0}
+			else burned
+				{able "personage" 0}
+			else tagged "crush"
+				{able "personage" 0}
+			else tagged "no_revive"
+				{able "personage" 0}
+				{tags remove "no_revive"}
+			else 
+				{if rand 0.5
+					{call_synced "mp_personage_0"}
+				}
+			}
+		}
+	}
+
+	{on "officer_mark"
+		{if not dead
+			{if tagged "_ai_support_for_user"
+				{delay 5
+					{call "stop_officer_mark"}
+				}
+			}
+			{tags remove "getting_ai_support_order"}
+			{tags add "support_order_ack"}
+			{delay 20
+				{tags remove "support_order_ack"}
+			}
+		}		
+	}
+
 ;============= Tagging Functions =============
 	{on "tag_squad_need_next_order"
 		{if tagged "_lua_mi"
@@ -78,6 +128,10 @@
 	}
 
 ; ================= CE Functions =================
+	{on "show_radio_icon"
+       	{view start "beacon_fx"}
+    }
+
 	{on "smoke_for_test"
         {add_view "smoke_yellow_norm" "smoke" "root"}
         {view start "smoke"}
@@ -91,4 +145,13 @@
 		{tags remove "selected_paratrooper"}
 		{tags remove "_lua_mi"}
 	}
+
+	{on "set_ai_support_unit_for_user"
+		{if not user_control
+			{tags add "ai_support_selected"}
+	        {tags add "_ai_support_for_user"}
+	        {able "personage" 1}
+	        {able "select" 0}
+		}
+    }
 }

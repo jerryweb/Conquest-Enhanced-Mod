@@ -4360,6 +4360,9 @@
 										{state
 											{state "chassis_work inhabited"}
 										}
+										{zone
+											{zone "gamezone"}
+										}
 									}
 									{exclude
 										{state
@@ -4622,59 +4625,7 @@
 				}
 				{actions
 					{"delay"
-						{time 4}
-					}
-					{## "delete"
-						{selector
-							{source advanced}
-							{group
-								{select
-									{zone
-										{zone "a_1"}
-									}
-									{zone
-										{zone "a_2"}
-									}
-									{zone
-										{zone "a_3"}
-									}
-									{zone
-										{zone "a_4"}
-									}
-									{zone
-										{zone "b_1"}
-									}
-									{zone
-										{zone "b_2"}
-									}
-									{zone
-										{zone "b_3"}
-									}
-									{zone
-										{zone "b_4"}
-									}
-								}
-								{include
-									{tag
-										{tag _transport_rtb}
-									}
-									{state
-										{state "chassis_work inhabited"}
-									}
-								}
-								{exclude
-									{state
-										{state user_control}
-									}
-									{state
-										{state linked}
-									}
-									{state
-										{state inactive}
-									}
-								}
-							}
-						}
+						{time 1}
 					}
 					{"effect"
 						{selector

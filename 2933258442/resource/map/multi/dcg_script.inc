@@ -9751,6 +9751,29 @@
 							{"delay"
 								{time 0.5}
 							}
+							{"spawn"
+								{entity "watchout"}
+								{waypoint "1"}
+							}
+							{"delay"
+								{time 0.2}
+							}
+							{"placement"
+								{selector
+									{tag pointer_watchout}
+								}
+								{target
+									{amount 1
+									}
+									{tag warning_talk}
+								}
+							}
+							{"effect"
+								{selector
+									{tag warning_talk}
+								}
+								{effect identify_sign}
+							}
 							{"delay"
 								{time 8}
 							}
@@ -9774,13 +9797,7 @@
 							}
 							{"trigger"
 								{name "dcg/warning_mines"}
-							}
-							{"effect"
-								{selector
-									{tag warning_talk}
-								}
-								{effect identify_sign}
-							}
+							}							
 						}
 						{"default"
 							{"delay"

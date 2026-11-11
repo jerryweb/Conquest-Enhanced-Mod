@@ -15,8 +15,9 @@
 
     {on "tag_reverse_to_repair"
         {tags add "_reversing_to_repair"}
-        {delay 20        
+        {delay 25        
             {tags remove "_reversing_to_repair"}
+            {drop_orders}
         }
     }
 
@@ -39,8 +40,9 @@
             {delay 0.01 {delete}}
         }
         {tags add "_lua_mi"}
-        {delay 20        
+        {delay 25        
             {tags remove "_lua_mi"}
+            {drop_orders}
         }
     }
 
