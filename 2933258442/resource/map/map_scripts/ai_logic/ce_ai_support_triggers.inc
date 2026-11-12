@@ -129,16 +129,147 @@
 					{"delay"
 						{time 0.2}
 					}
-					{"action"
-						{selector
-							{source current}
-						}
-						{action move}
-						{target
-							{amount 1
+					{"switch"
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag radio_operator}
+											}
+										}
+										{include
+											{state
+												{state user_control}
+											}
+											{prop
+												{prop human}
+											}
+										}
+										{exclude
+											{state
+												{state dead}
+											}
+											{state
+												{state linked}
+											}
+											{state
+												{state inactive}
+											}
+											{tag
+												{tag _bot}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag radio_operator}
+											}
+										}
+										{include
+											{state
+												{state "operatable inhabited user_control"}
+											}
+											{prop
+												{prop vehicle}
+											}
+										}
+										{exclude
+											{state
+												{state linked}
+											}
+											{state
+												{state inactive}
+											}
+											{tag
+												{tag _bot}
+											}
+										}
+									}
+								}
 							}
-							{tag spawn_anchor}
-							{player "2"}
+							{"action"
+								{selector
+									{source current}
+								}
+								{action move}
+								{target
+									{amount 1
+									}
+									{tag radio_operator}
+									{zone "gamezone"}
+									{state operatable}
+								}
+							}
+						}
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag officer}
+											}
+										}
+										{include
+											{state
+												{state user_control}
+											}
+											{prop
+												{prop human}
+											}
+										}
+										{exclude
+											{state
+												{state dead}
+											}
+											{state
+												{state linked}
+											}
+											{state
+												{state inactive}
+											}
+											{tag
+												{tag _bot}
+											}
+										}
+									}
+								}
+							}
+							{"action"
+								{selector
+									{source current}
+								}
+								{action move}
+								{target
+									{amount 1
+									}
+									{tag officer}
+									{zone "gamezone"}
+									{type human}
+									{state "not dead"}
+								}
+							}
+						}
+						{"default"
+							{"action"
+								{selector
+									{source current}
+								}
+								{action move}
+								{target
+									{amount 1
+									}
+									{tag spawn_anchor}
+									{player "2"}
+								}
+							}
 						}
 					}
 					{"delay"
@@ -204,15 +335,35 @@
 					{"delay"
 						{time 1}
 					}
-					{"talk"
-						{selector
-							{amount 1
+					{"switch"
+						{"case"
+							{condition
+								{type rand}
+								{value 0.5}
 							}
-							{tag _ai_support_for_user}
-							{type human}
-							{state "not dead"}
+							{"talk"
+								{selector
+									{amount 1
+									}
+									{tag _ai_support_for_user}
+									{type human}
+									{state "not dead"}
+								}
+								{text "mission/multi/ai_support_spawn_notification_1"}
+							}
 						}
-						{text "mission/multi/ai_support_spawn_notification"}
+						{"default"
+							{"talk"
+								{selector
+									{amount 1
+									}
+									{tag _ai_support_for_user}
+									{type human}
+									{state "not dead"}
+								}
+								{text "mission/multi/ai_support_spawn_notification_2"}
+							}
+						}
 					}
 					{"delay"
 						{time 8}
@@ -224,31 +375,25 @@
 					}
 				}
 			}
-			{"ai_support/order_support_squad"
+			{"ai_support/check_ai_support_in_command_range"
 				{condition
-					{expression "(1 | 3) & 2"}
 					{terms
 						{"1.entities"
 							{selector
-								{source advanced}
-								{group
-									{select
-										{tag
-											{tag pointer_attack}
-										}
-									}
-									{exclude
-										{tag
-											{tag ai_support_ack}
-										}
-										{tag
-											{tag ignore}
-										}
-									}
-								}
+								{tag _ai_support_for_user}
+								{type human}
+								{state "not dead"}
 							}
 						}
-						{"2.entities"
+					}
+				}
+				{actions
+					{"delay"
+						{time 1}
+					}
+					{"while"
+						{condition
+							{type entities}
 							{selector
 								{source advanced}
 								{group
@@ -266,344 +411,332 @@
 										}
 									}
 									{exclude
+										{tag
+											{tag cmd_range_check}
+										}
 										{state
 											{state dead}
 										}
 										{state
 											{state user_control}
 										}
+										{state
+											{state linked}
+										}
 										{tag
 											{tag _bot}
 										}
 										{tag
-											{tag support_order_ack}
+											{tag in_cmd_range}
 										}
 										{tag
-											{tag getting_ai_support_order}
+											{tag out_cmd_range}
 										}
 									}
 								}
 							}
 						}
-						{"3.entities"
+						{"delay"
+							{time 0.2}
+						}
+						{"entity_state"
 							{selector
 								{source advanced}
 								{group
 									{select
 										{tag
-											{tag pointer_defend}
+											{tag _ai_support_for_user}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state operatable}
 										}
 									}
 									{exclude
 										{tag
-											{tag ignore}
+											{tag cmd_range_check}
 										}
 										{tag
-											{tag ai_support_ack}
+											{tag select_for_cmd_range_check}
+										}
+										{state
+											{state dead}
+										}
+										{state
+											{state user_control}
+										}
+										{state
+											{state linked}
+										}
+										{tag
+											{tag _bot}
 										}
 									}
 								}
+								{amount 1
+								}
+							}
+							{tag_add select_for_cmd_range_check}
+						}
+						{"delay"
+							{time 0.2}
+						}
+						{"switch"
+							{"case"
+								{condition
+									{type near}
+									{units
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag select_for_cmd_range_check}
+												}
+											}
+											{include
+												{prop
+													{prop human}
+												}
+												{state
+													{state operatable}
+												}
+											}
+											{exclude
+												{tag
+													{tag cmd_range_check}
+												}
+												{state
+													{state dead}
+												}
+												{state
+													{state user_control}
+												}
+												{state
+													{state linked}
+												}
+												{tag
+													{tag _bot}
+												}
+											}
+										}
+									}
+									{near_to
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag officer}
+												}
+											}
+											{include
+												{state
+													{state user_control}
+												}
+												{prop
+													{prop human}
+												}
+											}
+											{exclude
+												{state
+													{state dead}
+												}
+												{state
+													{state linked}
+												}
+												{state
+													{state inactive}
+												}
+												{tag
+													{tag _bot}
+												}
+											}
+										}
+									}
+									{distance 40}
+								}
+								{"entity_state"
+									{selector
+										{tag select_for_cmd_range_check}
+										{type human}
+										{state "not dead"}
+									}
+									{tag_add in_cmd_range}
+								}
+							}
+							{"case"
+								{condition
+									{type near}
+									{units
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag select_for_cmd_range_check}
+												}
+											}
+											{include
+												{prop
+													{prop human}
+												}
+												{state
+													{state operatable}
+												}
+											}
+											{exclude
+												{tag
+													{tag cmd_range_check}
+												}
+												{state
+													{state dead}
+												}
+												{state
+													{state user_control}
+												}
+												{state
+													{state linked}
+												}
+												{tag
+													{tag _bot}
+												}
+											}
+										}
+									}
+									{near_to
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag radio_operator}
+												}
+											}
+											{include
+												{state
+													{state user_control}
+												}
+												{prop
+													{prop human}
+												}
+												{tag
+													{tag _user}
+												}
+											}
+											{exclude
+												{state
+													{state dead}
+												}
+												{state
+													{state linked}
+												}
+												{state
+													{state inactive}
+												}
+												{tag
+													{tag _bot}
+												}
+											}
+										}
+										{group
+											{select
+												{tag
+													{tag radio_operator}
+												}
+											}
+											{include
+												{state
+													{state "operatable inhabited user_control"}
+												}
+												{prop
+													{prop vehicle}
+												}
+												{tag
+													{tag _user}
+												}
+											}
+											{exclude
+												{state
+													{state linked}
+												}
+												{state
+													{state inactive}
+												}
+												{tag
+													{tag _bot}
+												}
+											}
+										}
+									}
+									{distance 75}
+								}
+								{"entity_state"
+									{selector
+										{tag select_for_cmd_range_check}
+										{type human}
+										{state "not dead"}
+									}
+									{tag_add in_cmd_range}
+								}
+							}
+							{"default"
+								{"entity_state"
+									{selector
+										{tag select_for_cmd_range_check}
+									}
+									{tag_add out_cmd_range}
+								}
 							}
 						}
+						{"delay"
+							{time 0.2}
+						}
+						{"entity_state"
+							{selector
+								{tag select_for_cmd_range_check}
+							}
+							{tag_add cmd_range_check}
+							{tag_remove select_for_cmd_range_check}
+						}
 					}
-				}
-				{actions
 					{"delay"
-						{time 0.2}
+						{time 0.5}
 					}
-					{"entity_state"
+					{"ables"
 						{selector
-							{source advanced}
-							{group
-								{select
-									{tag
-										{tag pointer_attack}
-									}
-									{tag
-										{tag pointer_defend}
-									}
-								}
-								{exclude
-									{tag
-										{tag ai_support_ack}
-									}
-									{tag
-										{tag ignore}
-									}
-								}
-							}
-							{amount 1
-							}
+							{tag in_cmd_range}
 						}
-						{tag_add ai_support_ack}
+						{add select}
 					}
-					{"entity_state"
+					{"ables"
 						{selector
-							{source advanced}
-							{group
-								{select
-									{tag
-										{tag _ai_support_for_user}
-									}
-								}
-								{include
-									{prop
-										{prop human}
-									}
-									{state
-										{state operatable}
-									}
-								}
-								{exclude
-									{state
-										{state dead}
-									}
-									{state
-										{state user_control}
-									}
-									{tag
-										{tag _bot}
-									}
-									{tag
-										{tag support_order_ack}
-									}
-									{tag
-										{tag getting_ai_support_order}
-									}
-								}
-							}
-							{sort
-								{type entity}
-								{entity
-									{amount 1
-									}
-									{tag ai_support_ack}
-								}
-							}
-							{amount 12
-							}
+							{tag out_cmd_range}
 						}
-						{tag_add getting_ai_support_order}
+						{remove select}
 					}
-					{"delay"
-						{time 0.2}
-					}
-					{"select"
-						{tag getting_ai_support_order}
-						{type human}
-						{state "not dead"}
-					}
-					{"delay"
-						{time 0.2}
-					}
-					{"switch"
-						{"case"
-							{condition
-								{type entities}
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag pointer_defend}
-											}
-										}
-										{include
-											{tag
-												{tag ai_support_ack}
-											}
-										}
-										{exclude
-											{tag
-												{tag ignore}
-											}
-										}
-									}
-								}
-							}
-							{"action"
-								{selector
-									{source current}
-								}
-								{drop orders}
-								{action advance}
-								{target
-									{tag ai_support_ack}
-								}
-							}
-							{"actor_to_cover"
-								{selector
-									{source current}
-								}
-								;{drop orders}
-								{mode random}
-							}
-							{"actor_state"
-								{selector
-									{source current}
-								}
-								{move_mode zone}
-								{move_radius 25}
-								{weapon_prepare on}
-								{movement
-									{speed fast}
-								}
-								;{ai
-								;	{no_advance on}
-								;}
-							}
-							{"delay"
-								{time 0.2}
-							}
-							{"switch"
-								{"case"
-									{condition
-										{type rand}
-										{value 0.5}
-									}
-									{"talk"
-										{selector
-											{amount 1
-											}
-											{tag getting_ai_support_order}
-											{type human}
-											{state "not dead"}
-										}
-										{text "mission/multi/ai_support_defend_order_ack_1"}
-									}
-								}
-								{"default"
-									{"talk"
-										{selector
-											{amount 1
-											}
-											{tag getting_ai_support_order}
-											{type human}
-											{state "not dead"}
-										}
-										{text "mission/multi/ai_support_defend_order_ack_2"}
-									}
-								}
-							}
-						}
-						{"case"
-							{condition
-								{type entities}
-								{selector
-									{source advanced}
-									{group
-										{select
-											{tag
-												{tag pointer_attack}
-											}
-										}
-										{include
-											{tag
-												{tag ai_support_ack}
-											}
-										}
-										{exclude
-											{tag
-												{tag ignore}
-											}
-										}
-									}
-								}
-							}
-							{"action"
-								{selector
-									{source current}
-								}
-								{drop orders}
-								{action advance}
-								{target
-									{tag ai_support_ack}
-								}
-							}
-							{"actor_state"
-								{selector
-									{source current}
-								}
-								{fire_mode open}
-								{move_mode free}
-								{weapon_prepare on}
-								{ai_move
-									{mode enable}
-								}
-								{movement
-									{speed assault}
-								}
-								{ai
-									{no_advance off}
-								}
-							}
-							{"delay"
-								{time 0.2}
-							}
-							{"switch"
-								{"case"
-									{condition
-										{type rand}
-										{value 0.5}
-									}
-									{"talk"
-										{selector
-											{amount 1
-											}
-											{type human}
-											{state "not dead"}
-										}
-										{text "mission/multi/ai_support_attack_order_ack_1"}
-									}
-								}
-								{"default"
-									{"talk"
-										{selector
-											{amount 1
-											}
-											{tag getting_ai_support_order}
-											{type human}
-											{state "not dead"}
-										}
-										{text "mission/multi/ai_support_attack_order_ack_2"}
-									}
-								}
-							}
-						}
-					}
-					{"delay"
-						{time 0.2}
-					}
-					{"entity_state"
+					{"ables"
 						{selector
-							{source advanced}
-							{group
-								{select
-									{tag
-										{tag ai_support_ack}
-									}
-								}
-							}
-							{amount 1
-							}
+							{tag cmd_range_check}
 						}
-						{tag_add ignore}
-						{tag_remove ai_support_ack}
+						{remove crew}
 					}
 					{"delay"
-						{time 0.2}
+						{time 0.5}
 					}
 					{"effect"
 						{selector
-							{source current}
+							{tag cmd_range_check}
+							{type human}
+							{state "not dead"}
 						}
-						{effect officer_mark}
+						{effect check_ai_support_cmd_range}
 					}
 					{"delay"
-						{time 2}
+						{time 5}
 					}
 					{"trigger"
-						{name "ai_support/order_support_squad"}
+						{name "ai_support/check_ai_support_in_command_range"}
 					}
 				}
 			}

@@ -91,7 +91,7 @@ ConquestConfig.SpawnCooldownTime = {
 -- these targets after the baseline is rolled.
 ConquestConfig.AttackerWaves = {
 	MaxWavesMin = 4,
-	MaxWavesMax = 6,
+	MaxWavesMax = 7,
 
 	MinUnits = 5,
 	MaxUnits = 6,

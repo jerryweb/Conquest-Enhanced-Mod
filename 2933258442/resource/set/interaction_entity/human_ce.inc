@@ -154,4 +154,16 @@
 	        {able "select" 0}
 		}
     }
+
+    {on "check_ai_support_cmd_range"
+		;{if tagged "out_cmd_range"
+	    ;    {able "select" 0}
+		;else tagged "in_cmd_range"
+	    ;    {able "select" 1}
+		;}
+		{tags remove "in_cmd_range"}
+		{tags remove "out_cmd_range"}
+		{tags remove "cmd_range_check"}
+		{tags remove "select_for_cmd_range_check"}
+    }
 }
