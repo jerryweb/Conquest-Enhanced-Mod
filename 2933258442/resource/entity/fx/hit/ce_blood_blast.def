@@ -1,0 +1,89 @@
+{fx
+    {particleview "ce_blast_spray"
+        {generator
+            {emissionarea
+                {radius 3}
+                {alpha0 0}
+                {alpha1 55 25}
+            }
+            {particleinit
+                {speed 2.4 1.2}
+                {lifetime 0.45 0.15}
+            }
+            {totalparticles 12}
+            {particlesinblock 12}
+            {timetolive 0.08}
+        }
+        {mover
+            {damping 0.94}
+            {gravity
+                {value 0.1}
+            }
+            {nodependonwind}
+        }
+        {visualizer
+            {stage
+                {sprite "$/particle/blood_splash2"
+                    {timer
+                        {mode play}
+                        {duration -1}
+                    }
+                    {scale 0.06 0.025}
+                    {visibility 1
+                        {linear
+                            {min 0.85}
+                            {max 0}
+                        }
+                    }
+                    {preturn 0 180}
+                    {highlight 0xffb09090}
+                }
+            }
+        }
+        {notifyowner}
+    }
+
+    {particleview "ce_blast_drops"
+        {generator
+            {emissionarea
+                {radius 3}
+                {alpha0 0}
+                {alpha1 55 25}
+            }
+            {particleinit
+                {speed 1.6 0.8}
+                {lifetime 0.65 0.2}
+            }
+            {totalparticles 8}
+            {particlesinblock 8}
+            {timetolive 0.08}
+        }
+        {mover
+            {damping 0.94}
+            {gravity
+                {value 0.1}
+            }
+            {nodependonwind}
+        }
+        {visualizer
+            {stage
+                {sprite "$/particle/blood_drop"
+                    {timer
+                        {mode play}
+                        {duration -1}
+                    }
+                    {scale 0.045 0.02}
+                    {visibility 1
+                        {linear
+                            {min 0.85}
+                            {max 0}
+                        }
+                    }
+                    {preturn 0 180}
+                    {highlight 0xffb09090}
+                }
+            }
+        }
+        {notifyowner}
+    }
+}
