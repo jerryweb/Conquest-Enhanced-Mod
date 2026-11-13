@@ -38,19 +38,6 @@
 	}
 
 ;============= Vanilla and Overloaded Functions =============
-	{on ground_hit 
-		{if tagged "paratrooper"
-			{if not user_control
-				{if not dead
-					{tags add "paratrooper_need_orders"}
-					{delay 120 "para_orders_timer"
-						{tags remove "paratrooper_need_orders"}
-					}
-				}
-			}
-			{tags remove "paratrooper"}
-		}
-	}
 
 	{on "personage_check" overload
 		{if not tagged "hero_unit"				;// exception for unit to be revive-able in missions

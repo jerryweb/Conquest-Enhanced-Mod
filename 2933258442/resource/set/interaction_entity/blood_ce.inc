@@ -93,4 +93,92 @@
             }
         }
     }
+
+	{on "hit-light" overload
+		{if not dead
+			{spawn "ce_hit_blood_small"}
+		}
+	}
+
+	{on "hit-heavy" overload
+		{spawn "ce_hit_blood_medium"}
+	}
+
+	{on "die_with_blood" overload
+		{if not able "personage"
+			{if not burned
+				{call "ce_blood_splash"}
+				{delay 2
+					{call "ce_blood_pool_once"}
+				}
+			}
+			{tags add "_bleedout_"}
+		}
+		{call "die_without_blood"}
+	}
+
+	{on ground_hit overload
+		{if linked "parachute_attach"
+			{tags remove "can_die"}
+			{unlink}
+
+		else tagged "can_die"
+			{tags add "call_die"}
+			{call "die"}
+			{kill_delay "parachute"}
+			{tags remove "can_die"}
+			{tags remove "eject"}
+			{call "disable_physics"}
+		else
+			{if min_speed 10
+				{spawn "blood_medium" "basis" x}
+				{call "ce_blood_splash"}
+			}
+		}
+		{call "ce_blood_pool_once"}
+		{if tagged "paratrooper"
+			{if not user_control
+				{if not dead
+					{tags add "paratrooper_need_orders"}
+					{delay 120 "para_orders_timer"
+						{tags remove "paratrooper_need_orders"}
+					}
+				}
+			}
+			{tags remove "paratrooper"}
+		}
+	}
+
+	{on "explosion" overload
+		{if not dead
+			{if not burned
+				{spawn "ce_blood_blast"}
+			}
+		}
+		{spawn "blood_medium"}
+		{call "die"}
+	}
+
+	{on "stop_personage" overload
+		{set "die_sound" 0}
+		{view pause "marker_personage"}
+		{view pause "marker_personage_acute"}
+		{if tagged "start_personage"
+			{delay 1
+				{if dead
+					{call "ce_blood_pool_once"}
+					{tags add "_bleedout_"}
+				}
+			}
+		}
+		{tags remove "start_personage"}
+	}
+
+	{on "spawn_blood_delayed" overload
+		{call "ce_blood_splash"}
+		{tags add "blood_delay_active"}
+		{delay 1.0
+			{tags remove "blood_delay_active"}
+		}
+	}
 }
