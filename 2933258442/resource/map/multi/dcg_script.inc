@@ -9392,13 +9392,23 @@
 			}
 			{"dcg/warning_air"
 				{condition
-					{expression "!1 & 2"}
+					{expression "!1 & 2 & (!3 | (3 & 4))"}
 					{terms
 						{"1.event"
 							{id "talk_on"}
 						}
 						{"2.trigger"
 							{name "ai_logic/air/send_ai_attack_plane"}
+						}
+						{"3.cmp_i"
+							{var "radio_active$"}
+							{op "=="}
+							{value 1}
+						}
+						{"4.cmp_i"
+							{var "enable_ce_cut_communications_mechanic$"}
+							{op "=="}
+							{value 1}
 						}
 					}
 				}
@@ -9466,7 +9476,7 @@
 			}
 			{"dcg/warning_mines"
 				{condition
-					{expression "1 & 2 & !3 & 4"}
+					{expression "1 & 2 & !3 & 4 & (!5 | (4 & 5))"}
 					{terms
 						{"1.cmp_i"
 							{var "tier2$"}
@@ -9511,6 +9521,16 @@
 							{var "user_is_defender$"}
 							{op "=="}
 							{value 0}
+						}
+						{"5.cmp_i"
+							{var "radio_active$"}
+							{op "=="}
+							{value 1}
+						}
+						{"6.cmp_i"
+							{var "enable_ce_cut_communications_mechanic$"}
+							{op "=="}
+							{value 1}
 						}
 					}
 				}
@@ -9729,6 +9749,32 @@
 								}
 							}
 							{"delay"
+								{time 0.5}
+							}
+							{"spawn"
+								{entity "watchout"}
+								{waypoint "1"}
+							}
+							{"delay"
+								{time 0.2}
+							}
+							{"placement"
+								{selector
+									{tag pointer_watchout}
+								}
+								{target
+									{amount 1
+									}
+									{tag warning_talk}
+								}
+							}
+							{"effect"
+								{selector
+									{tag warning_talk}
+								}
+								{effect identify_sign}
+							}
+							{"delay"
 								{time 8}
 							}
 							{"event"
@@ -9751,7 +9797,7 @@
 							}
 							{"trigger"
 								{name "dcg/warning_mines"}
-							}
+							}							
 						}
 						{"default"
 							{"delay"
@@ -11351,9 +11397,6 @@
 										{state
 											{state operatable}
 										}
-										{prop
-											{prop airborne}
-										}
 									}
 									{exclude
 										{tag
@@ -11367,6 +11410,9 @@
 										}
 										{state
 											{state user_control}
+										}
+										{prop
+											{prop airborne}
 										}
 									}
 								}
@@ -16056,9 +16102,6 @@
 										{state
 											{state operatable}
 										}
-										{prop
-											{prop airborne}
-										}
 									}
 									{exclude
 										{tag
@@ -16081,6 +16124,9 @@
 										}
 										{state
 											{state user_control}
+										}
+										{prop
+											{prop airborne}
 										}
 									}
 								}
@@ -16336,9 +16382,6 @@
 										{state
 											{state operatable}
 										}
-										{prop
-											{prop airborne}
-										}
 									}
 									{exclude
 										{tag
@@ -16361,6 +16404,9 @@
 										}
 										{state
 											{state user_control}
+										}
+										{prop
+											{prop airborne}
 										}
 									}
 								}

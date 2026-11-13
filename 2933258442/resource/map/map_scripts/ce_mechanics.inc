@@ -790,3 +790,134 @@
 					}
 				}
 			}
+			{"conquest_enhanced_mechanics/warning_sabotage"
+				{condition
+					{expression "!1 & 2 & 3 & (!5 | (4 & 5))"}
+					{terms
+						{"1.event"
+							{id "talk_on"}
+						}
+						{"3.cmp_i"
+							{var "ai_sabotage$"}
+							{op "=="}
+							{value 1}
+						}
+						{"2.entities"
+							{selector
+								{tag sabotage_possible}
+							}
+						}
+						{"4.cmp_i"
+							{var "radio_active$"}
+							{op "=="}
+							{value 1}
+						}
+						{"5.cmp_i"
+							{var "enable_ce_cut_communications_mechanic$"}
+							{op "=="}
+							{value 1}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.1}
+					}
+					{"event"
+						{event "talk_on"}
+						{mode set}
+						{delay 0}
+					}
+					{"delay"
+						{time 6}
+					}
+					{"talk"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{zone
+										{zone "gamezone"}
+									}
+								}
+								{include
+									{prop
+										{prop human}
+									}
+									{player
+										{player "1"}
+									}
+								}
+								{exclude
+									{state
+										{state user_control}
+									}
+									{state
+										{state dead}
+									}
+									{state
+										{state inactive}
+									}
+									{tag
+										{tag _user_ally}
+									}
+									{state
+										{state linked}
+									}
+								}
+							}
+							{amount 1
+							}
+						}
+						{text "mission/multi/ai_sabotage_notify"}
+					}
+					{"delay"
+						{time 8}
+					}
+					{"talk"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{zone
+										{zone "gamezone"}
+									}
+									{tag
+										{tag player}
+									}
+								}
+								{include
+									{prop
+										{prop human}
+									}
+									{state
+										{state user_control}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{state
+										{state dead}
+									}
+									{state
+										{state inactive}
+									}
+								}
+							}
+							{amount 1
+							}
+						}
+						{text "mission/multi/player_sabotage_notify"}
+					}
+					{"delay"
+						{time 8}
+					}
+					{"event"
+						{event "talk_on"}
+						{mode reset}
+						{delay 0}
+					}
+				}
+			}

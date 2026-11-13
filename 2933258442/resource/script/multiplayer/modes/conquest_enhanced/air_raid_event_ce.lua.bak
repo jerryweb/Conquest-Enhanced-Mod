@@ -1,0 +1,171 @@
+-- =========================================================
+-- AIR RAID EVENT
+-- =========================================================
+-- Player-defense missions only (bot attacks). One roll per match, made a random time after
+-- prep time ends. On success the mission script gets air_raid_warning = 1 and the bot queues
+-- UnitCount bomber_wing purchases as their own "air_raid" purchase phase. The phase only opens
+-- in the gap between attacker waves, so it never counts toward a wave, and the next wave
+-- waits until the raid phase is over.
+ConquestAirRaid = ConquestAirRaid or {}
+
+local PHASE_AIR_RAID = "air_raid"
+local VAR_WARNING = "air_raid_warning" -- 1 once the roll succeeds (player warning)
+local VAR_ACTIVE = "air_raid_active" -- 1 once the bombers start buying (stays 1)
+
+local rolled = false -- the single roll has been scheduled
+local pending = false -- roll succeeded, raid not started yet
+local rollTimer = nil
+local durationTimer = nil
+
+local function IsMatchOver()
+	return ConquestBattleResult.IsWinnerDecided() or ConquestBattleResult.IsBotRetreatRequested()
+end
+
+-- Same authority rule as battle_result.lua so only one bot rolls in co-op.
+local function IsAuthorityBot()
+	local authorityPlayerId = BotApi.Conquest.FirstEnemyId or BotApi.Conquest.DefenderBotId
+	return authorityPlayerId == nil or BotApi.Instance.playerId == authorityPlayerId
+end
+
+local function KillTimer(timer)
+	if timer then
+		BotApi.Events:KillQuantTimer(timer)
+	end
+	return nil
+end
+
+function ConquestAirRaid.IsPhaseActive()
+	return ConquestState.purchasePhase == PHASE_AIR_RAID
+end
+
+-- Ends the raid phase. Drops any unit still waiting on resources so it cannot be bought later outside a phase.
+local function FinishRaid()
+	durationTimer = KillTimer(durationTimer)
+
+	if not spawningUnit then
+		KillSpawnWaitTimer()
+		Context.SpawnInfo = nil
+	end
+
+	ConquestPurchaseProfiles.FinishPurchasePhasePlan()
+	ConquestState.purchasePhase = nil
+
+	if printDebug then
+		print("Print: air raid finished", "bought=", ConquestState.phasePurchaseCount, "of", ConquestState.phasePurchaseTarget)
+	end
+end
+
+local function StartRaid()
+	local plan = ConquestConfig.AirRaid
+
+	pending = false
+
+	ConquestWaves.StartPurchasePhase(PHASE_AIR_RAID, plan.UnitCount)
+	BotApi.Scene:SetVar(VAR_ACTIVE, 1)
+
+	-- Replace the wave-off cooldown so the first plane is bought right away.
+	if not spawningUnit then
+		KillSpawnCooldownTimer()
+		SetSpawnCooldownTimer()
+	end
+
+	durationTimer = BotApi.Events:SetQuantTimer(function()
+		durationTimer = nil
+		if ConquestAirRaid.IsPhaseActive() then
+			FinishRaid()
+		end
+	end, plan.MaxDuration)
+
+	if printDebug then
+		print("Print: air raid started", "units=", plan.UnitCount)
+	end
+end
+
+-- Called from OnPrepTimeOver. Schedules the one roll.
+function ConquestAirRaid.OnPrepTimeOver()
+	local plan = ConquestConfig.AirRaid
+
+	if ConquestState.botDefender or rolled or not IsAuthorityBot() then
+		return
+	end
+
+	rolled = true
+	rollTimer = BotApi.Events:SetQuantTimer(function()
+		rollTimer = nil
+
+		if IsMatchOver() or math.random() >= plan.Chance then
+			return
+		end
+
+		pending = true
+		BotApi.Scene:SetVar(VAR_WARNING, 1)
+
+		if printDebug then
+			print("Print: air raid rolled on, waiting for a gap between waves")
+		end
+	end, math.random(plan.DelayMin, plan.DelayMax))
+end
+
+-- Called every quant before TrySpawnUnit. Starts a queued raid in the gap between waves and ends it once bought.
+function ConquestAirRaid.Update()
+	if ConquestAirRaid.IsPhaseActive() then
+		if ConquestState.phasePurchaseCount >= ConquestState.phasePurchaseTarget then
+			FinishRaid()
+		end
+		return
+	end
+
+	if pending
+		and not ConquestState.purchasePhase
+		and not ConquestState.waveSpawnActive
+		and not ConquestState.attackerWavesFinished then
+		StartRaid()
+	end
+end
+
+-- Called from GetUnitToSpawn while the raid phase is active. Picks any available unit with the raid identity.
+function ConquestAirRaid.SelectUnit(units)
+	local candidates = {}
+
+	for _, unit in pairs(units) do
+		if ConquestPurchaseScoring.UnitHasTag(unit, ConquestConfig.AirRaid.Identity)
+			and BotApi.Commands:IsUnitAvailable(unit.unit) then
+			table.insert(candidates, unit)
+		end
+	end
+
+	if #candidates == 0 then
+		FinishRaid()
+		return nil
+	end
+
+	local selected = candidates[math.random(#candidates)]
+	ConquestState.pendingPurchaseUnit = selected
+
+	if printDebug then
+		print("Print: air raid picked", selected.unit,
+			"tts=", BotApi.Commands:TimeToSpawnUnit(selected.unit),
+			"spawnPointIndex=", ConquestState.spawnPointIndex,
+			"CanSpawn=", BotApi.Commands:CanSpawn(),
+			"IsUnitAvailable=", BotApi.Commands:IsUnitAvailable(selected.unit))
+	end
+	return selected
+end
+
+-- Called from ConquestWaves.OnUnitPurchased for each confirmed raid purchase.
+-- The raid ignores maxUnitCount when buying, but every buy still adds to that unit's total.
+function ConquestAirRaid.OnUnitPurchased(unit)
+	if not unit or not unit.unit then
+		return
+	end
+
+	local counts = ConquestState.aircraftPurchaseCounts
+	counts[unit.unit] = (counts[unit.unit] or 0) + 1
+end
+
+-- Called from OnGameStop.
+function ConquestAirRaid.Stop()
+	rollTimer = KillTimer(rollTimer)
+	durationTimer = KillTimer(durationTimer)
+end
+

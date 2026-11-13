@@ -1,5 +1,4 @@
 {"vehicle"   
-    (include "sabotage_vehicle.inc")
 ;============= Tagging Functions ============================
 
     {on "tag_squad_need_next_order"
@@ -48,11 +47,32 @@
                 {if prop "truck"
                     {if not crew_in_place "seat1"
                         {delay 3 {tags add "_ai_veh_empty"}}
+                        ;// for ai support transport vehicles
+                        {if tagged "no_scavenge"
+                            {hide 5}
+                        }
                     }
                 }
             }            
         }
     }
+
+    {on operatable on
+        {if tagged "sabotage_possible"
+            {if user_control
+                {tags remove "sabotage_possible"}
+                {if rand 0.5
+                    {delay 0.1
+                        {if user_control
+                            {damage_report "sabotage" "component/sabotage"}
+                            {clear_inventory}
+                            {call_synced "break_all"}
+                        }
+                    }
+                }
+            }
+        }
+    }   
 ; ================= CE Functions ===========================
     {on "smoke_for_test"
         {add_view "smoke_yellow_norm" "smoke" "root"}

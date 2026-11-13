@@ -29,7 +29,7 @@ require([[/script/multiplayer/modes/conquest_enhanced/orders_flags_ce]])
 require([[/script/multiplayer/modes/conquest_enhanced/weather_ce]])
 require([[/script/multiplayer/modes/conquest_enhanced/security_ce]]) -- defender security (flanking) waves.
 require([[/script/multiplayer/modes/conquest_enhanced/rear_attack_ce]]) -- attacker rear attack event.
-
+require([[/script/multiplayer/modes/conquest_enhanced/air_raid_event_ce]]) -- attacker air raid attack event.
 
 local firstSpawn = false 
 
@@ -76,7 +76,7 @@ function OnGameQuant()
 		for i, squad in pairs(BotApi.Scene.Squads) do
 			if not IsGarrisonSquad(squad) and not Context.SquadTimers[squad] then
 				if printDebug then print("SQUAD ", squad, " SquadTimers = nil") end
-				SetSquadOrder(CaptureFlag, squad, GetRotationPeriod(nil), true)
+				SetSquadOrder(CaptureFlag, squad, ConquestConfig.OrderRotationPeriod, true)
 			end
 		end
 	end
@@ -112,9 +112,8 @@ function OnGameSpawn(args)
 	local waypoints = BotApi.Scene.Waypoints
 	if #waypoints == 0 then
 		-- initialOrder false = rotation timer only, so the quant fallback does not order the squad either.
-		local shouldSkipGraph = ShouldSkipWaypointGraph() and not isAircraft
-		local period = GetRotationPeriod(Context and Context.SpawnInfo)
-		SetSquadOrder(CaptureFlag, args.squadId, period, shouldSkipGraph)
+		local shouldSkipGraph = ShouldSkipWaypointGraph() and not isAircraft		
+		SetSquadOrder(CaptureFlag, args.squadId, ConquestConfig.OrderRotationPeriod, shouldSkipGraph)		
 	elseif not isAircraft then
 		GotoNextWaypoint(args.squadId)
 	end
@@ -125,6 +124,7 @@ function OnPrepTimeOver()
 	BotApi.Scene:SetVar("prep_inform", 1)
 	--ConquestDebug.StartAttackerRetreatTest()
 	if printDebug then print("Print: prep_inform set to 1, Player defense prep is over.") end
+	ConquestAirRaid.OnPrepTimeOver()
 end
 
 BotApi.Events:Subscribe(BotApi.Events.GameStart, OnGameStart)

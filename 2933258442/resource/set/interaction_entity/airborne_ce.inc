@@ -4,7 +4,7 @@
         {call "takeoff_load"}
         {call "takeoff"} 
         {tags add "_bot"}        
-        {delay 4
+        {delay 1
             {if prop "drop_plane"
                 {tags add "transport_plane_ready_for_mission"}
             else tagged "bot_recon_plane" 
@@ -16,10 +16,12 @@
     }
 
     {on "bomber_make_first_pass"
-        {tags remove "plane_ready_for_mission"}
+        {tags remove "bomber_selected_for_mission"}
         {delay 40 
             {tags remove "enemy_air"}
-            {tags add "bomber_making_first_pass"}
+            {if not tagged "on_air_raid_mission"
+                {tags add "bomber_making_first_pass"}
+            }
         }
     }
 }

@@ -1,0 +1,320 @@
+{sound
+	; 44khz, 16bit, stereo, IMA 4-bit ADPCM
+	; percentage 	-- 	is the percentage share of buffers.
+	; max_buffers 	-- 	is the maximal number of buffers.
+	; Example		-- 	{percent "emotions" 15 2} means that 15% 
+	;					of the buffers, but maximal 2 buffers are used 
+	;					for sounds tagged with "emotions".
+	;-----------------------------------------------------------------------
+	;percent						percentage		max_buffers
+	{percent "effects" 				70					}
+	{percent "emotions" 			20					}
+	{percent "speech" 				2				1	}
+	{percent "environment" 			6				4	}
+	{percent "main_environment" 	2				2	}
+
+	; min_distance 	-- 	is the distance (in meter) at which the sound 
+	;					will be at maximum volume. That is, any sound 
+	;					that is this distance or closer to the listener 
+	;					will be at maximum volume.
+	; max_distance 	-- 	is the distance (in meter) at which further 
+	;					distance-based falloff will not be applied. 
+	;					The sound will be clipped to silence. 
+	;					Note that the sound is not clipped if max_distance
+	;					is set to zero.
+	;					Also note that this parameter does not affect the
+	;					volume falloff curve itself.
+	; priority		-- is the order in which then engine prioritizes what ; sounds should play over others if the buffer limit of 64 is reached.
+	;-----------------------------------------------------------------------
+
+	;=============================================================================
+	;loudness								min_distance max_distance priority
+; PLACEHOLDERS PENDING REMOVAL BEGIN
+	{loudness "default"						5			100			0	}
+
+	{loudness "small_environment"			5			30			1	}
+	{loudness "environment"					25			250			1	}
+	{loudness "environment_local"			7			228.6		1	}
+	{loudness "environment_local_small"		3.5			100			1	}
+	{loudness "world"						100			1000		50	}
+
+	{loudness "animal"						10			50			1	}
+	{loudness "crush"						7			125			20	}
+	{loudness "crush_small"					4			100			15	}
+	{loudness "push"						3.5			66.2		15	}
+	{loudness "fire_small"					3.5			100			25	}
+	{loudness "fire"						7			142.9		25	}
+	{loudness "fire_large"					10			228.6		25	}
+	;=============================================================================
+	{loudness "utility"						100			1000		50	}
+	{loudness "gui"							100			1000		50	}
+	{loudness "mission"						100			1000		50	}
+	{loudness "interface"					100			1000		50	}
+	;=============================================================================
+	{loudness "50kg_bomb"					38.1		228.6		66	}
+	{loudness "100kg_bomb"					49.8		343.2		67	}
+	{loudness "250kg_bomb"					53.2		343.2		68	}
+	{loudness "ap_shell"					24.5		228.6		60	}
+	{loudness "auto_shell"					24.5		228.6		60	}
+	{loudness "cook_off"					24.5		228.6		75	}
+	{loudness "explosion_fiery"				31.2		228.6		63	}
+	{loudness "explosion_medium"			28.6		228.6		62	}
+	{loudness "explosion_small"				24.5		228.6		61	}
+	{loudness "explosion_vehicle"			34.3		228.6		64	}
+	{loudness "grenade"						24.5		228.6		60	}
+	{loudness "grenade_smoke"				3.5			68.6		5	}
+	{loudness "he_size1"					24.5		228.6		61	}
+	{loudness "he_size2"					28.6		228.6		62	}
+	{loudness "he_size3"					31.2		228.6		63	}
+	{loudness "he_size4"					34.3		228.6		64	}
+	{loudness "he_size5"					38.1		228.6		65	}
+	{loudness "exp_small"					24.5		228.6		61	}
+
+	{loudness "bkg_50kg_bomb"				124.8		1372.0		54	}
+	{loudness "bkg_100kg_bomb"				137.2		1372.0		55	}
+	{loudness "bkg_250kg_bomb"				152.4		1372.0		56	}
+	{loudness "bkg_auto_shell"				98.0		1372.0		50	}
+	{loudness "bkg_ap_shell"				98.0		1372.0		51	}
+	{loudness "bkg_explosion_vehicle"		137.2		1372.0		55	}
+	{loudness "bkg_grenade"					98.0		1372.0		51	}
+	{loudness "bkg_he_size1"				105.6		1372.0		52	}
+	{loudness "bkg_he_size2"				114.3		1372.0		53	}
+	{loudness "bkg_he_size3"				124.8		1372.0		54	}
+	{loudness "bkg_he_size4"				137.2		1372.0		55	}
+	{loudness "bkg_he_size5"				152.4		1372.0		56	}
+
+	{loudness "mortar"						24.5		228.6		61	}
+	{loudness "auto_size1"					24.5		228.6		60	}
+	{loudness "gun_size1"					28.6		228.6		62	}
+	{loudness "gun_size2"					31.2		228.6		63	}
+	{loudness "gun_size3"					34.3		228.6		64	}
+	{loudness "gun_size4"					38.1		228.6		65	}
+	;=============================================================================
+	{loudness "hit_foliage"					8			110.3		45	}
+	{loudness "hit_glass"					8			110.3		45	}
+	{loudness "hit_ground"					8			110.3		45	}
+	{loudness "hit_human"					8			110.3		20	}
+	{loudness "hit_rock"					14			228.7		45	}
+	{loudness "hit_snow"					8			110.3		45	}
+	{loudness "hit_water"					8			110.3		45	}
+	{loudness "hit_wood"					8			110.3		45	}
+	{loudness "hit_steel"					14			228.7		45	}
+	{loudness "hit" 						5.5			100			45	}
+ 	{loudness "hit_ground_shell"			12			142.9		45	}
+	{loudness "hit_ground_large"			34.3		142.9		45	}
+	{loudness "hit_steel_large"				34.3		142.9		45	}
+	{loudness "hit_steel_penetrate"			34.3		142.9		45	}
+	{loudness "hit_steel_ricochet"			34.3		142.9		45	}
+	{loudness "bkg_hit_steel"				66.2		285.8		35	}
+	{loudness "water_splash"				10.5		66.2		35	}
+	{loudness "hit_wood_large"				34.3		142.9		45	}
+	;=============================================================================
+	{loudness "reload_interior"				5			10			1	}
+	{loudness "reload_large"				15			40			1	}
+
+	{loudness "air attack"					115			2000		45	}
+	{loudness "artillery"					100			2000		45	}
+	{loudness "incoming"					34.3		228.6		45	}
+	{loudness "tracer"						15			200			1	}
+
+	{loudness "flame"						12			228.6		50	}
+	{loudness "3p_gun"						100			2000		40	}
+	{loudness "rifle"						40			150			40	}
+	{loudness "smg"							35			125			35	}
+	{loudness "mgun"						40			150			40	}
+	{loudness "pistol"						35			125			35	}
+	{loudness "rocket_small"				50			175			40	}
+
+	{loudness "rocket_large"				68.6		514.5		78	}
+
+	{loudness "mortar"						24.5		228.6		61	}
+	{loudness "auto_size1"					24.5		228.6		60	}
+	{loudness "gun_size1"					28.6		228.6		62	}
+	{loudness "gun_size2"					31.2		228.6		63	}
+	{loudness "gun_size3"					34.3		228.6		64	}
+	{loudness "gun_size4"					38.1		228.6		65	}
+	{loudness "gun_interior"				5			10			40	}
+
+	{loudness "bkg_mortar"					114.3		1372.0		53	}
+	{loudness "bkg_rocket" 					137.4		1372.0		68	}
+	{loudness "bkg_rifle"					150			800			5	}
+	{loudness "bkg_smg"						125			700			3	}
+	{loudness "bkg_mgun"					150			800			5	}
+	{loudness "bkg_pistol"					125			700			3	}
+
+	{loudness "bkg_auto"					105.6		1372.0		52	}
+	{loudness "bkg_gun_size1"				114.3		1372.0		53	}
+	{loudness "bkg_gun_size2"				124.8		1372.0		54	}
+	{loudness "bkg_gun_size3"				137.2		1372.0		55	}
+	{loudness "bkg_gun_size4"				152.4		1372.0		56	}
+; PLACEHOLDERS PENDING REMOVAL END
+
+
+; HUMAN LAYERS PRIORITY
+	;// All Infantry movement and foley sounds
+	{loudness "inf_anims"					2			57.2		1	}
+	{loudness "footsteps"					2			57.2		2	}
+	{loudness "gear"						2			57.2		1	}
+	{loudness "reload"						2			57.2		15	}
+	{loudness "recoil"						7			35			39	}
+	{loudness "equip"						2			42.9		5	}
+	{loudness "swim"						3			42.9		5	}
+	;// All vocal sounds
+	{loudness "talk"						7.5			114.3		90	}	; FUNCTIONAL PLACEHOLDER
+	{loudness "emotes"						7.5			114.3		10	}	; FUNCTIONAL PLACEHOLDER
+	{loudness "talk_intel"					4.5			114.3		95	}	; Speech to Inform Player of Events
+	{loudness "talk_quiet"					3.5			57.2		90	}	; low voice projection
+	{loudness "talk_normal"					4.5			85.7		90	}	; Normal voice projection
+	{loudness "talk_shout"					7.5			114.3		92	}	; loud voice projection
+	{loudness "breath"						1			9			1	}
+
+; VEHICLE LAYERS PRIORITY 
+	;// CANNONS
+	{loudness "cannon_reload"				4.5			68.6		80	}
+	{loudness "cannon_recoil"				5			38.1		80	}
+	{loudness "cannon_overlays"				4.5			68.6		1	}
+	{loudness "cannon_aim"					2.5			68.6		1	}
+	{loudness "cannon_move"					4.5			68.6		1	}
+	;// EXTERNAL
+	{loudness "vehicle_plane"				38.1		686.4		55	}
+	{loudness "vehicle_marine"				15			457.6		55	}
+	{loudness "vehicle_marine_large"		24			686.0		65	}
+	{loudness "vehicle_engine"				24			457.6		55	}
+	{loudness "vehicle_engine_idle"			17			228.6		55	}
+	{loudness "vehicle_engine_small"		17			343.2		55	}
+	{loudness "vehicle_engine_small_idle"	14			228.6		55	}
+	{loudness "vehicle_engine_car"			12			228.6		55	}
+	{loudness "vehicle_engine_car_idle"		9			110.3		55	}
+	{loudness "vehicle_tracks"				12			343.2		55	}
+	{loudness "vehicle_wheels"				5			114.3		55	}
+	{loudness "vehicle_overlays"			7			114.3		50	}
+	{loudness "vehicle_overlays_small"		5			114.3		40	}
+	{loudness "vehicle_anims"				5			68.6		20	}
+	{loudness "turret"						5			68.6		20	}
+	;// Distant Engine sounds, for select vehicle types
+	{loudness "bkg_plane"					114.4		0			99	}
+	;// INTERNAL
+	{loudness "vehicle_int" 				3.5 		4.5			91	}
+	{loudness "vehicle_int_turret" 			3.5 		4.5			88	}
+	{loudness "vehicle_int_gun" 			2.5			10			90	}
+	{loudness "vehicle_int_hit" 			3.5 		6.5			90	}
+	;// SPEECH
+	{loudness "talk_vehicle_open"			10			114.3		30	}	; Speech of Open Top Vehicles
+	{loudness "talk_vehicle_closed"			10			114.3		30	}	; Speech of Enclosed Vehicles
+	{loudness "talk_vehicle_Intel"			10			114.3		30	}	; Speech to Inform Player of Events
+
+; COLLISION LAYERS PRIORITY ; All Collisions of objects
+	;// Speeds far below SoS
+	{loudness "hit_small_soft"				6			56.4		15	}	; Soft material. Such as snow, sand, cloth etc.
+	{loudness "hit_small_hard"				9			68.6		15	}	; Hard material. Such as wood, steel, rock etc.
+	{loudness "hit_medium_soft"				6			68.6		25	}
+	{loudness "hit_medium_hard"				9			85.7		25	}
+	{loudness "hit_large_soft"				6			85.7		35	}
+	{loudness "hit_large_hard"				9			114.3		35	}
+	;// Impacts of Projectiles, SoS and above
+	{loudness "impact_s1_soft"				6			114.3		25	}
+	{loudness "impact_s1_hard"				9			114.3		25	}
+	{loudness "impact_s2_soft"				6			114.3		35	}
+	{loudness "impact_s2_hard"				9			114.3		35	}
+	{loudness "impact_s3_soft"				6			114.3		45	}
+	{loudness "impact_s3_hard"				9			114.3		45	}
+	{loudness "impact_s4_soft"				6			114.3		55	}
+	{loudness "impact_s4_hard"				9			114.3		55	}
+	;// Impacts of Projectiles on hard materials, distant layers
+	{loudness "impact_medium_hard_distant"	9			343.0		45	}
+	{loudness "impact_large_hard_distant"	9			343.0		45	}
+	;// SONIC CRACKS
+	{loudness "crack_s1_d1" 				4			34.3		11	}
+	{loudness "crack_s1_d2" 				14			114.3		6	}
+	{loudness "crack_s2_d1" 				6			34.3		11	}
+	{loudness "crack_s2_d2" 				16			114.3		6	}
+	{loudness "crack_s3_d1" 				8			34.3 		12	}
+	{loudness "crack_s3_d2" 				18			114.3		7	}
+	{loudness "crack_s4_d1" 				10			36 			13	}
+	{loudness "crack_s4_d2" 				20			228.7 		8	}
+	;// CASINGS
+	{loudness "casing_s1" 					2.0			34.3 		10	}
+	{loudness "casing_s2" 					2.0			38.6		10	}
+	{loudness "casing_s3" 					2.0 		43.2		10	}
+	{loudness "casing_s5" 					4.0 		68.6		10	}
+	;// Mechanical sound components of explosions - debris, shockwaves etc
+	{loudness "projectile"					12			171.6		80	}
+	{loudness "projectile_high_vel"  		12  		171.6  		80	}
+	{loudness "projectile_howitzer"			34		   686.6		80	}
+	{loudness "explosion_mechanical" 		9			114.3		35	}
+	{loudness "explosion_S1_shockwave" 		12			68.6		36	}
+	{loudness "explosion_S2_shockwave" 		15			86.6		40	}
+	{loudness "explosion_S3_shockwave" 		18			114.3		44	}
+	{loudness "explosion_water"				42.9		343.2		60	}
+
+; IMPULSE LAYERS PRIORITY ;// All Impulse sounds, Violent release of energy, these sounds need to be faded over distance, 3 layers each, faded at multiples of the speed of sound 343.0 m/s
+	{loudness "weapon_3p"					100			200			80	}	; DC 3rd Person weapons sounds 
+	;// Close Range
+	{loudness "Small-Arms_S1_close"			27.0		57.2		30	}	; Pistol Caliber 7.62x25mm - 11.43x23mm
+	{loudness "Small-Arms_S2_close"			30.0		68.6		31	}	; Intermediate Caliber 5.45x39mm - 7.92x33mm
+	{loudness "Small-Arms_S3_close"			31.5		68.6		32	}	; Rifle Caliber 6.5x50mm - 7.92x57mm
+	{loudness "Small-Arms_S4_close"			36.0		68.6		33	}	; Large-Rifle Caliber 8.6x70mm - 14.5x114mm
+	{loudness "Launcher_S1_close"			45.0		68.6		60	}	; Anti-Tank Rocket Systems
+	{loudness "Launcher_S2_close" 			54.3		514.5		78	}	; Multiple Launch Rocket Systems
+	{loudness "Cannon-Auto_close"			45.0		114.3		60	}	; 20mm - 30mm Auto-Cannons
+	{loudness "Cannon_S1_close"				46.0		114.3		62	}	; 28mm - 40mm Cannons
+	{loudness "Cannon_S2_close"				49.0		114.3		63	}	; 45mm - 57mm Cannons
+	{loudness "Cannon_S3_close"				52.0		114.3		64	}	; 75mm - 76mm Cannons
+	{loudness "Cannon_S4_close"				57.2		114.3		65	}	; 85mm - 100mm Cannons
+	{loudness "Cannon_S5_close"				62.1		114.3		66	}	; 105mm - 122mm Cannons
+	{loudness "Cannon_S6_close"				68.6		114.3		67	}	; 150mm - max Cannons
+	{loudness "Explosion_Auto_close"		40.0		114.3		60	}	; 20mm - 25mm Auto-Cannons
+	{loudness "Explosion_S1_close"			44.0		114.3		62	}	; 0.01 kg - 0.20 kg Fillings
+	{loudness "Explosion_S2_close"			48.0		114.3		63	}	; 0.20 kg - 1.50 kg Fillings
+	{loudness "Explosion_S3_close"			52.0		114.3		64	}	; 1.50 kg - 3.50 kg Fillings
+	{loudness "Explosion_S4_close"			57.2		114.3		65	}	; 3.50 kg - 7.00 kg Fillings
+	{loudness "Explosion_S5_close"			62.1		114.3		66	}	; 7.00 kg - 12.00 kg Fillings
+	{loudness "Explosion_S6_close"			68.6		114.3		67	}	; 12.00 kg - max Fillings
+	;// SPECIAL
+	{loudness "mortar_sweetener_light"		15.6 		68.6		72	}
+	{loudness "mortar_sweetener"			16.7 		68.6		73	}
+	{loudness "cannon_sweetener_light"		15.6 		68.6		72	}
+	{loudness "cannon_sweetener"			16.7 		68.6		73	}
+	;// Mid Range Reports
+	{loudness "Small-Arms_S1_mid"			54.0		457.3		20	}
+	{loudness "Small-Arms_S2_mid"			60.0		457.3		21	}
+	{loudness "Small-Arms_S3_mid"			63.0		457.3		22	}
+	{loudness "Small-Arms_S4_mid"			67.5		457.3		23	}
+	{loudness "Launcher_S1_mid"				67.5		457.3		50	}
+	{loudness "Launcher_S2_mid"				81.45		1372.0		68	}
+	{loudness "Cannon-Auto_mid"				67.5		457.3		50	}
+	{loudness "Cannon_S1_mid"				69.0		457.3		51	}
+	{loudness "Cannon_S2_mid"				73.5		457.3		52	}
+	{loudness "Cannon_S3_mid"				78.0		457.3		53	}
+	{loudness "Cannon_S4_mid"				85.8		457.3		54	}
+	{loudness "Cannon_S5_mid"				93.2		457.3		55	}
+	{loudness "Cannon_S6_mid"				102.9		457.3		56	}
+	{loudness "Explosion_Auto_mid"			42.9		457.3		50	}
+	{loudness "Explosion_S1_mid"			66.0		457.3		51	}
+	{loudness "Explosion_S2_mid"			72.0		457.3		52	}
+	{loudness "Explosion_S3_mid"			78.0		457.3		53	}
+	{loudness "Explosion_S4_mid"			85.8		457.3		54	}
+	{loudness "Explosion_S5_mid"			93.15		457.3		55	}
+	{loudness "Explosion_S6_mid"			102.9		457.3		56	}
+	;// Distant Reports
+	{loudness "Small-Arms_S1_far"			54.0		1372.0		10	}
+	{loudness "Small-Arms_S2_far"			60.0		1372.0		11	}
+	{loudness "Small-Arms_S3_far"			63.0		1372.0		12	}
+	{loudness "Small-Arms_S4_far"			67.5		1372.0		13	}
+	{loudness "Launcher_S1_far"				67.5		1372.0		40	}
+	;{loudness "Launcher_S2_far"			54.3		1372.0		0	}
+	{loudness "Cannon-Auto_far"				67.5		1372.0		40	}
+	{loudness "Cannon_S1_far"				69.0		1372.0		41	}
+	{loudness "Cannon_S2_far"				73.5		1372.0		42	}
+	{loudness "Cannon_S3_far"				78.0		1372.0		43	}
+	{loudness "Cannon_S4_far"				85.8		1372.0		44	}
+	{loudness "Cannon_S5_far"				93.2		1372.0		45	}
+	{loudness "Cannon_S6_far"				102.9		1372.0		46	}
+	{loudness "Explosion_Auto_far"			42.9		1372.0		40	}
+	{loudness "Explosion_S1_far"			66.0		1372.0		41	}
+	{loudness "Explosion_S2_far"			72.0		1372.0		42	}
+	{loudness "Explosion_S3_far"			78.0		1372.0		43	}
+	{loudness "Explosion_S4_far"			85.8		1372.0		44	}
+	{loudness "Explosion_S5_far"			93.2		1372.0		45	}
+	{loudness "Explosion_S6_far"			102.9		1372.0		46	}
+}

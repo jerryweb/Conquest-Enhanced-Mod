@@ -1606,7 +1606,6 @@
 				}
 			}
 
-
 			{"dcg2/botdefend/garrison_ready"
 				{condition
 					{expression "1 & !2 & !3 & !4 & 5"}
@@ -2713,6 +2712,9 @@
 										{state
 											{state user_control}
 										}
+										{tag
+											{tag _ai_support_for_user}
+										}
 									}
 								}
 							}
@@ -2767,6 +2769,9 @@
 									}
 									{state
 										{state user_control}
+									}
+									{tag
+										{tag _ai_support_for_user}
 									}
 								}
 							}
@@ -3016,9 +3021,6 @@
 						}
 						{tag_add bot_tow}
 					}
-					{"delay"
-						{time 1}
-					}
 					{"if"
 						{condition
 							{type cmp_i}
@@ -3029,6 +3031,9 @@
 						{"call"
 							{function "ce_register_sabotage_vehicles"}
 						}
+					}
+					{"delay"
+						{time 1}
 					}
 					{"entity_state"
 						{selector

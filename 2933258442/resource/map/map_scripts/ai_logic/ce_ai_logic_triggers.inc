@@ -981,6 +981,7 @@
 						{selector
 							{source current}
 						}
+						;{drop orders}
 						{movement
 							{forward on}
 						}
@@ -1004,6 +1005,578 @@
 			}
 			
 ;=========== Air =======================================================================================
+			{"ai_logic/air/start_air_raid_event"
+				{condition
+					{terms
+						{"1.cmp_i"
+							{var "air_raid_warning$"}
+							{op "=="}
+							{value 1}
+						}
+						{"2.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag air_vehicle}
+										}
+									}
+									{include
+										{tag
+											{tag hidden}
+										}
+										{prop
+											{prop airborne}
+										}
+										{state
+											{state "operatable inhabited"}
+										}
+									}
+									{exclude
+										{state
+											{state linked}
+										}
+										{state
+											{state user_control}
+										}
+										{zone
+											{zone "gamezone"}
+										}
+									}
+								}
+							}
+						}
+						{"3.cmp_i"
+							{var "user_is_defender$"}
+							{op "=="}
+							{value 1}
+						}
+						{"4.cmp_i"
+							{var "tier2$"}
+							{op "=="}
+							{value 1}
+						}
+					}
+				}
+				{actions
+					{"switch"
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "enable_ce_cut_communications_mechanic$"}
+								{op "=="}
+								{value 0}
+							}
+							{"sound"
+								{name "world/alarm/siren"}
+							}
+						}
+						{"default"
+							{"if"
+								{condition
+									{type cmp_i}
+									{var "radio_active$"}
+									{op "=="}
+									{value 1}
+								}
+								{"sound"
+									{name "world/alarm/siren"}
+								}
+							}
+						}
+					}
+					{"delay"
+						{time 5}
+					}
+					{"talk"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag player}
+									}
+									{zone
+										{zone "gamezone"}
+									}
+								}
+								{include
+									{prop
+										{prop human}
+									}
+									{state
+										{state user_control}
+									}
+								}
+							}
+							{amount 1
+							}
+						}
+						{text "mission/multi/air_raid_event"}
+					}
+					{"delay"
+						{time 15}
+					}
+					{"loop" 8
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag drop_zone}
+										}
+									}
+									{include
+										{zone
+											{zone "combat"}
+										}
+									}
+									{exclude
+										{tag
+											{tag selected_for_bombing_raid}
+										}
+									}
+								}
+								{sort
+									{type entity}
+									{entity
+										{source advanced}
+										{group
+											{select
+												{zone
+													{zone "combat"}
+												}
+											}
+											{include
+												{state
+													{state operatable}
+												}
+											}
+											{exclude
+												{tag
+													{tag _bot}
+												}
+												{state
+													{state dead}
+												}
+												{state
+													{state "operatable linked"}
+												}
+												{state
+													{state inactive}
+												}
+												{prop
+													{prop airborne}
+												}
+											}
+										}
+										{amount 1
+										}
+									}
+								}
+								{amount 5
+								}
+							}
+							{tag_add selected_for_bombing_raid}
+						}
+						{"delay"
+							{time 0.2}
+						}
+						{"switch"
+							{"case"
+								{condition
+									{type rand}
+									{value 0.5}
+								}
+								{"air_attack"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag air_vehicle}
+												}
+											}
+											{include
+												{tag
+													{tag hidden}
+												}
+												{prop
+													{prop airborne}
+												}
+												{state
+													{state "operatable inhabited"}
+												}
+											}
+											{exclude
+												{state
+													{state linked}
+												}
+												{state
+													{state user_control}
+												}
+												{zone
+													{zone "gamezone"}
+												}
+												{tag
+													{tag on_bombing_raid}
+												}
+											}
+										}
+										{amount 1
+										}
+									}
+									{drop orders}
+									{enemies
+										{amount 1
+										}
+										{tag selected_for_bombing_raid}
+									}
+									{clone}
+									{move_from_back}
+									{force_placement}
+									{random_weapon 0}
+									{attack_altitude 75}
+								}
+							}
+							{"default"
+								{"air_attack"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag air_vehicle}
+												}
+											}
+											{include
+												{tag
+													{tag hidden}
+												}
+												{prop
+													{prop airborne}
+												}
+												{state
+													{state "operatable inhabited"}
+												}
+											}
+											{exclude
+												{state
+													{state linked}
+												}
+												{state
+													{state user_control}
+												}
+												{zone
+													{zone "gamezone"}
+												}
+												{tag
+													{tag on_bombing_raid}
+												}
+											}
+										}
+										{amount 1
+										}
+									}
+									{drop orders}
+									{enemies
+										{source advanced}
+										{group
+											{select
+												{zone
+													{zone "fpc1"}
+												}
+												{zone
+													{zone "fpc2"}
+												}
+												{zone
+													{zone "fpc3"}
+												}
+												{zone
+													{zone "fpc4"}
+												}
+												{zone
+													{zone "fpc5"}
+												}
+											}
+											{include
+												{tag
+													{tag drop_zone}
+												}
+											}
+											{exclude
+												{state
+													{state linked}
+												}
+												{state
+													{state inactive}
+												}
+												{tag
+													{tag _bot}
+												}
+												{state
+													{state dead}
+												}
+											}
+										}
+										{amount 1
+										}
+									}
+									{clone}
+									{move_from_back}
+									{force_placement}
+									{random_weapon 0}
+									{attack_altitude 75}
+								}
+							}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"effect"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag air_vehicle}
+										}
+									}
+									{include
+										{zone
+											{zone "gamezone"}
+										}
+										{state
+											{state "operatable inhabited"}
+										}
+										{prop
+											{prop airborne}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag on_bombing_raid}
+										}
+									}
+								}
+							}
+							{effect takeoff_load}
+						}
+						{"delay"
+							{time 0.2}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag air_vehicle}
+										}
+									}
+									{include
+										{zone
+											{zone "gamezone"}
+										}
+										{state
+											{state "operatable inhabited"}
+										}
+										{prop
+											{prop airborne}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag on_bombing_raid}
+										}
+									}
+								}
+							}
+							{tag_add on_bombing_raid}
+						}
+						{"entity_state"
+							{selector
+								{tag selected_for_bombing_raid}
+							}
+							{tag_remove selected_for_bombing_raid}
+						}
+						{"delay"
+							{time 5}
+						}
+					}
+					{## "loop" 6
+						{"switch"
+							{"case"
+								{condition
+									{type cmp_i}
+									{var "user_team$"}
+									{op "=="}
+									{value 1}
+								}
+								{"delay"
+									{time 0.1}
+								}
+								{"actor_to_waypoint"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag air_vehicle}
+												}
+											}
+											{include
+												{tag
+													{tag hidden}
+												}
+												{prop
+													{prop airborne}
+												}
+												{state
+													{state "operatable inhabited"}
+												}
+											}
+											{exclude
+												{state
+													{state linked}
+												}
+												{state
+													{state user_control}
+												}
+												{zone
+													{zone "gamezone"}
+												}
+											}
+										}
+										{amount 1
+										}
+									}
+									{waypoint "0"}
+									{clone}
+									{approach "safe teleport & rotate"}
+								}
+							}
+							{"default"
+								{"delay"
+									{time 0.1}
+								}
+								{"actor_to_waypoint"
+									{selector
+										{source advanced}
+										{group
+											{select
+												{tag
+													{tag air_vehicle}
+												}
+											}
+											{include
+												{tag
+													{tag hidden}
+												}
+												{prop
+													{prop airborne}
+												}
+												{state
+													{state "operatable inhabited"}
+												}
+											}
+											{exclude
+												{state
+													{state linked}
+												}
+												{state
+													{state user_control}
+												}
+												{zone
+													{zone "gamezone"}
+												}
+											}
+										}
+										{amount 1
+										}
+									}
+									{waypoint "6"}
+									{clone}
+									{approach "safe teleport & rotate"}
+								}
+							}
+						}
+						{"delay"
+							{time 1}
+						}
+						{"entity_state"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag air_vehicle}
+										}
+									}
+									{include
+										{zone
+											{zone "gamezone"}
+										}
+										{state
+											{state "operatable inhabited"}
+										}
+										{prop
+											{prop airborne}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag on_bombing_raid}
+										}
+									}
+								}
+							}
+							{tag_add on_bombing_raid}
+						}
+						{"delay"
+							{time 0.2}
+						}
+						{"effect"
+							{selector
+								{source current}
+							}
+							{effect bomber_make_first_pass}
+						}
+						{"delay"
+							{time 2}
+						}
+					}
+				}
+			}
 			{"ai_logic/air/stage_ai_planes"
 				{condition
 					{expression "1 & (2 & 3) | (!2 & !3)"}
@@ -1247,7 +1820,7 @@
 						{effect move_plane_to_initial_waypoint}
 					}
 					{"delay"
-						{time 1}
+						{time 0.25}
 					}
 					{"waypoint"
 						{who
@@ -1265,7 +1838,7 @@
 						}
 					}
 					{"delay"
-						{time 1}
+						{time 0.25}
 					}
 					{"entity_state"
 						{selector
@@ -1274,7 +1847,7 @@
 						{tag_remove selected_for_staging}
 					}
 					{"delay"
-						{time 1}
+						{time 0.25}
 					}
 					{"trigger"
 						{name "ai_logic/air/stage_ai_planes"}
@@ -1719,7 +2292,140 @@
 					{"delay"
 						{time 0.5}
 					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag plane_ready_for_mission}
+									}
+								}
+								{include
+									{prop
+										{prop airborne}
+									}
+									{state
+										{state "operatable inhabited"}
+									}
+									{tag
+										{tag _bot}
+									}
+								}
+								{exclude
+									{state
+										{state user_control}
+									}
+									{state
+										{state inactive}
+									}
+									{state
+										{state linked}
+									}
+									{zone
+										{zone "gamezone"}
+									}
+									{tag
+										{tag bomber_making_first_pass}
+									}
+									{tag
+										{tag enemy_air}
+									}
+									{tag
+										{tag air_vehicle}
+									}
+									{prop
+										{prop drop_plane}
+									}
+									{tag
+										{tag bot_recon_plane}
+									}
+									{tag
+										{tag on_air_raid_mission}
+									}
+								}
+							}
+							{amount 1
+							}
+						}
+						{tag_add bomber_selected_for_mission}
+						{tag_remove plane_ready_for_mission}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"select"
+						{amount 1
+						}
+						{tag bomber_selected_for_mission}
+						{type vehicle}
+						{state inhabited}
+					}
+					{"delay"
+						{time 0.5}
+					}
 					{"switch"
+						{## "case"
+							{condition
+								{type cmp_i}
+								{var "air_raid_active$"}
+								{op "=="}
+								{value 1}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"air_attack"
+								{selector
+									{source current}
+								}
+								{drop orders}
+								{enemies
+									{source advanced}
+									{group
+										{select
+											{zone
+												{zone "forward1"}
+											}
+										}
+										{include
+											{tag
+												{tag _user}
+											}
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{state
+												{state linked}
+											}
+											{state
+												{state inactive}
+											}
+											{tag
+												{tag _bot}
+											}
+										}
+									}
+									{amount 1
+									}
+								}
+								{move_from_back}
+								{force_placement}
+								{random_weapon 0}
+								{attack_altitude 75}
+							}
+							{"delay"
+								{time 0.25}
+							}
+							{"entity_state"
+								{selector
+									{source current}
+								}
+								{tag_add on_air_raid_mission}
+							}
+						}
 						{"case"
 							{condition
 								{type cmp_i}
@@ -1732,54 +2438,8 @@
 							}
 							{"actor_to_waypoint"
 								{selector
-									{source advanced}
+									{source current}
 									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag plane_ready_for_mission}
-											}
-										}
-										{include
-											{prop
-												{prop airborne}
-											}
-											{state
-												{state "operatable inhabited"}
-											}
-											{tag
-												{tag _bot}
-											}
-										}
-										{exclude
-											{state
-												{state user_control}
-											}
-											{state
-												{state inactive}
-											}
-											{state
-												{state linked}
-											}
-											{zone
-												{zone "gamezone"}
-											}
-											{tag
-												{tag bomber_making_first_pass}
-											}
-											{tag
-												{tag enemy_air}
-											}
-											{tag
-												{tag air_vehicle}
-											}
-											{prop
-												{prop drop_plane}
-											}
-										}
-									}
-									{amount 1
-									}
 								}
 								{waypoint "0"}
 								{approach "safe teleport & rotate"}
@@ -1791,54 +2451,8 @@
 							}
 							{"actor_to_waypoint"
 								{selector
-									{source advanced}
+									{source current}
 									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag plane_ready_for_mission}
-											}
-										}
-										{include
-											{prop
-												{prop airborne}
-											}
-											{state
-												{state "operatable inhabited"}
-											}
-											{tag
-												{tag _bot}
-											}
-										}
-										{exclude
-											{state
-												{state user_control}
-											}
-											{state
-												{state inactive}
-											}
-											{state
-												{state linked}
-											}
-											{zone
-												{zone "gamezone"}
-											}
-											{tag
-												{tag bomber_making_first_pass}
-											}
-											{tag
-												{tag enemy_air}
-											}
-											{tag
-												{tag air_vehicle}
-											}
-											{prop
-												{prop drop_plane}
-											}
-										}
-									}
-									{amount 1
-									}
 								}
 								{waypoint "6"}
 								{approach "safe teleport & rotate"}
@@ -1850,12 +2464,12 @@
 					}
 					{"effect"
 						{selector
-							{tag plane_ready_for_mission}
+							{source current}
 						}
 						{effect bomber_make_first_pass}
 					}
 					{"delay"
-						{time 4}
+						{time 2}
 					}
 					{"trigger"
 						{name "ai_logic/air/send_ai_attack_plane"}
@@ -2230,7 +2844,6 @@
 					{"delay"
 						{time 1}
 					}
-
 					{"effect"
 						{selector
 							{source current}
@@ -3747,6 +4360,9 @@
 										{state
 											{state "chassis_work inhabited"}
 										}
+										{zone
+											{zone "gamezone"}
+										}
 									}
 									{exclude
 										{state
@@ -4009,59 +4625,7 @@
 				}
 				{actions
 					{"delay"
-						{time 4}
-					}
-					{## "delete"
-						{selector
-							{source advanced}
-							{group
-								{select
-									{zone
-										{zone "a_1"}
-									}
-									{zone
-										{zone "a_2"}
-									}
-									{zone
-										{zone "a_3"}
-									}
-									{zone
-										{zone "a_4"}
-									}
-									{zone
-										{zone "b_1"}
-									}
-									{zone
-										{zone "b_2"}
-									}
-									{zone
-										{zone "b_3"}
-									}
-									{zone
-										{zone "b_4"}
-									}
-								}
-								{include
-									{tag
-										{tag _transport_rtb}
-									}
-									{state
-										{state "chassis_work inhabited"}
-									}
-								}
-								{exclude
-									{state
-										{state user_control}
-									}
-									{state
-										{state linked}
-									}
-									{state
-										{state inactive}
-									}
-								}
-							}
-						}
+						{time 1}
 					}
 					{"effect"
 						{selector
