@@ -174,9 +174,6 @@ ConquestConfig.DefenderOpening = {
 
 	-- Defender opening units hold their spawn/mission-script positions instead of entering Lua movement rotation.
 	UnitsHoldMovement = true,
-
-	-- Time limit on the garrison purchases. Units still unbought when it expires are dropped to prevent them spawning in front of the player later
-	MaxDuration = 60 * 1000,
 }
 
 ConquestConfig.DefenderCounterattack = {
@@ -190,7 +187,7 @@ ConquestConfig.DefenderCounterattack = {
 	ResponseDelayMin = 10 * 1000,
 	ResponseDelayMax = 30 * 1000,
 
-	-- Delay between separate counterattack bursts that were already queued.
+	-- Gap after one counterattack finishes before another queued one may start; the first counterattack never waits on it.
 	ChainedResponseDelayMin = 30 * 1000,
 	ChainedResponseDelayMax = 60 * 1000,
 

@@ -186,6 +186,13 @@ function ConquestSecurityWave.HoldCounterattack()
 end
 
 function ConquestSecurityWave.IsCounterattackHeld()
+	-- The hold only exists to keep the counterattack out while a security wave runs.
+	-- Once no security wave is active, release it so a ready counterattack starts now
+	-- instead of waiting out the rest of ConflictRetryDelay.
+	if ConquestState.counterattackHeldForSecurity and not ConquestSecurityWave.IsActive() then
+		ConquestState.counterattackHeldForSecurity = false
+	end
+
 	return ConquestState.counterattackHeldForSecurity == true
 end
 

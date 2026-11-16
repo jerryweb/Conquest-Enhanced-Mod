@@ -2669,6 +2669,7 @@
 			}
 			{"lua/bot_tags"
 				{condition
+					{expression "1 & 2 & 3 & !4"}
 					{terms
 						{"1.cmp_i"
 							{var "dcg_on$"}
@@ -2723,6 +2724,9 @@
 							{var "bot_retreat_active$"}
 							{op "=="}
 							{value 0}
+						}
+						{"4.trigger"
+							{name "dcg/user_error"}
 						}
 					}
 				}

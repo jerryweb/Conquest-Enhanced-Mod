@@ -67,9 +67,7 @@ ConquestState.attackerFailureCheckCount = 0
 
 -- Defender finite-purchase state.
 ConquestState.defenderOpeningFinished = false
-
--- Failsafe for the defender bot spawning troops after the garrison stage (may break if I use defenderOpeningFinished)
-ConquestState.defenderOpeningExpired = false
+ConquestState.defenderOpeningStalled = false
 
 -- Defender opening squads that should never enter Lua movement rotation.
 ConquestState.garrisonSquads = {}
@@ -82,6 +80,7 @@ ConquestState.flagOwners = {}
 ConquestState.counterattackPendingByFlag = {}
 ConquestState.counterattackFlagName = nil
 ConquestState.totalCounterattacksStarted = 0
+ConquestState.counterattackSpacingActive = false
 ConquestState.counterattacksByFlag = {}
 
 -- Latest scene snapshot captured when a defender counterattack purchase plan starts.

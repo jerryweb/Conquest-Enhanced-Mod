@@ -69,9 +69,9 @@
 										{player
 											{player "1"}
 										}
-										{player
-											{player "3"}
-										}
+										;{player
+										;	{player "3"}
+										;}
 									}
 								}
 							}
@@ -90,10 +90,6 @@
 				{actions
 					{"delay"
 						{time 0.1}
-					}
-					{## "timer"
-						{time 6}
-						{title "in ai vehicle smoke script"}
 					}
 					{"entity_state"
 						{selector
@@ -462,6 +458,37 @@
 							{var "prep_inform$"}
 							{op "=="}
 							{value 1}
+						}
+						{"3.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _bot}
+										}
+									}
+									{include
+										{prop
+											{prop cannon}
+										}
+										{state
+											{state "operatable inhabited"}
+										}
+									}
+									{exclude
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state user_control}
+										}
+									}
+								}
+							}
 						}
 					}
 				}

@@ -229,11 +229,6 @@ local function StartDefenderOpening()
 	ConquestState.garrisonSpawnPointIndexByPlacementClass = {}
 
 	ConquestWaves.StartPurchasePhase(PHASE_DEFENDER_OPENING, RollDefenderOpeningTarget(flagCount))
-
--- by Carlos, This block expires purchases for AI defender bot after garrisoning stage (as a failsafe)
-	BotApi.Events:SetQuantTimer(function()
-		ConquestState.defenderOpeningExpired = true
-	end, ConquestConfig.DefenderOpening.MaxDuration)
 end
 
 -- Marks the defender opening complete and clears the active purchase phase.
@@ -257,11 +252,21 @@ local function FinishDefenderOpening()
 	end
 end
 
--- Ends the defender opening once MaxDuration passes so no further garrison units
--- are placed on objective flags. Runs before TrySpawnUnit in the quant so a pending
--- retry cannot buy outside a phase.
+-- Called when the engine refuses a purchase; a refused garrison purchase stalls the opening.
+-- Bot CP and money limits are set high on purpose, so a refusal means a setting or mod is limiting the bot and must not pass silently.
+function ConquestWaves.OnSpawnRefused(unit)
+	local tts = BotApi.Commands:TimeToSpawnUnit(unit) or 0
+
+	print("Warning: bot purchase refused by the engine. phase=", ConquestState.purchasePhase or "none", "unit=", tostring(unit), "tts=", tts / 1000, "(tts 0 means the bot hit its CP or money limit)")
+
+	if ConquestState.purchasePhase == PHASE_DEFENDER_OPENING then
+		ConquestState.defenderOpeningStalled = true
+	end
+end
+
+-- Ends a stalled defender opening before TrySpawnUnit runs, so the pending retry cannot buy outside a phase.
 function ConquestWaves.UpdateDefenderOpeningCutoff()
-	if not ConquestState.defenderOpeningExpired or ConquestState.defenderOpeningFinished then
+	if not ConquestState.defenderOpeningStalled or ConquestState.defenderOpeningFinished then
 		return
 	end
 
@@ -272,11 +277,8 @@ function ConquestWaves.UpdateDefenderOpeningCutoff()
 	KillSpawnWaitTimer()
 	Context.SpawnInfo = nil
 
-	if printDebug then
-		print("Print: defender opening cut off",
-			"spent=", ConquestState.phasePurchaseCount,
-			"targetBudget=", ConquestState.phasePurchaseTarget)
-	end
+	print("Warning: defender opening ended early after a refused purchase. spent=", ConquestState.phasePurchaseCount,
+		"targetBudget=", ConquestState.phasePurchaseTarget)
 
 	FinishDefenderOpening()
 
@@ -469,8 +471,8 @@ local function GetCooldownRange()
 	end
 
 	if ConquestState.botDefender and ConquestState.defenderOpeningFinished and not ConquestState.purchasePhase then
-		if ConquestDefenderCounterattack.HasReadyPending() then
-			return ConquestConfig.DefenderCounterattack.ChainedResponseDelayMin, ConquestConfig.DefenderCounterattack.ChainedResponseDelayMax
+		if ConquestDefenderCounterattack.HasReadyPending() and not ConquestState.counterattackSpacingActive then
+			return ConquestConfig.SpawnCooldownTime.DCGMin, ConquestConfig.SpawnCooldownTime.DCGMax
 		end
 
 		return ConquestConfig.CompletedPurchaseIdleTime.Min, ConquestConfig.CompletedPurchaseIdleTime.Max

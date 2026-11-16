@@ -136,6 +136,7 @@ function GameModeSpawnUnit(unit, maxSquadSize)
 	end
 
 	if not BotApi.Commands:SpawnAt(unit, maxSquadSize, spawnPointIndex) then
+		ConquestWaves.OnSpawnRefused(unit)
 		return false
 	end
 

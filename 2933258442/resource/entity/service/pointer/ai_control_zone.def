@@ -1,0 +1,20 @@
+{game_entity	;// zone used around medic himself
+	{Extension "medic_zone.mdl"}
+	{props "medic_tent medic_tent_dynamic"} ;// hardcoded
+
+	{extender "medic_tent"
+		{defaultRadius 15} ;// heal radius in meter
+		{viewsToScale "tent_circle"} ;// client only
+	}
+
+	{DecalView tent_circle	;// outer red circle 
+		{Sprite "ai_control.ebm"
+			{Visibility 0.25}
+			{PreScaleX 1.0}
+			{PreScaleY 1.0}
+		}
+		{Layer grounddynamic}
+	}
+
+	{NoGetShadows}
+}

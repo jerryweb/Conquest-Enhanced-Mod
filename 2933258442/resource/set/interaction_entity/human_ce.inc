@@ -3,12 +3,14 @@
 	{on spawn
 		{delay 0.5
 			{add_view "beacon_fx" "beacon_fx" "head" not_manual not_scenario}
+			;{add_view "ai_control_zone_fx" "ai_control_zone_fx" "root" not_manual not_scenario}
 			{delay 3
+				{view start "ai_control_zone_fx"}
 				{if tagged "radio_man"
 					{call "show_radio_icon"}
 				}
 			}
-		}
+		}		
 	}
 
 	{on "set_ignore_spawn_logic"
@@ -38,29 +40,7 @@
 	}
 
 ;============= Vanilla and Overloaded Functions =============
-
-	{on "personage_check" overload
-		{if not tagged "hero_unit"				;// exception for unit to be revive-able in missions
-			{if not user_control
-				{if not tagged "_ai_support_for_user"
-					{able "personage" 0}
-				}
-			else swimming
-				{able "personage" 0}
-			else burned
-				{able "personage" 0}
-			else tagged "crush"
-				{able "personage" 0}
-			else tagged "no_revive"
-				{able "personage" 0}
-				{tags remove "no_revive"}
-			else 
-				{if rand 0.5
-					{call_synced "mp_personage_0"}
-				}
-			}
-		}
-	}
+	(include "blood_ce.inc")
 
 	{on "officer_mark"
 		{if not dead
@@ -137,17 +117,19 @@
 		{if not user_control
 			{tags add "ai_support_selected"}
 	        {tags add "_ai_support_for_user"}
-	        {able "personage" 1}
 	        {able "select" 0}
 		}
     }
 
     {on "check_ai_support_cmd_range"
-		;{if tagged "out_cmd_range"
-	    ;    {able "select" 0}
-		;else tagged "in_cmd_range"
-	    ;    {able "select" 1}
-		;}
+		{if tagged "out_cmd_range"
+			{if not tagged "support_out_of_range"
+				{damage_report "ai_support_out_cmd_range" "component/ai_support_out_cmd_range"}
+			}
+			{tags add "support_out_of_range"}
+		else tagged "in_cmd_range"
+	       {tags remove "support_out_of_range"}
+		}
 		{tags remove "in_cmd_range"}
 		{tags remove "out_cmd_range"}
 		{tags remove "cmd_range_check"}

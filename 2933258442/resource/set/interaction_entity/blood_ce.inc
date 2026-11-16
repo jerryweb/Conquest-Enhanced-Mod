@@ -1,4 +1,3 @@
-{"human"
     {on "ce_blood_pool"
         {if rand 0.2
             {call "ce_blood_size_vanilla"}
@@ -93,6 +92,7 @@
             }
         }
     }
+;============= Vanilla and Overloaded Functions =============
 
 	{on "hit-light" overload
 		{if not dead
@@ -181,4 +181,4 @@
 			{tags remove "blood_delay_active"}
 		}
 	}
-}
+

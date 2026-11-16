@@ -127,12 +127,43 @@ function ConquestDefenderCounterattack.Start(flagName)
 	return true
 end
 
--- Ends the active defender counterattack and clears its target flag.
+-- Starts a ready counterattack now instead of letting it wait out the completed-purchase idle cooldown.
+local function StartReadyCounterattackNow()
+	if ConquestState.purchasePhase or spawningUnit or not ConquestState.defenderOpeningFinished then
+		return
+	end
+
+	KillSpawnCooldownTimer()
+	ConquestDefenderCounterattack.TryStartAnyPending()
+	SetSpawnCooldownTimer()
+end
+
+-- Ends the active defender counterattack and holds any queued one back for the chained spacing.
 function ConquestDefenderCounterattack.FinishActive()
 	ConquestState.counterattackFlagName = nil
 	ConquestPurchaseProfiles.FinishPurchasePhasePlan()
 	ConquestState.purchasePhase = nil
 	ConquestContext.RefreshWaypointGraph() -- graph back on
+		
+	local plan = ConquestConfig.DefenderCounterattack
+	local spacing = math.random(plan.ChainedResponseDelayMin, plan.ChainedResponseDelayMax)
+	ConquestState.counterattackSpacingActive = true
+
+	if printDebug then
+		print("Print: defender counterattack spacing started", "delay=", spacing)
+	end
+
+	BotApi.Events:SetQuantTimer(function()
+		ConquestState.counterattackSpacingActive = false
+
+		if ConquestBattleResult.IsWinnerDecided() then
+			return
+		end
+
+		if ConquestDefenderCounterattack.HasReadyPending() then
+			StartReadyCounterattackNow()
+		end
+	end, spacing)
 end
 
 -- Returns true if any queued defender counterattack is ready to start.
@@ -144,42 +175,6 @@ function ConquestDefenderCounterattack.HasReadyPending()
 	end
 
 	return false
-end
-
--- Refreshes the idle spawn cooldown when a counterattack becomes ready during completed-purchase idle time.
-local function RefreshIdleCooldownForReadyCounterattack()
-	if ConquestBattleResult.IsWinnerDecided() then
-		return false
-	end
-
-	if not ConquestState.botDefender then
-		return false
-	end
-
-	if not ConquestState.defenderOpeningFinished then
-		return false
-	end
-
-	if ConquestState.defenderOpeningGarrisonReadyPending then
-		ConquestWaves.ResolveGarrisonReadyBeforePurchase(PHASE_DEFENDER_COUNTERATTACK)
-	end
-
-	if ConquestState.purchasePhase then
-		return false
-	end
-
-	if not Context or not Context.SpawnWait or not Context.SpawnWait.CooldownTimer then
-		return false
-	end
-
-	if not KillSpawnCooldownTimer or not SetSpawnCooldownTimer then
-		return false
-	end
-
-	KillSpawnCooldownTimer()
-	SetSpawnCooldownTimer()
-
-	return true
 end
 
 -- Attempts to start one ready pending counterattack if its flag is still lost.
@@ -196,11 +191,19 @@ local function TryStartPending(flagName)
 	end
 
 	if not CanUseCounterattackForFlag(flagName) then
+		if printDebug then
+			print("Print: defender counterattack dropped", flagName, "reason=", "counterattack limit reached")
+		end
+
 		ClearPending(flagName)
 		return false
 	end
 
 	if GetFlagOwnerByName(flagName) == team then
+		if printDebug then
+			print("Print: defender counterattack dropped", flagName, "reason=", "flag retaken before start")
+		end
+
 		ClearPending(flagName)
 		return false
 	end
@@ -215,6 +218,10 @@ end
 
 -- Attempts to start the first ready pending defender counterattack.
 function ConquestDefenderCounterattack.TryStartAnyPending()
+	if ConquestState.counterattackSpacingActive then
+		return false
+	end
+
 	for flagName, pending in pairs(ConquestState.counterattackPendingByFlag) do
 		if pending.ready and TryStartPending(flagName) then
 			return true
@@ -250,6 +257,10 @@ local function QueueResponse(flagName)
 		end
 
 		if GetFlagOwnerByName(flagName) == team then
+			if printDebug then
+				print("Print: defender counterattack dropped", flagName, "reason=", "flag retaken before response")
+			end
+
 			ClearPending(flagName)
 			return
 		end
@@ -260,11 +271,7 @@ local function QueueResponse(flagName)
 			print("Print: defender counterattack ready", flagName)
 		end
 
-		if RefreshIdleCooldownForReadyCounterattack() then
-			return
-		end
-
-		TryStartPending(flagName)
+		StartReadyCounterattackNow()
 	end, delay)
 end
 
@@ -286,11 +293,11 @@ local function QueueConfirmation(flagName)
 		ready = false,
 	}
 
-	if printDebug then
-		print("Print: defender counterattack confirmation queued", flagName)
-	end
-
 	local plan = ConquestConfig.DefenderCounterattack
+
+	if printDebug then
+		print("Print: defender counterattack awaiting confirmation", flagName, "checkInSeconds=", plan.ConfirmDelay / 1000, "chance=", plan.ResponseChance)
+	end
 
 	BotApi.Events:SetQuantTimer(function()
 		if ConquestBattleResult.IsWinnerDecided() then
@@ -304,11 +311,20 @@ local function QueueConfirmation(flagName)
 		end
 
 		if GetFlagOwnerByName(flagName) == team then
+			if printDebug then
+				print("Print: defender counterattack dropped", flagName, "reason=", "flag retaken before confirmation")
+			end
+
 			ClearPending(flagName)
 			return
 		end
 
-		if math.random() > plan.ResponseChance then
+		local roll = math.random()
+		if roll > plan.ResponseChance then
+			if printDebug then
+				print("Print: defender counterattack dropped", flagName, "reason=", "response roll failed", "roll=", roll, "chance=", plan.ResponseChance)
+			end
+
 			ClearPending(flagName)
 			return
 		end

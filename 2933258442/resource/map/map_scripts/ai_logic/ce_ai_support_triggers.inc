@@ -52,7 +52,7 @@
 				}
 				{actions
 					{"delay"
-						{time 2.5}
+						{time 3.5}
 					}
 					{"effect"
 						{selector
@@ -125,6 +125,28 @@
 						{drop orders}
 						{operation set}
 						{player "2"}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"select"
+						{tag ai_support_selected}
+						{type human}
+						{state "not dead"}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"placement"
+						{selector
+							{source current}
+						}
+						{target
+							{amount 1
+							}
+							{tag player_spawn}
+							{zone "gamezone"}
+						}
 					}
 					{"delay"
 						{time 0.2}
@@ -257,7 +279,7 @@
 								}
 							}
 						}
-						{"default"
+						{## "default"
 							{"action"
 								{selector
 									{source current}
@@ -380,22 +402,47 @@
 					{terms
 						{"1.entities"
 							{selector
-								{tag _ai_support_for_user}
-								{type human}
-								{state "not dead"}
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _ai_support_for_user}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag _bot}
+										}
+									}
+								}
 							}
 						}
 					}
 				}
 				{actions
 					{"delay"
-						{time 1}
+						{time 0.2}
 					}
 					{"while"
 						{condition
 							{type entities}
 							{selector
 								{source advanced}
+								{ignore_captured_by_user 0}
 								{group
 									{select
 										{tag
@@ -409,6 +456,9 @@
 										{state
 											{state operatable}
 										}
+										{zone
+											{zone "gamezone"}
+										}
 									}
 									{exclude
 										{tag
@@ -420,17 +470,8 @@
 										{state
 											{state user_control}
 										}
-										{state
-											{state linked}
-										}
 										{tag
 											{tag _bot}
-										}
-										{tag
-											{tag in_cmd_range}
-										}
-										{tag
-											{tag out_cmd_range}
 										}
 									}
 								}
@@ -468,9 +509,6 @@
 										}
 										{state
 											{state user_control}
-										}
-										{state
-											{state linked}
 										}
 										{tag
 											{tag _bot}
@@ -515,9 +553,6 @@
 												{state
 													{state user_control}
 												}
-												{state
-													{state linked}
-												}
 												{tag
 													{tag _bot}
 												}
@@ -545,9 +580,6 @@
 													{state dead}
 												}
 												{state
-													{state linked}
-												}
-												{state
 													{state inactive}
 												}
 												{tag
@@ -565,6 +597,7 @@
 										{state "not dead"}
 									}
 									{tag_add in_cmd_range}
+									{tag_remove out_cmd_range}
 								}
 							}
 							{"case"
@@ -595,9 +628,6 @@
 												}
 												{state
 													{state user_control}
-												}
-												{state
-													{state linked}
 												}
 												{tag
 													{tag _bot}
@@ -678,6 +708,7 @@
 										{state "not dead"}
 									}
 									{tag_add in_cmd_range}
+									{tag_remove out_cmd_range}
 								}
 							}
 							{"default"
@@ -686,6 +717,7 @@
 										{tag select_for_cmd_range_check}
 									}
 									{tag_add out_cmd_range}
+									{tag_remove in_cmd_range}
 								}
 							}
 						}
@@ -733,7 +765,7 @@
 						{effect check_ai_support_cmd_range}
 					}
 					{"delay"
-						{time 5}
+						{time 3}
 					}
 					{"trigger"
 						{name "ai_support/check_ai_support_in_command_range"}

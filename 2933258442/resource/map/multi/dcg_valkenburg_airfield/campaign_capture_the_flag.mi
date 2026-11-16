@@ -21006,6 +21006,7 @@
 			}
 			{"1"
 				{position -1571.71 1516.88 0}
+				{radius 500}
 				{commands
 					{"entity_state"
 						{tag_add "+1teles_h"}
@@ -21441,6 +21442,7 @@
 			}
 			{"2"
 				{position 878.203 1880.96 6}
+				{radius 500}
 				{commands
 					{"entity_state"
 						{tag_add "+2teles_h"}
@@ -21876,6 +21878,7 @@
 			}
 			{"3"
 				{position -2262.79 -1865.54 11.2771}
+				{radius 500}
 				{commands
 					{"entity_state"
 						{tag_add "+3teles_h"}
@@ -22311,6 +22314,7 @@
 			}
 			{"4"
 				{position 981.928 -3895.08 1}
+				{radius 500}
 				{commands
 					{"entity_state"
 						{tag_add "+4teles_h"}
@@ -22746,6 +22750,7 @@
 			}
 			{"5"
 				{position -2791.79 3579.8 3.60794}
+				{radius 500}
 				{commands
 					{"entity_state"
 						{tag_add "+5teles_h"}
@@ -23235,7 +23240,7 @@
 		{waypoints "a_def_spawns"
 			{"15"
 				{position -2171.47 744.104 5.27368}
-				{radius 300}
+				{radius 500}
 				{commands
 					{"switch"
 						{"case"
@@ -23248,8 +23253,10 @@
 							{"switch"
 								{"case"
 									{condition
-										{type rand}
-										{value 0.25}
+										{type cmp_i}
+										{var "tank_1_fork1$"}
+										{op "=="}
+										{value 0}
 									}
 									{"waypoint"
 										{who
@@ -23267,11 +23274,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_1_fork1$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.33}
+										{type cmp_i}
+										{var "tank_1_fork1$"}
+										{op "=="}
+										{value 1}
 									}
 									{"waypoint"
 										{who
@@ -23289,11 +23303,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_1_fork1$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.5}
+										{type cmp_i}
+										{var "tank_1_fork1$"}
+										{op "=="}
+										{value 2}
 									}
 									{"waypoint"
 										{who
@@ -23310,6 +23331,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_1_fork1$"}
+										{op "+"}
+										{value 1}
 									}
 								}
 								{"default"
@@ -23329,6 +23355,11 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_1_fork1$"}
+										{op "="}
+										{value 0}
+									}
 								}
 							}
 						}
@@ -23342,8 +23373,10 @@
 							{"switch"
 								{"case"
 									{condition
-										{type rand}
-										{value 0.25}
+										{type cmp_i}
+										{var "tank_1_fork2$"}
+										{op "=="}
+										{value 0}
 									}
 									{"waypoint"
 										{who
@@ -23361,11 +23394,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_1_fork2$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.33}
+										{type cmp_i}
+										{var "tank_1_fork2$"}
+										{op "=="}
+										{value 1}
 									}
 									{"waypoint"
 										{who
@@ -23383,11 +23423,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_1_fork2$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.5}
+										{type cmp_i}
+										{var "tank_1_fork2$"}
+										{op "=="}
+										{value 2}
 									}
 									{"waypoint"
 										{who
@@ -23404,6 +23451,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_1_fork2$"}
+										{op "+"}
+										{value 1}
 									}
 								}
 								{"default"
@@ -23423,6 +23475,11 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_1_fork2$"}
+										{op "="}
+										{value 0}
+									}
 								}
 							}
 						}
@@ -23430,8 +23487,10 @@
 							{"switch"
 								{"case"
 									{condition
-										{type rand}
-										{value 0.25}
+										{type cmp_i}
+										{var "tank_1_fork3$"}
+										{op "=="}
+										{value 0}
 									}
 									{"waypoint"
 										{who
@@ -23449,11 +23508,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_1_fork3$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.33}
+										{type cmp_i}
+										{var "tank_1_fork3$"}
+										{op "=="}
+										{value 1}
 									}
 									{"waypoint"
 										{who
@@ -23471,11 +23537,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_1_fork3$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.5}
+										{type cmp_i}
+										{var "tank_1_fork3$"}
+										{op "=="}
+										{value 2}
 									}
 									{"waypoint"
 										{who
@@ -23492,6 +23565,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_1_fork3$"}
+										{op "+"}
+										{value 1}
 									}
 								}
 								{"default"
@@ -23510,6 +23588,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_1_fork3$"}
+										{op "="}
+										{value 0}
 									}
 								}
 							}
@@ -23575,7 +23658,7 @@
 			}
 			{"16"
 				{position 705.7 1624.03 10.2745}
-				{radius 300}
+				{radius 500}
 				{commands
 					{"switch"
 						{"case"
@@ -23588,8 +23671,10 @@
 							{"switch"
 								{"case"
 									{condition
-										{type rand}
-										{value 0.25}
+										{type cmp_i}
+										{var "tank_2_fork1$"}
+										{op "=="}
+										{value 0}
 									}
 									{"waypoint"
 										{who
@@ -23607,11 +23692,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_2_fork1$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.33}
+										{type cmp_i}
+										{var "tank_2_fork1$"}
+										{op "=="}
+										{value 1}
 									}
 									{"waypoint"
 										{who
@@ -23629,11 +23721,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_2_fork1$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.5}
+										{type cmp_i}
+										{var "tank_2_fork1$"}
+										{op "=="}
+										{value 2}
 									}
 									{"waypoint"
 										{who
@@ -23650,6 +23749,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_2_fork1$"}
+										{op "+"}
+										{value 1}
 									}
 								}
 								{"default"
@@ -23669,6 +23773,11 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_2_fork1$"}
+										{op "="}
+										{value 0}
+									}
 								}
 							}
 						}
@@ -23682,8 +23791,10 @@
 							{"switch"
 								{"case"
 									{condition
-										{type rand}
-										{value 0.25}
+										{type cmp_i}
+										{var "tank_2_fork2$"}
+										{op "=="}
+										{value 0}
 									}
 									{"waypoint"
 										{who
@@ -23701,11 +23812,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_2_fork2$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.33}
+										{type cmp_i}
+										{var "tank_2_fork2$"}
+										{op "=="}
+										{value 1}
 									}
 									{"waypoint"
 										{who
@@ -23723,11 +23841,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_2_fork2$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.5}
+										{type cmp_i}
+										{var "tank_2_fork2$"}
+										{op "=="}
+										{value 2}
 									}
 									{"waypoint"
 										{who
@@ -23744,6 +23869,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_2_fork2$"}
+										{op "+"}
+										{value 1}
 									}
 								}
 								{"default"
@@ -23763,6 +23893,11 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_2_fork2$"}
+										{op "="}
+										{value 0}
+									}
 								}
 							}
 						}
@@ -23770,8 +23905,10 @@
 							{"switch"
 								{"case"
 									{condition
-										{type rand}
-										{value 0.25}
+										{type cmp_i}
+										{var "tank_2_fork3$"}
+										{op "=="}
+										{value 0}
 									}
 									{"waypoint"
 										{who
@@ -23789,11 +23926,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_2_fork3$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.33}
+										{type cmp_i}
+										{var "tank_2_fork3$"}
+										{op "=="}
+										{value 1}
 									}
 									{"waypoint"
 										{who
@@ -23811,11 +23955,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_2_fork3$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.5}
+										{type cmp_i}
+										{var "tank_2_fork3$"}
+										{op "=="}
+										{value 2}
 									}
 									{"waypoint"
 										{who
@@ -23832,6 +23983,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_2_fork3$"}
+										{op "+"}
+										{value 1}
 									}
 								}
 								{"default"
@@ -23850,6 +24006,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_2_fork3$"}
+										{op "="}
+										{value 0}
 									}
 								}
 							}
@@ -23915,7 +24076,7 @@
 			}
 			{"17"
 				{position -3392.79 -2638.46 29}
-				{radius 300}
+				{radius 500}
 				{commands
 					{"switch"
 						{"case"
@@ -23928,8 +24089,10 @@
 							{"switch"
 								{"case"
 									{condition
-										{type rand}
-										{value 0.25}
+										{type cmp_i}
+										{var "tank_3_fork1$"}
+										{op "=="}
+										{value 0}
 									}
 									{"waypoint"
 										{who
@@ -23947,11 +24110,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_3_fork1$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.33}
+										{type cmp_i}
+										{var "tank_3_fork1$"}
+										{op "=="}
+										{value 1}
 									}
 									{"waypoint"
 										{who
@@ -23969,11 +24139,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_3_fork1$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.5}
+										{type cmp_i}
+										{var "tank_3_fork1$"}
+										{op "=="}
+										{value 2}
 									}
 									{"waypoint"
 										{who
@@ -23990,6 +24167,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_3_fork1$"}
+										{op "+"}
+										{value 1}
 									}
 								}
 								{"default"
@@ -24009,6 +24191,11 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_3_fork1$"}
+										{op "="}
+										{value 0}
+									}
 								}
 							}
 						}
@@ -24022,8 +24209,10 @@
 							{"switch"
 								{"case"
 									{condition
-										{type rand}
-										{value 0.25}
+										{type cmp_i}
+										{var "tank_3_fork2$"}
+										{op "=="}
+										{value 0}
 									}
 									{"waypoint"
 										{who
@@ -24041,11 +24230,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_3_fork2$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.33}
+										{type cmp_i}
+										{var "tank_3_fork2$"}
+										{op "=="}
+										{value 1}
 									}
 									{"waypoint"
 										{who
@@ -24063,11 +24259,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_3_fork2$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.5}
+										{type cmp_i}
+										{var "tank_3_fork2$"}
+										{op "=="}
+										{value 2}
 									}
 									{"waypoint"
 										{who
@@ -24084,6 +24287,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_3_fork2$"}
+										{op "+"}
+										{value 1}
 									}
 								}
 								{"default"
@@ -24103,6 +24311,11 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_3_fork2$"}
+										{op "="}
+										{value 0}
+									}
 								}
 							}
 						}
@@ -24110,8 +24323,10 @@
 							{"switch"
 								{"case"
 									{condition
-										{type rand}
-										{value 0.25}
+										{type cmp_i}
+										{var "tank_3_fork3$"}
+										{op "=="}
+										{value 0}
 									}
 									{"waypoint"
 										{who
@@ -24129,11 +24344,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_3_fork3$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.33}
+										{type cmp_i}
+										{var "tank_3_fork3$"}
+										{op "=="}
+										{value 1}
 									}
 									{"waypoint"
 										{who
@@ -24151,11 +24373,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_3_fork3$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.5}
+										{type cmp_i}
+										{var "tank_3_fork3$"}
+										{op "=="}
+										{value 2}
 									}
 									{"waypoint"
 										{who
@@ -24172,6 +24401,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_3_fork3$"}
+										{op "+"}
+										{value 1}
 									}
 								}
 								{"default"
@@ -24190,6 +24424,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_3_fork3$"}
+										{op "="}
+										{value 0}
 									}
 								}
 							}
@@ -24255,7 +24494,7 @@
 			}
 			{"18"
 				{position 139.075 -2236.64 6}
-				{radius 300}
+				{radius 500}
 				{commands
 					{"switch"
 						{"case"
@@ -24268,8 +24507,10 @@
 							{"switch"
 								{"case"
 									{condition
-										{type rand}
-										{value 0.25}
+										{type cmp_i}
+										{var "tank_4_fork1$"}
+										{op "=="}
+										{value 0}
 									}
 									{"waypoint"
 										{who
@@ -24287,11 +24528,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_4_fork1$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.33}
+										{type cmp_i}
+										{var "tank_4_fork1$"}
+										{op "=="}
+										{value 1}
 									}
 									{"waypoint"
 										{who
@@ -24309,11 +24557,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_4_fork1$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.5}
+										{type cmp_i}
+										{var "tank_4_fork1$"}
+										{op "=="}
+										{value 2}
 									}
 									{"waypoint"
 										{who
@@ -24330,6 +24585,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_4_fork1$"}
+										{op "+"}
+										{value 1}
 									}
 								}
 								{"default"
@@ -24349,6 +24609,11 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_4_fork1$"}
+										{op "="}
+										{value 0}
+									}
 								}
 							}
 						}
@@ -24362,8 +24627,10 @@
 							{"switch"
 								{"case"
 									{condition
-										{type rand}
-										{value 0.25}
+										{type cmp_i}
+										{var "tank_4_fork2$"}
+										{op "=="}
+										{value 0}
 									}
 									{"waypoint"
 										{who
@@ -24381,11 +24648,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_4_fork2$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.33}
+										{type cmp_i}
+										{var "tank_4_fork2$"}
+										{op "=="}
+										{value 1}
 									}
 									{"waypoint"
 										{who
@@ -24403,11 +24677,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_4_fork2$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.5}
+										{type cmp_i}
+										{var "tank_4_fork2$"}
+										{op "=="}
+										{value 2}
 									}
 									{"waypoint"
 										{who
@@ -24424,6 +24705,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_4_fork2$"}
+										{op "+"}
+										{value 1}
 									}
 								}
 								{"default"
@@ -24443,6 +24729,11 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_4_fork2$"}
+										{op "="}
+										{value 0}
+									}
 								}
 							}
 						}
@@ -24450,8 +24741,10 @@
 							{"switch"
 								{"case"
 									{condition
-										{type rand}
-										{value 0.25}
+										{type cmp_i}
+										{var "tank_4_fork3$"}
+										{op "=="}
+										{value 0}
 									}
 									{"waypoint"
 										{who
@@ -24469,11 +24762,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_4_fork3$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.33}
+										{type cmp_i}
+										{var "tank_4_fork3$"}
+										{op "=="}
+										{value 1}
 									}
 									{"waypoint"
 										{who
@@ -24491,11 +24791,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_4_fork3$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.5}
+										{type cmp_i}
+										{var "tank_4_fork3$"}
+										{op "=="}
+										{value 2}
 									}
 									{"waypoint"
 										{who
@@ -24512,6 +24819,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_4_fork3$"}
+										{op "+"}
+										{value 1}
 									}
 								}
 								{"default"
@@ -24530,6 +24842,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_4_fork3$"}
+										{op "="}
+										{value 0}
 									}
 								}
 							}
@@ -24595,7 +24912,7 @@
 			}
 			{"19"
 				{position -3442.97 4160.64 4}
-				{radius 300}
+				{radius 500}
 				{commands
 					{"switch"
 						{"case"
@@ -24608,8 +24925,10 @@
 							{"switch"
 								{"case"
 									{condition
-										{type rand}
-										{value 0.25}
+										{type cmp_i}
+										{var "tank_5_fork1$"}
+										{op "=="}
+										{value 0}
 									}
 									{"waypoint"
 										{who
@@ -24627,11 +24946,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_5_fork1$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.33}
+										{type cmp_i}
+										{var "tank_5_fork1$"}
+										{op "=="}
+										{value 1}
 									}
 									{"waypoint"
 										{who
@@ -24649,11 +24975,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_5_fork1$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.5}
+										{type cmp_i}
+										{var "tank_5_fork1$"}
+										{op "=="}
+										{value 2}
 									}
 									{"waypoint"
 										{who
@@ -24670,6 +25003,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_5_fork1$"}
+										{op "+"}
+										{value 1}
 									}
 								}
 								{"default"
@@ -24689,6 +25027,11 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_5_fork1$"}
+										{op "="}
+										{value 0}
+									}
 								}
 							}
 						}
@@ -24702,8 +25045,10 @@
 							{"switch"
 								{"case"
 									{condition
-										{type rand}
-										{value 0.25}
+										{type cmp_i}
+										{var "tank_5_fork2$"}
+										{op "=="}
+										{value 0}
 									}
 									{"waypoint"
 										{who
@@ -24721,11 +25066,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_5_fork2$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.33}
+										{type cmp_i}
+										{var "tank_5_fork2$"}
+										{op "=="}
+										{value 1}
 									}
 									{"waypoint"
 										{who
@@ -24743,11 +25095,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_5_fork2$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.5}
+										{type cmp_i}
+										{var "tank_5_fork2$"}
+										{op "=="}
+										{value 2}
 									}
 									{"waypoint"
 										{who
@@ -24764,6 +25123,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_5_fork2$"}
+										{op "+"}
+										{value 1}
 									}
 								}
 								{"default"
@@ -24783,6 +25147,11 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_5_fork2$"}
+										{op "="}
+										{value 0}
+									}
 								}
 							}
 						}
@@ -24790,8 +25159,10 @@
 							{"switch"
 								{"case"
 									{condition
-										{type rand}
-										{value 0.25}
+										{type cmp_i}
+										{var "tank_5_fork3$"}
+										{op "=="}
+										{value 0}
 									}
 									{"waypoint"
 										{who
@@ -24809,11 +25180,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_5_fork3$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.33}
+										{type cmp_i}
+										{var "tank_5_fork3$"}
+										{op "=="}
+										{value 1}
 									}
 									{"waypoint"
 										{who
@@ -24831,11 +25209,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_5_fork3$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.5}
+										{type cmp_i}
+										{var "tank_5_fork3$"}
+										{op "=="}
+										{value 2}
 									}
 									{"waypoint"
 										{who
@@ -24852,6 +25237,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_5_fork3$"}
+										{op "+"}
+										{value 1}
 									}
 								}
 								{"default"
@@ -24870,6 +25260,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_5_fork3$"}
+										{op "="}
+										{value 0}
 									}
 								}
 							}
@@ -24937,7 +25332,7 @@
 		{waypoints "b_def_spawns"
 			{"20"
 				{position -237.751 1234.57 29}
-				{radius 300}
+				{radius 500}
 				{commands
 					{"switch"
 						{"case"
@@ -24950,8 +25345,10 @@
 							{"switch"
 								{"case"
 									{condition
-										{type rand}
-										{value 0.25}
+										{type cmp_i}
+										{var "tank_1_fork1$"}
+										{op "=="}
+										{value 0}
 									}
 									{"waypoint"
 										{who
@@ -24969,11 +25366,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_1_fork1$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.33}
+										{type cmp_i}
+										{var "tank_1_fork1$"}
+										{op "=="}
+										{value 1}
 									}
 									{"waypoint"
 										{who
@@ -24991,11 +25395,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_1_fork1$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.5}
+										{type cmp_i}
+										{var "tank_1_fork1$"}
+										{op "=="}
+										{value 2}
 									}
 									{"waypoint"
 										{who
@@ -25012,6 +25423,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_1_fork1$"}
+										{op "+"}
+										{value 1}
 									}
 								}
 								{"default"
@@ -25031,6 +25447,11 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_1_fork1$"}
+										{op "="}
+										{value 0}
+									}
 								}
 							}
 						}
@@ -25044,8 +25465,10 @@
 							{"switch"
 								{"case"
 									{condition
-										{type rand}
-										{value 0.25}
+										{type cmp_i}
+										{var "tank_1_fork2$"}
+										{op "=="}
+										{value 0}
 									}
 									{"waypoint"
 										{who
@@ -25063,11 +25486,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_1_fork2$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.33}
+										{type cmp_i}
+										{var "tank_1_fork2$"}
+										{op "=="}
+										{value 1}
 									}
 									{"waypoint"
 										{who
@@ -25085,11 +25515,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_1_fork2$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.5}
+										{type cmp_i}
+										{var "tank_1_fork2$"}
+										{op "=="}
+										{value 2}
 									}
 									{"waypoint"
 										{who
@@ -25106,6 +25543,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_1_fork2$"}
+										{op "+"}
+										{value 1}
 									}
 								}
 								{"default"
@@ -25125,6 +25567,11 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_1_fork2$"}
+										{op "="}
+										{value 0}
+									}
 								}
 							}
 						}
@@ -25132,8 +25579,10 @@
 							{"switch"
 								{"case"
 									{condition
-										{type rand}
-										{value 0.25}
+										{type cmp_i}
+										{var "tank_1_fork3$"}
+										{op "=="}
+										{value 0}
 									}
 									{"waypoint"
 										{who
@@ -25151,11 +25600,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_1_fork3$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.33}
+										{type cmp_i}
+										{var "tank_1_fork3$"}
+										{op "=="}
+										{value 1}
 									}
 									{"waypoint"
 										{who
@@ -25173,11 +25629,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_1_fork3$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.5}
+										{type cmp_i}
+										{var "tank_1_fork3$"}
+										{op "=="}
+										{value 2}
 									}
 									{"waypoint"
 										{who
@@ -25194,6 +25657,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_1_fork3$"}
+										{op "+"}
+										{value 1}
 									}
 								}
 								{"default"
@@ -25212,6 +25680,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_1_fork3$"}
+										{op "="}
+										{value 0}
 									}
 								}
 							}
@@ -25277,7 +25750,7 @@
 			}
 			{"21"
 				{position 2605.5 912.531 3}
-				{radius 300}
+				{radius 500}
 				{commands
 					{"switch"
 						{"case"
@@ -25290,8 +25763,10 @@
 							{"switch"
 								{"case"
 									{condition
-										{type rand}
-										{value 0.25}
+										{type cmp_i}
+										{var "tank_2_fork1$"}
+										{op "=="}
+										{value 0}
 									}
 									{"waypoint"
 										{who
@@ -25309,11 +25784,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_2_fork1$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.33}
+										{type cmp_i}
+										{var "tank_2_fork1$"}
+										{op "=="}
+										{value 1}
 									}
 									{"waypoint"
 										{who
@@ -25331,11 +25813,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_2_fork1$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.5}
+										{type cmp_i}
+										{var "tank_2_fork1$"}
+										{op "=="}
+										{value 2}
 									}
 									{"waypoint"
 										{who
@@ -25352,6 +25841,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_2_fork1$"}
+										{op "+"}
+										{value 1}
 									}
 								}
 								{"default"
@@ -25371,6 +25865,11 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_2_fork1$"}
+										{op "="}
+										{value 0}
+									}
 								}
 							}
 						}
@@ -25384,8 +25883,10 @@
 							{"switch"
 								{"case"
 									{condition
-										{type rand}
-										{value 0.25}
+										{type cmp_i}
+										{var "tank_2_fork2$"}
+										{op "=="}
+										{value 0}
 									}
 									{"waypoint"
 										{who
@@ -25403,11 +25904,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_2_fork2$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.33}
+										{type cmp_i}
+										{var "tank_2_fork2$"}
+										{op "=="}
+										{value 1}
 									}
 									{"waypoint"
 										{who
@@ -25425,11 +25933,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_2_fork2$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.5}
+										{type cmp_i}
+										{var "tank_2_fork2$"}
+										{op "=="}
+										{value 2}
 									}
 									{"waypoint"
 										{who
@@ -25446,6 +25961,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_2_fork2$"}
+										{op "+"}
+										{value 1}
 									}
 								}
 								{"default"
@@ -25465,6 +25985,11 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_2_fork2$"}
+										{op "="}
+										{value 0}
+									}
 								}
 							}
 						}
@@ -25472,8 +25997,10 @@
 							{"switch"
 								{"case"
 									{condition
-										{type rand}
-										{value 0.25}
+										{type cmp_i}
+										{var "tank_2_fork3$"}
+										{op "=="}
+										{value 0}
 									}
 									{"waypoint"
 										{who
@@ -25491,11 +26018,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_2_fork3$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.33}
+										{type cmp_i}
+										{var "tank_2_fork3$"}
+										{op "=="}
+										{value 1}
 									}
 									{"waypoint"
 										{who
@@ -25513,11 +26047,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_2_fork3$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.5}
+										{type cmp_i}
+										{var "tank_2_fork3$"}
+										{op "=="}
+										{value 2}
 									}
 									{"waypoint"
 										{who
@@ -25534,6 +26075,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_2_fork3$"}
+										{op "+"}
+										{value 1}
 									}
 								}
 								{"default"
@@ -25552,6 +26098,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_2_fork3$"}
+										{op "="}
+										{value 0}
 									}
 								}
 							}
@@ -25617,7 +26168,7 @@
 			}
 			{"22"
 				{position -1128.3 -1724.89 0}
-				{radius 300}
+				{radius 500}
 				{commands
 					{"switch"
 						{"case"
@@ -25630,8 +26181,10 @@
 							{"switch"
 								{"case"
 									{condition
-										{type rand}
-										{value 0.25}
+										{type cmp_i}
+										{var "tank_3_fork1$"}
+										{op "=="}
+										{value 0}
 									}
 									{"waypoint"
 										{who
@@ -25649,11 +26202,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_3_fork1$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.33}
+										{type cmp_i}
+										{var "tank_3_fork1$"}
+										{op "=="}
+										{value 1}
 									}
 									{"waypoint"
 										{who
@@ -25671,11 +26231,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_3_fork1$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.5}
+										{type cmp_i}
+										{var "tank_3_fork1$"}
+										{op "=="}
+										{value 2}
 									}
 									{"waypoint"
 										{who
@@ -25692,6 +26259,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_3_fork1$"}
+										{op "+"}
+										{value 1}
 									}
 								}
 								{"default"
@@ -25711,6 +26283,11 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_3_fork1$"}
+										{op "="}
+										{value 0}
+									}
 								}
 							}
 						}
@@ -25724,8 +26301,10 @@
 							{"switch"
 								{"case"
 									{condition
-										{type rand}
-										{value 0.25}
+										{type cmp_i}
+										{var "tank_3_fork2$"}
+										{op "=="}
+										{value 0}
 									}
 									{"waypoint"
 										{who
@@ -25743,11 +26322,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_3_fork2$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.33}
+										{type cmp_i}
+										{var "tank_3_fork2$"}
+										{op "=="}
+										{value 1}
 									}
 									{"waypoint"
 										{who
@@ -25765,11 +26351,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_3_fork2$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.5}
+										{type cmp_i}
+										{var "tank_3_fork2$"}
+										{op "=="}
+										{value 2}
 									}
 									{"waypoint"
 										{who
@@ -25786,6 +26379,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_3_fork2$"}
+										{op "+"}
+										{value 1}
 									}
 								}
 								{"default"
@@ -25805,6 +26403,11 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_3_fork2$"}
+										{op "="}
+										{value 0}
+									}
 								}
 							}
 						}
@@ -25812,8 +26415,10 @@
 							{"switch"
 								{"case"
 									{condition
-										{type rand}
-										{value 0.25}
+										{type cmp_i}
+										{var "tank_3_fork3$"}
+										{op "=="}
+										{value 0}
 									}
 									{"waypoint"
 										{who
@@ -25831,11 +26436,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_3_fork3$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.33}
+										{type cmp_i}
+										{var "tank_3_fork3$"}
+										{op "=="}
+										{value 1}
 									}
 									{"waypoint"
 										{who
@@ -25853,11 +26465,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_3_fork3$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.5}
+										{type cmp_i}
+										{var "tank_3_fork3$"}
+										{op "=="}
+										{value 2}
 									}
 									{"waypoint"
 										{who
@@ -25874,6 +26493,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_3_fork3$"}
+										{op "+"}
+										{value 1}
 									}
 								}
 								{"default"
@@ -25892,6 +26516,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_3_fork3$"}
+										{op "="}
+										{value 0}
 									}
 								}
 							}
@@ -25957,7 +26586,7 @@
 			}
 			{"23"
 				{position 2055.16 -2478.8 2}
-				{radius 300}
+				{radius 500}
 				{commands
 					{"switch"
 						{"case"
@@ -25970,8 +26599,10 @@
 							{"switch"
 								{"case"
 									{condition
-										{type rand}
-										{value 0.25}
+										{type cmp_i}
+										{var "tank_4_fork1$"}
+										{op "=="}
+										{value 0}
 									}
 									{"waypoint"
 										{who
@@ -25989,11 +26620,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_4_fork1$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.33}
+										{type cmp_i}
+										{var "tank_4_fork1$"}
+										{op "=="}
+										{value 1}
 									}
 									{"waypoint"
 										{who
@@ -26011,11 +26649,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_4_fork1$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.5}
+										{type cmp_i}
+										{var "tank_4_fork1$"}
+										{op "=="}
+										{value 2}
 									}
 									{"waypoint"
 										{who
@@ -26032,6 +26677,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_4_fork1$"}
+										{op "+"}
+										{value 1}
 									}
 								}
 								{"default"
@@ -26051,6 +26701,11 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_4_fork1$"}
+										{op "="}
+										{value 0}
+									}
 								}
 							}
 						}
@@ -26064,8 +26719,10 @@
 							{"switch"
 								{"case"
 									{condition
-										{type rand}
-										{value 0.25}
+										{type cmp_i}
+										{var "tank_4_fork2$"}
+										{op "=="}
+										{value 0}
 									}
 									{"waypoint"
 										{who
@@ -26083,11 +26740,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_4_fork2$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.33}
+										{type cmp_i}
+										{var "tank_4_fork2$"}
+										{op "=="}
+										{value 1}
 									}
 									{"waypoint"
 										{who
@@ -26105,11 +26769,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_4_fork2$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.5}
+										{type cmp_i}
+										{var "tank_4_fork2$"}
+										{op "=="}
+										{value 2}
 									}
 									{"waypoint"
 										{who
@@ -26126,6 +26797,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_4_fork2$"}
+										{op "+"}
+										{value 1}
 									}
 								}
 								{"default"
@@ -26145,6 +26821,11 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_4_fork2$"}
+										{op "="}
+										{value 0}
+									}
 								}
 							}
 						}
@@ -26152,8 +26833,10 @@
 							{"switch"
 								{"case"
 									{condition
-										{type rand}
-										{value 0.25}
+										{type cmp_i}
+										{var "tank_4_fork3$"}
+										{op "=="}
+										{value 0}
 									}
 									{"waypoint"
 										{who
@@ -26171,11 +26854,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_4_fork3$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.33}
+										{type cmp_i}
+										{var "tank_4_fork3$"}
+										{op "=="}
+										{value 1}
 									}
 									{"waypoint"
 										{who
@@ -26193,11 +26883,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_4_fork3$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.5}
+										{type cmp_i}
+										{var "tank_4_fork3$"}
+										{op "=="}
+										{value 2}
 									}
 									{"waypoint"
 										{who
@@ -26214,6 +26911,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_4_fork3$"}
+										{op "+"}
+										{value 1}
 									}
 								}
 								{"default"
@@ -26232,6 +26934,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_4_fork3$"}
+										{op "="}
+										{value 0}
 									}
 								}
 							}
@@ -26297,7 +27004,7 @@
 			}
 			{"24"
 				{position -1816.45 3481.66 2.8543}
-				{radius 300}
+				{radius 500}
 				{commands
 					{"switch"
 						{"case"
@@ -26310,8 +27017,10 @@
 							{"switch"
 								{"case"
 									{condition
-										{type rand}
-										{value 0.25}
+										{type cmp_i}
+										{var "tank_5_fork1$"}
+										{op "=="}
+										{value 0}
 									}
 									{"waypoint"
 										{who
@@ -26329,11 +27038,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_5_fork1$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.33}
+										{type cmp_i}
+										{var "tank_5_fork1$"}
+										{op "=="}
+										{value 1}
 									}
 									{"waypoint"
 										{who
@@ -26351,11 +27067,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_5_fork1$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.5}
+										{type cmp_i}
+										{var "tank_5_fork1$"}
+										{op "=="}
+										{value 2}
 									}
 									{"waypoint"
 										{who
@@ -26372,6 +27095,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_5_fork1$"}
+										{op "+"}
+										{value 1}
 									}
 								}
 								{"default"
@@ -26391,6 +27119,11 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_5_fork1$"}
+										{op "="}
+										{value 0}
+									}
 								}
 							}
 						}
@@ -26404,8 +27137,10 @@
 							{"switch"
 								{"case"
 									{condition
-										{type rand}
-										{value 0.25}
+										{type cmp_i}
+										{var "tank_5_fork2$"}
+										{op "=="}
+										{value 0}
 									}
 									{"waypoint"
 										{who
@@ -26423,11 +27158,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_5_fork2$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.33}
+										{type cmp_i}
+										{var "tank_5_fork2$"}
+										{op "=="}
+										{value 1}
 									}
 									{"waypoint"
 										{who
@@ -26445,11 +27187,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_5_fork2$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.5}
+										{type cmp_i}
+										{var "tank_5_fork2$"}
+										{op "=="}
+										{value 2}
 									}
 									{"waypoint"
 										{who
@@ -26466,6 +27215,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_5_fork2$"}
+										{op "+"}
+										{value 1}
 									}
 								}
 								{"default"
@@ -26485,6 +27239,11 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_5_fork2$"}
+										{op "="}
+										{value 0}
+									}
 								}
 							}
 						}
@@ -26492,8 +27251,10 @@
 							{"switch"
 								{"case"
 									{condition
-										{type rand}
-										{value 0.25}
+										{type cmp_i}
+										{var "tank_5_fork3$"}
+										{op "=="}
+										{value 0}
 									}
 									{"waypoint"
 										{who
@@ -26511,11 +27272,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_5_fork3$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.33}
+										{type cmp_i}
+										{var "tank_5_fork3$"}
+										{op "=="}
+										{value 1}
 									}
 									{"waypoint"
 										{who
@@ -26533,11 +27301,18 @@
 											{approach "safe teleport"}
 										}
 									}
+									{"set_i"
+										{var "tank_5_fork3$"}
+										{op "+"}
+										{value 1}
+									}
 								}
 								{"case"
 									{condition
-										{type rand}
-										{value 0.5}
+										{type cmp_i}
+										{var "tank_5_fork3$"}
+										{op "=="}
+										{value 2}
 									}
 									{"waypoint"
 										{who
@@ -26554,6 +27329,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_5_fork3$"}
+										{op "+"}
+										{value 1}
 									}
 								}
 								{"default"
@@ -26572,6 +27352,11 @@
 											{make_squad}
 											{approach "safe teleport"}
 										}
+									}
+									{"set_i"
+										{var "tank_5_fork3$"}
+										{op "="}
+										{value 0}
 									}
 								}
 							}
@@ -26639,6 +27424,7 @@
 		{waypoints "a_f1_def_inf"
 			{"240"
 				{position -773.889 2141.6 2}
+				{radius 500}
 				{transition "289"}
 				{transition "290"}
 				{transition "291"}
@@ -26650,6 +27436,7 @@
 			}
 			{"241"
 				{position -1040.17 2053.74 0}
+				{radius 500}
 				{transition "286"}
 				{transition "287"}
 				{transition "288"}
@@ -26661,6 +27448,7 @@
 			}
 			{"242"
 				{position -304.749 339.635 22}
+				{radius 500}
 				{transition "298"}
 				{transition "299"}
 				{transition "300"}
@@ -26672,6 +27460,7 @@
 			}
 			{"243"
 				{position -1584.58 1255.82 0}
+				{radius 500}
 				{transition "283"}
 				{transition "284"}
 				{transition "285"}
@@ -26683,66 +27472,87 @@
 			}
 			{"280"
 				{position 281.972 3810.34 4}
+				{radius 500}
 			}
 			{"281"
 				{position 35.2117 3260.17 4.04894}
+				{radius 500}
 			}
 			{"282"
 				{position -55.5347 2878.58 3}
+				{radius 500}
 			}
 			{"283"
 				{position -1322.07 1200.75 0}
+				{radius 500}
 			}
 			{"284"
 				{position -1389.81 1152.1 0}
+				{radius 500}
 			}
 			{"285"
 				{position -1687.4 1153.21 0}
+				{radius 500}
 			}
 			{"286"
 				{position -976.762 1666.47 -20}
+				{radius 500}
 			}
 			{"287"
 				{position -825.188 1697.92 -20.4255}
+				{radius 500}
 			}
 			{"288"
 				{position -639.044 1855.35 -19.9771}
+				{radius 500}
 			}
 			{"289"
 				{position -402.19 2079.14 -25}
+				{radius 500}
 			}
 			{"290"
 				{position -376.377 1863.13 3}
+				{radius 500}
 			}
 			{"291"
 				{position -315.893 1914.65 5.77206}
+				{radius 500}
 			}
 			{"292"
 				{position -1894.97 35.9406 7}
+				{radius 500}
 			}
 			{"293"
 				{position -1347.94 -328.994 -16.0793}
+				{radius 500}
 			}
 			{"294"
 				{position -1219.39 -398.762 -6.93758}
+				{radius 500}
 			}
 			{"295"
 				{position -1353.58 1853.92 0}
+				{radius 500}
 			}
 			{"296"
 				{position -1523.17 2108.97 10.9712}
+				{radius 500}
 			}
 			{"297"
 				{position -1976.1 1979.84 2}
+				{radius 500}
 			}
 			{"298"
 				{position -185.585 13.8019 18}
+				{radius 500}
 			}
 			{"299"
 				{position -5.58472 319.453 16}
+				{radius 500}
 			}
 			{"30"
 				{position -158.251 3560.31 7}
+				{radius 500}
 				{transition "280"}
 				{transition "281"}
 				{transition "282"}
@@ -26754,18 +27564,23 @@
 			}
 			{"300"
 				{position 51.6057 73.1564 36.5596}
+				{radius 500}
 			}
 			{"301"
 				{position -1465.4 1476.48 0}
+				{radius 500}
 			}
 			{"302"
 				{position -1733.5 1675.26 0}
+				{radius 500}
 			}
 			{"303"
 				{position -1461.36 1557.66 0}
+				{radius 500}
 			}
 			{"31"
 				{position -1710.41 -163.888 2}
+				{radius 500}
 				{transition "292"}
 				{transition "293"}
 				{transition "294"}
@@ -26777,6 +27592,7 @@
 			}
 			{"32"
 				{position -1565.63 1446.48 0}
+				{radius 500}
 				{transition "301"}
 				{transition "302"}
 				{transition "303"}
@@ -26788,6 +27604,7 @@
 			}
 			{"33"
 				{position -2129.39 2243.56 24.3818}
+				{radius 500}
 				{transition "295"}
 				{transition "296"}
 				{transition "297"}
@@ -26801,21 +27618,25 @@
 		{waypoints "a_f1_def_vehicle"
 			{"110"
 				{position -3123.08 2140.54 6}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "70"}
 			}
 			{"111"
 				{position -2548.6 2016.19 6}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "70"}
 			}
 			{"112"
 				{position -2877.21 784.08 4}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "70"}
 			}
 			{"113"
 				{position -968.979 2025.17 0}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "71"}
 				{commands
@@ -26833,6 +27654,7 @@
 			}
 			{"114"
 				{position -1078.29 1397.46 0}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "71"}
 				{commands
@@ -26850,6 +27672,7 @@
 			}
 			{"115"
 				{position -1328.63 508.75 17}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "71"}
 				{commands
@@ -26867,6 +27690,7 @@
 			}
 			{"116"
 				{position -2108.52 2031.09 25.0213}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "72"}
 				{commands
@@ -26884,6 +27708,7 @@
 			}
 			{"117"
 				{position -2208.07 1173.38 43.1257}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "72"}
 				{commands
@@ -26901,6 +27726,7 @@
 			}
 			{"118"
 				{position -1749.76 985.295 28.0798}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "72"}
 				{commands
@@ -26918,6 +27744,7 @@
 			}
 			{"119"
 				{position -412.306 2473.37 -8}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "73"}
 				{commands
@@ -26935,6 +27762,7 @@
 			}
 			{"120"
 				{position -593.019 3031.25 -6}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "73"}
 				{commands
@@ -26952,6 +27780,7 @@
 			}
 			{"121"
 				{position -812.552 3682.22 0}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "73"}
 				{commands
@@ -26969,54 +27798,68 @@
 			}
 			{"230"
 				{position -3526.08 467.487 22.3096}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "70"}
 			}
 			{"528"
 				{position -1699.86 3212.2 26}
+				{radius 500}
 				{transition "535"}
 				{transition "536"}
 				{transition "537"}
 			}
 			{"529"
 				{position -1700.79 304.635 15}
+				{radius 500}
 			}
 			{"530"
 				{position -2163.46 9.44836 3}
+				{radius 500}
 			}
 			{"531"
 				{position -1568.61 691.316 5}
+				{radius 500}
 			}
 			{"532"
 				{position -1531.13 1323.4 0}
+				{radius 500}
 			}
 			{"533"
 				{position -1535.22 1789.96 0}
+				{radius 500}
 			}
 			{"534"
 				{position -1840.07 1836.96 0}
+				{radius 500}
 			}
 			{"535"
 				{position -1150.85 2702.45 0}
+				{radius 500}
 			}
 			{"536"
 				{position -1433.35 2514.47 -11}
+				{radius 500}
 			}
 			{"537"
 				{position -1250.26 3417.07 -3.31909}
+				{radius 500}
 			}
 			{"7"
 				{position -2605.7 834.246 3}
+				{radius 500}
 				{transition "529"}
 				{transition "530"}
 				{transition "531"}
 			}
 			{"70"
 				{position -3330.81 1050.89 14}
+				{radius 500}
 				{RandomPosition 1}
 			}
 			{"71"
 				{position -1179.86 907.853 1}
+				{radius 500}
 				{RandomPosition 1}
 				{commands
 					{"switch"
@@ -27115,6 +27958,7 @@
 			}
 			{"72"
 				{position -2343.7 1653.16 36}
+				{radius 500}
 				{RandomPosition 1}
 				{commands
 					{"switch"
@@ -27213,6 +28057,7 @@
 			}
 			{"73"
 				{position -699.541 3296.72 -1}
+				{radius 500}
 				{RandomPosition 1}
 				{commands
 					{"switch"
@@ -27311,6 +28156,7 @@
 			}
 			{"8"
 				{position -1891.92 1515.54 0}
+				{radius 500}
 				{transition "532"}
 				{transition "533"}
 				{transition "534"}
@@ -27319,6 +28165,7 @@
 		{waypoints "b_f1_def_inf"
 			{"260"
 				{position -2120.92 99.9876 3.65142}
+				{radius 500}
 				{transition "314"}
 				{transition "315"}
 				{transition "326"}
@@ -27330,6 +28177,7 @@
 			}
 			{"261"
 				{position -610.728 1687.9 3}
+				{radius 500}
 				{transition "308"}
 				{transition "309"}
 				{transition "327"}
@@ -27341,6 +28189,7 @@
 			}
 			{"262"
 				{position -795.208 3521.95 0}
+				{radius 500}
 				{transition "312"}
 				{transition "313"}
 				{transition "323"}
@@ -27352,6 +28201,7 @@
 			}
 			{"263"
 				{position -2457.29 1180.06 4.44763}
+				{radius 500}
 				{transition "316"}
 				{transition "317"}
 				{transition "325"}
@@ -27363,78 +28213,103 @@
 			}
 			{"304"
 				{position -3340.98 -466.993 5.49316}
+				{radius 500}
 			}
 			{"305"
 				{position -3593.68 -34.3329 2.03882}
+				{radius 500}
 			}
 			{"306"
 				{position -2451.75 2670.97 27}
+				{radius 500}
 			}
 			{"307"
 				{position -3418.79 2311.49 24.2039}
+				{radius 500}
 			}
 			{"308"
 				{position -610.283 2001.75 -20}
+				{radius 500}
 			}
 			{"309"
 				{position -965.266 1698.03 -20}
+				{radius 500}
 			}
 			{"310"
 				{position -2132.84 1637.99 0.831945}
+				{radius 500}
 			}
 			{"311"
 				{position -1903.44 1948.38 0}
+				{radius 500}
 			}
 			{"312"
 				{position -1182.84 4129.41 -16.8875}
+				{radius 500}
 			}
 			{"313"
 				{position -1415.25 3688.7 1}
+				{radius 500}
 			}
 			{"314"
 				{position -2626.07 -235.852 4}
+				{radius 500}
 			}
 			{"315"
 				{position -1768.25 84.3159 10}
+				{radius 500}
 			}
 			{"316"
 				{position -2786.35 1166.35 5.30027}
+				{radius 500}
 			}
 			{"317"
 				{position -2753.8 1010.62 6}
+				{radius 500}
 			}
 			{"318"
 				{position -1662.61 1153.57 0}
+				{radius 500}
 			}
 			{"319"
 				{position -1655.8 1479.46 0}
+				{radius 500}
 			}
 			{"320"
 				{position -3151.79 2598.11 33.7617}
+				{radius 500}
 			}
 			{"321"
 				{position -3372.15 -342.342 -3}
+				{radius 500}
 			}
 			{"322"
 				{position -1502.1 2046.53 3.21094}
+				{radius 500}
 			}
 			{"323"
 				{position -1416.39 3497.32 -2}
+				{radius 500}
 			}
 			{"324"
 				{position -1665.65 1568.28 0}
+				{radius 500}
 			}
 			{"325"
 				{position -2847.32 1691.39 18.4417}
+				{radius 500}
 			}
 			{"326"
 				{position -2008.45 -559.248 3}
+				{radius 500}
 			}
 			{"327"
 				{position -782.429 1833.4 -20}
+				{radius 500}
 			}
 			{"50"
 				{position -2474.56 2271.12 25.2593}
+				{radius 500}
 				{transition "306"}
 				{transition "307"}
 				{transition "320"}
@@ -27446,6 +28321,7 @@
 			}
 			{"51"
 				{position -1773.56 1676.67 0}
+				{radius 500}
 				{transition "310"}
 				{transition "311"}
 				{transition "322"}
@@ -27457,6 +28333,7 @@
 			}
 			{"52"
 				{position -3195.86 -162.764 1}
+				{radius 500}
 				{transition "304"}
 				{transition "305"}
 				{transition "321"}
@@ -27468,6 +28345,7 @@
 			}
 			{"53"
 				{position -1523.11 1433.04 0}
+				{radius 500}
 				{transition "318"}
 				{transition "319"}
 				{transition "324"}
@@ -27481,27 +28359,32 @@
 		{waypoints "b_f1_def_vehicle"
 			{"10"
 				{position -845.533 1288.5 1}
+				{radius 500}
 				{transition "541"}
 				{transition "542"}
 				{transition "543"}
 			}
 			{"170"
 				{position 435.507 1857.61 25.9932}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "90"}
 			}
 			{"171"
 				{position 143.054 806.054 29}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "90"}
 			}
 			{"172"
 				{position 50.5052 1332.6 30}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "90"}
 			}
 			{"173"
 				{position -500.926 2483.8 -8}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "91"}
 				{commands
@@ -27519,6 +28402,7 @@
 			}
 			{"174"
 				{position -793.082 3321.1 0}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "91"}
 				{commands
@@ -27536,6 +28420,7 @@
 			}
 			{"175"
 				{position -366.691 3158.26 2.80893}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "91"}
 				{commands
@@ -27553,6 +28438,7 @@
 			}
 			{"176"
 				{position -1996.93 2209.54 41}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "92"}
 				{commands
@@ -27570,6 +28456,7 @@
 			}
 			{"177"
 				{position -2237.54 1191.54 45.3882}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "92"}
 				{commands
@@ -27587,6 +28474,7 @@
 			}
 			{"178"
 				{position -2370.35 1468.99 40}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "92"}
 				{commands
@@ -27604,6 +28492,7 @@
 			}
 			{"179"
 				{position -949.134 572.543 12}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "93"}
 				{commands
@@ -27621,6 +28510,7 @@
 			}
 			{"180"
 				{position -1524.22 524.967 9.06091}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "93"}
 				{commands
@@ -27638,6 +28528,7 @@
 			}
 			{"181"
 				{position -1951.62 986.693 43.2441}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "93"}
 				{commands
@@ -27655,54 +28546,68 @@
 			}
 			{"235"
 				{position 602.002 775.233 11.7088}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "90"}
 			}
 			{"538"
 				{position -251.875 2587.17 -4.30993}
+				{radius 500}
 			}
 			{"539"
 				{position -743.102 2331.14 0.962267}
+				{radius 500}
 			}
 			{"540"
 				{position -1176.61 2116.39 -2.58435}
+				{radius 500}
 			}
 			{"541"
 				{position -537.377 1056.52 17.8802}
+				{radius 500}
 			}
 			{"542"
 				{position -1025.08 881.256 1}
+				{radius 500}
 			}
 			{"543"
 				{position -1291.04 1337.8 0}
+				{radius 500}
 			}
 			{"544"
 				{position -1573.49 1362.02 0}
+				{radius 500}
 				{transition "545"}
 				{transition "546"}
 				{transition "547"}
 			}
 			{"545"
 				{position -1931.5 1125.39 5.40493}
+				{radius 500}
 			}
 			{"546"
 				{position -1912.51 1573.61 0}
+				{radius 500}
 			}
 			{"547"
 				{position -1538.4 1808.76 0}
+				{radius 500}
 			}
 			{"9"
 				{position -429.336 1607.21 11.6654}
+				{radius 500}
 				{transition "538"}
 				{transition "539"}
 				{transition "540"}
 			}
 			{"90"
 				{position 474.693 1175.52 0}
+				{radius 500}
 				{RandomPosition 1}
 			}
 			{"91"
 				{position -532.059 2735.93 -1}
+				{radius 500}
 				{RandomPosition 1}
 				{commands
 					{"switch"
@@ -27801,6 +28706,7 @@
 			}
 			{"92"
 				{position -2354.95 1776.82 35}
+				{radius 500}
 				{RandomPosition 1}
 				{commands
 					{"switch"
@@ -27899,6 +28805,7 @@
 			}
 			{"93"
 				{position -1372.55 910.23 6}
+				{radius 500}
 				{RandomPosition 1}
 				{commands
 					{"switch"
@@ -27999,6 +28906,7 @@
 		{waypoints "a_f2_def_inf"
 			{"244"
 				{position 1820.81 1735.91 6}
+				{radius 500}
 				{transition "334"}
 				{transition "335"}
 				{transition "336"}
@@ -28010,6 +28918,7 @@
 			}
 			{"245"
 				{position 749.469 1565.61 4.20056}
+				{radius 500}
 				{transition "349"}
 				{transition "350"}
 				{transition "351"}
@@ -28021,6 +28930,7 @@
 			}
 			{"246"
 				{position 1571.68 4060.16 3}
+				{radius 500}
 				{transition "343"}
 				{transition "344"}
 				{transition "345"}
@@ -28032,6 +28942,7 @@
 			}
 			{"247"
 				{position 1091.22 2263.11 6}
+				{radius 500}
 				{transition "340"}
 				{transition "341"}
 				{transition "342"}
@@ -28043,42 +28954,55 @@
 			}
 			{"328"
 				{position 1906.41 190.21 -15.1781}
+				{radius 500}
 			}
 			{"329"
 				{position 1467.37 1201.7 4}
+				{radius 500}
 			}
 			{"330"
 				{position 1808 931.977 0}
+				{radius 500}
 			}
 			{"331"
 				{position 1196.31 1890.11 12}
+				{radius 500}
 			}
 			{"332"
 				{position 1491.01 1563.39 6}
+				{radius 500}
 			}
 			{"333"
 				{position 1443.74 1468.08 6}
+				{radius 500}
 			}
 			{"334"
 				{position 1644.99 1524.18 5}
+				{radius 500}
 			}
 			{"335"
 				{position 1676.39 1619.73 6}
+				{radius 500}
 			}
 			{"336"
 				{position 2045.24 1639.47 1.80816}
+				{radius 500}
 			}
 			{"337"
 				{position 562.337 -679.283 6.95117}
+				{radius 500}
 			}
 			{"338"
 				{position 774.154 -590.519 13}
+				{radius 500}
 			}
 			{"339"
 				{position 837.337 -884.487 13.9949}
+				{radius 500}
 			}
 			{"34"
 				{position 1322.28 1581.12 6}
+				{radius 500}
 				{transition "331"}
 				{transition "332"}
 				{transition "333"}
@@ -28090,36 +29014,47 @@
 			}
 			{"340"
 				{position 849.659 2079.47 16}
+				{radius 500}
 			}
 			{"341"
 				{position 1412.7 2102.16 9}
+				{radius 500}
 			}
 			{"342"
 				{position 872.081 2187.36 15}
+				{radius 500}
 			}
 			{"343"
 				{position 1755.96 4627.24 -30.4606}
+				{radius 500}
 			}
 			{"344"
 				{position 1959.28 4451.79 2}
+				{radius 500}
 			}
 			{"345"
 				{position 1692.39 3702.15 1}
+				{radius 500}
 			}
 			{"346"
 				{position -2.2417 332.03 16}
+				{radius 500}
 			}
 			{"347"
 				{position -175.406 48.2623 17.9021}
+				{radius 500}
 			}
 			{"348"
 				{position 263.204 370.385 17}
+				{radius 500}
 			}
 			{"349"
 				{position 1101.16 1471.75 14}
+				{radius 500}
 			}
 			{"35"
 				{position 1581.69 660.77 0}
+				{radius 500}
 				{transition "328"}
 				{transition "329"}
 				{transition "330"}
@@ -28131,12 +29066,15 @@
 			}
 			{"350"
 				{position 960.904 1218.56 2}
+				{radius 500}
 			}
 			{"351"
 				{position 1120.91 1545.82 12}
+				{radius 500}
 			}
 			{"36"
 				{position 354.502 -170.008 17}
+				{radius 500}
 				{transition "337"}
 				{transition "338"}
 				{transition "339"}
@@ -28148,6 +29086,7 @@
 			}
 			{"37"
 				{position -99.7961 440.728 21.1021}
+				{radius 500}
 				{transition "346"}
 				{transition "347"}
 				{transition "348"}
@@ -28161,33 +29100,39 @@
 		{waypoints "a_f2_def_vehicle"
 			{"11"
 				{position 29.8772 1025.01 30}
+				{radius 500}
 				{transition "548"}
 				{transition "549"}
 				{transition "550"}
 			}
 			{"12"
 				{position 945.503 2328.7 14}
+				{radius 500}
 				{transition "551"}
 				{transition "552"}
 				{transition "553"}
 			}
 			{"122"
 				{position -476.852 2624.74 -4.53516}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "74"}
 			}
 			{"123"
 				{position -19.8877 3439.55 6}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "74"}
 			}
 			{"124"
 				{position -147.682 2961.48 5}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "74"}
 			}
 			{"125"
 				{position 1370.6 2307.78 6}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "75"}
 				{commands
@@ -28205,6 +29150,7 @@
 			}
 			{"126"
 				{position 1335.42 3070 3}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "75"}
 				{commands
@@ -28222,6 +29168,7 @@
 			}
 			{"127"
 				{position 1449.13 2696.38 3}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "75"}
 				{commands
@@ -28239,6 +29186,7 @@
 			}
 			{"128"
 				{position 1863.25 1839.98 6.39996}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "76"}
 				{commands
@@ -28256,6 +29204,7 @@
 			}
 			{"129"
 				{position 1852.93 1540.01 3}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "76"}
 				{commands
@@ -28273,6 +29222,7 @@
 			}
 			{"130"
 				{position 1580.63 1043.13 2}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "76"}
 				{commands
@@ -28290,6 +29240,7 @@
 			}
 			{"131"
 				{position 1268.59 809.511 1}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "77"}
 				{commands
@@ -28307,6 +29258,7 @@
 			}
 			{"132"
 				{position 786.351 1050.1 0}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "77"}
 				{commands
@@ -28324,6 +29276,7 @@
 			}
 			{"133"
 				{position 984.73 717.071 1}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "77"}
 				{commands
@@ -28341,48 +29294,61 @@
 			}
 			{"231"
 				{position -200.5 3713.5 6}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "74"}
 			}
 			{"548"
 				{position 424.021 699.214 25.0731}
+				{radius 500}
 			}
 			{"549"
 				{position 132.015 468.503 18.6061}
+				{radius 500}
 			}
 			{"550"
 				{position 496.218 999.467 0}
+				{radius 500}
 			}
 			{"551"
 				{position 735.634 2952.69 30}
+				{radius 500}
 			}
 			{"552"
 				{position 1099.66 2877.53 15}
+				{radius 500}
 			}
 			{"553"
 				{position 590.868 2580.21 30}
+				{radius 500}
 			}
 			{"554"
 				{position 706.31 1489.87 4.73141}
+				{radius 500}
 				{transition "555"}
 				{transition "556"}
 				{transition "557"}
 			}
 			{"555"
 				{position 1317.62 2003.68 8}
+				{radius 500}
 			}
 			{"556"
 				{position 1251.77 1181.78 4}
+				{radius 500}
 			}
 			{"557"
 				{position 1395 1567.64 6}
+				{radius 500}
 			}
 			{"74"
 				{position -661.011 3283.53 -2}
+				{radius 500}
 				{RandomPosition 1}
 			}
 			{"75"
 				{position 1151.21 2601.14 5}
+				{radius 500}
 				{RandomPosition 1}
 				{commands
 					{"switch"
@@ -28481,6 +29447,7 @@
 			}
 			{"76"
 				{position 1631.25 1372.55 4}
+				{radius 500}
 				{RandomPosition 1}
 				{commands
 					{"switch"
@@ -28579,6 +29546,7 @@
 			}
 			{"77"
 				{position 1116.25 978.784 2}
+				{radius 500}
 				{RandomPosition 1}
 				{commands
 					{"switch"
@@ -28679,6 +29647,7 @@
 		{waypoints "b_f2_def_inf"
 			{"264"
 				{position 437.307 65.0368 24}
+				{radius 500}
 				{transition "355"}
 				{transition "356"}
 				{transition "357"}
@@ -28690,6 +29659,7 @@
 			}
 			{"265"
 				{position 881.166 2094.34 14}
+				{radius 500}
 				{transition "364"}
 				{transition "365"}
 				{transition "366"}
@@ -28701,6 +29671,7 @@
 			}
 			{"266"
 				{position 835.555 1478.25 0}
+				{radius 500}
 				{transition "373"}
 				{transition "374"}
 				{transition "375"}
@@ -28712,6 +29683,7 @@
 			}
 			{"267"
 				{position 1099.02 2011.86 6}
+				{radius 500}
 				{transition "352"}
 				{transition "353"}
 				{transition "354"}
@@ -28723,78 +29695,103 @@
 			}
 			{"352"
 				{position 1138.88 1790.22 12}
+				{radius 500}
 			}
 			{"353"
 				{position 817.003 1828.98 7.4871}
+				{radius 500}
 			}
 			{"354"
 				{position 852.608 1938.09 10.5729}
+				{radius 500}
 			}
 			{"355"
 				{position 587.637 -604.749 4.04419}
+				{radius 500}
 			}
 			{"356"
 				{position 64.2002 33.5906 20}
+				{radius 500}
 			}
 			{"357"
 				{position 14.1827 327.166 15}
+				{radius 500}
 			}
 			{"358"
 				{position 1495.26 -661.191 35}
+				{radius 500}
 			}
 			{"359"
 				{position 1861.52 -1098.89 35.8992}
+				{radius 500}
 			}
 			{"360"
 				{position 1901.7 187.125 -15}
+				{radius 500}
 			}
 			{"361"
 				{position 1098.53 1603.82 12}
+				{radius 500}
 			}
 			{"362"
 				{position 1176.46 1417.48 14}
+				{radius 500}
 			}
 			{"363"
 				{position 1396.48 2097.77 9}
+				{radius 500}
 			}
 			{"364"
 				{position 755.98 1993.96 10.1013}
+				{radius 500}
 			}
 			{"365"
 				{position 723.732 1894.19 8}
+				{radius 500}
 			}
 			{"366"
 				{position 884.455 2314.44 14.7965}
+				{radius 500}
 			}
 			{"367"
 				{position 1685.23 4637.75 11}
+				{radius 500}
 			}
 			{"368"
 				{position 1347.32 4086.63 14.3689}
+				{radius 500}
 			}
 			{"369"
 				{position 612.19 4741.46 5.34338}
+				{radius 500}
 			}
 			{"370"
 				{position 265.658 3832.26 4}
+				{radius 500}
 			}
 			{"371"
 				{position 3.07532 2941.34 2.52051}
+				{radius 500}
 			}
 			{"372"
 				{position 62.098 3213.56 4}
+				{radius 500}
 			}
 			{"373"
 				{position 942.488 1210.09 2}
+				{radius 500}
 			}
 			{"374"
 				{position 605.823 1574.87 8.00844}
+				{radius 500}
 			}
 			{"375"
 				{position 772.5 1360.62 0}
+				{radius 500}
 			}
 			{"54"
 				{position 507.72 3308.53 30}
+				{radius 500}
 				{transition "370"}
 				{transition "371"}
 				{transition "372"}
@@ -28806,6 +29803,7 @@
 			}
 			{"55"
 				{position 2038.39 -230.151 25.052}
+				{radius 500}
 				{transition "358"}
 				{transition "359"}
 				{transition "360"}
@@ -28817,6 +29815,7 @@
 			}
 			{"56"
 				{position 1568.86 4338.5 16.3235}
+				{radius 500}
 				{transition "367"}
 				{transition "368"}
 				{transition "369"}
@@ -28828,6 +29827,7 @@
 			}
 			{"57"
 				{position 1444.52 1823.89 9}
+				{radius 500}
 				{transition "361"}
 				{transition "362"}
 				{transition "363"}
@@ -28841,33 +29841,39 @@
 		{waypoints "b_f2_def_vehicle"
 			{"13"
 				{position 1773.15 2354.73 3}
+				{radius 500}
 				{transition "561"}
 				{transition "562"}
 				{transition "563"}
 			}
 			{"14"
 				{position 1222.51 3087.97 10.593}
+				{radius 500}
 				{transition "558"}
 				{transition "559"}
 				{transition "560"}
 			}
 			{"182"
 				{position 2743.57 3379.51 9}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "94"}
 			}
 			{"183"
 				{position 3114.74 2296.53 4}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "94"}
 			}
 			{"184"
 				{position 3281.07 3676.61 4}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "94"}
 			}
 			{"185"
 				{position 1227.36 3861.56 15.1359}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "95"}
 				{commands
@@ -28885,6 +29891,7 @@
 			}
 			{"186"
 				{position 1120.1 3485.22 12.0745}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "95"}
 				{commands
@@ -28902,6 +29909,7 @@
 			}
 			{"187"
 				{position 876.437 2654.51 9.65195}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "95"}
 				{commands
@@ -28919,6 +29927,7 @@
 			}
 			{"188"
 				{position 500.909 1841.41 14.9291}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "96"}
 				{commands
@@ -28936,6 +29945,7 @@
 			}
 			{"189"
 				{position 702.466 2167.4 8.23107}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "96"}
 				{commands
@@ -28953,6 +29963,7 @@
 			}
 			{"190"
 				{position 458.557 1533.61 7.24005}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "96"}
 				{commands
@@ -28970,6 +29981,7 @@
 			}
 			{"191"
 				{position 1642.55 676.201 0}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "97"}
 				{commands
@@ -28987,6 +29999,7 @@
 			}
 			{"192"
 				{position 1337.48 835.932 1}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "97"}
 				{commands
@@ -29004,6 +30017,7 @@
 			}
 			{"193"
 				{position 517.943 1135.88 0}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "97"}
 				{commands
@@ -29021,48 +30035,61 @@
 			}
 			{"236"
 				{position 2792.41 2841.14 5}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "94"}
 			}
 			{"558"
 				{position 1364.28 3622.01 15}
+				{radius 500}
 			}
 			{"559"
 				{position 1073.66 2575.85 9.41102}
+				{radius 500}
 			}
 			{"560"
 				{position 1484.87 4056.93 14.0354}
+				{radius 500}
 			}
 			{"561"
 				{position 1517.54 2636.39 2}
+				{radius 500}
 			}
 			{"562"
 				{position 1934.43 2610.62 0}
+				{radius 500}
 			}
 			{"563"
 				{position 1378.64 2327.15 6}
+				{radius 500}
 			}
 			{"564"
 				{position 1235.54 1219.09 4}
+				{radius 500}
 				{transition "565"}
 				{transition "566"}
 				{transition "567"}
 			}
 			{"565"
 				{position 1345.68 2059.22 8.04175}
+				{radius 500}
 			}
 			{"566"
 				{position 1422.48 1136.47 4}
+				{radius 500}
 			}
 			{"567"
 				{position 862 1360.54 1}
+				{radius 500}
 			}
 			{"94"
 				{position 3099.25 3127.66 13}
+				{radius 500}
 				{RandomPosition 1}
 			}
 			{"95"
 				{position 1002.66 3090.39 12}
+				{radius 500}
 				{RandomPosition 1}
 				{commands
 					{"switch"
@@ -29161,6 +30188,7 @@
 			}
 			{"96"
 				{position 787.2 1726.77 7}
+				{radius 500}
 				{RandomPosition 1}
 				{commands
 					{"switch"
@@ -29259,6 +30287,7 @@
 			}
 			{"97"
 				{position 1010.97 1009.27 2}
+				{radius 500}
 				{RandomPosition 1}
 				{commands
 					{"switch"
@@ -29359,6 +30388,7 @@
 		{waypoints "a_f3_def_inf"
 			{"248"
 				{position -1991.72 -1978.35 10}
+				{radius 500}
 				{transition "379"}
 				{transition "380"}
 				{transition "381"}
@@ -29370,6 +30400,7 @@
 			}
 			{"249"
 				{position -974.415 -2525.94 1}
+				{radius 500}
 				{transition "388"}
 				{transition "389"}
 				{transition "390"}
@@ -29381,6 +30412,7 @@
 			}
 			{"250"
 				{position -1695.03 -205.25 3}
+				{radius 500}
 				{transition "391"}
 				{transition "392"}
 				{transition "393"}
@@ -29392,6 +30424,7 @@
 			}
 			{"251"
 				{position -2245.78 -3797.28 3}
+				{radius 500}
 				{transition "397"}
 				{transition "398"}
 				{transition "399"}
@@ -29403,18 +30436,23 @@
 			}
 			{"376"
 				{position -716.732 -1787.18 -33}
+				{radius 500}
 			}
 			{"377"
 				{position -1150.36 -2109.66 0}
+				{radius 500}
 			}
 			{"378"
 				{position -691.778 -1912.63 -20}
+				{radius 500}
 			}
 			{"379"
 				{position -1830.92 -2037.65 6}
+				{radius 500}
 			}
 			{"38"
 				{position -2244.72 -1130.33 4}
+				{radius 500}
 				{transition "382"}
 				{transition "383"}
 				{transition "384"}
@@ -29426,36 +30464,47 @@
 			}
 			{"380"
 				{position -1884.48 -2134.31 6}
+				{radius 500}
 			}
 			{"381"
 				{position -1543.27 -1549.2 16}
+				{radius 500}
 			}
 			{"382"
 				{position -2052.31 -1288.57 19}
+				{radius 500}
 			}
 			{"383"
 				{position -1806.97 -1122.94 5}
+				{radius 500}
 			}
 			{"384"
 				{position -1997.58 -990.518 5}
+				{radius 500}
 			}
 			{"385"
 				{position -2135.99 -1952.62 11}
+				{radius 500}
 			}
 			{"386"
 				{position -2076.61 -1860.02 12}
+				{radius 500}
 			}
 			{"387"
 				{position -2159.89 -2288.86 17}
+				{radius 500}
 			}
 			{"388"
 				{position -540.856 -2367.58 3}
+				{radius 500}
 			}
 			{"389"
 				{position -658.115 -2681.07 3}
+				{radius 500}
 			}
 			{"39"
 				{position -2286.97 -2015.28 10}
+				{radius 500}
 				{transition "385"}
 				{transition "386"}
 				{transition "387"}
@@ -29467,36 +30516,47 @@
 			}
 			{"390"
 				{position -1146.3 -2910.82 0}
+				{radius 500}
 			}
 			{"391"
 				{position -842.75 608.924 18.0457}
+				{radius 500}
 			}
 			{"392"
 				{position -1698.37 43.0811 5}
+				{radius 500}
 			}
 			{"393"
 				{position -1226.31 -371.277 -17}
+				{radius 500}
 			}
 			{"394"
 				{position -1122.73 -6173.98 0}
+				{radius 500}
 			}
 			{"395"
 				{position -1449.17 -5947 0}
+				{radius 500}
 			}
 			{"396"
 				{position -2081.67 -5517.65 0}
+				{radius 500}
 			}
 			{"397"
 				{position -2222.64 -4332.99 7.73877}
+				{radius 500}
 			}
 			{"398"
 				{position -2405.63 -4040.89 7}
+				{radius 500}
 			}
 			{"399"
 				{position -2104.03 -3573.31 8}
+				{radius 500}
 			}
 			{"40"
 				{position -1243.03 -1931.64 0}
+				{radius 500}
 				{transition "376"}
 				{transition "377"}
 				{transition "378"}
@@ -29508,6 +30568,7 @@
 			}
 			{"41"
 				{position -2018.94 -5889.5 0}
+				{radius 500}
 				{transition "394"}
 				{transition "395"}
 				{transition "396"}
@@ -29521,21 +30582,25 @@
 		{waypoints "a_f3_def_vehicle"
 			{"134"
 				{position -4602.73 -1619.39 31.6403}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "78"}
 			}
 			{"135"
 				{position -4682.1 59.9476 14.5655}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "78"}
 			}
 			{"136"
 				{position -4838.43 -2020.57 18.7922}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "78"}
 			}
 			{"137"
 				{position -1067.36 -1664.43 0}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "79"}
 				{commands
@@ -29553,6 +30618,7 @@
 			}
 			{"138"
 				{position -988.663 -1048.14 1}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "79"}
 				{commands
@@ -29570,6 +30636,7 @@
 			}
 			{"139"
 				{position -1421.12 -143.306 8.48577}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "79"}
 				{commands
@@ -29587,6 +30654,7 @@
 			}
 			{"140"
 				{position -1422.28 -3193.82 0}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "80"}
 				{commands
@@ -29604,6 +30672,7 @@
 			}
 			{"141"
 				{position -1734.52 -3881.72 11}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "80"}
 				{commands
@@ -29621,6 +30690,7 @@
 			}
 			{"142"
 				{position -1566.49 -3520.37 7}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "80"}
 				{commands
@@ -29638,6 +30708,7 @@
 			}
 			{"143"
 				{position -2678.69 -5498.8 3}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "81"}
 				{commands
@@ -29655,6 +30726,7 @@
 			}
 			{"144"
 				{position -2008.72 -4370.04 6.14526}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "81"}
 				{commands
@@ -29672,6 +30744,7 @@
 			}
 			{"145"
 				{position -1852.02 -4081.86 18}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "81"}
 				{commands
@@ -29689,60 +30762,75 @@
 			}
 			{"232"
 				{position -4513.27 -428.531 15.7487}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "78"}
 			}
 			{"25"
 				{position -2749.45 -1781.05 3}
+				{radius 500}
 				{transition "571"}
 				{transition "572"}
 				{transition "573"}
 			}
 			{"26"
 				{position -2395.38 -1058.74 6}
+				{radius 500}
 				{transition "568"}
 				{transition "569"}
 				{transition "570"}
 			}
 			{"568"
 				{position -2795.6 -492.035 5}
+				{radius 500}
 			}
 			{"569"
 				{position -2107.43 -261.941 4}
+				{radius 500}
 			}
 			{"570"
 				{position -1816.67 -967.68 4}
+				{radius 500}
 			}
 			{"571"
 				{position -2979.91 -2159.63 0}
+				{radius 500}
 			}
 			{"572"
 				{position -1959.98 -2056.74 8}
+				{radius 500}
 			}
 			{"573"
 				{position -2356.62 -2486.71 2}
+				{radius 500}
 			}
 			{"574"
 				{position -3253.82 -4677.73 0}
+				{radius 500}
 				{transition "575"}
 				{transition "576"}
 				{transition "577"}
 			}
 			{"575"
 				{position -2738.02 -3991.92 0}
+				{radius 500}
 			}
 			{"576"
 				{position -2526.27 -3412.11 7}
+				{radius 500}
 			}
 			{"577"
 				{position -3308.63 -5321.75 3}
+				{radius 500}
 			}
 			{"78"
 				{position -4848.1 -1152.41 24}
+				{radius 500}
 				{RandomPosition 1}
 			}
 			{"79"
 				{position -1340.11 -724.353 1}
+				{radius 500}
 				{RandomPosition 1}
 				{commands
 					{"switch"
@@ -29841,6 +30929,7 @@
 			}
 			{"80"
 				{position -2012.44 -3185.81 0}
+				{radius 500}
 				{RandomPosition 1}
 				{commands
 					{"switch"
@@ -29939,6 +31028,7 @@
 			}
 			{"81"
 				{position -3085.94 -5166.26 3.75167}
+				{radius 500}
 				{RandomPosition 1}
 				{commands
 					{"switch"
@@ -30039,6 +31129,7 @@
 		{waypoints "b_f3_def_inf"
 			{"268"
 				{position -1872.61 -3953.37 11}
+				{radius 500}
 				{transition "409"}
 				{transition "410"}
 				{transition "411"}
@@ -30050,6 +31141,7 @@
 			}
 			{"269"
 				{position -1977.58 -1090.72 5}
+				{radius 500}
 				{transition "406"}
 				{transition "407"}
 				{transition "408"}
@@ -30061,6 +31153,7 @@
 			}
 			{"270"
 				{position -2225.55 -1949.6 11}
+				{radius 500}
 				{transition "400"}
 				{transition "401"}
 				{transition "402"}
@@ -30072,6 +31165,7 @@
 			}
 			{"271"
 				{position -3496.47 -257.414 0}
+				{radius 500}
 				{transition "421"}
 				{transition "422"}
 				{transition "423"}
@@ -30083,78 +31177,103 @@
 			}
 			{"400"
 				{position -2346.95 -1849.99 11}
+				{radius 500}
 			}
 			{"401"
 				{position -2204.09 -2265.7 17}
+				{radius 500}
 			}
 			{"402"
 				{position -2296.68 -1759.25 11}
+				{radius 500}
 			}
 			{"403"
 				{position 908.179 -749.958 12}
+				{radius 500}
 			}
 			{"404"
 				{position 1568.03 -723.455 33}
+				{radius 500}
 			}
 			{"405"
 				{position 1083.11 -500 32}
+				{radius 500}
 			}
 			{"406"
 				{position -2029.21 -985.123 4}
+				{radius 500}
 			}
 			{"407"
 				{position -1815.4 -1105.02 5}
+				{radius 500}
 			}
 			{"408"
 				{position -1962.8 -1015.99 5}
+				{radius 500}
 			}
 			{"409"
 				{position -2197.16 -4328.57 6.61756}
+				{radius 500}
 			}
 			{"410"
 				{position -2122.67 -3578.47 8}
+				{radius 500}
 			}
 			{"411"
 				{position -2444.19 -4070.2 7}
+				{radius 500}
 			}
 			{"412"
 				{position -1253.88 -335.635 -20}
+				{radius 500}
 			}
 			{"413"
 				{position 38.052 277.664 15}
+				{radius 500}
 			}
 			{"414"
 				{position -1049.72 273.059 9.49764}
+				{radius 500}
 			}
 			{"415"
 				{position -2381.03 -1690.03 9}
+				{radius 500}
 			}
 			{"416"
 				{position -2411.65 -1764.61 9}
+				{radius 500}
 			}
 			{"417"
 				{position -2685.57 -2232.39 1.33883}
+				{radius 500}
 			}
 			{"418"
 				{position -3271.98 -1201.98 0}
+				{radius 500}
 			}
 			{"419"
 				{position -2806.26 -942.674 8}
+				{radius 500}
 			}
 			{"420"
 				{position -3163.8 -1528.91 1}
+				{radius 500}
 			}
 			{"421"
 				{position -3590.74 -48.3561 1.23413}
+				{radius 500}
 			}
 			{"422"
 				{position -3445.16 -410.88 2.12695}
+				{radius 500}
 			}
 			{"423"
 				{position -3373.19 -331.457 -3}
+				{radius 500}
 			}
 			{"58"
 				{position -3110.92 -1261.75 4}
+				{radius 500}
 				{transition "418"}
 				{transition "419"}
 				{transition "420"}
@@ -30166,6 +31285,7 @@
 			}
 			{"59"
 				{position -2570.27 -1863.96 6}
+				{radius 500}
 				{transition "415"}
 				{transition "416"}
 				{transition "417"}
@@ -30177,6 +31297,7 @@
 			}
 			{"60"
 				{position 1291.35 -1226.29 34}
+				{radius 500}
 				{transition "403"}
 				{transition "404"}
 				{transition "405"}
@@ -30188,6 +31309,7 @@
 			}
 			{"61"
 				{position -678.947 -269.914 8.93158}
+				{radius 500}
 				{transition "412"}
 				{transition "413"}
 				{transition "414"}
@@ -30201,6 +31323,7 @@
 		{waypoints "b_f3_def_vehicle"
 			{"100"
 				{position 860.075 -1053.73 25.9205}
+				{radius 500}
 				{RandomPosition 1}
 				{commands
 					{"switch"
@@ -30299,6 +31422,7 @@
 			}
 			{"101"
 				{position -967.032 -2471.33 1}
+				{radius 500}
 				{RandomPosition 1}
 				{commands
 					{"switch"
@@ -30397,21 +31521,25 @@
 			}
 			{"194"
 				{position -149.783 -1387.4 0}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "98"}
 			}
 			{"195"
 				{position 502.753 -1783.62 0}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "98"}
 			}
 			{"196"
 				{position -516.299 -2075.91 3.74365}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "98"}
 			}
 			{"197"
 				{position -967.034 -646.723 4}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "99"}
 				{commands
@@ -30429,6 +31557,7 @@
 			}
 			{"198"
 				{position -1723.63 -284.674 8.02402}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "99"}
 				{commands
@@ -30446,6 +31575,7 @@
 			}
 			{"199"
 				{position -1994.92 -148.9 8.87439}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "99"}
 				{commands
@@ -30463,6 +31593,7 @@
 			}
 			{"200"
 				{position 1242.44 -1253.76 33}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "100"}
 				{commands
@@ -30480,6 +31611,7 @@
 			}
 			{"201"
 				{position 235.703 -772.318 15}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "100"}
 				{commands
@@ -30497,6 +31629,7 @@
 			}
 			{"202"
 				{position -117.995 -601.65 30.6009}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "100"}
 				{commands
@@ -30514,6 +31647,7 @@
 			}
 			{"203"
 				{position -1308.87 -2325.66 0}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "101"}
 				{commands
@@ -30531,6 +31665,7 @@
 			}
 			{"204"
 				{position -1094.18 -3094.51 0}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "101"}
 				{commands
@@ -30548,6 +31683,7 @@
 			}
 			{"205"
 				{position -1560.39 -2834.57 1}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "101"}
 				{commands
@@ -30565,60 +31701,75 @@
 			}
 			{"237"
 				{position 304.792 -2197.59 0.665601}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "98"}
 			}
 			{"27"
 				{position 518.595 -1334.23 11}
+				{radius 500}
 				{transition "581"}
 				{transition "582"}
 				{transition "583"}
 			}
 			{"28"
 				{position -1627.39 -1483.36 13}
+				{radius 500}
 				{transition "578"}
 				{transition "579"}
 				{transition "580"}
 			}
 			{"578"
 				{position -1392.74 -898.467 1}
+				{radius 500}
 			}
 			{"579"
 				{position -853.102 -1010.77 2}
+				{radius 500}
 			}
 			{"580"
 				{position -1847.62 -932.536 5}
+				{radius 500}
 			}
 			{"581"
 				{position 20.8374 -1092.96 27.3141}
+				{radius 500}
 			}
 			{"582"
 				{position 1041.28 -1554.55 21}
+				{radius 500}
 			}
 			{"583"
 				{position -261.437 -974.637 23.5962}
+				{radius 500}
 			}
 			{"584"
 				{position -651.317 -2497.53 3}
+				{radius 500}
 				{transition "585"}
 				{transition "586"}
 				{transition "587"}
 			}
 			{"585"
 				{position -812.731 -2947.8 0}
+				{radius 500}
 			}
 			{"586"
 				{position -1243.49 -2189.35 0}
+				{radius 500}
 			}
 			{"587"
 				{position -969.815 -2178.16 0}
+				{radius 500}
 			}
 			{"98"
 				{position -82.1637 -2228.64 7}
+				{radius 500}
 				{RandomPosition 1}
 			}
 			{"99"
 				{position -1359.98 -452.964 7.71543}
+				{radius 500}
 				{RandomPosition 1}
 				{commands
 					{"switch"
@@ -30719,6 +31870,7 @@
 		{waypoints "a_f4_def_inf"
 			{"252"
 				{position 737.665 -6297.57 7.17144}
+				{radius 500}
 				{transition "433"}
 				{transition "434"}
 				{transition "435"}
@@ -30730,6 +31882,7 @@
 			}
 			{"253"
 				{position 1075.75 -3859.38 2}
+				{radius 500}
 				{transition "436"}
 				{transition "437"}
 				{transition "438"}
@@ -30741,6 +31894,7 @@
 			}
 			{"254"
 				{position 66.0643 -389.037 32.8932}
+				{radius 500}
 				{transition "430"}
 				{transition "431"}
 				{transition "432"}
@@ -30752,6 +31906,7 @@
 			}
 			{"255"
 				{position 868.088 -3278.06 4}
+				{radius 500}
 				{transition "445"}
 				{transition "446"}
 				{transition "447"}
@@ -30763,6 +31918,7 @@
 			}
 			{"42"
 				{position 2759.01 -2483.22 41}
+				{radius 500}
 				{transition "442"}
 				{transition "443"}
 				{transition "444"}
@@ -30774,24 +31930,31 @@
 			}
 			{"424"
 				{position 1599.33 -3249.35 16}
+				{radius 500}
 			}
 			{"425"
 				{position 2130.69 -3028.66 9.95752}
+				{radius 500}
 			}
 			{"426"
 				{position 1604.16 -2800.11 1}
+				{radius 500}
 			}
 			{"427"
 				{position 1975.63 -3187.21 6}
+				{radius 500}
 			}
 			{"428"
 				{position 2506 -4131.59 4}
+				{radius 500}
 			}
 			{"429"
 				{position 1392.67 -4252.84 0}
+				{radius 500}
 			}
 			{"43"
 				{position 1810.79 -2986.75 3}
+				{radius 500}
 				{transition "424"}
 				{transition "425"}
 				{transition "426"}
@@ -30803,36 +31966,47 @@
 			}
 			{"430"
 				{position 275.162 268.987 17}
+				{radius 500}
 			}
 			{"431"
 				{position 43.9615 305.213 14.2864}
+				{radius 500}
 			}
 			{"432"
 				{position 584.746 -659.546 6}
+				{radius 500}
 			}
 			{"433"
 				{position 1042.88 -6758.31 4}
+				{radius 500}
 			}
 			{"434"
 				{position 797.894 -5946.83 20}
+				{radius 500}
 			}
 			{"435"
 				{position 1210.98 -6431.63 21}
+				{radius 500}
 			}
 			{"436"
 				{position 1120.66 -4036.04 0}
+				{radius 500}
 			}
 			{"437"
 				{position 1199.73 -3937.47 2}
+				{radius 500}
 			}
 			{"438"
 				{position 897.799 -4108.74 0}
+				{radius 500}
 			}
 			{"439"
 				{position 647.943 -2878.31 6}
+				{radius 500}
 			}
 			{"44"
 				{position 1376.09 -3810.52 5}
+				{radius 500}
 				{transition "427"}
 				{transition "428"}
 				{transition "429"}
@@ -30844,30 +32018,39 @@
 			}
 			{"440"
 				{position 1129.27 -2541.95 0}
+				{radius 500}
 			}
 			{"441"
 				{position 1273.27 -3048.07 16}
+				{radius 500}
 			}
 			{"442"
 				{position 3588.15 -1923.51 16}
+				{radius 500}
 			}
 			{"443"
 				{position 2958.84 -3761.5 4}
+				{radius 500}
 			}
 			{"444"
 				{position 3549.81 -1799.06 2}
+				{radius 500}
 			}
 			{"445"
 				{position 378.222 -3352.42 5}
+				{radius 500}
 			}
 			{"446"
 				{position 1312.02 -3341.54 16}
+				{radius 500}
 			}
 			{"447"
 				{position 1239.31 -3470.76 16.7683}
+				{radius 500}
 			}
 			{"45"
 				{position 1001.67 -2748.28 0}
+				{radius 500}
 				{transition "439"}
 				{transition "440"}
 				{transition "441"}
@@ -30881,21 +32064,25 @@
 		{waypoints "a_f4_def_vehicle"
 			{"146"
 				{position -2414.67 -3025.5 9}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "82"}
 			}
 			{"147"
 				{position -2244.06 -3836.62 4}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "82"}
 			}
 			{"148"
 				{position -1923.1 -3201.34 3}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "82"}
 			}
 			{"149"
 				{position 250.426 -4525.75 12.2425}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "83"}
 				{commands
@@ -30913,6 +32100,7 @@
 			}
 			{"150"
 				{position 542.15 -3820.1 0}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "83"}
 				{commands
@@ -30930,6 +32118,7 @@
 			}
 			{"151"
 				{position -603.093 -3902.82 26.4696}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "83"}
 				{commands
@@ -30947,6 +32136,7 @@
 			}
 			{"152"
 				{position -324.469 -5668.97 15}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "84"}
 				{commands
@@ -30964,6 +32154,7 @@
 			}
 			{"153"
 				{position -110.582 -4826.82 9}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "84"}
 				{commands
@@ -30981,6 +32172,7 @@
 			}
 			{"154"
 				{position -255.133 -5227.56 27}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "84"}
 				{commands
@@ -30998,6 +32190,7 @@
 			}
 			{"155"
 				{position 1676.79 -1858.29 21}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "85"}
 				{commands
@@ -31015,6 +32208,7 @@
 			}
 			{"156"
 				{position 448.869 -1337.48 10}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "85"}
 				{commands
@@ -31032,6 +32226,7 @@
 			}
 			{"157"
 				{position -215.608 -965.405 33.6084}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "85"}
 				{commands
@@ -31049,60 +32244,75 @@
 			}
 			{"233"
 				{position -2909.81 -3632.66 9.96436}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "82"}
 			}
 			{"520"
 				{position 901.385 -2812.91 0.941116}
+				{radius 500}
 				{transition "588"}
 				{transition "589"}
 				{transition "590"}
 			}
 			{"521"
 				{position -1506.46 -4903.73 10.1586}
+				{radius 500}
 				{transition "591"}
 				{transition "592"}
 				{transition "593"}
 			}
 			{"588"
 				{position 679.061 -3625.86 1}
+				{radius 500}
 			}
 			{"589"
 				{position 957.269 -3298.73 4}
+				{radius 500}
 			}
 			{"590"
 				{position 991.052 -2635.16 0}
+				{radius 500}
 			}
 			{"591"
 				{position -879.628 -4717.21 16}
+				{radius 500}
 			}
 			{"592"
 				{position -1013.81 -5250.6 7.81563}
+				{radius 500}
 			}
 			{"593"
 				{position -1129.56 -4339.4 19.0065}
+				{radius 500}
 			}
 			{"594"
 				{position 344.116 -2127.29 0}
+				{radius 500}
 				{transition "595"}
 				{transition "596"}
 				{transition "597"}
 			}
 			{"595"
 				{position -221.708 -1799.45 0}
+				{radius 500}
 			}
 			{"596"
 				{position 1366.34 -2306.6 0}
+				{radius 500}
 			}
 			{"597"
 				{position 715.2 -1884.27 0}
+				{radius 500}
 			}
 			{"82"
 				{position -3064.22 -3194.1 22}
+				{radius 500}
 				{RandomPosition 1}
 			}
 			{"83"
 				{position -619.293 -4272.35 18.5654}
+				{radius 500}
 				{RandomPosition 1}
 				{commands
 					{"switch"
@@ -31201,6 +32411,7 @@
 			}
 			{"84"
 				{position -843.683 -5078.44 11}
+				{radius 500}
 				{RandomPosition 1}
 				{commands
 					{"switch"
@@ -31299,6 +32510,7 @@
 			}
 			{"85"
 				{position 911.47 -1576.98 17.5095}
+				{radius 500}
 				{RandomPosition 1}
 				{commands
 					{"switch"
@@ -31399,6 +32611,7 @@
 		{waypoints "b_f4_def_inf"
 			{"272"
 				{position 576.619 -2542.01 0}
+				{radius 500}
 				{transition "517"}
 				{transition "518"}
 				{transition "519"}
@@ -31410,6 +32623,7 @@
 			}
 			{"273"
 				{position 1098.91 -2672.04 0}
+				{radius 500}
 				{transition "451"}
 				{transition "452"}
 				{transition "453"}
@@ -31421,6 +32635,7 @@
 			}
 			{"274"
 				{position 1450.94 -5886.38 8.96518}
+				{radius 500}
 				{transition "466"}
 				{transition "467"}
 				{transition "468"}
@@ -31432,6 +32647,7 @@
 			}
 			{"275"
 				{position 1001.4 -3375.9 4}
+				{radius 500}
 				{transition "463"}
 				{transition "464"}
 				{transition "465"}
@@ -31443,78 +32659,103 @@
 			}
 			{"448"
 				{position 821.869 -3855.14 0}
+				{radius 500}
 			}
 			{"449"
 				{position 901.156 -4104.67 0}
+				{radius 500}
 			}
 			{"450"
 				{position 889.102 -3763.71 2}
+				{radius 500}
 			}
 			{"451"
 				{position 1619.99 -2811.55 1.90259}
+				{radius 500}
 			}
 			{"452"
 				{position 1146.63 -2520.01 0.92586}
+				{radius 500}
 			}
 			{"453"
 				{position 1091.88 -2491.82 1.54175}
+				{radius 500}
 			}
 			{"454"
 				{position -30.891 -3473.38 0}
+				{radius 500}
 			}
 			{"455"
 				{position -134.721 -3675.31 0}
+				{radius 500}
 			}
 			{"456"
 				{position 308.812 -3426.15 5}
+				{radius 500}
 			}
 			{"457"
 				{position 2629.23 -1299.48 21}
+				{radius 500}
 			}
 			{"458"
 				{position 1908.64 -1150.25 41}
+				{radius 500}
 			}
 			{"459"
 				{position 2079.47 -1869.33 31}
+				{radius 500}
 			}
 			{"460"
 				{position 803.529 -1372.58 34}
+				{radius 500}
 			}
 			{"461"
 				{position 778.187 -850.611 11}
+				{radius 500}
 			}
 			{"462"
 				{position 928.037 -977.666 25.8187}
+				{radius 500}
 			}
 			{"463"
 				{position 623.998 -3018.04 6}
+				{radius 500}
 			}
 			{"464"
 				{position 1237.03 -3061.88 16}
+				{radius 500}
 			}
 			{"465"
 				{position 1649.41 -3314.78 16}
+				{radius 500}
 			}
 			{"466"
 				{position 1240.38 -6413 22}
+				{radius 500}
 			}
 			{"467"
 				{position 775.685 -5941.04 19}
+				{radius 500}
 			}
 			{"468"
 				{position 768.973 -5694.92 20}
+				{radius 500}
 			}
 			{"517"
 				{position 526.099 -2352.51 1}
+				{radius 500}
 			}
 			{"518"
 				{position 449.573 -2657.47 1}
+				{radius 500}
 			}
 			{"519"
 				{position 399.713 -2764.58 2}
+				{radius 500}
 			}
 			{"62"
 				{position 1103.81 -3936.6 1}
+				{radius 500}
 				{transition "448"}
 				{transition "449"}
 				{transition "450"}
@@ -31526,6 +32767,7 @@
 			}
 			{"63"
 				{position 2509.4 -1783.41 18}
+				{radius 500}
 				{transition "457"}
 				{transition "458"}
 				{transition "459"}
@@ -31537,6 +32779,7 @@
 			}
 			{"64"
 				{position 910.182 -1212.45 31.4156}
+				{radius 500}
 				{transition "460"}
 				{transition "461"}
 				{transition "462"}
@@ -31548,6 +32791,7 @@
 			}
 			{"65"
 				{position 161.339 -3705.82 0}
+				{radius 500}
 				{transition "454"}
 				{transition "455"}
 				{transition "456"}
@@ -31561,10 +32805,12 @@
 		{waypoints "b_f4_def_vehicle"
 			{"102"
 				{position 4309.3 -6081.55 0.595581}
+				{radius 500}
 				{RandomPosition 1}
 			}
 			{"103"
 				{position 1577.62 -3619.51 7}
+				{radius 500}
 				{RandomPosition 1}
 				{commands
 					{"switch"
@@ -31663,6 +32909,7 @@
 			}
 			{"104"
 				{position 2264.34 -1814.17 22}
+				{radius 500}
 				{RandomPosition 1}
 				{commands
 					{"switch"
@@ -31761,6 +33008,7 @@
 			}
 			{"105"
 				{position 1599.13 -6464.3 10.2573}
+				{radius 500}
 				{RandomPosition 1}
 				{commands
 					{"switch"
@@ -31859,21 +33107,25 @@
 			}
 			{"206"
 				{position 4550.53 -4613.12 4}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "102"}
 			}
 			{"207"
 				{position 3995.05 -6263.09 2}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "102"}
 			}
 			{"208"
 				{position 3498.01 -6053.2 1}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "102"}
 			}
 			{"209"
 				{position 1203.91 -4233.25 0}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "103"}
 				{commands
@@ -31891,6 +33143,7 @@
 			}
 			{"210"
 				{position 413.311 -2463.17 0}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "103"}
 				{commands
@@ -31908,6 +33161,7 @@
 			}
 			{"211"
 				{position 486.108 -3855.09 0}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "103"}
 				{commands
@@ -31925,6 +33179,7 @@
 			}
 			{"212"
 				{position 1474.62 -1933.85 10.1123}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "104"}
 				{commands
@@ -31942,6 +33197,7 @@
 			}
 			{"213"
 				{position 2687.81 -1764.28 27}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "104"}
 				{commands
@@ -31959,6 +33215,7 @@
 			}
 			{"214"
 				{position 3219.79 -1681.65 35}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "104"}
 				{commands
@@ -31976,6 +33233,7 @@
 			}
 			{"215"
 				{position 1651.52 -6870.7 22}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "105"}
 				{commands
@@ -31993,6 +33251,7 @@
 			}
 			{"216"
 				{position 1492.78 -5931.6 5.58478}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "105"}
 				{commands
@@ -32010,6 +33269,7 @@
 			}
 			{"217"
 				{position 1406.21 -5549.45 39}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "105"}
 				{commands
@@ -32027,58 +33287,72 @@
 			}
 			{"238"
 				{position 4035.68 -5574.02 5}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "102"}
 			}
 			{"522"
 				{position 2896.1 -2337.1 18.4496}
+				{radius 500}
 				{transition "598"}
 				{transition "599"}
 				{transition "600"}
 			}
 			{"523"
 				{position 2193.49 -3272.3 4}
+				{radius 500}
 				{transition "601"}
 				{transition "602"}
 				{transition "603"}
 			}
 			{"598"
 				{position 3295.21 -1936.74 46.0229}
+				{radius 500}
 			}
 			{"599"
 				{position 2460.3 -1954.95 20}
+				{radius 500}
 			}
 			{"600"
 				{position 1866.54 -2116.96 12.1094}
+				{radius 500}
 			}
 			{"601"
 				{position 1649.03 -4459.39 0}
+				{radius 500}
 			}
 			{"602"
 				{position 1290.67 -2223.16 0}
+				{radius 500}
 			}
 			{"603"
 				{position 1990.16 -3724.28 8}
+				{radius 500}
 			}
 			{"604"
 				{position 2129.4 -5834.97 0}
+				{radius 500}
 				{transition "605"}
 				{transition "606"}
 				{transition "607"}
 			}
 			{"605"
 				{position 2171.58 -6506.47 4}
+				{radius 500}
 			}
 			{"606"
 				{position 2182.64 -7085.14 3}
+				{radius 500}
 			}
 			{"607"
 				{position 2099.04 -4730.59 0}
+				{radius 500}
 			}
 		}
 		{waypoints "a_f5_def_inf"
 			{"256"
 				{position -2983.82 3292.87 0}
+				{radius 500}
 				{transition "484"}
 				{transition "485"}
 				{transition "486"}
@@ -32090,6 +33364,7 @@
 			}
 			{"257"
 				{position -1762.97 3563.98 -1}
+				{radius 500}
 				{transition "487"}
 				{transition "488"}
 				{transition "489"}
@@ -32101,6 +33376,7 @@
 			}
 			{"258"
 				{position -1240.69 5967.67 4}
+				{radius 500}
 				{transition "469"}
 				{transition "470"}
 				{transition "471"}
@@ -32112,6 +33388,7 @@
 			}
 			{"259"
 				{position -2556.68 3399.09 5}
+				{radius 500}
 				{transition "490"}
 				{transition "491"}
 				{transition "492"}
@@ -32123,6 +33400,7 @@
 			}
 			{"46"
 				{position -1245 4779.84 0}
+				{radius 500}
 				{transition "481"}
 				{transition "482"}
 				{transition "483"}
@@ -32134,9 +33412,11 @@
 			}
 			{"469"
 				{position -575.062 6373.78 15}
+				{radius 500}
 			}
 			{"47"
 				{position -2518.1 3896.74 5}
+				{radius 500}
 				{transition "475"}
 				{transition "476"}
 				{transition "477"}
@@ -32148,36 +33428,47 @@
 			}
 			{"470"
 				{position -1084.07 5717.86 32}
+				{radius 500}
 			}
 			{"471"
 				{position -1635.17 5713.56 24.5392}
+				{radius 500}
 			}
 			{"472"
 				{position -2836.72 1256.57 8.65762}
+				{radius 500}
 			}
 			{"473"
 				{position -2841.24 1747.18 12.6569}
+				{radius 500}
 			}
 			{"474"
 				{position -2872.62 1077 11}
+				{radius 500}
 			}
 			{"475"
 				{position -2551.07 4094.05 4}
+				{radius 500}
 			}
 			{"476"
 				{position -2308.21 3994.48 6}
+				{radius 500}
 			}
 			{"477"
 				{position -2477.24 4048.4 5}
+				{radius 500}
 			}
 			{"478"
 				{position -2653.71 3520.62 9}
+				{radius 500}
 			}
 			{"479"
 				{position -2921.14 3405.35 1.01652}
+				{radius 500}
 			}
 			{"48"
 				{position -2780.43 3665.8 0.0532088}
+				{radius 500}
 				{transition "478"}
 				{transition "479"}
 				{transition "480"}
@@ -32189,36 +33480,47 @@
 			}
 			{"480"
 				{position -2610.7 3623.36 5}
+				{radius 500}
 			}
 			{"481"
 				{position -657.778 5040.43 -1.9946}
+				{radius 500}
 			}
 			{"482"
 				{position -1154.83 4131.86 -24.6616}
+				{radius 500}
 			}
 			{"483"
 				{position -792.25 4728.86 -1.22107}
+				{radius 500}
 			}
 			{"484"
 				{position -3144.72 2863.65 -14}
+				{radius 500}
 			}
 			{"485"
 				{position -2968.68 2812.9 -10}
+				{radius 500}
 			}
 			{"486"
 				{position -2767.47 2988.87 12.2801}
+				{radius 500}
 			}
 			{"487"
 				{position -1722.25 3067.55 21.4153}
+				{radius 500}
 			}
 			{"488"
 				{position -1536.95 3530.74 -1}
+				{radius 500}
 			}
 			{"489"
 				{position -1512.26 3661.66 9}
+				{radius 500}
 			}
 			{"49"
 				{position -3234.93 1593.68 11.0813}
+				{radius 500}
 				{transition "472"}
 				{transition "473"}
 				{transition "474"}
@@ -32230,32 +33532,39 @@
 			}
 			{"490"
 				{position -2491.17 3510.74 6}
+				{radius 500}
 			}
 			{"491"
 				{position -2564 3174.09 9}
+				{radius 500}
 			}
 			{"492"
 				{position -2436.92 3634.86 6}
+				{radius 500}
 			}
 		}
 		{waypoints "a_f5_def_vehicle"
 			{"158"
 				{position -4101.91 2765.26 16}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "86"}
 			}
 			{"159"
 				{position -4780.79 2827.21 24}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "86"}
 			}
 			{"160"
 				{position -3604.35 4125.52 12}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "86"}
 			}
 			{"161"
 				{position -1531.65 4128.39 17.4165}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "87"}
 				{commands
@@ -32273,6 +33582,7 @@
 			}
 			{"162"
 				{position -1410.15 4857.82 16}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "87"}
 				{commands
@@ -32290,6 +33600,7 @@
 			}
 			{"163"
 				{position -1609.19 3798.28 6}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "87"}
 				{commands
@@ -32307,6 +33618,7 @@
 			}
 			{"164"
 				{position -1850.18 2598.47 28.1311}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "88"}
 				{commands
@@ -32324,6 +33636,7 @@
 			}
 			{"165"
 				{position -2377.35 2816.45 30.8893}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "88"}
 				{commands
@@ -32341,6 +33654,7 @@
 			}
 			{"166"
 				{position -1896.29 3411.72 8}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "88"}
 				{commands
@@ -32358,6 +33672,7 @@
 			}
 			{"167"
 				{position -1371.02 5889.46 4}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "89"}
 				{commands
@@ -32375,6 +33690,7 @@
 			}
 			{"168"
 				{position -1226.69 5026.82 1}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "89"}
 				{commands
@@ -32392,6 +33708,7 @@
 			}
 			{"169"
 				{position -1249.34 5343.53 1.9624}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "89"}
 				{commands
@@ -32409,60 +33726,75 @@
 			}
 			{"234"
 				{position -4096.01 4578.83 16}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "86"}
 			}
 			{"524"
 				{position -2736.85 2830 14}
+				{radius 500}
 				{transition "608"}
 				{transition "609"}
 				{transition "610"}
 			}
 			{"525"
 				{position -1844.07 4349.03 23.1721}
+				{radius 500}
 				{transition "611"}
 				{transition "612"}
 				{transition "613"}
 			}
 			{"608"
 				{position -3265.15 2260.53 10}
+				{radius 500}
 			}
 			{"609"
 				{position -2197.15 2397.38 5}
+				{radius 500}
 			}
 			{"610"
 				{position -2876.59 2290.45 13}
+				{radius 500}
 			}
 			{"611"
 				{position -2167.18 3605.64 19}
+				{radius 500}
 			}
 			{"612"
 				{position -1689.02 4762.33 6}
+				{radius 500}
 			}
 			{"613"
 				{position -1900.38 3826 4}
+				{radius 500}
 			}
 			{"614"
 				{position -2207.39 4867.68 8}
+				{radius 500}
 				{transition "615"}
 				{transition "616"}
 				{transition "617"}
 			}
 			{"615"
 				{position -1987.56 5903.35 6}
+				{radius 500}
 			}
 			{"616"
 				{position -2319.44 4251.69 5}
+				{radius 500}
 			}
 			{"617"
 				{position -2118.62 5311.96 8}
+				{radius 500}
 			}
 			{"86"
 				{position -4681.13 3551.08 5}
+				{radius 500}
 				{RandomPosition 1}
 			}
 			{"87"
 				{position -1429.28 4479.15 6.69894}
+				{radius 500}
 				{RandomPosition 1}
 				{commands
 					{"switch"
@@ -32561,6 +33893,7 @@
 			}
 			{"88"
 				{position -2214.59 3194.11 26.0131}
+				{radius 500}
 				{RandomPosition 1}
 				{commands
 					{"switch"
@@ -32659,6 +33992,7 @@
 			}
 			{"89"
 				{position -1777.58 5177.35 18.7713}
+				{radius 500}
 				{RandomPosition 1}
 				{commands
 					{"switch"
@@ -32759,6 +34093,7 @@
 		{waypoints "b_f5_def_inf"
 			{"276"
 				{position -2898.39 3431.65 2}
+				{radius 500}
 				{transition "493"}
 				{transition "494"}
 				{transition "495"}
@@ -32770,6 +34105,7 @@
 			}
 			{"277"
 				{position -2160.14 6015.98 9}
+				{radius 500}
 				{transition "508"}
 				{transition "509"}
 				{transition "510"}
@@ -32781,6 +34117,7 @@
 			}
 			{"278"
 				{position -2913.38 1475.28 19.2302}
+				{radius 500}
 				{transition "499"}
 				{transition "500"}
 				{transition "501"}
@@ -32792,6 +34129,7 @@
 			}
 			{"279"
 				{position -2630.91 3631.28 5}
+				{radius 500}
 				{transition "496"}
 				{transition "497"}
 				{transition "498"}
@@ -32803,78 +34141,103 @@
 			}
 			{"493"
 				{position -3023.19 3436.91 0}
+				{radius 500}
 			}
 			{"494"
 				{position -2960.31 3537.05 0}
+				{radius 500}
 			}
 			{"495"
 				{position -3072.09 3249.6 0}
+				{radius 500}
 			}
 			{"496"
 				{position -2756.35 3578.06 7.48315}
+				{radius 500}
 			}
 			{"497"
 				{position -2805.07 3700 0}
+				{radius 500}
 			}
 			{"498"
 				{position -2759.88 3813.68 2}
+				{radius 500}
 			}
 			{"499"
 				{position -2792.26 1158.59 6}
+				{radius 500}
 			}
 			{"500"
 				{position -2806.73 1690.3 24.5744}
+				{radius 500}
 			}
 			{"501"
 				{position -3542.01 1223.63 21}
+				{radius 500}
 			}
 			{"502"
 				{position -3597.24 -39.188 2}
+				{radius 500}
 			}
 			{"503"
 				{position -3445 -388.428 2.29357}
+				{radius 500}
 			}
 			{"504"
 				{position -3376.42 -333.197 -3}
+				{radius 500}
 			}
 			{"505"
 				{position -2896.82 2764.81 13}
+				{radius 500}
 			}
 			{"506"
 				{position -3314.47 2781.02 0}
+				{radius 500}
 			}
 			{"507"
 				{position -3131.11 2869.81 -14}
+				{radius 500}
 			}
 			{"508"
 				{position -2843.51 6166.44 -10}
+				{radius 500}
 			}
 			{"509"
 				{position -2228.58 6890.09 10}
+				{radius 500}
 			}
 			{"510"
 				{position -2374.49 5903.47 11}
+				{radius 500}
 			}
 			{"511"
 				{position -2539.92 4097.9 4}
+				{radius 500}
 			}
 			{"512"
 				{position -2633.41 4030.55 3}
+				{radius 500}
 			}
 			{"513"
 				{position -2469.26 4061.94 5}
+				{radius 500}
 			}
 			{"514"
 				{position -1564.72 5802.87 24}
+				{radius 500}
 			}
 			{"515"
 				{position -1015.71 5619 8.70581}
+				{radius 500}
 			}
 			{"516"
 				{position -1522.23 5658.95 12.376}
+				{radius 500}
 			}
 			{"66"
 				{position -3281.29 -151.895 1}
+				{radius 500}
 				{transition "502"}
 				{transition "503"}
 				{transition "504"}
@@ -32886,6 +34249,7 @@
 			}
 			{"67"
 				{position -1040.74 5391.13 0}
+				{radius 500}
 				{transition "514"}
 				{transition "515"}
 				{transition "516"}
@@ -32897,6 +34261,7 @@
 			}
 			{"68"
 				{position -2835.53 2649.75 15}
+				{radius 500}
 				{transition "505"}
 				{transition "506"}
 				{transition "507"}
@@ -32908,6 +34273,7 @@
 			}
 			{"69"
 				{position -2509.86 3893.23 5}
+				{radius 500}
 				{transition "511"}
 				{transition "512"}
 				{transition "513"}
@@ -32921,10 +34287,12 @@
 		{waypoints "b_f5_def_vehicle"
 			{"106"
 				{position 708.572 3603.33 30}
+				{radius 500}
 				{RandomPosition 1}
 			}
 			{"107"
 				{position 312.359 5853.41 0.377197}
+				{radius 500}
 				{RandomPosition 1}
 				{commands
 					{"switch"
@@ -33023,6 +34391,7 @@
 			}
 			{"108"
 				{position -446.678 4225.67 0}
+				{radius 500}
 				{RandomPosition 1}
 				{commands
 					{"switch"
@@ -33121,6 +34490,7 @@
 			}
 			{"109"
 				{position -2723.12 1459.85 23.6824}
+				{radius 500}
 				{RandomPosition 1}
 				{commands
 					{"switch"
@@ -33219,21 +34589,25 @@
 			}
 			{"218"
 				{position 1281.38 5326.36 30}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "106"}
 			}
 			{"219"
 				{position 368.476 2457 30}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "106"}
 			}
 			{"220"
 				{position 1046.51 4608.68 30}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "106"}
 			}
 			{"221"
 				{position 192.042 5279.34 2}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "107"}
 				{commands
@@ -33251,6 +34625,7 @@
 			}
 			{"222"
 				{position 350.812 6450.42 0}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "107"}
 				{commands
@@ -33268,6 +34643,7 @@
 			}
 			{"223"
 				{position 132.09 4960.48 3}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "107"}
 				{commands
@@ -33285,6 +34661,7 @@
 			}
 			{"224"
 				{position -678.209 3344.65 -0.043323}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "108"}
 				{commands
@@ -33302,6 +34679,7 @@
 			}
 			{"225"
 				{position -310.624 4690.09 0}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "108"}
 				{commands
@@ -33319,6 +34697,7 @@
 			}
 			{"226"
 				{position -579.448 3753.47 0}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "108"}
 				{commands
@@ -33336,6 +34715,7 @@
 			}
 			{"227"
 				{position -3033.64 947.481 8}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "109"}
 				{commands
@@ -33353,6 +34733,7 @@
 			}
 			{"228"
 				{position -2595.49 878.229 4}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "109"}
 				{commands
@@ -33370,6 +34751,7 @@
 			}
 			{"229"
 				{position -3250.65 1427.04 8}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "109"}
 				{commands
@@ -33387,53 +34769,66 @@
 			}
 			{"239"
 				{position 486.887 2823.39 30}
+				{radius 500}
 				{RandomPosition 1}
 				{transition "106"}
 			}
 			{"526"
 				{position -886.217 2438.71 3}
+				{radius 500}
 				{transition "618"}
 				{transition "619"}
 				{transition "620"}
 			}
 			{"527"
 				{position 782.166 5874.3 6}
+				{radius 500}
 				{transition "621"}
 				{transition "622"}
 				{transition "623"}
 			}
 			{"618"
 				{position -1700.58 2417.26 14.6426}
+				{radius 500}
 			}
 			{"619"
 				{position -1581.58 2714.86 5.40991}
+				{radius 500}
 			}
 			{"620"
 				{position -1334.85 3162.89 0.483446}
+				{radius 500}
 			}
 			{"621"
 				{position 610.573 5382.95 5}
+				{radius 500}
 			}
 			{"622"
 				{position 678.242 6362.33 3}
+				{radius 500}
 			}
 			{"623"
 				{position 476.575 4975.13 6}
+				{radius 500}
 			}
 			{"624"
 				{position 38.9256 3966.98 6}
+				{radius 500}
 				{transition "625"}
 				{transition "626"}
 				{transition "627"}
 			}
 			{"625"
 				{position -5.06076 4392.52 4}
+				{radius 500}
 			}
 			{"626"
 				{position -66.3888 3480.54 7}
+				{radius 500}
 			}
 			{"627"
 				{position -150.118 3132.99 6}
+				{radius 500}
 			}
 		}
 		{waypoints "map_caridnal_direction_waypoints"

@@ -1,0 +1,119 @@
+{game_entity
+	(include "/properties/armoredcar.ext")
+	(include "/properties/selection/vehicle.inc" scale(1.0))
+	(include "/properties/ai_controller/ai_control_commander.inc" scale(3.35)) ;// translats to a radius of 75m in game 
+	{props "tank" "halftrack" "wheeled" "multi_board" "explosion_throw_crew" "vision_lev02" "tractor" "tractor_heavy" "detect_tank_mg" "open_death_fx_low" "sq_mg" "ai_control_commander"}
+	{able "emit_passangers_on_enemy"}
+	{extension "sdkfz250a_3.mdl"}
+	(include "sdkfz250a_3.ext")
+	{patherId "sdkfz251"}
+	{targetclass "armoredcar"}
+	{targetSelector "tank_bullet"}
+
+	{extender "enumerator"
+		{digit_folder "ger"}
+	}
+
+	{boarder
+		{anm "passenger1"
+			{forward {begin "board_sdkfz250a"} {end "pose_sdkfz250a_passenger1"} {base "board"}}
+			{reverse {end "emit_sd222_driver"} {base "board"}}
+		}
+		{anm "passenger2"
+			{forward {begin "board_sdkfz250a"} {end "halftrack_pass_l_01_board_seat"} {base "board"}}
+			{reverse {end "emit_sd222_driver"} {base "board"}}
+		}
+		{anm "passenger3"
+			{forward {begin "board_sdkfz250a"} {end "halftrack_pass_l_02_board_seat"} {base "board"}}
+			{reverse {end "emit_sd222_driver"} {base "board"}}
+		}
+		{anm "driver"
+			{forward {begin "board_sdkfz250a"} {end "pose_sdkfz250a_driver"} {base "board"}}
+			{reverse {end "emit_sd222_driver"} {base "board"}}
+		}
+		{anm "gunner"
+			{forward {begin "board_sdkfz250a"} {end "pose_sdkfz250a11_gunner"} {base "board"}}
+			{reverse {end "emit_sd222_driver"} {base "board"}}
+		}
+		{anm "commander"
+			{forward {begin "board_sdkfz250a"} {end "pose_watch_binocular"} {base "board"}}
+			{reverse {end "emit_sd222_driver"} {base "board"}}
+		}
+	}
+
+	("crew" place(driver)		bone(driver)	door(emit1)		animation(driver)		visor(driver)	off({sensor}))
+	("crew" place(gunner2)		bone(gunner2)	door(emit1)		animation(gunner)		visor(none)		off())
+	("crew" place(commander)	bone(commander)	door(emit1)		animation(commander)	visor(commander) off({sensor}))
+
+	("passenger" place(seat1) bone(seat01) door(emit1)  animation(passenger1)  off())
+	("passenger" place(seat2) bone(seat02) door(emit1)  animation(passenger2)  off())
+	("passenger" place(seat3) bone(seat03) door(emit1)  animation(passenger3)  off())
+
+	{sensor
+		{visor "human"
+			{vision "none"}
+		}
+		{visor "around"
+			{vision "none"}
+		}
+		{visor "commander"
+			{vision "recon_open"}
+			{bone "vision_rot"}
+		}
+	}
+
+	{extender "inventory"
+		{weapon "mgun" {mask "mountable"}}
+		{Box
+			{item "mg34_belt_long" filling "ammo mgun_ger belt ap" 300 {user "mgun"}}
+			{item "ammo mgun_ger belt ap" 1100}
+		}
+	}
+
+	{Weaponry
+		{place "mgun"
+			{type "main"}
+			{gunner "gunner2"}
+			{charger "gunner2"}
+			{LinkBone "mgun"}
+			{LinkAnimation "off"}
+			("abm_mgun")
+			{ai_in_manual}
+			{basic}
+		}
+		{place "mgun3"
+			{type "commander"}
+			{weapon "binocular"}
+			{foresight "vision_rot"}
+			{gunner "commander"}
+			{basic}
+			{ai_in_manual}
+		}
+	}
+
+	{mass 5345}
+	{Chassis "wheel"
+		("tank_trace_ex" fx("tracks_sm2") step(0.2) len(0.29) boneleft("FXtraceL3") boneright("FXtraceR3"))
+		("car_trace" fx("tracewheel03a") step(0.09) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+
+		("mobility_car"
+			speed(60) ;----------------------------------Max speed.
+			speedatmaxturn(18) ;-------------------------Max speed at max turn.
+			reverse(15) ;--------------------------------Max speed in Reverse.
+			weight(5.5345) ;-----------------------------Weight in Tonnes.
+			power(100) ;---------------------------------Horse Power.
+			fuel(140) ;----------------------------------Fuel capacity in Litres.
+			type(fuel) ;---------------------------------Fuel type.
+			range(200) ;---------------------------------Range in Kilometers.
+		)
+	}
+	{bone "mgun_a_rot1"
+		{speed2 60}
+	}
+	{bone "mgun_a_rot2"
+		{speed2 60}
+	}
+	{bone "commander_rot"
+		{speed2 180}
+	}
+}

@@ -8045,44 +8045,6 @@
 					{"switch"
 						{"case"
 							{condition
-								{type cmp_i}
-								{var "user_is_defender$"}
-								{op "=="}
-								{value 1}
-							}
-							{"delay"
-								{time 0.1}
-							}
-							{"delete"
-								{selector
-									{source advanced}
-									{ignore_captured_by_user 0}
-									{group
-										{select
-											{tag
-												{tag mine_planted}
-											}
-											{tag
-												{tag dcg_mine_sign}
-											}
-										}
-										{include
-											{tag
-												{tag cmp_def}
-											}
-										}
-									}
-								}
-							}
-						}
-						{"default"}
-					}
-					{"delay"
-						{time 0.5}
-					}
-					{"switch"
-						{"case"
-							{condition
 								{type entities}
 								{selector
 									{source advanced}
@@ -8961,14 +8923,15 @@
 								{player "4"}
 							}
 						}
-						{"default"
-							{"delay"
-								{time 0.2}
-							}
-							{"set_i"
+						{"case"
+							{condition
+								{type cmp_i}
 								{var "enemyid$"}
-								{op "="}
+								{op "=="}
 								{value 5}
+							}
+							{"delay"
+								{time 0.1}
 							}
 							{"player"
 								{selector
@@ -9011,13 +8974,272 @@
 								{operation set}
 								{player "5"}
 							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "enemyid$"}
+								{op "=="}
+								{value 6}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag airstrike_ger}
+											}
+											{tag
+												{tag airstrike_rus}
+											}
+											{tag
+												{tag airstrike_fin}
+											}
+											{tag
+												{tag airstrike_usa}
+											}
+											{tag
+												{tag airstrike_eng}
+											}
+										}
+										{include
+											{prop
+												{prop vehicle}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "6"}
+							}
+							{"player"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag pilot}
+									{type human}
+								}
+								{operation set}
+								{player "6"}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "enemyid$"}
+								{op "=="}
+								{value 7}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag airstrike_ger}
+											}
+											{tag
+												{tag airstrike_rus}
+											}
+											{tag
+												{tag airstrike_fin}
+											}
+											{tag
+												{tag airstrike_usa}
+											}
+											{tag
+												{tag airstrike_eng}
+											}
+										}
+										{include
+											{prop
+												{prop vehicle}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "7"}
+							}
+							{"player"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag pilot}
+									{type human}
+								}
+								{operation set}
+								{player "7"}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "enemyid$"}
+								{op "=="}
+								{value 8}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag airstrike_ger}
+											}
+											{tag
+												{tag airstrike_rus}
+											}
+											{tag
+												{tag airstrike_fin}
+											}
+											{tag
+												{tag airstrike_usa}
+											}
+											{tag
+												{tag airstrike_eng}
+											}
+										}
+										{include
+											{prop
+												{prop vehicle}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "8"}
+							}
+							{"player"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag pilot}
+									{type human}
+								}
+								{operation set}
+								{player "8"}
+							}
+						}
+						{"case"
+							{condition
+								{type cmp_i}
+								{var "enemyid$"}
+								{op "=="}
+								{value 9}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag airstrike_ger}
+											}
+											{tag
+												{tag airstrike_rus}
+											}
+											{tag
+												{tag airstrike_fin}
+											}
+											{tag
+												{tag airstrike_usa}
+											}
+											{tag
+												{tag airstrike_eng}
+											}
+										}
+										{include
+											{prop
+												{prop vehicle}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "9"}
+							}
+							{"player"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag pilot}
+									{type human}
+								}
+								{operation set}
+								{player "9"}
+							}
+						}
+						{"default"
+							{"delay"
+								{time 0.2}
+							}
+							{"set_i"
+								{var "enemyid$"}
+								{op "="}
+								{value 10}
+							}
+							{"player"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag airstrike_ger}
+											}
+											{tag
+												{tag airstrike_rus}
+											}
+											{tag
+												{tag airstrike_fin}
+											}
+											{tag
+												{tag airstrike_usa}
+											}
+											{tag
+												{tag airstrike_eng}
+											}
+										}
+										{include
+											{prop
+												{prop vehicle}
+											}
+										}
+									}
+								}
+								{operation set}
+								{player "10"}
+							}
+							{"player"
+								{selector
+									{ignore_captured_by_user 0}
+									{tag pilot}
+									{type human}
+								}
+								{operation set}
+								{player "10"}
+							}
 							{"objective_progress"
 								{set 0}
 								{add 0}
 								{title "mission/multi/dcg_error01"}
 							}
 							{"con"
-								{text "(Warning) - dcg error 01: enemyid is above 4.(setting to 5)"}
+								{text "(Warning) - dcg error 01: enemyid is above 9.(setting to 10)"}
 							}
 							{"delay"
 								{time 5}
@@ -9383,7 +9605,7 @@
 						}
 					}
 					{"delay"
-						{time 3.2}
+						{time 1.2}
 					}
 					{"trigger"
 						{name "dcg/players_units"}
@@ -13017,6 +13239,18 @@
 										}
 										{tag
 											{tag _bot}
+										}
+										{prop
+											{prop airborne}
+										}
+										{player
+											{player "0"}
+										}
+										{player
+											{player "1"}
+										}
+										{player
+											{player "3"}
 										}
 									}
 								}
@@ -16928,7 +17162,29 @@
 				}
 				{actions
 					{"delay"
-						{time 0.4}
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{include
+									{prop
+										{prop airborne}
+									}
+								}
+								{exclude
+									{tag
+										{tag air_vehicle}
+									}
+								}
+							}
+						}
+						{tag_add air_vehicle}
+					}
+					{"delay"
+						{time 0.3}
 					}
 					{"entity_state"
 						{selector
@@ -16956,28 +17212,6 @@
 						{var "dcg_on$"}
 						{op "="}
 						{value 0}
-					}
-					{"entity_state"
-						{selector
-							{source advanced}
-							{ignore_captured_by_user 0}
-							{group
-								{select
-									{tag
-										{tag engine_count_1}
-									}
-									{tag
-										{tag engine_count_2}
-									}
-								}
-								{exclude
-									{tag
-										{tag air_vehicle}
-									}
-								}
-							}
-						}
-						{tag_add air_vehicle}
 					}
 					{"delay"
 						{time 0.5}
@@ -17227,6 +17461,7 @@
 			}
 			{"dcg/user_error"
 				{condition
+					{expression "1 & 2 & !3"}
 					{terms
 						{"1.event"
 							{id "dcg"}
@@ -17243,15 +17478,84 @@
 									}
 									{include
 										{tag
-											{tag bot}
+											{tag _bot}
 										}
 									}
 								}
 							}
 						}
+						{"3.trigger"
+							{name "lua/bot_tags"}
+						}
 					}
 				}
 				{actions
+					{"delay"
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag _bot}
+									}
+								}
+								{include
+									{tag
+										{tag _user}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{state
+										{state user_control}
+									}
+								}
+							}
+						}
+						{tag_add _cmp_def}
+						{tag_remove _user}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag _cmp_def}
+						}
+						{tag_remove player}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag _cmp_def}
+						}
+						{tag_remove _bot}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag _cmp_def}
+						}
+						{tag_remove bot}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag _cmp_def}
+						}
+						{tag_add cmp_def}
+						{tag_remove _cmp_def}
+					}
 					{"delay"
 						{time 0.1}
 					}
@@ -17267,7 +17571,10 @@
 								}
 								{include
 									{tag
-										{tag bot}
+										{tag _bot}
+									}
+									{state
+										{state "operatable user_control"}
 									}
 								}
 							}
@@ -17275,7 +17582,7 @@
 						{tag_remove _bot}
 					}
 					{"delay"
-						{time 0.5}
+						{time 0.2}
 					}
 					{"entity_state"
 						{selector
@@ -17291,13 +17598,16 @@
 									{tag
 										{tag bot}
 									}
+									{state
+										{state "operatable user_control"}
+									}
 								}
 							}
 						}
 						{tag_remove bot}
 					}
 					{"delay"
-						{time 4.4}
+						{time 1}
 					}
 					{"trigger"
 						{name "dcg/user_error"}
@@ -17896,6 +18206,27 @@
 								{op "=="}
 								{value 1}
 							}
+							{"delete"
+								{selector
+									{source advanced}
+									{ignore_captured_by_user 0}
+									{group
+										{select
+											{tag
+												{tag mine_planted}
+											}
+											{tag
+												{tag dcg_mine_sign}
+											}
+										}
+										{include
+											{tag
+												{tag cmp_def}
+											}
+										}
+									}
+								}
+							}
 						}
 						{"default"
 							{"event"
@@ -18315,6 +18646,9 @@
 									}
 								}
 								{exclude
+									{tag
+										{tag "+garrisoned"}
+									}
 									{state
 										{state user_control}
 									}
@@ -18328,6 +18662,11 @@
 							{source advanced}
 							{ignore_captured_by_user 0}
 							{group
+								{select
+									{zone
+										{zone "gamezone"}
+									}
+								}
 								{include
 									{prop
 										{prop no_scavenge}
@@ -18337,6 +18676,9 @@
 									}
 								}
 								{exclude
+									{tag
+										{tag "+garrisoned"}
+									}
 									{state
 										{state user_control}
 									}
@@ -18350,13 +18692,36 @@
 					}
 					{"entity_state"
 						{selector
+							{source advanced}
+							{ignore_captured_by_user 0}
+							{group
+								{select
+									{tag
+										{tag air_vehicle}
+									}
+								}
+								{exclude
+									{tag
+										{tag "+garrisoned"}
+									}
+									{tag
+										{tag _garrison_off}
+									}
+								}
+							}
+						}
+						{tag_add _garrison_off}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"entity_state"
+						{selector
 							{ignore_captured_by_user 0}
 							{tag _garrison_off}
 						}
 						{tag_add "+garrisoned"}
-					}
-					{"delay"
-						{time 0.2}
+						{tag_remove "_garrison_todo+"}
 					}
 					{"entity_state"
 						{selector
@@ -18396,6 +18761,381 @@
 						{event "dcg2/flags_set"}
 						{mode set}
 						{delay 0}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"if"
+						{condition
+							{type event}
+							{id "flag1"}
+						}
+						{"switch"
+							{"case"
+								{condition
+									{type rand}
+									{value 0.25}
+								}
+								{"set_i"
+									{var "tank_1_fork1$"}
+									{op "="}
+									{value 1}
+								}
+								{"set_i"
+									{var "tank_1_fork2$"}
+									{op "="}
+									{value 2}
+								}
+								{"set_i"
+									{var "tank_1_fork3$"}
+									{op "="}
+									{value 3}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.33}
+								}
+								{"set_i"
+									{var "tank_1_fork1$"}
+									{op "="}
+									{value 3}
+								}
+								{"set_i"
+									{var "tank_1_fork2$"}
+									{op "="}
+									{value 2}
+								}
+								{"set_i"
+									{var "tank_1_fork3$"}
+									{op "="}
+									{value 1}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.5}
+								}
+								{"set_i"
+									{var "tank_1_fork1$"}
+									{op "="}
+									{value 3}
+								}
+								{"set_i"
+									{var "tank_1_fork2$"}
+									{op "="}
+									{value 3}
+								}
+								{"set_i"
+									{var "tank_1_fork3$"}
+									{op "="}
+									{value 3}
+								}
+							}
+							{"default"}
+						}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"if"
+						{condition
+							{type event}
+							{id "flag2"}
+						}
+						{"switch"
+							{"case"
+								{condition
+									{type rand}
+									{value 0.25}
+								}
+								{"set_i"
+									{var "tank_2_fork1$"}
+									{op "="}
+									{value 1}
+								}
+								{"set_i"
+									{var "tank_2_fork2$"}
+									{op "="}
+									{value 2}
+								}
+								{"set_i"
+									{var "tank_2_fork3$"}
+									{op "="}
+									{value 3}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.33}
+								}
+								{"set_i"
+									{var "tank_2_fork1$"}
+									{op "="}
+									{value 3}
+								}
+								{"set_i"
+									{var "tank_2_fork2$"}
+									{op "="}
+									{value 2}
+								}
+								{"set_i"
+									{var "tank_2_fork3$"}
+									{op "="}
+									{value 1}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.5}
+								}
+								{"set_i"
+									{var "tank_2_fork1$"}
+									{op "="}
+									{value 3}
+								}
+								{"set_i"
+									{var "tank_2_fork2$"}
+									{op "="}
+									{value 3}
+								}
+								{"set_i"
+									{var "tank_2_fork3$"}
+									{op "="}
+									{value 3}
+								}
+							}
+							{"default"}
+						}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"if"
+						{condition
+							{type event}
+							{id "flag3"}
+						}
+						{"switch"
+							{"case"
+								{condition
+									{type rand}
+									{value 0.25}
+								}
+								{"set_i"
+									{var "tank_3_fork1$"}
+									{op "="}
+									{value 1}
+								}
+								{"set_i"
+									{var "tank_3_fork2$"}
+									{op "="}
+									{value 2}
+								}
+								{"set_i"
+									{var "tank_3_fork3$"}
+									{op "="}
+									{value 3}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.33}
+								}
+								{"set_i"
+									{var "tank_3_fork1$"}
+									{op "="}
+									{value 3}
+								}
+								{"set_i"
+									{var "tank_3_fork2$"}
+									{op "="}
+									{value 2}
+								}
+								{"set_i"
+									{var "tank_3_fork3$"}
+									{op "="}
+									{value 1}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.5}
+								}
+								{"set_i"
+									{var "tank_3_fork1$"}
+									{op "="}
+									{value 3}
+								}
+								{"set_i"
+									{var "tank_3_fork2$"}
+									{op "="}
+									{value 3}
+								}
+								{"set_i"
+									{var "tank_3_fork3$"}
+									{op "="}
+									{value 3}
+								}
+							}
+							{"default"}
+						}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"if"
+						{condition
+							{type event}
+							{id "flag4"}
+						}
+						{"switch"
+							{"case"
+								{condition
+									{type rand}
+									{value 0.25}
+								}
+								{"set_i"
+									{var "tank_4_fork1$"}
+									{op "="}
+									{value 1}
+								}
+								{"set_i"
+									{var "tank_4_fork2$"}
+									{op "="}
+									{value 2}
+								}
+								{"set_i"
+									{var "tank_4_fork3$"}
+									{op "="}
+									{value 3}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.33}
+								}
+								{"set_i"
+									{var "tank_4_fork1$"}
+									{op "="}
+									{value 3}
+								}
+								{"set_i"
+									{var "tank_4_fork2$"}
+									{op "="}
+									{value 2}
+								}
+								{"set_i"
+									{var "tank_4_fork3$"}
+									{op "="}
+									{value 1}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.5}
+								}
+								{"set_i"
+									{var "tank_4_fork1$"}
+									{op "="}
+									{value 3}
+								}
+								{"set_i"
+									{var "tank_4_fork2$"}
+									{op "="}
+									{value 3}
+								}
+								{"set_i"
+									{var "tank_4_fork3$"}
+									{op "="}
+									{value 3}
+								}
+							}
+							{"default"}
+						}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"if"
+						{condition
+							{type event}
+							{id "flag5"}
+						}
+						{"switch"
+							{"case"
+								{condition
+									{type rand}
+									{value 0.25}
+								}
+								{"set_i"
+									{var "tank_5_fork1$"}
+									{op "="}
+									{value 1}
+								}
+								{"set_i"
+									{var "tank_5_fork2$"}
+									{op "="}
+									{value 2}
+								}
+								{"set_i"
+									{var "tank_5_fork3$"}
+									{op "="}
+									{value 3}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.33}
+								}
+								{"set_i"
+									{var "tank_5_fork1$"}
+									{op "="}
+									{value 3}
+								}
+								{"set_i"
+									{var "tank_5_fork2$"}
+									{op "="}
+									{value 2}
+								}
+								{"set_i"
+									{var "tank_5_fork3$"}
+									{op "="}
+									{value 1}
+								}
+							}
+							{"case"
+								{condition
+									{type rand}
+									{value 0.5}
+								}
+								{"set_i"
+									{var "tank_5_fork1$"}
+									{op "="}
+									{value 3}
+								}
+								{"set_i"
+									{var "tank_5_fork2$"}
+									{op "="}
+									{value 3}
+								}
+								{"set_i"
+									{var "tank_5_fork3$"}
+									{op "="}
+									{value 3}
+								}
+							}
+							{"default"}
+						}
 					}
 				}
 			}
@@ -20661,7 +21401,7 @@
 						}
 					}
 					{"delay"
-						{time 60}
+						{time 100}
 					}
 					{"switch"
 						{"case"
@@ -21655,9 +22395,27 @@
 					}
 					{"effect"
 						{selector
-							{tag _s_destruct}
-							{type vehicle}
-							{state inhabited}
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag _s_destruct}
+									}
+								}
+								{include
+									{prop
+										{prop vehicle}
+									}
+									{state
+										{state inhabited}
+									}
+								}
+								{exclude
+									{state
+										{state user_control}
+									}
+								}
+							}
 						}
 						{effect leave_unit}
 					}

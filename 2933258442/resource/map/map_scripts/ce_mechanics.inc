@@ -724,11 +724,16 @@
 						{"3.event"
 							{id "dcg"}
 						}
+						{"4.cmp_i"
+							{var "garrison_end$"}
+							{op "=="}
+							{value 1}
+						}
 					}
 				}
 				{actions
 					{"delay"
-						{time 15}
+						{time 2}
 					}
 					{"switch"
 						{"case"
