@@ -24,6 +24,12 @@
             }
         }
     }
+
+    {on "reject_support_request"
+        {tags add "_rtb"}
+        {drop_orders}
+        {hide 10} 
+    }
 }
 
 {"drop_plane"
@@ -128,8 +134,14 @@
 (define "tag_plane_category"
     {"%entity"
         {on spawn
-            {delay 0.2
-                {tags add "%tag"}
+            {delay 0.3
+                {if not tagged "air_vehicle"
+                    {if not tagged "_garrison_off"
+                        {if not tagged "+garrisoned"
+                            {tags add "%tag"}
+                        }
+                    }
+                }
             }
         }
     }

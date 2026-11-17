@@ -180,7 +180,7 @@
 		{MID 5}
 	}
 	{Entity "map_point_conquest" 0x8007
-		{Position -5049.53 6988.36}
+		{Position -5049.52 6988.36}
 		{xform zl -61.85}
 		{Extender "map_point"
 			{name a3}
@@ -201,7 +201,7 @@
 		{MID 6}
 	}
 	{Entity "map_point_conquest" 0x8008
-		{Position -609.393 -7152.52}
+		{Position -609.39 -7152.52}
 		{xform zl 84.52}
 		{Extender "map_point"
 			{name b3}
@@ -3009,7 +3009,7 @@
 	}
 	{Human "" 0x80a7
 		{Position -273.94 -2189.47}
-		{xform zl -71.41 y 31.02 zw -90.18}
+		{xform zl -71.41 y 31.01 zw -90.18}
 		{Volume "ram"
 			{able {visible 0}{bullet 0}{throwing 0}{obstacle 0}{contact 0}{contact_ground 0}{blast 0}{select 0}{touch 0}{blockcamera 0}}
 			{disabled}
@@ -3410,7 +3410,7 @@
 	}
 	{Human "" 0x80d5
 		{Position 3626.05 1880.52}
-		{xform zl -77.73 y 32.64 zw 51.34}
+		{xform zl -77.73 y 32.63 zw 51.34}
 		{Volume "ram"
 			{able {visible 0}{bullet 0}{throwing 0}{obstacle 0}{contact 0}{contact_ground 0}{blast 0}{select 0}{touch 0}{blockcamera 0}}
 			{disabled}
@@ -3860,7 +3860,7 @@
 	}
 	{Human "" 0x8100
 		{Position 3952.13 -1644.29}
-		{xform zl 15.32 y 41.26 zw 24.58}
+		{xform zl 36.22}
 		{Volume "ram"
 			{able {visible 0}{bullet 0}{throwing 0}{obstacle 0}{contact 0}{contact_ground 0}{blast 0}{select 0}{touch 0}{blockcamera 0}}
 			{disabled}
@@ -4599,8 +4599,8 @@
 		{FsmState "snipe"}
 	}
 	{Human "" 0xa031
-		{Position 632.11 -2185.5}
-		{xform zl -2.68}
+		{Position 632.07 -2186.29}
+		{xform zl 87.31}
 		{Volume "ram"
 			{able {visible 0}{bullet 0}{throwing 0}{obstacle 0}{contact 0}{contact_ground 0}{blast 0}{select 0}{touch 0}{blockcamera 0}}
 			{disabled}
@@ -5292,9 +5292,6 @@
 		{DisableObstacles}
 		{Player 0}
 		{MID 340}
-		{Weaponry
-			{Current "bomb1"}
-		}
 		{Chassis "airborne"
 			{AirborneMode 1}
 			{Altitude 47}
@@ -5613,21 +5610,25 @@
 		{Position 1845.97 -453.61 71.68}
 		{xform zl -66.31}
 		{Constrain none}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0x8123
 		{Position 1923.94 -392.89 71.78}
 		{xform zl -34.06}
 		{Constrain none}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0x8124
 		{Position 1783.15 -456.2 73.5}
 		{xform zl -97.24}
 		{Constrain none}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0x8125
 		{Position 1884.87 -436 69.19}
 		{xform zl -64.31}
 		{Constrain none}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0x8128
 		{Position 543.4 -354}
@@ -5640,40 +5641,49 @@
 	{Entity "sandbag_heap_curved" 0xc002
 		{Position 1345.61 -408.97}
 		{xform zl 178.28}
+		{Fogable always}
 	}
 	{Entity "sandbag_heap_curved" 0xc003
 		{Position 1422.01 -584.96}
-		{xform zl -132.99}
+		{xform zl 47.28 y 7.87 zw 180}
+		{Fogable always}
 	}
 	{Entity "sandbag_heap_curved" 0xe002
 		{Position 2203.51 -200.24}
 		{xform zl -0.23}
+		{Fogable always}
 	}
 	{Entity "sandbag_heap_curved" 0xe003
 		{Position 2128.75 -2.96}
 		{xform zl 51.38}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xb03e
 		{Position 1760.77 -120.62 75.07}
 		{xform zl 116.53}
 		{Constrain none}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xb03f
 		{Position 1683.94 -185.16}
-		{xform zl 149.94}
+		{xform zl 42.33 y 17.26 zw 108.91}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xb040
 		{Position 1823.07 -112.73}
-		{xform zl 90.37}
+		{xform zl 0.37 y 6.87 zw 90}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xb041
 		{Position 1721.89 -140.22 74.82}
 		{xform zl 116.83}
 		{Constrain none}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_straight" 0xb042
 		{Position 1361.45 -90.58}
-		{xform zl -60.19}
+		{xform zl 143.59 y 9.54 zw 155.83}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0xb043
 		{Position 2159.43 355.56}
@@ -5686,6 +5696,7 @@
 	{Entity "sandbag_structured_straight" 0xb045
 		{Position 1751.09 234.3}
 		{xform zl -91.39}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0xb049
 		{Position 2705.98 -157.48}
@@ -5705,39 +5716,47 @@
 	}
 	{Entity "sandbag_framed_straight" 0xd006
 		{Position 3572.33 1408.9 82.49}
-		{xform zl -95.55}
+		{xform zl 130.2 y 9.66 zw 133.84}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xd007
 		{Position 3626.27 1425.51 83}
-		{xform zl -67.08}
+		{xform zl -157.1 y 5.73 zw 90.12}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xd008
 		{Position 3478.78 1444.91 78}
-		{xform zl -126.98}
+		{xform zl 53.02 y 0.06 zw 180}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xd009
 		{Position 3530.85 1414.57 80.19}
-		{xform zl -98.84}
+		{xform zl 142.51 y 8.91 zw 118.31}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xd00f
 		{Position 3490.03 1710.24 73}
 		{xform zl 83.05}
 		{Constrain none}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xd010
 		{Position 3393.09 1691.91 72}
 		{xform zl 120.03}
 		{Constrain none}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xd011
 		{Position 3584.88 1747.37 73}
 		{xform zl 84.83}
 		{Constrain none}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xd012
 		{Position 3447.49 1713.05 72.62}
 		{xform zl 86.76}
 		{Constrain none}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0xd014
 		{Position 3349.84 1868.34}
@@ -5750,14 +5769,17 @@
 	{Entity "sandbag_heap_curved" 0xd019
 		{Position 3902.95 1879.27}
 		{xform zl 31.73}
+		{Fogable always}
 	}
 	{Entity "sandbag_heap_curved" 0xd01a
 		{Position 4034.22 1626.88}
-		{xform zl 18.95}
+		{xform zl -71.39 y 11.3 zw 90}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_straight" 0xd020
 		{Position -2878.54 1379.96}
 		{xform zl 111.74}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0xd021
 		{Position -2998.01 1389.13}
@@ -5770,54 +5792,66 @@
 	{Entity "sandbag_structured_straight" 0xd023
 		{Position -2942.69 1370.9}
 		{xform zl 90.97}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xd024
 		{Position -3127.44 1733.04 25}
 		{xform zl -94.13}
 		{Constrain none}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xd025
 		{Position -3031.25 1754.97 25}
 		{xform zl -57.15}
 		{Constrain none}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xd026
 		{Position -3182.8 1760.9 25}
 		{xform zl -125.37}
 		{Constrain none}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xd027
 		{Position -3084.82 1731.82 25}
 		{xform zl -90.42}
 		{Constrain none}
+		{Fogable always}
 	}
 	{Entity "sandbag_heap_curved" 0xd028
 		{Position -3448.6 1874.21}
 		{xform zl 153}
+		{Fogable always}
 	}
 	{Entity "sandbag_heap_curved" 0xd029
 		{Position -3455.67 1807.94}
 		{xform zl -160.14}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xd02d
 		{Position -3076.82 1936.6}
 		{xform zl 81.42}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xd02e
 		{Position -3174.42 1922.18}
 		{xform zl 118.4}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xd02f
 		{Position -3023.79 1904.53}
 		{xform zl 50.18}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xd030
 		{Position -3119.22 1941.12}
 		{xform zl 85.13}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_straight" 0xd031
 		{Position -3412.71 2177.26}
 		{xform zl -90.13}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0xd032
 		{Position -3175.89 2158.87}
@@ -5830,6 +5864,7 @@
 	{Entity "sandbag_structured_straight" 0xd034
 		{Position -3349.09 2172.24}
 		{xform zl -90.32}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0xd039
 		{Position -2325.69 1888.14}
@@ -5847,43 +5882,52 @@
 		{Position -595.17 -1901.2 72.5}
 		{xform zl 8.47}
 		{Constrain none}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xd044
 		{Position -746.53 -1928.53 71.5}
 		{xform zl -145.44}
 		{Constrain none}
+		{Fogable always}
 	}
 	{Entity "sandbag_heap_curved" 0xd046
 		{Position -1171.36 -2100.06}
 		{xform zl 153}
+		{Fogable always}
 	}
 	{Entity "sandbag_heap_curved" 0xd047
 		{Position -945.51 -2260.12}
 		{xform zl -149.89}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xd04b
 		{Position -681.21 -1775.07 72}
 		{xform zl 87.75}
 		{Constrain none}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xd04c
 		{Position -768 -1811.13 72}
 		{xform zl 145.07}
 		{Constrain none}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xd04d
 		{Position -627.68 -1803.85 72}
 		{xform zl 50.18}
 		{Constrain none}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xd04e
 		{Position -723.87 -1775.27 71}
 		{xform zl 90.94}
 		{Constrain none}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_straight" 0xd04f
 		{Position -901.47 -1643.27}
-		{xform zl -90.13}
+		{xform zl 115.5 y 9.53 zw 154.05}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0xd050
 		{Position -499.99 -1668.29}
@@ -5896,6 +5940,7 @@
 	{Entity "sandbag_structured_straight" 0xd052
 		{Position -552.78 -1647.17}
 		{xform zl -90.75}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0xd053
 		{Position -355.61 -1332.5}
@@ -5908,6 +5953,7 @@
 	{Entity "sandbag_heap_curved" 0xd056
 		{Position -76.99 -1561.13}
 		{xform zl 57.35}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0xd05a
 		{Position 2978.65 -3483.24}
@@ -5920,6 +5966,7 @@
 	{Entity "sandbag_structured_straight" 0xd05c
 		{Position 3474.93 -3225.12}
 		{xform zl 91.59}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0xd05d
 		{Position 3209.69 -3392.48 81.83}
@@ -5933,26 +5980,31 @@
 	{Entity "sandbag_structured_straight" 0xd05f
 		{Position 3233.15 -3231.88}
 		{xform zl 91.72}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xd060
 		{Position 3375.5 -3116.43 77}
 		{xform zl -94.62}
 		{Constrain none}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xd061
 		{Position 3471.69 -3094.5 77}
 		{xform zl -57.64}
 		{Constrain none}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xd062
 		{Position 3320.14 -3088.57 78}
 		{xform zl -125.86}
 		{Constrain none}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xd063
 		{Position 3418.12 -3117.65 77}
 		{xform zl -90.91}
 		{Constrain none}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0xd066
 		{Position 2961.84 -2675.64}
@@ -5965,15 +6017,18 @@
 	{Entity "sandbag_structured_straight" 0xd068
 		{Position 2992.63 -3040.13}
 		{xform zl -1.22}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xd06c
 		{Position 3622.45 -2680.45 82.8}
 		{xform zl 87.91}
 		{Constrain none}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_straight" 0xd06d
 		{Position 3209.75 -2587.86}
-		{xform zl -90.13}
+		{xform zl 179.86 y 2.02 zw 90}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0xd06e
 		{Position 3725.07 -2618.46}
@@ -5985,15 +6040,18 @@
 	}
 	{Entity "sandbag_structured_straight" 0xd070
 		{Position 3672.27 -2597.34}
-		{xform zl -90.75}
+		{xform zl 179.23 y 10.5 zw 90}
+		{Fogable always}
 	}
 	{Entity "sandbag_heap_curved" 0xd073
 		{Position 3584.68 -3027.35}
-		{xform zl -22.49}
+		{xform zl 153.24 y 8.82 zw -176.01}
+		{Fogable always}
 	}
 	{Entity "sandbag_heap_curved" 0xd074
 		{Position 3816.36 -2805.82 78.5}
 		{xform zl -1.15}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0xd076
 		{Position 3848.82 -2588.77}
@@ -6074,11 +6132,13 @@
 		{Position -622.96 -1958.7 72.5}
 		{xform zl -58.23}
 		{Constrain none}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xa401
 		{Position -690.43 -1968.61 72.5}
 		{xform zl -106.34}
 		{Constrain none}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0xe000
 		{Position 3962.8 1458.19}
@@ -16905,8 +16965,8 @@
 	{Tags "pilot" 0x810d}
 	{Tags "pilot" 0x8110}
 	{Tags "pilot" 0x8111}
-	{Tags "engine_count_2" "hidden" "air_vehicle" "no_scavenge" "airstrike_ger" "move_fast" "altitude_low" 0x8112}
-	{Tags "engine_count_1" "hidden" "air_vehicle" "no_scavenge" "airstrike_rus" "move_fast" "altitude_low" 0x82d6}
+	{Tags "engine_count_2" "hidden" "air_vehicle" "no_scavenge" "airstrike_ger" "move_fast" "altitude_low" "update_move" 0x8112}
+	{Tags "engine_count_1" "hidden" "air_vehicle" "no_scavenge" "airstrike_rus" "move_fast" "altitude_low" "update_move" 0x82d6}
 	{Tags "cmp_def" "1_a_1-3" "2_a_1-3" "3_a_1-3" "4_a_1-3" "5_a_1-3" "def_team_1" 0xa001}
 	{Tags "cmp_def" "1_b_1-3" "2_b_1-3" "3_b_1-3" "4_b_1-3" "5_b_1-3" "def_team_2" 0xa002}
 	{Tags "cmp_def" "1_a_2-3_mg" 0x82d7}
@@ -16929,7 +16989,7 @@
 	{Tags "hidden" "arrow_enemy_b" "b_3" "ignore" "arrow_enemy" 0x8114}
 	{Tags "pilot" 0x82ee}
 	{Tags "pilot" 0x82ef}
-	{Tags "engine_count_2" "move_fast" "hidden" "airstrike_fin" "no_scavenge" "air_vehicle" "altitude_low" 0x82ed}
+	{Tags "engine_count_2" "move_fast" "hidden" "airstrike_fin" "no_scavenge" "air_vehicle" "altitude_low" "update_move" 0x82ed}
 	{Tags "cmp_def" "1_a_2-3" 0x811d}
 	{Tags "cmp_def" "1_a_2-3" 0x811e}
 	{Tags "cmp_def" "1_a_3" 0x8120}
@@ -17026,7 +17086,7 @@
 	{Tags "cmp_def" "2_a_2-3" "2_b_2-3" 0xd074}
 	{Tags "cmp_def" "2_a_3" "2_b_3" 0xd076}
 	{Tags "pilot" 0xc07f}
-	{Tags "engine_count_1" "move_fast" "hidden" "air_vehicle" "no_scavenge" "airstrike_usa" "altitude_low" 0x828e}
+	{Tags "engine_count_1" "move_fast" "hidden" "air_vehicle" "no_scavenge" "airstrike_usa" "altitude_low" "update_move" 0x828e}
 	{Tags "cmp_def" "4_a_1-3" 0xa400}
 	{Tags "cmp_def" "4_a_1-3" 0xa401}
 	{Tags "cmp_def" "5_a_2-3" 0xe000}
@@ -17667,7 +17727,7 @@
 	{Tags "cmp_def" "5_b_2-3" "mines_5_d" "dcg_mine_sign" 0x8296}
 	{Tags "cmp_def" "5_b_2-3" "mines_5_d" "dcg_mine_sign" 0x8297}
 	{Tags "pilot" 0x8314}
-	{Tags "engine_count_1" "hidden" "air_vehicle" "no_scavenge" "airstrike_eng" "move_fast" "altitude_low" 0x8315}
+	{Tags "engine_count_1" "hidden" "air_vehicle" "no_scavenge" "airstrike_eng" "move_fast" "altitude_low" "update_move" 0x8315}
 	{Inventory 0x800c
 		{box
 			{clear}
@@ -21075,7 +21135,7 @@
 			{Point 7696.56 -7681.15}
 		}
 		{zone "poly"
-			{position 6208.61 6041.81 75.2676}
+			{position 6208.61 6041.81 28}
 			{Name "grid_a1"}
 			{Point -2016.24 -2011.45}
 			{Point -2008.28 1982.85}
@@ -21083,7 +21143,7 @@
 			{Point 2007.21 -1993.7}
 		}
 		{zone "poly"
-			{position 2180.25 6013.8 65.9704}
+			{position 2180.25 6013.8 24}
 			{Name "grid_a2"}
 			{Point -2016.24 -2011.45}
 			{Point -2008.28 1982.85}
@@ -21091,7 +21151,7 @@
 			{Point 2007.21 -1993.7}
 		}
 		{zone "poly"
-			{position -1864.92 5985.34 -45.157}
+			{position -1864.92 5985.34 47}
 			{Name "grid_a3"}
 			{Point -2016.24 -2011.45}
 			{Point -2008.28 1982.85}
@@ -21099,7 +21159,7 @@
 			{Point 2007.21 -1993.7}
 		}
 		{zone "poly"
-			{position -5905.81 5955.62 58.2785}
+			{position -5905.81 5955.62 35}
 			{Name "grid_a4"}
 			{Point -2016.24 -2011.45}
 			{Point -2008.28 1982.85}
@@ -21107,7 +21167,7 @@
 			{Point 2007.21 -1993.7}
 		}
 		{zone "poly"
-			{position 6193.22 2030.18 52}
+			{position 6193.22 2030.18 47}
 			{Name "grid_b1"}
 			{Point -2021.31 -1999.61}
 			{Point -2006.59 1978.91}
@@ -21115,7 +21175,7 @@
 			{Point 2008.9 -1997.64}
 		}
 		{zone "poly"
-			{position 2162.61 2014.84 17}
+			{position 2162.61 2014.84 51}
 			{Name "grid_b2"}
 			{Point -2021.31 -1999.61}
 			{Point -2006.59 1978.91}
@@ -21123,7 +21183,7 @@
 			{Point 2008.9 -1997.64}
 		}
 		{zone "poly"
-			{position -1869.82 1980.93 3.05847}
+			{position -1869.82 1980.93 27}
 			{Name "grid_b3"}
 			{Point -2021.31 -1999.61}
 			{Point -2006.59 1978.91}
@@ -21131,7 +21191,7 @@
 			{Point 2008.9 -1997.64}
 		}
 		{zone "poly"
-			{position -5915.83 -2047.31 29}
+			{position -5915.83 -2047.31 64}
 			{Name "grid_b4"}
 			{Point -2002.26 -2008.03}
 			{Point -2010.36 1988.62}
@@ -21139,7 +21199,7 @@
 			{Point 2005.13 -1987.93}
 		}
 		{zone "poly"
-			{position 6163.87 -1984.86 35.0213}
+			{position 6163.87 -1984.86 60}
 			{Name "grid_c1"}
 			{Point -2002.26 -2008.03}
 			{Point -2010.36 1988.62}
@@ -21147,7 +21207,7 @@
 			{Point 2005.13 -1987.93}
 		}
 		{zone "poly"
-			{position 2149.21 -2004.03 89.9006}
+			{position 2149.21 -2004.03 84}
 			{Name "grid_c2"}
 			{Point -2002.26 -2008.03}
 			{Point -2010.36 1988.62}
@@ -21155,7 +21215,7 @@
 			{Point 2005.13 -1987.93}
 		}
 		{zone "poly"
-			{position -1890.43 -2034.34 32.7887}
+			{position -1890.43 -2034.34 63}
 			{Name "grid_c3"}
 			{Point -2002.26 -2008.03}
 			{Point -2010.36 1988.62}
@@ -21163,7 +21223,7 @@
 			{Point 2005.13 -1987.93}
 		}
 		{zone "poly"
-			{position -5911.57 1958.53 -80}
+			{position -5911.57 1958.53 26}
 			{Name "grid_c4"}
 			{Point -2021.31 -1999.61}
 			{Point -2006.59 1978.91}
@@ -21171,7 +21231,7 @@
 			{Point 2008.9 -1997.64}
 		}
 		{zone "poly"
-			{position 6162.48 -5992.75 119}
+			{position 6162.48 -5992.75 91}
 			{Name "grid_d1"}
 			{Point -2004.19 -2013.21}
 			{Point -2012.29 1983.44}
@@ -21179,7 +21239,7 @@
 			{Point 2003.2 -1993.11}
 		}
 		{zone "poly"
-			{position 2143.92 -6008.66 209.311}
+			{position 2143.92 -6008.66 78}
 			{Name "grid_d2"}
 			{Point -2004.19 -2013.21}
 			{Point -2012.29 1983.44}
@@ -21187,7 +21247,7 @@
 			{Point 2003.2 -1993.11}
 		}
 		{zone "poly"
-			{position -1878.85 -6040.97 -80}
+			{position -1878.85 -6040.97 86}
 			{Name "grid_d3"}
 			{Point -2004.19 -2013.21}
 			{Point -2012.29 1983.44}
@@ -21195,7 +21255,7 @@
 			{Point 2003.2 -1993.11}
 		}
 		{zone "poly"
-			{position -5910.41 -6042.2 259.617}
+			{position -5910.41 -6042.2 96}
 			{Name "grid_d4"}
 			{Point -2004.19 -2013.21}
 			{Point -2012.29 1983.44}
@@ -22568,7 +22628,7 @@
 				}
 			}
 			{"4"
-				{position -675.766 -1870.18 74.1394}
+				{position -675.766 -1870.18 74.1405}
 				{radius 500}
 				{commands
 					{"entity_state"
@@ -25166,7 +25226,7 @@
 				}
 			}
 			{"19"
-				{position 3689.85 3437.89 50.7603}
+				{position 3689.85 3437.89 50.7593}
 				{radius 500}
 				{commands
 					{"switch"
@@ -25586,7 +25646,7 @@
 		}
 		{waypoints "b_def_spawns"
 			{"20"
-				{position 1233.81 -825.104 66.4478}
+				{position 1233.81 -825.104 66.4485}
 				{radius 500}
 				{commands
 					{"switch"
@@ -26840,7 +26900,7 @@
 				}
 			}
 			{"23"
-				{position -651.667 -2873.86 87.8771}
+				{position -651.667 -2873.86 87.8766}
 				{radius 500}
 				{commands
 					{"switch"
@@ -27730,7 +27790,7 @@
 				{radius 500}
 			}
 			{"281"
-				{position -846.724 -257.079 49.289}
+				{position -846.724 -257.079 49.2889}
 				{radius 500}
 			}
 			{"282"
@@ -27782,7 +27842,7 @@
 				{radius 500}
 			}
 			{"294"
-				{position 3161.77 221.785 85.2162}
+				{position 3161.77 221.785 85.2164}
 				{radius 500}
 			}
 			{"295"
@@ -27826,7 +27886,7 @@
 				{radius 500}
 			}
 			{"302"
-				{position 298.83 -217.441 60.3291}
+				{position 298.83 -217.441 60.3292}
 				{radius 500}
 			}
 			{"303"
@@ -27858,7 +27918,7 @@
 				}
 			}
 			{"33"
-				{position 2386.52 -1517.91 89.3141}
+				{position 2386.52 -1517.91 89.3135}
 				{radius 500}
 				{transition "295"}
 				{transition "296"}
@@ -27908,7 +27968,7 @@
 				}
 			}
 			{"114"
-				{position 2525.05 -1366.19 107.527}
+				{position 2525.05 -1366.19 107.526}
 				{radius 500}
 				{RandomPosition 1}
 				{transition "71"}
@@ -27998,7 +28058,7 @@
 				}
 			}
 			{"119"
-				{position 3043.76 -1135.87 97.7361}
+				{position 3043.76 -1135.87 97.7371}
 				{radius 500}
 				{RandomPosition 1}
 				{transition "73"}
@@ -28034,7 +28094,7 @@
 				}
 			}
 			{"121"
-				{position 2530.62 -983.499 94.9832}
+				{position 2530.62 -983.499 94.9831}
 				{radius 500}
 				{RandomPosition 1}
 				{transition "73"}
@@ -28065,11 +28125,11 @@
 				{transition "537"}
 			}
 			{"529"
-				{position 2255.22 -963.981 85.9008}
+				{position 2255.22 -963.981 85.9006}
 				{radius 500}
 			}
 			{"530"
-				{position 1693.62 -1195.2 95.1449}
+				{position 1693.62 -1195.2 95.1445}
 				{radius 500}
 			}
 			{"531"
@@ -28311,7 +28371,7 @@
 				}
 			}
 			{"73"
-				{position 2849.14 -843.054 92.8241}
+				{position 2849.14 -843.054 92.8242}
 				{radius 500}
 				{RandomPosition 1}
 				{commands
@@ -28455,7 +28515,7 @@
 				}
 			}
 			{"263"
-				{position 818.364 -1064.91 67.0875}
+				{position 818.364 -1064.91 67.0865}
 				{radius 500}
 				{transition "316"}
 				{transition "317"}
@@ -28479,7 +28539,7 @@
 				{radius 500}
 			}
 			{"307"
-				{position 2126.49 -18.025 79.7491}
+				{position 2126.49 -18.025 79.7519}
 				{radius 500}
 			}
 			{"308"
@@ -28547,7 +28607,7 @@
 				{radius 500}
 			}
 			{"324"
-				{position 1413.78 92.6511 74.4539}
+				{position 1413.78 92.6511 74.4546}
 				{radius 500}
 			}
 			{"325"
@@ -28599,7 +28659,7 @@
 				}
 			}
 			{"53"
-				{position 1487.43 -25.4834 73.2773}
+				{position 1487.43 -25.4834 73.277}
 				{radius 500}
 				{transition "318"}
 				{transition "319"}
@@ -28613,7 +28673,7 @@
 		}
 		{waypoints "b_f1_def_vehicle"
 			{"10"
-				{position 2759.69 -70.0532 67.728}
+				{position 2759.69 -70.0532 67.7273}
 				{radius 500}
 				{transition "541"}
 				{transition "542"}
@@ -28764,7 +28824,7 @@
 				}
 			}
 			{"180"
-				{position 2111.78 564.505 72.0294}
+				{position 2111.78 564.505 72.0296}
 				{radius 500}
 				{RandomPosition 1}
 				{transition "93"}
@@ -28826,7 +28886,7 @@
 				{radius 500}
 			}
 			{"543"
-				{position 2207.91 -367.844 68.2506}
+				{position 2207.91 -367.844 68.2502}
 				{radius 500}
 			}
 			{"544"
@@ -29160,7 +29220,7 @@
 		}
 		{waypoints "a_f2_def_inf"
 			{"244"
-				{position 4527.28 -2255 78.7794}
+				{position 4527.28 -2255 78.7803}
 				{radius 500}
 				{transition "334"}
 				{transition "335"}
@@ -29172,7 +29232,7 @@
 				}
 			}
 			{"245"
-				{position 3386.98 -2951.24 89.1947}
+				{position 3386.98 -2951.24 89.1933}
 				{radius 500}
 				{transition "349"}
 				{transition "350"}
@@ -29184,7 +29244,7 @@
 				}
 			}
 			{"246"
-				{position 3388.36 -2530.33 82.1702}
+				{position 3388.36 -2530.33 82.1705}
 				{radius 500}
 				{transition "343"}
 				{transition "344"}
@@ -29208,7 +29268,7 @@
 				}
 			}
 			{"328"
-				{position 1968.93 -2472.51 89.6058}
+				{position 1968.93 -2472.51 89.6064}
 				{radius 500}
 			}
 			{"329"
@@ -29216,7 +29276,7 @@
 				{radius 500}
 			}
 			{"330"
-				{position 1856 -2478.67 90.8381}
+				{position 1856 -2478.67 90.8385}
 				{radius 500}
 			}
 			{"331"
@@ -29232,7 +29292,7 @@
 				{radius 500}
 			}
 			{"334"
-				{position 4712.71 -2526.64 77.5684}
+				{position 4712.71 -2526.64 77.5676}
 				{radius 500}
 			}
 			{"335"
@@ -29280,7 +29340,7 @@
 				{radius 500}
 			}
 			{"343"
-				{position 3487.4 -2693.85 83.1252}
+				{position 3487.4 -2693.85 83.1255}
 				{radius 500}
 			}
 			{"344"
@@ -29304,7 +29364,7 @@
 				{radius 500}
 			}
 			{"349"
-				{position 3338.08 -3065.49 82.5942}
+				{position 3338.08 -3065.49 82.5945}
 				{radius 500}
 			}
 			{"35"
@@ -29361,7 +29421,7 @@
 				{transition "550"}
 			}
 			{"12"
-				{position 2156.2 -2526.09 93.3133}
+				{position 2156.2 -2526.09 93.313}
 				{radius 500}
 				{transition "551"}
 				{transition "552"}
@@ -29386,7 +29446,7 @@
 				{transition "74"}
 			}
 			{"125"
-				{position 1613.72 -1631.09 81.6768}
+				{position 1613.72 -1631.09 81.6775}
 				{radius 500}
 				{RandomPosition 1}
 				{transition "75"}
@@ -29404,7 +29464,7 @@
 				}
 			}
 			{"126"
-				{position 2927.68 -1630.6 86.7751}
+				{position 2927.68 -1630.6 86.7755}
 				{radius 500}
 				{RandomPosition 1}
 				{transition "75"}
@@ -29494,7 +29554,7 @@
 				}
 			}
 			{"131"
-				{position 3163.27 -1252.08 91.2903}
+				{position 3163.27 -1252.08 91.2897}
 				{radius 500}
 				{RandomPosition 1}
 				{transition "77"}
@@ -29548,13 +29608,13 @@
 				}
 			}
 			{"231"
-				{position 2214.81 -295.062 71.8831}
+				{position 2214.81 -295.062 71.8832}
 				{radius 500}
 				{RandomPosition 1}
 				{transition "74"}
 			}
 			{"548"
-				{position 2153.1 -1631.9 81.7148}
+				{position 2153.1 -1631.9 81.7139}
 				{radius 500}
 			}
 			{"549"
@@ -29570,7 +29630,7 @@
 				{radius 500}
 			}
 			{"552"
-				{position 2448.93 -2539.43 92.99}
+				{position 2448.93 -2539.43 92.9905}
 				{radius 500}
 			}
 			{"553"
@@ -29602,7 +29662,7 @@
 				{RandomPosition 1}
 			}
 			{"75"
-				{position 2353.94 -1626.25 81.6453}
+				{position 2353.94 -1626.25 81.6455}
 				{radius 500}
 				{RandomPosition 1}
 				{commands
@@ -29937,7 +29997,7 @@
 				}
 			}
 			{"267"
-				{position 4027.78 -2719.89 81.9182}
+				{position 4027.78 -2719.89 81.9176}
 				{radius 500}
 				{transition "352"}
 				{transition "353"}
@@ -29953,11 +30013,11 @@
 				{radius 500}
 			}
 			{"353"
-				{position 3830.53 -2596.47 86.399}
+				{position 3830.53 -2596.47 86.3984}
 				{radius 500}
 			}
 			{"354"
-				{position 4052.63 -2577.92 81.6892}
+				{position 4052.63 -2577.92 81.6885}
 				{radius 500}
 			}
 			{"355"
@@ -29977,7 +30037,7 @@
 				{radius 500}
 			}
 			{"359"
-				{position 2807.52 -1645.43 82.8103}
+				{position 2807.52 -1645.43 82.8094}
 				{radius 500}
 			}
 			{"360"
@@ -29989,7 +30049,7 @@
 				{radius 500}
 			}
 			{"362"
-				{position 2967.37 -2681.69 87.3265}
+				{position 2967.37 -2681.69 87.3259}
 				{radius 500}
 			}
 			{"363"
@@ -30021,7 +30081,7 @@
 				{radius 500}
 			}
 			{"370"
-				{position 4723.95 -2508.47 77.4209}
+				{position 4723.95 -2508.47 77.4204}
 				{radius 500}
 			}
 			{"371"
@@ -30037,7 +30097,7 @@
 				{radius 500}
 			}
 			{"374"
-				{position 3579.95 -2997.99 81.7769}
+				{position 3579.95 -2997.99 81.7727}
 				{radius 500}
 			}
 			{"375"
@@ -30045,7 +30105,7 @@
 				{radius 500}
 			}
 			{"54"
-				{position 4675.27 -2720.32 81.8324}
+				{position 4675.27 -2720.32 81.8314}
 				{radius 500}
 				{transition "370"}
 				{transition "371"}
@@ -30057,7 +30117,7 @@
 				}
 			}
 			{"55"
-				{position 2346.72 -1561.26 85.6429}
+				{position 2346.72 -1561.26 85.6436}
 				{radius 500}
 				{transition "358"}
 				{transition "359"}
@@ -30295,7 +30355,7 @@
 				{transition "94"}
 			}
 			{"558"
-				{position 4452.83 -3247.57 68.2203}
+				{position 4452.83 -3247.57 68.2199}
 				{radius 500}
 			}
 			{"559"
@@ -30678,7 +30738,7 @@
 				}
 			}
 			{"251"
-				{position -2096.05 193.652 32.3743}
+				{position -2096.05 193.652 32.374}
 				{radius 500}
 				{transition "397"}
 				{transition "398"}
@@ -30694,15 +30754,15 @@
 				{radius 500}
 			}
 			{"377"
-				{position -1554.41 2449.54 43.8888}
+				{position -1554.41 2449.54 43.8893}
 				{radius 500}
 			}
 			{"378"
-				{position -1556.61 1105.9 42.4276}
+				{position -1556.61 1105.9 42.4273}
 				{radius 500}
 			}
 			{"379"
-				{position -2786.14 1097.82 27.4603}
+				{position -2786.14 1097.82 27.4596}
 				{radius 500}
 			}
 			{"38"
@@ -30778,7 +30838,7 @@
 				{radius 500}
 			}
 			{"392"
-				{position -4872.61 291.477 78.2682}
+				{position -4872.61 291.477 78.2675}
 				{radius 500}
 			}
 			{"393"
@@ -30786,15 +30846,15 @@
 				{radius 500}
 			}
 			{"394"
-				{position -5389.14 1642.4 54.638}
+				{position -5389.14 1642.4 54.639}
 				{radius 500}
 			}
 			{"395"
-				{position -4840.04 1586.51 45.0201}
+				{position -4840.04 1586.51 45.0211}
 				{radius 500}
 			}
 			{"396"
-				{position -4181.92 1624.09 38.8836}
+				{position -4181.92 1624.09 38.8838}
 				{radius 500}
 			}
 			{"397"
@@ -30836,7 +30896,7 @@
 		}
 		{waypoints "a_f3_def_vehicle"
 			{"134"
-				{position -4079.83 2979.27 35.1769}
+				{position -4079.83 2979.27 35.1766}
 				{radius 500}
 				{RandomPosition 1}
 				{transition "78"}
@@ -31022,7 +31082,7 @@
 				{transition "78"}
 			}
 			{"25"
-				{position -2739.26 2764.34 40.7772}
+				{position -2739.26 2764.34 40.7782}
 				{radius 500}
 				{transition "571"}
 				{transition "572"}
@@ -31056,7 +31116,7 @@
 				{radius 500}
 			}
 			{"573"
-				{position -2395.64 2064.63 29.5427}
+				{position -2395.64 2064.63 29.5434}
 				{radius 500}
 			}
 			{"574"
@@ -31067,7 +31127,7 @@
 				{transition "577"}
 			}
 			{"575"
-				{position -5737.2 1738.49 26.2076}
+				{position -5737.2 1738.49 26.2074}
 				{radius 500}
 			}
 			{"576"
@@ -31084,7 +31144,7 @@
 				{RandomPosition 1}
 			}
 			{"79"
-				{position -5240.1 1419.42 43.2212}
+				{position -5240.1 1419.42 43.2205}
 				{radius 500}
 				{RandomPosition 1}
 				{commands
@@ -31282,7 +31342,7 @@
 				}
 			}
 			{"81"
-				{position -1804.32 2553.9 25.9759}
+				{position -1804.32 2553.9 25.9758}
 				{radius 500}
 				{RandomPosition 1}
 				{commands
@@ -31439,7 +31499,7 @@
 				{radius 500}
 			}
 			{"402"
-				{position -4816.42 1523 46.7445}
+				{position -4816.42 1523 46.745}
 				{radius 500}
 			}
 			{"403"
@@ -31447,7 +31507,7 @@
 				{radius 500}
 			}
 			{"404"
-				{position -3433.35 2775.68 31.8815}
+				{position -3433.35 2775.68 31.8806}
 				{radius 500}
 			}
 			{"405"
@@ -31467,7 +31527,7 @@
 				{radius 500}
 			}
 			{"409"
-				{position -1452.22 707.726 37.1525}
+				{position -1452.22 707.726 37.1522}
 				{radius 500}
 			}
 			{"410"
@@ -31499,7 +31559,7 @@
 				{radius 500}
 			}
 			{"417"
-				{position -1657.15 1073.21 35.3591}
+				{position -1657.15 1073.21 35.3595}
 				{radius 500}
 			}
 			{"418"
@@ -31551,7 +31611,7 @@
 				}
 			}
 			{"60"
-				{position -3466.8 2571.23 28.5709}
+				{position -3466.8 2571.23 28.5706}
 				{radius 500}
 				{transition "403"}
 				{transition "404"}
@@ -31577,7 +31637,7 @@
 		}
 		{waypoints "b_f3_def_vehicle"
 			{"100"
-				{position -2830.29 1.39111 56.8262}
+				{position -2830.29 1.39111 56.8264}
 				{radius 500}
 				{RandomPosition 1}
 				{commands
@@ -31775,19 +31835,19 @@
 				}
 			}
 			{"194"
-				{position -2816.69 -628.358 106.351}
+				{position -2816.69 -628.358 106.35}
 				{radius 500}
 				{RandomPosition 1}
 				{transition "98"}
 			}
 			{"195"
-				{position -4205.63 -360.486 80.4703}
+				{position -4205.63 -360.486 80.4704}
 				{radius 500}
 				{RandomPosition 1}
 				{transition "98"}
 			}
 			{"196"
-				{position -4576.6 -423.332 88.5309}
+				{position -4576.6 -423.332 88.5306}
 				{radius 500}
 				{RandomPosition 1}
 				{transition "98"}
@@ -31829,7 +31889,7 @@
 				}
 			}
 			{"199"
-				{position -1617.34 905.729 35.6507}
+				{position -1617.34 905.729 35.6504}
 				{radius 500}
 				{RandomPosition 1}
 				{transition "99"}
@@ -31975,7 +32035,7 @@
 				{transition "580"}
 			}
 			{"578"
-				{position -1335.84 -167.999 42.2662}
+				{position -1335.84 -167.999 42.2666}
 				{radius 500}
 			}
 			{"579"
@@ -32023,7 +32083,7 @@
 				{RandomPosition 1}
 			}
 			{"99"
-				{position -1458.13 616.512 35.8359}
+				{position -1458.13 616.512 35.8365}
 				{radius 500}
 				{RandomPosition 1}
 				{commands
@@ -32220,11 +32280,11 @@
 				}
 			}
 			{"430"
-				{position -2262.31 -1894.44 60.672}
+				{position -2262.31 -1894.44 60.6726}
 				{radius 500}
 			}
 			{"431"
-				{position -2577.76 -2129.86 55.9242}
+				{position -2577.76 -2129.86 55.9235}
 				{radius 500}
 			}
 			{"432"
@@ -32260,7 +32320,7 @@
 				{radius 500}
 			}
 			{"44"
-				{position -352.688 -1664.08 72.7483}
+				{position -352.688 -1664.08 72.748}
 				{radius 500}
 				{transition "427"}
 				{transition "428"}
@@ -32280,15 +32340,15 @@
 				{radius 500}
 			}
 			{"442"
-				{position -3146.49 -684.774 97.0592}
+				{position -3146.49 -684.774 97.0593}
 				{radius 500}
 			}
 			{"443"
-				{position -3230.52 50.9141 34.2905}
+				{position -3230.52 50.9141 34.2899}
 				{radius 500}
 			}
 			{"444"
-				{position -3305.79 -1776.96 55.3185}
+				{position -3305.79 -1776.96 55.318}
 				{radius 500}
 			}
 			{"445"
@@ -32444,7 +32504,7 @@
 				}
 			}
 			{"155"
-				{position -456.739 247.854 29.5338}
+				{position -456.739 247.854 29.5336}
 				{radius 500}
 				{RandomPosition 1}
 				{transition "85"}
@@ -32889,7 +32949,7 @@
 				}
 			}
 			{"274"
-				{position -3029.01 -2715.83 61.2668}
+				{position -3029.01 -2715.83 61.2671}
 				{radius 500}
 				{transition "466"}
 				{transition "467"}
@@ -32949,7 +33009,7 @@
 				{radius 500}
 			}
 			{"457"
-				{position 1033.46 -2722.99 104.332}
+				{position 1033.46 -2722.99 104.331}
 				{radius 500}
 			}
 			{"458"
@@ -32981,7 +33041,7 @@
 				{radius 500}
 			}
 			{"465"
-				{position -2040.17 -353.813 78.8669}
+				{position -2040.17 -353.813 78.8672}
 				{radius 500}
 			}
 			{"466"
@@ -33565,15 +33625,15 @@
 				{radius 500}
 			}
 			{"599"
-				{position -2462.41 -2642.4 71.5844}
+				{position -2462.41 -2642.4 71.5845}
 				{radius 500}
 			}
 			{"600"
-				{position -2741.39 -2720.28 72.1614}
+				{position -2741.39 -2720.28 72.1605}
 				{radius 500}
 			}
 			{"601"
-				{position 27.5153 -1375.56 65.2172}
+				{position 27.5153 -1375.56 65.2166}
 				{radius 500}
 			}
 			{"602"
@@ -33666,11 +33726,11 @@
 				}
 			}
 			{"469"
-				{position 3828.54 1733.9 83.6753}
+				{position 3828.54 1733.9 83.6755}
 				{radius 500}
 			}
 			{"47"
-				{position 3440.93 1532.83 77.9885}
+				{position 3440.93 1532.83 77.9886}
 				{radius 500}
 				{transition "475"}
 				{transition "476"}
@@ -33690,7 +33750,7 @@
 				{radius 500}
 			}
 			{"472"
-				{position 2088.47 3062.67 33.2949}
+				{position 2088.47 3062.67 33.2948}
 				{radius 500}
 			}
 			{"473"
@@ -33698,11 +33758,11 @@
 				{radius 500}
 			}
 			{"474"
-				{position 2301.6 2727.36 37.5638}
+				{position 2301.6 2727.36 37.5632}
 				{radius 500}
 			}
 			{"475"
-				{position 3559.79 1435.57 81.7409}
+				{position 3559.79 1435.57 81.7404}
 				{radius 500}
 			}
 			{"476"
@@ -33758,7 +33818,7 @@
 				{radius 500}
 			}
 			{"486"
-				{position 3364.58 1179.29 84.7544}
+				{position 3364.58 1179.29 84.7534}
 				{radius 500}
 			}
 			{"487"
@@ -33786,7 +33846,7 @@
 				}
 			}
 			{"490"
-				{position 3757.96 1373.11 86.3208}
+				{position 3757.96 1373.11 86.3202}
 				{radius 500}
 			}
 			{"491"
@@ -33800,13 +33860,13 @@
 		}
 		{waypoints "a_f5_def_vehicle"
 			{"158"
-				{position 3644.29 3449.13 43.1803}
+				{position 3644.29 3449.13 43.1804}
 				{radius 500}
 				{RandomPosition 1}
 				{transition "86"}
 			}
 			{"159"
-				{position 4184.65 2627.7 49.28}
+				{position 4184.65 2627.7 49.2805}
 				{radius 500}
 				{RandomPosition 1}
 				{transition "86"}
@@ -33854,7 +33914,7 @@
 				}
 			}
 			{"163"
-				{position 5721.36 2002.27 53.5996}
+				{position 5721.36 2002.27 53.6016}
 				{radius 500}
 				{RandomPosition 1}
 				{transition "87"}
@@ -33908,7 +33968,7 @@
 				}
 			}
 			{"166"
-				{position 3122.76 2249.09 62.3411}
+				{position 3122.76 2249.09 62.3413}
 				{radius 500}
 				{RandomPosition 1}
 				{transition "88"}
@@ -33986,7 +34046,7 @@
 				{transition "86"}
 			}
 			{"524"
-				{position 4729.64 2057.22 69.6597}
+				{position 4729.64 2057.22 69.6606}
 				{radius 500}
 				{transition "608"}
 				{transition "609"}
@@ -34008,7 +34068,7 @@
 				{radius 500}
 			}
 			{"610"
-				{position 5253.99 2676.58 59.7891}
+				{position 5253.99 2676.58 59.7886}
 				{radius 500}
 			}
 			{"611"
@@ -34020,11 +34080,11 @@
 				{radius 500}
 			}
 			{"613"
-				{position 6693.07 2587.05 43.9996}
+				{position 6693.07 2587.05 43.998}
 				{radius 500}
 			}
 			{"614"
-				{position 2674.59 2264.08 49.707}
+				{position 2674.59 2264.08 49.7075}
 				{radius 500}
 				{transition "615"}
 				{transition "616"}
@@ -34039,11 +34099,11 @@
 				{radius 500}
 			}
 			{"617"
-				{position 3912.51 2011.92 74.9181}
+				{position 3912.51 2011.92 74.9185}
 				{radius 500}
 			}
 			{"86"
-				{position 4203.98 3091.66 43.0944}
+				{position 4203.98 3091.66 43.0943}
 				{radius 500}
 				{RandomPosition 1}
 			}
@@ -34147,7 +34207,7 @@
 				}
 			}
 			{"88"
-				{position 1923.74 2837.35 63.8033}
+				{position 1923.74 2837.35 63.8034}
 				{radius 500}
 				{RandomPosition 1}
 				{commands
@@ -34359,7 +34419,7 @@
 				}
 			}
 			{"277"
-				{position 3838.64 1501.67 85.7695}
+				{position 3838.64 1501.67 85.7705}
 				{radius 500}
 				{transition "508"}
 				{transition "509"}
@@ -34415,7 +34475,7 @@
 				{radius 500}
 			}
 			{"498"
-				{position 2249.57 1810.87 48.9302}
+				{position 2249.57 1810.87 48.9304}
 				{radius 500}
 			}
 			{"499"
@@ -34471,7 +34531,7 @@
 				{radius 500}
 			}
 			{"512"
-				{position 3083.1 1278.57 73.6406}
+				{position 3083.1 1278.57 73.64}
 				{radius 500}
 			}
 			{"513"
@@ -34969,7 +35029,7 @@
 				}
 			}
 			{"227"
-				{position 3081.15 1043.03 80.5023}
+				{position 3081.15 1043.03 80.5016}
 				{radius 500}
 				{RandomPosition 1}
 				{transition "109"}
@@ -35051,7 +35111,7 @@
 				{radius 500}
 			}
 			{"620"
-				{position 3733.26 970.431 87.0322}
+				{position 3733.26 970.431 87.0323}
 				{radius 500}
 			}
 			{"621"
@@ -35088,59 +35148,35 @@
 		}
 		{waypoints "map_caridnal_direction_waypoints"
 			{"3001"
-				{position -323.755 -8364.65 0}
+				{position -323.755 -8364.65 20}
 				{radius 300}
 				{RandomPosition 1}
 			}
 			{"3002"
-				{position 377.884 8373.31 0}
+				{position 377.884 8373.31 20}
 				{radius 300}
 				{RandomPosition 1}
 			}
 			{"3003"
-				{position 8617.03 -679.677 0}
+				{position 8617.03 -679.677 20}
 				{radius 300}
 				{RandomPosition 1}
 			}
 			{"3004"
-				{position -8500.22 -396.78 0}
+				{position -8500.22 -396.78 20}
 				{radius 300}
 				{RandomPosition 1}
 			}
 		}
 		{waypoints "grid_waypoints_side_a"
 			{"1001"
-				{position 6301.41 6031.23 72.0283}
+				{position 6301.41 6031.23 27}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "1005"}
 			}
-			{"1110"
-				{position 1166.48 7008.36 19}
-				{radius 300}
-				{RandomPosition 1}
-				{transition "1002"}
-			}
-			{"1120"
-				{position -1946.54 6985.58 32}
-				{radius 300}
-				{RandomPosition 1}
-				{transition "1003"}
-			}
-			{"1130"
-				{position -5049.53 6988.36 -19.1482}
-				{radius 300}
-				{RandomPosition 1}
-				{transition "1004"}
-			}
-			{"1140"
-				{position 5641.65 7021.71 26.0953}
-				{radius 300}
-				{RandomPosition 1}
-				{transition "1001"}
-			}
 			{"1002"
-				{position 2179.08 5999.79 67.0981}
+				{position 2179.08 5999.79 23.6055}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "1006"}
@@ -35148,7 +35184,7 @@
 				{transition "1007"}
 			}
 			{"1003"
-				{position -1884.05 5981.57 -51.811}
+				{position -1884.05 5981.57 48}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "1007"}
@@ -35156,19 +35192,19 @@
 				{transition "1006"}
 			}
 			{"1004"
-				{position -5894.82 5976.93 59.3322}
+				{position -5894.82 5976.93 35}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "1008"}
 			}
 			{"1005"
-				{position 6122.85 2013.12 45}
+				{position 6122.85 2013.12 48}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "1009"}
 			}
 			{"1006"
-				{position 2136.11 2034.5 19}
+				{position 2136.11 2034.5 53}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "1010"}
@@ -35176,7 +35212,7 @@
 				{transition "1011"}
 			}
 			{"1007"
-				{position -1915.23 1978.89 7}
+				{position -1915.23 1978.89 27}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "1011"}
@@ -35184,41 +35220,41 @@
 				{transition "1010"}
 			}
 			{"1008"
-				{position -5940.86 1960 -79.0693}
+				{position -5875.64 1964.15 27}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "1012"}
 			}
 			{"1009"
-				{position 6160.07 -1988.03 35.7247}
+				{position 6160.07 -1988.03 60}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "1013"}
 				{transition "1014"}
 			}
 			{"1010"
-				{position 2086 -2016.65 90}
+				{position 2086 -2016.65 84}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "1014"}
 				{transition "1015"}
 			}
 			{"1011"
-				{position -1865.97 -2028.07 34}
+				{position -1865.97 -2028.07 63}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "1015"}
 				{transition "1014"}
 			}
 			{"1012"
-				{position -5903.22 -2069.56 30}
+				{position -5903.22 -2069.56 63.143}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "1016"}
 				{transition "1015"}
 			}
 			{"1013"
-				{position 6095.7 -6022.35 117.045}
+				{position 6095.7 -6022.35 91}
 				{radius 2000}
 				{RandomPosition 1}
 				{commands
@@ -35231,7 +35267,7 @@
 				}
 			}
 			{"1014"
-				{position 2171.65 -6002.57 206.857}
+				{position 2171.65 -6002.57 78}
 				{radius 2000}
 				{RandomPosition 1}
 				{commands
@@ -35244,7 +35280,7 @@
 				}
 			}
 			{"1015"
-				{position -1931.91 -5950.28 -80}
+				{position -1931.91 -5950.28 87}
 				{radius 2000}
 				{RandomPosition 1}
 				{commands
@@ -35257,7 +35293,7 @@
 				}
 			}
 			{"1016"
-				{position -5856.69 -6003.86 248.924}
+				{position -5856.69 -6003.86 95}
 				{radius 2000}
 				{RandomPosition 1}
 				{commands
@@ -35269,68 +35305,66 @@
 					}
 				}
 			}
+			{"1110"
+				{position 1166.48 7008.36 23}
+				{radius 300}
+				{RandomPosition 1}
+				{transition "1002"}
+			}
+			{"1120"
+				{position -1946.54 6985.58 34.0115}
+				{radius 300}
+				{RandomPosition 1}
+				{transition "1003"}
+			}
+			{"1130"
+				{position -5049.53 6988.36 48.9496}
+				{radius 300}
+				{RandomPosition 1}
+				{transition "1004"}
+			}
+			{"1140"
+				{position 5641.65 7021.71 40}
+				{radius 300}
+				{RandomPosition 1}
+				{transition "1001"}
+			}
 		}
 		{waypoints "grid_waypoints_side_b"
 			{"2001"
-				{position 6015.02 -5987.72 105.942}
+				{position 5965.76 -5446.28 106.942}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "2005"}
 			}
-			{"2110"
-				{position 7133.27 -6749.04 136.115}
-				{radius 300}
-				{RandomPosition 1}
-				{transition "2001"}
-			}
-			{"2120"
-				{position 5453.81 -7203.52 -57.0943}
-				{radius 300}
-				{RandomPosition 1}
-				{transition "2002"}
-			}
-			{"2130"
-				{position -609.393 -7152.52 -16}
-				{radius 300}
-				{RandomPosition 1}
-				{transition "2003"}
-			}
-			{"2140"
-				{position -4492.08 -7047.63 148.49}
-				{radius 300}
-				{RandomPosition 1}
-				{transition "2004"}
-			}
 			{"2002"
-				{position 2147.65 -6030.05 208.506}
+				{position 2147.65 -6030.05 78}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "2006"}
-				{transition "2005"}
 				{transition "2007"}
 			}
 			{"2003"
-				{position -2041.67 -6032.05 -80}
+				{position -2041.67 -6032.05 87}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "2007"}
-				{transition "2006"}
 				{transition "2008"}
 			}
 			{"2004"
-				{position -5956.27 -6102.43 266.58}
+				{position -5956.27 -6102.43 93}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "2008"}
 			}
 			{"2005"
-				{position 6163.73 -1938.51 30.8673}
+				{position 6163.73 -1938.51 60}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "2009"}
 			}
 			{"2006"
-				{position 2133.04 -2050.36 93}
+				{position 2133.04 -2050.36 84}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "2010"}
@@ -35338,7 +35372,7 @@
 				{transition "2011"}
 			}
 			{"2007"
-				{position -1900.37 -2065.69 32.3621}
+				{position -1900.37 -2065.69 60}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "2011"}
@@ -35346,41 +35380,41 @@
 				{transition "2010"}
 			}
 			{"2008"
-				{position -5905.75 -2061.39 29.8463}
+				{position -5905.75 -2061.39 64}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "2012"}
 			}
 			{"2009"
-				{position 6122.33 2041.15 46.3721}
+				{position 6122.33 2041.15 48}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "2013"}
 				{transition "2014"}
 			}
 			{"2010"
-				{position 2141.84 2019.19 17.2028}
+				{position 2141.84 2019.19 52.8425}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "2014"}
 				{transition "2015"}
 			}
 			{"2011"
-				{position -1885.69 2003.21 5.12702}
+				{position -1885.69 2003.21 26.4624}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "2015"}
 				{transition "2014"}
 			}
 			{"2012"
-				{position -5977.11 1911.96 -79}
+				{position -5977.11 1911.96 23.3675}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "2016"}
 				{transition "2015"}
 			}
 			{"2013"
-				{position 6212.24 6023.77 74}
+				{position 6212.24 6023.77 28}
 				{radius 2000}
 				{RandomPosition 1}
 				{commands
@@ -35393,7 +35427,7 @@
 				}
 			}
 			{"2014"
-				{position 1993.77 6086.04 23.5455}
+				{position 1993.77 6086.04 19}
 				{radius 2000}
 				{RandomPosition 1}
 				{commands
@@ -35406,7 +35440,7 @@
 				}
 			}
 			{"2015"
-				{position -1907.11 5978.04 -60.0325}
+				{position -1907.11 5978.04 47}
 				{radius 2000}
 				{RandomPosition 1}
 				{commands
@@ -35419,7 +35453,7 @@
 				}
 			}
 			{"2016"
-				{position -6130.26 5938.69 67}
+				{position -6130.26 5938.69 34}
 				{radius 2000}
 				{RandomPosition 1}
 				{commands
@@ -35430,6 +35464,31 @@
 						}
 					}
 				}
+			}
+			{"2110"
+				{position 7133.27 -6749.04 99}
+				{radius 300}
+				{RandomPosition 1}
+				{transition "2001"}
+			}
+			{"2120"
+				{position 5453.81 -7203.52 93}
+				{radius 300}
+				{RandomPosition 1}
+				{transition "2002"}
+				{transition "2001"}
+			}
+			{"2130"
+				{position -609.393 -7152.52 78}
+				{radius 300}
+				{RandomPosition 1}
+				{transition "2003"}
+			}
+			{"2140"
+				{position -4492.08 -7047.63 73}
+				{radius 300}
+				{RandomPosition 1}
+				{transition "2004"}
 			}
 		}
 	}

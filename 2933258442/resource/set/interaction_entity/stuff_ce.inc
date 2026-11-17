@@ -10,3 +10,9 @@
 		}
 	}
 }
+
+{"stuff weapon rocketlauncher"
+	{on spawn
+		{tags add "at_rocket"}
+	}
+}

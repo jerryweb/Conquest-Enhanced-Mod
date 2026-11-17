@@ -594,6 +594,409 @@
 					}
 				}
 			}
+			{"conquest_enhanced_mechanics/radio/check_player_barrage_request"
+				{condition
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _barrage_requested}
+										}
+									}
+									{exclude
+										{tag
+											{tag _rejected}
+										}
+										{tag
+											{tag _accepted}
+										}
+										{state
+											{state inactive}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.1}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type entities}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag radio_operator}
+											}
+										}
+										{include
+											{prop
+												{prop human}
+											}
+											{state
+												{state user_control}
+											}
+										}
+										{exclude
+											{state
+												{state dead}
+											}
+											{state
+												{state inactive}
+											}
+											{tag
+												{tag _bot}
+											}
+										}
+									}
+									{group
+										{select
+											{tag
+												{tag radio_operator}
+											}
+										}
+										{include
+											{prop
+												{prop vehicle}
+											}
+											{state
+												{state "inhabited user_control"}
+											}
+										}
+										{exclude
+											{state
+												{state linked}
+											}
+											{state
+												{state inactive}
+											}
+										}
+									}
+								}
+							}
+							{"entity_state"
+								{selector
+									{tag _barrage_requested}
+								}
+								{tag_add _accepted}
+								{tag_remove _barrage_requested}
+							}
+						}
+						{"default"
+							{"entity_state"
+								{selector
+									{tag _barrage_requested}
+								}
+								{tag_add _rejected}
+								{tag_remove _barrage_requested}
+							}
+							{"switch"
+								{"case"
+									{condition
+										{type rand}
+										{value 0.5}
+									}
+									{"talk"
+										{selector
+											{amount 1
+											}
+											{tag player}
+											{type human}
+											{state "not dead"}
+										}
+										{text "mission/multi/player_barrage_support_rejected_1"}
+									}
+								}
+								{"default"
+									{"talk"
+										{selector
+											{amount 1
+											}
+											{tag player}
+											{type human}
+											{state "not dead"}
+										}
+										{text "mission/multi/player_barrage_support_rejected_2"}
+									}
+								}
+							}
+						}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"effect"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag _accepted}
+									}
+									{tag
+										{tag _rejected}
+									}
+								}
+								{exclude
+									{state
+										{state inactive}
+									}
+								}
+							}
+						}
+						{effect verify_radio_present}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"trigger"
+						{name "conquest_enhanced_mechanics/radio/check_player_barrage_request"}
+					}
+				}
+			}
+			{"conquest_enhanced_mechanics/radio/check_player_air_support_request"
+				{condition
+					{expression "1 & !2"}
+					{terms
+						{"1.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag air_vehicle}
+										}
+									}
+									{include
+										{tag
+											{tag "+garrisoned"}
+										}
+										{tag
+											{tag _garrison_off}
+										}
+										{state
+											{state "operatable inhabited"}
+										}
+										{prop
+											{prop airborne}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+										{tag
+											{tag _bot}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state inactive}
+										}
+										{tag
+											{tag _rtb}
+										}
+									}
+								}
+							}
+						}
+						{"2.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag radio_operator}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state user_control}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+										{tag
+											{tag _bot}
+										}
+									}
+								}
+								{group
+									{select
+										{tag
+											{tag radio_operator}
+										}
+									}
+									{include
+										{prop
+											{prop vehicle}
+										}
+										{state
+											{state "inhabited user_control"}
+										}
+									}
+									{exclude
+										{state
+											{state linked}
+										}
+										{state
+											{state inactive}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.1}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type rand}
+								{value 0.5}
+							}
+							{"talk"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag can_die}
+											}
+										}
+										{include
+											{prop
+												{prop human}
+											}
+											{state
+												{state "operatable linked"}
+											}
+										}
+										{exclude
+											{state
+												{state user_control}
+											}
+											{player
+												{player "1"}
+											}
+										}
+									}
+									{amount 1
+									}
+								}
+								{text "mission/multi/player_air_support_rejected_1"}
+							}
+						}
+						{"default"
+							{"talk"
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag can_die}
+											}
+										}
+										{include
+											{prop
+												{prop human}
+											}
+											{state
+												{state "operatable linked"}
+											}
+										}
+										{exclude
+											{player
+												{player "1"}
+											}
+											{state
+												{state user_control}
+											}
+										}
+									}
+									{amount 1
+									}
+								}
+								{text "mission/multi/player_air_support_rejected_2"}
+							}
+						}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"effect"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag air_vehicle}
+									}
+								}
+								{include
+									{tag
+										{tag "+garrisoned"}
+									}
+									{tag
+										{tag _garrison_off}
+									}
+									{state
+										{state "operatable inhabited"}
+									}
+									{prop
+										{prop airborne}
+									}
+								}
+								{exclude
+									{state
+										{state user_control}
+									}
+									{tag
+										{tag _bot}
+									}
+									{state
+										{state linked}
+									}
+									{state
+										{state inactive}
+									}
+									{tag
+										{tag _rtb}
+									}
+								}
+							}
+						}
+						{effect reject_support_request}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"trigger"
+						{name "conquest_enhanced_mechanics/radio/check_player_air_support_request"}
+					}
+				}
+			}
 
 			{"conquest_enhanced_mechanics/delete_empty_ai_emplacements"
 				{condition

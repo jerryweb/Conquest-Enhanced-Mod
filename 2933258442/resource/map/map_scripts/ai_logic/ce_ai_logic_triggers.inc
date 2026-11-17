@@ -1030,6 +1030,222 @@
 					}
 				}
 			}
+			{"ai_logic/loot_rocket_launcher"
+				{condition
+					{type 1}
+					{terms
+						{"1.near"
+							{units
+								{source advanced}
+								{group
+									{select
+										{zone_ex
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state operatable}
+										}
+										{tag
+											{tag _bot}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+										{tag
+											{tag _lua_mi}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state user_control}
+										}
+										{with_item
+											{type existance}
+											{item "rocketlauncher"}
+										}
+									}
+								}
+								{amount 1
+								}
+							}
+							{near_to
+								{source advanced}
+								{group
+									{select
+										{zone_ex
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{tag
+											{tag at_rocket}
+										}
+									}
+									{exclude
+										{state
+											{state linked}
+										}
+									}
+								}
+								{amount 1
+								}
+							}
+							{distance 10}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{zone_ex
+										{zone "gamezone"}
+									}
+								}
+								{include
+									{prop
+										{prop human}
+									}
+									{state
+										{state operatable}
+									}
+									{tag
+										{tag _bot}
+									}
+								}
+								{exclude
+									{with_item
+										{type existance}
+										{item "rocketlauncher"}
+									}
+									{state
+										{state dead}
+									}
+									{state
+										{state inactive}
+									}
+									{state
+										{state linked}
+									}
+									{state
+										{state user_control}
+									}
+									{tag
+										{tag _lua_mi}
+									}
+								}
+							}
+							{amount 1
+							}
+							{sort
+								{type entity}
+								{entity
+									{amount 1
+									}
+									{tag at_rocket}
+								}
+							}
+						}
+						{tag_add _selected_to_loot_weapon}
+					}
+					{"entity_state"
+						{selector
+							{tag _selected_to_loot_weapon}
+						}
+						{tag_add _lua_mi}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"action"
+						{selector
+							{amount 1
+							}
+							{tag _selected_to_loot_weapon}
+							{zone "gamezone"}
+							{type human}
+							{state "not dead"}
+						}
+						{action collect}
+						{target
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag at_rocket}
+									}
+								}
+								{include
+									{zone
+										{zone "gamezone"}
+									}
+								}
+								{exclude
+									{state
+										{state linked}
+									}
+									{state
+										{state inactive}
+									}
+								}
+							}
+							{amount 1
+							}
+							{sort
+								{type entity}
+								{entity
+									{amount 1
+									}
+									{tag _selected_to_loot_weapon}
+									{zone "gamezone"}
+									{type human}
+									{state "not dead"}
+								}
+							}
+						}
+					}
+					{"delay"
+						{time 5}
+					}
+					{"entity_state"
+						{selector
+							{tag _selected_to_loot_weapon}
+						}
+						{tag_remove _lua_mi}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{tag _selected_to_loot_weapon}
+						}
+						{tag_remove _selected_to_loot_weapon}
+					}
+					{"delay"
+						{time 3}
+					}
+					{"trigger"
+						{name "ai_logic/loot_rocket_launcher"}
+					}
+				}
+			}
 			
 ;=========== Air =======================================================================================
 			{"ai_logic/air/start_air_raid_event"
