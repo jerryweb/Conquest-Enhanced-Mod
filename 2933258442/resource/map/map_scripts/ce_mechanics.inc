@@ -806,6 +806,9 @@
 										{tag
 											{tag _rtb}
 										}
+										{player
+											{player "1"}
+										}
 									}
 								}
 							}
@@ -882,7 +885,7 @@
 									{group
 										{select
 											{tag
-												{tag can_die}
+												{tag air_pilot}
 											}
 										}
 										{include
@@ -915,7 +918,7 @@
 									{group
 										{select
 											{tag
-												{tag can_die}
+												{tag air_pilot}
 											}
 										}
 										{include
@@ -943,7 +946,7 @@
 						}
 					}
 					{"delay"
-						{time 0.1}
+						{time 3}
 					}
 					{"effect"
 						{selector
@@ -983,6 +986,9 @@
 									}
 									{tag
 										{tag _rtb}
+									}
+									{player
+										{player "1"}
 									}
 								}
 							}

@@ -1,6 +1,14 @@
 {"human"
 ; ================= Spawn Extensions =================
 	{on spawn
+		{delay 0.1
+			{if linked "airborne"
+				{if not linked "drop_plane"
+					{tags add "air_pilot"}
+				}
+			}
+		}
+
 		{delay 0.5
 			{add_view "beacon_fx" "beacon_fx" "head" not_manual not_scenario}
 			;{add_view "ai_control_zone_fx" "ai_control_zone_fx" "root" not_manual not_scenario}

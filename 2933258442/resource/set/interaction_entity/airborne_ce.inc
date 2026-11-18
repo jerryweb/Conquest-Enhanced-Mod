@@ -28,7 +28,7 @@
     {on "reject_support_request"
         {tags add "_rtb"}
         {drop_orders}
-        {hide 10} 
+        {hide 5} 
     }
 }
 

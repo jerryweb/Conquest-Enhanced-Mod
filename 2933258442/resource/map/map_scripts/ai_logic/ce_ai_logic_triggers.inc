@@ -988,9 +988,37 @@
 						{drop orders}
 						{action move}
 						{target
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag spawn_anchor}
+									}
+								}
+								{include
+									{zone
+										{zone "gamezone"}
+									}
+								}
+								{exclude
+									{state
+										{state inactive}
+									}
+								}
+							}
 							{amount 1
 							}
-							{tag back_up_to_repair}
+							{sort
+								{type entity}
+								{entity
+									{amount 1
+									}
+									{tag selected_tank_to_repair}
+									{zone "gamezone"}
+									{type vehicle}
+									{state "inhabited"}
+								}
+							}
 						}
 					}
 					{"delay"
@@ -1030,7 +1058,7 @@
 					}
 				}
 			}
-			{"ai_logic/loot_rocket_launcher"
+			{## "ai_logic/loot_rocket_launcher"
 				{condition
 					{type 1}
 					{terms
@@ -1039,7 +1067,7 @@
 								{source advanced}
 								{group
 									{select
-										{zone_ex
+										{zone
 											{zone "gamezone"}
 										}
 									}
@@ -1063,9 +1091,6 @@
 										}
 										{tag
 											{tag _lua_mi}
-										}
-										{state
-											{state linked}
 										}
 										{state
 											{state user_control}
@@ -1114,7 +1139,7 @@
 							{source advanced}
 							{group
 								{select
-									{zone_ex
+									{zone
 										{zone "gamezone"}
 									}
 								}
@@ -1246,7 +1271,439 @@
 					}
 				}
 			}
-			
+			{ "ai_logic/frag_grenade_spam"
+				{condition
+					{terms
+						{"1.see_actors"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _bot}
+										}
+									}
+									{include
+										{with_item
+											{type amount}
+											{item "fg"}
+											{min 1}
+										}
+										{state
+											{state operatable}
+										}
+										{prop
+											{prop human}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state user_control}
+										}
+										{state
+											{state linked}
+										}
+										{tag
+											{tag _lua_mi}
+										}
+										{tag
+											{tag repairing}
+										}
+										{tag
+											{tag reloading}
+										}
+									}
+								}
+							}
+							{enemy
+								{source advanced}
+								{group
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{tag
+											{tag _bot}
+										}
+										{player
+											{player "0"}
+										}
+										{player
+											{player "1"}
+										}
+									}
+								}
+								{group
+									{include
+										{prop
+											{prop cannon}
+										}
+										{state
+											{state "operatable inhabited"}
+										}
+									}
+									{exclude
+										{state
+											{state linked}
+										}
+										{state
+											{state inactive}
+										}
+										{tag
+											{tag _bot}
+										}
+										{player
+											{player "0"}
+										}
+										{player
+											{player "1"}
+										}
+									}
+								}
+							}
+							{distance
+								{mode in_range}
+								{min 5}
+								{max 26}
+							}
+							{detection located}
+							;{tag
+							;	{"tag pair"}
+							;	{"for selector" _throw_ap_grenade}
+							;	{"for enemy" _ap_grenade_target}
+							;}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.1}
+					}
+					{"loop" 3
+						{"delay"
+							{time 0.1}
+						}
+						{"if"
+							{condition
+								{type see_actors}
+								{selector
+									{source advanced}
+									{group
+										{select
+											{tag
+												{tag _bot}
+											}
+										}
+										{include
+											{with_item
+												{type amount}
+												{item "fg"}
+												{min 1}
+											}
+											{state
+												{state operatable}
+											}
+											{prop
+												{prop human}
+											}
+										}
+										{exclude
+											{state
+												{state dead}
+											}
+											{state
+												{state inactive}
+											}
+											{state
+												{state user_control}
+											}
+											{state
+												{state linked}
+											}
+											{tag
+												{tag _lua_mi}
+											}
+											{tag
+												{tag repairing}
+											}
+											{tag
+												{tag reloading}
+											}
+											{tag
+												{tag _throw_ap_grenade}
+											}
+										}
+									}
+								}
+								{enemy
+									{source advanced}
+									{group
+										{include
+											{prop
+												{prop human}
+											}
+											{state
+												{state operatable}
+											}
+										}
+										{exclude
+											{state
+												{state dead}
+											}
+											{state
+												{state inactive}
+											}
+											{state
+												{state linked}
+											}
+											{tag
+												{tag _bot}
+											}
+											{player
+												{player "0"}
+											}
+											{player
+												{player "1"}
+											}
+										}
+									}
+									{group
+										{include
+											{prop
+												{prop cannon}
+											}
+											{state
+												{state "operatable inhabited"}
+											}
+										}
+										{exclude
+											{state
+												{state linked}
+											}
+											{state
+												{state inactive}
+											}
+											{tag
+												{tag _bot}
+											}
+											{player
+												{player "0"}
+											}
+											{player
+												{player "1"}
+											}
+										}
+									}
+								}
+								{distance
+									{mode in_range}
+									{min 5}
+									{max 26}
+								}
+								{detection located}
+								{tag
+									{"tag pair"}
+									{"for selector" _throw_ap_grenade}
+									{"for enemy" _ap_grenade_target}
+								}
+							}
+							{"delay"
+								{time 0.1}
+							}
+						}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"entity_state"
+						{selector
+							{tag _throw_ap_grenade}
+						}
+						{tag_add _lua_mi}
+					}
+					{"action"
+						{selector
+							{tag _throw_ap_grenade}
+							{type human}
+							{state "not dead"}
+						}
+						{drop orders}
+						{action cancel}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"loop" 3
+						{"entity_state"
+							{selector
+								{amount 1
+								}
+								{tag _throw_ap_grenade}
+								{zone "gamezone"}
+								{type human}
+								{state "not dead"}
+							}
+							{tag_add throw_ap_grenade_selected}
+							{tag_remove _throw_ap_grenade}
+						}
+						{"delay"
+							{time 0.2}
+						}
+						{"inventory"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag throw_ap_grenade_selected}
+										}
+									}
+									{exclude
+										{with_item
+											{type using}
+											{item "fg"}
+										}
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+									}
+								}
+							}
+							{action take}
+							{item "fg"}
+						}
+						{"delay"
+							{time 0.1}
+						}
+						{"action"
+							{selector
+								{tag throw_ap_grenade_selected}
+								{type human}
+								{state "not dead"}
+							}
+							{drop "orders sensor senseless"}
+							{action attack_ground}
+							{target
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _ap_grenade_target}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+									}
+								}
+								{amount 1
+								}
+								{sort
+									{type entity}
+									{entity
+										{amount 1
+										}
+										{tag throw_ap_grenade_selected}
+										{zone "gamezone"}
+										{type human}
+										{state "not dead"}
+									}
+								}
+							}
+						}
+						{"delay"
+							{time 0.2}
+						}
+						{"entity_state"
+							{selector
+								{tag throw_ap_grenade_selected}
+								{zone "gamezone"}
+								{type human}
+								{state "not dead"}
+							}
+							{tag_add ap_grenade_thrown}
+							{tag_remove throw_ap_grenade_selected}
+						}
+						{"delay"
+							{time 0.2}
+						}
+					}
+					{"delay"
+						{time 6}
+					}
+					{"action"
+						{selector
+							{tag ap_grenade_thrown}
+							{type human}
+							{state "not dead"}
+						}
+						{drop orders}
+						{action rotate}
+						{target
+							{tag _ap_grenade_target}
+						}
+					}
+					{"entity_state"
+						{selector
+							{tag ap_grenade_thrown}
+						}
+						{tag_remove _lua_mi}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{tag ap_grenade_thrown}
+						}
+						{tag_remove ap_grenade_thrown}
+					}
+					{"delay"
+						{time 0.25}
+					}
+					{"entity_state"
+						{selector
+							{tag _ap_grenade_target}
+						}
+						{tag_remove _ap_grenade_target}
+					}
+					{"delay"
+						{time 10}
+					}
+					{"trigger"
+						{name "ai_logic/frag_grenade_spam"}
+					}
+				}
+			}
+
+
 ;=========== Air =======================================================================================
 			{"ai_logic/air/start_air_raid_event"
 				{condition
