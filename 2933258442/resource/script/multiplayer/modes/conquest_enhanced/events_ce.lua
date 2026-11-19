@@ -2,8 +2,11 @@
 -- and can be countered with a radio vehicle.
 enableCommunicationsCutMechanics = 0.18
 
--- Chance to enable sabotage mechanic 
+-- Chance to enable sabotage mechanic
 enableSabotageMechanics = 0.35
+
+-- Chance to enable AI drug enhancements for the match (20% per match)
+enableAiDrugEnhancements = 0.20
 
 -- Defaults live here so this file works without edits to runtime_config.lua.
 -- Move the table there if you prefer all tuning values in one place.

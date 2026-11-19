@@ -1104,7 +1104,6 @@
 					}
 				}
 			}
-
 			{"conquest_enhanced_mechanics/ai_defenders/spawn_hedgehogs"
 				{condition
 					{terms
