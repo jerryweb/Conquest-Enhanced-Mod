@@ -1,0 +1,115 @@
+;SDL
+
+; {position column row}
+
+;-----------------------------------------------------------------------------------------------------------------------;
+; conditions																											;
+;-----------------------------------------------------------------------------------------------------------------------;
+; "vehicle" "tank" "cannon" "tractor" "human"	:	show this control based on actors properties						;
+; "single"										:	show this control only if a single actor is selected				;
+; "multiple"									:	show this control only if multiple actors (squad) is selected		;
+; "commander"									:	show this control only if the selected actor is a squad commander	;
+; "disabled"									:	show this control even if it is disabled							;
+;-----------------------------------------------------------------------------------------------------------------------;
+
+{panel_control
+
+; // first row-------------------------
+
+;// first button
+	{gc_cp_state_hatch
+		{position 0 0}
+		{condition "hatch disabled"}
+	}
+	{gc_cp_state_auto_medic
+		{position 0 0}
+		{condition "medic"}
+	}
+
+;// second button
+	{examine
+		{position 1 0}
+		{condition "vehicle disabled"}
+	}
+	{auto_medic_place_flag
+		{position 1 0}
+		{condition "medic"}
+	}
+
+;// third button
+	{take_pervitin
+    	{position 2 0}
+		{condition "human" "single"}
+	}
+	{injection
+		{position 2 0}
+		{condition "human disabled"}
+	}
+	
+
+;// fourth button
+	{call_ally
+		{position 3 0}
+		{condition "human disabled"}
+	}
+
+; // second row-------------------------
+
+;// first button
+	{gc_cp_state_weapon
+		{position 0 1}
+		{condition "human disabled"}
+	}
+	{gc_cp_state_attach
+		{position 0 1}
+		{condition "tractor"}
+	}
+
+;// second button
+	{gc_cp_leave_unit
+		{position 1 1}
+		{condition "vehicle single disabled"}
+	}
+	
+
+
+;// third button
+	{gc_cp_state_speed
+		{position 2 1}
+	}
+
+;// fourth button
+	{gc_cp_state_supply
+		{position 3 1}
+	}
+
+; // third row-------------------------
+
+;// first button
+	{pour_in 
+		{position 0 2}
+		{condition "human disabled"}
+	}
+	{gc_cp_state_smoke_decoy
+		{position 0 2}
+		{condition "vehicle tank disabled"}
+	}
+
+;// second button
+	{pour_out 
+		{condition "human disabled"}
+		{position 1 2}
+	}
+	{sandbag_vehicle
+		{condition "vehicle disabled"}
+		{position 1 2}
+	} 
+
+;// third button
+	; // empty {position 2 2} 
+
+;// fourth button
+	{gc_cp_browse_back
+		{position 3 2}
+	}
+}

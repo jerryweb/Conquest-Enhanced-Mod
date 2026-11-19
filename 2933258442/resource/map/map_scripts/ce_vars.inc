@@ -13,6 +13,7 @@
 	{"enable_ce_cut_communications_mechanic"}
 	{"radio_active"}
 	{"ai_sabotage"}
+	{"enable_ai_drug_enhancements"}
 
 	{"enable_rear_attack_mechanic"}
 	{"change_ai_spawns"}

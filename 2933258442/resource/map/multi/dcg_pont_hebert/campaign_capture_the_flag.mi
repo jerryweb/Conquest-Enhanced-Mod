@@ -117,7 +117,7 @@
 		{MID 1}
 	}
 	{Entity "map_point_conquest" 0xc007
-		{Position 4175.53 6868.56}
+		{Position 4175.52 6868.56}
 		{xform zl -93.99}
 		{Extender "map_point"
 			{name a1}
@@ -201,7 +201,7 @@
 		{MID 6}
 	}
 	{Entity "map_point_conquest" 0x8008
-		{Position -605.322 -6901.76}
+		{Position -605.32 -6901.76}
 		{xform zl 90.99}
 		{Extender "map_point"
 			{name b3}
@@ -3630,13 +3630,6 @@
 		}
 		{Player 0}
 		{MID 200}
-		{Cover
-			{sector 3364.77 347.42 {type "snipe_cover"}
-				{wall 3378.88 362.018 3368.65 338.874}
-				{row 0}
-				{link 0xd007}
-			}
-		}
 		{FsmState "snipe"}
 	}
 	{Human "" 0x80de
@@ -5385,9 +5378,6 @@
 		{DisableObstacles}
 		{Player 0}
 		{MID 340}
-		{Weaponry
-			{Current "bomb1"}
-		}
 		{Chassis "airborne"
 			{AirborneMode 1}
 			{Altitude 47}
@@ -5760,6 +5750,7 @@
 	{Entity "sandbag_structured_straight" 0x811b
 		{Position -206.4 -678.61 131}
 		{xform zl 147.27}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0x811d
 		{Position -1234.72 -1075.21 156.69}
@@ -5771,7 +5762,8 @@
 	}
 	{Entity "sandbag_structured_straight" 0x811f
 		{Position -1112.6 -1110.99 150}
-		{xform zl 95.63}
+		{xform zl -174.34 y 5.28 zw -90}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0x8120
 		{Position -950.3 -939.78}
@@ -5783,19 +5775,23 @@
 	}
 	{Entity "sandbag_framed_straight" 0x8122
 		{Position -1058.18 -956.66 152.23}
-		{xform zl -83.72}
+		{xform zl -83.79 y 8.74}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0x8123
 		{Position -358.32 -449.06 129.5}
 		{xform zl 13.4}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0x8124
 		{Position -1219.34 -887.4 155.46}
-		{xform zl -126.32}
+		{xform zl -126.16 y 6.13}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0x8125
 		{Position -315.04 -691.34 129.92}
-		{xform zl -34.99}
+		{xform zl -98.87 y 9.94 zw 64.01}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0x8128
 		{Position -896.53 -1250.53}
@@ -5804,38 +5800,47 @@
 	{Entity "sandbag_heap_curved" 0xc002
 		{Position -1055.76 -562.08}
 		{xform zl 160.1}
+		{Fogable always}
 	}
 	{Entity "sandbag_heap_curved" 0xc003
 		{Position -902.67 -797.66}
 		{xform zl -109.78}
+		{Fogable always}
 	}
 	{Entity "sandbag_heap_curved" 0xe002
 		{Position -641.7 -723.97}
 		{xform zl 8.75}
+		{Fogable always}
 	}
 	{Entity "sandbag_heap_curved" 0xe003
 		{Position -610.18 -518.44 141.5}
-		{xform zl 27.93}
+		{xform zl -62.08 y 1.68 zw 90}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xb03e
 		{Position -507.41 -574.42 137.5}
 		{xform zl 101.71}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xb03f
 		{Position -1096.74 -839.85 152.5}
 		{xform zl 169.89}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xb040
 		{Position -446.55 -586.11 132.5}
-		{xform zl 70.47}
+		{xform zl 21.64 y 1.66 zw 48.83}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xb041
 		{Position -1077.18 -784.86 152.5}
 		{xform zl 136.62}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_straight" 0xb042
 		{Position -1134.02 -1338.78 149.23}
-		{xform zl -63.24}
+		{xform zl 71.37 y 9.27 zw -134.38}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0xb043
 		{Position 51.14 -944.19 130.5}
@@ -5847,7 +5852,8 @@
 	}
 	{Entity "sandbag_structured_straight" 0xb045
 		{Position -104.21 -923.89}
-		{xform zl -76.76}
+		{xform zl -166.72 y 4.26 zw 90}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0xb046
 		{Position -886.59 -313.1 146}
@@ -5871,7 +5877,8 @@
 	}
 	{Entity "sandbag_structured_straight" 0xd002
 		{Position 3607.64 932.77}
-		{xform zl 100.71}
+		{xform zl 12.75 y 10.86 zw 88.17}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0xd003
 		{Position 2137.58 287.85}
@@ -5884,42 +5891,52 @@
 	{Entity "sandbag_structured_straight" 0xd005
 		{Position 2268.11 262.59}
 		{xform zl 118.1}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xd006
 		{Position 3199.9 252.75 64}
 		{xform zl -89.87}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xd007
 		{Position 3375.63 374.1 60.27}
-		{xform zl 1.15}
+		{xform zl -98.18 y 8.92 zw 99.43}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xd008
 		{Position 3142.63 276.43 62}
 		{xform zl -121.11}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xd009
 		{Position 3367.22 316.35 62.82}
-		{xform zl -32.07}
+		{xform zl -121.83 y 7.69 zw 90}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xd00f
 		{Position 3262.25 435.9 58}
-		{xform zl 109.87}
+		{xform zl 19.93 y 4.73 zw 90}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xd010
 		{Position 3009.1 250.01 63.25}
-		{xform zl 157.42}
+		{xform zl 10.66 y 9.52 zw 146.89}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xd011
 		{Position 3324.15 432.98 59}
-		{xform zl 78.62}
+		{xform zl -11.38 y 0.01 zw 90}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xd012
 		{Position 3040.06 299.49 60.5}
 		{xform zl 124.16}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_straight" 0xd013
 		{Position 2325.2 44.67}
-		{xform zl -59.59}
+		{xform zl -149.53 y 3.88 zw 90}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0xd014
 		{Position 3540.05 418.52}
@@ -5931,7 +5948,8 @@
 	}
 	{Entity "sandbag_structured_straight" 0xd016
 		{Position 3707.98 413.73}
-		{xform zl -114.85}
+		{xform zl 154.76 y 0.87 zw 90.38}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0xd017
 		{Position 3271.27 723.69}
@@ -5943,7 +5961,8 @@
 	}
 	{Entity "sandbag_structured_straight" 0xd020
 		{Position -2702.93 2352.56}
-		{xform zl -62.92}
+		{xform zl 27.46 y 10.39 zw -90}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0xd021
 		{Position -3952.6 1976.52}
@@ -5956,42 +5975,52 @@
 	{Entity "sandbag_structured_straight" 0xd023
 		{Position -3793.8 1930.17}
 		{xform zl 101.61}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xd024
 		{Position -3288.36 2026.94 229.5}
 		{xform zl -122.64}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xd025
 		{Position -2835.23 1943.82 216.5}
-		{xform zl -36.08}
+		{xform zl -71.25 y 3.36 zw 35.14}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xd026
 		{Position -3323.7 2077.85 228.5}
 		{xform zl -153.88}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xd027
 		{Position -2876.9 1902.96 223.97}
-		{xform zl -69.35}
+		{xform zl -69.77 y 11.02 zw 0.07}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xd02d
 		{Position -2814.77 2143.5 209}
 		{xform zl 75.68}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xd02e
 		{Position -3672.63 2223.57 240}
 		{xform zl 145}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xd02f
 		{Position -2765.21 2106.3 207}
-		{xform zl 44.44}
+		{xform zl -45.56 y 0.52 zw 90}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xd030
 		{Position -3328.07 2308.82 230}
 		{xform zl 70.39}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_straight" 0xd031
 		{Position -3684.06 2394.96}
 		{xform zl -96.05}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0xd032
 		{Position -2315.6 2745.62}
@@ -6004,6 +6033,7 @@
 	{Entity "sandbag_structured_straight" 0xd034
 		{Position -2378.52 2855.89}
 		{xform zl 57.1}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0xd035
 		{Position -2511 3040.47}
@@ -6031,7 +6061,8 @@
 	}
 	{Entity "sandbag_structured_straight" 0xd03e
 		{Position -4608.54 -2155.57}
-		{xform zl -174.42}
+		{xform zl -174.4 y 3.46}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0xd03f
 		{Position -5469.82 -3245.06}
@@ -6044,30 +6075,37 @@
 	{Entity "sandbag_structured_straight" 0xd041
 		{Position -5370.1 -3145.5}
 		{xform zl 147.19}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xd042
 		{Position -5218 -2962.55 280}
 		{xform zl -38.72}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xd043
 		{Position -5340.9 -2381.36 286.26}
-		{xform zl 31.28}
+		{xform zl 31.58 y 8.8}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xd044
 		{Position -5272.36 -2992.31 284}
-		{xform zl -69.96}
+		{xform zl -69.96 y 0.76}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xd045
 		{Position -5319.22 -2435.54 286}
 		{xform zl -1.97}
+		{Fogable always}
 	}
 	{Entity "sandbag_heap_curved" 0xd046
 		{Position -5770.14 -2556.54}
-		{xform zl 172.58}
+		{xform zl 172.52 y 7.09}
+		{Fogable always}
 	}
 	{Entity "sandbag_heap_curved" 0xd047
 		{Position -5754.58 -2621.35}
 		{xform zl -140.55}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0xd048
 		{Position -5761.36 -2294.75}
@@ -6079,27 +6117,33 @@
 	}
 	{Entity "sandbag_structured_straight" 0xd04a
 		{Position -5771.34 -2355.81}
-		{xform zl 6.68}
+		{xform zl -60.57 y 3.02 zw 67.21}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xd04b
 		{Position -5380.76 -2506.58 288.24}
-		{xform zl 100.5}
+		{xform zl 100.38 y 8.49}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xd04c
 		{Position -5045.5 -2614.25 275.5}
-		{xform zl 51.6}
+		{xform zl 51.65 y 3.49}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xd04d
 		{Position -5260.71 -2555.25 283.23}
-		{xform zl 41.36}
+		{xform zl 41.66 y 8.37}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xd04e
 		{Position -5006.35 -2657.52 274.5}
 		{xform zl 18.33}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_straight" 0xd04f
 		{Position -5242.27 -1233.36}
 		{xform zl -82.09}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0xd050
 		{Position -5316.49 -2256.07 284.12}
@@ -6112,6 +6156,7 @@
 	{Entity "sandbag_structured_straight" 0xd052
 		{Position -5207.87 -2011.08 278.5}
 		{xform zl 96.65 y 6.97 zw -78.92}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0xd053
 		{Position -5061.47 -1865 278.5}
@@ -6124,10 +6169,12 @@
 	{Entity "sandbag_heap_curved" 0xd055
 		{Position -4514.84 -2407.5}
 		{xform zl -1.46}
+		{Fogable always}
 	}
 	{Entity "sandbag_heap_curved" 0xd056
 		{Position -4537.02 -2344.62}
 		{xform zl 45.37}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0xd057
 		{Position -4149.5 -2123.82 252.5}
@@ -6140,10 +6187,12 @@
 	{Entity "sandbag_structured_straight" 0xd059
 		{Position -4473.54 -1701.57}
 		{xform zl -147.22}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_straight" 0xd05c
 		{Position 2316.7 -2750.75}
 		{xform zl 96.21}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0xd05d
 		{Position 1629.58 -4294.73}
@@ -6155,43 +6204,53 @@
 	}
 	{Entity "sandbag_structured_straight" 0xd05f
 		{Position 1758.14 -4320.33}
-		{xform zl 98.71}
+		{xform zl 98.55 y 10.94}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xd060
 		{Position 2159 -4278.79 167}
 		{xform zl -90.11}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xd061
 		{Position 2718.13 -4111.25 163}
 		{xform zl -52.51}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xd062
 		{Position 2101.82 -4254.89 167}
 		{xform zl -121.35}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xd063
 		{Position 2666.61 -4138.65 162}
 		{xform zl -85.79}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xd069
 		{Position 2636.17 -3586.65 167.5}
 		{xform zl 170.24}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xd06a
 		{Position 2675.44 -3543.01 170.5}
-		{xform zl 120.91}
+		{xform zl -111.76 y 2.82 zw -127.3}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_curved" 0xd06b
 		{Position 1502.09 -3020.1 176}
 		{xform zl 145.46}
+		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xd06c
 		{Position 1542.73 -2978.98 172}
-		{xform zl 106.54}
+		{xform zl 106.53 y 0.49}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_straight" 0xd06d
 		{Position 857.06 -3127.75}
 		{xform zl 88.9}
+		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0xd06e
 		{Position 2470.37 -3182.95}
@@ -6204,6 +6263,7 @@
 	{Entity "sandbag_structured_straight" 0xd070
 		{Position 2341.25 -3199.45}
 		{xform zl -62.98}
+		{Fogable always}
 	}
 	{Entity "mine_pmd" 0x8017
 		{Position 553.75 656.15}
@@ -15288,11 +15348,11 @@
 	{Tags "spawn_a" "a4" "spawnpoint_conquest" 0x800e}
 	{Tags "fpc2" "flag" 0x8013}
 	{Tags "cmp_def" "1_a_2-3" "1_b_2-3" 0x800c}
-	{Tags "cmp_def" "1_a_2-3" 0x800f}
+	{Tags "cmp_def" "1_a_2-3" "wm_lowcoveridle_biahh_npccombat_ccov_r_idle" 0x800f}
 	{Tags "cmp_def" "1_a_2-3" 0x8010}
-	{Tags "cmp_def" "1_a_2-3" 0x8012}
-	{Tags "cmp_def" "1_a_2-3" 0x8014}
-	{Tags "cmp_def" "1_a_2-3" 0x8015}
+	{Tags "cmp_def" "1_a_2-3" "idle_cover_crouch" 0x8012}
+	{Tags "cmp_def" "1_a_2-3" "idle_cover_crouch" 0x8014}
+	{Tags "cmp_def" "1_a_2-3" "wm_lowcoveridle_biahh_npccombat_ccov_r_idle" 0x8015}
 	{Tags "cmp_def" "1_b_1-3" 0x8018}
 	{Tags "cmp_def" "1_b_1-3" 0x8019}
 	{Tags "cmp_def" "1_b_1-3" 0x801a}
@@ -15302,13 +15362,13 @@
 	{Tags "cmp_def" "1_b_1-3" 0x801e}
 	{Tags "cmp_def" "1_b_1-3" 0x801f}
 	{Tags "cmp_def" "1_a_2-3" "1_b_2-3" 0x8020}
-	{Tags "cmp_def" "1_b_2-3" 0x8021}
-	{Tags "cmp_def" "1_b_2-3" 0x8022}
-	{Tags "cmp_def" "1_b_2-3" 0x8023}
+	{Tags "cmp_def" "1_b_2-3" "wm_lowcoveridle_biahh_npccombat_ccov_r_idle" 0x8021}
+	{Tags "cmp_def" "1_b_2-3" "wm_lowcoveridle_biahh_npccombat_ccov_r_idle" 0x8022}
+	{Tags "cmp_def" "1_b_2-3" "idle_cover_crouch" 0x8023}
 	{Tags "cmp_def" "1_b_2-3" 0x8024}
-	{Tags "cmp_def" "1_b_2-3" 0x8025}
-	{Tags "cmp_def" "1_b_3" 0x802b}
-	{Tags "cmp_def" "1_b_3" 0x802c}
+	{Tags "cmp_def" "1_b_2-3" "wm_lowcoveridle_biahh_npccombat_ccov_l_idle" 0x8025}
+	{Tags "cmp_def" "1_b_3" "idle_cover_crouch" 0x802b}
+	{Tags "cmp_def" "1_b_3" "idle_cover_crouch" 0x802c}
 	{Tags "cmp_def" "1_a_1-3" 0x8031}
 	{Tags "cmp_def" "1_a_1-3" 0x8032}
 	{Tags "cmp_def" "1_a_1-3" 0x8033}
@@ -15317,22 +15377,22 @@
 	{Tags "cmp_def" "1_a_1-3" 0x8036}
 	{Tags "cmp_def" "1_a_1-3" 0x8037}
 	{Tags "cmp_def" "1_a_1-3" 0x8038}
-	{Tags "cmp_def" "1_a_3" "1_b_3" 0x8039}
-	{Tags "cmp_def" "1_a_3" "1_b_3" 0x803a}
-	{Tags "cmp_def" "1_a_3" "1_b_3" 0x803b}
-	{Tags "cmp_def" "1_a_3" 0x803c}
-	{Tags "cmp_def" "1_a_3" 0x803d}
-	{Tags "cmp_def" "1_a_3" "1_b_3" 0x803e}
-	{Tags "cmp_def" "1_a_3" "1_b_3" 0x803f}
+	{Tags "cmp_def" "1_a_3" "1_b_3" "wm_lowcoveridle_biahh_npccombat_ccov_r_idle" 0x8039}
+	{Tags "cmp_def" "1_a_3" "1_b_3" "idle_cover_crouch" 0x803a}
+	{Tags "cmp_def" "1_a_3" "1_b_3" "idle_cover_crouch" 0x803b}
+	{Tags "cmp_def" "1_a_3" "idle_cover_crouch" 0x803c}
+	{Tags "cmp_def" "1_a_3" "wm_lowcoveridle_biahh_npccombat_ccov_r_idle" 0x803d}
+	{Tags "cmp_def" "1_a_3" "1_b_3" "wm_lowcoveridle_biahh_npccombat_ccov_r_idle" 0x803e}
+	{Tags "cmp_def" "1_a_3" "1_b_3" "wm_lowcoveridle_biahh_npccombat_ccov_r_idle" 0x803f}
 	{Tags "cmp_def" "1_a_3" "1_b_3" 0x8040}
 	{Tags "cmp_def" "1_a_2-3" "1_b_2-3" 0x8041}
 	{Tags "cmp_def" "1_a_2-3" "1_b_2-3" 0x8042}
 	{Tags "cmp_def" "2_a_2-3" "2_b_2-3" 0xb000}
-	{Tags "cmp_def" "2_a_2-3" 0xb001}
+	{Tags "cmp_def" "2_a_2-3" "wm_lowcoveridle_biahh_npccombat_ccov_r_idle" 0xb001}
 	{Tags "cmp_def" "2_a_2-3" 0xb002}
-	{Tags "cmp_def" "2_a_2-3" 0xb003}
-	{Tags "cmp_def" "2_a_2-3" 0xb004}
-	{Tags "cmp_def" "2_a_2-3" 0xb005}
+	{Tags "cmp_def" "2_a_2-3" "wm_lowcoveridle_biahh_npccombat_ccov_r_idle" 0xb003}
+	{Tags "cmp_def" "2_a_2-3" "wm_lowcoveridle_biahh_npccombat_ccov_l_idle" 0xb004}
+	{Tags "cmp_def" "2_a_2-3" "wm_lowcoveridle_biahh_npccombat_ccov_l_idle" 0xb005}
 	{Tags "cmp_def" "2_b_1-3" 0xb006}
 	{Tags "cmp_def" "2_b_1-3" 0xb007}
 	{Tags "cmp_def" "2_b_1-3" 0xb008}
@@ -15342,11 +15402,11 @@
 	{Tags "cmp_def" "2_b_1-3" 0xb00c}
 	{Tags "cmp_def" "2_b_1-3" 0xb00d}
 	{Tags "cmp_def" "2_a_2-3" "2_b_2-3" 0xb00e}
-	{Tags "cmp_def" "2_b_2-3" 0xb00f}
-	{Tags "cmp_def" "2_b_2-3" 0xb010}
+	{Tags "cmp_def" "2_b_2-3" "wm_lowcoveridle_biahh_npccombat_ccov_r_idle" 0xb00f}
+	{Tags "cmp_def" "2_b_2-3" "wm_lowcoveridle_biahh_npccombat_ccov_l_idle" 0xb010}
 	{Tags "cmp_def" "2_b_2-3" 0xb011}
-	{Tags "cmp_def" "2_b_2-3" 0xb012}
-	{Tags "cmp_def" "2_b_2-3" 0xb013}
+	{Tags "cmp_def" "2_b_2-3" "wm_lowcoveridle_biahh_npccombat_ccov_r_idle" 0xb012}
+	{Tags "cmp_def" "2_b_2-3" "wm_lowcoveridle_biahh_npccombat_ccov_r_idle" 0xb013}
 	{Tags "cmp_def" "2_b_3" 0xb014}
 	{Tags "cmp_def" "2_b_3" 0xb015}
 	{Tags "cmp_def" "2_a_1-3" 0xb016}
@@ -15368,11 +15428,11 @@
 	{Tags "cmp_def" "2_a_2-3" "2_b_2-3" 0xb026}
 	{Tags "cmp_def" "2_a_2-3" "2_b_2-3" 0xb027}
 	{Tags "cmp_def" "3_a_2-3" "3_b_2-3" 0x800b}
-	{Tags "cmp_def" "3_a_2-3" 0x8026}
+	{Tags "cmp_def" "3_a_2-3" "idle_cover_crouch" 0x8026}
 	{Tags "cmp_def" "3_a_2-3" 0x8028}
-	{Tags "cmp_def" "3_a_2-3" 0x8030}
-	{Tags "cmp_def" "3_a_2-3" 0x8043}
-	{Tags "cmp_def" "3_a_2-3" 0x8044}
+	{Tags "cmp_def" "3_a_2-3" "wm_lowcoveridle_biahh_npccombat_ccov_l_idle" 0x8030}
+	{Tags "cmp_def" "3_a_2-3" "wm_lowcoveridle_biahh_npccombat_ccov_l_idle" 0x8043}
+	{Tags "cmp_def" "3_a_2-3" "idle_cover_crouch" 0x8044}
 	{Tags "cmp_def" "3_b_1-3" 0x8048}
 	{Tags "cmp_def" "3_b_1-3" 0x804c}
 	{Tags "cmp_def" "3_b_1-3" 0x804d}
@@ -15382,13 +15442,13 @@
 	{Tags "cmp_def" "3_b_1-3" 0x8053}
 	{Tags "cmp_def" "3_b_1-3" 0x8054}
 	{Tags "cmp_def" "3_a_2-3" "3_b_2-3" 0x8055}
-	{Tags "cmp_def" "3_b_2-3" 0x8056}
-	{Tags "cmp_def" "3_b_2-3" 0x8057}
-	{Tags "cmp_def" "3_b_2-3" 0x8058}
-	{Tags "cmp_def" "3_b_2-3" 0x8059}
+	{Tags "cmp_def" "3_b_2-3" "wm_lowcoveridle_biahh_npccombat_ccov_r_idle" 0x8056}
+	{Tags "cmp_def" "3_b_2-3" "wm_lowcoveridle_biahh_npccombat_ccov_r_idle" 0x8057}
+	{Tags "cmp_def" "3_b_2-3" "wm_lowcoveridle_biahh_npccombat_ccov_r_idle" 0x8058}
+	{Tags "cmp_def" "3_b_2-3" "idle_cover_crouch" 0x8059}
 	{Tags "cmp_def" "3_b_2-3" 0x805a}
-	{Tags "cmp_def" "3_b_3" 0x805b}
-	{Tags "cmp_def" "3_b_3" 0x805c}
+	{Tags "cmp_def" "3_b_3" "idle_cover_crouch" 0x805b}
+	{Tags "cmp_def" "3_b_3" "wm_lowcoveridle_biahh_npccombat_ccov_l_idle" 0x805c}
 	{Tags "cmp_def" "3_a_1-3" 0x805d}
 	{Tags "cmp_def" "3_a_1-3" 0x805e}
 	{Tags "cmp_def" "3_a_1-3" 0x805f}
@@ -15397,9 +15457,9 @@
 	{Tags "cmp_def" "3_a_1-3" 0x8062}
 	{Tags "cmp_def" "3_a_1-3" 0x8063}
 	{Tags "cmp_def" "3_a_1-3" 0x8064}
-	{Tags "cmp_def" "3_a_3" "3_b_3" 0x8065}
+	{Tags "cmp_def" "3_a_3" "3_b_3" "wm_lowcoveridle_biahh_npccombat_ccov_r_idle" 0x8065}
 	{Tags "cmp_def" "3_a_3" "3_b_3" 0x8066}
-	{Tags "cmp_def" "3_a_3" "3_b_3" 0x8067}
+	{Tags "cmp_def" "3_a_3" "3_b_3" "idle_cover_crouch" 0x8067}
 	{Tags "cmp_def" "3_a_3" 0x8068}
 	{Tags "cmp_def" "3_a_3" 0x8069}
 	{Tags "cmp_def" "3_a_3" "3_b_3" 0x806a}
@@ -15408,11 +15468,11 @@
 	{Tags "cmp_def" "3_a_2-3" "3_b_2-3" 0x806d}
 	{Tags "cmp_def" "3_a_2-3" "3_b_2-3" 0x806e}
 	{Tags "cmp_def" "4_a_2-3" "4_b_2-3" 0x8085}
-	{Tags "cmp_def" "4_a_2-3" 0x8086}
-	{Tags "cmp_def" "4_a_2-3" 0x8087}
-	{Tags "cmp_def" "4_a_2-3" 0x8088}
-	{Tags "cmp_def" "4_a_2-3" 0x8089}
-	{Tags "cmp_def" "4_a_2-3" 0x808a}
+	{Tags "cmp_def" "4_a_2-3" "idle_cover_crouch" 0x8086}
+	{Tags "cmp_def" "4_a_2-3" "idle_cover_crouch" 0x8087}
+	{Tags "cmp_def" "4_a_2-3" "wm_lowcoveridle_biahh_npccombat_ccov_r_idle" 0x8088}
+	{Tags "cmp_def" "4_a_2-3" "wm_lowcoveridle_biahh_npccombat_ccov_l_idle" 0x8089}
+	{Tags "cmp_def" "4_a_2-3" "wm_lowcoveridle_biahh_npccombat_ccov_l_idle" 0x808a}
 	{Tags "cmp_def" "4_b_1-3" 0x808b}
 	{Tags "cmp_def" "4_b_1-3" 0x808c}
 	{Tags "cmp_def" "4_b_1-3" 0x808d}
@@ -15422,13 +15482,13 @@
 	{Tags "cmp_def" "4_b_1-3" 0x8091}
 	{Tags "cmp_def" "4_b_1-3" 0x8092}
 	{Tags "cmp_def" "4_a_2-3" "4_b_2-3" 0x8093}
-	{Tags "cmp_def" "4_b_2-3" 0x8094}
+	{Tags "cmp_def" "4_b_2-3" "wm_lowcoveridle_biahh_npccombat_ccov_r_idle" 0x8094}
 	{Tags "cmp_def" "4_b_2-3" 0x8095}
-	{Tags "cmp_def" "4_b_2-3" 0x8096}
-	{Tags "cmp_def" "4_b_2-3" 0x8097}
-	{Tags "cmp_def" "4_b_2-3" 0x8098}
-	{Tags "cmp_def" "4_b_3" 0x8099}
-	{Tags "cmp_def" "4_b_3" 0x809a}
+	{Tags "cmp_def" "4_b_2-3" "wm_lowcoveridle_biahh_npccombat_ccov_l_idle" 0x8096}
+	{Tags "cmp_def" "4_b_2-3" "wm_lowcoveridle_biahh_npccombat_ccov_l_idle" 0x8097}
+	{Tags "cmp_def" "4_b_2-3" "wm_lowcoveridle_biahh_npccombat_ccov_r_idle" 0x8098}
+	{Tags "cmp_def" "4_b_3" "wm_lowcoveridle_biahh_npccombat_ccov_r_idle" 0x8099}
+	{Tags "cmp_def" "4_b_3" "idle_cover_crouch" 0x809a}
 	{Tags "cmp_def" "4_a_1-3" 0x809b}
 	{Tags "cmp_def" "4_a_1-3" 0x809c}
 	{Tags "cmp_def" "4_a_1-3" 0x809d}
@@ -15437,22 +15497,22 @@
 	{Tags "cmp_def" "4_a_1-3" 0x80a0}
 	{Tags "cmp_def" "4_a_1-3" 0x80a1}
 	{Tags "cmp_def" "4_a_1-3" 0x80a2}
-	{Tags "cmp_def" "4_a_3" "4_b_3" 0x80a3}
-	{Tags "cmp_def" "4_a_3" "4_b_3" 0x80a4}
-	{Tags "cmp_def" "4_a_3" "4_b_3" 0x80a5}
-	{Tags "cmp_def" "4_a_3" 0x80a6}
-	{Tags "cmp_def" "4_a_3" 0x80a7}
-	{Tags "cmp_def" "4_a_3" "4_b_3" 0x80a8}
-	{Tags "cmp_def" "4_a_3" "4_b_3" 0x80a9}
-	{Tags "cmp_def" "4_a_3" "4_b_3" 0x80aa}
+	{Tags "cmp_def" "4_a_3" "4_b_3" "idle_cover_crouch" 0x80a3}
+	{Tags "cmp_def" "4_a_3" "4_b_3" "wm_lowcoveridle_biahh_npccombat_ccov_l_idle" 0x80a4}
+	{Tags "cmp_def" "4_a_3" "4_b_3" "wm_lowcoveridle_biahh_npccombat_ccov_r_idle" 0x80a5}
+	{Tags "cmp_def" "4_a_3" "idle_cover_crouch" 0x80a6}
+	{Tags "cmp_def" "4_a_3" "wm_lowcoveridle_biahh_npccombat_ccov_l_idle" 0x80a7}
+	{Tags "cmp_def" "4_a_3" "4_b_3" "idle_cover_crouch" 0x80a8}
+	{Tags "cmp_def" "4_a_3" "4_b_3" "wm_lowcoveridle_biahh_npccombat_ccov_l_idle" 0x80a9}
+	{Tags "cmp_def" "4_a_3" "4_b_3" "wm_lowcoveridle_biahh_npccombat_ccov_r_idle" 0x80aa}
 	{Tags "cmp_def" "4_a_2-3" "4_b_2-3" 0x80ab}
 	{Tags "cmp_def" "4_a_2-3" "4_b_2-3" 0x80ac}
 	{Tags "cmp_def" "5_a_2-3" "5_b_2-3" 0x80c3}
-	{Tags "cmp_def" "5_a_2-3" 0x80c4}
-	{Tags "cmp_def" "5_a_2-3" 0x80c5}
-	{Tags "cmp_def" "5_a_2-3" 0x80c6}
+	{Tags "cmp_def" "5_a_2-3" "idle_cover_crouch" 0x80c4}
+	{Tags "cmp_def" "5_a_2-3" "wm_lowcoveridle_biahh_npccombat_ccov_l_idle" 0x80c5}
+	{Tags "cmp_def" "5_a_2-3" "wm_lowcoveridle_biahh_npccombat_ccov_l_idle" 0x80c6}
 	{Tags "cmp_def" "5_a_2-3" 0x80c7}
-	{Tags "cmp_def" "5_a_2-3" 0x80c8}
+	{Tags "cmp_def" "5_a_2-3" "wm_lowcoveridle_biahh_npccombat_ccov_l_idle" 0x80c8}
 	{Tags "cmp_def" "5_b_1-3" 0x80c9}
 	{Tags "cmp_def" "5_b_1-3" 0x80ca}
 	{Tags "cmp_def" "5_b_1-3" 0x80cb}
@@ -15462,13 +15522,13 @@
 	{Tags "cmp_def" "5_b_1-3" 0x80cf}
 	{Tags "cmp_def" "5_b_1-3" 0x80d0}
 	{Tags "cmp_def" "5_a_2-3" "5_b_2-3" 0x80d1}
-	{Tags "cmp_def" "5_b_2-3" 0x80d2}
-	{Tags "cmp_def" "5_b_2-3" 0x80d3}
-	{Tags "cmp_def" "5_b_2-3" 0x80d4}
-	{Tags "cmp_def" "5_b_2-3" 0x80d5}
-	{Tags "cmp_def" "5_b_2-3" 0x80d6}
-	{Tags "cmp_def" "5_b_3" 0x80d7}
-	{Tags "cmp_def" "5_b_3" 0x80d8}
+	{Tags "cmp_def" "5_b_2-3" "wm_lowcoveridle_biahh_npccombat_ccov_l_idle" 0x80d2}
+	{Tags "cmp_def" "5_b_2-3" "wm_lowcoveridle_biahh_npccombat_ccov_r_idle" 0x80d3}
+	{Tags "cmp_def" "5_b_2-3" "wm_lowcoveridle_biahh_npccombat_ccov_r_idle" 0x80d4}
+	{Tags "cmp_def" "5_b_2-3" "idle_cover_crouch" 0x80d5}
+	{Tags "cmp_def" "5_b_2-3" "wm_lowcoveridle_biahh_npccombat_ccov_r_idle" 0x80d6}
+	{Tags "cmp_def" "5_b_3" "wm_lowcoveridle_biahh_npccombat_ccov_r_idle" 0x80d7}
+	{Tags "cmp_def" "5_b_3" "wm_lowcoveridle_biahh_npccombat_ccov_l_idle" 0x80d8}
 	{Tags "cmp_def" "5_a_1-3" 0x80d9}
 	{Tags "cmp_def" "5_a_1-3" 0x80da}
 	{Tags "cmp_def" "5_a_1-3" 0x80db}
@@ -15478,10 +15538,10 @@
 	{Tags "cmp_def" "5_a_1-3" 0x80df}
 	{Tags "cmp_def" "5_a_1-3" 0x80e0}
 	{Tags "cmp_def" "5_a_3" "5_b_3" 0x80e1}
-	{Tags "cmp_def" "5_a_3" "5_b_3" 0x80e2}
+	{Tags "cmp_def" "5_a_3" "5_b_3" "idle_cover_crouch" 0x80e2}
 	{Tags "cmp_def" "5_a_3" "5_b_3" 0x80e3}
-	{Tags "cmp_def" "5_a_3" 0x80e4}
-	{Tags "cmp_def" "5_a_3" 0x80e5}
+	{Tags "cmp_def" "5_a_3" "wm_lowcoveridle_biahh_npccombat_ccov_l_idle" 0x80e4}
+	{Tags "cmp_def" "5_a_3" "wm_lowcoveridle_biahh_npccombat_ccov_l_idle" 0x80e5}
 	{Tags "cmp_def" "5_a_3" "5_b_3" 0x80e6}
 	{Tags "cmp_def" "5_a_3" "5_b_3" 0x80e7}
 	{Tags "cmp_def" "5_a_3" "5_b_3" 0x80e8}
@@ -15512,7 +15572,7 @@
 	{Tags "cmp_def" "1_a_1-3" "1_b_1-3" "random_def" 0xa00b}
 	{Tags "cmp_def" "1_a_1-3" "1_b_1-3" "random_def" 0xa00c}
 	{Tags "cmp_def" "1_a_1-3" "1_b_1-3" "random_def" 0xa00d}
-	{Tags "cmp_def" "1_a_1-3" "1_b_1-3" "random_def" 0xa00e}
+	{Tags "cmp_def" "1_a_1-3" "1_b_1-3" "random_def" "wm_lowcoveridle_biahh_npccombat_ccov_r_idle" 0xa00e}
 	{Tags "cmp_def" "1_a_1-3" "1_b_1-3" "random_def" 0xa00f}
 	{Tags "cmp_def" "1_a_1-3" "1_b_1-3" "random_def" 0xa010}
 	{Tags "cmp_def" "1_a_1-3" "1_b_1-3" "random_def" 0xa011}
@@ -15577,13 +15637,13 @@
 	{Tags "cmp_def" "5_b_2-3_mg" 0x82db}
 	{Tags "cmp_def" "2_b_2-3_mg" 0x82dc}
 	{Tags "cmp_def" "4_b_2-3_mg" 0x82dd}
-	{Tags "pilot" 0x810d}
-	{Tags "pilot" 0x8110}
-	{Tags "pilot" 0x8111}
+	{Tags "pilot" "air_pilot" 0x810d}
+	{Tags "pilot" "air_pilot" 0x8110}
+	{Tags "pilot" "air_pilot" 0x8111}
 	{Tags "engine_count_2" "hidden" "air_vehicle" "no_scavenge" "airstrike_ger" "move_fast" 0x8112}
 	{Tags "engine_count_1" "hidden" "air_vehicle" "no_scavenge" "airstrike_rus" "move_fast" 0x82d6}
 	{Tags "engine_count_1" "hidden" "air_vehicle" "no_scavenge" "airstrike_usa" "move_fast" 0x828e}
-	{Tags "pilot" 0xc07f}
+	{Tags "pilot" "air_pilot" 0xc07f}
 	{Tags "cmp_def" "1_a_1-3" "2_a_1-3" "3_a_1-3" "4_a_1-3" "5_a_1-3" "def_team_1" 0xa001}
 	{Tags "cmp_def" "1_b_1-3" "2_b_1-3" "3_b_1-3" "4_b_1-3" "5_b_1-3" "def_team_2" 0xa002}
 	{Tags "cmp_def" "1_a_2-3_mg" 0x82d7}
@@ -15604,8 +15664,8 @@
 	{Tags "hidden" "arrow_enemy_b" "b_2" "ignore" "arrow_enemy" 0x80ee}
 	{Tags "hidden" "arrow_enemy_b" "b_4" "ignore" "arrow_enemy" 0x8113}
 	{Tags "hidden" "arrow_enemy_b" "b_3" "ignore" "arrow_enemy" 0x8114}
-	{Tags "pilot" 0x82ee}
-	{Tags "pilot" 0x82ef}
+	{Tags "pilot" "air_pilot" 0x82ee}
+	{Tags "pilot" "air_pilot" 0x82ef}
 	{Tags "engine_count_2" "move_fast" "hidden" "airstrike_fin" "no_scavenge" "air_vehicle" 0x82ed}
 	{Tags "cmp_def" "1_a_2-3" 0x811b}
 	{Tags "cmp_def" "1_a_2-3" 0x811d}
@@ -16359,7 +16419,7 @@
 	{Tags "cmp_def" "5_b_2-3" "mines_5_c" "dcg_mine_sign" 0x8294}
 	{Tags "cmp_def" "5_b_2-3" "mines_5_d" "dcg_mine_sign" 0x8295}
 	{Tags "cmp_def" "5_b_2-3" "mines_5_d" "dcg_mine_sign" 0x8296}
-	{Tags "pilot" 0xc081}
+	{Tags "pilot" "air_pilot" 0xc081}
 	{Tags "engine_count_1" "hidden" "air_vehicle" "no_scavenge" "airstrike_eng" "move_fast" 0xc083}
 	{Inventory 0x800c
 		{box
@@ -19744,7 +19804,7 @@
 			{Point 7933.57 -7907.85}
 		}
 		{zone "poly"
-			{position 6208.61 6041.81 75.2676}
+			{position 6208.61 6041.81 -37}
 			{Name "grid_a1"}
 			{Point -2016.24 -2011.45}
 			{Point -2008.28 1982.85}
@@ -19752,7 +19812,7 @@
 			{Point 2007.21 -1993.7}
 		}
 		{zone "poly"
-			{position 2180.25 6013.8 65.9704}
+			{position 2180.25 6013.8 51.636}
 			{Name "grid_a2"}
 			{Point -2016.24 -2011.45}
 			{Point -2008.28 1982.85}
@@ -19760,7 +19820,7 @@
 			{Point 2007.21 -1993.7}
 		}
 		{zone "poly"
-			{position -1864.92 5985.34 -45.157}
+			{position -1864.92 5985.34 156.078}
 			{Name "grid_a3"}
 			{Point -2016.24 -2011.45}
 			{Point -2008.28 1982.85}
@@ -19768,7 +19828,7 @@
 			{Point 2007.21 -1993.7}
 		}
 		{zone "poly"
-			{position -5905.81 5955.62 58.2785}
+			{position -5905.81 5955.62 302}
 			{Name "grid_a4"}
 			{Point -2016.24 -2011.45}
 			{Point -2008.28 1982.85}
@@ -19776,7 +19836,7 @@
 			{Point 2007.21 -1993.7}
 		}
 		{zone "poly"
-			{position 6193.22 2030.18 52}
+			{position 6193.22 2030.18 -36}
 			{Name "grid_b1"}
 			{Point -2021.31 -1999.61}
 			{Point -2006.59 1978.91}
@@ -19784,7 +19844,7 @@
 			{Point 2008.9 -1997.64}
 		}
 		{zone "poly"
-			{position 2162.61 2014.84 17}
+			{position 2162.61 2014.84 20}
 			{Name "grid_b2"}
 			{Point -2021.31 -1999.61}
 			{Point -2006.59 1978.91}
@@ -19792,7 +19852,7 @@
 			{Point 2008.9 -1997.64}
 		}
 		{zone "poly"
-			{position -1869.82 1980.93 3.05847}
+			{position -1869.82 1980.93 171}
 			{Name "grid_b3"}
 			{Point -2021.31 -1999.61}
 			{Point -2006.59 1978.91}
@@ -19800,7 +19860,7 @@
 			{Point 2008.9 -1997.64}
 		}
 		{zone "poly"
-			{position -5915.83 -2047.31 29}
+			{position -5915.83 -2047.31 364.739}
 			{Name "grid_b4"}
 			{Point -2002.26 -2008.03}
 			{Point -2010.36 1988.62}
@@ -19808,7 +19868,7 @@
 			{Point 2005.13 -1987.93}
 		}
 		{zone "poly"
-			{position 6163.87 -1984.86 35.0213}
+			{position 6163.87 -1984.86 67}
 			{Name "grid_c1"}
 			{Point -2002.26 -2008.03}
 			{Point -2010.36 1988.62}
@@ -19816,7 +19876,7 @@
 			{Point 2005.13 -1987.93}
 		}
 		{zone "poly"
-			{position 2149.21 -2004.03 89.9006}
+			{position 2149.21 -2004.03 166.901}
 			{Name "grid_c2"}
 			{Point -2002.26 -2008.03}
 			{Point -2010.36 1988.62}
@@ -19824,7 +19884,7 @@
 			{Point 2005.13 -1987.93}
 		}
 		{zone "poly"
-			{position -1890.43 -2034.34 32.7887}
+			{position -1890.43 -2034.34 186}
 			{Name "grid_c3"}
 			{Point -2002.26 -2008.03}
 			{Point -2010.36 1988.62}
@@ -19832,7 +19892,7 @@
 			{Point 2005.13 -1987.93}
 		}
 		{zone "poly"
-			{position -5911.57 1958.53 -80}
+			{position -5911.57 1958.53 272}
 			{Name "grid_c4"}
 			{Point -2021.31 -1999.61}
 			{Point -2006.59 1978.91}
@@ -19840,7 +19900,7 @@
 			{Point 2008.9 -1997.64}
 		}
 		{zone "poly"
-			{position 6162.48 -5992.75 119}
+			{position 6162.48 -5992.75 32}
 			{Name "grid_d1"}
 			{Point -2004.19 -2013.21}
 			{Point -2012.29 1983.44}
@@ -19848,7 +19908,7 @@
 			{Point 2003.2 -1993.11}
 		}
 		{zone "poly"
-			{position 2143.92 -6008.66 209.311}
+			{position 2143.92 -6008.66 151}
 			{Name "grid_d2"}
 			{Point -2004.19 -2013.21}
 			{Point -2012.29 1983.44}
@@ -19856,7 +19916,7 @@
 			{Point 2003.2 -1993.11}
 		}
 		{zone "poly"
-			{position -1878.85 -6040.97 -80}
+			{position -1878.85 -6040.97 222}
 			{Name "grid_d3"}
 			{Point -2004.19 -2013.21}
 			{Point -2012.29 1983.44}
@@ -19864,7 +19924,7 @@
 			{Point 2003.2 -1993.11}
 		}
 		{zone "poly"
-			{position -5910.41 -6042.2 259.617}
+			{position -5910.41 -6042.2 307}
 			{Name "grid_d4"}
 			{Point -2004.19 -2013.21}
 			{Point -2012.29 1983.44}
@@ -28055,7 +28115,7 @@
 				{transition "74"}
 			}
 			{"125"
-				{position 2182.93 -2627.13 176.492}
+				{position 2182.93 -2627.13 176.491}
 				{radius 500}
 				{RandomPosition 1}
 				{transition "75"}
@@ -28145,7 +28205,7 @@
 				}
 			}
 			{"130"
-				{position 3237.58 -1938.36 139.444}
+				{position 3237.58 -1938.36 139.443}
 				{radius 500}
 				{RandomPosition 1}
 				{transition "76"}
@@ -28370,7 +28430,7 @@
 				}
 			}
 			{"76"
-				{position 3064.15 -2352.92 165.18}
+				{position 3064.15 -2352.92 165.179}
 				{radius 500}
 				{RandomPosition 1}
 				{commands
@@ -30246,7 +30306,7 @@
 		}
 		{waypoints "b_f3_def_vehicle"
 			{"100"
-				{position -3032.76 2527.53 219.647}
+				{position -3032.76 2527.53 219.646}
 				{radius 500}
 				{RandomPosition 1}
 				{commands
@@ -30675,11 +30735,11 @@
 				{transition "587"}
 			}
 			{"585"
-				{position -3545.45 2489.38 233.218}
+				{position -3545.45 2489.38 233.219}
 				{radius 500}
 			}
 			{"586"
-				{position -2889.18 2323.7 202.954}
+				{position -2889.18 2323.7 202.955}
 				{radius 500}
 			}
 			{"587"
@@ -33215,7 +33275,7 @@
 				{RandomPosition 1}
 			}
 			{"107"
-				{position 3001.7 1421.56 21.7817}
+				{position 3001.7 1421.56 21.7825}
 				{radius 500}
 				{RandomPosition 1}
 				{commands
@@ -33548,7 +33608,7 @@
 				}
 			}
 			{"222"
-				{position 2690.22 1707.74 13.5682}
+				{position 2690.22 1707.74 13.5693}
 				{radius 500}
 				{RandomPosition 1}
 				{transition "107"}
@@ -33638,7 +33698,7 @@
 				}
 			}
 			{"227"
-				{position 5093.79 1830.4 -13.332}
+				{position 5093.79 1830.4 -13.3316}
 				{radius 500}
 				{RandomPosition 1}
 				{transition "109"}
@@ -33751,73 +33811,48 @@
 				{radius 500}
 			}
 			{"627"
-				{position 1332.78 1081.21 60.4595}
+				{position 1332.78 1081.21 60.4592}
 				{radius 500}
 			}
 		}
 		{waypoints "map_caridnal_direction_waypoints"
 			{"3001"
-				{position -323.755 -8364.65 0}
+				{position -323.755 -8364.65 87.9962}
 				{radius 300}
 				{RandomPosition 1}
 			}
 			{"3002"
-				{position 377.884 8373.31 0}
+				{position 377.884 8373.31 132}
 				{radius 300}
 				{RandomPosition 1}
 			}
 			{"3003"
-				{position 8617.03 -679.677 0}
+				{position 8617.03 -679.677 -15.3118}
 				{radius 300}
 				{RandomPosition 1}
 			}
 			{"3004"
-				{position -8500.22 -396.78 0}
+				{position -8500.22 -396.78 353.138}
 				{radius 300}
 				{RandomPosition 1}
 			}
 		}
 		{waypoints "grid_waypoints_side_a"
 			{"1001"
-				{position 6301.41 6031.23 72.0283}
+				{position 6301.41 6031.23 -38.8484}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "1005"}
 			}
-			{"1110"
-				{position 4175.53 6868.56 19}
-				{radius 300}
-				{RandomPosition 1}
-				{transition "1002"}
-			}
-			{"1120"
-				{position -1499.25 6889.57 32}
-				{radius 300}
-				{RandomPosition 1}
-				{transition "1003"}
-			}
-			{"1130"
-				{position -6677.3 7080.12 -19.1482}
-				{radius 300}
-				{RandomPosition 1}
-				{transition "1004"}
-			}
-			{"1140"
-				{position 6930.1 6611.67 26.0953}
-				{radius 300}
-				{RandomPosition 1}
-				{transition "1001"}
-			}
 			{"1002"
-				{position 2179.08 5999.79 67.0981}
+				{position 2179.08 5999.79 50.962}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "1006"}
-				{transition "1005"}
 				{transition "1007"}
 			}
 			{"1003"
-				{position -1884.05 5981.57 -51.811}
+				{position -1884.05 5981.57 157.905}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "1007"}
@@ -33825,19 +33860,19 @@
 				{transition "1006"}
 			}
 			{"1004"
-				{position -5894.82 5976.93 59.3322}
+				{position -5894.82 5976.93 300.726}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "1008"}
 			}
 			{"1005"
-				{position 6122.85 2013.12 45}
+				{position 6122.85 2013.12 -31}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "1009"}
 			}
 			{"1006"
-				{position 2136.11 2034.5 19}
+				{position 2136.11 2034.5 21}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "1010"}
@@ -33845,7 +33880,7 @@
 				{transition "1011"}
 			}
 			{"1007"
-				{position -1915.23 1978.89 7}
+				{position -1915.23 1978.89 174.141}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "1011"}
@@ -33853,46 +33888,46 @@
 				{transition "1010"}
 			}
 			{"1008"
-				{position -5940.86 1960 -79.0693}
+				{position -5940.86 1960 272.906}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "1012"}
 			}
 			{"1009"
-				{position 6160.07 -1988.03 35.7247}
+				{position 6160.07 -1988.03 67}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "1013"}
 				{transition "1014"}
 			}
 			{"1010"
-				{position 2086 -2016.65 90}
+				{position 2086 -2016.65 167.425}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "1014"}
 				{transition "1015"}
 			}
 			{"1011"
-				{position -1865.97 -2028.07 34}
+				{position -1865.97 -2028.07 184}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "1015"}
 				{transition "1014"}
 			}
 			{"1012"
-				{position -5903.22 -2069.56 30}
+				{position -5903.22 -2069.56 323.4}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "1016"}
 				{transition "1015"}
 			}
 			{"1013"
-				{position 6095.7 -6022.35 117.045}
+				{position 6095.7 -6022.35 34}
 				{radius 2000}
 				{RandomPosition 1}
 				{commands
 					{"call"
-						{function "attack_selected_flag"}
+						{function "issue_idle_squad_orders"}
 						{context
 							{specified}
 						}
@@ -33900,12 +33935,12 @@
 				}
 			}
 			{"1014"
-				{position 2171.65 -6002.57 206.857}
+				{position 2171.65 -6002.57 151}
 				{radius 2000}
 				{RandomPosition 1}
 				{commands
 					{"call"
-						{function "attack_selected_flag"}
+						{function "issue_idle_squad_orders"}
 						{context
 							{specified}
 						}
@@ -33913,12 +33948,12 @@
 				}
 			}
 			{"1015"
-				{position -1931.91 -5950.28 -80}
+				{position -1931.91 -5950.28 225.849}
 				{radius 2000}
 				{RandomPosition 1}
 				{commands
 					{"call"
-						{function "attack_selected_flag"}
+						{function "issue_idle_squad_orders"}
 						{context
 							{specified}
 						}
@@ -33926,80 +33961,78 @@
 				}
 			}
 			{"1016"
-				{position -5856.69 -6003.86 248.924}
+				{position -5856.69 -6003.86 306}
 				{radius 2000}
 				{RandomPosition 1}
 				{commands
 					{"call"
-						{function "attack_selected_flag"}
+						{function "issue_idle_squad_orders"}
 						{context
 							{specified}
 						}
 					}
 				}
 			}
+			{"1110"
+				{position 4175.53 6868.56 83}
+				{radius 300}
+				{RandomPosition 1}
+				{transition "1002"}
+			}
+			{"1120"
+				{position -1499.25 6889.57 142}
+				{radius 300}
+				{RandomPosition 1}
+				{transition "1003"}
+			}
+			{"1130"
+				{position -6677.3 7080.12 325}
+				{radius 300}
+				{RandomPosition 1}
+				{transition "1004"}
+			}
+			{"1140"
+				{position 6930.1 6611.67 -18}
+				{radius 300}
+				{RandomPosition 1}
+				{transition "1001"}
+			}
 		}
 		{waypoints "grid_waypoints_side_b"
 			{"2001"
-				{position 6015.02 -5987.72 105.942}
+				{position 6015.02 -5987.72 37.0906}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "2005"}
 			}
-			{"2110"
-				{position 6859.25 -6917.14 136.115}
-				{radius 300}
-				{RandomPosition 1}
-				{transition "2001"}
-			}
-			{"2120"
-				{position 5139.97 -6886.03 -57.0943}
-				{radius 300}
-				{RandomPosition 1}
-				{transition "2002"}
-			}
-			{"2130"
-				{position -605.322 -6901.76 -16}
-				{radius 300}
-				{RandomPosition 1}
-				{transition "2003"}
-			}
-			{"2140"
-				{position -5119.46 -6888.15 148.49}
-				{radius 300}
-				{RandomPosition 1}
-				{transition "2004"}
-			}
 			{"2002"
-				{position 2147.65 -6030.05 208.506}
+				{position 2147.65 -6030.05 151}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "2006"}
-				{transition "2005"}
 				{transition "2007"}
 			}
 			{"2003"
-				{position -2041.67 -6032.05 -80}
+				{position -2041.67 -6032.05 227}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "2007"}
-				{transition "2006"}
 				{transition "2008"}
 			}
 			{"2004"
-				{position -5956.27 -6102.43 266.58}
+				{position -5956.27 -6102.43 307}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "2008"}
 			}
 			{"2005"
-				{position 6163.73 -1938.51 30.8673}
+				{position 6163.73 -1938.51 67}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "2009"}
 			}
 			{"2006"
-				{position 2133.04 -2050.36 93}
+				{position 2133.04 -2050.36 169}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "2010"}
@@ -34007,7 +34040,7 @@
 				{transition "2011"}
 			}
 			{"2007"
-				{position -1900.37 -2065.69 32.3621}
+				{position -1900.37 -2065.69 187.169}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "2011"}
@@ -34015,46 +34048,46 @@
 				{transition "2010"}
 			}
 			{"2008"
-				{position -5905.75 -2061.39 29.8463}
+				{position -5905.75 -2061.39 351.605}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "2012"}
 			}
 			{"2009"
-				{position 6122.33 2041.15 46.3721}
+				{position 6122.33 2041.15 -32}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "2013"}
 				{transition "2014"}
 			}
 			{"2010"
-				{position 2141.84 2019.19 17.2028}
+				{position 2141.84 2019.19 21}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "2014"}
 				{transition "2015"}
 			}
 			{"2011"
-				{position -1885.69 2003.21 5.12702}
+				{position -1885.69 2003.21 172}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "2015"}
 				{transition "2014"}
 			}
 			{"2012"
-				{position -5977.11 1911.96 -79}
+				{position -5977.11 1911.96 272}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "2016"}
 				{transition "2015"}
 			}
 			{"2013"
-				{position 6212.24 6023.77 74}
+				{position 6212.24 6023.77 -38.1204}
 				{radius 2000}
 				{RandomPosition 1}
 				{commands
 					{"call"
-						{function "attack_selected_flag"}
+						{function "issue_idle_squad_orders"}
 						{context
 							{specified}
 						}
@@ -34062,12 +34095,12 @@
 				}
 			}
 			{"2014"
-				{position 1993.77 6086.04 23.5455}
+				{position 1993.77 6086.04 50}
 				{radius 2000}
 				{RandomPosition 1}
 				{commands
 					{"call"
-						{function "attack_selected_flag"}
+						{function "issue_idle_squad_orders"}
 						{context
 							{specified}
 						}
@@ -34075,12 +34108,12 @@
 				}
 			}
 			{"2015"
-				{position -1907.11 5978.04 -60.0325}
+				{position -1907.11 5978.04 159.516}
 				{radius 2000}
 				{RandomPosition 1}
 				{commands
 					{"call"
-						{function "attack_selected_flag"}
+						{function "issue_idle_squad_orders"}
 						{context
 							{specified}
 						}
@@ -34088,17 +34121,41 @@
 				}
 			}
 			{"2016"
-				{position -6130.26 5938.69 67}
+				{position -6130.26 5938.69 309.451}
 				{radius 2000}
 				{RandomPosition 1}
 				{commands
 					{"call"
-						{function "attack_selected_flag"}
+						{function "issue_idle_squad_orders"}
 						{context
 							{specified}
 						}
 					}
 				}
+			}
+			{"2110"
+				{position 6859.25 -6917.14 24}
+				{radius 300}
+				{RandomPosition 1}
+				{transition "2001"}
+			}
+			{"2120"
+				{position 5139.97 -6886.03 81}
+				{radius 300}
+				{RandomPosition 1}
+				{transition "2002"}
+			}
+			{"2130"
+				{position -605.322 -6901.76 155.554}
+				{radius 300}
+				{RandomPosition 1}
+				{transition "2003"}
+			}
+			{"2140"
+				{position -5119.46 -6888.15 260.99}
+				{radius 300}
+				{RandomPosition 1}
+				{transition "2004"}
 			}
 		}
 	}

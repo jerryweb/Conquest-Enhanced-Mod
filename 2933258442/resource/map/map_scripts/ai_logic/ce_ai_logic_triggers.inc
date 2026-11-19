@@ -1,287 +1,7 @@
 ; File created by Hawka
 ;==========================================================================================================
 
-			{"ai_logic/ai_smoke_at_vehicles"
-				{condition
-					{type 1}
-					{terms
-						{"1.see_actors"
-							{selector
-								{source advanced}
-								{ignore_captured_by_user 0}
-								{group
-									{select
-										{tag
-											{tag smk_}
-										}
-									}
-									{include
-										{state
-											{state operatable}
-										}
-									}
-									{exclude
-										{tag
-											{tag repairing}
-										}
-										{tag
-											{tag _lua_mi}
-										}
-										{state
-											{state inactive}
-										}
-										{state
-											{state linked}
-										}
-									}
-								}
-							}
-							{enemy
-								{source advanced}
-								{ignore_captured_by_user 0}
-								{group
-									{select
-										{zone
-											{zone "gamezone"}
-										}
-									}
-									{include
-										{state
-											{state "operatable inhabited"}
-										}
-										{prop
-											{prop vehicle}
-										}
-									}
-									{exclude
-										{prop
-											{prop airborne}
-										}
-										{state
-											{state inactive}
-										}
-										{tag
-											{tag _bot}
-										}
-										{player
-											{player "0"}
-										}
-										{player
-											{player "1"}
-										}
-										;{player
-										;	{player "3"}
-										;}
-									}
-								}
-							}
-							{distance
-								{mode near_than}
-								{meters 145}
-							}
-							{tag
-								{"tag pair"}
-								{"for selector" ai_veh_smoke}
-								{"for enemy" smk_veh_target}
-							}
-						}
-					}
-				}
-				{actions
-					{"delay"
-						{time 0.1}
-					}
-					{"entity_state"
-						{selector
-							{source advanced}
-							{group
-								{select
-									{tag
-										{tag smk_}
-									}
-								}
-								{include
-									{prop
-										{prop human}
-									}
-									{state
-										{state operatable}
-									}
-								}
-								{exclude
-									{tag
-										{tag _lua_mi}
-									}
-									{tag
-										{tag repairing}
-									}
-									{tag
-										{tag ai_veh_smoke}
-									}
-									{state
-										{state inactive}
-									}
-									{state
-										{state linked}
-									}
-								}
-							}
-							{sort
-								{type entity}
-								{entity
-									{tag ai_veh_smoke}
-								}
-							}
-							{amount 4
-							}
-						}
-						{tag_add ai_veh_smoke}
-					}
-					{"delay"
-						{time 0.3}
-					}
-					{"entity_state"
-						{selector
-							{ignore_captured_by_user 0}
-							{tag ai_veh_smoke}
-							{state operatable}
-						}
-						{tag_add _mi_temp_veh_smoke}
-						{tag_remove smk_}
-					}
-					{"delay"
-						{time 0.2}
-					}
-					{"entity_state"
-						{selector
-							{ignore_captured_by_user 0}
-							{tag _mi_temp_veh_smoke}
-						}
-						{tag_add _lua_mi}
-					}
-					{"inventory"
-						{selector
-							{tag ai_veh_smoke}
-							{type human}
-							{state "not dead"}
-						}
-						{action take}
-						{item "smoke"}
-					}
-					{"delay"
-						{time 0.5}
-					}
-					{"actor_fire"
-						{selector
-							{amount 1
-							}
-							{tag ai_veh_smoke}
-							{type human}
-							{state operatable}
-						}
-						{drop "orders sensor senseless"}
-						{deviate}
-						{enemies
-							{ignore_captured_by_user 0}
-							{tag smk_veh_target}
-						}
-						{interval 0}
-						{time 0}
-						{burst_mode once}
-					}
-					{"delay"
-						{time 0.1}
-					}
-					{"actor_fire"
-						{selector
-							{tag ai_veh_smoke}
-							{type human}
-							{state operatable}
-						}
-						{drop "orders sensor senseless"}
-						{deviate}
-						{enemies
-							{ignore_captured_by_user 0}
-							{tag smk_veh_target}
-						}
-						{interval 0}
-						{time 0}
-						{burst_mode once}
-					}
-					{"delay"
-						{time 0.1}
-					}
-					{"actor_state"
-						{selector
-							{ignore_captured_by_user 0}
-							{tag ai_veh_smoke}
-							{state operatable}
-						}
-						{drop orders}
-						{fire_mode open}
-						{move_mode free}
-						{ai_move
-							{mode enable}
-						}
-						{ai
-							{advance_ratio 1}
-						}
-					}
-					{"delay"
-						{time 1}
-					}
-					{"actor_to_cover"
-						{selector
-							{ignore_captured_by_user 0}
-							{tag ai_veh_smoke}
-							{state operatable}
-						}
-					}
-					{"delay"
-						{time 0.5}
-					}
-					{"entity_state"
-						{selector
-							{ignore_captured_by_user 0}
-							{tag smk_veh_target}
-						}
-						{tag_remove smk_veh_target}
-					}
-					{"delay"
-						{time 0.5}
-					}
-					{"entity_state"
-						{selector
-							{ignore_captured_by_user 0}
-							{tag ai_veh_smoke}
-						}
-						{tag_remove ai_veh_smoke}
-					}
-					{"entity_state"
-						{selector
-							{ignore_captured_by_user 0}
-							{tag _mi_temp_veh_smoke}
-						}
-						{tag_remove _lua_mi}
-					}
-					{"delay"
-						{time 1}
-					}
-					{"entity_state"
-						{selector
-							{ignore_captured_by_user 0}
-							{tag _mi_temp_veh_smoke}
-						}
-						{tag_remove _mi_temp_veh_smoke}
-					}
-					{"delay"
-						{time 55}
-					}
-					{"trigger"
-						{name "ai_logic/ai_smoke_at_vehicles"}
-					}
-				}
-			}
+;=========== Vehicle =======================================================================================	
 			{"ai_logic/spg_see_engage"
 				{condition
 					{terms
@@ -1058,7 +778,290 @@
 					}
 				}
 			}
-			{## "ai_logic/loot_rocket_launcher"
+
+;=========== Human =======================================================================================
+			{"ai_logic/ai_smoke_at_vehicles"
+				{condition
+					{type 1}
+					{terms
+						{"1.see_actors"
+							{selector
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{tag
+											{tag smk_}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{tag
+											{tag repairing}
+										}
+										{tag
+											{tag _lua_mi}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+									}
+								}
+							}
+							{enemy
+								{source advanced}
+								{ignore_captured_by_user 0}
+								{group
+									{select
+										{zone
+											{zone "gamezone"}
+										}
+									}
+									{include
+										{state
+											{state "operatable inhabited"}
+										}
+										{prop
+											{prop vehicle}
+										}
+									}
+									{exclude
+										{prop
+											{prop airborne}
+										}
+										{state
+											{state inactive}
+										}
+										{tag
+											{tag _bot}
+										}
+										{player
+											{player "0"}
+										}
+										{player
+											{player "1"}
+										}
+										;{player
+										;	{player "3"}
+										;}
+									}
+								}
+							}
+							{distance
+								{mode near_than}
+								{meters 145}
+							}
+							{tag
+								{"tag pair"}
+								{"for selector" ai_veh_smoke}
+								{"for enemy" smk_veh_target}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.1}
+					}
+					{"entity_state"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag smk_}
+									}
+								}
+								{include
+									{prop
+										{prop human}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{tag
+										{tag _lua_mi}
+									}
+									{tag
+										{tag repairing}
+									}
+									{tag
+										{tag ai_veh_smoke}
+									}
+									{state
+										{state inactive}
+									}
+									{state
+										{state linked}
+									}
+								}
+							}
+							{sort
+								{type entity}
+								{entity
+									{tag ai_veh_smoke}
+								}
+							}
+							{amount 4
+							}
+						}
+						{tag_add ai_veh_smoke}
+					}
+					{"delay"
+						{time 0.3}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag ai_veh_smoke}
+							{state operatable}
+						}
+						{tag_add _mi_temp_veh_smoke}
+						{tag_remove smk_}
+					}
+					{"delay"
+						{time 0.2}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag _mi_temp_veh_smoke}
+						}
+						{tag_add _lua_mi}
+					}
+					{"inventory"
+						{selector
+							{tag ai_veh_smoke}
+							{type human}
+							{state "not dead"}
+						}
+						{action take}
+						{item "smoke"}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"actor_fire"
+						{selector
+							{amount 1
+							}
+							{tag ai_veh_smoke}
+							{type human}
+							{state operatable}
+						}
+						{drop "orders sensor senseless"}
+						{deviate}
+						{enemies
+							{ignore_captured_by_user 0}
+							{tag smk_veh_target}
+						}
+						{interval 0}
+						{time 0}
+						{burst_mode once}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"actor_fire"
+						{selector
+							{tag ai_veh_smoke}
+							{type human}
+							{state operatable}
+						}
+						{drop "orders sensor senseless"}
+						{deviate}
+						{enemies
+							{ignore_captured_by_user 0}
+							{tag smk_veh_target}
+						}
+						{interval 0}
+						{time 0}
+						{burst_mode once}
+					}
+					{"delay"
+						{time 0.1}
+					}
+					{"actor_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag ai_veh_smoke}
+							{state operatable}
+						}
+						{drop orders}
+						{fire_mode open}
+						{move_mode free}
+						{ai_move
+							{mode enable}
+						}
+						{ai
+							{advance_ratio 1}
+						}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"actor_to_cover"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag ai_veh_smoke}
+							{state operatable}
+						}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag smk_veh_target}
+						}
+						{tag_remove smk_veh_target}
+					}
+					{"delay"
+						{time 0.5}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag ai_veh_smoke}
+						}
+						{tag_remove ai_veh_smoke}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag _mi_temp_veh_smoke}
+						}
+						{tag_remove _lua_mi}
+					}
+					{"delay"
+						{time 1}
+					}
+					{"entity_state"
+						{selector
+							{ignore_captured_by_user 0}
+							{tag _mi_temp_veh_smoke}
+						}
+						{tag_remove _mi_temp_veh_smoke}
+					}
+					{"delay"
+						{time 55}
+					}
+					{"trigger"
+						{name "ai_logic/ai_smoke_at_vehicles"}
+					}
+				}
+			}
+			{"ai_logic/loot_rocket_launcher"
 				{condition
 					{type 1}
 					{terms
@@ -1067,8 +1070,8 @@
 								{source advanced}
 								{group
 									{select
-										{zone
-											{zone "gamezone"}
+										{tag
+											{tag _bot}
 										}
 									}
 									{include
@@ -1078,8 +1081,8 @@
 										{state
 											{state operatable}
 										}
-										{tag
-											{tag _bot}
+										{zone
+											{zone "gamezone"}
 										}
 									}
 									{exclude
@@ -1108,13 +1111,13 @@
 								{source advanced}
 								{group
 									{select
-										{zone_ex
-											{zone "gamezone"}
+										{tag
+											{tag at_rocket}
 										}
 									}
 									{include
-										{tag
-											{tag at_rocket}
+										{zone
+											{zone "gamezone"}
 										}
 									}
 									{exclude
@@ -1139,8 +1142,8 @@
 							{source advanced}
 							{group
 								{select
-									{zone
-										{zone "gamezone"}
+									{tag
+										{tag _bot}
 									}
 								}
 								{include
@@ -1150,8 +1153,8 @@
 									{state
 										{state operatable}
 									}
-									{tag
-										{tag _bot}
+									{zone
+										{zone "gamezone"}
 									}
 								}
 								{exclude
@@ -1271,7 +1274,7 @@
 					}
 				}
 			}
-			{ "ai_logic/frag_grenade_spam"
+			{"ai_logic/frag_grenade_spam"
 				{condition
 					{terms
 						{"1.see_actors"
@@ -1702,7 +1705,210 @@
 					}
 				}
 			}
-
+			{"ai_logic/ai_take_drugs"
+				{condition
+					{terms
+						{"1.cmp_i"
+							{var "enable_ai_drug_enhancements$"}
+							{op ">"}
+							{value 0}
+						}
+						{"2.entities"
+							{selector
+								{tag _bot}
+								{zone "gamezone"}
+								{type human}
+								{state "not dead"}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.2}
+					}
+					{"effect"
+						{selector
+							{source advanced}
+							{group
+								{select
+									{tag
+										{tag _bot}
+									}
+								}
+								{include
+									{prop
+										{prop human}
+									}
+									{state
+										{state operatable}
+									}
+								}
+								{exclude
+									{state
+										{state user_control}
+									}
+									{state
+										{state dead}
+									}
+									{state
+										{state linked}
+									}
+									{state
+										{state inhabited}
+									}
+									{tag
+										{tag enhanced}
+									}
+								}
+							}
+							{amount 6
+							}
+						}
+						{effect pervitin_taken}
+					}
+					{"delay"
+						{time 120}
+					}
+					{"trigger"
+						{name "ai_logic/ai_take_drugs"}
+					}
+				}
+			}
+			{"ai_logic/warning_ai_drug_enhancements"
+				{condition
+					{expression "!1 & 2 & 3"}
+					{terms
+						{"1.event"
+							{id "talk_on"}
+						}
+						{"2.cmp_i"
+							{var "enable_ai_drug_enhancements$"}
+							{op "=="}
+							{value 1}
+						}
+						{"3.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag enhanced}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state operatable}
+										}
+										{tag
+											{tag _bot}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+										{state
+											{state dead}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state inhabited}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.1}
+					}
+					{"event"
+						{event "talk_on"}
+						{mode set}
+						{delay 0}
+					}
+					{"delay"
+						{time 6}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type rand}
+								{value 0.33}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"talk"
+								{selector
+									{ignore_captured_by_user 0}
+									{amount 1
+									}
+									{tag player}
+									{zone "gamezone"}
+									{type human}
+									{state "not dead"}
+								}
+								{text "mission/multi/ai_drug_event_3"}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.66}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"talk"
+								{selector
+									{ignore_captured_by_user 0}
+									{amount 1
+									}
+									{tag player}
+									{zone "gamezone"}
+									{type human}
+									{state "not dead"}
+								}
+								{text "mission/multi/ai_drug_event_2"}
+							}
+						}
+						{"default"
+							{"delay"
+								{time 0.1}
+							}
+							{"talk"
+								{selector
+									{ignore_captured_by_user 0}
+									{amount 1
+									}
+									{tag player}
+									{zone "gamezone"}
+									{type human}
+									{state "not dead"}
+								}
+								{text "mission/multi/ai_drug_event_1"}
+							}
+						}
+					}
+					{"delay"
+						{time 8}
+					}
+					{"event"
+						{event "talk_on"}
+						{mode reset}
+						{delay 0}
+					}
+				}
+			}
 
 ;=========== Air =======================================================================================
 			{"ai_logic/air/start_air_raid_event"

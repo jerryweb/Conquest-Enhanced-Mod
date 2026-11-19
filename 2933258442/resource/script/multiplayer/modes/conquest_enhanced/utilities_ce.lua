@@ -125,7 +125,8 @@ function ConquestContext.SetCEVarsInMissionScript()
 	ConquestContext.RefreshWaypointGraph()
 	ScheduleMapGraphGateCheck(MAP_GRAPH_FIRST_CHECK_MS, 0)
 	checkVarPercentage("enable_ce_radio_mechanic", enableCommunicationsCutMechanics) -- use this to control both variables for now
-  	checkVarPercentage("enable_ce_cut_communications_mechanic", enableCommunicationsCutMechanics)
+  checkVarPercentage("enable_ce_cut_communications_mechanic", enableCommunicationsCutMechanics)
+	checkVarPercentage("enable_ai_drug_enhancements", enableAiDrugEnhancements)
 	
 end
 
