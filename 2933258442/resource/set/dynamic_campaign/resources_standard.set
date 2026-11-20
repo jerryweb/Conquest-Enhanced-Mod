@@ -1,0 +1,122 @@
+{Standard
+	{GlobalMaxCP 550}
+	{StageCP 50 50 50 50 50}
+	{SpecialCP 50}					;// airstrikes special tab
+	{EmplacementCP 50}				;// buildable with engineer
+	{Bots
+		{StartMP	1.00 min 99999 attackerMultiplier 1.00}
+		{FinishMP	1.00 min 99999 attackerMultiplier 1.00}
+		{CP
+			{Base "0:500"} ;// seconds : CP
+			{RoundMultiplier "0:100"} ;// games played : multiplier for CP
+			{AttackMultiplier 1}
+		}
+		{DefenseLevel
+			{level_1
+				{DefenseBudgetPlayer	0.01}	;// budget it multiplied by number of flags
+				{DefenseBudgetAI		0.001}	;// places defender units with bot StartMP * this factor (StartMP without attackermultiplier) for player side
+				{unlock games 0 progress 0.0}	;// number of games to unlock this level, or progress in percent (campaign progress bar)
+			}
+			{level_2							;// once level is reached previous level values are ignored only currently level is used
+				{DefenseBudgetPlayer	0.025}
+				{DefenseBudgetAI		0.001}
+				{unlock games 8 progress 0.4}
+			}
+			{level_3
+				{DefenseBudgetPlayer	0.05}
+				{DefenseBudgetAI		0.001}
+				{unlock games 16 progress 0.6}
+			}
+		}
+	}
+	;// {factor MP / SP / AP / RP} Assumes value of 1 if not defined. 
+	{PaybackFactor 0.3 0 0 0}		;// MP paid back when loosing solider, squad or vehicle
+	{SellFactor 0.4 0 0 0}
+	{ScavengedVehicleSellFactor 0.2 0 0 0}		;// captured enemy vehicle 
+	{RiskFactor
+		{Low
+			{BotResources 0.85}
+			{BotVeterancy 2}
+			{Rewards 1.0}
+		}
+		{Standard
+			{BotResources 1.0}
+			{BotVeterancy 4}
+			{Rewards 1.25}
+		}
+		{High
+			{BotResources 1.2}
+			{BotVeterancy 6}
+			{Rewards 1.5}
+		}
+	}
+	{Resources
+		{MP ;// Manpower (generic money)							Shifted Mp numbers around to promote doing missions that wernt just airfield or RP missions -aeon
+			{StartVal 2800}
+			{WinGain "1:250 4:300 6:350 8:400 10:450 12:600 14:800"} ;// games played : MP gain 
+			{LoseGain "1:100 4:200 8:300 12:400 16:500"}
+			{MapRewards	;//Bonus resources on various game types (a game can only be one randomly chosen type). Types: Airfield, Ammodepot, Bonus, Factory, Research.
+				{Airfield	500}
+				{Ammodepot	250}
+				{Bonus		600}
+				{Factory	300}
+				{Research	100}
+			}
+		}
+		{SP ;// Special Points (airstrikes)		Shifted some SP point gain to win/lose gain instead of airfield missions, Was to meta to just spam airfield missions for large MP ammounts and off map callins. -aeon
+			{StartVal 6}
+			{WinGain 1:2 5:4 10:6 16:8}
+			{LoseGain 5:2 10:4}
+			{MapRewards
+				{Airfield 12}				
+			}
+		}
+		{AP ;// Ammo points						Adjusted ammo points down from CE stable for 1.067 weve reduced the ammo cost for resupply by alot so these numbers will probably have to be adjusted it may be to high. -aeon
+			{StartVal 1250}
+			{WinGain "5:250 10:500 16:750"}
+			{LoseGain "5:250 10:350"}
+			{MapRewards
+				{Ammodepot	1000}
+				{Factory	450}
+			}
+		}
+		{RP ;// Research points					RP trees the same as CE stable given the tech trees didnt really change. -aeon
+				{StartVal 10}
+				{WinGain "1:1 5:2 10:3 15:4"}
+				{LoseGain "1:1 15:2"}
+				{MapRewards
+					{Bonus		2}
+					{Research	3}
+					{Factory	1}
+				}
+			}
+		{Budget
+			{Start "0:5000"} ;// games played : starting CP of each match 
+			{PointsPerSecond 0.0} ;// CP income
+			{Limit 5000} ;// Max CP 
+		}
+	}
+	{ResupplyCost
+		{Human
+			{NewItem 1 AP}
+			{Weight 1 AP}
+			{Mechanic 0.25 AP}
+		}
+		{Vehicles
+			{Weight 1 AP}
+			{Fuel 0.25 AP}
+			{Resupply 0.15 AP}
+			{BrokenComponent
+				{body 40 % MP 1 % AP}
+				{turret 20 % MP 1 % AP}
+				{engine 20 % MP 1 % AP}
+				{track 10 % MP 1 % AP}
+				{shield 1 % MP 1 % AP}
+				{other 2 % MP 1 % AP} ;// If none of the above. Required.
+			}
+		}
+		{Support
+			{Airstrikes 100 % SP}
+		}
+	}
+}
