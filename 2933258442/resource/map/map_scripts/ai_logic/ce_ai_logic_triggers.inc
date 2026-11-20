@@ -1907,6 +1907,9 @@
 						{mode reset}
 						{delay 0}
 					}
+					{"call"
+						{function "show_ai_drug_objective"}
+					}
 				}
 			}
 

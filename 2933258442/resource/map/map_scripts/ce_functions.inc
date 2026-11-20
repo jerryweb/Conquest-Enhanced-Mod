@@ -378,6 +378,9 @@
 					}
 					{inactive off}
 				}
+				{"call"
+					{function "show_rear_attack_objective"}
+				}
 			}
 			{"ce_register_sabotage_vehicles"
 				{"select"
@@ -842,3 +845,48 @@
 					}
 				}
 			}
+
+;============ EVENTS ========================================
+			{"show_sabotage_objective"
+				{"task"
+					{name "ce_event_sabotage"}
+				}
+				{"sound"
+					{name "mission/task_new"}
+				}
+			}
+			{"show_ai_drug_objective"
+				{"task"
+					{name "ce_event_ai_drugs"}
+				}
+				{"sound"
+					{name "mission/task_new"}
+				}
+			}
+			{"show_rear_attack_objective"
+				{"task"
+					{name "ce_event_rear_attack"}
+				}
+				{"sound"
+					{name "mission/task_new"}
+				}
+			}
+			{"complete_sabotage_objective"
+				{"task"
+					{name "ce_event_sabotage"}
+					{state complete}
+				}
+			}
+			{"complete_ai_drug_objective"
+				{"task"
+					{name "ce_event_ai_drugs"}
+					{state complete}
+				}
+			}
+			{"complete_rear_attack_objective"
+				{"task"
+					{name "ce_event_rear_attack"}
+					{state complete}
+				}
+			}
+

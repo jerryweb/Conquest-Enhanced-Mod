@@ -1,0 +1,183 @@
+;SDL
+;_________________________________________________
+;|  CE net-new definitions for fin (not in vanilla units_fin.set)
+;|  source: cev2 units_fin_ce.set; included from units_fin_ce.set
+;|________________________________________________|
+
+{"ba20_command_fin"
+	("vehicle2" side(fin) period(mid) min_stage(2) max_stage(99) cw(2) cp(-8.4) crew1(tankman:2) crew2(officer:1))
+	{cost 1640}
+}
+
+{"pz38h_w40"
+	("vehicle2" side(fin) period(mid) min_stage(8) max_stage(99) cw(0) cp(29.6) crew1(tankman:1) crew2(tank_commander:1))
+	{cost 900}
+}
+
+("squad_with1types_conquest" side(fin) period(mid) min_stage(9) max_stage(99) name(single_signaller)		c1(signaller:1)){not_for_player_sale 1}
+
+{"105mm_k13ai"
+	("vehicle"  side(fin) period(mid) min_stage(8) max_stage(99) cw(0) cp(5.2) crew(artilleryman:4))
+	{cost 730}{not_for_player_sale 1}
+}
+
+{"105mm_h33ai"
+	("vehicle"  side(fin) period(mid) min_stage(8) max_stage(99) cw(0) cp(5.2) crew(artilleryman:4))
+	{cost 790}{not_for_player_sale 1}
+}
+
+{"105mm_k34ai"
+	("vehicle"  side(fin) period(mid) min_stage(8) max_stage(99) cw(0) cp(5.2) crew(artilleryman:4))
+	{cost 850}{not_for_player_sale 1}
+}
+
+{"107mm_k10ai"
+	("vehicle"  side(fin) period(mid) min_stage(9) max_stage(99) cw(0) cp(5.2) crew(artilleryman:4))
+	{cost 740}{not_for_player_sale 1}
+}
+
+{"120mm_k78_31ai"
+	("vehicle"  side(fin) period(mid) min_stage(9) max_stage(99) cw(0) cp(5.2) crew(artilleryman:4))
+	{cost 800}{not_for_player_sale 1}
+}
+
+{"122mm_m1910_finai"
+	("vehicle"  side(fin) period(mid) min_stage(8) max_stage(99) cw(0) cp(5.2) crew(artilleryman:4))
+	{cost 750}{not_for_player_sale 1}
+}
+
+{"150mm_h40ai"
+	("vehicle"  side(fin) period(mid) min_stage(10) max_stage(99) cw(0) cp(5) crew(artilleryman:5))
+	{cost 1000}{not_for_player_sale 1}
+}
+
+{"155mm_h17ai"
+	("vehicle"  side(fin) period(mid) min_stage(9) max_stage(99) cw(0) cp(5.2) crew(artilleryman:4))
+	{cost 980}{not_for_player_sale 1}
+}
+
+{"203mm_h17ai"
+	("vehicle"  side(fin) period(mid) min_stage(12) max_stage(99) cw(0) cp(5) crew(artilleryman:5))
+	{cost 1400}{not_for_player_sale 1}
+}
+
+{"150mm_rkh41ai"
+	("vehicle"  side(fin) period(mid) min_stage(8) max_stage(99) cw(0) cp(5.2) crew(artilleryman:4))
+	{cost 800}{not_for_player_sale 1}
+}
+
+{"blenheim_mk1_ai"
+	("vehicle"  side(fin) period(mid) min_stage(7) max_stage(99) cw(0) cp(20) crew(tankman:2))
+	{cost 1700}{not_for_player_sale 1}
+}
+
+{"controllable_plane_fin"
+	("squad_vehicle" side(fin) period(mid) min_stage(1) max_stage(99) cw(0) cp(3) crew(tankman:2) vehicle(blenheim_mk1_player))
+	{cost -50}
+	{cost_sp 15}
+	{action "airstrike:pistol_ammo"}
+}
+
+{"supply_drop_axis"
+	("squad_vehicle" side(fin) period(mid) min_stage(1) max_stage(99) cw(0) cp(-7) crew(tankman:3) vehicle(blenheim_mk1))
+	{cost 6}
+	{action "airstrike:fin_supply_drop_aim"}
+}
+
+{"heavy_artillery_barrage"
+    ("squad_vehicle" side(fin) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(pilot:0) vehicle(offmap_placeholder_6))
+    {cost 25}
+    {action "airstrike:conquest_artillery_barrage_heavy"}
+}
+
+{"super_heavy_artillery_barrage"
+    ("squad_vehicle" side(fin) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(pilot:0) vehicle(offmap_placeholder_8))
+    {cost 40}
+    {action "airstrike:conquest_artillery_barrage_super_heavy"}
+}
+
+{"rocket_artillery_barrage"
+    ("squad_vehicle" side(fin) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(pilot:0) vehicle(offmap_placeholder_5))
+    {cost 15} 
+    {action "airstrike:conquest_light_rocket_barrage"}
+}
+
+{"heavy_rocket_artillery_barrage"
+    ("squad_vehicle" side(fin) period(mid)  min_stage(1) max_stage(99) cw(0) cp(33) crew(pilot:0) vehicle(offmap_placeholder_6))
+    {cost 25} 
+    {action "airstrike:conquest_heavy_rocket_barrage"}
+}
+
+{"allied_infantry_callin"
+    ("squad_vehicle" side(fin) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(pilot:0) vehicle(offmap_placeholder_4))
+    {cost 10}{not_for_player_sale 1}
+    {action "airstrike:ally_infantry_support"}
+}
+
+{"blitz3_6_radio"
+	("emplacement2_10cp" side(fin) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(blitz3_6_radio))
+	{cost 250}{not_for_ai_sale 1}
+}
+
+{"supply_crate_build"
+	("emplacement2_5cp" side(fin) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(supply_crate_build))
+	{cost 100}{not_for_ai_sale 1}
+}
+
+{"emplacement_80mm_sgrw34_rapid"
+	("emplacement2_10cp" side(fin) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(emplacement_80mm_sgrw34_rapid))
+	{cost 275}{not_for_ai_sale 1}
+}
+
+{"emplacement_50mm_kwk39_platform"
+	("emplacement2_10cp" side(fin) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(emplacement_50mm_kwk39_platform))
+	{cost 375}{not_for_ai_sale 1}
+}
+
+{"mgun_ring_emplacement"
+	("emplacement2_5cp" side(fin) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(mgun_ring_emplacement))
+	{cost 175}{not_for_ai_sale 1}
+}
+
+{"emplacement_155mm_gpf_platform"
+	("emplacement2_20cp" side(fin) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(emplacement_155mm_gpf_platform))
+	{cost 700}{not_for_ai_sale 1}
+}
+
+{"mmpillbox_dummy"
+	("emplacement2" side(fin) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(mmpillbox_dummy))
+	{cost 175}{not_for_ai_sale 1}
+}
+
+{"regel_bau_pak_75mm_pak40"
+	("emplacement2_20cp" side(fin) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(regel_bau_pak_75mm_pak40))
+	{cost 350}{not_for_ai_sale 1}
+}
+
+{"aa_regelbau_flak_ring_88mm_flak36"
+	("emplacement2_20cp" side(fin) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(aa_regelbau_flak_ring_88mm_flak36))
+	{cost 500}{not_for_ai_sale 1}
+}
+
+{"flak_ring_88mm_flak36"
+	("emplacement2_20cp" side(fin) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(flak_ring_88mm_flak36))
+	{cost 500}{not_for_ai_sale 1}
+}
+
+{"pillbox_dummy"
+	("emplacement2" side(fin) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(pillbox_dummy))
+	{cost 175}{not_for_ai_sale 1}
+}
+
+{"flak_ring_dummy"
+	("emplacement2" side(fin) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(flak_ring_dummy))
+	{cost 150}{not_for_ai_sale 1}
+}
+
+{"aa_regelbau_dummy"
+	("emplacement2" side(fin) period(mid) min_stage(6) max_stage(99) cw(0) cp(0) crew(mg_crew:0) condition(barricade) action(aa_regelbau_dummy))
+	{cost 200}{not_for_ai_sale 1}
+}
+
+{"blenheim_mk1_player" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
+

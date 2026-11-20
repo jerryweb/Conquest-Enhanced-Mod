@@ -1332,5 +1332,8 @@
 						{mode reset}
 						{delay 0}
 					}
+					{"call"
+						{function "show_sabotage_objective"}
+					}
 				}
 			}
