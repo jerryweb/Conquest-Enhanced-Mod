@@ -3968,13 +3968,6 @@
 		}
 		{Player 0}
 		{MID 233}
-		{Cover
-			{sector -885.204 -744.881 {type "snipe_cover"}
-				{wall -950.802 -794.392 -874.086 -725.485}
-				{row 0}
-				{link 0x403f}
-			}
-		}
 		{FsmState "snipe"}
 	}
 	{Human "" 0x8105
@@ -4404,8 +4397,8 @@
 		{FsmState "snipe"}
 	}
 	{Human "" 0xa01b
-		{Position 819.2 -5303.88}
-		{xform zl 159.87}
+		{Position 818.46 -5303.61}
+		{xform zl 69.87}
 		{Volume "ram"
 			{able {visible 0}{bullet 0}{throwing 0}{obstacle 0}{contact 0}{contact_ground 0}{blast 0}{select 0}{touch 0}{blockcamera 0}}
 			{disabled}
@@ -5815,7 +5808,7 @@
 	}
 	{Entity "sandbag_framed_curved" 0x8124
 		{Position 1682.03 -1660.15 -2.5}
-		{xform zl 4.75 y 4.29 zw -90}
+		{xform zl 4.74 y 4.29 zw -90}
 		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0x8125
@@ -5835,7 +5828,7 @@
 	}
 	{Entity "sandbag_framed_curved" 0xb040
 		{Position 1701.73 -892.73 -5.26}
-		{xform zl -21.7 y 8.79 zw 123.71}
+		{xform zl -21.7 y 8.78 zw 123.71}
 		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xb041
@@ -5873,7 +5866,7 @@
 	}
 	{Entity "sandbag_framed_curved" 0xd008
 		{Position -985.45 196.65 35.34}
-		{xform zl 77.52 y 7.18 zw -146.11}
+		{xform zl 77.51 y 7.17 zw -146.11}
 		{Fogable always}
 	}
 	{Entity "sandbag_framed_straight" 0xd009
@@ -5940,7 +5933,7 @@
 	}
 	{Entity "sandbag_structured_straight" 0xd034
 		{Position -954.78 -3484.91 23.55}
-		{xform zl -58.79 y 6.28}
+		{xform zl -58.78 y 6.28}
 		{Fogable always}
 	}
 	{Entity "sandbag_structured_straight" 0xd03e
@@ -5986,7 +5979,7 @@
 	}
 	{Entity "sandbag_structured_straight" 0xd052
 		{Position 2635.31 2028.68 78.97}
-		{xform zl 179.22 y 4.33 zw 154.26}
+		{xform zl 179.22 y 4.33 zw 154.25}
 		{Fogable always}
 	}
 	{Entity "sandbag_structured_curved" 0xd053
@@ -15506,6 +15499,8 @@
 	{Tags "bare" 0x5152}
 	{Tags "bare" 0x5153}
 	{Tags "bare" 0x5154}
+	{Tags "long_range" 0x4027}
+	{Tags "long_range" 0x6228}
 	{Tags "fpc1" "flag" 0x802f}
 	{Tags "fpc3" "flag" 0x8011}
 	{Tags "fpc5" "flag" 0x8003}
@@ -15809,13 +15804,13 @@
 	{Tags "cmp_def" "5_b_2-3_mg" 0x82db}
 	{Tags "cmp_def" "2_b_2-3_mg" 0x82dc}
 	{Tags "cmp_def" "4_b_2-3_mg" 0x82dd}
-	{Tags "pilot" 0x810d}
-	{Tags "pilot" 0x8110}
-	{Tags "pilot" 0x8111}
-	{Tags "engine_count_2" "hidden" "air_vehicle" "no_scavenge" "airstrike_ger" "move_fast" "update_move" 0x8112}
-	{Tags "engine_count_1" "hidden" "air_vehicle" "no_scavenge" "airstrike_rus" "move_fast" "update_move" 0x82d6}
-	{Tags "engine_count_1" "hidden" "air_vehicle" "no_scavenge" "airstrike_usa" "move_fast" "update_move" 0x828e}
-	{Tags "pilot" 0xc07f}
+	{Tags "pilot" "air_pilot" 0x810d}
+	{Tags "pilot" "air_pilot" 0x8110}
+	{Tags "pilot" "air_pilot" 0x8111}
+	{Tags "engine_count_2" "hidden" "air_vehicle" "no_scavenge" "airstrike_ger" "move_fast" 0x8112}
+	{Tags "engine_count_1" "hidden" "air_vehicle" "no_scavenge" "airstrike_rus" "move_fast" 0x82d6}
+	{Tags "engine_count_1" "hidden" "air_vehicle" "no_scavenge" "airstrike_usa" "move_fast" 0x828e}
+	{Tags "pilot" "air_pilot" 0xc07f}
 	{Tags "cmp_def" "1_a_1-3" "2_a_1-3" "3_a_1-3" "4_a_1-3" "5_a_1-3" "def_team_1" 0xa001}
 	{Tags "cmp_def" "1_b_1-3" "2_b_1-3" "3_b_1-3" "4_b_1-3" "5_b_1-3" "def_team_2" 0xa002}
 	{Tags "cmp_def" "1_a_2-3_mg" 0x82d7}
@@ -15836,9 +15831,9 @@
 	{Tags "hidden" "arrow_enemy_b" "b_2" "ignore" "arrow_enemy" 0x80ee}
 	{Tags "hidden" "arrow_enemy_b" "b_4" "ignore" "arrow_enemy" 0x8113}
 	{Tags "hidden" "arrow_enemy_b" "b_3" "ignore" "arrow_enemy" 0x8114}
-	{Tags "pilot" 0x82ee}
-	{Tags "pilot" 0x82ef}
-	{Tags "engine_count_2" "move_fast" "hidden" "airstrike_fin" "no_scavenge" "air_vehicle" "update_move" 0x82ed}
+	{Tags "pilot" "air_pilot" 0x82ee}
+	{Tags "pilot" "air_pilot" 0x82ef}
+	{Tags "engine_count_2" "move_fast" "hidden" "airstrike_fin" "no_scavenge" "air_vehicle" 0x82ed}
 	{Tags "cmp_def" "1_a_2-3" 0x811e}
 	{Tags "cmp_def" "1_a_1-3" 0x8122}
 	{Tags "cmp_def" "1_a_1-3" 0x8123}
@@ -16538,8 +16533,8 @@
 	{Tags "cmp_def" "5_b_2-3" "mines_5_c" "dcg_mine_sign" 0x828a}
 	{Tags "cmp_def" "5_b_2-3" "mines_5_d" "dcg_mine_sign" 0x828b}
 	{Tags "cmp_def" "5_b_2-3" "mines_5_d" "dcg_mine_sign" 0x828c}
-	{Tags "pilot" 0xc081}
-	{Tags "engine_count_1" "hidden" "air_vehicle" "no_scavenge" "airstrike_eng" "move_fast" "update_move" 0xc083}
+	{Tags "pilot" "air_pilot" 0xc081}
+	{Tags "engine_count_1" "hidden" "air_vehicle" "no_scavenge" "airstrike_eng" "move_fast" 0xc083}
 	{Inventory 0x800c
 		{box
 			{clear}
@@ -33962,33 +33957,33 @@
 		}
 		{waypoints "grid_waypoints_side_a"
 			{"1001"
-				{position -5886.49 5949.73 -85.9098}
+				{position -4661.5 6112.74 -71}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "1005"}
 			}
 			{"1002"
-				{position -5875.82 1984.2 -68}
+				{position -4252.56 4065.13 -30.5393}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "1006"}
 				{transition "1007"}
 			}
 			{"1003"
-				{position -5869.1 -1992.37 -79.4314}
+				{position -4688.98 1482.47 -44}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "1007"}
 				{transition "1008"}
 			}
 			{"1004"
-				{position -5872.74 -6029.16 -82.284}
+				{position -5713.43 -3460.78 -86}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "1008"}
 			}
 			{"1005"
-				{position -1877.23 5925.33 6.44635}
+				{position -773.535 5754.03 52}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "1009"}
@@ -34015,7 +34010,7 @@
 				{transition "1012"}
 			}
 			{"1009"
-				{position 2198.18 6018.46 63}
+				{position 2426.31 5518.71 79.941}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "1013"}
@@ -34124,34 +34119,33 @@
 		}
 		{waypoints "grid_waypoints_side_b"
 			{"2001"
-				{position 6211.2 -5927.08 -131}
+				{position 5952.36 -6039.78 -136}
 				{radius 2000}
 				{RandomPosition 1}
-				{transition "2005"}
 			}
 			{"2002"
-				{position 6214.84 -1890.29 -61.0193}
-				{radius 2000}
+				{position 3987.38 -3676.94 -71}
+				{radius 1000}
 				{RandomPosition 1}
 				{transition "2006"}
 				{transition "2007"}
 			}
 			{"2003"
-				{position 6208.12 2086.28 28}
-				{radius 2000}
+				{position 4986.62 -1475.7 -34.23}
+				{radius 1000}
 				{RandomPosition 1}
 				{transition "2007"}
 				{transition "2008"}
 			}
 			{"2004"
-				{position 6197.45 6051.81 99}
+				{position 5137.25 3174.66 78.702}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "2008"}
 			}
 			{"2005"
-				{position 2211.93 -5960.43 -55}
-				{radius 2000}
+				{position 2080.69 -6329.13 -45}
+				{radius 1000}
 				{RandomPosition 1}
 				{transition "2009"}
 			}
@@ -34171,13 +34165,13 @@
 				{transition "2012"}
 			}
 			{"2008"
-				{position 2198.18 6018.46 63}
+				{position 1304.41 5965.77 86}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "2012"}
 			}
 			{"2009"
-				{position -1863.48 -6053.56 -24.1689}
+				{position -1795.77 -5552 -19.5048}
 				{radius 2000}
 				{RandomPosition 1}
 				{transition "2013"}
@@ -34205,7 +34199,7 @@
 				{transition "2015"}
 			}
 			{"2013"
-				{position -5872.74 -6029.16 -82.284}
+				{position -5994.2 -3395.88 -94}
 				{radius 2000}
 				{RandomPosition 1}
 				{commands
@@ -34257,10 +34251,10 @@
 				}
 			}
 			{"2110"
-				{position 5407.02 -6810.19 -103.867}
+				{position 5420.54 -6849.59 -99}
 				{radius 300}
 				{RandomPosition 1}
-				{transition "2005"}
+				{transition "2002"}
 			}
 			{"2120"
 				{position 3910.7 -6687.58 -90}
@@ -34272,15 +34266,15 @@
 				{position 6715.58 -3618.58 -97}
 				{radius 300}
 				{RandomPosition 1}
-				{transition "2003"}
 				{transition "2004"}
+				{transition "2003"}
 			}
 			{"2140"
 				{position 6661.8 -5743.79 -109}
 				{radius 300}
 				{RandomPosition 1}
 				{transition "2002"}
-				{transition "2004"}
+				{transition "2003"}
 			}
 		}
 	}
