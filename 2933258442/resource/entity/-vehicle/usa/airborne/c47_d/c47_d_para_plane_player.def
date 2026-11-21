@@ -1,0 +1,76 @@
+{game_entity
+	(include "/properties/airborne_drop_plane_ce.ext")
+	(include "/properties/selection/airborne.inc" scale(2.25))
+	{props "wheeled" "vision_lev02_air" "player" "drop_plane" "c47_d"}
+	{extension "c47_d.mdl"}
+	{PatherID "blenheim"}
+
+	{extender "enumerator"
+		{digit_folder "c47"}
+	}
+
+	("fighter_tier2")
+
+	{extender "detail" {random 0} {detail1 0}}
+
+	{boarder
+		{anm "driver"
+			{forward {begin "board_c47"} {end "c47_driver_pose"}}
+			{reverse {end "emit_plane_parachute" -1}}
+		}
+		{anm "commander"
+			{forward {begin "board_c47"} {end "c47_driver_pose"}}
+			{reverse {end "emit_plane_parachute" -1}}
+		}
+		{anm "passenger"
+			{forward {begin "board_c47"} {end "seat_passenger"}}
+			{reverse {end "emit_plane_parachute" -1.5}}
+		}
+		{anm "passenger1"
+			{forward {begin "board_c47"} {end "c47_paradrop_pose"}}
+			{reverse {end "emit_plane_parachute" -1.5}}
+		}
+	}
+
+	("crew_human" place(driver) bone(driver) door(emit1) animation(driver) group(crew))
+	("crew_human" place(commander) bone(commander) door(emit1) animation(commander) group(crew))
+
+	{Placer
+		{place "driver" {visor "main"} {turnOff {targetable}}}
+		{place "commander" {visor "around"} {turnOff {targetable}}}
+	}
+
+	("passenger_c47")
+	("passenger_human" place(seat1) bone(seat01) door(emit1) animation(passenger1) group(passenger))
+
+	("double_engine")
+	("wheel" args "wheelr")
+	("wheel" args "wheell")
+	("wheel" args "wheelback")
+
+	{Chassis "wheel"
+		("car_trace" fx("tracewheel05") step(0.07) wheell("wlf") wheelr("wrf") bonel("FXtraceL1") boner("FXtraceR1"))
+	}
+
+	{mass 8226} ;empty weight 
+
+	{Chassis "airborne"
+		("flight_model_ce"
+			speed(480)  ;//---------Max speed (at sea level), km/h.
+			climb_speed(0) ;//-----Climb rate at sea level, in m/s
+			turn(250) ;//-----------Turn-and-burn radius in meters, tightest sustained turn
+			aerodynamics(1.55) ;//--Aerodynamic efficiency rating (0-3)
+			weight(7600) ;//--------Weight in kg.
+			power(2200) ;//---------Horse Power.
+			fuel(1300) ;//----------Fuel capacity in Liters.
+			range(1500) ;//---------Distance can travel with full fuel tank, in km.
+			roll_rate(40) ;//-------Roll rate, in degrees per second.
+			roll_angle(65) ;//------Maximum roll angle, in degrees.
+		)
+    }
+
+	{extender "inventory"
+		{box}
+	}
+}
+
