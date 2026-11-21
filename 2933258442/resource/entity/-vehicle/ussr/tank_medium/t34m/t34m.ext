@@ -1,0 +1,190 @@
+;SDL
+
+	; armor notes
+	; tracks and wheels 20mm
+	; gun 25mm
+
+	("tank_medium_tier2")
+
+	("tracks" repair(30) thickness(20))
+	("gun" repair(30) thickness(25))
+
+	("ammo" args "ammo1")
+	("ammo" args "ammo2")
+	("ammo" args "ammo3")
+	("ammo" args "ammo4")
+	("ammo" args "ammo5")
+	("fuel" args "fuel1")
+	("fuel" args "fuel2")
+	("fuel" args "fuel3")
+	("fuel" args "fuel4")
+	("transmission" args "transmission")
+
+	{volume "body1"			; Hull lower Front
+		{thickness 38.1
+			{front 50.8}	
+		}
+		{CastSteel 0.8063}
+	}
+	{volume "body2"			; front lower
+		{thickness 38.1
+			{front 50.8}
+			{bottom 25.4}
+			{rear 10}
+			{top 19.5}
+		}
+		{CastSteel 0.8063}
+	}
+	{volume "body3"
+		{thickness 50.8}
+		{CastSteel 0.8063}
+	}
+	{volume "body4"
+		{thickness 50.8}
+		{CastSteel 0.8063}
+	}
+	{volume "body5"
+		{thickness 38.1
+			{front 50.8}
+			{top 19.5}
+		}
+		{CastSteel 0.8063}
+	}
+	{volume "body6"
+		{thickness 38.1
+			{front 50.8}
+			{top 19.5}
+		}
+		{CastSteel 0.8063}
+	}
+	{volume "body7"		; Hull lower middle
+		{thickness 38.1
+			{front 50.8}
+			{rear 10}
+			{bottom 25.4}
+		}
+	}
+	{volume "body8"
+		{thickness 50.8}
+	}
+	{volume "body9"
+		{thickness 63.5}
+	}
+	{volume "body10"
+		{thickness 63.5}
+	}
+	{volume "body11"
+		{thickness 63.5}
+	}
+	{volume "engine1"
+		{thickness 38.1
+			{front 19.5}
+			{bottom 25.4}
+		}
+	}
+	{volume "engine2"
+		{thickness 38.1
+			{front 10}
+			{top 19.5}
+			{bottom 25.4}
+		}
+		{able {holed}}
+	}
+	{volume "turret1"
+		{thickness 51
+			{top 25.4}
+			{front 76.2}
+		}
+		{CastSteel 0.8063}
+	}
+	{volume "turret2"
+		{thickness 51}
+		{CastSteel 0.8063}
+	}
+	{volume "turret3"
+		{thickness 76.2}
+		{CastSteel 0.8063}
+	}
+	{volume "turret4"
+		{thickness 101.6}
+		{CastSteel 0.8063}
+	}
+	{volume "mantlet"
+		{tags "turret"}
+		{component "turret"}
+		{thickness 51}
+		{CastSteel 0.8063}
+	}
+	{volume "armor1"	; turret ring armor
+		{thickness 19.5
+			{top 5.9}
+		}
+		{CastSteel 0.8063}
+	}
+	{volume "cupola"
+		{thickness 51
+			{top 19.5}
+		}
+		{CastSteel 0.8063}
+	}
+	{volume "rollerl1"
+		{thickness 150}
+		{tags "roller"}
+		{able clear {contact} {holed}}
+	}
+	{volume "rollerl2"
+		{thickness 150}
+		{tags "roller"}
+		{able {holed}}
+	}
+	{volume "rollerr1"
+		{thickness 150}
+		{tags "roller"}
+		{able clear {contact} {holed}}
+	}
+	{volume "rollerr2"
+		{thickness 150}
+		{tags "roller"}
+		{able {holed}}
+	}
+	{volume "armor2"
+		{thickness 40}
+	}
+	{volume "armor3"
+		{thickness 10}
+		{able {holed}}
+		{CastSteel 0.8063}
+	}
+	{volume "swingarml1"
+		{tags "armor" "roller"}
+		{thickness 20}
+		{CastSteel 0.8063}
+	}
+	{volume "swingarml2"
+		{tags "armor" "roller"}
+		{thickness 20}
+		{able {holed}}
+		{CastSteel 0.8063}
+	}
+	{volume "swingarml3"
+		{tags "armor" "roller"}
+		{thickness 20}
+		{CastSteel 0.8063}
+	}
+	{volume "swingarmr1"
+		{tags "armor" "roller"}
+		{thickness 20}
+		{CastSteel 0.8063}
+	}
+	{volume "swingarmr2"
+		{tags "armor" "roller"}
+		{thickness 20}
+		{able {holed}}
+		{CastSteel 0.8063}
+	}
+	{volume "swingarmr3"
+		{tags "armor" "roller"}
+		{thickness 20}
+		{CastSteel 0.8063}
+	}
+	
