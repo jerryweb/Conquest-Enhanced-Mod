@@ -235,7 +235,36 @@ Purchases["conquest.usa"] = {
 				{availability = "1.6", base = { "SPG" }, class = { "Medium" }, grade = "Grade3", posture = { "Flexible" }, roles = { "Artillery" }, effects = { "VsInfantry", "VsVehicle", "VsArmor" }, unit = "m12_gmc"},
 				{availability = "1.4", base = { "SPG" }, class = { "Medium" }, grade = "Grade4", posture = { "Flexible" }, roles = { "Artillery" }, effects = { "VsInfantry", "VsVehicle", "VsArmor" }, unit = "m4a3_calliope"},
 				--]]
-			---]====]
+
+
+				-- CE Units
+
+				-- Infantry
+				{availability = "1.4", base = { "Infantry", "Squad" }, class = {}, grade = "Grade3", posture = { "Flexible" }, roles = { "Line" }, effects = { "VsInfantry" }, unit = "squad_10th_mountain_late_off_1"},
+				{availability = "1.4", base = { "Infantry", "Single" }, class = {}, grade = "Grade4", posture = { "Flexible" }, roles = { "Recon" }, effects = { "VsInfantry" }, unit = "single_101st_late_pathfinder_sniper"},
+				{availability = "1.5", base = { "Infantry", "Single" }, class = {}, grade = "Grade2", posture = { "Flexible" }, roles = {}, effects = { "VsInfantry", "VsVehicle", "VsArmor" }, unit = "single_signaller"},
+
+				-- Cannons
+				{availability = "1.1", base = { "Cannon" }, class = { "Light" }, grade = "Grade1", posture = { "Defensive" }, roles = { "AntiTank" }, effects = { "VsVehicle", "VsArmor" }, unit = "37mm_m3"},
+
+				-- Wheel vehicles
+				{availability = "1.3", base = { "Vehicle" }, class = { "Light" }, grade = "Grade1", posture = { "Flexible" }, roles = { "MG" }, effects = { "VsInfantry" }, unit = "ford_gpa"},
+
+				-- Tanks
+				{availability = "1.3", base = { "Tank" }, class = { "Medium" }, grade = "Grade3", posture = { "Flexible" }, roles = {}, effects = { "VsInfantry", "VsVehicle", "VsArmor" }, unit = "m4a1_75_dd"},
+
+				-- Aircrafts (paradrop pairs, two C-47s per purchase)
+				{availability = "1.4", base = { "Plane" }, class = { "Medium" }, grade = "Grade3", posture = { "Offensive" }, roles = { "Line" }, effects = {}, unit = "squad_82nd_paras_glider_con_x2"},
+				{availability = "1.4", base = { "Plane" }, class = { "Medium" }, grade = "Grade4", posture = { "Offensive" }, roles = { "Assault" }, effects = { "VsInfantry" }, unit = "squad_82nd_paras_eng_con_x2"},
+				{availability = "1.4", base = { "Plane" }, class = { "Medium" }, grade = "Grade4", posture = { "Offensive" }, roles = { "Line" }, effects = {}, unit = "squad_82nd_paras_con_x2"},
+				{availability = "1.5", base = { "Plane" }, class = { "Medium" }, grade = "Grade3", posture = { "Offensive" }, roles = { "Line" }, effects = {}, unit = "squad_101st_paras_glider_con_x2"},
+				{availability = "1.5", base = { "Plane" }, class = { "Medium" }, grade = "Grade4", posture = { "Offensive" }, roles = { "Assault" }, effects = { "VsInfantry" }, unit = "squad_101st_paras_eng_con_x2"},
+				{availability = "1.5", base = { "Plane" }, class = { "Medium" }, grade = "Grade4", posture = { "Offensive" }, roles = { "Line" }, effects = {}, unit = "squad_101st_paras_con_x2"},
+
+				-- Not added: m3a1_halftrack_radio (radio command vehicle, not_for_player_sale),
+				--   squad_82nd_paras_*_con / squad_101st_paras_*_con (plane paradrop bases; the _x2 versions are in Aircrafts above),
+				--   p47 / c47 (call-in and plane carrier definitions), heavy_mg_m1917_30cal (emplacement).
+				---]====]
 		}
 	}
 }

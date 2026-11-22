@@ -214,7 +214,7 @@
 				}
 				{actions
 					{"delay"
-						{time 180}
+						{time 100}
 					}
 					{"entity_state"
 						{selector
@@ -1698,7 +1698,7 @@
 						{tag_remove _ap_grenade_target}
 					}
 					{"delay"
-						{time 10}
+						{time 4}
 					}
 					{"trigger"
 						{name "ai_logic/frag_grenade_spam"}

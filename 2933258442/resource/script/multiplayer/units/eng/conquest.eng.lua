@@ -335,6 +335,48 @@ Purchases["conquest.eng"] = {
 				{availability = "1.5", base = { "SPG" }, class = { "Medium" }, grade = "Grade2", posture = { "Flexible" }, roles = { "Artillery" }, effects = { "VsInfantry", "VsVehicle" }, unit = "bishop"},
 				{availability = "1.3", base = { "SPG" }, class = { "Medium" }, grade = "Grade2", posture = { "Flexible" }, roles = { "Artillery" }, effects = { "VsInfantry", "VsVehicle" }, unit = "sexton_mk2"},
 				--]]
+
+
+				-- CE Units
+
+				-- Infantry
+				{availability = "1.5", base = { "Infantry", "Single" }, class = {  }, grade = "Grade2", posture = { "Flexible" }, roles = {  }, effects = { "VsInfantry", "VsVehicle", "VsArmor" }, unit = "single_signaller"},
+
+				-- Wheel vehicles
+				{availability = "1.4", base = { "Vehicle" }, class = { "Light" }, grade = "Grade1", posture = { "Flexible" }, roles = { "MG" }, effects = { "VsInfantry" }, unit = "willys_mb_vgo_eng"},
+
+				-- Carriers
+				{availability = "1.3", base = { "Vehicle" }, class = { "Light" }, grade = "Grade1", posture = { "Flexible" }, roles = { "MG" }, effects = { "VsInfantry" }, unit = "bren_carrier"},
+				{availability = "1.4", base = { "Vehicle" }, class = { "Light" }, grade = "Grade1", posture = { "Defensive" }, roles = { "AntiTank" }, effects = { "VsVehicle" }, unit = "bren_carrier_boys"},
+				{availability = "1.4", base = { "Vehicle" }, class = { "Light" }, grade = "Grade1", posture = { "Defensive" }, roles = { "AntiTank" }, effects = { "VsVehicle" }, unit = "universal_carrier_mk1_boys"},
+				{availability = "1.3", base = { "Vehicle" }, class = { "Light" }, grade = "Grade1", posture = { "Flexible" }, roles = { "MG" }, effects = { "VsInfantry" }, unit = "universal_carrier_mk1_2mg"},
+				{availability = "1.4", base = { "Vehicle" }, class = { "Light" }, grade = "Grade1", posture = { "Offensive" }, roles = { "Mortar" }, effects = { "VsInfantry" }, unit = "mortar_carrier_mk1"},
+				{availability = "1.5", base = { "Vehicle" }, class = { "Light" }, grade = "Grade1", posture = { "Offensive" }, roles = { "Mortar" }, effects = { "VsInfantry" }, unit = "mortar_carrier_mk1_boys"},
+				{availability = "1.4", base = { "Vehicle" }, class = { "Light" }, grade = "Grade1", posture = { "Defensive" }, roles = { "AntiTank" }, effects = { "VsVehicle" }, unit = "universal_carrier_mk2_boys"},
+				{availability = "1.4", base = { "Vehicle" }, class = { "Light" }, grade = "Grade1", posture = { "Defensive" }, roles = { "AntiTank" }, effects = { "VsVehicle", "VsArmor" }, unit = "universal_carrier_mk2_piat"},
+				{availability = "1.3", base = { "Vehicle" }, class = { "Light" }, grade = "Grade1", posture = { "Flexible" }, roles = { "MG" }, effects = { "VsInfantry" }, unit = "universal_carrier_mk2_2mg"},
+				{availability = "1.4", base = { "Vehicle" }, class = { "Light" }, grade = "Grade1", posture = { "Offensive" }, roles = { "Mortar" }, effects = { "VsInfantry" }, unit = "mortar_carrier_mk2"},
+
+				-- Tanks
+				{availability = "1.6", base = { "Tank" }, class = { "Light" }, grade = "Grade3", posture = { "Flexible" }, roles = {}, effects = { "VsInfantry", "VsVehicle", "VsArmor" }, unit = "m22_locust_littlejohn"},
+				{availability = "1.6", base = { "Tank" }, class = { "Medium" }, grade = "Grade3", posture = { "Flexible" }, roles = {}, effects = { "VsInfantry", "VsVehicle", "VsArmor" }, unit = "cromwell4_tulip"},
+
+				-- Aircrafts (bombers and recon plane use maxUnitCount like the ger planes; paradrop squads are one C-47 each)
+				{availability = "1.4", base = { "Plane" }, class = { "Medium" }, grade = "Grade3", posture = { "Offensive" }, roles = { "Breakthrough" }, effects = { "VsVehicle", "VsArmor" }, identity = { "bomber_wing" }, unit = "typhoon_mk1b_x1", maxUnitCount = 2},
+				{availability = "1.4", base = { "Plane" }, class = { "Medium" }, grade = "Grade2", posture = { "Offensive" }, roles = { "Breakthrough" }, effects = { "VsVehicle", "VsArmor" }, identity = { "bomber_wing" }, unit = "hurribomber_mk2c_x1", maxUnitCount = 2},
+				{availability = "1.5", base = { "Plane" }, class = { "Light" }, grade = "Grade2", posture = { "Offensive" }, roles = { "Recon" }, effects = {  }, unit = "typhoon_mk1b_recon_x1", maxUnitCount = 2},
+				{availability = "1.5", base = { "Plane" }, class = { "Medium" }, grade = "Grade3", posture = { "Offensive" }, roles = { "Recon" }, effects = {  }, unit = "ai_paradrop_eng_1strecon_mid_x1"},
+				{availability = "1.5", base = { "Plane" }, class = { "Medium" }, grade = "Grade4", posture = { "Offensive" }, roles = { "Line" }, effects = {  }, unit = "ai_paradrop_eng_1st_mid_x1"},
+				{availability = "1.5", base = { "Plane" }, class = { "Medium" }, grade = "Grade4", posture = { "Offensive" }, roles = { "Recon" }, effects = {  }, unit = "ai_paradrop_eng_1strecon_x1"},
+				{availability = "1.5", base = { "Plane" }, class = { "Medium" }, grade = "Grade4", posture = { "Offensive" }, roles = { "AntiTank" }, effects = { "VsVehicle", "VsArmor" }, unit = "ai_paradrop_eng_1statcan_x1"},
+				{availability = "1.5", base = { "Plane" }, class = { "Medium" }, grade = "Grade4", posture = { "Offensive" }, roles = { "Line" }, effects = { "VsInfantry" }, unit = "ai_paradrop_eng_1stpol_x1"},
+				{availability = "1.5", base = { "Plane" }, class = { "Medium" }, grade = "Grade4", posture = { "Offensive" }, roles = { "Line" }, effects = {  }, unit = "ai_paradrop_eng_1stpoleng_x1"},
+				{availability = "1.5", base = { "Plane" }, class = { "Medium" }, grade = "Grade4", posture = { "Offensive" }, roles = { "Line" }, effects = {  }, unit = "ai_paradrop_eng_6th_x1"},
+				{availability = "1.5", base = { "Plane" }, class = { "Medium" }, grade = "Grade4", posture = { "Offensive" }, roles = { "Assault" }, effects = { "VsInfantry" }, unit = "ai_paradrop_eng_SAS_x1"},
+
+				-- Not added: ram_kangaroo / ram_kangaroo_mk2 (unarmed open-top carriers, no purchase role; no squad uses them),
+				--   m5a1_halftrack_radio (radio command vehicle, not_for_player_sale), conquest_blank, player_paradrop_eng_* (player-only),
+				--   blenheim_mk1_eng / hurribomber_mk2c / typhoon_mk1b / c47_d (bare aircraft definitions), the unused cev2 _x2 paradrop pairs.
 			---]====]
 		}
 	}

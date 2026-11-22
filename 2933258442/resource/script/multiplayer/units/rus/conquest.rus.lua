@@ -269,6 +269,30 @@ Purchases["conquest.rus"] = {
 
 				{availability = "1.6", base = { "SPG" }, class = { "Light" }, grade = "Grade2", posture = { "Flexible" }, roles = { "Artillery" }, effects = { "VsInfantry" }, unit = "t60_bm8_24"},
 				--]]
+
+
+				-- CE Units
+
+				-- Infantry
+				{availability = "1.4", base = { "Infantry", "Squad" }, class = {  }, grade = "Grade4", posture = { "Flexible" }, roles = { "Line" }, effects = {  }, unit = "squad_elite_guard_rifle_late_support"},
+				{availability = "1.4", base = { "Infantry", "Squad" }, class = {  }, grade = "Grade4", posture = { "Flexible" }, roles = { "Line" }, effects = {  }, unit = "squad_elite_guard_rifle_late_irregular"},
+				{availability = "1.4", base = { "Infantry", "Squad" }, class = {  }, grade = "Grade4", posture = { "Flexible" }, roles = { "Assault" }, effects = { "VsInfantry" }, unit = "squad_elite_guard_smg_late"},
+				{availability = "1.4", base = { "Infantry", "Squad" }, class = {  }, grade = "Grade4", posture = { "Flexible" }, roles = { "Assault" }, effects = { "VsInfantry" }, unit = "squad_veteran_guard_assault_late"},
+				{availability = "1.4", base = { "Infantry", "Squad" }, class = {  }, grade = "Grade4", posture = { "Flexible" }, roles = { "Assault" }, effects = { "VsInfantry" }, unit = "squad_guards_marine_assault_44_con"},
+				{availability = "1.4", base = { "Infantry", "Single" }, class = {  }, grade = "Grade4", posture = { "Flexible" }, roles = { "Recon" }, effects = { "VsInfantry" }, unit = "elite_guards_sniper"},
+				{availability = "1.5", base = { "Infantry", "Single" }, class = {  }, grade = "Grade2", posture = { "Flexible" }, roles = {  }, effects = { "VsInfantry", "VsVehicle", "VsArmor" }, unit = "single_signaller"},
+
+				-- Tanks
+				{availability = "1.6", base = { "Tank" }, class = { "Medium" }, grade = "Grade2", posture = { "Offensive" }, roles = {  }, effects = { "VsInfantry", "VsVehicle", "VsArmor" }, unit = "t34m"},
+
+				-- Aircrafts (il2 and po2 use maxUnitCount like the ger planes; paradrop pairs are two C-47s)
+				{availability = "1.4", base = { "Plane" }, class = { "Medium" }, grade = "Grade3", posture = { "Offensive" }, roles = { "Breakthrough" }, effects = { "VsVehicle", "VsArmor" }, identity = { "bomber_wing" }, unit = "il2_mod42_x1", maxUnitCount = 2},
+				{availability = "1.4", base = { "Plane" }, class = { "Light" }, grade = "Grade2", posture = { "Offensive" }, roles = { "Recon" }, effects = {  }, unit = "po2_x1", maxUnitCount = 2},
+				{availability = "1.4", base = { "Plane" }, class = { "Medium" }, grade = "Grade3", posture = { "Offensive" }, roles = { "Line" }, effects = {  }, unit = "squad_rus_paras_con_x2"},
+				{availability = "1.5", base = { "Plane" }, class = { "Medium" }, grade = "Grade4", posture = { "Offensive" }, roles = { "Line" }, effects = {  }, unit = "squad_rus_paras_con_late_x2"},
+
+				-- Not added: squad_partisan_wave_con / squad_nkvd_rifle_wave_con (bot-only wave squads, left out for now),
+				--   squad_rus_paras_con(_late) (plane paradrop bases; the _x2 versions are in Aircrafts above).
 			---]====]
 		}
 	}

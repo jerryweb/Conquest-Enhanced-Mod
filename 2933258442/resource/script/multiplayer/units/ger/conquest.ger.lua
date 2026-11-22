@@ -276,6 +276,46 @@ Purchases["conquest.ger"] = {
 				{availability = "1.4", base = { "SPG" }, class = { "Medium" }, grade = "Grade3", posture = { "Flexible" }, roles = { "Artillery" }, effects = { "VsInfantry", "VsVehicle" }, unit = "hummel"},
 				--]]
 
+
+				-- CE Units
+
+				-- Late-war cannons (copy of their base gun's tags)
+				{availability = "1.5", base = { "Cannon" }, class = { "Heavy" }, grade = "Grade3", posture = { "Defensive" }, roles = { "InfantryGun" }, effects = { "VsInfantry", "VsVehicle" }, unit = "150mm_sig33_late"},
+				{availability = "1.3", base = { "Cannon" }, class = { "Light" }, grade = "Grade1", posture = { "Defensive" }, roles = { "AntiTank" }, effects = { "VsVehicle", "VsArmor" }, unit = "37mm_pak36_late"},
+				{availability = "1.3", base = { "Cannon" }, class = { "Medium" }, grade = "Grade2", posture = { "Defensive" }, roles = { "AntiTank" }, effects = { "VsVehicle", "VsArmor" }, unit = "50mm_pak38_late"},
+				{availability = "1.4", base = { "Cannon" }, class = { "Medium" }, grade = "Grade3", posture = { "Defensive" }, roles = { "AntiTank" }, effects = { "VsVehicle", "VsArmor" }, unit = "75mm_pak9738_late"},
+
+				-- Tanks
+				{availability = "1.3", base = { "Tank" }, class = { "Medium" }, grade = "Grade2", posture = { "Flexible" }, roles = {  }, effects = { "VsInfantry", "VsVehicle", "VsArmor" }, unit = "pz3m"},
+				{availability = "1.6", base = { "Tank" }, class = { "Medium" }, grade = "Grade2", posture = { "Flexible" }, roles = {  }, effects = { "VsInfantry", "VsVehicle", "VsArmor" }, unit = "pz756r"},
+
+				-- Late-war infantry: Luftwaffe / Begleit / Fallschirm / Guards / Panzer Lehr
+				{availability = "1.3", base = { "Infantry", "Squad" }, class = {  }, grade = "Grade2", posture = { "Flexible" }, roles = { "Line" }, effects = {  }, unit = "squad_lw_pio_late_irr_1"},
+				{availability = "1.4", base = { "Infantry", "Squad" }, class = {  }, grade = "Grade2", posture = { "Offensive" }, roles = { "Recon" }, effects = {  }, unit = "squad_lw_recon_late_irr"},
+				{availability = "1.4", base = { "Infantry", "Squad" }, class = {  }, grade = "Grade3", posture = { "Flexible" }, roles = { "Line" }, effects = {  }, unit = "squad_begleitgren_late_off"},
+				{availability = "1.4", base = { "Infantry", "Squad" }, class = {  }, grade = "Grade3", posture = { "Offensive" }, roles = { "Assault" }, effects = { "VsInfantry" }, unit = "squad_begleit_sturm_late_sup"},
+				{availability = "1.4", base = { "Infantry", "Squad" }, class = {  }, grade = "Grade3", posture = { "Offensive" }, roles = { "Assault" }, effects = { "VsInfantry" }, unit = "squad_begleit_pio_late_sup"},
+				{availability = "1.2", base = { "Infantry", "Squad" }, class = {  }, grade = "Grade3", posture = { "Offensive" }, roles = { "Recon" }, effects = {  }, unit = "squad_sturmaufklarer_con"},
+				{availability = "1.3", base = { "Infantry", "Squad" }, class = {  }, grade = "Grade4", posture = { "Flexible" }, roles = { "Line" }, effects = {  }, unit = "squad_fallschirm_late_off_2"},
+				{availability = "1.3", base = { "Infantry", "Squad" }, class = {  }, grade = "Grade4", posture = { "Flexible" }, roles = { "Line" }, effects = {  }, unit = "squad_fallschirm_pio_late_irr_3"},
+				{availability = "1.4", base = { "Infantry", "Squad" }, class = {  }, grade = "Grade4", posture = { "Offensive" }, roles = { "Recon" }, effects = {  }, unit = "squad_fallschirm_recon_late_irr_3"},
+				{availability = "1.4", base = { "Infantry", "Squad" }, class = {  }, grade = "Grade4", posture = { "Flexible" }, roles = { "Line" }, effects = {  }, unit = "squad_pzgren_gd_late_off"},
+				{availability = "1.4", base = { "Infantry", "Squad" }, class = {  }, grade = "Grade4", posture = { "Offensive" }, roles = { "Assault" }, effects = { "VsInfantry" }, unit = "squad_pz_pio_gd_late_off"},
+				{availability = "1.4", base = { "Infantry", "Squad" }, class = {  }, grade = "Grade4", posture = { "Flexible" }, roles = { "Line" }, effects = {  }, unit = "squad_pzlehr_pzgren_late_all2"},
+				{availability = "1.4", base = { "Infantry", "Squad" }, class = {  }, grade = "Grade4", posture = { "Offensive" }, roles = { "Assault" }, effects = { "VsInfantry" }, unit = "squad_pzlehr_pio_late_all2"},
+				{availability = "1.4", base = { "Infantry", "Squad" }, class = {  }, grade = "Grade4", posture = { "Offensive" }, roles = { "Assault" }, effects = { "VsInfantry" }, unit = "squad_pzlehr_pz_sturmgren_late_all2"},
+				{availability = "1.4", base = { "Infantry", "Squad" }, class = {  }, grade = "Grade4", posture = { "Offensive" }, roles = { "Recon" }, effects = {  }, unit = "squad_pzlehr_recon_late_all2"},
+				{availability = "1.4", base = { "Infantry", "Single" }, class = {  }, grade = "Grade4", posture = { "Flexible" }, roles = { "Recon" }, effects = { "VsInfantry" }, unit = "single_sniper_elite1"},
+				{availability = "1.5", base = { "Infantry", "Single" }, class = {  }, grade = "Grade2", posture = { "Flexible" }, roles = {  }, effects = { "VsInfantry", "VsVehicle", "VsArmor" }, unit = "single_signaller"},
+
+				-- NEEDS DECISION - left commented out
+				-- Goliath pioneer squads (carrier vehicles sdkfz302 / sdkfz303b are crew-less and not_for_player_sale):
+				--{availability = "1.5", base = { "Infantry", "Squad" }, class = {  }, grade = "Grade2", posture = { "Offensive" }, roles = { "Assault" }, effects = { "VsInfantry" }, unit = "squad_pz_pio_302_con"},
+				--{availability = "1.5", base = { "Infantry", "Squad" }, class = {  }, grade = "Grade3", posture = { "Offensive" }, roles = { "Assault" }, effects = { "VsInfantry" }, unit = "squad_pz_pio_303b_con"},
+				-- Not added: kfz70 (cost 25 car, no purchase role), sdkfz250a_3 (officer carrier, not_for_player_sale), sdkfz7 (tractor, price/stages marked for revisit),
+				--   squad_fallschirmjaeger_para_con(_late) (plane paradrop bases; the _x2 versions are in Aircrafts).
+
+				
 				-- Aircrafts
 				{availability = "1.1", base = { "Plane" }, class = { "Heavy" }, grade = "Grade3", posture = { "Offensive" }, roles = { "Breakthrough" }, effects = { "VsVehicle", "VsArmor" }, identity = { "bomber_wing" }, unit = "bf110_e2_ai", maxUnitCount = 2},
 				{availability = "1.05", base = { "Plane" }, class = { "Light" }, grade = "Grade2", posture = { "Offensive" }, roles = { "Recon" }, effects = {}, unit = "fi156_ai", maxUnitCount = 2},

@@ -187,7 +187,7 @@
 }
 
 {"squad_101st_paras_glider_con"
-	("squad_vehicle10"		 side(usa) period(late) min_stage(14) max_stage(99) cw(3) cp(5) vehicle(c47_d_para_plane) crew1(pilot:2) crew2(101st_glider_sl_rifle:1) crew3(101st_glider_sl_smg:1) crew4(101st_glider_rifle_gren:2) crew5(101st_glider_at_m1a1:2) crew6(101st_glider_bar:3) crew7(101st_glider_sniper:1) crew8(101st_glider_bar_asst:3) crew9(101st_glider_at_asst:2) crew10(101st_glider_rifle_band2:4)) 
+	("squad_vehicle10"		 side(usa) period(late) min_stage(14) max_stage(99) cw(3) cp(5) vehicle(c47_d_para_plane) crew1(pilot:2) crew2(101st_late_glider_sl_rifle:1) crew3(101st_late_glider_sl_smg:1) crew4(101st_late_glider_rifle_gren:2) crew5(101st_late_glider_at_m1a1:2) crew6(101st_late_glider_bar:3) crew7(101st_late_glider_sniper:1) crew8(101st_late_glider_bar_asst:3) crew9(101st_late_glider_at_asst:2) crew10(101st_late_glider_rifle_band2:4)) 
 	{cost 0} {not_for_player_sale 1}
 }
 
@@ -199,6 +199,54 @@
 {"squad_101st_paras_con"
 	("squad_vehicle10"		 side(usa) period(late) min_stage(16) max_stage(99) cw(3) cp(5) vehicle(c47_d_para_plane) crew1(pilot:2) crew2(101st_sl:1) crew3(101st_sl_asst:1) crew4(101st_rifle_gren:2) crew5(101st_at_m9:2) crew6(101st_bar:2) crew7(101st_platoon_radio:1) crew8(101st_bar_asst:4) crew9(101st_mg_asst:4) crew10(101st_mg:2)) 
 	{cost 0} {not_for_player_sale 1}
+}
+
+; --- AI paradrop pairs: two C-47s per purchase, each carrying the full squad (same pattern as ger *_x2)
+(define "ce_paradrop_pair_usa"
+	("generic_v_conquest" t(usa %period) r(%min_stage) mr(99) cw(8) cp(1))
+	{content "c47_d_para_plane ( mp/usa/%period/pilot:2 %passengers ) c47_d_para_plane ( mp/usa/%period/pilot:2 %passengers )"}
+)
+
+{"squad_82nd_paras_glider_con_x2"
+	("ce_paradrop_pair_usa" period(mid) min_stage(9)
+		passengers(mp/usa/mid/82nd_glider_sl_rifle:1 mp/usa/mid/82nd_glider_sl_smg:1 mp/usa/mid/82nd_glider_rifle_gren:2 mp/usa/mid/82nd_glider_at_m1a1:3 mp/usa/mid/82nd_glider_bar:3 mp/usa/mid/82nd_glider_sniper:1 mp/usa/mid/82nd_glider_bar_asst:2 mp/usa/mid/82nd_glider_at_asst:3 mp/usa/mid/82nd_glider_rifle_band2:2))
+	{cost 2500}
+	{not_for_player_sale 1}
+}
+
+{"squad_82nd_paras_eng_con_x2"
+	("ce_paradrop_pair_usa" period(mid) min_stage(10)
+		passengers(mp/usa/mid/82nd_eng_sl_smg:1 mp/usa/mid/82nd_eng_sl_asst_gren:2 mp/usa/mid/82nd_eng_carbine:3 mp/usa/mid/82nd_eng_sl_smg:2 mp/usa/mid/82nd_eng_flamer:2 mp/usa/mid/82nd_platoon_radio:1 mp/usa/mid/82nd_eng_rifle:4 mp/usa/mid/82nd_eng_flamer:2 mp/usa/mid/82nd_eng_smg:2))
+	{cost 2500}
+	{not_for_player_sale 1}
+}
+
+{"squad_82nd_paras_con_x2"
+	("ce_paradrop_pair_usa" period(mid) min_stage(11)
+		passengers(mp/usa/mid/82nd_sl:1 mp/usa/mid/82nd_sl_asst:1 mp/usa/mid/82nd_rifle_gren:2 mp/usa/mid/82nd_at_m1a1:2 mp/usa/mid/82nd_demo:3 mp/usa/mid/82nd_platoon_radio:1 mp/usa/mid/82nd_carbine:3 mp/usa/mid/82nd_rifle:5 mp/usa/mid/82nd_sniper:1))
+	{cost 2500}
+	{not_for_player_sale 1}
+}
+
+{"squad_101st_paras_glider_con_x2"
+	("ce_paradrop_pair_usa" period(late) min_stage(14)
+		passengers(mp/usa/late/101st_late_glider_sl_rifle:1 mp/usa/late/101st_late_glider_sl_smg:1 mp/usa/late/101st_late_glider_rifle_gren:2 mp/usa/late/101st_late_glider_at_m1a1:2 mp/usa/late/101st_late_glider_bar:3 mp/usa/late/101st_late_glider_sniper:1 mp/usa/late/101st_late_glider_bar_asst:3 mp/usa/late/101st_late_glider_at_asst:2 mp/usa/late/101st_late_glider_rifle_band2:4))
+	{cost 2500}
+	{not_for_player_sale 1}
+}
+
+{"squad_101st_paras_eng_con_x2"
+	("ce_paradrop_pair_usa" period(late) min_stage(15)
+		passengers(mp/usa/late/101st_eng_sl_smg:1 mp/usa/late/101st_eng_sl_asst_gren:2 mp/usa/late/101st_eng_carbine:2 mp/usa/late/101st_eng_sl_smg:2 mp/usa/late/101st_eng_flamer:2 mp/usa/late/101st_platoon_radio:1 mp/usa/late/101st_eng_rifle:4 mp/usa/late/101st_eng_flamer:2 mp/usa/late/101st_eng_smg:3))
+	{cost 2500}
+	{not_for_player_sale 1}
+}
+
+{"squad_101st_paras_con_x2"
+	("ce_paradrop_pair_usa" period(late) min_stage(16)
+		passengers(mp/usa/late/101st_sl:1 mp/usa/late/101st_sl_asst:1 mp/usa/late/101st_rifle_gren:2 mp/usa/late/101st_at_m9:2 mp/usa/late/101st_bar:2 mp/usa/late/101st_platoon_radio:1 mp/usa/late/101st_bar_asst:4 mp/usa/late/101st_mg_asst:4 mp/usa/late/101st_mg:2))
+	{cost 2500}
+	{not_for_player_sale 1}
 }
 
 ;_________________________________________________

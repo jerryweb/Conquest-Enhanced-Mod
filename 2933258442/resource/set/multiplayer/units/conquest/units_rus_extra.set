@@ -245,3 +245,38 @@
 ;    {cost 60} 
 ;    {action "airstrike:ally_support_dummy_low"}
 ;}
+
+;_________________________________________________
+;|        AI aircraft and paradrop pairs           |
+;|________________________________________________|
+
+; Two C-47s per purchase, each carrying the full squad (same pattern as ger/usa *_x2)
+(define "ce_paradrop_pair_rus"
+	("generic_v_conquest" t(rus %period) r(%min_stage) mr(99) cw(8) cp(1))
+	{content "c47_d_para_plane ( mp/rus/%period/tankman:2 %passengers ) c47_d_para_plane ( mp/rus/%period/tankman:2 %passengers )"}
+)
+
+{"squad_rus_paras_con_x2"
+	("ce_paradrop_pair_rus" period(mid) min_stage(10)
+		passengers(mp/rus/mid/para_1:1 mp/rus/mid/para_2:2 mp/rus/mid/para_4:2 mp/rus/mid/para_mg:2 mp/rus/mid/para_mg_asst:4 mp/rus/mid/assault-sap_4:1 mp/rus/mid/para_3:3 mp/rus/mid/para_2:3 mp/rus/mid/para_nco:1))
+	{cost 2500}
+	{not_for_player_sale 1}
+}
+
+{"squad_rus_paras_con_late_x2"
+	("ce_paradrop_pair_rus" period(late) min_stage(13)
+		passengers(mp/rus/late/antitank_5:3 mp/rus/late/spetsnaz_1:1 mp/rus/late/spetsnaz_1:2 mp/rus/late/spetsnaz_4:2 mp/rus/late/spetsnaz_2:3 mp/rus/late/signaller:1 mp/rus/late/assault-sap_4:2 mp/rus/late/spetsnaz_3:2 mp/rus/late/spetsnaz_3:3))
+	{cost 2500}
+	{not_for_player_sale 1}
+}
+
+{"po2_x1"
+	("squad_vehicle" side(rus) period(mid) min_stage(4) max_stage(99) cw(0) cp(5) crew(pilot:1) vehicle(po2))
+	{cost 300} {not_for_player_sale 1}
+}
+
+{"il2_mod42_x1"
+	("squad_vehicle" side(rus) period(mid) min_stage(6) max_stage(99) cw(0) cp(10) crew(pilot:1) vehicle(il2_mod42))
+	{cost 850}{not_for_player_sale 1}
+}
+
