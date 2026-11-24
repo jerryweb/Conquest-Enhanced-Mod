@@ -1276,6 +1276,7 @@
 			}
 			{"ai_logic/frag_grenade_spam"
 				{condition
+					{expression "(1 & 3) | (4 & !3 & 2)"}
 					{terms
 						{"1.see_actors"
 							{selector
@@ -1325,8 +1326,13 @@
 								}
 							}
 							{enemy
-								{source advanced}
+								{source advanced}						
 								{group
+									{select
+										{zone
+											{zone "combat"}
+										}
+									}
 									{include
 										{prop
 											{prop human}
@@ -1357,6 +1363,11 @@
 									}
 								}
 								{group
+									{select
+										{zone
+											{zone "combat"}
+										}
+									}
 									{include
 										{prop
 											{prop cannon}
@@ -1390,11 +1401,146 @@
 								{max 26}
 							}
 							{detection located}
-							;{tag
-							;	{"tag pair"}
-							;	{"for selector" _throw_ap_grenade}
-							;	{"for enemy" _ap_grenade_target}
-							;}
+						}
+						{"2.cmp_i"
+							{var "garrison_end$"}
+							{op "=="}
+							{value 1}
+						}
+						{"3.cmp_i"
+							{var "user_is_defender$"}
+							{op "=="}
+							{value 1}
+						}
+						{"4.see_actors"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _bot}
+										}
+									}
+									{include
+										{with_item
+											{type amount}
+											{item "fg"}
+											{min 1}
+										}
+										{state
+											{state operatable}
+										}
+										{prop
+											{prop human}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state user_control}
+										}
+										{state
+											{state linked}
+										}
+										{tag
+											{tag _lua_mi}
+										}
+										{tag
+											{tag repairing}
+										}
+										{tag
+											{tag reloading}
+										}
+									}
+								}
+							}
+							{enemy
+								{source advanced}
+								{group
+									{select
+										{zone
+											{zone "combat"}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{tag
+											{tag _bot}
+										}
+										{tag
+											{tag cmp_def}
+										}
+										{player
+											{player "0"}
+										}
+										{player
+											{player "1"}
+										}
+									}
+								}
+								{group
+									{select
+										{zone
+											{zone "combat"}
+										}
+									}
+									{include
+										{prop
+											{prop cannon}
+										}
+										{state
+											{state "operatable inhabited"}
+										}
+									}
+									{exclude
+										{state
+											{state linked}
+										}
+										{state
+											{state inactive}
+										}
+										{tag
+											{tag cmp_mg}
+										}
+										{tag
+											{tag _bot}
+										}
+										{player
+											{player "0"}
+										}
+										{player
+											{player "1"}
+										}
+									}
+								}
+							}
+							{distance
+								{mode in_range}
+								{min 5}
+								{max 26}
+							}
+							{detection located}
 						}
 					}
 				}
@@ -1719,6 +1865,88 @@
 								{zone "gamezone"}
 								{type human}
 								{state "not dead"}
+							}
+						}
+						{"3.see_actors"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag _bot}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+										{prop
+											{prop human}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state user_control}
+										}
+										{state
+											{state linked}
+										}
+										{tag
+											{tag _lua_mi}
+										}
+										{tag
+											{tag repairing}
+										}
+										{tag
+											{tag reloading}
+										}
+									}
+								}
+							}
+							{enemy
+								{source advanced}						
+								{group
+									{select
+										{tag
+											{tag _user}
+										}
+										{tag
+											{tag _ai_support_inf}
+										}
+									}
+									{include
+										{state
+											{state operatable}
+										}
+									}
+									{exclude
+										{state
+											{state dead}
+										}
+										{state
+											{state inactive}
+										}
+										{state
+											{state linked}
+										}
+										{tag
+											{tag _bot}
+										}
+										{player
+											{player "0"}
+										}
+									}
+								}
+							}
+							{distance
+								{mode near_than}
+								{meters 100}
 							}
 						}
 					}
