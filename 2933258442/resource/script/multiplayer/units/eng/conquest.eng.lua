@@ -362,9 +362,8 @@ Purchases["conquest.eng"] = {
 				{availability = "1.6", base = { "Tank" }, class = { "Medium" }, grade = "Grade3", posture = { "Flexible" }, roles = {}, effects = { "VsInfantry", "VsVehicle", "VsArmor" }, unit = "cromwell4_tulip"},
 
 				-- Aircrafts (bombers and recon plane use maxUnitCount like the ger planes; paradrop squads are one C-47 each)
-				{availability = "1.4", base = { "Plane" }, class = { "Medium" }, grade = "Grade3", posture = { "Offensive" }, roles = { "Breakthrough" }, effects = { "VsVehicle", "VsArmor" }, identity = { "bomber_wing" }, unit = "typhoon_mk1b_x1", maxUnitCount = 2},
-				{availability = "1.4", base = { "Plane" }, class = { "Medium" }, grade = "Grade2", posture = { "Offensive" }, roles = { "Breakthrough" }, effects = { "VsVehicle", "VsArmor" }, identity = { "bomber_wing" }, unit = "hurribomber_mk2c_x1", maxUnitCount = 2},
-				{availability = "1.5", base = { "Plane" }, class = { "Light" }, grade = "Grade2", posture = { "Offensive" }, roles = { "Recon" }, effects = {  }, unit = "typhoon_mk1b_recon_x1", maxUnitCount = 2},
+				{availability = "1.4", base = { "Plane" }, class = { "Heavy" }, grade = "Grade3", posture = { "Offensive" }, roles = { "Breakthrough" }, effects = { "VsVehicle", "VsArmor" }, identity = { "bomber_wing" }, unit = "hurribomber_mk2c_ai", maxUnitCount = 2},
+				{availability = "1.375", base = { "Plane" }, class = { "Light" }, grade = "Grade2", posture = { "Offensive" }, roles = { "Recon" }, effects = {}, unit = "typhoon_mk1b_recon_ai", maxUnitCount = 2},
 				{availability = "1.5", base = { "Plane" }, class = { "Medium" }, grade = "Grade3", posture = { "Offensive" }, roles = { "Recon" }, effects = {  }, unit = "ai_paradrop_eng_1strecon_mid_x1"},
 				{availability = "1.5", base = { "Plane" }, class = { "Medium" }, grade = "Grade4", posture = { "Offensive" }, roles = { "Line" }, effects = {  }, unit = "ai_paradrop_eng_1st_mid_x1"},
 				{availability = "1.5", base = { "Plane" }, class = { "Medium" }, grade = "Grade4", posture = { "Offensive" }, roles = { "Recon" }, effects = {  }, unit = "ai_paradrop_eng_1strecon_x1"},

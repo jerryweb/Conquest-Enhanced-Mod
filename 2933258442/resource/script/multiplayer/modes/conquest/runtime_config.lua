@@ -352,7 +352,7 @@ ConquestConfig.Aircraft = {
 -- continues afterwards. Leave Enabled = false for play.
 ConquestConfig.TestPurchase = {
 	Enabled = false,
-	Unit = "bf110_e2_x1",
+	Unit = "bf110_e2_ai",
 	Count = 3,
 }
 

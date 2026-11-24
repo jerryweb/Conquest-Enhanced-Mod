@@ -287,7 +287,7 @@ Purchases["conquest.ger"] = {
 
 				-- Tanks
 				{availability = "1.3", base = { "Tank" }, class = { "Medium" }, grade = "Grade2", posture = { "Flexible" }, roles = {  }, effects = { "VsInfantry", "VsVehicle", "VsArmor" }, unit = "pz3m"},
-				{availability = "1.6", base = { "Tank" }, class = { "Medium" }, grade = "Grade2", posture = { "Flexible" }, roles = {  }, effects = { "VsInfantry", "VsVehicle", "VsArmor" }, unit = "pz756r"},
+				{availability = "1.6", base = { "Tank" }, class = { "Heavy" }, grade = "Grade4", posture = { "Flexible" }, roles = {  }, effects = { "VsInfantry", "VsVehicle", "VsArmor" }, unit = "pz756r"},
 
 				-- Late-war infantry: Luftwaffe / Begleit / Fallschirm / Guards / Panzer Lehr
 				{availability = "1.3", base = { "Infantry", "Squad" }, class = {  }, grade = "Grade2", posture = { "Flexible" }, roles = { "Line" }, effects = {  }, unit = "squad_lw_pio_late_irr_1"},
@@ -317,8 +317,8 @@ Purchases["conquest.ger"] = {
 
 				
 				-- Aircrafts
-				{availability = "1.1", base = { "Plane" }, class = { "Heavy" }, grade = "Grade3", posture = { "Offensive" }, roles = { "Breakthrough" }, effects = { "VsVehicle", "VsArmor" }, identity = { "bomber_wing" }, unit = "bf110_e2_ai", maxUnitCount = 2},
-				{availability = "1.05", base = { "Plane" }, class = { "Light" }, grade = "Grade2", posture = { "Offensive" }, roles = { "Recon" }, effects = {}, unit = "fi156_ai", maxUnitCount = 2},
+				{availability = "1.4", base = { "Plane" }, class = { "Heavy" }, grade = "Grade3", posture = { "Offensive" }, roles = { "Breakthrough" }, effects = { "VsVehicle", "VsArmor" }, identity = { "bomber_wing" }, unit = "bf110_e2_ai", maxUnitCount = 2},
+				{availability = "1.375", base = { "Plane" }, class = { "Light" }, grade = "Grade2", posture = { "Offensive" }, roles = { "Recon" }, effects = {}, unit = "fi156_ai", maxUnitCount = 2},
 				{availability = "1.4", base = { "Plane" }, class = { "Medium" }, grade = "Grade3", posture = { "Offensive" }, roles = { "Line" }, effects = {}, unit = "squad_fallschirmjaeger_para_con_x2"},
 				{availability = "1.5", base = { "Plane" }, class = { "Medium" }, grade = "Grade4", posture = { "Offensive" }, roles = { "Line" }, effects = {}, unit = "squad_fallschirmjaeger_para_con_late_x2"},
 			---]====]

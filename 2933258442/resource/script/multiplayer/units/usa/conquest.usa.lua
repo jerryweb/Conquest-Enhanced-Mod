@@ -254,6 +254,8 @@ Purchases["conquest.usa"] = {
 				{availability = "1.3", base = { "Tank" }, class = { "Medium" }, grade = "Grade3", posture = { "Flexible" }, roles = {}, effects = { "VsInfantry", "VsVehicle", "VsArmor" }, unit = "m4a1_75_dd"},
 
 				-- Aircrafts (paradrop pairs, two C-47s per purchase)
+				{availability = "1.4", base = { "Plane" }, class = { "Heavy" }, grade = "Grade3", posture = { "Offensive" }, roles = { "Breakthrough" }, effects = { "VsVehicle", "VsArmor" }, identity = { "bomber_wing" }, unit = "p47_d22_ai", maxUnitCount = 2},
+				{availability = "1.375", base = { "Plane" }, class = { "Light" }, grade = "Grade2", posture = { "Offensive" }, roles = { "Recon" }, effects = {}, unit = "p47_d22_recon_ai", maxUnitCount = 2},
 				{availability = "1.4", base = { "Plane" }, class = { "Medium" }, grade = "Grade3", posture = { "Offensive" }, roles = { "Line" }, effects = {}, unit = "squad_82nd_paras_glider_con_x2"},
 				{availability = "1.4", base = { "Plane" }, class = { "Medium" }, grade = "Grade4", posture = { "Offensive" }, roles = { "Assault" }, effects = { "VsInfantry" }, unit = "squad_82nd_paras_eng_con_x2"},
 				{availability = "1.4", base = { "Plane" }, class = { "Medium" }, grade = "Grade4", posture = { "Offensive" }, roles = { "Line" }, effects = {}, unit = "squad_82nd_paras_con_x2"},

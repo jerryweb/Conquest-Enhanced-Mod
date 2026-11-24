@@ -286,8 +286,8 @@ Purchases["conquest.rus"] = {
 				{availability = "1.6", base = { "Tank" }, class = { "Medium" }, grade = "Grade2", posture = { "Offensive" }, roles = {  }, effects = { "VsInfantry", "VsVehicle", "VsArmor" }, unit = "t34m"},
 
 				-- Aircrafts (il2 and po2 use maxUnitCount like the ger planes; paradrop pairs are two C-47s)
-				{availability = "1.4", base = { "Plane" }, class = { "Medium" }, grade = "Grade3", posture = { "Offensive" }, roles = { "Breakthrough" }, effects = { "VsVehicle", "VsArmor" }, identity = { "bomber_wing" }, unit = "il2_mod42_x1", maxUnitCount = 2},
-				{availability = "1.4", base = { "Plane" }, class = { "Light" }, grade = "Grade2", posture = { "Offensive" }, roles = { "Recon" }, effects = {  }, unit = "po2_x1", maxUnitCount = 2},
+				{availability = "1.4", base = { "Plane" }, class = { "Heavy" }, grade = "Grade3", posture = { "Offensive" }, roles = { "Breakthrough" }, effects = { "VsVehicle", "VsArmor" }, identity = { "bomber_wing" }, unit = "il2_mod42_ai", maxUnitCount = 2},
+				{availability = "1.375", base = { "Plane" }, class = { "Light" }, grade = "Grade2", posture = { "Offensive" }, roles = { "Recon" }, effects = {}, unit = "ai_po2", maxUnitCount = 2},
 				{availability = "1.4", base = { "Plane" }, class = { "Medium" }, grade = "Grade3", posture = { "Offensive" }, roles = { "Line" }, effects = {  }, unit = "squad_rus_paras_con_x2"},
 				{availability = "1.5", base = { "Plane" }, class = { "Medium" }, grade = "Grade4", posture = { "Offensive" }, roles = { "Line" }, effects = {  }, unit = "squad_rus_paras_con_late_x2"},
 
