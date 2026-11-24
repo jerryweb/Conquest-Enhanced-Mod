@@ -765,7 +765,7 @@
 						{effect check_ai_support_cmd_range}
 					}
 					{"delay"
-						{time 3}
+						{time 1}
 					}
 					{"trigger"
 						{name "ai_support/check_ai_support_in_command_range"}

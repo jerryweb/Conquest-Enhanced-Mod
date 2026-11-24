@@ -167,6 +167,31 @@
     {action "airstrike:conquest_heavy_rocket_barrage"}
 }
 
+
+{"conquest_ai_support_level_1_rus"
+	("squad_vehicle2"		 side(rus) period(mid) min_stage(9) max_stage(99) cw(0) cp(0) vehicle(zis5) crew1(conscript_nco:1) crew2(conscript_rifle:8))
+	;{cost 25}
+	{cost_sp 2}
+	{round_multiple 1.0}
+	{action "airstrike:reconnaissance_50"}
+}
+
+{"conquest_ai_support_level_2_rus"
+	("squad_vehicle7"		 side(rus) period(mid) min_stage(9) max_stage(99) cw(0) cp(0) vehicle(zis5) crew1(guard_1:1) crew2(guard_nco:1) crew3(guard_senior:1) crew4(guard_2:1) crew5(guard_1:4) crew6(guard_4:1) crew7(guard_5:1))
+	;{cost 25}
+	{cost_sp 2}
+	{round_multiple 1.0}
+	{action "airstrike:reconnaissance_50"}
+}
+
+{"conquest_ai_support_level_3_rus"
+	("squad_vehicle5"		 side(rus) period(late) min_stage(9) max_stage(99) cw(0) cp(0) vehicle(zis5) crew1(guards_marine_nco:1) crew2(guards_marine_senior:1) crew3(guards_marine_smg:3) crew4(guards_marine_sa:1) crew5(guards_marine_sa_pzf:4))
+	;{cost 25}
+	{cost_sp 2}
+	{round_multiple 1.0}
+	{action "airstrike:reconnaissance_50"}
+}
+
 ;_________________________________________________
 ;|                  paratroopers                  |
 ;|________________________________________________|
@@ -211,40 +236,18 @@
 {"c47_d" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 9} {cost 0} {not_for_sale 1}}
 {"il2_mod42_player" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
 
-{"controllable_plane_sov"
-	("squad_vehicle" side(rus) period(mid) min_stage(1) max_stage(99) cw(0) cp(3) crew(tankman:1) vehicle(il2_mod42_player))
-	{cost -10}
-	{action "airstrike:pistol_ammo"}
-}
 {"yak1_ser69_ai"
-	("vehicle"  side(rus) period(mid) min_stage(6) max_stage(99) cw(0) cp(5) crew(tankman:1))
+	("squad_vehicle"  side(rus) period(mid) min_stage(6) max_stage(99) cw(0) cp(5) crew(pilot:1) vehicle(yak1_ser69))
 	{cost 400}{not_for_player_sale 1}
 }
 {"il2_mod42_ai"
-	("vehicle"  side(rus) period(mid) min_stage(8) max_stage(99) cw(0) cp(20) crew(tankman:1))
+	("squad_vehicle"  side(rus) period(mid) min_stage(8) max_stage(99) cw(0) cp(20) crew(pilot:1) vehicle(il2_mod42))
 	{cost 1700}{not_for_player_sale 1}
 }
 {"ai_po2"
-	("vehicle"  side(rus) period(mid) min_stage(8) max_stage(99) cw(0) cp(5) crew(tankman:1))
+	("squad_vehicle"  side(rus) period(mid) min_stage(8) max_stage(99) cw(0) cp(5) crew(pilot:1) vehicle(po2))
 	{cost 500}{not_for_player_sale 1}
 }
-
-;_________________________________________________
-;|                  CE Misc                       |
-;|________________________________________________|
-
-;//I wasnt sure what these are i think they are the old AI callins but i didnt want to delete them just incase so i put them here -aeon
-;{"ai_support_in_attack_high"
-;    ("squad_vehicle" side(rus) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(tankman:0) vehicle(offmap_100cp_placeholder))
-;    {cost 0} 
-;    {action "airstrike:ally_support_dummy_high"}
-;}
-
-;{"ai_support_in_attack_low"
-;    ("squad_vehicle" side(rus) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(tankman:0) vehicle(offmap_50cp_placeholder))
-;    {cost 60} 
-;    {action "airstrike:ally_support_dummy_low"}
-;}
 
 ;_________________________________________________
 ;|        AI aircraft and paradrop pairs           |
@@ -253,7 +256,7 @@
 ; Two C-47s per purchase, each carrying the full squad (same pattern as ger/usa *_x2)
 (define "ce_paradrop_pair_rus"
 	("generic_v_conquest" t(rus %period) r(%min_stage) mr(99) cw(8) cp(1))
-	{content "c47_d_para_plane ( mp/rus/%period/tankman:2 %passengers ) c47_d_para_plane ( mp/rus/%period/tankman:2 %passengers )"}
+	{content "c47_d_para_plane ( mp/rus/%period/pilot:2 %passengers ) c47_d_para_plane ( mp/rus/%period/tankman:2 %passengers )"}
 )
 
 {"squad_rus_paras_con_x2"

@@ -267,6 +267,30 @@
     {action "airstrike:conquest_heavy_rocket_barrage"}
 } 
 
+{"conquest_ai_support_level_1_ger"
+	("squad_vehicle6"		 side(ger) period(mid) min_stage(9) max_stage(99) cw(0) cp(0) vehicle(blitz3_6) crew1(nco:1) crew2(nco_asst:1) crew3(rifleman_1:5) crew4(mgun_1:1) crew5(mgun_2:1) crew6(mgun_3:1))
+	;{cost 25}
+	{cost_sp 2}
+	{round_multiple 1.0}
+	{action "airstrike:reconnaissance_50"}
+}
+
+{"conquest_ai_support_level_2_ger"
+	("squad_vehicle6"		 side(ger) period(mid) min_stage(9) max_stage(99) cw(0) cp(0) vehicle(blitz3_6) crew1(jager_sl:1) crew2(jager_sl_asst:1) crew3(jager_smg:5) crew4(jager_rifle:1) crew5(jager_mg:1) crew6(jager_mg_asst:1))
+	;{cost 50}
+	{cost_sp 2}
+	{round_multiple 1.0}
+	{action "airstrike:reconnaissance_50"}
+}
+
+{"conquest_ai_support_level_3_ger"
+	("squad_vehicle7"		 side(ger) period(late) min_stage(9) max_stage(99) cw(0) cp(0) vehicle(blitz3_6) crew1(jager_sturm_sl:1) crew2(jager_sturm_sl_asst:1) crew3(jager_sturm_stg_pzf:2) crew4(jager_sturm_stg:3) crew5(jager_sturm_sa:1) crew6(jager_sturm_mg:1) crew7(jager_sturm_mg_asst:1))
+	;{cost 100}
+	{cost_sp 2}
+	{round_multiple 1.0}
+	{action "airstrike:reconnaissance_50"}
+}
+
 {"conquest_ai_call_in_test"
 	("squad_vehicle8"		 side(ger) period(late) min_stage(9) max_stage(99) cw(0) cp(0) vehicle(blitz3_6) crew1(fallsch_rifle:1) crew2(fallsch_sl:1) crew3(fallsch_sl_asst_fg:1) crew4(fallsch_rifle_scope:1) crew5(fallsch_stg:1) crew6(fallsch_rifle_grenadier:2) crew7(fallsch_mg:2) crew8(fallsch_mg_asst:2)) 
 	;("ce_paradrop" period(mid) min_stage(13)
@@ -275,6 +299,7 @@
 	{cost_sp 2}
 	{round_multiple 1.0}
 	{action "airstrike:reconnaissance_50"}
+	{not_for_ai_sale 1}{not_for_player_sale 1}
 }
 
 ;_______________________________________________

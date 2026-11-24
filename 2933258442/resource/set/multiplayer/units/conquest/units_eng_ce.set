@@ -1,12 +1,4 @@
 ;SDL
-;_________________________________________________
-;|      CE extras includes                        |
-;|________________________________________________|
-
-(include "units_eng_extra.set")
-(include "ai_defender_emplacements/eng_ai_emplacements.set")
-
-
 ;////////////////// INSTRUCTIONS //////////////////
 ;Buttons go as follows, displayed in-game in this order:
 
@@ -36,13 +28,13 @@
 
 ("squad_with1types_conquest" side(eng) period(mid) min_stage(3) max_stage(99) name(single_officer) c1(plt_com:1))
 
-("squad_with4types_conquest" side(eng) period(mid) min_stage(3) max_stage(99) name(squad_officer_con) c1(plt_com:1) c2(plt_sgt:1) c3(batman:1) c4(rifle:1))
+("squad_with5types_conquest" side(eng) period(mid) min_stage(3) max_stage(99) name(squad_officer_con) c1(plt_com:1) c2(plt_sgt:1) c3(batman:1) c4(rifle:1) c5(radio_man_eng:1))
 
 {"squad_officer_carrier_con"
 	("squad_vehicle3" side(eng) period(mid) min_stage(3) max_stage(99) vehicle(universal_carrier_mk2_boys) crew1(mot_scout_driver:1) crew2(mot_scout_gunner:1) crew3(plt_com:1) cw(2) cp(5))
 }
 {"squad_officer_m5a1_halftrack_con"
-	("squad_vehicle6" side(eng) period(late) min_stage(9) max_stage(99) vehicle(m5a1_halftrack) crew1(driver:1) crew2(rifle:1) crew3(coy_com:1) crew4(coy_sgt_maj:1) crew5(batman_smg:1) crew6(rifle:2) cw(3) cp(0))
+	("squad_vehicle7" side(eng) period(late) min_stage(9) max_stage(99) vehicle(m5a1_halftrack) crew1(driver:1) crew2(rifle:1) crew3(coy_com:1) crew4(coy_sgt_maj:1) crew5(batman_smg:1) crew6(rifle:2) crew7(radio_man_eng:2) cw(3) cp(0))
 }
 
 ;//t1
@@ -1062,3 +1054,10 @@
 	{round_multiple 1.0}
 	{action "airstrike:conquest_artillery_barrage_152_rus"}
 }
+
+;_________________________________________________
+;|      CE extras includes                        |
+;|________________________________________________|
+
+(include "units_eng_extra.set")
+(include "ai_defender_emplacements/eng_ai_emplacements.set")

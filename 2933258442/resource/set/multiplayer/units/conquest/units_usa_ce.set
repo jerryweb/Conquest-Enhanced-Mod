@@ -1,12 +1,4 @@
 ;SDL
-;_________________________________________________
-;|      CE extras includes                        |
-;|________________________________________________|
-
-(include "units_usa_extra.set")
-(include "ai_defender_emplacements/usa_ai_emplacements.set")
-
-
 ;////////////////// INSTRUCTIONS //////////////////
 ;Buttons go as follows, displayed in-game in this order:
 
@@ -36,14 +28,14 @@
 
 ("squad_with1types_conquest" side(usa) period(mid) min_stage(3) max_stage(99) name(single_officer)		c1(officer_2lt:1))
 
-("squad_with4types_conquest" side(usa) period(mid) min_stage(3) max_stage(99) name(squad_officer_con)	c1(platoon_com:1) c2(platoon_ssgt:1) c3(nco_sgt_rifle:1) c4(rifle:7))
+("squad_with5types_conquest" side(usa) period(mid) min_stage(3) max_stage(99) name(squad_officer_con)	c1(platoon_com:1) c2(platoon_ssgt:1) c3(nco_sgt_rifle:1) c4(rifle:7) c5(radio_man_usa))
 
 {"squad_officer_m3a1_commander_con"
 	("squad_vehicle5" side(usa) period(mid) min_stage(3) max_stage(99) vehicle(m3a1_commander) crew1(cav_driver:1) crew2(cav_gunner:1) crew3(platoon_com:1) crew4(cav_gunner:1) crew5(platoon_ssgt:1) cw(2) cp(5))
 }
 
 {"squad_officer_m3a1_halftrack_con"
-	("squad_vehicle8" side(usa) period(late) min_stage(9) max_stage(99) cw(3) cp(2) vehicle(m3a1_halftrack) crew1(ar_driver:1) crew2(ar_rifle:1) crew3(ar_company_com:1) crew4(ar_company_1st_sgt:1) crew5(ar_carbine_gren:1) crew6(ar_rifle:1) crew7(ar_rifle_at_m9a1:1) crew8(ar_rifle_at_asst:1))
+	("squad_vehicle9" side(usa) period(late) min_stage(9) max_stage(99) cw(3) cp(2) vehicle(m3a1_halftrack) crew1(ar_driver:1) crew2(ar_rifle:1) crew3(ar_company_com:1) crew4(ar_company_1st_sgt:1) crew5(ar_carbine_gren:1) crew6(ar_rifle:1) crew7(ar_rifle_at_m9a1:1) crew8(ar_rifle_at_asst:1) crew9(radio_man_usa:2))
 }
 
 ;//t1
@@ -681,3 +673,10 @@
 	{round_multiple 1.0}
 	{action "airstrike:conquest_artillery_barrage_152_rus"}
 }
+
+;_________________________________________________
+;|      CE extras includes                        |
+;|________________________________________________|
+
+(include "units_usa_extra.set")
+(include "ai_defender_emplacements/usa_ai_emplacements.set")

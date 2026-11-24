@@ -1337,3 +1337,140 @@
 					}
 				}
 			}
+			{"conquest_enhanced_mechanics/warning_ai_drug_enhancements"
+				{condition
+					{expression "!1 & 2 & 3"}
+					{terms
+						{"1.event"
+							{id "talk_on"}
+						}
+						{"2.cmp_i"
+							{var "enable_ai_drug_enhancements$"}
+							{op "=="}
+							{value 1}
+						}
+						{"3.entities"
+							{selector
+								{source advanced}
+								{group
+									{select
+										{tag
+											{tag enhanced}
+										}
+									}
+									{include
+										{prop
+											{prop human}
+										}
+										{state
+											{state operatable}
+										}
+										{tag
+											{tag _bot}
+										}
+									}
+									{exclude
+										{state
+											{state user_control}
+										}
+										{state
+											{state dead}
+										}
+										{state
+											{state linked}
+										}
+										{state
+											{state inhabited}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				{actions
+					{"delay"
+						{time 0.1}
+					}
+					{"event"
+						{event "talk_on"}
+						{mode set}
+						{delay 0}
+					}
+					{"delay"
+						{time 6}
+					}
+					{"switch"
+						{"case"
+							{condition
+								{type rand}
+								{value 0.33}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"talk"
+								{selector
+									{ignore_captured_by_user 0}
+									{amount 1
+									}
+									{tag player}
+									{zone "gamezone"}
+									{type human}
+									{state "not dead"}
+								}
+								{text "mission/multi/ai_drug_event_3"}
+							}
+						}
+						{"case"
+							{condition
+								{type rand}
+								{value 0.66}
+							}
+							{"delay"
+								{time 0.1}
+							}
+							{"talk"
+								{selector
+									{ignore_captured_by_user 0}
+									{amount 1
+									}
+									{tag player}
+									{zone "gamezone"}
+									{type human}
+									{state "not dead"}
+								}
+								{text "mission/multi/ai_drug_event_2"}
+							}
+						}
+						{"default"
+							{"delay"
+								{time 0.1}
+							}
+							{"talk"
+								{selector
+									{ignore_captured_by_user 0}
+									{amount 1
+									}
+									{tag player}
+									{zone "gamezone"}
+									{type human}
+									{state "not dead"}
+								}
+								{text "mission/multi/ai_drug_event_1"}
+							}
+						}
+					}
+					{"delay"
+						{time 8}
+					}
+					{"event"
+						{event "talk_on"}
+						{mode reset}
+						{delay 0}
+					}
+					{"call"
+						{function "show_ai_drug_objective"}
+					}
+				}
+			}
