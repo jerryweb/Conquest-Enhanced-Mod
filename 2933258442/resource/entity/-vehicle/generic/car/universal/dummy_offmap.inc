@@ -1,0 +1,43 @@
+	(include "/properties/car.ext")
+	(include "/properties/shadow/tank.inc" scale(1.0))
+	(include "/properties/selection/vehicle.inc" scale(0.8))
+	{props "dummyoffmap"}
+	{Extension "universal.mdl"}
+	{able "emit_on_attack"}
+
+	("car_thickness" body(2) engine(2))
+
+	("solid_wheel" args "wheelright1")
+	("solid_wheel" args "wheelleft1")
+	("solid_wheel" args "wheelright2")
+	("solid_wheel" args "wheelleft2")
+
+	("fuel" args "fuel")
+	("transmission" args "transmission")
+	{volume "fuel" {able {contact 1}}}
+	{volume "transmission" {able {contact 1}}}
+
+	;("crew_inside")
+	;("crew_human_v" place(driver) bone(driver) door(emit1) animation(driver) group(crew))
+
+	;("board_animation"
+	;	place(driver)
+	;	board_begin(board_body)
+	;	board_end(seat_universal_driver)
+	;)
+
+	{mass 2100}
+	{Chassis
+		("car_trace" fx("tracks_sm") step(0.3) wheell("wlf") wheelr("wrf") bonel("FXtraceL2") boner("FXtraceR2"))
+		("mobility_car"
+			speed(10) ;----------------------------------Max speed.
+			speedatmaxturn(8) ;--------------------------Max speed at max turn.
+			reverse(8) ;---------------------------------Max speed in Reverse.
+			weight(2.1) ;--------------------------------Weight in Tonnes.
+			power(22) ;----------------------------------Horse Power.
+			fuel(50) ;-----------------------------------Fuel capacity in Litres.
+			type(fuel) ;---------------------------------Fuel type.
+			range(100) ;---------------------------------Range in Kilometers.
+		)
+	}
+    {discovered 0}

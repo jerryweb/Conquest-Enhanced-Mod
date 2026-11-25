@@ -167,10 +167,10 @@ Purchases["conquest.rus"] = {
 				{availability = "1.5", base = { "Vehicle" }, class = { "Heavy" }, grade = "Grade3", posture = { "Flexible" }, roles = { "AirDefense", "AntiTank" }, effects = { "VsVehicle", "VsArmor" }, unit = "yag10_29k"},
 				{availability = "1.4", base = { "Vehicle" }, class = { "Light" }, grade = "Grade1", posture = { "Flexible" }, roles = { "AirDefense" }, effects = { "VsInfantry", "VsVehicle" }, unit = "zis5_dshk"},
 
-				{availability = "1.4", base = { "Vehicle" }, class = { "Light" }, grade = "Grade3", posture = { "Offensive" }, roles = { "Artillery" }, effects = { "VsInfantry", "VsVehicle" }, unit = "zis6_bm8_48"},
-				{availability = "1.4", base = { "Vehicle" }, class = { "Medium" }, grade = "Grade4", posture = { "Offensive" }, roles = { "Artillery" }, effects = { "VsInfantry", "VsVehicle", "VsArmor" }, unit = "zis6_bm13_16"},
-				{availability = "1.4", base = { "Vehicle" }, class = { "Medium" }, grade = "Grade4", posture = { "Offensive" }, roles = { "Artillery" }, effects = { "VsInfantry", "VsVehicle", "VsArmor" }, unit = "bm13_studebaker"},
-				{availability = "1.4", base = { "Vehicle" }, class = { "Heavy" }, grade = "Grade4", posture = { "Offensive" }, roles = { "Artillery" }, effects = { "VsInfantry", "VsVehicle", "VsArmor" }, unit = "bm31_12"},
+				-- {availability = "1.4", base = { "Vehicle" }, class = { "Light" }, grade = "Grade3", posture = { "Offensive" }, roles = { "Artillery" }, effects = { "VsInfantry", "VsVehicle" }, unit = "zis6_bm8_48"},
+				-- {availability = "1.4", base = { "Vehicle" }, class = { "Medium" }, grade = "Grade4", posture = { "Offensive" }, roles = { "Artillery" }, effects = { "VsInfantry", "VsVehicle", "VsArmor" }, unit = "zis6_bm13_16"},
+				-- {availability = "1.4", base = { "Vehicle" }, class = { "Medium" }, grade = "Grade4", posture = { "Offensive" }, roles = { "Artillery" }, effects = { "VsInfantry", "VsVehicle", "VsArmor" }, unit = "bm13_studebaker"},
+				-- {availability = "1.4", base = { "Vehicle" }, class = { "Heavy" }, grade = "Grade4", posture = { "Offensive" }, roles = { "Artillery" }, effects = { "VsInfantry", "VsVehicle", "VsArmor" }, unit = "bm31_12"},
 
 				--{availability = "1.3", base = { "Vehicle" }, class = { "Light" }, grade = "Grade1", posture = { "Flexible" }, roles = { "Unarmed", "Transport" }, effects = {}, unit = "gaz67"},
 				--{availability = "1.4", base = { "Vehicle" }, class = { "Light" }, grade = "Grade1", posture = { "Flexible" }, roles = { "Unarmed", "Transport" }, effects = {}, unit = "gaz_aaa"},

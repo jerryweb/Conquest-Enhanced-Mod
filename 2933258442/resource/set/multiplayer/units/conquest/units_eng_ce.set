@@ -1,3 +1,10 @@
+;_________________________________________________
+;|      CE extras includes                        |
+;|________________________________________________|
+
+(include "units_eng_extra.set")
+(include "ai_defender_emplacements/eng_ai_emplacements.set")
+
 ;SDL
 ;////////////////// INSTRUCTIONS //////////////////
 ;Buttons go as follows, displayed in-game in this order:
@@ -69,11 +76,11 @@
 ("squad_vehicle_with8types_conquest" side(eng) period(late) min_stage(9) max_stage(99) name(squad_rifle_mot_late_con) vehicle(bedford_oyd) c1(driver_smg:1) c2(mot_sec_com:1) c3(mot_sec_2ic:1) c4(mot_rifle_band:1) c5(mot_piat:1) c6(mot_piat_asst:1) c7(mot_mg:1) c8(mot_mg_asst:1))
 ("squad_with10types_conquest" side(eng) period(late) min_stage(9) max_stage(99) name(squad_r_eng_late_con) c1(r_eng_sec_com:1) c2(r_eng_sec_2ic:1) c3(r_eng_builder:1) c4(r_eng_mine_ap:1) c5(r_eng_mine_at:1) c6(r_eng_sapper:3) c7(r_eng_piat:1) c8(r_eng_piat_asst:1) c9(r_eng_mg:1) c10(r_eng_mg_asst:1))
 ("squad_with2types_conquest" side(eng) period(late) min_stage(9) max_stage(99) name(squad_assault_pio_late_con) c1(pio_sec_com_cpl:1) c2(pio:3))
-
-
-
-
-
+("squad_with5types_conquest" side(eng) period(late) min_stage(9) max_stage(99) name(squad_rifle_late_con) c1(sec_com:1) c2(sec_2ic:1) c3(rifle_band:6) c4(mg:1) c5(mg_asst:1))
+("squad_with7types_conquest" side(can) period(late) min_stage(9) max_stage(99) name(squad_rifle_late_con) c1(sec_com:1) c2(sec_2ic:1) c3(rifle_band:4) c4(rifle_piat:1) c5(rifle_piat_asst:1) c6(mg:1) c7(mg_asst:1) tag(eng))
+("squad_vehicle_with8types_conquest" side(can) period(late) min_stage(9) max_stage(99) name(squad_rifle_mech_late_con) vehicle(m5_halftrack) c1(driver_smg:1) c2(mot_rifle_band:1) c3(mot_sec_com:1) c4(mot_sec_2ic:1) c5(mot_piat:1) c6(mot_piat_asst:1) c7(mot_mg:1) c8(mot_mg_asst:1) tag(eng))
+("squad_eng_carrier_conquest" side(can) period(late) min_stage(9) max_stage(99) name(squad_carrier_late_con) crew1(driver:1) crew2(rifle:1) vehicle1(wasp_mk2c) c1(sec_com_sgt:1) vehicle2(wasp_mk2c) c2(detach_com:1) vehicle3(wasp_mk2c) c3(detach_com:1) tag(eng))
+("squad_vehicle_with8types_conquest" side(can) period(late) min_stage(9) max_stage(99) name(squad_rifle_mech_late_con) vehicle(ram_kangaroo_mk2) c1(vehicle_crew:2) c2(mot_rifle_band:1) c3(mot_sec_com:1) c4(mot_sec_2ic:1) c5(mot_piat:1) c6(mot_piat_asst:1) c7(mot_mg:1) c8(mot_mg_asst:1) tag(eng))
 ("squad_with7types_conquest" side(pol) period(late) min_stage(9) max_stage(99) name(squad_rifle_late_con) c1(1st_ad_sec_com:1) c2(1st_ad_sec_2ic:1) c3(1st_ad_rifle_band:4) c4(1st_ad_at_piat:1) c5(1st_ad_at_piat_asst:1) c6(1st_ad_mg:1) c7(1st_ad_mg_asst:1) tag(eng))
 ("squad_vehicle_with8types_conquest" side(pol) period(late) min_stage(9) max_stage(99) name(squad_rifle_mech_late_con) vehicle(m5a1_halftrack) c1(1st_ad_driver_smg:1) c2(1st_ad_mot_rifle_band:1) c3(1st_ad_mot_sec_com:1) c4(1st_ad_mot_sec_2ic:1) c5(1st_ad_mot_piat:1) c6(1st_ad_mot_piat_asst:1) c7(1st_ad_mot_mg:1) c8(1st_ad_mot_mg_asst:1) tag(eng))
 ("squad_eng_carrier_conquest" side(pol) period(late) min_stage(9) max_stage(99) name(squad_carrier_late_con) crew1(1st_ad_driver:1) crew2(1st_ad_rifle:2) vehicle1(universal_carrier_mk2_2mg) c1(1st_ad_sec_com_sgt:1) vehicle2(mortar_carrier_mk2) c2(1st_ad_detach_com:1) vehicle3(universal_carrier_mk2_piat) c3(1st_ad_detach_com:1) tag(eng))
@@ -137,9 +144,9 @@
 
 ("squad_with3types_conquest" side(can) period(late) min_stage(9) max_stage(99) name(squad_1st_para_at_late_con) c1(para_sec_com_cpl:1) c2(para_piat:3) c3(para_piat_asst:6) tag(eng))
 ("squad_with5types_conquest" side(can) period(late) min_stage(9) max_stage(99) name(squad_1st_para_protect_late_con) c1(para_sec_com_cpl:1) c2(para_piat:1) c3(para_piat_asst:1) c4(para_mg:2) c5(para_mg_asst:2) tag(eng))
-
-
-
+("squad_with6types_conquest" side(can) period(late) min_stage(9) max_stage(99) name(squad_1st_para_rifle_late_con) c1(para_sec_com:1) c2(para_sec_2ic:1) c3(para_smg_band:3) c4(para_sniper:1) c5(para_mg:2) c6(para_mg_asst:2) tag(eng))
+("squad_with9types_conquest" side(pol) period(late) min_stage(9) max_stage(99) name(squad_1st_para_eng_late_con) c1(1st_para_eng_sec_com:1) c2(1st_para_eng_sec_2ic:1) c3(1st_para_eng:1) c4(1st_para_eng_at_mine:2) c5(1st_para_eng_sapper:3) c6(1st_para_eng_piat:1) c7(1st_para_eng_piat_asst:1) c8(1st_para_eng_mg:1) c9(1st_para_eng_mg_asst:1) tag(eng))
+("squad_with9types_conquest" side(pol) period(late) min_stage(9) max_stage(99) name(squad_1st_para_rifle_late_con) c1(1st_para_sec_com:1) c2(1st_para_sec_2ic:1) c3(1st_para_smg_band:2) c4(1st_para_rifle_band:1) c5(1st_para_sniper:1) c6(1st_para_piat:1) c7(1st_para_piat_asst:1) c8(1st_para_mg:1) c9(1st_para_mg_asst_smg:1) tag(eng))
 ("squad_with3types_conquest" side(pol) period(late) min_stage(9) max_stage(99) name(squad_1st_para_eng_flame_late_con) c1(1st_para_eng_sec_com_sgt:1) c2(1st_para_eng_sapper:2) c3(1st_para_eng_flamer:3) tag(eng))
 
 ;63
@@ -1054,10 +1061,3 @@
 	{round_multiple 1.0}
 	{action "airstrike:conquest_artillery_barrage_152_rus"}
 }
-
-;_________________________________________________
-;|      CE extras includes                        |
-;|________________________________________________|
-
-(include "units_eng_extra.set")
-(include "ai_defender_emplacements/eng_ai_emplacements.set")

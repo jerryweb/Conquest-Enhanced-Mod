@@ -192,8 +192,8 @@ Purchases["conquest.ger"] = {
 				{availability = "1.6", base = { "Vehicle" }, class = { "Medium" }, grade = "Grade3", posture = { "Offensive" }, roles = { "AntiTank" }, effects = { "VsVehicle", "VsArmor" }, unit = "sdkfz251d_22"},
 				{availability = "1.6", base = { "Vehicle" }, class = { "Heavy" }, grade = "Grade3", posture = { "Flexible" }, roles = { "AntiTank" }, effects = { "VsVehicle", "VsArmor" }, unit = "sdkfz8_flak18"},
 
-				{availability = "1.5", base = { "Vehicle" }, class = { "Medium" }, grade = "Grade2", posture = { "Offensive" }, roles = { "Artillery" }, effects = { "VsInfantry", "VsVehicle", "VsArmor" }, unit = "sdkfz251d_1_stuka"},
-				{availability = "1.5", base = { "Vehicle" }, class = { "Medium" }, grade = "Grade3", posture = { "Flexible" }, roles = { "Artillery" }, effects = { "VsInfantry", "VsVehicle" }, unit = "panzerwerfer42"},
+				-- {availability = "1.5", base = { "Vehicle" }, class = { "Medium" }, grade = "Grade2", posture = { "Offensive" }, roles = { "Artillery" }, effects = { "VsInfantry", "VsVehicle", "VsArmor" }, unit = "sdkfz251d_1_stuka"},
+				-- {availability = "1.5", base = { "Vehicle" }, class = { "Medium" }, grade = "Grade3", posture = { "Flexible" }, roles = { "Artillery" }, effects = { "VsInfantry", "VsVehicle" }, unit = "panzerwerfer42"},
 				--]]
 
 			-- Tanks
@@ -270,10 +270,10 @@ Purchases["conquest.ger"] = {
 				{availability = "1.4", base = { "SPG" }, class = { "Medium" }, grade = "Grade3", posture = { "Flexible" }, roles = { "InfantryGun", "Breakthrough" }, effects = { "VsInfantry", "VsVehicle", "VsArmor" }, unit = "sturmpanzer4"},
 				{availability = "1.6", base = { "SPG" }, class = { "Heavy" }, grade = "Grade4", posture = { "Flexible" }, roles = { "InfantryGun", "Breakthrough" }, effects = { "VsInfantry", "VsVehicle", "VsArmor" }, unit = "sturmtiger"},
 
-				{availability = "1.4", base = { "SPG" }, class = { "Light" }, grade = "Grade2", posture = { "Flexible" }, roles = { "Artillery" }, effects = { "VsInfantry", "VsVehicle" }, unit = "wespe"},
-				{availability = "1.4", base = { "SPG" }, class = { "Light" }, grade = "Grade2", posture = { "Flexible" }, roles = { "Artillery" }, effects = { "VsInfantry", "VsVehicle" }, unit = "grille_k"},
-				{availability = "1.6", base = { "SPG" }, class = { "Light" }, grade = "Grade4", posture = { "Flexible" }, roles = { "Artillery" }, effects = { "VsInfantry", "VsVehicle", "VsArmor" }, unit = "pz38h_w40"},
-				{availability = "1.4", base = { "SPG" }, class = { "Medium" }, grade = "Grade3", posture = { "Flexible" }, roles = { "Artillery" }, effects = { "VsInfantry", "VsVehicle" }, unit = "hummel"},
+				-- {availability = "1.4", base = { "SPG" }, class = { "Light" }, grade = "Grade2", posture = { "Flexible" }, roles = { "Artillery" }, effects = { "VsInfantry", "VsVehicle" }, unit = "wespe"},
+				-- {availability = "1.4", base = { "SPG" }, class = { "Light" }, grade = "Grade2", posture = { "Flexible" }, roles = { "Artillery" }, effects = { "VsInfantry", "VsVehicle" }, unit = "grille_k"},
+				-- {availability = "1.6", base = { "SPG" }, class = { "Light" }, grade = "Grade4", posture = { "Flexible" }, roles = { "Artillery" }, effects = { "VsInfantry", "VsVehicle", "VsArmor" }, unit = "pz38h_w40"},
+				-- {availability = "1.4", base = { "SPG" }, class = { "Medium" }, grade = "Grade3", posture = { "Flexible" }, roles = { "Artillery" }, effects = { "VsInfantry", "VsVehicle" }, unit = "hummel"},
 				--]]
 
 

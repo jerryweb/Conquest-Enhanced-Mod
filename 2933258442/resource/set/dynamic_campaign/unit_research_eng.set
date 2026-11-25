@@ -1,0 +1,390 @@
+{IconGap 28}
+	{positions
+		{"single_officer(eng)" 0 2}
+	}
+
+;//---TECH UPGRADES---
+	{ tech "defense_level_1"			requires "reinforcement_stage_2"									costs 1  position 2 0}
+	{ tech "defense_level_2"			requires "reinforcement_stage_3 defense_level_1"					costs 5  position 4 0}
+	{ tech "defense_level_3"			requires "reinforcement_stage_4 defense_level_2"					costs 7  position 6 0}
+
+	{ tech "reinforcement_stage_2"		requires "single_officer(eng)"										costs 0  position 1 1}
+	{ tech "reinforcement_stage_3"		requires "reinforcement_stage_2 squad_officer_con(eng)"				costs 1  position 3 1}
+	{ tech "reinforcement_stage_4"		requires "reinforcement_stage_3 squad_officer_carrier_con"			costs 1  position 5 1}
+	{ tech "reinforcement_stage_5"		requires "reinforcement_stage_4 squad_officer_m5a1_halftrack_con"	costs 1  position 7 1}
+;TOTAL:
+
+
+;//---Off Map Support---
+	{"conquest_blenheim_mk1_eng_recon"	requires	"single_officer(eng)"				costs 1  position 0 4}
+	{"conquest_hurribomber_mk2c_light"	requires	"squad_officer_con(eng)"			costs 1  position 2 4}
+	{"conquest_typhoon_mk1b"			requires	"squad_officer_carrier_con"			costs 1  position 4 4}
+
+	{"114mm_bl_4_5_smoke_barrage"		requires	"single_officer(eng)"				costs 1  position 0 3}
+
+	{"81mm_ml3_mortar_barrage"			requires	"squad_officer_con(eng)"			costs 1  position 2 3}
+	{"114mm_bl_4_5_artillery_barrage"	requires	"squad_officer_carrier_con"			costs 1  position 4 3}
+
+	{"107mm_ml4_2_mortar_barrage"		requires	"squad_officer_m5a1_halftrack_con"	costs 1  position 6 3}
+	{"152mm_bl_6_artillery_barrage"		requires	"squad_officer_m5a1_halftrack_con"	costs 1  position 7 3}
+;TOTAL:
+
+
+;//---SQUADS---
+;//	{"single_officer(eng)"				requires	""									costs 1  position 0 2}
+	{"squad_officer_con(eng)"			requires	"single_officer(eng)"				costs 2  position 2 2}
+	{"squad_officer_carrier_con"		requires	"squad_officer_con(eng)"			costs 5  position 4 2}
+	{"squad_officer_m5a1_halftrack_con"	requires	"squad_officer_carrier_con"			costs 8  position 6 2}
+
+	{"single_engineer(eng)"				requires	""									costs 2  position 0 28}
+	{"single_ap_miner(eng)"				requires	"single_engineer(eng)"				costs 0  position 1 27}
+	{"single_at_miner(eng)"				requires	"single_ap_miner(eng)"				costs 0  position 2 27}
+	{"single_flamer(eng)"				requires	"single_engineer(eng)"				costs 0  position 1 29}
+
+	{"single_sniper(eng)"				requires	"squad_rec_mc_early_con(eng)"		costs 1  position 1 20}
+	{"single_at_con(eng)"				requires	""									costs 0  position 0 6}
+	{"single_riflegrenade_con(eng)"		requires	"single_at_con(eng)" 				costs 1  position 1 6}
+	{"single_at1_con(eng)"				requires	"reinforcement_stage_4 single_riflegrenade_con(eng)" costs 5  position 5 6}
+	{"single_at2_con(eng)"				requires	"single_at1_con(eng)"				costs 1  position 8 6}
+
+;Early
+	{"squad_rear_echelon_early_con(eng)"requires	""									costs 0  position 0 17}
+	{"squad_rifle_early_con(eng)"		requires	"squad_rear_echelon_early_con(eng)"	costs 2  position 1 16}
+	{"squad_pio_early_con(eng)"			requires	"squad_rear_echelon_early_con(eng)"	costs 2  position 1 17}
+	{"squad_rec_mc_early_con(eng)"		requires	"squad_rear_echelon_early_con(eng)"	costs 1  position 0 19}
+	{"squad_rec_scout_early_con(eng)"	requires	"squad_rec_mc_early_con(eng)"		costs 1  position 1 18}
+
+	{"squad_carrier_early_con(eng)"		requires	"squad_rifle_early_con(eng)"		costs 1  position 2 15}
+	{"squad_51hl_rifle_early_con(eng)"	requires	"squad_rifle_early_con(eng)"		costs 4  position 1 14}
+	{"squad_hl_bw_rifle_early_con(eng)"	requires	"squad_51hl_rifle_early_con(eng)"	costs 2  position 1 13}
+	{"squad_hl_bw_inf_pio_early_con(eng)"requires	"squad_hl_bw_rifle_early_con(eng)"	costs 1  position 2 13}
+
+	{"squad_com_early_con(eng)"			requires	"squad_rec_mc_early_con(eng)"		costs 6  position 0 21}
+
+;Mid
+	{"squad_brig_defense_mid_con(eng)"	requires	"squad_rifle_early_con(eng)"		costs 1  position 3 16}
+	{"squad_div_defense_mg_mid_con(eng)"requires	"squad_brig_defense_mid_con(eng)"	costs 0  position 3 15}
+
+	{"squad_rifle_mid_con(eng)"			requires	"squad_brig_defense_mid_con(eng)"	costs 2  position 4 16}
+	{"squad_r_eng_mid_con(eng)"			requires	"squad_rifle_mid_con(eng) squad_pio_early_con(eng)"		costs 2  position 4 17}
+	{"squad_recce_assault_mid_con(eng)"	requires	"squad_rifle_mid_con(eng) squad_rec_mc_early_con(eng)"	costs 1  position 4 19}
+	{"squad_recce_carrier_mid_con(eng)"	requires	"squad_recce_assault_mid_con(eng) squad_rec_scout_early_con(eng)"	costs 0  position 5 18}
+
+	{"squad_carrier_mid_con(eng)"			requires	"squad_rifle_mid_con(eng)"				costs 1  position 6 16}
+	{"squad_1st_airland_rifle_mid_con(eng)"	requires	"squad_rifle_mid_con(eng)"				costs 3  position 4 9}
+	{"squad_vet_rifle_mid_con(eng)"			requires	"squad_rifle_mid_con(eng)"				costs 1  position 5 15}
+	{"squad_7th_ad_rifle_mid_con(eng)"		requires	"squad_vet_rifle_mid_con(eng)"			costs 1  position 6 14}
+
+	{"squad_51hl_rifle_mid_con(eng)"		requires	"squad_vet_rifle_mid_con(eng) squad_51hl_rifle_early_con(eng)"	costs 1  position 5 14}
+
+	{"squad_1st_airland_pio_mid_con(eng)"	requires	"squad_1st_airland_rifle_mid_con(eng)"	costs 1  position 5 8}
+	{"squad_1st_para_rifle_mid_con(eng)"	requires	"squad_1st_airland_rifle_mid_con(eng)"	costs 3  position 6 9}
+	{"squad_1st_para_recce_mid_con(eng)"	requires	"squad_1st_para_rifle_mid_con(eng)"		costs 1  position 7 8}
+
+	{"squad_rn_com_beach_mid_con(eng)"		requires	"squad_recce_assault_mid_con(eng)"		costs 2  position 5 20}
+	{"squad_rm_com_assault_mid_con(eng)"	requires	"squad_rn_com_beach_mid_con(eng)"		costs 2  position 6 20}
+	{"squad_com_rifle_mid_con(eng)"			requires	"squad_com_early_con(eng) squad_recce_assault_mid_con(eng)"	costs 2  position 4 21}
+	{"squad_sas_mid_con(eng)"				requires	"squad_com_rifle_mid_con(eng) "			costs 2  position 5 22}
+
+;Late
+	{"squad_brig_defense_late_con(eng)"		requires	"squad_rifle_mid_con(eng) single_at2_con(eng)"	costs 1  position 8 16}
+
+	{"squad_rifle_late_con(eng)"			requires	"squad_brig_defense_late_con(eng)"		costs 2  position 9 16}
+	{"squad_rifle_mot_late_con(eng)"		requires	"squad_rifle_late_con(eng)"				costs 2  position 11 16}
+	{"squad_assault_pio_late_con(eng)"		requires	"squad_rifle_late_con(eng)"				costs 2  position 10 17}
+	{"squad_r_eng_late_con(eng)"			requires	"squad_r_eng_mid_con(eng) squad_rifle_late_con(eng)" 			costs 2  position 9 17}
+	{"squad_recce_assault_late_con(eng)"	requires	"squad_recce_assault_mid_con(eng) squad_rifle_late_con(eng)"	costs 1  position 9 19}
+	{"squad_recce_assault_mot_late_con(eng)" requires	"squad_recce_assault_late_con(eng)"		costs 1  position 11 19}
+	{"squad_recce_carrier_late_con(eng)" 	requires	"squad_recce_assault_late_con(eng) squad_recce_carrier_mid_con(eng)" costs 0  position 10 18}
+
+	{"squad_rifle_late_con(can)"			requires	"squad_rifle_late_con(eng)"				costs 0  position 9 12}
+	{"squad_rifle_mech_late_con(can)"		requires	"squad_rifle_late_con(can)"				costs 2  position 10 12}
+	{"squad_carrier_late_con(can)"			requires	"squad_rifle_late_con(can)"				costs 1  position 10 13}
+	{"wasp_mk2c"							requires	"squad_carrier_late_con(can)"			costs 0  position 11 13}
+
+	{"squad_1st_para_rifle_late_con(can)"	requires	"squad_rifle_mech_late_con(can)"		costs 2  position 12 12}
+	{"squad_1st_para_at_late_con(can)"		requires	"squad_1st_para_rifle_late_con(can)"	costs 1  position 13 12}
+	{"squad_1st_para_protect_late_con(can)"	requires	"squad_1st_para_rifle_late_con(can)"	costs 1  position 14 12}
+
+	{"squad_rifle_late_con(pol)"			requires	"squad_rifle_late_con(eng)"				costs 0  position 9 11}
+	{"squad_rifle_mech_late_con(pol)"		requires	"squad_rifle_late_con(pol)"				costs 2  position 10 11}
+	{"squad_carrier_late_con(pol)"			requires	"squad_rifle_late_con(pol)"				costs 1  position 10 10}
+
+	{"squad_1st_para_rifle_late_con(pol)"	requires	"squad_rifle_mech_late_con(pol)"		costs 2  position 12 11}
+	{"squad_1st_para_eng_flame_late_con(pol)" requires	"squad_1st_para_rifle_late_con(pol)"	costs 1  position 13 11}
+	{"squad_1st_para_eng_late_con(pol)"		requires	"squad_1st_para_rifle_late_con(pol)"	costs 1  position 14 11}
+
+	{"squad_rm_com_assault_late_con(eng)"	requires	"squad_recce_assault_late_con(eng) squad_rm_com_assault_mid_con(eng)" costs 2  position 10 20}
+	{"squad_com_rifle_late_con(eng)"		requires	"squad_recce_assault_late_con(eng) squad_com_rifle_mid_con(eng)" costs 1  position 9 21}
+	{"squad_com_smg_s_late_con(eng)"		requires	"squad_com_rifle_late_con(eng)"			costs 1  position 11 21}
+	{"squad_sas_late_con(eng)"				requires	"squad_com_rifle_late_con(eng) squad_sas_mid_con(eng)" costs 4  position 10 22}
+
+	{"squad_gds_ad_rifle_late_con(eng)"		requires	"squad_rifle_late_con(eng)" 			costs 2  position 13 16}
+
+	{"squad_vet_rifle_late_con(eng)"		requires	"squad_rifle_late_con(eng)"				costs 1  position 10 15}
+	{"squad_7th_ad_rifle_late_con(eng)"		requires	"squad_vet_rifle_late_con(eng) squad_7th_ad_rifle_mid_con(eng)" costs 2  position 11 14}
+	{"squad_7th_ad_pio_late_con(eng)"		requires	"squad_7th_ad_rifle_late_con(eng)" 		costs 1  position 12 14}
+	{"squad_7th_ad_eng_late_con(eng)"		requires	"squad_7th_ad_rifle_late_con(eng)" 		costs 1  position 13 14}
+
+	{"squad_6th_airland_rifle_late_con(eng)" requires	"squad_1st_para_rifle_mid_con(eng) single_at2_con(eng)" costs 4  position 8 9}
+	{"squad_6th_airland_recon_late_con(eng)" requires	"squad_6th_airland_rifle_late_con(eng)" costs 1  position 9 8}
+
+	{"squad_1st_airland_rifle_late_con(eng)" requires	"squad_6th_airland_rifle_late_con(eng)" costs 2  position 10 9}
+	{"squad_1st_airland_recon_late_con(eng)" requires	"squad_1st_airland_rifle_late_con(eng)" costs 1  position 11 8}
+	{"squad_1st_airland_support_late_con(eng)" requires	"squad_1st_airland_rifle_late_con(eng)" costs 1  position 10 8}
+
+	{"squad_6th_para_rifle_late_con(eng)"	requires	"squad_1st_airland_rifle_late_con(eng)" costs 2  position 12 9}
+	{"squad_6th_para_eng_late_con(eng)"		requires	"squad_6th_para_rifle_late_con(eng)" costs 1  position 13 8}
+
+	{"squad_1st_para_rifle_late_con(eng)"	requires	"squad_6th_para_rifle_late_con(eng)" costs 3  position 14 9}
+	{"squad_1st_para_recce_late_con(eng)"	requires	"squad_1st_para_rifle_late_con(eng)" costs 1  position 15 9}
+	{"squad_1st_para_eng_late_con(eng)"		requires	"squad_1st_para_rifle_late_con(eng)" costs 1  position 15 8}
+;TOTAL:
+
+
+;//---Special---
+
+;//---MG---
+	{"vickers_mg"		requires ""					costs 1  position 0 31}
+
+;//---Mortar---
+	{"81mm_ml3_early"	requires	""					costs 2  position 4 31}
+	{"81mm_ml3"			requires	"81mm_ml3_early"	costs 1  position 5 31}
+	{"107mm_ml4_2"		requires	"81mm_ml3"			costs 4  position 7 31}
+
+;//---AA---
+	{"40mm_qf40_early"		requires ""						costs 1  position 0 34}
+	{"40mm_qf40"			requires "40mm_qf40_early"		costs 2  position 2 34}
+	{"morris_c9_aa"			requires "40mm_qf40"			costs 1  position 3 35}
+
+	{"94mm_qf_3_7_aa_early"	requires "40mm_qf40_early"		costs 4  position 1 33}
+	{"94mm_qf_3_7_aa_mid"	requires "94mm_qf_3_7_aa_early"	costs 4  position 3 33}
+	{"94mm_qf_3_7_aa_late"	requires "94mm_qf_3_7_aa_mid"	costs 2  position 4 33}
+
+	{"20mm_oerlikon"		requires "40mm_qf40 94mm_qf_3_7_aa_mid"	costs 1  position 4 34}
+	{"20mm_polsten"			requires "20mm_oerlikon"		costs 0 position 5 34}
+
+;//---AT Guns---
+	{"40mm_qf2_early"			requires ""					costs 0 position 0 39}
+	{"40mm_qf2_mid"				requires "40mm_qf2_early"	costs 1 position 1 38}
+	{"40mm_qf2_late"			requires "40mm_qf2_mid"		costs 1 position 2 37}
+	{"40mm_qf2_littlejohn_mid"	requires "40mm_qf2_mid"		costs 1 position 2 38}
+	{"40mm_qf2_littlejohn_late"	requires "40mm_qf2_late"	costs 1 position 3 37}
+
+	{"57mm_qf6_mk2_early"		requires "40mm_qf2_early"		costs 3 position 3 39}
+	{"57mm_qf6_mk4_early"		requires "57mm_qf6_mk2_early"	costs 2 position 4 39}
+	{"57mm_qf6_mk4_late"		requires "57mm_qf6_mk4_early"	costs 1 position 5 38}
+
+	{"76mm_qf17_25"				requires "57mm_qf6_mk4_early"	costs 6 position 6 39}
+	{"76mm_qf17_late"			requires "76mm_qf17_25"			costs 2 position 7 39}
+	{"archer"					requires "76mm_qf17_late"		costs 2 position 8 38}
+
+;//---Field Guns---
+	{"84mm_qf18_2pa"			requires "40mm_qf2_early"		costs 3 position 1 40}
+	{"94mm_qf_how_early"		requires "84mm_qf18_2pa"		costs 1 position 3 40}
+	{"94mm_qf_how"				requires "94mm_qf_how_early"	costs 1 position 4 40}
+	{"75mm_m1a1_eng"			requires "94mm_qf_how"			costs 1 position 8 40}
+
+;//---Artillery---
+	{"84mm_qf18_5p"				requires "84mm_qf18_2pa"		costs 2 position 1 41}
+	{"88mm_qf25_mk1_4p"			requires "84mm_qf18_5p"			costs 1 position 2 41}
+	{"88mm_qf25_mk2"			requires "88mm_qf25_mk1_4p"		costs 1 position 2 42}
+	{"88mm_qf25_mk2_late"		requires "88mm_qf25_mk2"		costs 1 position 2 43}
+
+	{"bishop"					requires "88mm_qf25_mk2"		costs 2 position 3 42}
+	{"sexton_mk2"				requires "88mm_qf25_mk2_late"	costs 2 position 3 43}
+
+	{"114mm_qf_how"				requires "88mm_qf25_mk1_4p"		costs 1 position 4 41}
+	{"114mm_bl_4_5_mk1"			requires "114mm_qf_how"			costs 1 position 6 41}
+	{"114mm_bl_4_5"				requires "114mm_bl_4_5_mk1"		costs 1 position 7 41}
+
+	{"152mm_bl_6_mk19"			requires "114mm_bl_4_5_mk1"		costs 1 position 6 42}
+	{"152mm_bl_6"				requires "152mm_bl_6_mk19 114mm_bl_4_5" costs 1 position 7 42}
+
+	{"183mm_bl_7_2"				requires "152mm_bl_6"			costs 2 position 9 42}
+	{"203mm_bl_8"				requires "183mm_bl_7_2"			costs 2 position 11 42}
+
+	{"140mm_bl_5_5"				requires "152mm_bl_6"			costs 1 position 7 43}
+	{"140mm_bl_5_5_late"		requires "140mm_bl_5_5"			costs 1 position 7 44}
+
+	{"155mm_m1a1_longtom_eng"	requires "75mm_m1a1_eng 140mm_bl_5_5" costs 1 position 8 43}
+	{"183mm_bl_7_2_mk6"			requires "155mm_m1a1_longtom_eng 183mm_bl_7_2" costs 1 position 9 43}
+
+	{"76mm_land_mattress"		requires "140mm_bl_5_5_late" costs 4 position 9 44}
+;TOTAL:
+
+
+;//---Trucks---
+	{"inf_crate_eng"		requires	""						costs 0  position 0 25}
+	{"ammo_trailer_eng"		requires	"inf_crate_eng"			costs 1  position 1 25}
+
+	{"bedford_oyd_art_ammo"	requires	"ammo_trailer_eng"		costs 1  position 3 25}
+	{"bedford_qld_art_ammo"	requires	"bedford_oyd_art_ammo"	costs 0  position 4 24}
+	{"bedford_oyc_fuel"		requires	"bedford_oyd_art_ammo"	costs 1  position 5 25}
+	{"bedford_oyd_engineer"	requires	"single_engineer(eng)"	costs 1  position 4 28}
+	{"bedford_qld_engineer"	requires	"bedford_oyd_engineer"	costs 0  position 5 28}
+
+	{"bedford_oyd"			requires	""						costs 0  position 0 47}
+	{"morris_c8"			requires	"bedford_oyd"			costs 1  position 1 47}
+	{"willys_mb_eng"		requires	"morris_c8"				costs 1  position 2 46}
+	{"willys_mb_mg_eng"		requires	"willys_mb_eng"			costs 1  position 3 46}
+	{"bedford_qlt"			requires	"morris_c8"				costs 1  position 2 48}
+;TOTAL:
+
+;//---Armored Cars---
+	{"morris_cs9"			requires	""						costs 1  position 0 52}
+
+	{"daimler_dingo_early"	requires	"morris_cs9"			costs 1  position 1 53}
+	{"daimler_dingo_boys"	requires	"daimler_dingo_early"	costs 0  position 2 52}
+	{"daimler_dingo"		requires	"daimler_dingo_early"	costs 1  position 2 54}
+
+	{"universal_carrier_mk1" requires	"morris_cs9"			costs 1  position 1 51}
+	{"mmg_carrier_mk1"		requires	"universal_carrier_mk1"	costs 0  position 2 50}
+
+	{"universal_carrier_mk2" requires	"universal_carrier_mk1"	costs 1  position 3 51}
+	{"mmg_carrier_mk2"		requires	"universal_carrier_mk2"	costs 0  position 4 50}
+
+	{"m5_halftrack"			requires	"universal_carrier_mk2"	costs 1  position 5 51}
+	{"m5a1_halftrack"		requires	"m5_halftrack"			costs 1  position 6 50}
+
+	{"lvt4_eng"				requires	"m5_halftrack"			costs 1  position 7 51}
+	{"ram_kangaroo"			requires	"lvt4_eng"				costs 1  position 9 51}
+	{"ram_kangaroo_mk2"		requires	"ram_kangaroo"			costs 1  position 10 50}
+
+	{"humber_recon_mk2"		requires	"daimler_dingo"			costs 1  position 3 54}
+	{"humber_recon_mk3"		requires	"humber_recon_mk2"		costs 0  position 4 55}
+	{"humber_scout"			requires	"humber_recon_mk3"		costs 1  position 5 54}
+
+	{"humber_mk2"			requires	"humber_recon_mk2"		costs 1  position 4 53}
+	{"humber_mk4"			requires	"humber_mk2"			costs 1  position 5 53}
+
+	{"staghound_mk1"		requires	"humber_mk4"			costs 1  position 7 53}
+	{"staghound_mk2"		requires	"staghound_mk1"			costs 1  position 8 53}
+	{"staghound_mk3"		requires	"staghound_mk2"			costs 2  position 9 53}
+	{"staghound_mkaa"		requires	"staghound_mk1"			costs 1  position 8 52}
+
+	{"daimler_mk1"			requires	"humber_recon_mk3"		costs 2  position 6 55}
+	{"daimler_mk1_lj"		requires	"daimler_mk1"			costs 1  position 7 54}
+	{"daimler_mk2"			requires	"daimler_mk1"			costs 1  position 8 55}
+	{"daimler_mk2_lj"		requires	"daimler_mk2"			costs 1  position 9 54}
+
+	{"aec_mk1"				requires	"daimler_mk1"			costs 1  position 7 56}
+	{"aec_mk2"				requires	"aec_mk1"				costs 2  position 8 56}
+	{"aec_mk3"				requires	"aec_mk2"				costs 2  position 9 56}
+;TOTAL:
+
+
+;//---Light Tanks---
+	{"vickers_mk6"			requires	""						costs 1  position 0 61}
+	{"vickers_aa_mk1"		requires	"vickers_mk6"			costs 1  position 1 61}
+
+	{"matilda1"				requires	"vickers_mk6"			costs 5  position 0 66}
+	{"matilda1_50"			requires	"matilda1"				costs 1  position 1 65}
+
+	{"cruiser_mk1"			requires	"vickers_mk6"			costs 2  position 1 62}
+	{"cruiser_mk1_cs"		requires	"cruiser_mk1"			costs 1  position 1 63}
+
+	{"cruiser_mk2"			requires	"cruiser_mk1"			costs 2  position 2 63}
+	{"cruiser_mk2a"			requires	"cruiser_mk2"			costs 1  position 3 64}
+	{"cruiser_mk2a_cs"		requires	"cruiser_mk2a"			costs 1  position 4 64}
+
+	{"cruiser_mk3"			requires	"cruiser_mk2"			costs 2  position 5 63}
+	{"cruiser_mk3_late"		requires	"cruiser_mk3"			costs 1  position 6 64}
+
+	{"cruiser_mk4"			requires	"cruiser_mk3"			costs 2  position 6 63}
+	{"cruiser_mk4a"			requires	"cruiser_mk4"			costs 1  position 7 64}
+
+	{"stuart1"				requires	"vickers_mk6"			costs 2  position 1 60}
+	{"stuart3"				requires	"stuart1"				costs 1  position 2 60}
+	{"stuart5"				requires	"stuart3"				costs 1  position 3 60}
+	{"stuart5_recce"		requires	"stuart5"				costs 0  position 4 61}
+	{"stuart6"				requires	"stuart5"				costs 1  position 4 60}
+
+	{"tetrarch_mk7"			requires	"stuart5"				costs 1  position 4 59}
+	{"tetrarch_mk7_littlejohn" requires	"tetrarch_mk7"			costs 1  position 5 58}
+	{"m22_locust"			 requires	"tetrarch_mk7"			costs 1  position 6 59}
+	{"m22_locust_littlejohn" requires	"m22_locust"			costs 1  position 7 58}
+;TOTAL:
+
+;//---Medium Tanks---
+	{"matilda2_mk1"			requires	"matilda1 cruiser_mk2"	costs 4  position 2 66}
+	{"matilda2_mk3"			requires	"matilda2_mk1"			costs 1  position 3 66}
+	{"matilda2_mk4_cs"		requires	"matilda2_mk3"			costs 1  position 4 66}
+
+	{"crusader_mk1"			requires	"cruiser_mk4a"			costs 2  position 7 66}
+	{"crusader_mk1_cs"		requires	"crusader_mk1"			costs 1  position 8 65}
+
+	{"crusader_mk2"			requires	"crusader_mk1"			costs 2  position 8 66}
+	{"crusader_mk2_cs"		requires	"crusader_mk2"			costs 1  position 9 65}
+
+	{"crusader_mk3"			requires	"crusader_mk2"			costs 2  position 10 66}
+	{"crusader_aa_mk1"		requires	"crusader_mk3"			costs 1  position 10 65}
+	{"crusader_aa_mk2"		requires	"crusader_mk3"			costs 1  position 11 65}
+
+	{"valentine_mk1"		requires	"valentine_mk2"			costs 0  position 2 68}
+	{"valentine_mk2"		requires	"matilda2_mk3"			costs 1  position 3 68}
+	{"valentine_mk3"		requires	"valentine_mk2"			costs 1  position 4 68}
+	{"valentine_mk9"		requires	"valentine_mk3"			costs 1  position 5 68}
+	{"valentine_mk10"		requires	"valentine_mk9"			costs 1  position 6 68}
+	{"valentine_mk11"		requires	"valentine_mk9"			costs 1  position 7 68}
+
+	{"cromwell4"			requires	"sherman5_mid"			costs 2  position 13 71}
+	{"cromwell4_tulip"		requires	"comet1_a34 sherman1c_tulip_hybrid sherman5_late_tulip" costs 2  position 19 71}
+	{"cromwell5"			requires	"cromwell4"				costs 2  position 14 71}
+	{"cromwell7"			requires	"cromwell5"				costs 2  position 16 71}
+
+	{"cromwell6"			requires	"cromwell5"				costs 1  position 15 72}
+	{"cromwell8"			requires	"cromwell6 cromwell7"	costs 1  position 17 72}
+
+	{"challenger_a30"		requires	"cromwell5"				costs 2  position 14 72}
+	{"comet1_a34"			requires	"cromwell7"				costs 2  position 18 71}
+
+	{"grant"				requires	"crusader_mk3"			costs 2  position 10 68}
+
+	{"sherman1_armor"		requires	"sherman5_mid"			costs 2  position 14 67}
+	{"sherman1c_armor"		requires	"sherman1_armor achilles_mk2" costs 2  position 17 67}
+	{"sherman1c_hybrid"		requires	"sherman1c_armor"		costs 2  position 18 67}
+	{"sherman1c_tulip_hybrid" requires	"sherman1c_hybrid"		costs 2  position 19 67}
+	{"sherman1b"			requires	"sherman1_armor"		costs 2  position 15 66}
+
+	{"sherman2_dv"			requires	"grant"					costs 2  position 11 68}
+	{"wolverine_mk1"		requires	"sherman5_mid"			costs 2  position 14 68}
+	{"sherman2a"			requires	"wolverine_mk1"			costs 2  position 15 68}
+	{"achilles_mk2"			requires	"wolverine_mk1"			costs 3  position 16 68}
+
+	{"sherman3_early"		requires	"sherman2_dv"			costs 2  position 12 68}
+
+	{"sherman5_mid"			requires	"sherman3_early"		costs 2  position 13 68}
+	{"sherman5_late"		requires	"sherman5_mid"			costs 2  position 14 69}
+	{"sherman5_crab"		requires	"sherman5_late"			costs 1  position 15 70}
+	{"sherman5c"			requires	"sherman5_late achilles_mk2" costs 2  position 17 69}
+	{"sherman5_croc"		requires	"sherman5_late"			costs 2  position 15 69}
+	{"sherman5_late_tulip"	requires	"sherman5_late"			costs 2  position 19 69}
+
+;TOTAL:
+
+
+;//---Heavy Tanks---
+	{"churchill_mk1"		requires	"valentine_mk3"			costs 2  position 4 70}
+	{"churchill_mk2"		requires	"churchill_mk1"			costs 1  position 5 70}
+
+	{"churchill_mk3"		requires	"churchill_mk2"			costs 3  position 6 70}
+	{"churchill_mk3_l50"	requires	"churchill_mk3"			costs 2  position 6 71}
+	{"churchill_mk3_l50_late" requires	"churchill_mk3_l50"		costs 2  position 5 72}
+	{"churchill_mk3_qf75"	requires	"churchill_mk3_l50 churchill_mk3_l50_late" costs 1  position 6 73}
+
+	{"churchill_mk4"		requires	"churchill_mk3"			costs 2  position 8 70}
+	{"churchill_mk4_l50"	requires	"churchill_mk4"			costs 2  position 8 71}
+	{"churchill_mk4_l50_late" requires	"churchill_mk4_l50"		costs 2  position 7 72}
+	{"churchill_mk4_qf75"	requires	"churchill_mk4_l50 churchill_mk4_l50_late" costs 1  position 8 73}
+	{"churchill_mk4_avre"	requires	"churchill_mk4_l50"		costs 2  position 9 72}
+
+	{"churchill_mk5"		requires	"churchill_mk4_l50"		costs 1  position 11 71}
+
+	{"churchill_mk7"		requires	"churchill_mk3_qf75 churchill_mk4_qf75"	costs 2  position 10 73}
+	{"churchill_mk7_croc"	requires	"churchill_mk7"			costs 2  position 10 72}
+	{"churchill_mk8"		requires	"churchill_mk7 churchill_mk5" costs 1  position 11 73}
+
+;TOTAL:
+
+	{"conquest_blank"	requires	""				costs 0  position 20 74}

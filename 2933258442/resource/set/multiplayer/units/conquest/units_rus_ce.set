@@ -1,3 +1,10 @@
+;_________________________________________________
+;|      CE extras includes                        |
+;|________________________________________________|
+
+(include "units_rus_extra.set")
+(include "ai_defender_emplacements/rus_ai_emplacements.set")
+
 ;SDL
 ;////////////////// INSTRUCTIONS //////////////////
 ;Buttons go as follows, displayed in-game in this order:
@@ -829,14 +836,6 @@
 ;|					Aircraft					|
 ;|______________________________________________|
 
-; cost = 5
-;{"recon_run_allies"
-;	("squad_vehicle" side(rus) period(mid) min_stage(1) max_stage(99) cw(0) cp(3) crew(tankman:2) vehicle(po2))
-;	{cost 5}
-;	{round_multiple 1.0}
-;	{action "airstrike:reconnaissance_50"}
-;}
-
 {"conquest_po2"
 	("squad_vehicle" side(rus) period(mid) min_stage(1) max_stage(99) cw(0) cp(3) crew(tankman:2) vehicle(po2))
 	{cost -46}
@@ -866,23 +865,3 @@
 {"yak1_ser69" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 6} {cost 0} {not_for_sale 1}}
 {"il2_mod42" {tags "conquest conquestonly"} {score 0} {cw 0} {cp 10} {cost 0} {not_for_sale 1}}
 
-
-
-;{"ai_support_in_attack_high"
-;    ("squad_vehicle" side(rus) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(tankman:0) vehicle(offmap_100cp_placeholder))
-;    {cost 0} 
-;    {action "airstrike:ally_support_dummy_high"}
-;}
-
-;{"ai_support_in_attack_low"
-;    ("squad_vehicle" side(rus) period(mid)  min_stage(1) max_stage(99) cw(0) cp(10) crew(tankman:0) vehicle(offmap_50cp_placeholder))
-;    {cost 60} 
-;    {action "airstrike:ally_support_dummy_low"}
-;}
-
-;_________________________________________________
-;|      CE extras includes                        |
-;|________________________________________________|
-
-(include "units_rus_extra.set")
-(include "ai_defender_emplacements/rus_ai_emplacements.set")
