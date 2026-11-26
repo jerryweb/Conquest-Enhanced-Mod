@@ -1276,7 +1276,7 @@
 			}
 			{"ai_logic/frag_grenade_spam"
 				{condition
-					{expression "(1 & 3) | (4 & !3 & 2)"}
+					{expression "(1 & 3) | (2 & !3 & 4)"}
 					{terms
 						{"1.see_actors"
 							{selector
@@ -1497,6 +1497,9 @@
 										{player
 											{player "1"}
 										}
+										{player
+											{player "3"}
+										}
 									}
 								}
 								{group
@@ -1531,6 +1534,9 @@
 										}
 										{player
 											{player "1"}
+										}
+										{player
+											{player "3"}
 										}
 									}
 								}

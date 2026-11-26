@@ -7,7 +7,7 @@
 -- phase and the wave-1 attacker override turn it off, see utilities_ce.lua).
 --
 -- Rules:
---   * First wave is rolled 4-6 minutes after match start, then every 4-6 minutes
+--   * First wave is rolled 6-10 minutes after match start, then every 6-10 minutes
 --     after each wave starts, up to ConquestConfig.DefenderSecurityWave.MaxTotal.
 --   * A security wave and a defender counterattack never run at the same time.
 --     The counterattack has priority. Whichever wave is blocked waits
